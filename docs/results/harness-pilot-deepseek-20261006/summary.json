@@ -1,0 +1,1325 @@
+{
+  "schema_version": 1,
+  "attempt": "experiments/runs/20261006-115922-harness-pilot-3f71f966",
+  "suite_status": "invalid",
+  "finished_at": "2026-10-06T12:51:07+0800",
+  "protocol": "harness-paired-deepseek-pilot-v1",
+  "model": "deepseek-flash",
+  "git_head": "da62262ba5ff6cdf21653ebfbba9937f3558daf0",
+  "completed_experiment": false,
+  "stop_context": "User explicitly requested stop; persisted scene errors are InterruptedError.",
+  "denominator_policy": "60 planned tasks per arm remain listed. User-interrupted and not-run tasks are neither successes nor observed model failures. Scored-only fractions describe incomplete prefixes, not final 60-task success rates.",
+  "comparison_limits": "Common scored tasks share one scene and original task order; not independent samples. Later world state can differ across methods. B0 is historical, not concurrently rerun.",
+  "duration_definition": "barrier.frozen_at - window.opened_at; includes polling/drain, excludes preparation and worker exit wait",
+  "token_definition": "Observed job usage only; no token/cost imputation; incomplete tasks excluded from scored summaries",
+  "verification": {
+    "frozen_verify_seal": "passed",
+    "sealed_files": 314,
+    "scored_worker_barrier_checker_replays": 29,
+    "baseline_checker_definitions_matched": 60,
+    "scene_sha256": {
+      "ad34350a": "a253240f0c40d9d3f61873219d1abac26d451cdb9f2c4dff5ee1a4834ec8da9a",
+      "ef36e27a": "b6ffef719d87e94155094aa441928cf74fd7884b35e37581967ab2cde5a0ada1",
+      "3973d0d6": "fb6a04cee441ec28bda36e88d9ce0473acb12a2d75850a5cf363a4bee6502dfe"
+    },
+    "suite_audits": {
+      "b1": {
+        "ok": false,
+        "issues": [
+          "23a9d67d: missing worker completion evidence"
+        ],
+        "linked_tasks": 18,
+        "false_completions": 5
+      },
+      "harness-v2": {
+        "ok": false,
+        "issues": [
+          "018d1d05: missing worker completion evidence"
+        ],
+        "linked_tasks": 11,
+        "false_completions": 0
+      }
+    }
+  },
+  "methods": {
+    "b1": {
+      "planned_tasks": 60,
+      "status_counts": {
+        "scored": 18,
+        "user_interrupted": 1,
+        "not_run": 41
+      },
+      "scored_tasks": 18,
+      "task_passes": 12,
+      "scored_only_pass_fraction": 0.6666666666666666,
+      "completed_run_success_rate": null,
+      "deployment_passes": 12,
+      "agent_self_successes": 17,
+      "false_completions": 5,
+      "external_pass_self_not_success": 0,
+      "timed_out_tasks": 1,
+      "terminal_provider_error_tasks": 0,
+      "terminal_provider_errors": 0,
+      "http_errors": 0,
+      "passed_checks": 73,
+      "scored_checks": 89,
+      "window_seconds": {
+        "count": 18,
+        "sum": 2890.3110003471375,
+        "median": 115.25778937339783
+      },
+      "observed_total_tokens": 30192618,
+      "tasks_with_observed_tokens": 18,
+      "calls_with_usage": 321
+    },
+    "harness-v2": {
+      "planned_tasks": 60,
+      "status_counts": {
+        "scored": 11,
+        "user_interrupted": 1,
+        "not_run": 48
+      },
+      "scored_tasks": 11,
+      "task_passes": 0,
+      "scored_only_pass_fraction": 0.0,
+      "completed_run_success_rate": null,
+      "deployment_passes": 0,
+      "agent_self_successes": 0,
+      "false_completions": 0,
+      "external_pass_self_not_success": 0,
+      "timed_out_tasks": 0,
+      "terminal_provider_error_tasks": 0,
+      "terminal_provider_errors": 0,
+      "http_errors": 0,
+      "passed_checks": 4,
+      "scored_checks": 39,
+      "window_seconds": {
+        "count": 11,
+        "sum": 2953.1563148498535,
+        "median": 255.65947008132935
+      },
+      "observed_total_tokens": 13563614,
+      "tasks_with_observed_tokens": 11,
+      "calls_with_usage": 96
+    }
+  },
+  "baseline_historical": {
+    "planned_tasks": 60,
+    "task_passes": 47
+  },
+  "paired": {
+    "common_scored_tasks": 11,
+    "both_pass": 0,
+    "both_fail": 3,
+    "regressions": 8,
+    "new_passes": 0,
+    "baseline_historical_passes": 9,
+    "methods": {
+      "b1": {
+        "planned_tasks": 11,
+        "status_counts": {
+          "scored": 11
+        },
+        "scored_tasks": 11,
+        "task_passes": 8,
+        "scored_only_pass_fraction": 0.7272727272727273,
+        "completed_run_success_rate": null,
+        "deployment_passes": 8,
+        "agent_self_successes": 10,
+        "false_completions": 2,
+        "external_pass_self_not_success": 0,
+        "timed_out_tasks": 1,
+        "terminal_provider_error_tasks": 0,
+        "terminal_provider_errors": 0,
+        "http_errors": 0,
+        "passed_checks": 32,
+        "scored_checks": 39,
+        "window_seconds": {
+          "count": 11,
+          "sum": 1582.4179005622864,
+          "median": 110.2104377746582
+        },
+        "observed_total_tokens": 21496501,
+        "tasks_with_observed_tokens": 11,
+        "calls_with_usage": 213
+      },
+      "harness-v2": {
+        "planned_tasks": 11,
+        "status_counts": {
+          "scored": 11
+        },
+        "scored_tasks": 11,
+        "task_passes": 0,
+        "scored_only_pass_fraction": 0.0,
+        "completed_run_success_rate": null,
+        "deployment_passes": 0,
+        "agent_self_successes": 0,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "timed_out_tasks": 0,
+        "terminal_provider_error_tasks": 0,
+        "terminal_provider_errors": 0,
+        "http_errors": 0,
+        "passed_checks": 4,
+        "scored_checks": 39,
+        "window_seconds": {
+          "count": 11,
+          "sum": 2953.1563148498535,
+          "median": 255.65947008132935
+        },
+        "observed_total_tokens": 13563614,
+        "tasks_with_observed_tokens": 11,
+        "calls_with_usage": 96
+      }
+    }
+  },
+  "by_session_id": {
+    "ad34350a": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "scored": 18,
+            "user_interrupted": 1,
+            "not_run": 1
+          },
+          "scored_tasks": 18,
+          "task_passes": 12,
+          "scored_only_pass_fraction": 0.6666666666666666,
+          "completed_run_success_rate": null,
+          "deployment_passes": 12,
+          "agent_self_successes": 17,
+          "false_completions": 5,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 1,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 73,
+          "scored_checks": 89,
+          "window_seconds": {
+            "count": 18,
+            "sum": 2890.3110003471375,
+            "median": 115.25778937339783
+          },
+          "observed_total_tokens": 30192618,
+          "tasks_with_observed_tokens": 18,
+          "calls_with_usage": 321
+        },
+        "harness-v2": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "scored": 11,
+            "user_interrupted": 1,
+            "not_run": 8
+          },
+          "scored_tasks": 11,
+          "task_passes": 0,
+          "scored_only_pass_fraction": 0.0,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 4,
+          "scored_checks": 39,
+          "window_seconds": {
+            "count": 11,
+            "sum": 2953.1563148498535,
+            "median": 255.65947008132935
+          },
+          "observed_total_tokens": 13563614,
+          "tasks_with_observed_tokens": 11,
+          "calls_with_usage": 96
+        }
+      },
+      "baseline_historical_passes": 12,
+      "paired": {
+        "common_scored_tasks": 11,
+        "both_pass": 0,
+        "both_fail": 3,
+        "regressions": 8,
+        "new_passes": 0,
+        "baseline_historical_passes": 9,
+        "methods": {
+          "b1": {
+            "planned_tasks": 11,
+            "status_counts": {
+              "scored": 11
+            },
+            "scored_tasks": 11,
+            "task_passes": 8,
+            "scored_only_pass_fraction": 0.7272727272727273,
+            "completed_run_success_rate": null,
+            "deployment_passes": 8,
+            "agent_self_successes": 10,
+            "false_completions": 2,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 1,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 32,
+            "scored_checks": 39,
+            "window_seconds": {
+              "count": 11,
+              "sum": 1582.4179005622864,
+              "median": 110.2104377746582
+            },
+            "observed_total_tokens": 21496501,
+            "tasks_with_observed_tokens": 11,
+            "calls_with_usage": 213
+          },
+          "harness-v2": {
+            "planned_tasks": 11,
+            "status_counts": {
+              "scored": 11
+            },
+            "scored_tasks": 11,
+            "task_passes": 0,
+            "scored_only_pass_fraction": 0.0,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 4,
+            "scored_checks": 39,
+            "window_seconds": {
+              "count": 11,
+              "sum": 2953.1563148498535,
+              "median": 255.65947008132935
+            },
+            "observed_total_tokens": 13563614,
+            "tasks_with_observed_tokens": 11,
+            "calls_with_usage": 96
+          }
+        }
+      }
+    },
+    "ef36e27a": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "not_run": 20
+          },
+          "scored_tasks": 0,
+          "task_passes": 0,
+          "scored_only_pass_fraction": null,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 0,
+          "scored_checks": 0,
+          "window_seconds": {
+            "count": 0,
+            "sum": 0,
+            "median": null
+          },
+          "observed_total_tokens": 0,
+          "tasks_with_observed_tokens": 0,
+          "calls_with_usage": 0
+        },
+        "harness-v2": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "not_run": 20
+          },
+          "scored_tasks": 0,
+          "task_passes": 0,
+          "scored_only_pass_fraction": null,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 0,
+          "scored_checks": 0,
+          "window_seconds": {
+            "count": 0,
+            "sum": 0,
+            "median": null
+          },
+          "observed_total_tokens": 0,
+          "tasks_with_observed_tokens": 0,
+          "calls_with_usage": 0
+        }
+      },
+      "baseline_historical_passes": 18,
+      "paired": {
+        "common_scored_tasks": 0,
+        "both_pass": 0,
+        "both_fail": 0,
+        "regressions": 0,
+        "new_passes": 0,
+        "baseline_historical_passes": 0,
+        "methods": {
+          "b1": {
+            "planned_tasks": 0,
+            "status_counts": {},
+            "scored_tasks": 0,
+            "task_passes": 0,
+            "scored_only_pass_fraction": null,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 0,
+            "scored_checks": 0,
+            "window_seconds": {
+              "count": 0,
+              "sum": 0,
+              "median": null
+            },
+            "observed_total_tokens": 0,
+            "tasks_with_observed_tokens": 0,
+            "calls_with_usage": 0
+          },
+          "harness-v2": {
+            "planned_tasks": 0,
+            "status_counts": {},
+            "scored_tasks": 0,
+            "task_passes": 0,
+            "scored_only_pass_fraction": null,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 0,
+            "scored_checks": 0,
+            "window_seconds": {
+              "count": 0,
+              "sum": 0,
+              "median": null
+            },
+            "observed_total_tokens": 0,
+            "tasks_with_observed_tokens": 0,
+            "calls_with_usage": 0
+          }
+        }
+      }
+    },
+    "3973d0d6": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "not_run": 20
+          },
+          "scored_tasks": 0,
+          "task_passes": 0,
+          "scored_only_pass_fraction": null,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 0,
+          "scored_checks": 0,
+          "window_seconds": {
+            "count": 0,
+            "sum": 0,
+            "median": null
+          },
+          "observed_total_tokens": 0,
+          "tasks_with_observed_tokens": 0,
+          "calls_with_usage": 0
+        },
+        "harness-v2": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "not_run": 20
+          },
+          "scored_tasks": 0,
+          "task_passes": 0,
+          "scored_only_pass_fraction": null,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 0,
+          "scored_checks": 0,
+          "window_seconds": {
+            "count": 0,
+            "sum": 0,
+            "median": null
+          },
+          "observed_total_tokens": 0,
+          "tasks_with_observed_tokens": 0,
+          "calls_with_usage": 0
+        }
+      },
+      "baseline_historical_passes": 17,
+      "paired": {
+        "common_scored_tasks": 0,
+        "both_pass": 0,
+        "both_fail": 0,
+        "regressions": 0,
+        "new_passes": 0,
+        "baseline_historical_passes": 0,
+        "methods": {
+          "b1": {
+            "planned_tasks": 0,
+            "status_counts": {},
+            "scored_tasks": 0,
+            "task_passes": 0,
+            "scored_only_pass_fraction": null,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 0,
+            "scored_checks": 0,
+            "window_seconds": {
+              "count": 0,
+              "sum": 0,
+              "median": null
+            },
+            "observed_total_tokens": 0,
+            "tasks_with_observed_tokens": 0,
+            "calls_with_usage": 0
+          },
+          "harness-v2": {
+            "planned_tasks": 0,
+            "status_counts": {},
+            "scored_tasks": 0,
+            "task_passes": 0,
+            "scored_only_pass_fraction": null,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 0,
+            "scored_checks": 0,
+            "window_seconds": {
+              "count": 0,
+              "sum": 0,
+              "median": null
+            },
+            "observed_total_tokens": 0,
+            "tasks_with_observed_tokens": 0,
+            "calls_with_usage": 0
+          }
+        }
+      }
+    }
+  },
+  "by_family": {
+    "area_assignment_and_patrol": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "scored": 18,
+            "user_interrupted": 1,
+            "not_run": 1
+          },
+          "scored_tasks": 18,
+          "task_passes": 12,
+          "scored_only_pass_fraction": 0.6666666666666666,
+          "completed_run_success_rate": null,
+          "deployment_passes": 12,
+          "agent_self_successes": 17,
+          "false_completions": 5,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 1,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 73,
+          "scored_checks": 89,
+          "window_seconds": {
+            "count": 18,
+            "sum": 2890.3110003471375,
+            "median": 115.25778937339783
+          },
+          "observed_total_tokens": 30192618,
+          "tasks_with_observed_tokens": 18,
+          "calls_with_usage": 321
+        },
+        "harness-v2": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "scored": 11,
+            "user_interrupted": 1,
+            "not_run": 8
+          },
+          "scored_tasks": 11,
+          "task_passes": 0,
+          "scored_only_pass_fraction": 0.0,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 4,
+          "scored_checks": 39,
+          "window_seconds": {
+            "count": 11,
+            "sum": 2953.1563148498535,
+            "median": 255.65947008132935
+          },
+          "observed_total_tokens": 13563614,
+          "tasks_with_observed_tokens": 11,
+          "calls_with_usage": 96
+        }
+      },
+      "baseline_historical_passes": 12,
+      "paired": {
+        "common_scored_tasks": 11,
+        "both_pass": 0,
+        "both_fail": 3,
+        "regressions": 8,
+        "new_passes": 0,
+        "baseline_historical_passes": 9,
+        "methods": {
+          "b1": {
+            "planned_tasks": 11,
+            "status_counts": {
+              "scored": 11
+            },
+            "scored_tasks": 11,
+            "task_passes": 8,
+            "scored_only_pass_fraction": 0.7272727272727273,
+            "completed_run_success_rate": null,
+            "deployment_passes": 8,
+            "agent_self_successes": 10,
+            "false_completions": 2,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 1,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 32,
+            "scored_checks": 39,
+            "window_seconds": {
+              "count": 11,
+              "sum": 1582.4179005622864,
+              "median": 110.2104377746582
+            },
+            "observed_total_tokens": 21496501,
+            "tasks_with_observed_tokens": 11,
+            "calls_with_usage": 213
+          },
+          "harness-v2": {
+            "planned_tasks": 11,
+            "status_counts": {
+              "scored": 11
+            },
+            "scored_tasks": 11,
+            "task_passes": 0,
+            "scored_only_pass_fraction": 0.0,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 4,
+            "scored_checks": 39,
+            "window_seconds": {
+              "count": 11,
+              "sum": 2953.1563148498535,
+              "median": 255.65947008132935
+            },
+            "observed_total_tokens": 13563614,
+            "tasks_with_observed_tokens": 11,
+            "calls_with_usage": 96
+          }
+        }
+      }
+    },
+    "area_search": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "not_run": 20
+          },
+          "scored_tasks": 0,
+          "task_passes": 0,
+          "scored_only_pass_fraction": null,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 0,
+          "scored_checks": 0,
+          "window_seconds": {
+            "count": 0,
+            "sum": 0,
+            "median": null
+          },
+          "observed_total_tokens": 0,
+          "tasks_with_observed_tokens": 0,
+          "calls_with_usage": 0
+        },
+        "harness-v2": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "not_run": 20
+          },
+          "scored_tasks": 0,
+          "task_passes": 0,
+          "scored_only_pass_fraction": null,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 0,
+          "scored_checks": 0,
+          "window_seconds": {
+            "count": 0,
+            "sum": 0,
+            "median": null
+          },
+          "observed_total_tokens": 0,
+          "tasks_with_observed_tokens": 0,
+          "calls_with_usage": 0
+        }
+      },
+      "baseline_historical_passes": 18,
+      "paired": {
+        "common_scored_tasks": 0,
+        "both_pass": 0,
+        "both_fail": 0,
+        "regressions": 0,
+        "new_passes": 0,
+        "baseline_historical_passes": 0,
+        "methods": {
+          "b1": {
+            "planned_tasks": 0,
+            "status_counts": {},
+            "scored_tasks": 0,
+            "task_passes": 0,
+            "scored_only_pass_fraction": null,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 0,
+            "scored_checks": 0,
+            "window_seconds": {
+              "count": 0,
+              "sum": 0,
+              "median": null
+            },
+            "observed_total_tokens": 0,
+            "tasks_with_observed_tokens": 0,
+            "calls_with_usage": 0
+          },
+          "harness-v2": {
+            "planned_tasks": 0,
+            "status_counts": {},
+            "scored_tasks": 0,
+            "task_passes": 0,
+            "scored_only_pass_fraction": null,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 0,
+            "scored_checks": 0,
+            "window_seconds": {
+              "count": 0,
+              "sum": 0,
+              "median": null
+            },
+            "observed_total_tokens": 0,
+            "tasks_with_observed_tokens": 0,
+            "calls_with_usage": 0
+          }
+        }
+      }
+    },
+    "target_assignment": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "not_run": 20
+          },
+          "scored_tasks": 0,
+          "task_passes": 0,
+          "scored_only_pass_fraction": null,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 0,
+          "scored_checks": 0,
+          "window_seconds": {
+            "count": 0,
+            "sum": 0,
+            "median": null
+          },
+          "observed_total_tokens": 0,
+          "tasks_with_observed_tokens": 0,
+          "calls_with_usage": 0
+        },
+        "harness-v2": {
+          "planned_tasks": 20,
+          "status_counts": {
+            "not_run": 20
+          },
+          "scored_tasks": 0,
+          "task_passes": 0,
+          "scored_only_pass_fraction": null,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 0,
+          "scored_checks": 0,
+          "window_seconds": {
+            "count": 0,
+            "sum": 0,
+            "median": null
+          },
+          "observed_total_tokens": 0,
+          "tasks_with_observed_tokens": 0,
+          "calls_with_usage": 0
+        }
+      },
+      "baseline_historical_passes": 17,
+      "paired": {
+        "common_scored_tasks": 0,
+        "both_pass": 0,
+        "both_fail": 0,
+        "regressions": 0,
+        "new_passes": 0,
+        "baseline_historical_passes": 0,
+        "methods": {
+          "b1": {
+            "planned_tasks": 0,
+            "status_counts": {},
+            "scored_tasks": 0,
+            "task_passes": 0,
+            "scored_only_pass_fraction": null,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 0,
+            "scored_checks": 0,
+            "window_seconds": {
+              "count": 0,
+              "sum": 0,
+              "median": null
+            },
+            "observed_total_tokens": 0,
+            "tasks_with_observed_tokens": 0,
+            "calls_with_usage": 0
+          },
+          "harness-v2": {
+            "planned_tasks": 0,
+            "status_counts": {},
+            "scored_tasks": 0,
+            "task_passes": 0,
+            "scored_only_pass_fraction": null,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 0,
+            "scored_checks": 0,
+            "window_seconds": {
+              "count": 0,
+              "sum": 0,
+              "median": null
+            },
+            "observed_total_tokens": 0,
+            "tasks_with_observed_tokens": 0,
+            "calls_with_usage": 0
+          }
+        }
+      }
+    }
+  },
+  "by_difficulty": {
+    "easy": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 7,
+          "status_counts": {
+            "scored": 3,
+            "not_run": 4
+          },
+          "scored_tasks": 3,
+          "task_passes": 3,
+          "scored_only_pass_fraction": 1.0,
+          "completed_run_success_rate": null,
+          "deployment_passes": 3,
+          "agent_self_successes": 3,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 5,
+          "scored_checks": 5,
+          "window_seconds": {
+            "count": 3,
+            "sum": 135.2843804359436,
+            "median": 15.036503791809082
+          },
+          "observed_total_tokens": 1027999,
+          "tasks_with_observed_tokens": 3,
+          "calls_with_usage": 39
+        },
+        "harness-v2": {
+          "planned_tasks": 7,
+          "status_counts": {
+            "scored": 3,
+            "not_run": 4
+          },
+          "scored_tasks": 3,
+          "task_passes": 0,
+          "scored_only_pass_fraction": 0.0,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 1,
+          "scored_checks": 5,
+          "window_seconds": {
+            "count": 3,
+            "sum": 837.1481468677521,
+            "median": 240.56207513809204
+          },
+          "observed_total_tokens": 4281504,
+          "tasks_with_observed_tokens": 3,
+          "calls_with_usage": 31
+        }
+      },
+      "baseline_historical_passes": 7,
+      "paired": {
+        "common_scored_tasks": 3,
+        "both_pass": 0,
+        "both_fail": 0,
+        "regressions": 3,
+        "new_passes": 0,
+        "baseline_historical_passes": 3,
+        "methods": {
+          "b1": {
+            "planned_tasks": 3,
+            "status_counts": {
+              "scored": 3
+            },
+            "scored_tasks": 3,
+            "task_passes": 3,
+            "scored_only_pass_fraction": 1.0,
+            "completed_run_success_rate": null,
+            "deployment_passes": 3,
+            "agent_self_successes": 3,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 5,
+            "scored_checks": 5,
+            "window_seconds": {
+              "count": 3,
+              "sum": 135.2843804359436,
+              "median": 15.036503791809082
+            },
+            "observed_total_tokens": 1027999,
+            "tasks_with_observed_tokens": 3,
+            "calls_with_usage": 39
+          },
+          "harness-v2": {
+            "planned_tasks": 3,
+            "status_counts": {
+              "scored": 3
+            },
+            "scored_tasks": 3,
+            "task_passes": 0,
+            "scored_only_pass_fraction": 0.0,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 1,
+            "scored_checks": 5,
+            "window_seconds": {
+              "count": 3,
+              "sum": 837.1481468677521,
+              "median": 240.56207513809204
+            },
+            "observed_total_tokens": 4281504,
+            "tasks_with_observed_tokens": 3,
+            "calls_with_usage": 31
+          }
+        }
+      }
+    },
+    "medium": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 21,
+          "status_counts": {
+            "scored": 6,
+            "not_run": 15
+          },
+          "scored_tasks": 6,
+          "task_passes": 4,
+          "scored_only_pass_fraction": 0.6666666666666666,
+          "completed_run_success_rate": null,
+          "deployment_passes": 4,
+          "agent_self_successes": 6,
+          "false_completions": 2,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 14,
+          "scored_checks": 17,
+          "window_seconds": {
+            "count": 6,
+            "sum": 631.5269331932068,
+            "median": 87.68970549106598
+          },
+          "observed_total_tokens": 7250321,
+          "tasks_with_observed_tokens": 6,
+          "calls_with_usage": 100
+        },
+        "harness-v2": {
+          "planned_tasks": 21,
+          "status_counts": {
+            "scored": 5,
+            "user_interrupted": 1,
+            "not_run": 15
+          },
+          "scored_tasks": 5,
+          "task_passes": 0,
+          "scored_only_pass_fraction": 0.0,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 2,
+          "scored_checks": 14,
+          "window_seconds": {
+            "count": 5,
+            "sum": 1293.7133712768555,
+            "median": 255.65947008132935
+          },
+          "observed_total_tokens": 6608556,
+          "tasks_with_observed_tokens": 5,
+          "calls_with_usage": 46
+        }
+      },
+      "baseline_historical_passes": 18,
+      "paired": {
+        "common_scored_tasks": 5,
+        "both_pass": 0,
+        "both_fail": 1,
+        "regressions": 4,
+        "new_passes": 0,
+        "baseline_historical_passes": 5,
+        "methods": {
+          "b1": {
+            "planned_tasks": 5,
+            "status_counts": {
+              "scored": 5
+            },
+            "scored_tasks": 5,
+            "task_passes": 4,
+            "scored_only_pass_fraction": 0.8,
+            "completed_run_success_rate": null,
+            "deployment_passes": 4,
+            "agent_self_successes": 5,
+            "false_completions": 1,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 13,
+            "scored_checks": 14,
+            "window_seconds": {
+              "count": 5,
+              "sum": 556.3344230651855,
+              "median": 100.18690085411072
+            },
+            "observed_total_tokens": 6834077,
+            "tasks_with_observed_tokens": 5,
+            "calls_with_usage": 91
+          },
+          "harness-v2": {
+            "planned_tasks": 5,
+            "status_counts": {
+              "scored": 5
+            },
+            "scored_tasks": 5,
+            "task_passes": 0,
+            "scored_only_pass_fraction": 0.0,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 2,
+            "scored_checks": 14,
+            "window_seconds": {
+              "count": 5,
+              "sum": 1293.7133712768555,
+              "median": 255.65947008132935
+            },
+            "observed_total_tokens": 6608556,
+            "tasks_with_observed_tokens": 5,
+            "calls_with_usage": 46
+          }
+        }
+      }
+    },
+    "hard": {
+      "methods": {
+        "b1": {
+          "planned_tasks": 32,
+          "status_counts": {
+            "scored": 9,
+            "user_interrupted": 1,
+            "not_run": 22
+          },
+          "scored_tasks": 9,
+          "task_passes": 5,
+          "scored_only_pass_fraction": 0.5555555555555556,
+          "completed_run_success_rate": null,
+          "deployment_passes": 5,
+          "agent_self_successes": 8,
+          "false_completions": 3,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 1,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 54,
+          "scored_checks": 67,
+          "window_seconds": {
+            "count": 9,
+            "sum": 2123.499686717987,
+            "median": 200.46227097511292
+          },
+          "observed_total_tokens": 21914298,
+          "tasks_with_observed_tokens": 9,
+          "calls_with_usage": 182
+        },
+        "harness-v2": {
+          "planned_tasks": 32,
+          "status_counts": {
+            "scored": 3,
+            "not_run": 29
+          },
+          "scored_tasks": 3,
+          "task_passes": 0,
+          "scored_only_pass_fraction": 0.0,
+          "completed_run_success_rate": null,
+          "deployment_passes": 0,
+          "agent_self_successes": 0,
+          "false_completions": 0,
+          "external_pass_self_not_success": 0,
+          "timed_out_tasks": 0,
+          "terminal_provider_error_tasks": 0,
+          "terminal_provider_errors": 0,
+          "http_errors": 0,
+          "passed_checks": 1,
+          "scored_checks": 20,
+          "window_seconds": {
+            "count": 3,
+            "sum": 822.294796705246,
+            "median": 295.8775420188904
+          },
+          "observed_total_tokens": 2673554,
+          "tasks_with_observed_tokens": 3,
+          "calls_with_usage": 19
+        }
+      },
+      "baseline_historical_passes": 22,
+      "paired": {
+        "common_scored_tasks": 3,
+        "both_pass": 0,
+        "both_fail": 2,
+        "regressions": 1,
+        "new_passes": 0,
+        "baseline_historical_passes": 1,
+        "methods": {
+          "b1": {
+            "planned_tasks": 3,
+            "status_counts": {
+              "scored": 3
+            },
+            "scored_tasks": 3,
+            "task_passes": 1,
+            "scored_only_pass_fraction": 0.3333333333333333,
+            "completed_run_success_rate": null,
+            "deployment_passes": 1,
+            "agent_self_successes": 2,
+            "false_completions": 1,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 1,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 14,
+            "scored_checks": 20,
+            "window_seconds": {
+              "count": 3,
+              "sum": 890.7990970611572,
+              "median": 215.36309099197388
+            },
+            "observed_total_tokens": 13634425,
+            "tasks_with_observed_tokens": 3,
+            "calls_with_usage": 83
+          },
+          "harness-v2": {
+            "planned_tasks": 3,
+            "status_counts": {
+              "scored": 3
+            },
+            "scored_tasks": 3,
+            "task_passes": 0,
+            "scored_only_pass_fraction": 0.0,
+            "completed_run_success_rate": null,
+            "deployment_passes": 0,
+            "agent_self_successes": 0,
+            "false_completions": 0,
+            "external_pass_self_not_success": 0,
+            "timed_out_tasks": 0,
+            "terminal_provider_error_tasks": 0,
+            "terminal_provider_errors": 0,
+            "http_errors": 0,
+            "passed_checks": 1,
+            "scored_checks": 20,
+            "window_seconds": {
+              "count": 3,
+              "sum": 822.294796705246,
+              "median": 295.8775420188904
+            },
+            "observed_total_tokens": 2673554,
+            "tasks_with_observed_tokens": 3,
+            "calls_with_usage": 19
+          }
+        }
+      }
+    }
+  }
+}
