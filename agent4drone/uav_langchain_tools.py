@@ -5,6 +5,7 @@ All tools accept JSON string input for consistent parameter handling
 """
 from langchain.tools import tool
 from blackboard import PerceptionBlackboard
+from command_results import command_outcome
 from path_planning import generate_coverage_path as plan_coverage_paths
 from path_planning import find_path
 from uav_api_client import UAVAPIClient
@@ -34,28 +35,22 @@ def _position_xy(entity: dict) -> tuple[float, float]:
         raise ValueError(f"Entity {entity_id} is missing numeric position.x/position.y") from exc
 
 
-def _position_z(entity: dict, default: float = 0.0) -> float:
-    position = entity.get("position") or {}
+def _position_xyz(entity: dict) -> tuple[float, float, float]:
+    """Require observed coordinates; missing altitude is not ground level."""
     try:
-        return float(position.get("z", default))
-    except (TypeError, ValueError):
-        return default
-
-
-def _distance_xy(a: tuple[float, float], b: tuple[float, float]) -> float:
-    return math.hypot(a[0] - b[0], a[1] - b[1])
-
-
-def _positive_float(value, default: float) -> float:
-    try:
-        parsed = float(value)
-        return parsed if parsed > 0 else default
-    except (TypeError, ValueError):
-        return default
+        point = tuple(float(entity["position"][axis]) for axis in ("x", "y", "z"))
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError("Drone position must contain numeric x, y and z") from exc
+    if not all(math.isfinite(value) for value in point):
+        raise ValueError("Drone position coordinates must be finite")
+    return point
 
 
 def _float_param(params: dict, key: str, default: float) -> float:
-    return _positive_float(params.get(key), default)
+    value = float(params[key]) if params.get(key) is not None else default
+    if not math.isfinite(value) or value <= 0:
+        raise ValueError(f"{key} must be finite and positive")
+    return value
 
 
 def _bool_param(params: dict, key: str, default: bool) -> bool:
@@ -80,37 +75,6 @@ def _waypoints_with_altitude(
     altitude: float,
 ) -> list[dict]:
     return [{"x": float(x), "y": float(y), "z": float(altitude)} for x, y in path]
-
-
-def _move_result_text(result) -> str:
-    if isinstance(result, dict):
-        values = [
-            result.get("message"),
-            result.get("status"),
-            result.get("result"),
-            result.get("detail"),
-        ]
-        return " ".join(str(value) for value in values if value is not None).lower()
-    return str(result).lower()
-
-
-def _move_result_indicates_partial(result) -> bool:
-    if isinstance(result, dict):
-        if result.get("partial_success") is True:
-            return True
-        if result.get("status") == "partial_success":
-            return True
-        if result.get("success") is False:
-            text = _move_result_text(result)
-            return "partial" in text or "last reachable" in text
-    text = _move_result_text(result)
-    return "partial" in text or "blocked" in text or "last reachable" in text
-
-
-def _move_result_indicates_failure(result) -> bool:
-    if not isinstance(result, dict):
-        return False
-    return result.get("success") is False and not _move_result_indicates_partial(result)
 
 
 def _target_to_planner_target(target: dict):
@@ -246,10 +210,16 @@ def _compact_move_result(result) -> dict:
     if not isinstance(result, dict):
         return {"result": result}
     keep_keys = [
+        "outcome",
         "success",
         "partial_success",
         "status",
         "message",
+        "error",
+        "reason",
+        "reason_code",
+        "error_code",
+        "blocked_reason",
         "command_id",
         "drone_id",
         "command",
@@ -302,7 +272,9 @@ def _compact_navigation_response(response: dict) -> dict:
     compact = {
         key: response.get(key)
         for key in (
+            "outcome",
             "success",
+            "arrival_verified",
             "message",
             "drone_id",
             "final_position",
@@ -319,6 +291,8 @@ def _compact_navigation_response(response: dict) -> dict:
         compact["final_position"] = _compact_position(compact["final_position"])
     if "last_move_result" in response:
         compact["last_move_result"] = _compact_move_result(response["last_move_result"])
+    if "direct_move_result" in response:
+        compact["direct_move_result"] = _compact_move_result(response["direct_move_result"])
     if response.get("steps"):
         compact["last_step"] = response["steps"][-1]
     return {key: value for key, value in compact.items() if value is not None}
@@ -362,85 +336,88 @@ def _navigate_to_destination(
     safety_buffer: float,
     tolerance: float,
 ) -> dict:
+    requested = (float(destination[0]), float(destination[1]), float(altitude))
+    if not all(math.isfinite(value) for value in requested):
+        raise ValueError("Destination coordinates must be finite")
+    for name, value in (("arrival_tolerance", tolerance), ("safety_buffer", safety_buffer)):
+        if not math.isfinite(value) or value <= 0:
+            raise ValueError(f"{name} must be finite and positive")
+
+    def navigation_result(status: dict, outcome: str, strategy: str, message: str, **extra) -> dict:
+        distance = math.dist(_position_xyz(status), requested)
+        arrived = distance <= tolerance
+        success = outcome == "completed" and arrived
+        # A completed command alone is insufficient evidence of arrival.
+        if outcome == "completed" and not arrived:
+            outcome = "error"
+        return {
+            "success": success,
+            "outcome": outcome,
+            "arrival_verified": arrived,
+            "message": "Destination reached" if success else message,
+            "drone_id": drone_id,
+            "final_position": status.get("position"),
+            "distance_remaining": distance,
+            "movement_strategy": strategy,
+            **extra,
+        }
+
     status = client.get_drone_status(drone_id)
-    current = _position_xy(status)
-    current_distance = _distance_xy(current, destination)
-    if current_distance <= tolerance:
-        return {
-            "success": True,
-            "message": "Destination reached",
-            "drone_id": drone_id,
-            "final_position": status.get("position"),
-            "distance_remaining": current_distance,
-            "movement_strategy": "already_at_destination",
-        }
+    if math.dist(_position_xyz(status), requested) <= tolerance:
+        return navigation_result(status, "completed", "already_at_destination", "Destination reached")
 
-    direct_result = client.move_to(drone_id, destination[0], destination[1], altitude)
+    direct_result = client.move_to(drone_id, *requested)
     status = client.get_drone_status(drone_id)
-    direct_distance = _distance_xy(_position_xy(status), destination)
-    if direct_result.get("success") is True and direct_distance <= tolerance:
-        return {
-            "success": True,
-            "message": "Destination reached",
-            "drone_id": drone_id,
-            "final_position": status.get("position"),
-            "distance_remaining": direct_distance,
-            "movement_strategy": "move_to",
-            "last_move_result": direct_result,
-        }
+    direct_outcome = command_outcome(direct_result)
+    # Only a spatial blockage can be addressed by this one-shot route planner.
+    # Partial execution, transport ambiguity, battery and input errors need an
+    # informed next decision, not a replay of the requested movement.
+    if direct_outcome != "blocked":
+        return navigation_result(
+            status,
+            direct_outcome,
+            "move_to",
+            "Direct movement did not verify arrival at the requested coordinate",
+            last_move_result=direct_result,
+        )
 
-    if not _move_result_indicates_failure(direct_result):
-        return {
-            "success": False,
-            "message": "Direct movement did not reach the requested coordinate",
-            "drone_id": drone_id,
-            "final_position": status.get("position"),
-            "distance_remaining": direct_distance,
-            "movement_strategy": "move_to",
-            "last_move_result": direct_result,
-        }
-
-    sensed_obstacle_ids = set()
     observation_step = blackboard.next_step()
     nearby = client.get_nearby_entities(drone_id)
     changes = blackboard.ingest_nearby(drone_id, nearby, observation_step)
-    sensed_obstacle_ids.update(changes.get("new_obstacles", []))
-    sensed_obstacle_ids.update(changes.get("updated_obstacles", []))
+    sensed_obstacle_ids = sorted(
+        set(changes.get("new_obstacles", [])) | set(changes.get("updated_obstacles", []))
+    )
 
     status = client.get_drone_status(drone_id)
-    current = _position_xy(status)
+    current = _position_xyz(status)[:2]
     try:
         route = find_path(
             current,
-            destination,
+            requested[:2],
             known_obstacles=_blackboard_obstacles_for_planner(blackboard),
             safety_buffer=safety_buffer,
             max_segment_length=_DEFAULT_NAVIGATION_HORIZON,
         )
     except Exception as exc:
-        return {
-            "success": False,
-            "message": f"Path planning failed after direct movement failed: {str(exc)}",
-            "drone_id": drone_id,
-            "final_position": status.get("position"),
-            "distance_remaining": _distance_xy(current, destination),
-            "movement_strategy": "planned_fallback",
-            "sensed_obstacle_ids": sorted(sensed_obstacle_ids),
-            "last_move_result": direct_result,
-        }
+        return navigation_result(
+            status,
+            "blocked",
+            "planned_fallback",
+            f"Path planning failed after direct movement was blocked: {exc}",
+            sensed_obstacle_ids=sensed_obstacle_ids,
+            last_move_result=direct_result,
+        )
 
-    planned_waypoints = _waypoints_with_altitude(route[1:], altitude)
+    planned_waypoints = _waypoints_with_altitude(route[1:], requested[2])
     if not planned_waypoints:
-        return {
-            "success": False,
-            "message": "Planner did not produce a fallback waypoint",
-            "drone_id": drone_id,
-            "final_position": status.get("position"),
-            "distance_remaining": _distance_xy(current, destination),
-            "movement_strategy": "planned_fallback",
-            "sensed_obstacle_ids": sorted(sensed_obstacle_ids),
-            "last_move_result": direct_result,
-        }
+        return navigation_result(
+            status,
+            "blocked",
+            "planned_fallback",
+            "Planner did not produce a fallback waypoint",
+            sensed_obstacle_ids=sensed_obstacle_ids,
+            last_move_result=direct_result,
+        )
 
     fallback_result = client.move_along_path(
         drone_id,
@@ -448,24 +425,16 @@ def _navigate_to_destination(
         allow_partial_move=False,
     )
     status = client.get_drone_status(drone_id)
-    fallback_distance = _distance_xy(_position_xy(status), destination)
-    success = (
-        fallback_result.get("success") is True
-        and not _move_result_indicates_partial(fallback_result)
-        and fallback_distance <= tolerance
+    return navigation_result(
+        status,
+        command_outcome(fallback_result),
+        "planned_fallback",
+        "Fallback movement did not verify arrival at the requested coordinate",
+        sensed_obstacle_ids=sensed_obstacle_ids,
+        planned_waypoint_count=len(planned_waypoints),
+        direct_move_result=direct_result,
+        last_move_result=fallback_result,
     )
-    return {
-        "success": success,
-        "message": "Destination reached" if success else "Fallback movement did not reach the requested coordinate",
-        "drone_id": drone_id,
-        "final_position": status.get("position"),
-        "distance_remaining": fallback_distance,
-        "movement_strategy": "planned_fallback",
-        "sensed_obstacle_ids": sorted(sensed_obstacle_ids),
-        "planned_waypoint_count": len(planned_waypoints),
-        "direct_move_result": direct_result,
-        "last_move_result": fallback_result,
-    }
 
 
 def create_uav_tools(client: UAVAPIClient, blackboard: Optional[PerceptionBlackboard] = None) -> list:
@@ -1180,15 +1149,17 @@ def create_uav_tools(client: UAVAPIClient, blackboard: Optional[PerceptionBlackb
     def navigate_to(input_json: str) -> str:
         """Navigate one drone to an exact coordinate.
 
-        This first tries a direct move_to. If direct movement fails, it senses once, plans around known
-        obstacles, and tries one move_along_path fallback with allow_partial_move=false.
+        This first tries a direct move_to. If an obstacle blocks it, it senses once, plans around known
+        obstacles, and tries one move_along_path fallback with allow_partial_move=false. Other errors and
+        partial results are returned without replay. Success requires a completed command and verified
+        XYZ arrival; distance_remaining is the 3D distance. It does not repeatedly replan.
 
         Input should be a JSON string with:
         - drone_id: The ID of the drone (required)
         - x: Destination X coordinate in meters (required)
         - y: Destination Y coordinate in meters (required)
         - z: Optional destination altitude. If omitted, current altitude is preserved.
-        - arrival_tolerance: Optional strict destination tolerance in meters (default 1.0)
+        - arrival_tolerance: Optional positive 3D arrival tolerance in meters (default 1.0)
         - detail: "summary" or "full" response detail (optional, default "summary")
 
         Example: {{"drone_id": "drone-001", "x": 100.0, "y": 50.0, "z": 10.0}}
@@ -1209,7 +1180,7 @@ def create_uav_tools(client: UAVAPIClient, blackboard: Optional[PerceptionBlackb
 
             destination = (float(x), float(y))
             status = client.get_drone_status(drone_id)
-            altitude = float(params.get("z")) if params.get("z") is not None else _position_z(status)
+            altitude = float(params.get("z")) if params.get("z") is not None else _position_xyz(status)[2]
             safety_buffer = _float_param(params, "safety_buffer", 1.1)
             tolerance = _float_param(params, "arrival_tolerance", _DEFAULT_WAYPOINT_ARRIVAL_TOLERANCE)
 
@@ -1240,16 +1211,17 @@ def create_uav_tools(client: UAVAPIClient, blackboard: Optional[PerceptionBlackb
         """Navigate one drone to an exact coordinate, then sense nearby local entities and update the perception blackboard.
 
         This uses the same navigation behavior as navigate_to: it first tries direct move_to, and if direct
-        movement fails, it senses once, plans around known obstacles, and tries one move_along_path fallback
-        with allow_partial_move=false. After navigation returns, it senses nearby entities at the resulting
-        location.
+        movement is blocked by an obstacle, it senses once, plans around known obstacles, and tries one
+        move_along_path fallback with allow_partial_move=false. Other errors and partial results are
+        returned without replay. Arrival and distance_remaining use XYZ coordinates. After navigation
+        returns, it senses nearby entities at the resulting location.
 
         Input should be a JSON string with:
         - drone_id: The ID of the drone (required)
         - x: Destination X coordinate in meters (required)
         - y: Destination Y coordinate in meters (required)
         - z: Optional destination altitude. If omitted, current altitude is preserved.
-        - arrival_tolerance: Optional strict destination tolerance in meters (default 1.0)
+        - arrival_tolerance: Optional positive 3D arrival tolerance in meters (default 1.0)
         - detail: "summary" or "full" response detail (optional, default "summary")
 
         Example: {{"drone_id": "drone-001", "x": 100.0, "y": 50.0, "z": 10.0}}
@@ -1270,7 +1242,7 @@ def create_uav_tools(client: UAVAPIClient, blackboard: Optional[PerceptionBlackb
 
             destination = (float(x), float(y))
             status = client.get_drone_status(drone_id)
-            altitude = float(params.get("z")) if params.get("z") is not None else _position_z(status)
+            altitude = float(params.get("z")) if params.get("z") is not None else _position_xyz(status)[2]
             safety_buffer = _float_param(params, "safety_buffer", 1.1)
             tolerance = _float_param(params, "arrival_tolerance", _DEFAULT_WAYPOINT_ARRIVAL_TOLERANCE)
 

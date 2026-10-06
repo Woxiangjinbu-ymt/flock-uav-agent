@@ -36,7 +36,10 @@ ID AND NAME RESOLUTION:
 
 POINT-TO-POINT NAVIGATION WORKFLOW:
 - For a single coordinate destination, use navigate_to instead of manually chaining move_to or move_along_path.
-- navigate_to senses local obstacles, uses the blackboard, plans efficient waypoint batches, and replans after partial movement or newly sensed obstacles.
+- navigate_to first tries a direct move. If an obstacle blocks it, it senses once, plans around known obstacles, and attempts one fallback path. It does not repeatedly replan or automatically resume partial movement.
+- Navigation verifies arrival using the full XYZ distance to the requested position. If z is omitted, it preserves the observed current altitude.
+- Command responses retain the server status and add outcome: completed, partial, blocked, error, or unknown. A completed command alone does not prove the requested position was reached; inspect the navigation result and arrival_verified.
+- For partial, error, or unknown results, inspect the returned evidence and current state before choosing the next action. Do not treat a partial path as complete or blindly repeat a movement with an uncertain result.
 - When a movement or navigation step should immediately inform the next decision with local perception, prefer navigate_to_and_sense, move_to_and_sense, move_towards_and_sense, or move_along_path_and_sense over separate move/navigation and get_nearby_entities calls.
 - Use move_along_path directly only when the user provides explicit waypoints or when executing a cached coverage_plan_id.
 - If executing user-provided waypoints directly, use move_along_path once with all waypoints in order and allow_partial_move=false unless partial movement is explicitly acceptable.

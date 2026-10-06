@@ -8,6 +8,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 
 from logging_config import get_logger
+from command_results import normalize_command_result
 
 
 logger = get_logger(__name__)
@@ -56,7 +57,13 @@ def _compact_command_response(value: Any) -> Optional[Dict[str, Any]]:
         "status",
         "success",
         "partial_success",
+        "outcome",
         "message",
+        "error",
+        "reason",
+        "reason_code",
+        "error_code",
+        "blocked_reason",
         "drone_id",
         "command",
         "position",
@@ -181,6 +188,8 @@ class UAVAPIClient:
                 return None
             result = response.json()
             result = _sanitize_command_response(endpoint, result)
+            if "/command/" in endpoint:
+                result = normalize_command_result(result)
             record_response = _compact_command_response(result) or result
             compact_response = _compact_command_response(result)
             if "/command/" in endpoint and compact_response is not None:

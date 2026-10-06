@@ -915,6 +915,9 @@ def test_agent_prompt_describes_area_coverage_workflow():
     assert "move_along_path with its drone_id and the returned coverage_plan_id" in prompt
     assert "POINT-TO-POINT NAVIGATION WORKFLOW" in prompt
     assert "For a single coordinate destination, use navigate_to" in prompt
+    assert "attempts one fallback path" in prompt
+    assert "full XYZ distance" in prompt
+    assert "replans after partial movement" not in prompt
     assert "move_along_path once with all waypoints in order and allow_partial_move=false" in prompt
     assert "Treat partial_success as incomplete" in prompt
     assert "navigate_waypoint_route" not in prompt
