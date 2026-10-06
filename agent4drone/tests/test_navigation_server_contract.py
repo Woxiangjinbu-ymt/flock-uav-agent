@@ -2,11 +2,13 @@
 
 Each case gets a short-lived process: the server's module-level controllers and
 imports cannot leak into the agent tests, and all logs live in pytest's temp dir.
+FastAPI TestClient exercises the real server routes in that temporary process.
 No listener, live service, model, or external HTTP request is used.
 """
 
 import importlib.util
 import json
+import math
 import os
 from pathlib import Path
 import subprocess
@@ -26,6 +28,17 @@ def _server_ui_dependency_path():
 
 @pytest.mark.parametrize("case", ["direct", "altitude", "obstacle", "battery", "drone_state"])
 def test_navigation_with_real_server_contract(case, tmp_path):
+    _assert_server_case(case, tmp_path)
+
+
+@pytest.mark.parametrize("case", [
+    "distance_rounding", "distance_session_2d", "distance_session_3d", "distance_obstacle",
+])
+def test_relative_movement_with_real_server_contract(case, tmp_path):
+    _assert_server_case(case, tmp_path)
+
+
+def _assert_server_case(case, tmp_path):
     if importlib.util.find_spec("pygame") is None and _server_ui_dependency_path() is None:
         pytest.skip("Real-server integration requires its pygame dependency or installed server/.venv")
     completed = subprocess.run(
@@ -60,6 +73,11 @@ def _run_case(case):
     from api.server import app, drone_controller, obstacle_controller, session_controller
     from uav_api_client import UAVAPIClient
     from uav_langchain_tools import create_uav_tools
+
+    if case.startswith("distance_"):
+        _run_relative_case(case)
+        print(json.dumps({"case": case, "passed": True}))
+        return
 
     # The context closes TestClient's portal; the child process also isolates
     # the server's global controller graph and default lifespan example session.
@@ -139,6 +157,115 @@ def _run_case(case):
                 assert result["movement_strategy"] == "move_to"
 
     print(json.dumps({"case": case, "passed": True}))
+
+
+def _run_relative_case(case):
+    from unittest.mock import patch
+
+    from fastapi.testclient import TestClient
+    from api.server import app, drone_controller, obstacle_controller, session_controller
+    from uav_api_client import UAVAPIClient
+    from uav_langchain_tools import create_uav_tools
+
+    cases = {
+        # The rounded distance can look like 19, but is actually about 19.012.
+        "distance_rounding": ((462.1, 433.2, 17.0), (454.0, 416.0, 17.0), 19.0, False),
+        "distance_session_2d": ((0.0, 0.0, 40.0), (20.0, 0.0, 5.0), 5.0, False),
+        "distance_session_3d": ((0.0, 0.0, 10.0), (20.0, 0.0, 14.0), 5.0, True),
+        "distance_obstacle": ((0.0, 0.0, 10.0), (25.0, 0.0, 10.0), 5.0, False),
+    }
+    start, reference, max_distance, is_distance_3d = cases[case]
+
+    with TestClient(app) as transport:
+        session = session_controller.add_session({"name": "Relative movement contract", "with_examples": False})
+        session_controller.set_current_session(session["id"])
+        session_controller.update_session(session["id"], {"is_distance_3d": is_distance_3d})
+        for drone_id, position in (("moving-drone", start), ("reference-drone", reference)):
+            drone_controller.add_drone({
+                "id": drone_id,
+                "name": drone_id,
+                "model": "TestModel",
+                "max_speed": 10.0,
+                "max_altitude": 50.0,
+                "battery_capacity": 1000.0,
+                "battery_level": 100.0,
+                "perceived_radius": 100.0,
+                "position": dict(zip(("x", "y", "z"), position)),
+                "status": "hovering",
+            })
+        if case == "distance_obstacle":
+            obstacle_controller.add_obstacle({
+                "id": "contract-obstacle",
+                "name": "Blocking Circle",
+                "type": "circle",
+                "position": {"x": 10.0, "y": 0.0, "z": 0.0},
+                "radius": 2.0,
+                "height": 20.0,
+            })
+
+        requests_seen = []
+        command_receipts = []
+
+        def in_process_request(method, url, **kwargs):
+            requests_seen.append((method, url, kwargs))
+            response = transport.request(method, url, **kwargs)
+            assert response.status_code == 200, response.text
+            if "/command/" in url:
+                command_receipts.append(response.json())
+                assert "/drones/moving-drone/command/" in url
+            return response
+
+        client = UAVAPIClient("http://testserver")
+        tools = {tool.name: tool for tool in create_uav_tools(client)}
+        with patch("uav_api_client.requests.request", side_effect=in_process_request):
+            # The assertions use public configuration and fresh status replies;
+            # no task checker, hidden task data, or tool-reported distance is used.
+            public_session = client.get_current_session()
+            before = client.get_drone_status("moving-drone")["position"]
+            reference_before = client.get_drone_status("reference-drone")["position"]
+            result = json.loads(tools["move_within_distance"].invoke({
+                "input_json": json.dumps({
+                    "drone_id": "moving-drone",
+                    "reference_drone_id": "reference-drone",
+                    "max_distance": max_distance,
+                }),
+            }))
+            after = client.get_drone_status("moving-drone")["position"]
+            reference_after = client.get_drone_status("reference-drone")["position"]
+
+        assert public_session["is_distance_3d"] is is_distance_3d
+        axes = ("x", "y", "z") if public_session["is_distance_3d"] else ("x", "y")
+
+        def separation(a, b, dimensions=axes):
+            return math.dist([a[axis] for axis in dimensions], [b[axis] for axis in dimensions])
+
+        assert separation(before, reference_before) > max_distance
+        assert separation(after, reference_after) <= max_distance
+        assert after["z"] == before["z"]
+        assert reference_after == reference_before
+        assert result["success"] is True
+        assert all("task-progress" not in url and "/check" not in url for _, url, _ in requests_seen)
+        assert command_receipts
+        assert all("success" not in receipt for receipt in command_receipts)
+        commands = [receipt["command"] for receipt in command_receipts]
+        if case == "distance_rounding":
+            assert separation(before, reference_before) == pytest.approx(19.012, abs=0.001)
+            assert 0.0 < separation(before, after) < 1.0
+        elif case == "distance_session_2d":
+            assert abs(before["z"] - reference_before["z"]) > max_distance
+            assert separation(after, reference_after, ("x", "y", "z")) > max_distance
+        elif case == "distance_session_3d":
+            assert separation(after, reference_after, ("x", "y")) <= 3.0
+
+        if case == "distance_obstacle":
+            assert commands == ["move_to", "move_along_path"]
+            assert [receipt["status"] for receipt in command_receipts] == ["error", "success"]
+            fallback = [kwargs for _, url, kwargs in requests_seen if url.endswith("/move_along_path")]
+            assert len(fallback) == 1
+            assert fallback[0]["json"]["allow_partial_move"] is False
+        else:
+            assert commands == ["move_to"]
+            assert command_receipts[0]["status"] == "success"
 
 
 if __name__ == "__main__":
