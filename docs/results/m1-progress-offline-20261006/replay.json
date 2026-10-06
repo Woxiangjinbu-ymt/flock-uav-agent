@@ -1,0 +1,3796 @@
+{
+  "schema_version": 1,
+  "audit": "m1-saved-b1-toolchain-shadow-replay-v1",
+  "attempt": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7",
+  "m0_method_commit": "cb80fde8269a09795782a6ef046d04c381b3f3c9",
+  "mode": "offline_fixed_trace_observer",
+  "summary_char_budget": 4000,
+  "ledger_inputs": [
+    "job.command",
+    "tool_chain.tool",
+    "tool_chain.tool_input",
+    "tool_chain.observation"
+  ],
+  "initial_blackboard": "empty; only blackboards inside actual tool responses are ingested as inherited",
+  "excluded_from_ledger": [
+    "checks",
+    "results labels",
+    "plan check definitions",
+    "before/after snapshots",
+    "model reasoning/log/output",
+    "API-call history",
+    "later task evidence"
+  ],
+  "replay_order": "saved tool_chain index, without reconstructing unavailable tool start/end overlaps",
+  "limits": [
+    "Fixed replies cannot establish online action equivalence or performance improvement.",
+    "No model/API/checker calls; empty toolchains are not reconstructed from API history.",
+    "Entity binding coverage is not semantic parsing accuracy; every requirement remains not_evaluated.",
+    "Per-task empty initial ledger does not reproduce session inheritance before the first tool response.",
+    "Parallel order uncertainty is covered by unit tests, not inferred from this serialized trace."
+  ],
+  "totals": {
+    "planned_tasks": 60,
+    "scored_tasks": 57,
+    "matched_traces": 57,
+    "replayed_tasks": 56,
+    "tool_steps": 1204,
+    "summaries_checked": 1204,
+    "observer_errors": 0,
+    "entity_name_refs": 139,
+    "clauses": 115,
+    "clauses_without_explicit_entity_names": 51,
+    "json_observations": 1190,
+    "text_observations": 14,
+    "empty_observations": 0,
+    "tasks_without_extracted_entity_names": 2,
+    "empty_or_missing_tool_chain": 1,
+    "unscored_tasks": 3
+  },
+  "per_scene": {
+    "ad34350a": {
+      "planned": 20,
+      "scored": 18,
+      "replayed": 17,
+      "tool_steps": 435,
+      "unscored": 2
+    },
+    "ef36e27a": {
+      "planned": 20,
+      "scored": 20,
+      "replayed": 20,
+      "tool_steps": 391
+    },
+    "3973d0d6": {
+      "planned": 20,
+      "scored": 19,
+      "replayed": 19,
+      "tool_steps": 378,
+      "unscored": 1
+    }
+  },
+  "final_entity_binding_counts": {
+    "exact": 131,
+    "unresolved": 8
+  },
+  "tool_outcome_counts": {
+    "observed": 351,
+    "completed": 664,
+    "blocked": 138,
+    "partial": 28,
+    "unknown": 5,
+    "error": 18
+  },
+  "entity_fact_validity_counts": {
+    "observed": 5405,
+    "stale": 293,
+    "inherited": 4879
+  },
+  "tool_counts": {
+    "list_drones": 56,
+    "get_weather": 56,
+    "get_nearby_entities": 13,
+    "take_off": 154,
+    "rotate": 3,
+    "hover": 31,
+    "get_drone_status": 87,
+    "sense_nearby_entities": 74,
+    "navigate_to_and_sense": 243,
+    "move_to_and_sense": 103,
+    "move_along_path_and_sense": 54,
+    "land": 13,
+    "get_obstacle_info": 10,
+    "update_blackboard_notes": 34,
+    "move_towards_and_sense": 52,
+    "move_along_path": 47,
+    "take_photo": 32,
+    "broadcast": 9,
+    "move_within_distance": 1,
+    "navigate_to": 60,
+    "generate_coverage_path": 18,
+    "move_towards": 35,
+    "move_to": 4,
+    "get_target_info": 12,
+    "change_altitude": 3
+  },
+  "summary_max_chars": 4000,
+  "largest_toolchain_steps": 123,
+  "all_summary_json_valid": true,
+  "input_receipts_unchanged": true,
+  "receipts_hash_before": "99d3054b1640b3dd45431007050bd2a06787680556ed4c0b0ffa795631c62dd4",
+  "receipts_hash_after": "99d3054b1640b3dd45431007050bd2a06787680556ed4c0b0ffa795631c62dd4",
+  "mission_completion_assertions": 0,
+  "source_unchanged_during_replay": true,
+  "input_files_unchanged_during_replay": true,
+  "source_sha256": {
+    "experiments/analysis/replay_m1_progress.py": "fcf68a06974d9ac047621a5c3a9ea874b756dc511fac51ee45dbf3ee3a4b5a90",
+    "agent4drone/task_progress.py": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+    "agent4drone/command_results.py": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee"
+  },
+  "runtime_versions": {
+    "langchain": "1.4.2",
+    "langchain-core": "1.6.4",
+    "langgraph": "1.2.12"
+  },
+  "input_sha256": {
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/plan.json": "42e3a7b328fc8ca39b83fbf76be44d100c1ee0dd27cc94395f0bdb316be99d8e",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/results.json": "ed4d345cc9b158212e9e0369119a43ad25efc7f96698f5eac47d574f15afc4c7",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134428809359_ad34350a_e8387cdf-2ea9-492c-ab14-450e4854c3f1_completed.json": "0f6ff0c955aeec3d60d4c74b20f5263e06a19806bb62371053e4afa578370503",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134518830830_ad34350a_cbab684a-6a30-401d-8d68-99dafefa79fd_completed.json": "535db6ae0aa4bbe6e26a181ed5c8aa7774da0efb2687dfda2857902980062f52",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134700880206_ad34350a_6a43c686-2599-4b7a-9d0e-795f17b3c69a_completed.json": "99eb41fe2c9ba2728a85df3ae8c1ebbcf637ba23c749c4bca6567c25f4af49cc",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T135226622661_ad34350a_1583e84d-50f8-41e4-a3f8-1239d0334753_completed.json": "c6dcc2908276b26e68127134c3e644f9f8f992ed47c61ef1ed8b35cbd8196a88",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T135244801255_ad34350a_0d968531-1450-4bbb-9127-cffee36ed28e_completed.json": "af880f350a6b3141a4e918303da26ce396125218fcbd18d464900ddd9c42a955",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T135302081641_ad34350a_6912280f-fbc3-4c20-9d17-decfdf9939b2_completed.json": "639fff5f1de8fb7a21f01a462ec87be4827da352f664f9a8593ca78ab9ad8746",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140132501853_ad34350a_bcacfa21-0066-4477-859f-e96b195956a8_exception.json": "e60936a2b23a2d05e35aa1bec750fbb6a7bc3287a06cd6ecfc32749430595aee",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140444735639_ad34350a_a41a9505-4042-4719-b720-8e7cebb1939c_completed.json": "1b8b8e83f97b00c052c31acf919431bcffb64cf1514367533c0e292d02507d89",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140513490109_ad34350a_f0452ab1-8d58-4af1-93e9-f855ec8385ba_completed.json": "8dc13d9733204fdb45885e2c261869ef35368858744a2d4a9790b3271846cb6e",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140532118605_ad34350a_291573e1-bce4-48b5-bf48-fe3444be9b37_completed.json": "a849ddf4b0a60bf02cf2c20b927d5cd35e9550f2c45896e7d4b39646e78d7fcb",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140600489536_ad34350a_fd45d178-68db-456a-a0f9-074f4845d50c_completed.json": "a6e7cc7dd43434b80a09a89d2fc6f2792f4d31292241735bdc46c7874d48589b",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140707126227_ad34350a_aee90615-feae-487a-8b14-3f69935b43c3_completed.json": "fdc6a7ae55d1b76f0711ba8ca9c6027c99ee956ed669ae2158e5ded518452bb1",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140933696837_ad34350a_0008653f-42b7-4893-bd87-cf7d0cc5f874_completed.json": "90b70367566974d907a7af8b2b8572386ab5f561b0da697e7e28d886f50b7573",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T141456980185_ad34350a_b5c59510-8217-4699-bb23-b51262d662d6_completed.json": "3950d9091d9b5fcd758e80799bf2be9b4a41907119f39a0dcc7f3cb45a73ca35",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T141926845364_ad34350a_47a97dcf-fc49-4eee-b28c-a6469db11a36_completed.json": "9a8629569e1cc5482f616a006dc6517de2e596776d1038bacaaacd2b343fc683",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T142151777495_ad34350a_2690c289-2c43-4b4f-928a-f2ce26b305f1_completed.json": "24b100560ff87b8c3e275ffa7b1c5fe6c512018e0cacb0a886fb5c3af4c24ba0",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T142231387997_ad34350a_819925df-7328-4c1d-9469-7073dec5c2e4_completed.json": "cc0eee9197d3ff86f77972d4796c1143874f7845f123ab113ac00a838805c8b4",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T142517995231_ad34350a_94c364bd-5fef-4e0b-b05b-ed9984df70e0_completed.json": "4f57f3693bf88df5425419e98dc7bf35557396a2d0d74585d4d1848f59242887",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/b1eb0270.job.json": "e84cf09d3d924a8c324fab45844fe226663783b27673c28a0f4efadf184a6401",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/64b6560e.job.json": "388907bb0d79af860af2066adb719648cfeff9647a4ae99e57966907d99c9b3d",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/91e5a616.job.json": "0628b5370be093659006c65ef88d79369e9aa0be3a63c2db7be7fa470842e3b7",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/95fef67d.job.json": "8a0163d5192d5d54503a02cbf374e600f62ee581e788a41f76e0b837701473d7",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/89129044.job.json": "981b503698ac9d832fa3c2b91e05356cba097678dbdab3749cd7c619b248d84d",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/3ce5d9bf.job.json": "74ffe3a5072d52361dbc669c6fc402bf2c84826c7d018568b0fbe9fdc4dfef1f",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/529c0622.job.json": "a6ea218a8586738223831b33c9f62f8a937482267ac41190ef3f2b63107d5014",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/3f601822.job.json": "7c685ca34f50b5a5de38d15c751b7b0838fe864d54edec38d81596bbcf0881f1",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/6294fe84.job.json": "d86e4555d52c8da8913284c4e27ccd6a38bf403fc8803d91650df0ea51215126",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/53357761.job.json": "e0b4ce73ba7c189cc3435ba45866f6826e49e65b278e48e01e5ea264f2b70ded",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/fa30ebff.job.json": "8255d472610238c8a1c29726a92525da40d03dd70d89db5c7bdff2d5d482c704",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/018d1d05.job.json": "01f99345e24acd55290b1a1ea8559d6a8bff39105c0c2fe1c9910df81610b763",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/a0ef11d0.job.json": "49474968a02f46e71308c2fec83315668f59fc80a86d895f8aed5930ae5a544b",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/bfc721cc.job.json": "60b7de52cbea80060774534fe3ae20cb3bdb88400e20912918f67369b0c35604",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/7eed5422.job.json": "2dc6b4c80236e024f0b9e3d374713287994c4e7a7da3763abc2087d19572d47c",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/a53ba7fc.job.json": "42ed74e37a6d38362e1c26b22fa837a36d2f13121e457f910f8c392de18643e4",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/c451cd74.job.json": "3147c2400151322258810227c87fabeba94503b80dc7b2a006dbd2386fe30495",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/fe787c55.job.json": "19d2d0fb6c27c84666234b77987651c433ddcd7156107858736823698f0b6d01",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/results.json": "a7ade071bae6f66822c0ad2ec689156db07bb35870cf97f3bb1d673d1c1c5067",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134432547542_ef36e27a_c4a6a4db-4c0e-4d16-bf07-8446bcaf010b_completed.json": "d767b4cafd25bb9bf79a12527518e8d76a0d74aece27d0d255ccf231cfe4387f",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134447933301_ef36e27a_0923f0a2-b721-4226-b056-09db2a7ebed5_completed.json": "f72a0d9ec0b978c7a0f4db08b51dc2ded93a366463768ff5652bc94cb00fc1a8",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134709429500_ef36e27a_07eb2f5b-0617-443c-a065-dfddf172763a_completed.json": "2ec8e64a0928ddd95e56665560a431e199bb391194cdbfb28c129ab8a43b2603",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134732369044_ef36e27a_a19f62dc-2e2d-4672-86da-25520ce8dd25_completed.json": "a783a65d098a4fc3a1527f0bc45f547d19ed693614a6d200bf0b2a5e500f2f95",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134914086230_ef36e27a_f7eb1982-8613-4a7c-a0dc-a006e93f5288_completed.json": "954dd5fb3a745cebd249fb6fd7d86185be43d6e396940919f12f917a2ff27d5c",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135047852887_ef36e27a_fa561285-54c0-4e06-ad4d-5a65a28ff16a_completed.json": "c70436c1a8436774cb019d48c2acbeee2f3b2e7ff25b4e8f20a1e09d00815ad9",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135110862223_ef36e27a_0267da79-c603-47d1-a4d8-4fdfbbdaf182_completed.json": "833536f370d67c170dddf3941ff85ad822c6600c4f71774a62984dc7bdb60feb",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135131509585_ef36e27a_95a864e7-4f28-40fa-bedd-028f55a6ca1b_completed.json": "9d9d7d3325e68dae7152764e7ddf235cd69551f4dac8482082a024f50f53f93c",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135148008120_ef36e27a_fdda4d1e-237e-41d6-ae4b-9fb8e42c30b5_completed.json": "c01bf4b2109fe65f3fad152bf5084cfb6c125d28bc528f3e2241f5e7dc42a5ac",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135212444333_ef36e27a_b6078324-58a7-4bb7-b3b9-05fd0f8e410f_completed.json": "3432a4c032d467f6820c5a2ffd55f9eba9f38deb2f9ef8f94dce72dc5eb14451",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135238220647_ef36e27a_3aea3dd3-5f13-4acd-9ae4-f7c017f12503_completed.json": "77ae11982b611a56df082ffa63ae530790d9ea90f9bfa06014481a45981f6c83",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135312041552_ef36e27a_e9f1757f-eecc-4b2e-8cf6-58181150837e_completed.json": "83147670c655b581731c2d5efa21a3621e5252a3c726287cb94f49f14a099939",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135441577261_ef36e27a_2e73adda-b82c-4d36-be06-21861dec23cd_completed.json": "1c412542bd62721066f6a9a798a75b8733369c60df5b732d23037b2ec6ed42f4",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135618053562_ef36e27a_1fec5cfb-d3bc-437b-97d8-28d71c3ba30d_completed.json": "2ab6d3bc55873bd732c4beb6d8561cb6980b208fe2f8930d6a9aa1a7044f626c",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135637201378_ef36e27a_d8fdf429-dd6d-45dd-a6b2-4fdec8606166_completed.json": "924f492762535ec98ef20c02f17d8d80c9478c204ccf2ccb8b14b16ac0bc789a",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135741460416_ef36e27a_fab392c0-6b75-470c-b60f-7b5786ffa7a1_completed.json": "4cda4c7833d15448c0715ae8b59057801c1b76eb8458008a5c408d48afcdc6f9",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135815118013_ef36e27a_478a27bb-feeb-495d-b95b-23e57ca0ccf7_completed.json": "6c3d1e2cef827d78ceaa99da35344e8fbdc0bfd6d2af93f1ef528a38eff4cee3",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135938699658_ef36e27a_401218e3-e3f7-423e-9779-bf07ddf86f3f_completed.json": "23eba49d913ea0df7adb4d7ce55f63481965210e0d8c0707d9692ac4740d7e00",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T140135235769_ef36e27a_75796661-53ff-4199-b861-b70c03252ca6_completed.json": "84e990d0c0ad5ccf5cfb801f8127e71670b75fe6d9de7280d2c594158a35a1e0",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T140355393857_ef36e27a_641c9dbe-ac6a-416e-b1d6-c87eeb371671_completed.json": "6654cd6d7a049367942e822742b740ad32b249a61ac24f1db74bd0ebde795954",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/e59d948d.job.json": "cc8401c686c36f23277160506bc22b2eef54912b32e276f1c22a37caddc2be45",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/5d8eab35.job.json": "5e3c3d233354ef03ae36e4e2359aa075ae7f811dd4767f1bfcbc78303b284711",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/1c840341.job.json": "3a7d0af1b54e7461c34906497c045a1850f388ea4a045f31cce4b92845c1520e",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/98a62c0f.job.json": "efa5e412b71bf7d1fdfc7d5ec0617ceef89da12eccbf2c555258a8d70f909a76",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/4ccc9027.job.json": "ed89617b0b583813fe42537903dca1e879a89df9d3c8bc9c40f7eb451154a84e",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/6f597461.job.json": "f3c97427fdb84ba1f942e8aa30da9ab40fc66df810b4e466acb4bc846f019354",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/9e042fbe.job.json": "e05967e21835dc0d80346faee4840de409d16f67e6a4f50f7d4c01afe9ca7d54",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/1a7d17b5.job.json": "697d7245a406cb1c19c67e831f0c137c914492ee1872783e16a26cf2f8359642",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/cdf3324b.job.json": "7a8374aee424cea4265bc6abb0b6e9f9c23915b907d3c6ce524d988a9196db24",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/c7a8edb7.job.json": "3f0a7b4bffe89c29693a8adf2b197350a9bafbbfcbd05a974ac04f48587dd12c",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/839993a2.job.json": "e07bc63edbdcb6215218cb9694b9e5c52faf635f3f474ded22c8f2a8176d8e0f",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/205d4c48.job.json": "dc2cf235a2828a03d315c72f8bc8769238c604992f224e873ce09ad5013f290c",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/2f4c6c85.job.json": "d918c550cb3baa550ff61c34aed61085cb9b51dcffbd98b173b504af1fa1ef56",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/50dcb2b9.job.json": "7e9738fe75d6720d9a0616f9d3dedd36056c0affc50aba38c0f34e907b006f7b",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/9fc24d43.job.json": "6218bd5579cf1f8b22ea02ca92f4f69527d1dc6281d402e99168396140f6d182",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/ba8b14f3.job.json": "f2728334009e22d80d2a14f46714d3c36d2a408f342b1cbbb99ac196b8626cb6",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/a55037ed.job.json": "13158891cbf121464d626585b21bf32d9d4f2e9df2b8e8a656b544acad0e6a83",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/de19fecd.job.json": "bf74c9a7e4f2e815bcee517ebf4a19935f10cfb397e541cd777f031d8efd8e40",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/3ca9a106.job.json": "5a31b33c1aeac79c54028c9655ed407a16e964bc434a0df111421b3fd6ef6e89",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/69b0a271.job.json": "43d193a27b5dd5607b8191d3b31e6576898fbb6e59d0450eca9bc29eaecb5150",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/results.json": "93b5d73e68a5f35979a53585c3dfd8fd1ba6b99c9b537cf81e6ea5c909855c1f",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140416571527_3973d0d6_1003ca1c-673f-4594-9526-558fad6c16ba_completed.json": "e83f04eb13f8ae089013e3aa0433a4913a19d1179d247e6739e8068e565e19cc",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140431578823_3973d0d6_8b007930-4e51-4d86-aeb9-ca349f249e92_completed.json": "e6d68404f2a16d160f728802a2b628642041d3d15da4a641ee96cef0756aed64",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140539614325_3973d0d6_0e1bc7a4-41d2-412f-bf2f-d02cfe2cba00_completed.json": "02cb02cfb23f85782df4e6b65661c40e4feb488acd785154627c5012f4827f29",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140722827002_3973d0d6_354cd5da-b7a2-4b45-9074-158dc766cec3_completed.json": "5028b24d149421ac1fb146c0a422bca978b09c0974356ca3b76fe4ae55f7eeaa",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140800234483_3973d0d6_d6873be0-d2dd-4f45-8a40-cfbdb65b5f3b_completed.json": "c5b72ef5e030e0d240c9c16fdb89b4acceb88e390602fe19856c550c6ab8534f",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141036002314_3973d0d6_7ef363a3-713a-48f0-af5a-9bc6129a4489_completed.json": "b39239463e0e4ae395b0351ea8782da67df63de4fa9c1fc81d8ead8263d7ebbb",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141214882163_3973d0d6_91ed71fb-afea-4e85-b364-12c76f864b4b_completed.json": "2b5eacc15c45f36c80cc9d5535fca4036b8924c8cd818689b75854c45239eec8",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141229727998_3973d0d6_00a051e3-9e1c-4e3f-a090-4444fd1d1523_completed.json": "a7c8671f9a0d418d83f5ab053a3b2c2027a6f9403c16c875b1205474880c2d44",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141247471184_3973d0d6_a30e523f-d0e3-45dc-af89-da25631b4bc9_completed.json": "b8d1282d5115efb93a9f96ddb1b8804d0da4291116a7809d755faecb7e56f896",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141856726677_3973d0d6_20075525-bea6-41f6-85ef-f88b61217b79_completed.json": "513e2be372daa662e7ae3b23cf8746f7b85baef33ebda47f669a314d0a77d9b5",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141934837461_3973d0d6_28f99c4e-8479-4bbd-82cc-2862630303b6_completed.json": "afc356a11cf740876a4a75eaa2845a43672afbbca40c29f4ae1fea62d679c4c3",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142007538324_3973d0d6_a44e864f-8124-4c5f-95b4-c5f413b767b1_completed.json": "775392c976d3fad410c2944bf6847c56116ffdf4a89db1af9dcdeaf478d3c1e2",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142027315439_3973d0d6_ed6b1093-1e3e-47b6-96b6-10bbd1025927_completed.json": "b54c21a4abd90e4209127788be96a336576dc38894bfe9bec9f82917040652d1",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142251861032_3973d0d6_497a0b2c-acfe-44b9-936a-00b2f79cc55a_completed.json": "1d87fadd6e676ea4587d103a5f4376d9d0837df818d429ff943126eb3a132914",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142319691350_3973d0d6_de8b64e9-850c-4d60-aae4-6a5834b53e2e_completed.json": "bfca3387d77d267cd6bbc76b5e0408d46ffe07ba10fcb3675d55d6caece0c544",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142533847911_3973d0d6_130c9a0f-466d-4956-bd65-7309e81efa2a_completed.json": "31bbce4765525d1ed46f4cbde1e7d6bb621a21cb8a96cd2364bb75c70f8f0e37",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142642611336_3973d0d6_bb9530b7-7180-4247-a5ea-bff4f1c13f7f_completed.json": "182acce8d6ae93a275d68e927b3c745265709e6f1df9efdb583e42fbb110847a",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142711300865_3973d0d6_ec8daaac-23f5-4e07-b051-ba88dd592136_completed.json": "3aa204f3e7861fa9c5142a96c26e2b4bc98f3424fb3294f2dfa49ea10501e08d",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142847306141_3973d0d6_0c3112e9-b0b8-473a-b080-d177ebf99ea3_completed.json": "f22c3ddefa3d42b664277d4cf33fe142aa37a73f8bede36fe7bfeb28dc3e368e",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/c00d8b78.job.json": "09f63fa2f0e634218da4e11ce861334f74b11d5e15de5450d89b1f723754b4fd",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/b4714028.job.json": "3dd242ea053d91adf6b8690f65916b58dab12dd93fc1cdd45c9185ccf5d5e29b",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/3272962f.job.json": "84672839390380e50107bd5d8868eba853b65f0bd4bec96773017fa3271804cc",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/fb2c7ba3.job.json": "c276e9bcaae00b1914eb5a673cf58789f8398388f53cb63d03a92abb1871907a",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/e2766e27.job.json": "741a92ac82962b6034b40e2d5898510c1c25d1fe2a573b2c040220a177acb423",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/f9868b0d.job.json": "a85a777b996ced1623e786d0e80af61dff7a46dc519022c9c5714648ff81deb1",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/b2c116a1.job.json": "9ad9c0424a1cad380d80358910e299677ae87bc7206594f52c44872d1ca064b4",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/9da77d47.job.json": "be5ea9d366945ef24e705eb14c00a234346ef400812c643a88ecf03df37d4ed8",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/9a95de36.job.json": "d21fa2607661e4a489cc8fdc79befe5d5d3ef39b150a6fc06f014c6d5492b778",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/a23c2cda.job.json": "cbc2d5f861cac476912bae2f7ab7e9b984dc7a1b6a08e5b554fcf40738b74492",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/087a47af.job.json": "7a765b9cf1a4e9367e96af2689f8a7b4d3da65b606a7ae347485b4d14ff3ce6c",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/ada0594b.job.json": "c60fad2b77674a830604d53fe4f43f78b38e5c6eec332d4240ecdec9e322c720",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/1119f6eb.job.json": "d575e8882ca698c8038a009d776664c4b5afad724b72f86a9fdc2c07335e67f4",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/9c0b52a0.job.json": "d6eb43329e39fbc7f8387d18000e91eb1bd666922ece99a9941b7268629b2743",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/f42ead5e.job.json": "008996aa970798bbd826bfcc642aca1a4ccecad4016c70bbbabb44c59f59fc43",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/14fd1139.job.json": "ae5ba25a97fc1d52acb7ec37ffb65832ff861b864371709c9cb098f0e290db50",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/18e35f9d.job.json": "f6f04ed88bbb5661f9fa2551bb1df7b31d1698a8f4b23b068cd8472bd7e061e3",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/c357887f.job.json": "1dae05e5215ccd074b4fc8eb8e0678262a3f18d2edec8ed6635a9bde9d3f3d4c",
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.job.json": "4aa98b9e128dc165b4a16dfe798cec5e83e69dd6294bb40caf35a0ef3e08a4b4"
+  },
+  "boundary_cases": {
+    "bounded_summary_omissions": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "b1eb0270",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134428809359_ad34350a_e8387cdf-2ea9-492c-ab14-450e4854c3f1_completed.json",
+        "summary_max_chars": 3934,
+        "summary_steps_with_omissions": {
+          "clauses": 0,
+          "entity_bindings": 0,
+          "recent_tool_evidence": 0,
+          "last_known_entities": 7
+        }
+      },
+      {
+        "session_id": "ad34350a",
+        "task_id": "64b6560e",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134518830830_ad34350a_cbab684a-6a30-401d-8d68-99dafefa79fd_completed.json",
+        "summary_max_chars": 3931,
+        "summary_steps_with_omissions": {
+          "clauses": 0,
+          "entity_bindings": 0,
+          "recent_tool_evidence": 0,
+          "last_known_entities": 14
+        }
+      }
+    ],
+    "inherited_last_known_facts": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "64b6560e",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134518830830_ad34350a_cbab684a-6a30-401d-8d68-99dafefa79fd_completed.json",
+        "fact_count": 16,
+        "interpretation": "Read only from accumulated blackboard returned in actual tools; no prior task state seeded"
+      },
+      {
+        "session_id": "ad34350a",
+        "task_id": "91e5a616",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134700880206_ad34350a_6a43c686-2599-4b7a-9d0e-795f17b3c69a_completed.json",
+        "fact_count": 32,
+        "interpretation": "Read only from accumulated blackboard returned in actual tools; no prior task state seeded"
+      }
+    ],
+    "navigation_not_arrived": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "64b6560e",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134518830830_ad34350a_cbab684a-6a30-401d-8d68-99dafefa79fd_completed.json",
+        "tool_step": 6,
+        "tool": "navigate_to_and_sense",
+        "outcome": "blocked",
+        "observation_sha256": "049ab197384415a01d3fcdeb1ef2e3fd9e06072d8fbc66ad4b0747c78819f34f",
+        "arrival_verified": false,
+        "final_position": {
+          "x": 1997.0,
+          "y": 1481.0,
+          "z": 14.0
+        }
+      },
+      {
+        "session_id": "ad34350a",
+        "task_id": "64b6560e",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134518830830_ad34350a_cbab684a-6a30-401d-8d68-99dafefa79fd_completed.json",
+        "tool_step": 11,
+        "tool": "navigate_to_and_sense",
+        "outcome": "blocked",
+        "observation_sha256": "0797d05e48ea3a2c48c7a51629a4f316bbdee937cbc0a53de373cacf63cc89f4",
+        "arrival_verified": false,
+        "final_position": {
+          "x": 624.0,
+          "y": 661.0,
+          "z": 14.0
+        }
+      }
+    ],
+    "unresolved_entity_bindings": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "91e5a616",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134700880206_ad34350a_6a43c686-2599-4b7a-9d0e-795f17b3c69a_completed.json",
+        "names": [
+          "Polygon Obstacle 16"
+        ],
+        "interpretation": "Not found/bound in consumed evidence, not proof of nonexistence"
+      },
+      {
+        "session_id": "ad34350a",
+        "task_id": "95fef67d",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T135226622661_ad34350a_1583e84d-50f8-41e4-a3f8-1239d0334753_completed.json",
+        "names": [
+          "Polygon Obstacle 38"
+        ],
+        "interpretation": "Not found/bound in consumed evidence, not proof of nonexistence"
+      }
+    ],
+    "partial_effect_preserved": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "91e5a616",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134700880206_ad34350a_6a43c686-2599-4b7a-9d0e-795f17b3c69a_completed.json",
+        "tool_step": 10,
+        "tool": "move_along_path_and_sense",
+        "outcome": "partial",
+        "observation_sha256": "792a0af13e0505490e89a0c5f11f4cf255b57c49a86787c2da91074a8dc51259",
+        "successful_points_count": 1,
+        "unsuccessful_points_count": 5
+      },
+      {
+        "session_id": "ad34350a",
+        "task_id": "91e5a616",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134700880206_ad34350a_6a43c686-2599-4b7a-9d0e-795f17b3c69a_completed.json",
+        "tool_step": 13,
+        "tool": "move_along_path_and_sense",
+        "outcome": "partial",
+        "observation_sha256": "9e9d7c46a5ed85dd5d5f422643b3a2604cf3e45ff94bd5d66bc373b52a0efc01",
+        "successful_points_count": 3,
+        "unsuccessful_points_count": 4
+      }
+    ],
+    "unknown_tool_outcome": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "91e5a616",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134700880206_ad34350a_6a43c686-2599-4b7a-9d0e-795f17b3c69a_completed.json",
+        "tool_step": 12,
+        "tool": "move_along_path_and_sense",
+        "outcome": "unknown",
+        "observation_sha256": "1632ad6d7fbdb5f2f25483c51ffe3a8f949f01b665c8a293a6b93d5a9605871b"
+      },
+      {
+        "session_id": "ad34350a",
+        "task_id": "bfc721cc",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T141456980185_ad34350a_b5c59510-8217-4699-bb23-b51262d662d6_completed.json",
+        "tool_step": 15,
+        "tool": "navigate_to_and_sense",
+        "outcome": "unknown",
+        "observation_sha256": "a7962e92bfb8a44fab2388a837417f5050f2bdafba0c42bb2ebfe4da040f6606"
+      }
+    ],
+    "photo_subject_not_inferred": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "89129044",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T135244801255_ad34350a_0d968531-1450-4bbb-9127-cffee36ed28e_completed.json",
+        "tool_step": 7,
+        "tool": "take_photo",
+        "outcome": "completed",
+        "observation_sha256": "42cca29eace75ec6ad469b5a037ee6ff51cb0a720ec9b6115c7921a0bb2f634b",
+        "photo_subject": "unknown"
+      },
+      {
+        "session_id": "ad34350a",
+        "task_id": "3f601822",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140444735639_ad34350a_a41a9505-4042-4719-b720-8e7cebb1939c_completed.json",
+        "tool_step": 10,
+        "tool": "take_photo",
+        "outcome": "completed",
+        "observation_sha256": "b4fede3d30009373361c083cea4afe6cfd067cbb2e3a6e1096fb93c56f94cfd0",
+        "photo_subject": "unknown"
+      }
+    ],
+    "missing_tool_evidence": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "529c0622",
+        "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140132501853_ad34350a_bcacfa21-0066-4477-859f-e96b195956a8_exception.json",
+        "reason": "No saved tool steps; API history deliberately not substituted"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "session_id": "ad34350a",
+      "task_id": "b1eb0270",
+      "name": "Simple Rotation Test 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/b1eb0270.job.json",
+      "job_id": "b31c59d0-03fa-4e1f-b33a-b29dee25f23b",
+      "command_sha256": "1230a86cd8f334e5bd747cd61167452b81145250019ad57fcff5fca1a39d59f5",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134428809359_ad34350a_e8387cdf-2ea9-492c-ab14-450e4854c3f1_completed.json",
+      "trace_sha256": "0f6ff0c955aeec3d60d4c74b20f5263e06a19806bb62371053e4afa578370503",
+      "trace_command_id": "e8387cdf-2ea9-492c-ab14-450e4854c3f1",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.00953,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 7,
+      "summaries_checked": 7,
+      "summary_max_chars": 3934,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 7
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "0484885cf27d7da548eb4629ab333ee6bd59586c5da8d1658c4908c3b6e24521",
+      "tool_input_observation_hash_after": "0484885cf27d7da548eb4629ab333ee6bd59586c5da8d1658c4908c3b6e24521",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 31,
+      "entity_fact_validities": {
+        "observed": 154
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 3
+      },
+      "observations": {
+        "json": 7,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 3
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "64b6560e",
+      "name": "Quick Checkpoint Visit 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/64b6560e.job.json",
+      "job_id": "3e62cf99-0cf6-4661-a711-f455226801ed",
+      "command_sha256": "980ead509884573ed6a35e30f6081e9f6d81d7361b14afb1a82cbd70146ec205",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134518830830_ad34350a_cbab684a-6a30-401d-8d68-99dafefa79fd_completed.json",
+      "trace_sha256": "535db6ae0aa4bbe6e26a181ed5c8aa7774da0efb2687dfda2857902980062f52",
+      "trace_command_id": "cbab684a-6a30-401d-8d68-99dafefa79fd",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000807,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 14,
+      "summaries_checked": 14,
+      "summary_max_chars": 3931,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 14
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "aa84cf7c12ed361165585782169bb2305aaed8af3d5b28ce7a702837aeab2ba0",
+      "tool_input_observation_hash_after": "aa84cf7c12ed361165585782169bb2305aaed8af3d5b28ce7a702837aeab2ba0",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 40,
+      "entity_fact_validities": {
+        "observed": 177,
+        "stale": 3,
+        "inherited": 16
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 8,
+        "blocked": 2
+      },
+      "observations": {
+        "json": 14,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 10
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "91e5a616",
+      "name": "Obstacle Avoidance Navigation 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/91e5a616.job.json",
+      "job_id": "d8d49021-4ef6-4ce0-9483-f355dcead805",
+      "command_sha256": "40634e77502755d440d7d9e3b2b47bde843ed3e850a3ae7bd30d102e219cc577",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T134700880206_ad34350a_6a43c686-2599-4b7a-9d0e-795f17b3c69a_completed.json",
+      "trace_sha256": "99eb41fe2c9ba2728a85df3ae8c1ebbcf637ba23c749c4bca6567c25f4af49cc",
+      "trace_command_id": "6a43c686-2599-4b7a-9d0e-795f17b3c69a",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000534,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 20,
+      "summaries_checked": 20,
+      "summary_max_chars": 3998,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 20
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "f7b8bf3b5b413b3195210b9d153f6a9c0bf77ecde7a5434927d5312201eaa386",
+      "tool_input_observation_hash_after": "f7b8bf3b5b413b3195210b9d153f6a9c0bf77ecde7a5434927d5312201eaa386",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 2,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 2
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 1,
+        "unresolved": 1
+      },
+      "observed_entity_count": 48,
+      "entity_fact_validities": {
+        "observed": 188,
+        "stale": 4,
+        "inherited": 32
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 6,
+        "blocked": 4,
+        "partial": 2,
+        "unknown": 1
+      },
+      "observations": {
+        "json": 19,
+        "text": 1,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 16
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "95fef67d",
+      "name": "Flight Marathon Navigation 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/95fef67d.job.json",
+      "job_id": "b10d5c99-674d-4510-b663-79f24a9af1a7",
+      "command_sha256": "d5a22a9921cbbcc1460083a7cf0217c6133cc2e545d4d719933a83590ae7144c",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T135226622661_ad34350a_1583e84d-50f8-41e4-a3f8-1239d0334753_completed.json",
+      "trace_sha256": "c6dcc2908276b26e68127134c3e644f9f8f992ed47c61ef1ed8b35cbd8196a88",
+      "trace_command_id": "1583e84d-50f8-41e4-a3f8-1239d0334753",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000485,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 33,
+      "summaries_checked": 33,
+      "summary_max_chars": 3994,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 33
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "c17cc1269d67a979ed24ccb8f7d23977b7b311dc2eb2dc61902930df6d7c0934",
+      "tool_input_observation_hash_after": "c17cc1269d67a979ed24ccb8f7d23977b7b311dc2eb2dc61902930df6d7c0934",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 1,
+        "unresolved": 1
+      },
+      "observed_entity_count": 53,
+      "entity_fact_validities": {
+        "observed": 200,
+        "stale": 4,
+        "inherited": 60
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 16,
+        "blocked": 8,
+        "partial": 2
+      },
+      "observations": {
+        "json": 33,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 25
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "89129044",
+      "name": "Search Task with Photo 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/89129044.job.json",
+      "job_id": "aafc6a16-23af-45ac-aec7-775e19458e93",
+      "command_sha256": "b4183d2170afbc4fe79a7fa307acb4e7f3532cd8add4163e4f4226fbff8ba241",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T135244801255_ad34350a_0d968531-1450-4bbb-9127-cffee36ed28e_completed.json",
+      "trace_sha256": "af880f350a6b3141a4e918303da26ce396125218fcbd18d464900ddd9c42a955",
+      "trace_command_id": "0d968531-1450-4bbb-9127-cffee36ed28e",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000509,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 7,
+      "summaries_checked": 7,
+      "summary_max_chars": 3998,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 7
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "bf8ea711f0143c18e21a70c5340b0de2f9978e2fcdac1d4bce76f6c53603720a",
+      "tool_input_observation_hash_after": "bf8ea711f0143c18e21a70c5340b0de2f9978e2fcdac1d4bce76f6c53603720a",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 56,
+      "entity_fact_validities": {
+        "observed": 159,
+        "stale": 2,
+        "inherited": 79
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 4
+      },
+      "observations": {
+        "json": 7,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 3
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "3ce5d9bf",
+      "name": "Extended Hover Observation 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/3ce5d9bf.job.json",
+      "job_id": "bf38124c-7689-40c2-8186-f0143b37827f",
+      "command_sha256": "f72244ec434aeac5aaf32cf59d9faf213b0d271eca53b8f310c920b2fbbf4dba",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T135302081641_ad34350a_6912280f-fbc3-4c20-9d17-decfdf9939b2_completed.json",
+      "trace_sha256": "639fff5f1de8fb7a21f01a462ec87be4827da352f664f9a8593ca78ab9ad8746",
+      "trace_command_id": "6912280f-fbc3-4c20-9d17-decfdf9939b2",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000466,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 7,
+      "summaries_checked": 7,
+      "summary_max_chars": 3960,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 7
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "09c4ea40ee24e05cab0bc6951d48242ab1385deec25ce254169fa4baf25c63d2",
+      "tool_input_observation_hash_after": "09c4ea40ee24e05cab0bc6951d48242ab1385deec25ce254169fa4baf25c63d2",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 56,
+      "entity_fact_validities": {
+        "observed": 155,
+        "inherited": 84
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 3
+      },
+      "observations": {
+        "json": 7,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 3
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "529c0622",
+      "name": "Multiple Target Inspection 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/529c0622.job.json",
+      "job_id": "6cb59ac8-50bb-40de-a638-c4d98372d0b5",
+      "command_sha256": "261317c0aa145c19326160881a2e496b0d3f84a1ee59fa1d059205f255891dce",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140132501853_ad34350a_bcacfa21-0066-4477-859f-e96b195956a8_exception.json",
+      "trace_sha256": "e60936a2b23a2d05e35aa1bec750fbb6a7bc3287a06cd6ecfc32749430595aee",
+      "trace_command_id": "bcacfa21-0066-4477-859f-e96b195956a8",
+      "trace_status": "exception",
+      "started_at_difference_seconds": 0.000605,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "empty_or_missing_tool_chain"
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "3f601822",
+      "name": "Sequential Multi-Target Visit 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/3f601822.job.json",
+      "job_id": "cfc172c4-4720-44cd-aabd-d6f59cb534e7",
+      "command_sha256": "c1fb4e134ddf7f7984857b6ce2501ef51ce08db3e284921fd89e0a0e8a0b0bd1",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140444735639_ad34350a_a41a9505-4042-4719-b720-8e7cebb1939c_completed.json",
+      "trace_sha256": "1b8b8e83f97b00c052c31acf919431bcffb64cf1514367533c0e292d02507d89",
+      "trace_command_id": "a41a9505-4042-4719-b720-8e7cebb1939c",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000485,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 18,
+      "summaries_checked": 18,
+      "summary_max_chars": 3985,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 18
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "cfd578f8f292a0f73144b861cefa1b87183d5da0a460d03555997b10563afd7b",
+      "tool_input_observation_hash_after": "cfd578f8f292a0f73144b861cefa1b87183d5da0a460d03555997b10563afd7b",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 87,
+      "entity_fact_validities": {
+        "observed": 327,
+        "stale": 3,
+        "inherited": 100
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 12,
+        "blocked": 2
+      },
+      "observations": {
+        "json": 18,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 10
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "6294fe84",
+      "name": "Delivery to Specific Location 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/6294fe84.job.json",
+      "job_id": "a5b1d90e-3feb-41a9-9ef3-165884b726c9",
+      "command_sha256": "1d044e2ddc38f62c2d5f9967b020597f11263ebe6933e3744d3d5fc73029bd50",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140513490109_ad34350a_f0452ab1-8d58-4af1-93e9-f855ec8385ba_completed.json",
+      "trace_sha256": "8dc13d9733204fdb45885e2c261869ef35368858744a2d4a9790b3271846cb6e",
+      "trace_command_id": "f0452ab1-8d58-4af1-93e9-f855ec8385ba",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000614,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 11,
+      "summaries_checked": 11,
+      "summary_max_chars": 3959,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 11
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "8540896ac4ff8a88abc55ccea8dc0d4520c30aa4d1a8098704f928e7e88f79be",
+      "tool_input_observation_hash_after": "8540896ac4ff8a88abc55ccea8dc0d4520c30aa4d1a8098704f928e7e88f79be",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 87,
+      "entity_fact_validities": {
+        "observed": 187,
+        "inherited": 243
+      },
+      "outcome_counts": {
+        "observed": 5,
+        "completed": 6
+      },
+      "observations": {
+        "json": 11,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 6
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "53357761",
+      "name": "Communication Relay with Messages 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/53357761.job.json",
+      "job_id": "8132ce66-81d4-4c71-8118-f2d132741e69",
+      "command_sha256": "6c66dee4c55e8f923ee7e527a04eb86b75bc29b23aa91dcd5b1d32dab4c71d81",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140532118605_ad34350a_291573e1-bce4-48b5-bf48-fe3444be9b37_completed.json",
+      "trace_sha256": "a849ddf4b0a60bf02cf2c20b927d5cd35e9550f2c45896e7d4b39646e78d7fcb",
+      "trace_command_id": "291573e1-bce4-48b5-bf48-fe3444be9b37",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000484,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 8,
+      "summaries_checked": 8,
+      "summary_max_chars": 3963,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 8
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "76c9ed2967f3e71f3026a24809835bb9e4eba73b1a22751549ec87df7239069e",
+      "tool_input_observation_hash_after": "76c9ed2967f3e71f3026a24809835bb9e4eba73b1a22751549ec87df7239069e",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 4,
+      "clauses_without_explicit_entity_names": 3,
+      "requirement_status_counts": {
+        "not_evaluated": 4
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 87,
+      "entity_fact_validities": {
+        "observed": 158,
+        "stale": 2,
+        "inherited": 181
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 5
+      },
+      "observations": {
+        "json": 8,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 3
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "fa30ebff",
+      "name": "Line Formation - 2 Drones 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/fa30ebff.job.json",
+      "job_id": "576f203c-66d9-41aa-bbf8-6123b3ed0a3b",
+      "command_sha256": "9ed5cc7f209bba42b0f943cf8a83b2d6a73f84f821e04da19b3587d2e2044a5f",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140600489536_ad34350a_fd45d178-68db-456a-a0f9-074f4845d50c_completed.json",
+      "trace_sha256": "a6e7cc7dd43434b80a09a89d2fc6f2792f4d31292241735bdc46c7874d48589b",
+      "trace_command_id": "fd45d178-68db-456a-a0f9-074f4845d50c",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000472,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 12,
+      "summaries_checked": 12,
+      "summary_max_chars": 3984,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 12
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "81d7734f781333028fa3cd65f714cddc062ceeb5e2669ac581138bd67704e4c0",
+      "tool_input_observation_hash_after": "81d7734f781333028fa3cd65f714cddc062ceeb5e2669ac581138bd67704e4c0",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 2,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 2
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 87,
+      "entity_fact_validities": {
+        "observed": 170,
+        "inherited": 177
+      },
+      "outcome_counts": {
+        "observed": 5,
+        "completed": 7
+      },
+      "observations": {
+        "json": 12,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 7
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "018d1d05",
+      "name": "Triangle Formation - 3 Drones 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/018d1d05.job.json",
+      "job_id": "c354adba-2ac4-4ea9-9180-7765946f54e6",
+      "command_sha256": "3b1e27f908e63233ae8e84d2bfb8b4ddec0f274a319cd935e5b9547479c96cc6",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140707126227_ad34350a_aee90615-feae-487a-8b14-3f69935b43c3_completed.json",
+      "trace_sha256": "fdc6a7ae55d1b76f0711ba8ca9c6027c99ee956ed669ae2158e5ded518452bb1",
+      "trace_command_id": "aee90615-feae-487a-8b14-3f69935b43c3",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000501,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 21,
+      "summaries_checked": 21,
+      "summary_max_chars": 3997,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 4,
+        "last_known_entities": 21
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "80f4668669f8bb2b38487bcad9708b564d7aaf9e31cf4d675f89240b27880cca",
+      "tool_input_observation_hash_after": "80f4668669f8bb2b38487bcad9708b564d7aaf9e31cf4d675f89240b27880cca",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 3,
+      "initial_bindings": {
+        "unresolved": 3
+      },
+      "final_bindings": {
+        "exact": 3
+      },
+      "observed_entity_count": 87,
+      "entity_fact_validities": {
+        "observed": 160,
+        "stale": 6,
+        "inherited": 180
+      },
+      "outcome_counts": {
+        "observed": 9,
+        "completed": 9,
+        "blocked": 3
+      },
+      "observations": {
+        "json": 21,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 12
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "a0ef11d0",
+      "name": "Coordinated Search Sweep - 3 Drones 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/a0ef11d0.job.json",
+      "job_id": "d951a5fe-81d3-4e14-afad-1f4f896f37f9",
+      "command_sha256": "7c458b34765523d267b16137d69687ce9360ee68344b3991c79a994fa3e2a6b5",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T140933696837_ad34350a_0008653f-42b7-4893-bd87-cf7d0cc5f874_completed.json",
+      "trace_sha256": "90b70367566974d907a7af8b2b8572386ab5f561b0da697e7e28d886f50b7573",
+      "trace_command_id": "0008653f-42b7-4893-bd87-cf7d0cc5f874",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000504,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 51,
+      "summaries_checked": 51,
+      "summary_max_chars": 4000,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 2,
+        "last_known_entities": 51
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "67520ebd216ce3e7e059bf3cb19723faea4d4154b9bef756bb55a24cb173cd45",
+      "tool_input_observation_hash_after": "67520ebd216ce3e7e059bf3cb19723faea4d4154b9bef756bb55a24cb173cd45",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 90,
+      "entity_fact_validities": {
+        "stale": 9,
+        "observed": 202,
+        "inherited": 235
+      },
+      "outcome_counts": {
+        "observed": 12,
+        "completed": 26,
+        "partial": 3,
+        "blocked": 9,
+        "error": 1
+      },
+      "observations": {
+        "json": 50,
+        "text": 1,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 36
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "bfc721cc",
+      "name": "Coordinated Search Sweep - 3 Drones 2",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/bfc721cc.job.json",
+      "job_id": "e1e427ab-add3-4666-a4fe-23e042a18d98",
+      "command_sha256": "1d391f04c63d952453df2910141eeac424a9e45b97872a72fdfc94f4b7121830",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T141456980185_ad34350a_b5c59510-8217-4699-bb23-b51262d662d6_completed.json",
+      "trace_sha256": "3950d9091d9b5fcd758e80799bf2be9b4a41907119f39a0dcc7f3cb45a73ca35",
+      "trace_command_id": "b5c59510-8217-4699-bb23-b51262d662d6",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.00047,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 123,
+      "summaries_checked": 123,
+      "summary_max_chars": 4000,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 123
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "d94f438eea391dc293508e7a3081764b59736f46b51512567dd52a2d8fa29312",
+      "tool_input_observation_hash_after": "d94f438eea391dc293508e7a3081764b59736f46b51512567dd52a2d8fa29312",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 3,
+        "unresolved": 1
+      },
+      "observed_entity_count": 106,
+      "entity_fact_validities": {
+        "stale": 71,
+        "observed": 229,
+        "inherited": 220
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 55,
+        "blocked": 57,
+        "unknown": 2,
+        "error": 2
+      },
+      "observations": {
+        "json": 120,
+        "text": 3,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 93
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "7eed5422",
+      "name": "Fleet Coordinated Takeoff and Formation (4 Drones) 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/7eed5422.job.json",
+      "job_id": "a6c55692-91f0-49dd-a08d-9d9d6587aa58",
+      "command_sha256": "1e369c5091162db7a1b17732fde3963cd1cf54a2212976bbd21d844623d48a92",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T141926845364_ad34350a_47a97dcf-fc49-4eee-b28c-a6469db11a36_completed.json",
+      "trace_sha256": "9a8629569e1cc5482f616a006dc6517de2e596776d1038bacaaacd2b343fc683",
+      "trace_command_id": "47a97dcf-fc49-4eee-b28c-a6469db11a36",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000699,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 37,
+      "summaries_checked": 37,
+      "summary_max_chars": 4000,
+      "summary_step_omissions": {
+        "clauses": 13,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 37
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "aaa5a0cb016590f9b48bfbfeee219332d8df713191c24e768502fc9482ed1fa3",
+      "tool_input_observation_hash_after": "aaa5a0cb016590f9b48bfbfeee219332d8df713191c24e768502fc9482ed1fa3",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 106,
+      "entity_fact_validities": {
+        "observed": 174,
+        "inherited": 240
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 25,
+        "blocked": 5
+      },
+      "observations": {
+        "json": 37,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 12
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "a53ba7fc",
+      "name": "Fleet Coordinated Takeoff and Formation (4 Drones) 2",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/a53ba7fc.job.json",
+      "job_id": "f6d2dcc0-5988-4061-a406-dc58744c6394",
+      "command_sha256": "f86b0be6d73dde50a5fc6f27c5638b264dbe9fadf7b52d41dc23d0ada925245f",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T142151777495_ad34350a_2690c289-2c43-4b4f-928a-f2ce26b305f1_completed.json",
+      "trace_sha256": "24b100560ff87b8c3e275ffa7b1c5fe6c512018e0cacb0a886fb5c3af4c24ba0",
+      "trace_command_id": "2690c289-2c43-4b4f-928a-f2ce26b305f1",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.00055,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 30,
+      "summaries_checked": 30,
+      "summary_max_chars": 4000,
+      "summary_step_omissions": {
+        "clauses": 16,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 30
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "93d1309ab8f597831f814539f66757591141ddfdca6a73ad99ddcc9d12dd0940",
+      "tool_input_observation_hash_after": "93d1309ab8f597831f814539f66757591141ddfdca6a73ad99ddcc9d12dd0940",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 107,
+      "entity_fact_validities": {
+        "observed": 188,
+        "inherited": 234
+      },
+      "outcome_counts": {
+        "observed": 9,
+        "completed": 19,
+        "blocked": 2
+      },
+      "observations": {
+        "json": 30,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 16
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "c451cd74",
+      "name": "Complete Area Coverage Search",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/c451cd74.job.json",
+      "job_id": "f22b381f-7a31-4433-8881-9652119e86e5",
+      "command_sha256": "4201b276248f32dce53da586aba58bc55a039b9bb07904536fa635c8a6b02333",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T142231387997_ad34350a_819925df-7328-4c1d-9469-7073dec5c2e4_completed.json",
+      "trace_sha256": "cc0eee9197d3ff86f77972d4796c1143874f7845f123ab113ac00a838805c8b4",
+      "trace_command_id": "819925df-7328-4c1d-9469-7073dec5c2e4",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000503,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 8,
+      "summaries_checked": 8,
+      "summary_max_chars": 3980,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 8
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "7a7e119507a12a112b74b4abc745af5bb02ee85c715b2cf7f84d03c77ae62695",
+      "tool_input_observation_hash_after": "7a7e119507a12a112b74b4abc745af5bb02ee85c715b2cf7f84d03c77ae62695",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 108,
+      "entity_fact_validities": {
+        "observed": 219,
+        "stale": 3,
+        "inherited": 214
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 2,
+        "partial": 1,
+        "error": 1
+      },
+      "observations": {
+        "json": 8,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 5
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "fe787c55",
+      "name": "Dual Drone Area Coverage Search",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/fe787c55.job.json",
+      "job_id": "7d2b5463-ee92-4b51-bb86-751c8543425f",
+      "command_sha256": "25ab501a46208396370744af5c13766eb60dfc85b4248577ef8bee8ab1e8ffca",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/toolchains/20261006T142517995231_ad34350a_94c364bd-5fef-4e0b-b05b-ed9984df70e0_completed.json",
+      "trace_sha256": "4f57f3693bf88df5425419e98dc7bf35557396a2d0d74585d4d1848f59242887",
+      "trace_command_id": "94c364bd-5fef-4e0b-b05b-ed9984df70e0",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000829,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 28,
+      "summaries_checked": 28,
+      "summary_max_chars": 3988,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 28
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "6f7767a0fe1ae95ecc4245ffbf63ff1b1aaea2574549c0a776898100ea72be87",
+      "tool_input_observation_hash_after": "6f7767a0fe1ae95ecc4245ffbf63ff1b1aaea2574549c0a776898100ea72be87",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 3,
+      "initial_bindings": {
+        "unresolved": 3
+      },
+      "final_bindings": {
+        "exact": 3
+      },
+      "observed_entity_count": 109,
+      "entity_fact_validities": {
+        "observed": 195,
+        "inherited": 343
+      },
+      "outcome_counts": {
+        "observed": 13,
+        "completed": 6,
+        "partial": 5,
+        "blocked": 3,
+        "error": 1
+      },
+      "observations": {
+        "json": 28,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 15
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "23a9d67d",
+      "name": "Extreme Flight Marathon Navigation",
+      "cohort_status": "running",
+      "replay_status": "excluded_unscored"
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "7e926272",
+      "name": "Dual Drone Patrol",
+      "cohort_status": "not_run",
+      "replay_status": "excluded_unscored"
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "e59d948d",
+      "name": "Simple Rotation Test 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/e59d948d.job.json",
+      "job_id": "28247343-189a-4072-8863-ede6e03c6bf0",
+      "command_sha256": "77094d16a3c6f5baca3ce47cbe17fbbd5281915b20044027fdb6097099f06147",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134432547542_ef36e27a_c4a6a4db-4c0e-4d16-bf07-8446bcaf010b_completed.json",
+      "trace_sha256": "d767b4cafd25bb9bf79a12527518e8d76a0d74aece27d0d255ccf231cfe4387f",
+      "trace_command_id": "c4a6a4db-4c0e-4d16-bf07-8446bcaf010b",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.007403,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 7,
+      "summaries_checked": 7,
+      "summary_max_chars": 3910,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 5
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "f1ae6cbcfa54b4531cb1f81c4d1549e92c788cfb0b39564e7feea213d933b5c7",
+      "tool_input_observation_hash_after": "f1ae6cbcfa54b4531cb1f81c4d1549e92c788cfb0b39564e7feea213d933b5c7",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 12,
+      "entity_fact_validities": {
+        "observed": 58,
+        "inherited": 3
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 3
+      },
+      "observations": {
+        "json": 7,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 3
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "5d8eab35",
+      "name": "Quick Checkpoint Visit 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/5d8eab35.job.json",
+      "job_id": "d16f5f66-86ee-4a74-9e76-145ede46639f",
+      "command_sha256": "fca304ccd632aefc610d3e4a5f9954a8a8b0e20e13562a616766ab236d2e2b4e",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134447933301_ef36e27a_0923f0a2-b721-4226-b056-09db2a7ebed5_completed.json",
+      "trace_sha256": "f72a0d9ec0b978c7a0f4db08b51dc2ded93a366463768ff5652bc94cb00fc1a8",
+      "trace_command_id": "0923f0a2-b721-4226-b056-09db2a7ebed5",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000636,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 6,
+      "summaries_checked": 6,
+      "summary_max_chars": 3899,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 4
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "dc83cd47043ebb0b61c88923aba07e2ca9a9437fc8ce73a5f741bacd39db6b0d",
+      "tool_input_observation_hash_after": "dc83cd47043ebb0b61c88923aba07e2ca9a9437fc8ce73a5f741bacd39db6b0d",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 16,
+      "entity_fact_validities": {
+        "observed": 58,
+        "stale": 2,
+        "inherited": 15
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 3
+      },
+      "observations": {
+        "json": 6,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 3
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "1c840341",
+      "name": "Obstacle Avoidance Navigation 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/1c840341.job.json",
+      "job_id": "861c3dbe-7889-4b9c-9f29-38e6439e7a46",
+      "command_sha256": "c383ca2b11c83f6fd155d23b6bd57fc5429b947439d63bf5954c4d94f1104111",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134709429500_ef36e27a_07eb2f5b-0617-443c-a065-dfddf172763a_completed.json",
+      "trace_sha256": "2ec8e64a0928ddd95e56665560a431e199bb391194cdbfb28c129ab8a43b2603",
+      "trace_command_id": "07eb2f5b-0617-443c-a065-dfddf172763a",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000965,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 27,
+      "summaries_checked": 27,
+      "summary_max_chars": 3989,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 27
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "884298f64eae944892f41a2f05bf3d7a5a45154e9102f8d05d8c46846df8c85d",
+      "tool_input_observation_hash_after": "884298f64eae944892f41a2f05bf3d7a5a45154e9102f8d05d8c46846df8c85d",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 2,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 2
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 1,
+        "unresolved": 1
+      },
+      "observed_entity_count": 26,
+      "entity_fact_validities": {
+        "observed": 93,
+        "inherited": 31
+      },
+      "outcome_counts": {
+        "observed": 5,
+        "completed": 19,
+        "blocked": 3
+      },
+      "observations": {
+        "json": 27,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 22
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "98a62c0f",
+      "name": "Photo Documentation Mission 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/98a62c0f.job.json",
+      "job_id": "f0815eec-02a1-454d-8c2c-80530a2c9a49",
+      "command_sha256": "d6ba7e34948ec0a0e3f25d9087a434b723fac2295d38bc9ea5854f22aa3876ea",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134732369044_ef36e27a_a19f62dc-2e2d-4672-86da-25520ce8dd25_completed.json",
+      "trace_sha256": "a783a65d098a4fc3a1527f0bc45f547d19ed693614a6d200bf0b2a5e500f2f95",
+      "trace_command_id": "a19f62dc-2e2d-4672-86da-25520ce8dd25",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000598,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 12,
+      "summaries_checked": 12,
+      "summary_max_chars": 3946,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 11
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "7081c6323feed549557e9245602d6b2775522d393eadf7a88d34485477a0336e",
+      "tool_input_observation_hash_after": "7081c6323feed549557e9245602d6b2775522d393eadf7a88d34485477a0336e",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 2,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 2
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 27,
+      "entity_fact_validities": {
+        "observed": 61,
+        "stale": 3,
+        "inherited": 47
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 7,
+        "error": 1
+      },
+      "observations": {
+        "json": 12,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 7
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "4ccc9027",
+      "name": "Complete Area Coverage Search 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/4ccc9027.job.json",
+      "job_id": "2417ec38-bad6-497d-a09c-8419e72da4c9",
+      "command_sha256": "25ef9870923e754d3b6e992f8c4b28086eafe6c4a71a809bea107c441bc8f92f",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T134914086230_ef36e27a_f7eb1982-8613-4a7c-a0dc-a006e93f5288_completed.json",
+      "trace_sha256": "954dd5fb3a745cebd249fb6fd7d86185be43d6e396940919f12f917a2ff27d5c",
+      "trace_command_id": "f7eb1982-8613-4a7c-a0dc-a006e93f5288",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000458,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 53,
+      "summaries_checked": 53,
+      "summary_max_chars": 3997,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 52
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "9ff0a2385262b10665c523a6435b803c5024d7e913496e3d1fc7669b6e85edaa",
+      "tool_input_observation_hash_after": "9ff0a2385262b10665c523a6435b803c5024d7e913496e3d1fc7669b6e85edaa",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 39,
+      "entity_fact_validities": {
+        "observed": 130,
+        "stale": 16,
+        "inherited": 49
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 30,
+        "blocked": 16
+      },
+      "observations": {
+        "json": 53,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 40
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "6f597461",
+      "name": "Target Area Complete Coverage and Photography Mission 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/6f597461.job.json",
+      "job_id": "4574550d-c462-4c7e-ac07-d1eb35701f77",
+      "command_sha256": "f81251cb243b910048b1b1d13ad382ecb909fa330eb7f231b56d39313458db40",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135047852887_ef36e27a_fa561285-54c0-4e06-ad4d-5a65a28ff16a_completed.json",
+      "trace_sha256": "c70436c1a8436774cb019d48c2acbeee2f3b2e7ff25b4e8f20a1e09d00815ad9",
+      "trace_command_id": "fa561285-54c0-4e06-ad4d-5a65a28ff16a",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000491,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 21,
+      "summaries_checked": 21,
+      "summary_max_chars": 3999,
+      "summary_step_omissions": {
+        "clauses": 7,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 21
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "d768fb54cc2ef129c0962b49eb5b1d9392002f868800960e8bded583621df485",
+      "tool_input_observation_hash_after": "d768fb54cc2ef129c0962b49eb5b1d9392002f868800960e8bded583621df485",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 4,
+      "clauses_without_explicit_entity_names": 3,
+      "requirement_status_counts": {
+        "not_evaluated": 4
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 74,
+        "stale": 3,
+        "inherited": 133
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 10,
+        "partial": 1,
+        "blocked": 3
+      },
+      "observations": {
+        "json": 21,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 12
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "9e042fbe",
+      "name": "Delivery to Specific Location 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/9e042fbe.job.json",
+      "job_id": "771fdf51-4431-4526-a0f8-68fd11e258d6",
+      "command_sha256": "b0907dc7abd482f7fcea43732acbe81506c71fc57d1f94397d046ed032f087f7",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135110862223_ef36e27a_0267da79-c603-47d1-a4d8-4fdfbbdaf182_completed.json",
+      "trace_sha256": "833536f370d67c170dddf3941ff85ad822c6600c4f71774a62984dc7bdb60feb",
+      "trace_command_id": "0267da79-c603-47d1-a4d8-4fdfbbdaf182",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000505,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 9,
+      "summaries_checked": 9,
+      "summary_max_chars": 3982,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 7
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "7d929e2f74ec6e2798e17ce95cc5be1581383e67a7393845b3b4dccc440072c9",
+      "tool_input_observation_hash_after": "7d929e2f74ec6e2798e17ce95cc5be1581383e67a7393845b3b4dccc440072c9",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 55,
+        "stale": 3,
+        "inherited": 103
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 6
+      },
+      "observations": {
+        "json": 9,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 4
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "1a7d17b5",
+      "name": "Communication Relay with Messages 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/1a7d17b5.job.json",
+      "job_id": "36ee5964-4a48-4e8b-b179-4b8592879756",
+      "command_sha256": "0c5f3eaec1ce1f3d72ef5f0156f784f85481780c4831ceb3daaaf53b54cd1586",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135131509585_ef36e27a_95a864e7-4f28-40fa-bedd-028f55a6ca1b_completed.json",
+      "trace_sha256": "9d9d7d3325e68dae7152764e7ddf235cd69551f4dac8482082a024f50f53f93c",
+      "trace_command_id": "95a864e7-4f28-40fa-bedd-028f55a6ca1b",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000555,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 9,
+      "summaries_checked": 9,
+      "summary_max_chars": 3989,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 9
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "2bca855d20f0ec103135a51572d6c06926d928813d083b786f8bc9975e3bdd0d",
+      "tool_input_observation_hash_after": "2bca855d20f0ec103135a51572d6c06926d928813d083b786f8bc9975e3bdd0d",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 4,
+      "clauses_without_explicit_entity_names": 3,
+      "requirement_status_counts": {
+        "not_evaluated": 4
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 55,
+        "stale": 3,
+        "inherited": 104
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 5
+      },
+      "observations": {
+        "json": 9,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 4
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "cdf3324b",
+      "name": "Communication Relay with Messages 2",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/cdf3324b.job.json",
+      "job_id": "f4335f13-73ac-4290-8d1d-0b8dd2795ef7",
+      "command_sha256": "0eec1b6e95329c26343a26ebbcad40caff5858159a419289eb44ecd0e5b524ae",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135148008120_ef36e27a_fdda4d1e-237e-41d6-ae4b-9fb8e42c30b5_completed.json",
+      "trace_sha256": "c01bf4b2109fe65f3fad152bf5084cfb6c125d28bc528f3e2241f5e7dc42a5ac",
+      "trace_command_id": "fdda4d1e-237e-41d6-ae4b-9fb8e42c30b5",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000567,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 8,
+      "summaries_checked": 8,
+      "summary_max_chars": 3966,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 8
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "cca6c7dfe92332e30b331b9239713dd10bd1b884893d43d30370706fb7a536ac",
+      "tool_input_observation_hash_after": "cca6c7dfe92332e30b331b9239713dd10bd1b884893d43d30370706fb7a536ac",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 4,
+      "clauses_without_explicit_entity_names": 3,
+      "requirement_status_counts": {
+        "not_evaluated": 4
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 63,
+        "stale": 2,
+        "inherited": 98
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 5
+      },
+      "observations": {
+        "json": 8,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 3
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "c7a8edb7",
+      "name": "Multi-Target Survey Mission 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/c7a8edb7.job.json",
+      "job_id": "5cbd3f02-cf14-40e2-b227-829dfda294ac",
+      "command_sha256": "95252c8007b385c50b71e6560756897cba13e61c8c80f3eb321ade3e7e240310",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135212444333_ef36e27a_b6078324-58a7-4bb7-b3b9-05fd0f8e410f_completed.json",
+      "trace_sha256": "3432a4c032d467f6820c5a2ffd55f9eba9f38deb2f9ef8f94dce72dc5eb14451",
+      "trace_command_id": "b6078324-58a7-4bb7-b3b9-05fd0f8e410f",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000434,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 13,
+      "summaries_checked": 13,
+      "summary_max_chars": 3998,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 13
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "3584b8ffeaeae680ddeda95c2d4f67dba186bdf6b43a3cd6935c31a83966c126",
+      "tool_input_observation_hash_after": "3584b8ffeaeae680ddeda95c2d4f67dba186bdf6b43a3cd6935c31a83966c126",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 60,
+        "stale": 4,
+        "inherited": 146
+      },
+      "outcome_counts": {
+        "observed": 5,
+        "completed": 8
+      },
+      "observations": {
+        "json": 13,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 4
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "839993a2",
+      "name": "Multiple Target Inspection - Advanced 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/839993a2.job.json",
+      "job_id": "8dc2f726-b7d3-4103-a1a5-19840d5371f4",
+      "command_sha256": "f333e3cd61b13c9ec76ed30e105948a34feb52fffa81073a90fcd138d6b73069",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135238220647_ef36e27a_3aea3dd3-5f13-4acd-9ae4-f7c017f12503_completed.json",
+      "trace_sha256": "77ae11982b611a56df082ffa63ae530790d9ea90f9bfa06014481a45981f6c83",
+      "trace_command_id": "3aea3dd3-5f13-4acd-9ae4-f7c017f12503",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000675,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 18,
+      "summaries_checked": 18,
+      "summary_max_chars": 3989,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 17,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 18
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "949419599ccf0e82ac6c053c9add2f21a7f35198e982a7f215bd2e1f330ace87",
+      "tool_input_observation_hash_after": "949419599ccf0e82ac6c053c9add2f21a7f35198e982a7f215bd2e1f330ace87",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 2,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 2
+      },
+      "entity_name_refs": 9,
+      "initial_bindings": {
+        "unresolved": 9
+      },
+      "final_bindings": {
+        "exact": 9
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 72,
+        "stale": 6,
+        "inherited": 90
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 15
+      },
+      "observations": {
+        "json": 18,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 8
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "205d4c48",
+      "name": "Fleet Coordinated Takeoff and Formation (3 Drones) 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/205d4c48.job.json",
+      "job_id": "c5be1a5a-a5e1-442b-aba4-b166c056fdf7",
+      "command_sha256": "fde7cdaac741b77269cfdef0fc182abef49b0e20a86d366c7fc831aca2dbf79d",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135312041552_ef36e27a_e9f1757f-eecc-4b2e-8cf6-58181150837e_completed.json",
+      "trace_sha256": "83147670c655b581731c2d5efa21a3621e5252a3c726287cb94f49f14a099939",
+      "trace_command_id": "e9f1757f-eecc-4b2e-8cf6-58181150837e",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000482,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 21,
+      "summaries_checked": 21,
+      "summary_max_chars": 3992,
+      "summary_step_omissions": {
+        "clauses": 14,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 21
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "c10aba28f0795f8f4afa4d94b0efceda3120607f4e2f3d4e3a5c18f3018ec82b",
+      "tool_input_observation_hash_after": "c10aba28f0795f8f4afa4d94b0efceda3120607f4e2f3d4e3a5c18f3018ec82b",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 3,
+      "initial_bindings": {
+        "unresolved": 3
+      },
+      "final_bindings": {
+        "exact": 3
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 87,
+        "inherited": 131
+      },
+      "outcome_counts": {
+        "observed": 9,
+        "completed": 12
+      },
+      "observations": {
+        "json": 21,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 15
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "2f4c6c85",
+      "name": "Fleet Coordinated Takeoff and Formation (5 Drones) 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/2f4c6c85.job.json",
+      "job_id": "fb8f6fef-20f3-4e51-a468-415372a84783",
+      "command_sha256": "1f1043faeec8a9abb6684864c29eb599f6e5fb0b255d810ee0befcdc99dfb6ba",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135441577261_ef36e27a_2e73adda-b82c-4d36-be06-21861dec23cd_completed.json",
+      "trace_sha256": "1c412542bd62721066f6a9a798a75b8733369c60df5b732d23037b2ec6ed42f4",
+      "trace_command_id": "2e73adda-b82c-4d36-be06-21861dec23cd",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.00054,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 31,
+      "summaries_checked": 31,
+      "summary_max_chars": 3995,
+      "summary_step_omissions": {
+        "clauses": 17,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 31
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "ba550014faaf4023669c7da9a4689c0d226f3ef6dea444a4f3c3e3960832363b",
+      "tool_input_observation_hash_after": "ba550014faaf4023669c7da9a4689c0d226f3ef6dea444a4f3c3e3960832363b",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 5,
+      "initial_bindings": {
+        "unresolved": 5
+      },
+      "final_bindings": {
+        "exact": 5
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 83,
+        "inherited": 94
+      },
+      "outcome_counts": {
+        "observed": 8,
+        "completed": 20,
+        "blocked": 3
+      },
+      "observations": {
+        "json": 31,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 22
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "50dcb2b9",
+      "name": "Fleet Target Sweep (4 Drones) 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/50dcb2b9.job.json",
+      "job_id": "ed7f0318-3e1a-450d-ae26-3abb3e426db4",
+      "command_sha256": "dc7306bc5e34c66c82f9e685cda5c2b7dc9c606eff7b9d1ab9652c1d9d05ccd9",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135618053562_ef36e27a_1fec5cfb-d3bc-437b-97d8-28d71c3ba30d_completed.json",
+      "trace_sha256": "2ab6d3bc55873bd732c4beb6d8561cb6980b208fe2f8930d6a9aa1a7044f626c",
+      "trace_command_id": "1fec5cfb-d3bc-437b-97d8-28d71c3ba30d",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000479,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 34,
+      "summaries_checked": 34,
+      "summary_max_chars": 3999,
+      "summary_step_omissions": {
+        "clauses": 34,
+        "entity_bindings": 31,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 34
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "bcc04baf0c3153c00e33f1e5148d6dab3b78ddefd3015d164d814d6f8c67a727",
+      "tool_input_observation_hash_after": "bcc04baf0c3153c00e33f1e5148d6dab3b78ddefd3015d164d814d6f8c67a727",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 8,
+      "initial_bindings": {
+        "unresolved": 8
+      },
+      "final_bindings": {
+        "exact": 8
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 96,
+        "inherited": 122
+      },
+      "outcome_counts": {
+        "observed": 11,
+        "completed": 22,
+        "blocked": 1
+      },
+      "observations": {
+        "json": 34,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 18
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "9fc24d43",
+      "name": "Complete Area Coverage Search",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/9fc24d43.job.json",
+      "job_id": "49225e87-f425-466d-8597-d7cfdeeec445",
+      "command_sha256": "a1efd46d4f09e896b2f932b089b191975e8dc633631254e7e5657581ffb78762",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135637201378_ef36e27a_d8fdf429-dd6d-45dd-a6b2-4fdec8606166_completed.json",
+      "trace_sha256": "924f492762535ec98ef20c02f17d8d80c9478c204ccf2ccb8b14b16ac0bc789a",
+      "trace_command_id": "d8fdf429-dd6d-45dd-a6b2-4fdec8606166",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000913,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 7,
+      "summaries_checked": 7,
+      "summary_max_chars": 3994,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 6
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "8ed3f96f5fdcdcfdce15010cdbbf82166d127e53278298cf8753b4be4eb061e1",
+      "tool_input_observation_hash_after": "8ed3f96f5fdcdcfdce15010cdbbf82166d127e53278298cf8753b4be4eb061e1",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "stale": 3,
+        "observed": 55,
+        "inherited": 152
+      },
+      "outcome_counts": {
+        "observed": 5,
+        "completed": 2
+      },
+      "observations": {
+        "json": 7,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 3
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "ba8b14f3",
+      "name": "Dual Drone Area Coverage Search",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/ba8b14f3.job.json",
+      "job_id": "210cf0f0-64be-40bd-b3bf-d3236d2fd7fc",
+      "command_sha256": "10393f38feaf5ddb74089ba748c65254627563f211927b1b6c72bcc17d08fe64",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135741460416_ef36e27a_fab392c0-6b75-470c-b60f-7b5786ffa7a1_completed.json",
+      "trace_sha256": "4cda4c7833d15448c0715ae8b59057801c1b76eb8458008a5c408d48afcdc6f9",
+      "trace_command_id": "fab392c0-6b75-470c-b60f-7b5786ffa7a1",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000877,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 14,
+      "summaries_checked": 14,
+      "summary_max_chars": 3997,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 14
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "fad689a4df1e7e4a34b3da60663da325fb2866e56e9a339bb5715788f414a4f2",
+      "tool_input_observation_hash_after": "fad689a4df1e7e4a34b3da60663da325fb2866e56e9a339bb5715788f414a4f2",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 3,
+      "initial_bindings": {
+        "unresolved": 3
+      },
+      "final_bindings": {
+        "exact": 3
+      },
+      "observed_entity_count": 42,
+      "entity_fact_validities": {
+        "observed": 67,
+        "stale": 5,
+        "inherited": 142
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 6,
+        "error": 1
+      },
+      "observations": {
+        "json": 13,
+        "text": 1,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 9
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "a55037ed",
+      "name": "Any Drone Area Coverage Search",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/a55037ed.job.json",
+      "job_id": "b02aa0d8-8d18-450d-b51b-d82b8865ba46",
+      "command_sha256": "05c64965fbbd8b625877157500405b2f2f97c5b0e1ad80ceb499dc675fa89b5a",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135815118013_ef36e27a_478a27bb-feeb-495d-b95b-23e57ca0ccf7_completed.json",
+      "trace_sha256": "6c3d1e2cef827d78ceaa99da35344e8fbdc0bfd6d2af93f1ef528a38eff4cee3",
+      "trace_command_id": "478a27bb-feeb-495d-b95b-23e57ca0ccf7",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000478,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 14,
+      "summaries_checked": 14,
+      "summary_max_chars": 3986,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 12
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "c43fae0b9fca97b239c1965a75f6851a6d8c22bcbb4269b217259277c1637954",
+      "tool_input_observation_hash_after": "c43fae0b9fca97b239c1965a75f6851a6d8c22bcbb4269b217259277c1637954",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 43,
+      "entity_fact_validities": {
+        "observed": 82,
+        "stale": 6,
+        "inherited": 87
+      },
+      "outcome_counts": {
+        "observed": 8,
+        "completed": 6
+      },
+      "observations": {
+        "json": 14,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 4
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "de19fecd",
+      "name": "Triple Drone Area Coverage Search",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/de19fecd.job.json",
+      "job_id": "d093123f-80d3-44ad-ba27-a2e6a2b64522",
+      "command_sha256": "4ae46009c585091e925162b6d8dbc08a7dfbd7f8bf6182d6746251f9b1f027db",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T135938699658_ef36e27a_401218e3-e3f7-423e-9779-bf07ddf86f3f_completed.json",
+      "trace_sha256": "23eba49d913ea0df7adb4d7ce55f63481965210e0d8c0707d9692ac4740d7e00",
+      "trace_command_id": "401218e3-e3f7-423e-9779-bf07ddf86f3f",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000593,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 17,
+      "summaries_checked": 17,
+      "summary_max_chars": 3994,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 17
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "6ba70d7362e8785400aea9a18248c78340836df0fcdf10aa545648a985e0bf5f",
+      "tool_input_observation_hash_after": "6ba70d7362e8785400aea9a18248c78340836df0fcdf10aa545648a985e0bf5f",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 43,
+      "entity_fact_validities": {
+        "observed": 73,
+        "inherited": 143
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 8,
+        "error": 1,
+        "blocked": 1
+      },
+      "observations": {
+        "json": 16,
+        "text": 1,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 8
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "3ca9a106",
+      "name": "Any Drone Two-Target Area Coverage Search",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/3ca9a106.job.json",
+      "job_id": "e37f1329-37de-4009-b16f-64451ad423c1",
+      "command_sha256": "7e70f14da74ededcb4bffb7071692a16986f86d22112ee260db1e780f97bf8c9",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T140135235769_ef36e27a_75796661-53ff-4199-b861-b70c03252ca6_completed.json",
+      "trace_sha256": "84e990d0c0ad5ccf5cfb801f8127e71670b75fe6d9de7280d2c594158a35a1e0",
+      "trace_command_id": "75796661-53ff-4199-b861-b70c03252ca6",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000596,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 33,
+      "summaries_checked": 33,
+      "summary_max_chars": 3999,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 32
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "1671d2d353ee7346ff2ec471c7e1c4de1fbc7e2a186f99aabcefdd452e2a440d",
+      "tool_input_observation_hash_after": "1671d2d353ee7346ff2ec471c7e1c4de1fbc7e2a186f99aabcefdd452e2a440d",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 43,
+      "entity_fact_validities": {
+        "stale": 23,
+        "observed": 93,
+        "inherited": 106
+      },
+      "outcome_counts": {
+        "observed": 13,
+        "completed": 14,
+        "partial": 6
+      },
+      "observations": {
+        "json": 33,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 6
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "69b0a271",
+      "name": "Area Search Task Completion",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/69b0a271.job.json",
+      "job_id": "331b82ba-119d-4084-b3a1-b3a230916266",
+      "command_sha256": "c52ea203b80a8aca6cd8a36b734183b1624bdc25e2df3d69c434010748206816",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/toolchains/20261006T140355393857_ef36e27a_641c9dbe-ac6a-416e-b1d6-c87eeb371671_completed.json",
+      "trace_sha256": "6654cd6d7a049367942e822742b740ad32b249a61ac24f1db74bd0ebde795954",
+      "trace_command_id": "641c9dbe-ac6a-416e-b1d6-c87eeb371671",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000465,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 37,
+      "summaries_checked": 37,
+      "summary_max_chars": 4000,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 34
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "bb1405bb3d4e8bf190ad86cce44a853324e0f868a008031e0408f76feb650866",
+      "tool_input_observation_hash_after": "bb1405bb3d4e8bf190ad86cce44a853324e0f868a008031e0408f76feb650866",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 0,
+      "initial_bindings": {},
+      "final_bindings": {},
+      "observed_entity_count": 44,
+      "entity_fact_validities": {
+        "stale": 22,
+        "observed": 131,
+        "inherited": 73
+      },
+      "outcome_counts": {
+        "observed": 17,
+        "completed": 16,
+        "partial": 2,
+        "blocked": 1,
+        "error": 1
+      },
+      "observations": {
+        "json": 36,
+        "text": 1,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 9
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "c00d8b78",
+      "name": "Simple Rotation Test 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/c00d8b78.job.json",
+      "job_id": "fe89f23c-ed4b-46ce-862b-0ca95330baeb",
+      "command_sha256": "dda9f681feabdc11e86f8f48740f4a4176f8241a1301d28805ced273785c2cc3",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140416571527_3973d0d6_1003ca1c-673f-4594-9526-558fad6c16ba_completed.json",
+      "trace_sha256": "e83f04eb13f8ae089013e3aa0433a4913a19d1179d247e6739e8068e565e19cc",
+      "trace_command_id": "1003ca1c-673f-4594-9526-558fad6c16ba",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.009501,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 7,
+      "summaries_checked": 7,
+      "summary_max_chars": 2880,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "9454b9f9c20d4dbca954fba606c2dedce29d4c0fc325f9ab8bec2b376f02f13e",
+      "tool_input_observation_hash_after": "9454b9f9c20d4dbca954fba606c2dedce29d4c0fc325f9ab8bec2b376f02f13e",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 5,
+      "entity_fact_validities": {
+        "observed": 27
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 3
+      },
+      "observations": {
+        "json": 7,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 2
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "b4714028",
+      "name": "Quick Checkpoint Visit 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/b4714028.job.json",
+      "job_id": "41f63623-9ea6-41eb-9d11-745e3e8573d8",
+      "command_sha256": "40fee27239295ee984acdd68ae8c139a3b0900733fb76f864eae675f300e0115",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140431578823_3973d0d6_8b007930-4e51-4d86-aeb9-ca349f249e92_completed.json",
+      "trace_sha256": "e6d68404f2a16d160f728802a2b628642041d3d15da4a641ee96cef0756aed64",
+      "trace_command_id": "8b007930-4e51-4d86-aeb9-ca349f249e92",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000829,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 6,
+      "summaries_checked": 6,
+      "summary_max_chars": 2866,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "a16f1978c23cd91ebdf4991c1b106a29a3c42afdab5bce99e21c68aa29adeda7",
+      "tool_input_observation_hash_after": "a16f1978c23cd91ebdf4991c1b106a29a3c42afdab5bce99e21c68aa29adeda7",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 6,
+      "entity_fact_validities": {
+        "observed": 25,
+        "stale": 2,
+        "inherited": 2
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 3
+      },
+      "observations": {
+        "json": 6,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 2
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "3272962f",
+      "name": "Extended Distance Flight Test 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/3272962f.job.json",
+      "job_id": "19fea8e8-ec15-4095-b040-886fc763bd47",
+      "command_sha256": "f8d9bd69e347086ce08dce9d0b5ee41dbc47a159989de5849c8187c85a7666cd",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140539614325_3973d0d6_0e1bc7a4-41d2-412f-bf2f-d02cfe2cba00_completed.json",
+      "trace_sha256": "02cb02cfb23f85782df4e6b65661c40e4feb488acd785154627c5012f4827f29",
+      "trace_command_id": "0e1bc7a4-41d2-412f-bf2f-d02cfe2cba00",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.00059,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 11,
+      "summaries_checked": 11,
+      "summary_max_chars": 3978,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "14f613f3346718d467e1b0918e8485c8c6d9cf161d9e87abd950b8a741165678",
+      "tool_input_observation_hash_after": "14f613f3346718d467e1b0918e8485c8c6d9cf161d9e87abd950b8a741165678",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 7,
+      "entity_fact_validities": {
+        "observed": 29,
+        "stale": 3,
+        "inherited": 4
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 6,
+        "blocked": 1
+      },
+      "observations": {
+        "json": 11,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 7
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "fb2c7ba3",
+      "name": "Multi-Target Reach Verification 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/fb2c7ba3.job.json",
+      "job_id": "de1d506a-6829-4d89-a83a-d83312442b7d",
+      "command_sha256": "ab9a9658a2a5d44caf89e0d18c8c6961dbd2f91087f22e743e7894e0051b4633",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140722827002_3973d0d6_354cd5da-b7a2-4b45-9074-158dc766cec3_completed.json",
+      "trace_sha256": "5028b24d149421ac1fb146c0a422bca978b09c0974356ca3b76fe4ae55f7eeaa",
+      "trace_command_id": "354cd5da-b7a2-4b45-9074-158dc766cec3",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000758,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 15,
+      "summaries_checked": 15,
+      "summary_max_chars": 3979,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "85a523857f92c6af1879ca673393b446838eb68b8d86da3e6d1da217e6ab61a0",
+      "tool_input_observation_hash_after": "85a523857f92c6af1879ca673393b446838eb68b8d86da3e6d1da217e6ab61a0",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 2,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 2
+      },
+      "entity_name_refs": 3,
+      "initial_bindings": {
+        "unresolved": 3
+      },
+      "final_bindings": {
+        "exact": 1,
+        "unresolved": 2
+      },
+      "observed_entity_count": 8,
+      "entity_fact_validities": {
+        "observed": 36,
+        "inherited": 5
+      },
+      "outcome_counts": {
+        "observed": 8,
+        "completed": 3,
+        "partial": 3,
+        "blocked": 1
+      },
+      "observations": {
+        "json": 15,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 8
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "e2766e27",
+      "name": "Complex Obstacle Course Navigation 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/e2766e27.job.json",
+      "job_id": "33cff852-b62c-4dc2-86d9-f843f42b43e6",
+      "command_sha256": "b1a18855961018ac61aaf8bd33928054d59a2f7cc58ce30e0fb08f4e1e5d6fa9",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T140800234483_3973d0d6_d6873be0-d2dd-4f45-8a40-cfbdb65b5f3b_completed.json",
+      "trace_sha256": "c5b72ef5e030e0d240c9c16fdb89b4acceb88e390602fe19856c550c6ab8534f",
+      "trace_command_id": "d6873be0-d2dd-4f45-8a40-cfbdb65b5f3b",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000579,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 12,
+      "summaries_checked": 12,
+      "summary_max_chars": 3978,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 5
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "60c3373a742d27925fbb5da3b8e9e1a8283d24de7cf32adeff1d5c4dcd96efa5",
+      "tool_input_observation_hash_after": "60c3373a742d27925fbb5da3b8e9e1a8283d24de7cf32adeff1d5c4dcd96efa5",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 2,
+        "unresolved": 2
+      },
+      "observed_entity_count": 10,
+      "entity_fact_validities": {
+        "observed": 37,
+        "stale": 4,
+        "inherited": 9
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 8
+      },
+      "observations": {
+        "json": 12,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 9
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "f9868b0d",
+      "name": "Flight Marathon Navigation 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/f9868b0d.job.json",
+      "job_id": "5bdc4a56-aada-4a87-91d6-e8e0dbc66a59",
+      "command_sha256": "f172a26e4c79fde5b65e41f676d374a9144b2b1011a5ad689141d775d61027ca",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141036002314_3973d0d6_7ef363a3-713a-48f0-af5a-9bc6129a4489_completed.json",
+      "trace_sha256": "b39239463e0e4ae395b0351ea8782da67df63de4fa9c1fc81d8ead8263d7ebbb",
+      "trace_command_id": "7ef363a3-713a-48f0-af5a-9bc6129a4489",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000567,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 19,
+      "summaries_checked": 19,
+      "summary_max_chars": 3994,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 12
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "69f9554037ebdde3b72fc490658846e9ae17a82fda8445ec0cd4de1acea0e96c",
+      "tool_input_observation_hash_after": "69f9554037ebdde3b72fc490658846e9ae17a82fda8445ec0cd4de1acea0e96c",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 11,
+      "entity_fact_validities": {
+        "observed": 36,
+        "inherited": 19
+      },
+      "outcome_counts": {
+        "observed": 5,
+        "completed": 11,
+        "blocked": 3
+      },
+      "observations": {
+        "json": 19,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 13
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "b2c116a1",
+      "name": "Flight Marathon Navigation 2",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/b2c116a1.job.json",
+      "job_id": "7dd92bbe-eb26-4f40-b9d9-84bb04cf4add",
+      "command_sha256": "3cbb6ce295d496d0aadd28280bc75588c8a6b82ad8767e4d02f2de747541aca7",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141214882163_3973d0d6_91ed71fb-afea-4e85-b364-12c76f864b4b_completed.json",
+      "trace_sha256": "2b5eacc15c45f36c80cc9d5535fca4036b8924c8cd818689b75854c45239eec8",
+      "trace_command_id": "91ed71fb-afea-4e85-b364-12c76f864b4b",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000545,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 14,
+      "summaries_checked": 14,
+      "summary_max_chars": 3959,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 7
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "8740621f6d081985f63f109dd0a5f8dc1e78783d25531bf91c93d07d59ffc8da",
+      "tool_input_observation_hash_after": "8740621f6d081985f63f109dd0a5f8dc1e78783d25531bf91c93d07d59ffc8da",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 11,
+      "entity_fact_validities": {
+        "observed": 30,
+        "stale": 3,
+        "inherited": 20
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 8,
+        "blocked": 2,
+        "error": 1
+      },
+      "observations": {
+        "json": 14,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 9
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "9da77d47",
+      "name": "Target Inspection 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/9da77d47.job.json",
+      "job_id": "478a47a3-25c7-4e4e-9660-ed146d15ef1c",
+      "command_sha256": "9b03de4992bedb0377fe2749bf0e767b26615a980d36fff2dda36296948021a5",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141229727998_3973d0d6_00a051e3-9e1c-4e3f-a090-4444fd1d1523_completed.json",
+      "trace_sha256": "a7c8671f9a0d418d83f5ab053a3b2c2027a6f9403c16c875b1205474880c2d44",
+      "trace_command_id": "00a051e3-9e1c-4e3f-a090-4444fd1d1523",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000569,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 8,
+      "summaries_checked": 8,
+      "summary_max_chars": 3196,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "631b3c1694a6fc4d23621840e62e2c0ab7a7504261001e837f77eb1448179cd9",
+      "tool_input_observation_hash_after": "631b3c1694a6fc4d23621840e62e2c0ab7a7504261001e837f77eb1448179cd9",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 2,
+      "initial_bindings": {
+        "unresolved": 2
+      },
+      "final_bindings": {
+        "exact": 2
+      },
+      "observed_entity_count": 11,
+      "entity_fact_validities": {
+        "observed": 27,
+        "stale": 3,
+        "inherited": 18
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "error": 1,
+        "completed": 3
+      },
+      "observations": {
+        "json": 7,
+        "text": 1,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 4
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "9a95de36",
+      "name": "Extended Hover Observation 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/9a95de36.job.json",
+      "job_id": "818552a2-dc69-4cc0-92fc-c413098af3b7",
+      "command_sha256": "a702c52687709e03478f345c5b9819e098bfb97e16aad8659bf865131e265911",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141247471184_3973d0d6_a30e523f-d0e3-45dc-af89-da25631b4bc9_completed.json",
+      "trace_sha256": "b8d1282d5115efb93a9f96ddb1b8804d0da4291116a7809d755faecb7e56f896",
+      "trace_command_id": "a30e523f-d0e3-45dc-af89-da25631b4bc9",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000528,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 7,
+      "summaries_checked": 7,
+      "summary_max_chars": 3061,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "20d7ad44dcfc6383d643325242a8c08acb2a6ee1748aa2ce98266589b1e78829",
+      "tool_input_observation_hash_after": "20d7ad44dcfc6383d643325242a8c08acb2a6ee1748aa2ce98266589b1e78829",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 11,
+      "entity_fact_validities": {
+        "observed": 32,
+        "inherited": 23
+      },
+      "outcome_counts": {
+        "observed": 4,
+        "completed": 3
+      },
+      "observations": {
+        "json": 7,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 4
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "a23c2cda",
+      "name": "Sequential Multi-Target Visit 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/a23c2cda.job.json",
+      "job_id": "988cae42-a69b-49aa-906c-d997b4d954dc",
+      "command_sha256": "230515f610a42190cfe6b6c3277eed7633e2193f8df316cee2f4eb55c7db5e37",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141856726677_3973d0d6_20075525-bea6-41f6-85ef-f88b61217b79_completed.json",
+      "trace_sha256": "513e2be372daa662e7ae3b23cf8746f7b85baef33ebda47f669a314d0a77d9b5",
+      "trace_command_id": "20075525-bea6-41f6-85ef-f88b61217b79",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000597,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 113,
+      "summaries_checked": 113,
+      "summary_max_chars": 3995,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 4,
+        "last_known_entities": 104
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "a572c6afa0c93585b12a087fb3ae15dbecc271377be5304bd96b7e8150df4bb9",
+      "tool_input_observation_hash_after": "a572c6afa0c93585b12a087fb3ae15dbecc271377be5304bd96b7e8150df4bb9",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 48,
+        "stale": 13,
+        "inherited": 12
+      },
+      "outcome_counts": {
+        "observed": 14,
+        "completed": 88,
+        "blocked": 5,
+        "error": 4,
+        "unknown": 2
+      },
+      "observations": {
+        "json": 110,
+        "text": 3,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 91
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "087a47af",
+      "name": "Sequential Multi-Target Visit 2",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/087a47af.job.json",
+      "job_id": "c88b14f6-81a3-4aa4-b78b-11e7b5ddec0e",
+      "command_sha256": "d3898fe8cff745d988462e3c6df4bc8967546837a87e9793311fd6732c5a4de1",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T141934837461_3973d0d6_28f99c4e-8479-4bbd-82cc-2862630303b6_completed.json",
+      "trace_sha256": "afc356a11cf740876a4a75eaa2845a43672afbbca40c29f4ae1fea62d679c4c3",
+      "trace_command_id": "28f99c4e-8479-4bbd-82cc-2862630303b6",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.001375,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 17,
+      "summaries_checked": 17,
+      "summary_max_chars": 3991,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 15
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "a6264eb055806e61eff4f9c23dda8ff2cde259a5db86e5554c8fc0b53a76c37f",
+      "tool_input_observation_hash_after": "a6264eb055806e61eff4f9c23dda8ff2cde259a5db86e5554c8fc0b53a76c37f",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 36,
+        "inherited": 33
+      },
+      "outcome_counts": {
+        "observed": 7,
+        "completed": 10
+      },
+      "observations": {
+        "json": 17,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 5
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "ada0594b",
+      "name": "Multi-Waypoint Delivery Route 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/ada0594b.job.json",
+      "job_id": "0a528f72-0443-4bd6-8aed-72ce44af7d12",
+      "command_sha256": "3d17fff4a9a03e042d58ee4d5d37355e38163d7cd9ae9777b6e29411faa12746",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142007538324_3973d0d6_a44e864f-8124-4c5f-95b4-c5f413b767b1_completed.json",
+      "trace_sha256": "775392c976d3fad410c2944bf6847c56116ffdf4a89db1af9dcdeaf478d3c1e2",
+      "trace_command_id": "a44e864f-8124-4c5f-95b4-c5f413b767b1",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000641,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 12,
+      "summaries_checked": 12,
+      "summary_max_chars": 3630,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "4848626707eabf71502d9e65c3b73924c2929b94ee68462d8be984d8f59df8fc",
+      "tool_input_observation_hash_after": "4848626707eabf71502d9e65c3b73924c2929b94ee68462d8be984d8f59df8fc",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 29,
+        "stale": 3,
+        "inherited": 37
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 9
+      },
+      "observations": {
+        "json": 12,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 5
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "1119f6eb",
+      "name": "Multi-Target Survey Mission 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/1119f6eb.job.json",
+      "job_id": "9bfa111e-4672-4378-a7c2-baff7618cbf9",
+      "command_sha256": "315d881b3f5d780a5f48588f9598e88fc7146ac2db413b603fc3782efbe2c781",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142027315439_3973d0d6_ed6b1093-1e3e-47b6-96b6-10bbd1025927_completed.json",
+      "trace_sha256": "b54c21a4abd90e4209127788be96a336576dc38894bfe9bec9f82917040652d1",
+      "trace_command_id": "ed6b1093-1e3e-47b6-96b6-10bbd1025927",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.00053,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 11,
+      "summaries_checked": 11,
+      "summary_max_chars": 3929,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 8
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "f972ed34e24348610252a92d401670e9c60748bada3bfbb48d69244c37b604dc",
+      "tool_input_observation_hash_after": "f972ed34e24348610252a92d401670e9c60748bada3bfbb48d69244c37b604dc",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 4,
+      "initial_bindings": {
+        "unresolved": 4
+      },
+      "final_bindings": {
+        "exact": 4
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 29,
+        "stale": 4,
+        "inherited": 34
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 8
+      },
+      "observations": {
+        "json": 11,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 4
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "9c0b52a0",
+      "name": "Target Assignment Task Completion 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/9c0b52a0.job.json",
+      "job_id": "2e7bbfc1-3dc4-4556-b626-68578668b56b",
+      "command_sha256": "1d901b09b4c00d4676e0f32c6b0be719243b9104f38571ec6daf4b876e42ccb5",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142251861032_3973d0d6_497a0b2c-acfe-44b9-936a-00b2f79cc55a_completed.json",
+      "trace_sha256": "1d87fadd6e676ea4587d103a5f4376d9d0837df818d429ff943126eb3a132914",
+      "trace_command_id": "497a0b2c-acfe-44b9-936a-00b2f79cc55a",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000624,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 38,
+      "summaries_checked": 38,
+      "summary_max_chars": 3938,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "2d954b8a19ceb52b07556a5eb21c61f3d67b4683aa6aa260933a0d9e32f58170",
+      "tool_input_observation_hash_after": "2d954b8a19ceb52b07556a5eb21c61f3d67b4683aa6aa260933a0d9e32f58170",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 0,
+      "initial_bindings": {},
+      "final_bindings": {},
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 34,
+        "stale": 18,
+        "inherited": 25
+      },
+      "outcome_counts": {
+        "observed": 16,
+        "completed": 21,
+        "error": 1
+      },
+      "observations": {
+        "json": 37,
+        "text": 1,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 25
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "f42ead5e",
+      "name": "Fleet Target Sweep (3 Drones) 1",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/f42ead5e.job.json",
+      "job_id": "eba20fb6-1503-49e1-82bd-11934736980d",
+      "command_sha256": "68a440a9cefe8173a43ea0ca112485736a16408e5553e6f7c38efe947de2b837",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142319691350_3973d0d6_de8b64e9-850c-4d60-aae4-6a5834b53e2e_completed.json",
+      "trace_sha256": "bfca3387d77d267cd6bbc76b5e0408d46ffe07ba10fcb3675d55d6caece0c544",
+      "trace_command_id": "de8b64e9-850c-4d60-aae4-6a5834b53e2e",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.001123,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 21,
+      "summaries_checked": 21,
+      "summary_max_chars": 4000,
+      "summary_step_omissions": {
+        "clauses": 8,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 19
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "b858ef776b149b0510ea32bbd35e6f5bbf200e0ac409d07cca0c704e6483125d",
+      "tool_input_observation_hash_after": "b858ef776b149b0510ea32bbd35e6f5bbf200e0ac409d07cca0c704e6483125d",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 6,
+      "initial_bindings": {
+        "unresolved": 6
+      },
+      "final_bindings": {
+        "exact": 6
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 37,
+        "stale": 12,
+        "inherited": 24
+      },
+      "outcome_counts": {
+        "observed": 6,
+        "completed": 15
+      },
+      "observations": {
+        "json": 21,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 11
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "14fd1139",
+      "name": "Target Assignment 50% Progress With 3 Targets",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/14fd1139.job.json",
+      "job_id": "ed760d8d-b420-4d41-bffc-84439fec334e",
+      "command_sha256": "59d9b81da519a4ede3b2b3aff3c15e36cf71cd0fb178032d51feb01168da4777",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142533847911_3973d0d6_130c9a0f-466d-4956-bd65-7309e81efa2a_completed.json",
+      "trace_sha256": "31bbce4765525d1ed46f4cbde1e7d6bb621a21cb8a96cd2364bb75c70f8f0e37",
+      "trace_command_id": "130c9a0f-466d-4956-bd65-7309e81efa2a",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000541,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 23,
+      "summaries_checked": 23,
+      "summary_max_chars": 3959,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 21
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "d0abea315dac3ccbdfbc749190ee332ed8ba463ebdc79657acf71dac15060e14",
+      "tool_input_observation_hash_after": "d0abea315dac3ccbdfbc749190ee332ed8ba463ebdc79657acf71dac15060e14",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 2,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 2
+      },
+      "entity_name_refs": 3,
+      "initial_bindings": {
+        "unresolved": 3
+      },
+      "final_bindings": {
+        "exact": 3
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 38,
+        "stale": 11,
+        "inherited": 18
+      },
+      "outcome_counts": {
+        "observed": 6,
+        "completed": 13,
+        "partial": 3,
+        "blocked": 1
+      },
+      "observations": {
+        "json": 23,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 14
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "18e35f9d",
+      "name": "Triangle Formation - 3 Drones",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/18e35f9d.job.json",
+      "job_id": "0b56cb97-8ac2-443c-8f46-355c4fb5e0b2",
+      "command_sha256": "a8f0258231118464d22e937bdc126f64a87de60d8ff4e9e7fa4a69edd20fb84b",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142642611336_3973d0d6_bb9530b7-7180-4247-a5ea-bff4f1c13f7f_completed.json",
+      "trace_sha256": "182acce8d6ae93a275d68e927b3c745265709e6f1df9efdb583e42fbb110847a",
+      "trace_command_id": "bb9530b7-7180-4247-a5ea-bff4f1c13f7f",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000554,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 19,
+      "summaries_checked": 19,
+      "summary_max_chars": 3974,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 12
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "62ba23bfee0d0501b8c986d5bf82b692358035316c43c63ee0c47bea90ee24c9",
+      "tool_input_observation_hash_after": "62ba23bfee0d0501b8c986d5bf82b692358035316c43c63ee0c47bea90ee24c9",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 1,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 3,
+      "initial_bindings": {
+        "unresolved": 3
+      },
+      "final_bindings": {
+        "exact": 3
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 40,
+        "inherited": 21
+      },
+      "outcome_counts": {
+        "observed": 8,
+        "completed": 9,
+        "blocked": 1,
+        "error": 1
+      },
+      "observations": {
+        "json": 19,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 11
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "c357887f",
+      "name": "Fleet Coordinated Takeoff and Formation (3 Drones)",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/c357887f.job.json",
+      "job_id": "83771f82-8b1e-4a6b-a61a-a848c4f689ff",
+      "command_sha256": "35c82c105e2333bb608d365945b847547b78c51b10416e164cc401d01872ae75",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142711300865_3973d0d6_ec8daaac-23f5-4e07-b051-ba88dd592136_completed.json",
+      "trace_sha256": "3aa204f3e7861fa9c5142a96c26e2b4bc98f3424fb3294f2dfa49ea10501e08d",
+      "trace_command_id": "ec8daaac-23f5-4e07-b051-ba88dd592136",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000849,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 15,
+      "summaries_checked": 15,
+      "summary_max_chars": 3977,
+      "summary_step_omissions": {
+        "clauses": 5,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 3
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "4142ad1574c82de8d642f73fe81ffeaa6ce0d4f24d85ef8b0fe47130a23940da",
+      "tool_input_observation_hash_after": "4142ad1574c82de8d642f73fe81ffeaa6ce0d4f24d85ef8b0fe47130a23940da",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 3,
+      "clauses_without_explicit_entity_names": 2,
+      "requirement_status_counts": {
+        "not_evaluated": 3
+      },
+      "entity_name_refs": 3,
+      "initial_bindings": {
+        "unresolved": 3
+      },
+      "final_bindings": {
+        "exact": 3
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "stale": 9,
+        "observed": 18,
+        "inherited": 42
+      },
+      "outcome_counts": {
+        "observed": 3,
+        "completed": 12
+      },
+      "observations": {
+        "json": 15,
+        "text": 0,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 5
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "cfc96471",
+      "name": "Fly Several Waypoints",
+      "cohort_status": "scored",
+      "job_path": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.job.json",
+      "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+      "command_sha256": "98e5aa940d9bbbbf8434863cc6c20643bdea59f9bd4c34a70804b3d7a6a74162",
+      "trace": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/toolchains/20261006T142847306141_3973d0d6_0c3112e9-b0b8-473a-b080-d177ebf99ea3_completed.json",
+      "trace_sha256": "f22c3ddefa3d42b664277d4cf33fe142aa37a73f8bede36fe7bfeb28dc3e368e",
+      "trace_command_id": "0c3112e9-b0b8-473a-b080-d177ebf99ea3",
+      "trace_status": "completed",
+      "started_at_difference_seconds": 0.000554,
+      "match_rule": "same_scene_exact_command_unique_start_difference_lt_1_second",
+      "replay_status": "replayed",
+      "tool_steps": 10,
+      "summaries_checked": 10,
+      "summary_max_chars": 3035,
+      "summary_step_omissions": {
+        "clauses": 0,
+        "entity_bindings": 0,
+        "recent_tool_evidence": 0,
+        "last_known_entities": 0
+      },
+      "observer_errors": [],
+      "tool_input_observation_hash_before": "b52af420700aaf321c86b35991debe53e6dcda6f22979c447b6c0b2821253078",
+      "tool_input_observation_hash_after": "b52af420700aaf321c86b35991debe53e6dcda6f22979c447b6c0b2821253078",
+      "input_receipts_unchanged": true,
+      "original_command_unchanged": true,
+      "mission_completion": "not_evaluated",
+      "clause_count": 1,
+      "clauses_without_explicit_entity_names": 0,
+      "requirement_status_counts": {
+        "not_evaluated": 1
+      },
+      "entity_name_refs": 1,
+      "initial_bindings": {
+        "unresolved": 1
+      },
+      "final_bindings": {
+        "exact": 1
+      },
+      "observed_entity_count": 14,
+      "entity_fact_validities": {
+        "observed": 29,
+        "inherited": 26
+      },
+      "outcome_counts": {
+        "observed": 6,
+        "completed": 2,
+        "error": 1,
+        "blocked": 1
+      },
+      "observations": {
+        "json": 9,
+        "text": 1,
+        "empty": 0
+      },
+      "steps_with_entity_observations": 4
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "7eba7390",
+      "name": "Target Assignment Task Completion",
+      "cohort_status": "not_run",
+      "replay_status": "excluded_unscored"
+    }
+  ]
+}

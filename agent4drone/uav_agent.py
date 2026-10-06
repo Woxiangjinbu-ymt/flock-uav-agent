@@ -328,7 +328,14 @@ class UAVControlAgent:
         debug: bool = False,
         share_blackboard_by_session: bool = False,
         toolchain_json_recording: bool = False,
+        task_progress_mode: Optional[str] = None,
     ):
+        mode = task_progress_mode if task_progress_mode is not None else os.environ.get("UAV_TASK_PROGRESS_MODE", "off")
+        self.task_progress_mode = str(mode).strip().lower()
+        if self.task_progress_mode not in {"off", "shadow", "summary"}:
+            raise ValueError("task_progress_mode must be off, shadow, or summary")
+        self._task_progress = None
+        self._task_progress_middleware = None
         self.client = UAVAPIClient(base_url, api_key=uav_api_key)
         self.verbose = verbose
         self.debug = debug
@@ -505,11 +512,41 @@ class UAVControlAgent:
         return build_system_prompt(self.tools)
 
     def _create_agent_runtime(self) -> Any:
+        middleware = getattr(self, "_task_progress_middleware", None)
+        if middleware is not None:
+            return create_agent(
+                model=self.llm,
+                tools=self.tools,
+                system_prompt=self._build_system_prompt(),
+                middleware=[middleware],
+            )
         return create_agent(
             model=self.llm,
             tools=self.tools,
             system_prompt=self._build_system_prompt(),
         )
+
+    def _initialize_task_progress(self, command: str, command_id: str) -> None:
+        """Start a command-local observer; errors never veto baseline execution."""
+        self._task_progress = None
+        self._task_progress_middleware = None
+        mode = getattr(self, "task_progress_mode", "off")
+        if mode == "off":
+            return
+        try:
+            from task_progress import TaskProgressLedger, TaskProgressMiddleware
+
+            inherited = self.blackboard.full() if self.share_blackboard_by_session else None
+            ledger = TaskProgressLedger(
+                command=command,
+                command_id=command_id,
+                inherited_blackboard=inherited,
+                max_summary_chars=4000,
+            )
+            self._task_progress_middleware = TaskProgressMiddleware(ledger, mode=mode)
+            self._task_progress = ledger
+        except Exception:
+            logger.exception("Task-progress observer unavailable command_id=%s; continuing baseline execution", command_id)
 
     def _recursion_limit_for_steps(self) -> int:
         """Allow enough graph turns to complete the configured number of tool steps."""
@@ -843,7 +880,7 @@ Drones: {len(drones)} available
         session_id = session_context.get("session_id")
         if not session_id and blackboard is not None:
             session_id = getattr(blackboard, "session_id", None)
-        return {
+        metadata = {
             "provider": getattr(self, "llm_provider", None),
             "model": getattr(self, "llm_model", None),
             "uav_base_url": getattr(getattr(self, "client", None), "base_url", None),
@@ -854,6 +891,10 @@ Drones: {len(drones)} available
             "empty_response_retries": empty_response_retries,
             "share_blackboard_by_session": getattr(self, "share_blackboard_by_session", None),
         }
+        if getattr(self, "task_progress_mode", "off") != "off":
+            metadata["task_progress_mode"] = self.task_progress_mode
+            metadata["task_progress_active"] = getattr(self, "_task_progress", None) is not None
+        return metadata
 
     def _record_toolchain_if_enabled(
         self,
@@ -900,6 +941,12 @@ Drones: {len(drones)} available
                 "tool_chain": tool_chain_from_steps(steps),
                 "api_calls": api_calls,
             }
+            ledger = getattr(self, "_task_progress", None)
+            if ledger is not None:
+                try:
+                    record["task_progress"] = ledger.snapshot()
+                except Exception:
+                    logger.exception("Could not snapshot task progress command_id=%s", command_id)
             request_history_file = None
             try:
                 request_history_path = request_history_jsonl_path(record)
@@ -947,6 +994,8 @@ Drones: {len(drones)} available
             Dictionary with 'output', 'intermediate_steps', and 'success' keys.
         """
         command_id = str(uuid.uuid4())
+        self._task_progress = None
+        self._task_progress_middleware = None
         started_at = datetime.now().isoformat()
         start_api_recording = getattr(getattr(self, "client", None), "start_api_call_recording", None)
         stop_api_recording = getattr(getattr(self, "client", None), "stop_api_call_recording", None)
@@ -974,6 +1023,7 @@ Drones: {len(drones)} available
         try:
             self.blackboard = self._blackboard_for_current_command()
             self.tools = self._create_tools(self.blackboard)
+            self._initialize_task_progress(command, command_id)
             self.agent = self._create_agent_runtime()
 
             if self.debug:

@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-06",
+  "status": "offline_ready_for_fast100",
+  "online_performance_verified": false,
+  "method_parent": "cb80fde8269a09795782a6ef046d04c381b3f3c9",
+  "checks": {
+    "full_agent_suite_before_final_distance_adapter_fix": {
+      "passed": 361,
+      "warnings": 3,
+      "failed": 0
+    },
+    "final_m1_unit_semantic_real_graph_suites": {
+      "passed": 64,
+      "failed": 0
+    },
+    "study_entry_offline": {
+      "passed": 28,
+      "failed": 0
+    },
+    "durable_owner_fake_commands": {
+      "passed": 3,
+      "failed": 0
+    },
+    "service_process_ownership": {
+      "passed": 6,
+      "failed": 0
+    },
+    "real_http_fake_agent": {
+      "distinct_tests": 16,
+      "passed": 16,
+      "note": "14 passed initially; 2 rejected source drift while files were being edited, then passed after source stabilization. Use controller Python (agent Python lacks tksheet)."
+    },
+    "common_server_controller_runtime_identical_to_b1_archive": true,
+    "detached_owner_survives_originating_tool_call": {
+      "status": "completed",
+      "pid": 81552,
+      "started_at": "2026-10-06T15:18:27.475122+08:00",
+      "heartbeat_at": "2026-10-06T15:18:33.584256+08:00",
+      "finished_at": "2026-10-06T15:18:33.582941+08:00",
+      "received_signal": null,
+      "stages": [
+        {
+          "arm": "m0",
+          "started_at": "2026-10-06T15:18:27.476507+08:00",
+          "exit_code": 0,
+          "pid": 81553,
+          "finished_at": "2026-10-06T15:18:30.529719+08:00"
+        },
+        {
+          "arm": "m1",
+          "started_at": "2026-10-06T15:18:30.530487+08:00",
+          "exit_code": 0,
+          "pid": 81640,
+          "finished_at": "2026-10-06T15:18:33.581184+08:00"
+        }
+      ],
+      "automatic_retries": 0
+    },
+    "saved_trace_replay": {
+      "planned_tasks": 60,
+      "scored_tasks": 57,
+      "matched_traces": 57,
+      "replayed_tasks": 56,
+      "tool_steps": 1204,
+      "summaries_checked": 1204,
+      "observer_errors": 0,
+      "entity_name_refs": 139,
+      "clauses": 115,
+      "clauses_without_explicit_entity_names": 51,
+      "json_observations": 1190,
+      "text_observations": 14,
+      "empty_observations": 0,
+      "tasks_without_extracted_entity_names": 2,
+      "empty_or_missing_tool_chain": 1,
+      "unscored_tasks": 3
+    }
+  },
+  "limitations": [
+    "Offline tests do not establish success-rate improvements.",
+    "The final distance-receipt adapter change was checked by the targeted 64-test M1 suites and full saved-trace replay.",
+    "SIGKILL cannot write a final status; existing process ownership cleanup remains enabled."
+  ],
+  "evidence_hashes": {
+    "replay.json": "cbdedc715fbe814dfbcfb5f9550d4c02fd78caca29a2d8942e9f0cbbacaa3a39"
+  }
+}
