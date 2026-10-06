@@ -55,7 +55,9 @@ def fixture(tmp_path, monkeypatch):
                            "task_pass": task_pass, "deployment_pass": task_pass, "agent_success": True,
                            "evidence_dir": str(historical), "scoring_ready_seconds": 10 + number,
                            "observed_usage": {"total_tokens": 10} if number == 2 else {}})
-            leaves = [{"type": "leaf", "result": new_pass or leaf > 0, "actual": new_pass or leaf > 0}
+            leaves = [{"type": "leaf", "result": new_pass or leaf > 0, "actual": new_pass or leaf > 0,
+                       "endpoint": "/check/synthetic", "parameters": {"index": leaf},
+                       "definition": {"endpoint": "/check/synthetic", "parameters": {"index": leaf}}}
                       for leaf in range(count)]
             current.append({"session_id": scene, "task_id": task_id, "status": "scored", "passed": new_pass,
                             "task_pass": new_pass, "expected_checks": count, "leaves": leaves, "job_id": new_job,
@@ -63,7 +65,7 @@ def fixture(tmp_path, monkeypatch):
                             "observed_token_usage": {"total_tokens": 7} if number == 2 else {}})
             save(attempt / directory / f"{task_id}.checks.json", leaves)
             save(attempt / directory / f"{task_id}.agent-state.json",
-                 {"job_id": new_job, "worker_finished": True, "busy": False, "job": {"result": {"success": number != 1}}})
+                 {"job_id": new_job, "worker_finished": True, "busy": False, "job": {"job_id": new_job, "result": {"success": number != 1}}})
             for root, relative, duration in ((tmp_path, historical, 10 + number), (attempt, directory, 20 + number)):
                 save(root / relative / f"{task_id}.window.json", {"lease": task_id, "opened_at": 100, "cutoff_at": 600})
                 save(root / relative / f"{task_id}.barrier.json", {"lease": task_id, "quiescent": True,
@@ -266,3 +268,85 @@ def test_output_cannot_overwrite_any_run_or_historical_baseline(fixture, locatio
         analysis.analyze(attempt, output, partial=True)
     assert sentinel.read_bytes() == before
     assert not (output / "REPORT_CN.md").exists()
+
+
+def scene_snapshot_fixture(attempt):
+    manifest = load(attempt / "manifest.json")
+    manifest["status"] = "running"
+    save(attempt / "manifest.json", manifest)
+    rows = load(attempt / "results.json")
+    for sid, record in manifest["scenes"].items():
+        local = [{**row, "continuation_safe": True} for row in rows if row["session_id"] == sid]
+        save(attempt / record["directory"] / "results.json", local)
+    rows[1].update(status="running", task_pass=None, passed=None)
+    save(attempt / "results.json", rows)
+    return rows, manifest
+
+
+def test_scene_snapshot_only_adds_existing_score_and_preserves_denominator(fixture):
+    attempt, output = fixture
+    scene_snapshot_fixture(attempt)
+    before = {str(p): p.read_bytes() for p in attempt.rglob("*.json")}
+    summary = analysis.analyze(attempt, output, partial=True, use_scene_snapshots=True)
+    assert summary["methods"]["b1"]["valid_scored_tasks"] == 60
+    assert summary["methods"]["b1"]["task_passes"] == 47
+    assert summary["methods"]["b1"]["final_task_pass_rate"] is None
+    assert not summary["is_final"]
+    assert summary["snapshot_reconciliation"]["root_snapshot"] == {"scored_tasks": 59, "passed_tasks": 46}
+    assert len(summary["snapshot_reconciliation"]["additional_saved_scores"]) == 1
+    assert before == {str(p): p.read_bytes() for p in attempt.rglob("*.json")}
+    assert len(list(csv.DictReader((output / "paired-tasks.csv").open()))) == 60
+
+
+@pytest.mark.parametrize("corruption", ["conflict", "worker", "job", "not_partial"])
+def test_scene_snapshot_rejects_conflict_or_missing_evidence(fixture, corruption):
+    attempt, output = fixture
+    rows, manifest = scene_snapshot_fixture(attempt)
+    directory = attempt / manifest["scenes"][rows[1]["session_id"]]["directory"]
+    if corruption == "worker":
+        (directory / "task-1.agent-state.json").unlink()
+    elif corruption in ("conflict", "job"):
+        local = load(directory / "results.json")
+        if corruption == "conflict":
+            local[0]["task_pass"] = not local[0]["task_pass"]
+        else:
+            local[1]["job_id"] = "different-job"
+        save(directory / "results.json", local)
+    with pytest.raises(ValueError):
+        analysis.analyze(attempt, output, partial=corruption != "not_partial", use_scene_snapshots=True)
+    assert not output.exists()
+
+
+@pytest.mark.parametrize("corruption", ["invalid", "provider_error", "check_parameters", "check_endpoint"])
+def test_scene_snapshot_cannot_override_invalid_root_or_different_checker(fixture, corruption):
+    attempt, output = fixture
+    rows, manifest = scene_snapshot_fixture(attempt)
+    if corruption in ("invalid", "provider_error"):
+        if corruption == "invalid":
+            rows[1]["status"] = "invalid"
+        else:
+            rows[1]["provider_errors"] = ["service failure"]
+        save(attempt / "results.json", rows)
+    else:
+        directory = attempt / manifest["scenes"][rows[1]["session_id"]]["directory"]
+        checks = load(directory / "task-1.checks.json")
+        if corruption == "check_parameters":
+            checks[0]["parameters"]["index"] = 999
+        else:
+            checks[0]["endpoint"] = "/check/different"
+        save(directory / "task-1.checks.json", checks)
+    with pytest.raises(ValueError):
+        analysis.analyze(attempt, output, partial=True, use_scene_snapshots=True)
+    assert not output.exists()
+
+
+def test_scene_snapshot_rejects_mismatched_internal_worker_job(fixture):
+    attempt, output = fixture
+    rows, manifest = scene_snapshot_fixture(attempt)
+    path = attempt / manifest["scenes"][rows[1]["session_id"]]["directory"] / "task-1.agent-state.json"
+    worker = load(path)
+    worker["job"]["job_id"] = "wrong-internal-job"
+    save(path, worker)
+    with pytest.raises(ValueError, match="internal worker job"):
+        analysis.analyze(attempt, output, partial=True, use_scene_snapshots=True)
+    assert not output.exists()

@@ -1,0 +1,1478 @@
+{
+  "schema": 1,
+  "audited_at": "2026-10-06T14:51:31.156433+08:00",
+  "attempt": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7",
+  "scope": "Read-only saved evidence; no runner verify/checker replay/service/model calls/repo writes.",
+  "status": "interrupted_unsealed_not_final",
+  "root_snapshot": {
+    "status_counts": {
+      "scored": 56,
+      "running": 2,
+      "not_run": 2
+    },
+    "scored": 56,
+    "task_passes": 49,
+    "scored_expected_checks": 287
+  },
+  "scene_saved_snapshot": {
+    "status_counts": {
+      "scored": 57,
+      "running": 1,
+      "not_run": 2
+    },
+    "scored": 57,
+    "task_passes": 50,
+    "scored_expected_checks": 292
+  },
+  "scene_counts": {
+    "ad34350a": {
+      "status_counts": {
+        "scored": 18,
+        "running": 1,
+        "not_run": 1
+      },
+      "scored": 18,
+      "task_passes": 14,
+      "scored_expected_checks": 89
+    },
+    "ef36e27a": {
+      "status_counts": {
+        "scored": 20
+      },
+      "scored": 20,
+      "task_passes": 20,
+      "scored_expected_checks": 107
+    },
+    "3973d0d6": {
+      "status_counts": {
+        "scored": 19,
+        "not_run": 1
+      },
+      "scored": 19,
+      "task_passes": 16,
+      "scored_expected_checks": 96
+    }
+  },
+  "manifest_status": "running",
+  "manifest_finished_at": null,
+  "suite_seal_exists": false,
+  "identity_canonical_digest_matches_manifest": true,
+  "identity_input_hash_matches": {
+    "plan.json": true,
+    "configuration.json": true,
+    "agent-settings.json": true,
+    "source_hashes.json": true,
+    "source.zip": true,
+    "gateway_preflight.json": true,
+    "server-freeze.txt": true,
+    "controller-freeze.txt": true,
+    "agent4drone-freeze.txt": true
+  },
+  "root_scene_differences": [
+    {
+      "key": [
+        "3973d0d6",
+        "cfc96471"
+      ],
+      "root_record": {
+        "session_id": "3973d0d6",
+        "task_id": "cfc96471",
+        "name": "Fly Several Waypoints",
+        "family": "target_assignment",
+        "difficulty": "medium",
+        "status": "running",
+        "expected_checks": 5,
+        "agent_timed_out": false,
+        "task_pass": null,
+        "continuation_safe": false,
+        "leaves": [
+          {
+            "path": "root.0",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 186.0,
+                "y": 101.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.1",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 443.0,
+                "y": 207.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.2",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 890.0,
+                "y": 278.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.3",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 505.0,
+                "y": 546.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.4",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 290.0,
+                "y": 516.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          }
+        ],
+        "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+        "agent_status": "completed",
+        "agent_success": true,
+        "agent_error": null
+      },
+      "scene_record": {
+        "session_id": "3973d0d6",
+        "task_id": "cfc96471",
+        "name": "Fly Several Waypoints",
+        "family": "target_assignment",
+        "difficulty": "medium",
+        "status": "scored",
+        "expected_checks": 5,
+        "agent_timed_out": false,
+        "task_pass": true,
+        "continuation_safe": true,
+        "leaves": [
+          {
+            "path": "root.0",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 186.0,
+                "y": 101.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          },
+          {
+            "path": "root.1",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 443.0,
+                "y": 207.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          },
+          {
+            "path": "root.2",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 890.0,
+                "y": 278.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          },
+          {
+            "path": "root.3",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 505.0,
+                "y": 546.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          },
+          {
+            "path": "root.4",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 290.0,
+                "y": 516.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          }
+        ],
+        "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+        "agent_status": "completed",
+        "agent_success": true,
+        "agent_error": null,
+        "world_quiescent": true,
+        "passed": true,
+        "token_usage": {
+          "prompt_tokens": 171217,
+          "completion_tokens": 20824,
+          "total_tokens": 192041,
+          "llm_calls": 9
+        },
+        "agent_final_status": "completed",
+        "observed_token_usage": {
+          "prompt_tokens": 171217,
+          "completion_tokens": 20824,
+          "total_tokens": 192041,
+          "cache_hit_tokens": 164224,
+          "cache_miss_tokens": 6993,
+          "calls_with_usage": 9,
+          "calls_with_cache_usage": 9
+        }
+      }
+    }
+  ],
+  "selected_cases": {
+    "ad34350a/23a9d67d": {
+      "saved_scene_record": {
+        "session_id": "ad34350a",
+        "task_id": "23a9d67d",
+        "name": "Extreme Flight Marathon Navigation",
+        "family": "area_assignment_and_patrol",
+        "difficulty": "hard",
+        "status": "running",
+        "expected_checks": 23,
+        "agent_timed_out": null,
+        "task_pass": null,
+        "continuation_safe": false,
+        "leaves": [
+          {
+            "path": "root.0",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 108.0,
+                "y": 68.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.1",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 140.0,
+                "y": 188.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.2",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 910.0,
+                "y": 162.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.3",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 161.0,
+                "y": 262.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.4",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 890.0,
+                "y": 335.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.5",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 200.0,
+                "y": 391.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.6",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 883.0,
+                "y": 425.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.7",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 238.0,
+                "y": 598.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.8",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 822.0,
+                "y": 600.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.9",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 94.0,
+                "y": 705.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.10",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 952.0,
+                "y": 825.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.11",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 163.0,
+                "y": 910.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.12",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 820.0,
+                "y": 898.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.13",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 464.0,
+                "y": 802.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.14",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 961.0,
+                "y": 590.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.15",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 97.0,
+                "y": 554.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.16",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 920.0,
+                "y": 425.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.17",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 91.0,
+                "y": 380.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.18",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 735.0,
+                "y": 91.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.19",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 314.0,
+                "y": 878.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.20",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 658.0,
+                "y": 526.0,
+                "z": 30.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.21",
+            "definition": {
+              "endpoint": "/check/drone_position",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "x": 957.0,
+                "y": 936.0,
+                "z": 0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "not_run",
+            "result": null
+          },
+          {
+            "path": "root.22",
+            "definition": {
+              "endpoint": "/check/drone_on_ground",
+              "parameters": {
+                "drone_id": "233bf2af",
+                "tolerance": 0.5
+              }
+            },
+            "status": "not_run",
+            "result": null
+          }
+        ],
+        "job_id": "4c4de0ed-81d0-4206-82bb-e2b13be18d64"
+      },
+      "existing_evidence": [
+        "before",
+        "window",
+        "job"
+      ],
+      "missing_evidence": [
+        "barrier",
+        "after",
+        "checks",
+        "agent-state",
+        "timeout"
+      ],
+      "window_local": {
+        "opened_at": "2026-10-06T14:25:25.101132+08:00",
+        "cutoff_at": "2026-10-06T14:33:45.101132+08:00"
+      },
+      "consistency_checks_without_checker_replay": {
+        "scene_task_job_id": true
+      },
+      "barrier": null,
+      "worker_summary": {
+        "job_id": null,
+        "worker_finished": null,
+        "busy": null
+      },
+      "job_summary": {
+        "job_id": "4c4de0ed-81d0-4206-82bb-e2b13be18d64",
+        "status": "running",
+        "created_at": "2026-10-06T14:25:25.104405",
+        "completed_at": null,
+        "error": null
+      }
+    },
+    "3973d0d6/cfc96471": {
+      "saved_scene_record": {
+        "session_id": "3973d0d6",
+        "task_id": "cfc96471",
+        "name": "Fly Several Waypoints",
+        "family": "target_assignment",
+        "difficulty": "medium",
+        "status": "scored",
+        "expected_checks": 5,
+        "agent_timed_out": false,
+        "task_pass": true,
+        "continuation_safe": true,
+        "leaves": [
+          {
+            "path": "root.0",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 186.0,
+                "y": 101.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          },
+          {
+            "path": "root.1",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 443.0,
+                "y": 207.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          },
+          {
+            "path": "root.2",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 890.0,
+                "y": 278.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          },
+          {
+            "path": "root.3",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 505.0,
+                "y": 546.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          },
+          {
+            "path": "root.4",
+            "definition": {
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "5ed7d6ab",
+                "x": 290.0,
+                "y": 516.0,
+                "z": 21.0,
+                "tolerance": 3.0
+              }
+            },
+            "status": "scored",
+            "result": true,
+            "actual": true
+          }
+        ],
+        "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+        "agent_status": "completed",
+        "agent_success": true,
+        "agent_error": null,
+        "world_quiescent": true,
+        "passed": true,
+        "token_usage": {
+          "prompt_tokens": 171217,
+          "completion_tokens": 20824,
+          "total_tokens": 192041,
+          "llm_calls": 9
+        },
+        "agent_final_status": "completed",
+        "observed_token_usage": {
+          "prompt_tokens": 171217,
+          "completion_tokens": 20824,
+          "total_tokens": 192041,
+          "cache_hit_tokens": 164224,
+          "cache_miss_tokens": 6993,
+          "calls_with_usage": 9,
+          "calls_with_cache_usage": 9
+        }
+      },
+      "existing_evidence": [
+        "before",
+        "window",
+        "job",
+        "barrier",
+        "after",
+        "checks",
+        "agent-state"
+      ],
+      "missing_evidence": [
+        "timeout"
+      ],
+      "window_local": {
+        "opened_at": "2026-10-06T14:27:20.515866+08:00",
+        "cutoff_at": "2026-10-06T14:35:40.515866+08:00"
+      },
+      "consistency_checks_without_checker_replay": {
+        "scene_task_job_id": true,
+        "lease": true,
+        "cutoff": true,
+        "world_frozen": true,
+        "worker_job_id": true,
+        "worker_exit": true,
+        "worker_job_matches_saved_job": true,
+        "expected_five_checks": true,
+        "saved_leaf_definitions_and_scores": true,
+        "original_check_responses_pass": true
+      },
+      "barrier": {
+        "lease": "aaca004659914b86a6ae8390199314cf",
+        "quiescent": true,
+        "inflight_at_close": 0,
+        "inflight": 0,
+        "accepted_requests": 11,
+        "rejected_requests": 0,
+        "cutoff_at": 1791268540.515866,
+        "closed_at": 1791268130.760202,
+        "frozen_at": 1791268130.760271,
+        "simulation_paused": true
+      },
+      "worker_summary": {
+        "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+        "worker_finished": true,
+        "busy": false
+      },
+      "job_summary": {
+        "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+        "status": "completed",
+        "created_at": "2026-10-06 14:27:20.518918",
+        "completed_at": "2026-10-06 14:28:47.311342",
+        "error": null
+      }
+    }
+  },
+  "actually_unscored_scene_records": [
+    {
+      "session_id": "ad34350a",
+      "task_id": "23a9d67d",
+      "name": "Extreme Flight Marathon Navigation",
+      "status": "running",
+      "expected_checks": 23,
+      "existing_task_files": [
+        "23a9d67d.window.json",
+        "23a9d67d.job.json",
+        "23a9d67d.before.json"
+      ]
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "7e926272",
+      "name": "Dual Drone Patrol",
+      "status": "not_run",
+      "expected_checks": 4,
+      "existing_task_files": []
+    },
+    {
+      "session_id": "3973d0d6",
+      "task_id": "7eba7390",
+      "name": "Target Assignment Task Completion",
+      "status": "not_run",
+      "expected_checks": 1,
+      "existing_task_files": []
+    }
+  ],
+  "locks": {
+    "experiments/runs/.runner.lock": {
+      "content_length": 0,
+      "metadata": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_local": "2026-10-02T15:09:17.672498+08:00"
+      }
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/.attempt.lock": {
+      "content_length": 0,
+      "metadata": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "mtime_local": "2026-10-06T13:44:16.471726+08:00"
+      }
+    }
+  },
+  "last_written_non_runtime_file": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/reproduction-metrics.jsonl",
+  "last_written_non_runtime_mtime": "2026-10-06T14:28:53.888628+08:00",
+  "log_evidence": {
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/server.log": {
+      "shutdown_lines": [
+        {
+          "line": 2202,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:50 - Shutting down"
+        },
+        {
+          "line": 2204,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Application shutdown complete."
+        },
+        {
+          "line": 2205,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Finished server process [\u001b[36m53853\u001b[0m]"
+        }
+      ],
+      "tail": [
+        "\u001b[31mERROR:    \u001b[0m2026-10-06 14:28:31 - COMMAND EXECUTED - Drone: 233bf2af | Command: move_along_path | Params: {'waypoints': [{'x': 161.0, 'y': 480.0, 'z': 30.0}, {'x': 480.0, 'y': 470.0, 'z': 30.0}, {'x': 890.0, 'y': 335.0, 'z': 30.0}], 'allow_partial_move': False} | Result: ERROR | Session: ad34350a | Error: Path to waypoint 2 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Circle Obstacle 37'",
+        "\u001b[32mINFO:     \u001b[0m2026-10-06 14:28:31 - 127.0.0.1 POST /drones/233bf2af/command/move_along_path 200 - 19ms - Role: agent",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:50 - Shutting down",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Waiting for application shutdown.",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Application shutdown complete.",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Finished server process [\u001b[36m53853\u001b[0m]"
+      ]
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent.log": {
+      "shutdown_lines": [
+        {
+          "line": 3342,
+          "text": "INFO:     Shutting down"
+        },
+        {
+          "line": 3343,
+          "text": "INFO:     Waiting for background tasks to complete. (CTRL+C to force quit)"
+        }
+      ],
+      "tail": [
+        "2026-10-06 14:28:51,703 [INFO] httpx2: HTTP Request: POST https://api.deepseek.com/chat/completions \"HTTP/1.1 200 OK\"",
+        "2026-10-06 14:28:52,930 [INFO] uav_agent: Provider LLM call completed command_id=b79e52ae-5076-4cd6-99d1-4b0c49e26442 provider=openai-compatible model=deepseek-flash prompt_tokens=151282 completion_tokens=271 total_tokens=151553 llm_calls=1",
+        "2026-10-06 14:28:52,931 [INFO] uav_api_client: MultiUAV-Plat request method=POST endpoint=/drones/233bf2af/command/move_along_path params=null json={\"allow_partial_move\": false, \"waypoints\": [{\"x\": 161.0, \"y\": 510.0, \"z\": 30.0}, {\"x\": 480.0, \"y\": 510.0, \"z\": 30.0}, {\"x\": 480.0, \"y\": 450.0, \"z\": 30.0}, {\"x\": 640.0, \"y\": 450.0, \"z\": 30.0}, {\"x\": 640.0, \"y\": 420.0, \"z\": 30.0}, {\"x\": 740.0, \"y\": 420.0, \"z\": 30.0}, {\"x\": 890.0, \"y\": 335.0, \"z\": 30.0}]} data=null",
+        "2026-10-06 14:28:53,416 [INFO] httpx2: HTTP Request: POST https://api.deepseek.com/chat/completions \"HTTP/1.1 200 OK\"",
+        "2026-10-06 14:28:53,877 [INFO] uav_agent: Provider LLM call completed command_id=b79e52ae-5076-4cd6-99d1-4b0c49e26442 provider=openai-compatible model=deepseek-flash prompt_tokens=151657 completion_tokens=61 total_tokens=151718 llm_calls=1",
+        "2026-10-06 14:28:53,879 [INFO] uav_api_client: MultiUAV-Plat request method=GET endpoint=/drones params=null json=null data=null"
+      ]
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/server.log": {
+      "shutdown_lines": [
+        {
+          "line": 1468,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:04:01 - Shutting down"
+        },
+        {
+          "line": 1470,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:04:01 - Application shutdown complete."
+        },
+        {
+          "line": 1471,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:04:01 - Finished server process [\u001b[36m53891\u001b[0m]"
+        }
+      ],
+      "tail": [
+        "\u001b[32mINFO:     \u001b[0m2026-10-06 14:04:00 - 127.0.0.1 GET /check/task_progress?expected_progress=0.95&session_id=ef36e27a 200 - 1ms - Role: admin",
+        "\u001b[32mINFO:     \u001b[0m2026-10-06 14:04:00 - 127.0.0.1 POST /sessions/ef36e27a/tasks/69b0a271/mark-done 200 - 1ms - Role: admin",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:04:01 - Shutting down",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:04:01 - Waiting for application shutdown.",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:04:01 - Application shutdown complete.",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:04:01 - Finished server process [\u001b[36m53891\u001b[0m]"
+      ]
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent.log": {
+      "shutdown_lines": [
+        {
+          "line": 1988,
+          "text": "INFO:     Shutting down"
+        },
+        {
+          "line": 1991,
+          "text": "INFO:     Application shutdown complete."
+        },
+        {
+          "line": 1992,
+          "text": "INFO:     Finished server process [53898]"
+        }
+      ],
+      "tail": [
+        "INFO:     127.0.0.1:60819 - \"GET /_reproduction/jobs/331b82ba-119d-4084-b3a1-b3a230916266/state HTTP/1.1\" 200 OK",
+        "INFO:     Shutting down",
+        "INFO:     Waiting for application shutdown.",
+        "2026-10-06 14:04:01,634 [INFO] agent_api_service: UAV Agent Server shutting down.",
+        "INFO:     Application shutdown complete.",
+        "INFO:     Finished server process [53898]"
+      ]
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/server.log": {
+      "shutdown_lines": [
+        {
+          "line": 1809,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:50 - Shutting down"
+        },
+        {
+          "line": 1811,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Application shutdown complete."
+        },
+        {
+          "line": 1812,
+          "text": "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Finished server process [\u001b[36m59682\u001b[0m]"
+        }
+      ],
+      "tail": [
+        "\u001b[32mINFO:     \u001b[0m2026-10-06 14:28:50 - 127.0.0.1 GET /check/drone_has_visited_position?drone_id=5ed7d6ab&x=290.0&y=516.0&z=21.0&tolerance=3.0&session_id=3973d0d6 200 - 1ms - Role: admin",
+        "\u001b[32mINFO:     \u001b[0m2026-10-06 14:28:50 - 127.0.0.1 POST /sessions/3973d0d6/tasks/cfc96471/mark-done 200 - 1ms - Role: admin",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:50 - Shutting down",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Waiting for application shutdown.",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Application shutdown complete.",
+        "\u001b[32mINFO\u001b[0m:     2026-10-06 14:28:51 - Finished server process [\u001b[36m59682\u001b[0m]"
+      ]
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent.log": {
+      "shutdown_lines": [
+        {
+          "line": 2439,
+          "text": "INFO:     Shutting down"
+        },
+        {
+          "line": 2442,
+          "text": "INFO:     Application shutdown complete."
+        },
+        {
+          "line": 2443,
+          "text": "INFO:     Finished server process [59689]"
+        }
+      ],
+      "tail": [
+        "INFO:     127.0.0.1:49814 - \"GET /_reproduction/jobs/43e6e4bd-2d67-40bb-b368-2a11986a6bdd/state HTTP/1.1\" 200 OK",
+        "INFO:     Shutting down",
+        "INFO:     Waiting for application shutdown.",
+        "2026-10-06 14:28:51,089 [INFO] agent_api_service: UAV Agent Server shutting down.",
+        "INFO:     Application shutdown complete.",
+        "INFO:     Finished server process [59689]"
+      ]
+    }
+  },
+  "metrics_evidence": {
+    "ad34350a": {
+      "provider_error_events_observed": 0,
+      "provider_error_events": [],
+      "last_timestamp_local": "2026-10-06T14:28:53.888582+08:00",
+      "selected_jobs": {
+        "4c4de0ed-81d0-4206-82bb-e2b13be18d64": {
+          "event_counts": {
+            "job_start": 1,
+            "llm_start": 18,
+            "http_start": 18,
+            "http_end": 17,
+            "llm_end": 17
+          },
+          "last_events": [
+            {
+              "schema_version": 1,
+              "event": "http_start",
+              "timestamp": 1791268132.93949,
+              "job_id": "4c4de0ed-81d0-4206-82bb-e2b13be18d64",
+              "run_id": "01a10fe6-9845-7952-9e04-8096462617cd",
+              "request_id": "2da8bf15cdba490db269c1ce69a412ab",
+              "retry_index": 0
+            },
+            {
+              "schema_version": 1,
+              "event": "http_end",
+              "timestamp": 1791268133.877271,
+              "job_id": "4c4de0ed-81d0-4206-82bb-e2b13be18d64",
+              "run_id": "01a10fe6-9845-7952-9e04-8096462617cd",
+              "request_id": "2da8bf15cdba490db269c1ce69a412ab",
+              "retry_index": 0,
+              "duration_seconds": 0.9376250830009667,
+              "status_code": 200,
+              "usage": {
+                "prompt_tokens": 151657,
+                "completion_tokens": 61,
+                "total_tokens": 151718,
+                "cache_hit_tokens": 151424,
+                "cache_miss_tokens": 233
+              }
+            },
+            {
+              "schema_version": 1,
+              "event": "llm_end",
+              "timestamp": 1791268133.8777878,
+              "run_id": "01a10fe6-9845-7952-9e04-8096462617cd",
+              "job_id": "4c4de0ed-81d0-4206-82bb-e2b13be18d64",
+              "command_id": "b79e52ae-5076-4cd6-99d1-4b0c49e26442",
+              "provider": "openai-compatible",
+              "model": "deepseek-flash",
+              "duration_seconds": 0.9446818329997768,
+              "usage": {
+                "prompt_tokens": 151657,
+                "completion_tokens": 61,
+                "total_tokens": 151718,
+                "cache_hit_tokens": 151424,
+                "cache_miss_tokens": 233
+              }
+            },
+            {
+              "schema_version": 1,
+              "event": "llm_start",
+              "timestamp": 1791268133.882005,
+              "run_id": "01a10fe6-9bf9-7f73-94c9-600817edc0d9",
+              "job_id": "4c4de0ed-81d0-4206-82bb-e2b13be18d64",
+              "command_id": "b79e52ae-5076-4cd6-99d1-4b0c49e26442",
+              "provider": "openai-compatible",
+              "model": "deepseek-flash"
+            },
+            {
+              "schema_version": 1,
+              "event": "http_start",
+              "timestamp": 1791268133.888582,
+              "job_id": "4c4de0ed-81d0-4206-82bb-e2b13be18d64",
+              "run_id": "01a10fe6-9bf9-7f73-94c9-600817edc0d9",
+              "request_id": "a6cd6e5e203245289abb6c5d0eebcebd",
+              "retry_index": 0
+            }
+          ]
+        }
+      }
+    },
+    "ef36e27a": {
+      "provider_error_events_observed": 0,
+      "provider_error_events": [],
+      "last_timestamp_local": "2026-10-06T14:03:55.416384+08:00",
+      "selected_jobs": {}
+    },
+    "3973d0d6": {
+      "provider_error_events_observed": 0,
+      "provider_error_events": [],
+      "last_timestamp_local": "2026-10-06T14:28:47.311364+08:00",
+      "selected_jobs": {
+        "43e6e4bd-2d67-40bb-b368-2a11986a6bdd": {
+          "event_counts": {
+            "job_start": 1,
+            "llm_start": 9,
+            "http_start": 9,
+            "http_end": 9,
+            "llm_end": 9,
+            "job_end": 1
+          },
+          "last_events": [
+            {
+              "schema_version": 1,
+              "event": "llm_start",
+              "timestamp": 1791268124.958532,
+              "run_id": "01a10fe6-791e-7e81-8af0-346bee19907d",
+              "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+              "command_id": "0c3112e9-b0b8-473a-b080-d177ebf99ea3",
+              "provider": "openai-compatible",
+              "model": "deepseek-flash"
+            },
+            {
+              "schema_version": 1,
+              "event": "http_start",
+              "timestamp": 1791268124.9665742,
+              "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+              "run_id": "01a10fe6-791e-7e81-8af0-346bee19907d",
+              "request_id": "21cecfc6876442eda3016f17e0ce92dc",
+              "retry_index": 0
+            },
+            {
+              "schema_version": 1,
+              "event": "http_end",
+              "timestamp": 1791268127.29895,
+              "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+              "run_id": "01a10fe6-791e-7e81-8af0-346bee19907d",
+              "request_id": "21cecfc6876442eda3016f17e0ce92dc",
+              "retry_index": 0,
+              "duration_seconds": 2.3319302500003687,
+              "status_code": 200,
+              "usage": {
+                "prompt_tokens": 36437,
+                "completion_tokens": 406,
+                "total_tokens": 36843,
+                "cache_hit_tokens": 36096,
+                "cache_miss_tokens": 341
+              }
+            },
+            {
+              "schema_version": 1,
+              "event": "llm_end",
+              "timestamp": 1791268127.30272,
+              "run_id": "01a10fe6-791e-7e81-8af0-346bee19907d",
+              "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+              "command_id": "0c3112e9-b0b8-473a-b080-d177ebf99ea3",
+              "provider": "openai-compatible",
+              "model": "deepseek-flash",
+              "duration_seconds": 2.344150916998842,
+              "usage": {
+                "prompt_tokens": 36437,
+                "completion_tokens": 406,
+                "total_tokens": 36843,
+                "cache_hit_tokens": 36096,
+                "cache_miss_tokens": 341
+              }
+            },
+            {
+              "schema_version": 1,
+              "event": "job_end",
+              "timestamp": 1791268127.3113642,
+              "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+              "duration_seconds": 86.79088224999941
+            }
+          ]
+        }
+      }
+    }
+  },
+  "process_observation": {
+    "parent_report": "Root independently confirmed runner and registered PIDs 53849/53874/59679/59686 absent; exec72912 Unknown process.",
+    "this_auditor": "ps denied by current sandbox; no independent process-table claim. lsof emitted no holders, not treated alone as proof."
+  },
+  "confirmed_findings_cn": [
+    "根快照56计分49通过；原场景文件57计分50通过，只差cfc96471一题；不是重新计分。",
+    "cfc96471原5个checker响应、scored场景记录、相同job、worker退出、lease/cutoff与冻结世界证据相符；场景仍未封存。",
+    "23a9d67d缺after/barrier/checks/agent-state，不能判成功或失败；其14:33:45截止时间晚于14:28:50服务关闭。",
+    "其余7e926272与7eba7390无task前缀文件，未执行。",
+    "两个活动server均于14:28:50开始shutdown；最后Agent遥测14:28:53.888582仍是DeepSeek请求开始，此前响应200。",
+    "三个场景已保存provider遥测无error事件或HTTP>=400；命令遇障碍错误不能当提供商/服务停机原因。",
+    "两个锁文件均空，无PID/退出原因元数据；mtime不是运行心跳。",
+    "suite-seal缺失，manifest/invocation无finished_at，不能宣称完整60题最终成绩。"
+  ],
+  "root_cause_boundary_cn": [
+    "可证明服务共同进入关闭流程；未保存信号发送者、runner退出码或异常回溯，不能确定杀进程、外部环境回收、用户停止、OOM或服务自身故障。",
+    "冻结supervisor源码支持父管道关闭后发SIGTERM、3秒后强制清理；runner退出/父管道关闭与日志一致，但具体触发分支没有日志，不可断言。",
+    "不得将未评分/未执行三题补零为模型规划失败；第57题可单列为未封存但原判和worker证据完整的已保存结果。"
+  ],
+  "input_evidence": {
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/manifest.json": {
+      "sha256": "e7b028ee03df12d46a4f263e39f1c8f4d052006d0ed1d7dd02af5722f86a63ef",
+      "bytes": 2709,
+      "mtime_local": "2026-10-06T14:28:50.766292+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/summary.json": {
+      "sha256": "4939465606506f6ee3f4e4e7b0145ba11824d15739d9d340453c6088ae048e50",
+      "bytes": 245,
+      "mtime_local": "2026-10-06T14:28:50.766751+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/results.json": {
+      "sha256": "a20f73e5302877fdf79d83ac342603f6e460af67ebcdfbefde77e7b3846e302a",
+      "bytes": 168641,
+      "mtime_local": "2026-10-06T14:28:50.765787+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/identity.json": {
+      "sha256": "dfbfa367eaab8b62f5ae391229fc77294146e62a10e603cc8e95c68009efd0c7",
+      "bytes": 914,
+      "mtime_local": "2026-10-06T13:44:16.458430+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/plan.json": {
+      "sha256": "42e3a7b328fc8ca39b83fbf76be44d100c1ee0dd27cc94395f0bdb316be99d8e",
+      "bytes": 131146,
+      "mtime_local": "2026-10-06T13:44:16.220524+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/configuration.json": {
+      "sha256": "3079382123a5a44a3eab9f9767cc91bee8c3fdd267e53dba4f9bf4364a10d5e9",
+      "bytes": 497,
+      "mtime_local": "2026-10-06T13:44:16.221119+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/agent-settings.json": {
+      "sha256": "3b1bff5649e29a489ea42d1e71d9ff60057a43e81c54a4044dbdf360f3cc1157",
+      "bytes": 487,
+      "mtime_local": "2026-10-06T13:44:16.221347+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/source_hashes.json": {
+      "sha256": "2b74c11ddf439a91fcca5fdc995b79dfa14ac6f0b156cce6ca2d7b30cd356af6",
+      "bytes": 15100,
+      "mtime_local": "2026-10-06T13:44:16.279345+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/source.zip": {
+      "sha256": "f811f7926353d2ae897ca26ff4b2b59a7272c9af057bc578a1abe1fe7e466863",
+      "bytes": 677620,
+      "mtime_local": "2026-10-06T13:44:16.278994+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/gateway_preflight.json": {
+      "sha256": "db94aff3f68f168a56c5c6fa60cb6aa7244e801ff418f7b709b1f2d24800b130",
+      "bytes": 5087,
+      "mtime_local": "2026-10-06T13:44:16.221635+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/server-freeze.txt": {
+      "sha256": "63e4bede0f8d49b7f9336f3a446e0102e1833537ebe524b77e90923a57b86396",
+      "bytes": 395,
+      "mtime_local": "2026-10-06T13:44:16.312486+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/controller-freeze.txt": {
+      "sha256": "7d0330dee2b5e2ebc4781372c2f4840909ba1e724f9da48d2aae61114a7fbd29",
+      "bytes": 180,
+      "mtime_local": "2026-10-06T13:44:16.344652+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/agent4drone-freeze.txt": {
+      "sha256": "a0325ce0dad9e85ea98784b97205e9bd7d3645b5fe03786cc573e5c67de9f4a1",
+      "bytes": 1213,
+      "mtime_local": "2026-10-06T13:44:16.376787+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/results.json": {
+      "sha256": "ed4d345cc9b158212e9e0369119a43ad25efc7f96698f5eac47d574f15afc4c7",
+      "bytes": 59474,
+      "mtime_local": "2026-10-06T14:25:25.106757+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/results.json": {
+      "sha256": "a7ade071bae6f66822c0ad2ec689156db07bb35870cf97f3bb1d673d1c1c5067",
+      "bytes": 56548,
+      "mtime_local": "2026-10-06T14:04:02.158345+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/results.json": {
+      "sha256": "93b5d73e68a5f35979a53585c3dfd8fd1ba6b99c9b537cf81e6ea5c909855c1f",
+      "bytes": 53232,
+      "mtime_local": "2026-10-06T14:28:50.826027+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/23a9d67d.before.json": {
+      "sha256": "77ddf60d1961599784cd2131811d91f7606f7f71035fdb61077fe404524441a8",
+      "bytes": 8266144,
+      "mtime_local": "2026-10-06T14:25:25.082177+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/23a9d67d.window.json": {
+      "sha256": "df3513eb1835d8fee13813e326cc4e64c302f6490c552ec8cbaa61f1091905b5",
+      "bytes": 118,
+      "mtime_local": "2026-10-06T14:25:25.102383+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/23a9d67d.job.json": {
+      "sha256": "a0c86e0915b4bc711ef797a4555b9cc673a621e5311441118989c4a62d34a2c6",
+      "bytes": 813,
+      "mtime_local": "2026-10-06T14:28:50.487171+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.before.json": {
+      "sha256": "6d6ed6f8cb4d8e7c3fb23c2dbfa87828198cb132fc89a0d03def09abaac9888c",
+      "bytes": 426992,
+      "mtime_local": "2026-10-06T14:27:20.503339+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.window.json": {
+      "sha256": "666238d883f9d19498eba7508891a0e784083e0feac7afff9d9968706a47e4fe",
+      "bytes": 118,
+      "mtime_local": "2026-10-06T14:27:20.517157+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.job.json": {
+      "sha256": "4aa98b9e128dc165b4a16dfe798cec5e83e69dd6294bb40caf35a0ef3e08a4b4",
+      "bytes": 28721,
+      "mtime_local": "2026-10-06T14:28:50.812841+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.barrier.json": {
+      "sha256": "1182dfaab8e55377e15ae18807be52c4c5eb654042662f4dab11d6290140a5ec",
+      "bytes": 298,
+      "mtime_local": "2026-10-06T14:28:50.761410+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.after.json": {
+      "sha256": "ecd2d2dd6fb13603498a57f50e1bfc7d7a6d93d07a7fdbc827f88eee42ce2729",
+      "bytes": 430938,
+      "mtime_local": "2026-10-06T14:28:50.797324+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.checks.json": {
+      "sha256": "ad9c3428ef4b4940185b50814863872c1e3634d00e73f9bc4f84576a353c7a29",
+      "bytes": 3194,
+      "mtime_local": "2026-10-06T14:28:50.804745+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/cfc96471.agent-state.json": {
+      "sha256": "c01b7ba7a2521bb2f83753e7ef17b522c20070eea4c607ab17b75419de969703",
+      "bytes": 40048,
+      "mtime_local": "2026-10-06T14:28:50.812253+08:00"
+    },
+    "experiments/runs/.runner.lock": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_local": "2026-10-02T15:09:17.672498+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/.attempt.lock": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_local": "2026-10-06T13:44:16.471726+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/server.log": {
+      "sha256": "7e3762ee869c0cc81c7cf47e438f05df6f747899cc74cb1ee52507dc3387837b",
+      "bytes": 337808,
+      "mtime_local": "2026-10-06T14:28:51.054429+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent.log": {
+      "sha256": "c574b655258894d0816966a1e2c2ffa00d7e655a0a7851bb31ac26a34f9be894",
+      "bytes": 659657,
+      "mtime_local": "2026-10-06T14:28:53.879258+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/server-traces/20261006134417-1e0bc077/error.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_local": "2026-10-06T13:44:17.149976+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/agent-traces/reproduction-metrics.jsonl": {
+      "sha256": "a9368bad7575c1650b677c456a61398aa12d601210c195ad201240d6af6f2487",
+      "bytes": 490862,
+      "mtime_local": "2026-10-06T14:28:53.888628+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a/scene.json": {
+      "sha256": "3a43d1130529c9f4f68237e9ba95c65191044c83e0864b80cc69da0f26f24998",
+      "bytes": 362,
+      "mtime_local": "2026-10-06T14:25:25.107129+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/server.log": {
+      "sha256": "a75c13f406aa468a0c2de4b24786b64c003a4d1feaee32c10952c78d5c4e0e87",
+      "bytes": 213343,
+      "mtime_local": "2026-10-06T14:04:01.914872+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent.log": {
+      "sha256": "a517e84b82ed43a5231c11dcc4070718a79d0f7a3e7de3153ef8b6d8a4fb481d",
+      "bytes": 414405,
+      "mtime_local": "2026-10-06T14:04:01.634581+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/server-traces/20261006134419-4fb55d0d/error.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_local": "2026-10-06T13:44:19.031150+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/agent-traces/reproduction-metrics.jsonl": {
+      "sha256": "17c195607c832cbaa75b6732d4009f6bb03b0c52a61f14c983b1b5cbe79436fa",
+      "bytes": 311356,
+      "mtime_local": "2026-10-06T14:03:55.416467+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a/scene.json": {
+      "sha256": "0dd6c22977af4a323d04a1ca19c842265cf40b57f7562f87457ccd7f80ed3349",
+      "bytes": 409,
+      "mtime_local": "2026-10-06T14:04:02.158647+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/server.log": {
+      "sha256": "bc6033fe7ca10246098b17aa21b919e8f70b1100e91c5562c9a68cfd6f69c4eb",
+      "bytes": 254345,
+      "mtime_local": "2026-10-06T14:28:51.089251+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent.log": {
+      "sha256": "0236d31f667a14d3d37188ad81c27064734eefd9a4f46d4d4320640f76fa0614",
+      "bytes": 485897,
+      "mtime_local": "2026-10-06T14:28:51.089375+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/server-traces/20261006140403-10e4a64c/error.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_local": "2026-10-06T14:04:03.299728+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/agent-traces/reproduction-metrics.jsonl": {
+      "sha256": "e1ca378f2c2e5e890585f89f4c9b00c3ca7407c5eecb12fe0259bcb4e4828295",
+      "bytes": 334192,
+      "mtime_local": "2026-10-06T14:28:47.311486+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/scene.json": {
+      "sha256": "03d1c0ab749f98007b28c55ca91433055cb21b300a449b5f785660457783ff6c",
+      "bytes": 362,
+      "mtime_local": "2026-10-06T14:28:50.826428+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/runtime/scripts/reproduction_process.py": {
+      "sha256": "2c5a164f8da939c73e1a5f18edd256d7f217722c19556dfc72e1b6e29a7ca493",
+      "bytes": 5577,
+      "mtime_local": "2026-10-06T13:44:16.389978+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/runtime/scripts/reproduction_parallel.py": {
+      "sha256": "b7366e5e64d51303a4267efc8502ea2a1de22ad6ffc00cdf3d0f1022dba29dc8",
+      "bytes": 38739,
+      "mtime_local": "2026-10-06T13:44:16.389862+08:00"
+    },
+    "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/runtime/scripts/b1_remedies_pilot.py": {
+      "sha256": "d892977039a8e8b270477fbc9dc491d00231f53d536e63859a2ad490af7dd3a2",
+      "bytes": 15440,
+      "mtime_local": "2026-10-06T13:44:16.389122+08:00"
+    }
+  },
+  "independent_root_process_observation": {
+    "observed_at": "2026-10-06T14:59:43.030867+08:00",
+    "method": "ps -axo pid,ppid,pgid,lstart,state,command; exact attempt/script and registered PID/PGID filter; own probe excluded",
+    "registered_pids": [
+      53849,
+      53874,
+      59679,
+      59686
+    ],
+    "matching_processes": [],
+    "prior_exec_session_observation": "72912 returned Unknown process id at 14:46 on 2026-10-06",
+    "actions": "read-only; no signals, restarts, lock writes or services"
+  }
+}

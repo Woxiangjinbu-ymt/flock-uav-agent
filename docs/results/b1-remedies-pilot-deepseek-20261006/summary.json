@@ -1,0 +1,1420 @@
+{
+  "schema": 1,
+  "attempt": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7",
+  "mode": "provisional_diagnostics",
+  "is_final": false,
+  "manifest_status": "running",
+  "agent_commit": "cb80fde8269a09795782a6ef046d04c381b3f3c9",
+  "verification": {
+    "completed": false,
+    "status": "not_attempted",
+    "error": null
+  },
+  "snapshot_reconciliation": {
+    "root_snapshot": {
+      "scored_tasks": 56,
+      "passed_tasks": 49
+    },
+    "additional_saved_scores": [
+      {
+        "scene_id": "3973d0d6",
+        "task_id": "cfc96471",
+        "job_id": "43e6e4bd-2d67-40bb-b368-2a11986a6bdd",
+        "root_status": "running",
+        "scene_status": "scored",
+        "task_pass": true,
+        "source": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/3973d0d6/results.json"
+      }
+    ],
+    "note": "Only previously saved generation-1 scores; no live re-scoring or run recovery. Saved-response verification is recorded separately; still unsealed diagnostics."
+  },
+  "planned_tasks_per_method": 60,
+  "methods": {
+    "b0": {
+      "planned_tasks": 60,
+      "status_counts": {
+        "scored": 60
+      },
+      "valid_scored_tasks": 60,
+      "task_passes": 47,
+      "final_task_pass_rate": 0.7833333333333333,
+      "observed_scored_pass_fraction": 0.7833333333333333,
+      "deployment_passes": 47,
+      "worker_confirmed_tasks": 60,
+      "timed_out_tasks": 0,
+      "provider_error_tasks": 0,
+      "agent_self_successes": 59,
+      "false_completions": 12,
+      "external_pass_self_not_success": 0,
+      "checks_passed": 293,
+      "scored_checks": 320,
+      "window_seconds": {
+        "observed_tasks": 60,
+        "sum": 6664.802566289902,
+        "median": 73.77718591690063
+      },
+      "usage": {
+        "observed_tasks": 60,
+        "total_tokens": 43452517,
+        "calls_with_usage": 762,
+        "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+      }
+    },
+    "b1": {
+      "planned_tasks": 60,
+      "status_counts": {
+        "scored": 57,
+        "running": 1,
+        "not_run": 2
+      },
+      "valid_scored_tasks": 57,
+      "task_passes": 50,
+      "final_task_pass_rate": null,
+      "observed_scored_pass_fraction": 0.8771929824561403,
+      "deployment_passes": 50,
+      "worker_confirmed_tasks": 57,
+      "timed_out_tasks": 1,
+      "provider_error_tasks": 0,
+      "agent_self_successes": 56,
+      "false_completions": 6,
+      "external_pass_self_not_success": 0,
+      "checks_passed": 278,
+      "scored_checks": 292,
+      "window_seconds": {
+        "observed_tasks": 57,
+        "sum": 4811.655777215958,
+        "median": 45.164111852645874
+      },
+      "usage": {
+        "observed_tasks": 57,
+        "total_tokens": 48948005,
+        "calls_with_usage": 759,
+        "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+      }
+    }
+  },
+  "paired_outcomes": {
+    "both_pass": 44,
+    "both_fail": 6,
+    "regression": 1,
+    "new_pass": 6,
+    "unscored_or_invalid": 3
+  },
+  "baseline_source": {
+    "attempt": "experiments/runs/20261003-143255-full-5c501118",
+    "agent_commit": "1794e45e421fb5de03094f0b63f9ca95f86ab42f",
+    "provider": "deepseek_official",
+    "model": "deepseek-flash",
+    "date": "2026-10-03",
+    "attempt_started_at": "2026-10-03T14:32:55+0800",
+    "selected_jobs_first_created_at": "2026-10-03 14:49:09.321990",
+    "selected_jobs_last_created_at": "2026-10-03 18:17:05.059886",
+    "workers": 8,
+    "cohort": "first_attempt_no_replay",
+    "generation": 1,
+    "ledger": "docs/results/baseline-deployment-20261005/tasks.json",
+    "historical_plan": "experiments/runs/20261003-143255-full-5c501118/plan.json",
+    "scene_order_source": "experiments/runs/20261006-115922-harness-pilot-3f71f966/plan.json#/plans/pilot"
+  },
+  "limitations": [
+    "Historical B0 used 8 workers on 2026-10-03; this run uses 2 workers.",
+    "Same API model ID does not fix provider weights or sampling across dates.",
+    "Scene state and memory carry forward within each original task sequence.",
+    "Three scenes are not sixty independent samples; targeted distance failure examples are outside this set.",
+    "本次比较 cb80fde 整包版本与历史原版 B0，差异同时包含早期 B1 导航契约修改和本轮定向补救；不能单独归因新增工具/提示，也不是早期 B1 到本轮补救的消融实验。"
+  ],
+  "measurement_notes": [
+    "Primary task score is the original external checker, not agent_success.",
+    "Both methods use agent_success at scoring time (B0 first-attempt ledger; B1 saved results row), never a later worker result.",
+    "Unscored/invalid tasks remain listed in the fixed 60 denominator; no final rate is issued for incomplete/unverified runs.",
+    "Window duration is barrier.frozen_at minus window.opened_at; it excludes preparation and later worker-exit wait.",
+    "Observed tokens use scene performance by_job when any numeric token field exists; otherwise saved observed usage. Partial observations keep missing fields null without mixing sources or inferring totals; no costs are inferred."
+  ],
+  "by_scene_id": {
+    "ad34350a": {
+      "b0": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 20
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 12,
+        "final_task_pass_rate": 0.6,
+        "observed_scored_pass_fraction": 0.6,
+        "deployment_passes": 12,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 19,
+        "false_completions": 7,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 94,
+        "scored_checks": 116,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 3965.0190074443817,
+          "median": 172.0714955329895
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 29035579,
+          "calls_with_usage": 314,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 18,
+          "running": 1,
+          "not_run": 1
+        },
+        "valid_scored_tasks": 18,
+        "task_passes": 14,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.7777777777777778,
+        "deployment_passes": 14,
+        "worker_confirmed_tasks": 18,
+        "timed_out_tasks": 1,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 17,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 78,
+        "scored_checks": 89,
+        "window_seconds": {
+          "observed_tasks": 18,
+          "sum": 2354.5541849136353,
+          "median": 77.72477447986603
+        },
+        "usage": {
+          "observed_tasks": 18,
+          "total_tokens": 30764732,
+          "calls_with_usage": 319,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 10,
+        "both_fail": 3,
+        "regression": 1,
+        "new_pass": 4,
+        "unscored_or_invalid": 2
+      }
+    },
+    "ef36e27a": {
+      "b0": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 20
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 18,
+        "final_task_pass_rate": 0.9,
+        "observed_scored_pass_fraction": 0.9,
+        "deployment_passes": 18,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 20,
+        "false_completions": 2,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 105,
+        "scored_checks": 107,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 1518.7763235569,
+          "median": 65.97048902511597
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 8517215,
+          "calls_with_usage": 220,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 20
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 20,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 20,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 20,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 107,
+        "scored_checks": 107,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 1068.125010251999,
+          "median": 27.587764978408813
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 8078680,
+          "calls_with_usage": 212,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 18,
+        "new_pass": 2
+      }
+    },
+    "3973d0d6": {
+      "b0": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 20
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 17,
+        "final_task_pass_rate": 0.85,
+        "observed_scored_pass_fraction": 0.85,
+        "deployment_passes": 17,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 20,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 94,
+        "scored_checks": 97,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 1181.00723528862,
+          "median": 50.65348947048187
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 5899723,
+          "calls_with_usage": 228,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 19,
+          "not_run": 1
+        },
+        "valid_scored_tasks": 19,
+        "task_passes": 16,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.8421052631578947,
+        "deployment_passes": 16,
+        "worker_confirmed_tasks": 19,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 19,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 93,
+        "scored_checks": 96,
+        "window_seconds": {
+          "observed_tasks": 19,
+          "sum": 1388.9765820503235,
+          "median": 35.14393424987793
+        },
+        "usage": {
+          "observed_tasks": 19,
+          "total_tokens": 10104593,
+          "calls_with_usage": 228,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 16,
+        "both_fail": 3,
+        "unscored_or_invalid": 1
+      }
+    }
+  },
+  "by_category": {
+    "Basic Operations": {
+      "b0": {
+        "planned_tasks": 3,
+        "status_counts": {
+          "scored": 3
+        },
+        "valid_scored_tasks": 3,
+        "task_passes": 3,
+        "final_task_pass_rate": 1.0,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 3,
+        "worker_confirmed_tasks": 3,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 3,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 6,
+        "scored_checks": 6,
+        "window_seconds": {
+          "observed_tasks": 3,
+          "sum": 30.638452529907227,
+          "median": 10.110280752182007
+        },
+        "usage": {
+          "observed_tasks": 3,
+          "total_tokens": 193223,
+          "calls_with_usage": 18,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 3,
+        "status_counts": {
+          "scored": 3
+        },
+        "valid_scored_tasks": 3,
+        "task_passes": 3,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 3,
+        "worker_confirmed_tasks": 3,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 3,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 6,
+        "scored_checks": 6,
+        "window_seconds": {
+          "observed_tasks": 3,
+          "sum": 30.162458658218384,
+          "median": 10.054526805877686
+        },
+        "usage": {
+          "observed_tasks": 3,
+          "total_tokens": 254474,
+          "calls_with_usage": 21,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 3
+      }
+    },
+    "Navigation": {
+      "b0": {
+        "planned_tasks": 13,
+        "status_counts": {
+          "scored": 13
+        },
+        "valid_scored_tasks": 13,
+        "task_passes": 8,
+        "final_task_pass_rate": 0.6153846153846154,
+        "observed_scored_pass_fraction": 0.6153846153846154,
+        "deployment_passes": 8,
+        "worker_confirmed_tasks": 13,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 13,
+        "false_completions": 5,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 82,
+        "scored_checks": 91,
+        "window_seconds": {
+          "observed_tasks": 13,
+          "sum": 1771.1877303123474,
+          "median": 92.35852098464966
+        },
+        "usage": {
+          "observed_tasks": 13,
+          "total_tokens": 11570099,
+          "calls_with_usage": 210,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 13,
+        "status_counts": {
+          "scored": 12,
+          "running": 1
+        },
+        "valid_scored_tasks": 12,
+        "task_passes": 9,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.75,
+        "deployment_passes": 9,
+        "worker_confirmed_tasks": 12,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 12,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 64,
+        "scored_checks": 68,
+        "window_seconds": {
+          "observed_tasks": 12,
+          "sum": 1143.3625135421753,
+          "median": 90.26591658592224
+        },
+        "usage": {
+          "observed_tasks": 12,
+          "total_tokens": 7292089,
+          "calls_with_usage": 175,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 8,
+        "both_fail": 3,
+        "unscored_or_invalid": 1,
+        "new_pass": 1
+      }
+    },
+    "Search": {
+      "b0": {
+        "planned_tasks": 19,
+        "status_counts": {
+          "scored": 19
+        },
+        "valid_scored_tasks": 19,
+        "task_passes": 16,
+        "final_task_pass_rate": 0.8421052631578947,
+        "observed_scored_pass_fraction": 0.8421052631578947,
+        "deployment_passes": 16,
+        "worker_confirmed_tasks": 19,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 18,
+        "false_completions": 2,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 48,
+        "scored_checks": 57,
+        "window_seconds": {
+          "observed_tasks": 19,
+          "sum": 1763.9430375099182,
+          "median": 65.38439679145813
+        },
+        "usage": {
+          "observed_tasks": 19,
+          "total_tokens": 14329155,
+          "calls_with_usage": 225,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 19,
+        "status_counts": {
+          "scored": 19
+        },
+        "valid_scored_tasks": 19,
+        "task_passes": 18,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.9473684210526315,
+        "deployment_passes": 18,
+        "worker_confirmed_tasks": 19,
+        "timed_out_tasks": 1,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 18,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 54,
+        "scored_checks": 57,
+        "window_seconds": {
+          "observed_tasks": 19,
+          "sum": 1958.75039935112,
+          "median": 60.168431758880615
+        },
+        "usage": {
+          "observed_tasks": 19,
+          "total_tokens": 24379442,
+          "calls_with_usage": 310,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 16,
+        "both_fail": 1,
+        "new_pass": 2
+      }
+    },
+    "Delivery": {
+      "b0": {
+        "planned_tasks": 3,
+        "status_counts": {
+          "scored": 3
+        },
+        "valid_scored_tasks": 3,
+        "task_passes": 3,
+        "final_task_pass_rate": 1.0,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 3,
+        "worker_confirmed_tasks": 3,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 3,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 9,
+        "scored_checks": 9,
+        "window_seconds": {
+          "observed_tasks": 3,
+          "sum": 427.5736322402954,
+          "median": 51.05179810523987
+        },
+        "usage": {
+          "observed_tasks": 3,
+          "total_tokens": 3583687,
+          "calls_with_usage": 49,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 3,
+        "status_counts": {
+          "scored": 3
+        },
+        "valid_scored_tasks": 3,
+        "task_passes": 3,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 3,
+        "worker_confirmed_tasks": 3,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 3,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 9,
+        "scored_checks": 9,
+        "window_seconds": {
+          "observed_tasks": 3,
+          "sum": 60.28666615486145,
+          "median": 20.11578607559204
+        },
+        "usage": {
+          "observed_tasks": 3,
+          "total_tokens": 737946,
+          "calls_with_usage": 31,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 3
+      }
+    },
+    "Communication": {
+      "b0": {
+        "planned_tasks": 3,
+        "status_counts": {
+          "scored": 3
+        },
+        "valid_scored_tasks": 3,
+        "task_passes": 3,
+        "final_task_pass_rate": 1.0,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 3,
+        "worker_confirmed_tasks": 3,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 3,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 6,
+        "scored_checks": 6,
+        "window_seconds": {
+          "observed_tasks": 3,
+          "sum": 133.26583576202393,
+          "median": 26.088852167129517
+        },
+        "usage": {
+          "observed_tasks": 3,
+          "total_tokens": 849858,
+          "calls_with_usage": 27,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 3,
+        "status_counts": {
+          "scored": 3
+        },
+        "valid_scored_tasks": 3,
+        "task_passes": 3,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 3,
+        "worker_confirmed_tasks": 3,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 3,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 6,
+        "scored_checks": 6,
+        "window_seconds": {
+          "observed_tasks": 3,
+          "sum": 40.181222915649414,
+          "median": 15.061440229415894
+        },
+        "usage": {
+          "observed_tasks": 3,
+          "total_tokens": 398918,
+          "calls_with_usage": 21,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 3
+      }
+    },
+    "Multi-Drone Coordination": {
+      "b0": {
+        "planned_tasks": 19,
+        "status_counts": {
+          "scored": 19
+        },
+        "valid_scored_tasks": 19,
+        "task_passes": 14,
+        "final_task_pass_rate": 0.7368421052631579,
+        "observed_scored_pass_fraction": 0.7368421052631579,
+        "deployment_passes": 14,
+        "worker_confirmed_tasks": 19,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 19,
+        "false_completions": 5,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 142,
+        "scored_checks": 151,
+        "window_seconds": {
+          "observed_tasks": 19,
+          "sum": 2538.1938779354095,
+          "median": 117.57588410377502
+        },
+        "usage": {
+          "observed_tasks": 19,
+          "total_tokens": 12926495,
+          "calls_with_usage": 233,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 19,
+        "status_counts": {
+          "scored": 17,
+          "not_run": 2
+        },
+        "valid_scored_tasks": 17,
+        "task_passes": 14,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.8235294117647058,
+        "deployment_passes": 14,
+        "worker_confirmed_tasks": 17,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 17,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 139,
+        "scored_checks": 146,
+        "window_seconds": {
+          "observed_tasks": 17,
+          "sum": 1578.912516593933,
+          "median": 65.19801425933838
+        },
+        "usage": {
+          "observed_tasks": 17,
+          "total_tokens": 15885136,
+          "calls_with_usage": 201,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 11,
+        "both_fail": 2,
+        "regression": 1,
+        "new_pass": 3,
+        "unscored_or_invalid": 2
+      }
+    }
+  },
+  "by_family": {
+    "area_assignment_and_patrol": {
+      "b0": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 20
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 12,
+        "final_task_pass_rate": 0.6,
+        "observed_scored_pass_fraction": 0.6,
+        "deployment_passes": 12,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 19,
+        "false_completions": 7,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 94,
+        "scored_checks": 116,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 3965.0190074443817,
+          "median": 172.0714955329895
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 29035579,
+          "calls_with_usage": 314,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 18,
+          "running": 1,
+          "not_run": 1
+        },
+        "valid_scored_tasks": 18,
+        "task_passes": 14,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.7777777777777778,
+        "deployment_passes": 14,
+        "worker_confirmed_tasks": 18,
+        "timed_out_tasks": 1,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 17,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 78,
+        "scored_checks": 89,
+        "window_seconds": {
+          "observed_tasks": 18,
+          "sum": 2354.5541849136353,
+          "median": 77.72477447986603
+        },
+        "usage": {
+          "observed_tasks": 18,
+          "total_tokens": 30764732,
+          "calls_with_usage": 319,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 10,
+        "both_fail": 3,
+        "regression": 1,
+        "new_pass": 4,
+        "unscored_or_invalid": 2
+      }
+    },
+    "area_search": {
+      "b0": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 20
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 18,
+        "final_task_pass_rate": 0.9,
+        "observed_scored_pass_fraction": 0.9,
+        "deployment_passes": 18,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 20,
+        "false_completions": 2,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 105,
+        "scored_checks": 107,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 1518.7763235569,
+          "median": 65.97048902511597
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 8517215,
+          "calls_with_usage": 220,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 20
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 20,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 20,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 20,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 107,
+        "scored_checks": 107,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 1068.125010251999,
+          "median": 27.587764978408813
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 8078680,
+          "calls_with_usage": 212,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 18,
+        "new_pass": 2
+      }
+    },
+    "target_assignment": {
+      "b0": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 20
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 17,
+        "final_task_pass_rate": 0.85,
+        "observed_scored_pass_fraction": 0.85,
+        "deployment_passes": 17,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 20,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 94,
+        "scored_checks": 97,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 1181.00723528862,
+          "median": 50.65348947048187
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 5899723,
+          "calls_with_usage": 228,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 20,
+        "status_counts": {
+          "scored": 19,
+          "not_run": 1
+        },
+        "valid_scored_tasks": 19,
+        "task_passes": 16,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.8421052631578947,
+        "deployment_passes": 16,
+        "worker_confirmed_tasks": 19,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 19,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 93,
+        "scored_checks": 96,
+        "window_seconds": {
+          "observed_tasks": 19,
+          "sum": 1388.9765820503235,
+          "median": 35.14393424987793
+        },
+        "usage": {
+          "observed_tasks": 19,
+          "total_tokens": 10104593,
+          "calls_with_usage": 228,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 16,
+        "both_fail": 3,
+        "unscored_or_invalid": 1
+      }
+    }
+  },
+  "by_difficulty": {
+    "easy": {
+      "b0": {
+        "planned_tasks": 7,
+        "status_counts": {
+          "scored": 7
+        },
+        "valid_scored_tasks": 7,
+        "task_passes": 7,
+        "final_task_pass_rate": 1.0,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 7,
+        "worker_confirmed_tasks": 7,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 7,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 11,
+        "scored_checks": 11,
+        "window_seconds": {
+          "observed_tasks": 7,
+          "sum": 205.71786952018738,
+          "median": 10.646787166595459
+        },
+        "usage": {
+          "observed_tasks": 7,
+          "total_tokens": 1648902,
+          "calls_with_usage": 68,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 7,
+        "status_counts": {
+          "scored": 7
+        },
+        "valid_scored_tasks": 7,
+        "task_passes": 7,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 1.0,
+        "deployment_passes": 7,
+        "worker_confirmed_tasks": 7,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 7,
+        "false_completions": 0,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 11,
+        "scored_checks": 11,
+        "window_seconds": {
+          "observed_tasks": 7,
+          "sum": 105.54805254936218,
+          "median": 10.064321994781494
+        },
+        "usage": {
+          "observed_tasks": 7,
+          "total_tokens": 780223,
+          "calls_with_usage": 53,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 7
+      }
+    },
+    "medium": {
+      "b0": {
+        "planned_tasks": 21,
+        "status_counts": {
+          "scored": 21
+        },
+        "valid_scored_tasks": 21,
+        "task_passes": 18,
+        "final_task_pass_rate": 0.8571428571428571,
+        "observed_scored_pass_fraction": 0.8571428571428571,
+        "deployment_passes": 18,
+        "worker_confirmed_tasks": 21,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 21,
+        "false_completions": 3,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 62,
+        "scored_checks": 66,
+        "window_seconds": {
+          "observed_tasks": 21,
+          "sum": 1779.1539149284363,
+          "median": 55.93134021759033
+        },
+        "usage": {
+          "observed_tasks": 21,
+          "total_tokens": 11213916,
+          "calls_with_usage": 251,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 21,
+        "status_counts": {
+          "scored": 20,
+          "not_run": 1
+        },
+        "valid_scored_tasks": 20,
+        "task_passes": 18,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.9,
+        "deployment_passes": 18,
+        "worker_confirmed_tasks": 20,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 20,
+        "false_completions": 2,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 59,
+        "scored_checks": 62,
+        "window_seconds": {
+          "observed_tasks": 20,
+          "sum": 822.8518187999725,
+          "median": 20.081085085868835
+        },
+        "usage": {
+          "observed_tasks": 20,
+          "total_tokens": 5252427,
+          "calls_with_usage": 204,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_pass": 17,
+        "both_fail": 2,
+        "unscored_or_invalid": 1,
+        "new_pass": 1
+      }
+    },
+    "hard": {
+      "b0": {
+        "planned_tasks": 32,
+        "status_counts": {
+          "scored": 32
+        },
+        "valid_scored_tasks": 32,
+        "task_passes": 22,
+        "final_task_pass_rate": 0.6875,
+        "observed_scored_pass_fraction": 0.6875,
+        "deployment_passes": 22,
+        "worker_confirmed_tasks": 32,
+        "timed_out_tasks": 0,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 31,
+        "false_completions": 9,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 220,
+        "scored_checks": 243,
+        "window_seconds": {
+          "observed_tasks": 32,
+          "sum": 4679.930781841278,
+          "median": 101.77573001384735
+        },
+        "usage": {
+          "observed_tasks": 32,
+          "total_tokens": 30589699,
+          "calls_with_usage": 443,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "b1": {
+        "planned_tasks": 32,
+        "status_counts": {
+          "scored": 30,
+          "running": 1,
+          "not_run": 1
+        },
+        "valid_scored_tasks": 30,
+        "task_passes": 25,
+        "final_task_pass_rate": null,
+        "observed_scored_pass_fraction": 0.8333333333333334,
+        "deployment_passes": 25,
+        "worker_confirmed_tasks": 30,
+        "timed_out_tasks": 1,
+        "provider_error_tasks": 0,
+        "agent_self_successes": 29,
+        "false_completions": 4,
+        "external_pass_self_not_success": 0,
+        "checks_passed": 208,
+        "scored_checks": 219,
+        "window_seconds": {
+          "observed_tasks": 30,
+          "sum": 3883.255905866623,
+          "median": 92.77615869045258
+        },
+        "usage": {
+          "observed_tasks": 30,
+          "total_tokens": 42915355,
+          "calls_with_usage": 502,
+          "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+        }
+      },
+      "paired_outcomes": {
+        "both_fail": 4,
+        "both_pass": 20,
+        "regression": 1,
+        "new_pass": 5,
+        "unscored_or_invalid": 2
+      }
+    }
+  },
+  "common_scored_comparison": {
+    "tasks": 57,
+    "b0": {
+      "planned_tasks": 57,
+      "status_counts": {
+        "scored": 57
+      },
+      "valid_scored_tasks": 57,
+      "task_passes": 45,
+      "final_task_pass_rate": 0.7894736842105263,
+      "observed_scored_pass_fraction": 0.7894736842105263,
+      "deployment_passes": 45,
+      "worker_confirmed_tasks": 57,
+      "timed_out_tasks": 0,
+      "provider_error_tasks": 0,
+      "agent_self_successes": 56,
+      "false_completions": 11,
+      "external_pass_self_not_success": 0,
+      "checks_passed": 268,
+      "scored_checks": 292,
+      "window_seconds": {
+        "observed_tasks": 57,
+        "sum": 5969.132865428925,
+        "median": 70.9461498260498
+      },
+      "usage": {
+        "observed_tasks": 57,
+        "total_tokens": 39596960,
+        "calls_with_usage": 719,
+        "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+      }
+    },
+    "b1": {
+      "planned_tasks": 57,
+      "status_counts": {
+        "scored": 57
+      },
+      "valid_scored_tasks": 57,
+      "task_passes": 50,
+      "final_task_pass_rate": null,
+      "observed_scored_pass_fraction": 0.8771929824561403,
+      "deployment_passes": 50,
+      "worker_confirmed_tasks": 57,
+      "timed_out_tasks": 1,
+      "provider_error_tasks": 0,
+      "agent_self_successes": 56,
+      "false_completions": 6,
+      "external_pass_self_not_success": 0,
+      "checks_passed": 278,
+      "scored_checks": 292,
+      "window_seconds": {
+        "observed_tasks": 57,
+        "sum": 4811.655777215958,
+        "median": 45.164111852645874
+      },
+      "usage": {
+        "observed_tasks": 57,
+        "total_tokens": 48948005,
+        "calls_with_usage": 759,
+        "note": "Scored tasks only; missing observations are not imputed, no monetary cost estimate."
+      }
+    },
+    "paired_outcomes": {
+      "both_pass": 44,
+      "both_fail": 6,
+      "regression": 1,
+      "new_pass": 6
+    }
+  },
+  "case_candidates": [
+    {
+      "scene_id": "ad34350a",
+      "task_id": "bfc721cc",
+      "task_name": "Coordinated Search Sweep - 3 Drones 2",
+      "category": "Multi-Drone Coordination",
+      "paired_outcome": "regression",
+      "b0_evidence_directory": "experiments/runs/20261003-143255-full-5c501118/ad34350a",
+      "b1_evidence_directory": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a",
+      "causal_diagnosis": "Not inferred; inspect both first-attempt traces and failed checks."
+    },
+    {
+      "scene_id": "ad34350a",
+      "task_id": "7eed5422",
+      "task_name": "Fleet Coordinated Takeoff and Formation (4 Drones) 1",
+      "category": "Multi-Drone Coordination",
+      "paired_outcome": "new_pass",
+      "b0_evidence_directory": "experiments/runs/20261003-143255-full-5c501118/ad34350a",
+      "b1_evidence_directory": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a",
+      "causal_diagnosis": "Not inferred; inspect both first-attempt traces and failed checks."
+    },
+    {
+      "scene_id": "ad34350a",
+      "task_id": "a53ba7fc",
+      "task_name": "Fleet Coordinated Takeoff and Formation (4 Drones) 2",
+      "category": "Multi-Drone Coordination",
+      "paired_outcome": "new_pass",
+      "b0_evidence_directory": "experiments/runs/20261003-143255-full-5c501118/ad34350a",
+      "b1_evidence_directory": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a",
+      "causal_diagnosis": "Not inferred; inspect both first-attempt traces and failed checks."
+    },
+    {
+      "scene_id": "ad34350a",
+      "task_id": "c451cd74",
+      "task_name": "Complete Area Coverage Search",
+      "category": "Search",
+      "paired_outcome": "new_pass",
+      "b0_evidence_directory": "experiments/runs/20261003-143255-full-5c501118/ad34350a",
+      "b1_evidence_directory": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a",
+      "causal_diagnosis": "Not inferred; inspect both first-attempt traces and failed checks."
+    },
+    {
+      "scene_id": "ad34350a",
+      "task_id": "fe787c55",
+      "task_name": "Dual Drone Area Coverage Search",
+      "category": "Search",
+      "paired_outcome": "new_pass",
+      "b0_evidence_directory": "experiments/runs/20261003-143255-full-5c501118/ad34350a",
+      "b1_evidence_directory": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ad34350a",
+      "causal_diagnosis": "Not inferred; inspect both first-attempt traces and failed checks."
+    },
+    {
+      "scene_id": "ef36e27a",
+      "task_id": "1c840341",
+      "task_name": "Obstacle Avoidance Navigation 1",
+      "category": "Navigation",
+      "paired_outcome": "new_pass",
+      "b0_evidence_directory": "experiments/runs/20261003-143255-full-5c501118/ef36e27a",
+      "b1_evidence_directory": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a",
+      "causal_diagnosis": "Not inferred; inspect both first-attempt traces and failed checks."
+    },
+    {
+      "scene_id": "ef36e27a",
+      "task_id": "2f4c6c85",
+      "task_name": "Fleet Coordinated Takeoff and Formation (5 Drones) 1",
+      "category": "Multi-Drone Coordination",
+      "paired_outcome": "new_pass",
+      "b0_evidence_directory": "experiments/runs/20261003-143255-full-5c501118/ef36e27a",
+      "b1_evidence_directory": "experiments/runs/20261006-134416-b1-remedies60-1ee84ea7/ef36e27a",
+      "causal_diagnosis": "Not inferred; inspect both first-attempt traces and failed checks."
+    }
+  ],
+  "observed_run_state": "interrupted_unsealed",
+  "interruption": {
+    "first_detected_local": "2026-10-06T14:46:39+08:00",
+    "service_shutdown_local": "2026-10-06T14:28:50+08:00",
+    "root_cause": "undetermined; no runner exit code, signal source or exception traceback saved",
+    "manifest_preserved_unchanged": true,
+    "process_observation_file": "process-observation.json",
+    "audit_file": "interruption.json",
+    "remaining_unscored": [
+      {
+        "session_id": "ad34350a",
+        "task_id": "23a9d67d",
+        "name": "Extreme Flight Marathon Navigation",
+        "status": "running",
+        "expected_checks": 23,
+        "existing_task_files": [
+          "23a9d67d.window.json",
+          "23a9d67d.job.json",
+          "23a9d67d.before.json"
+        ]
+      },
+      {
+        "session_id": "ad34350a",
+        "task_id": "7e926272",
+        "name": "Dual Drone Patrol",
+        "status": "not_run",
+        "expected_checks": 4,
+        "existing_task_files": []
+      },
+      {
+        "session_id": "3973d0d6",
+        "task_id": "7eba7390",
+        "name": "Target Assignment Task Completion",
+        "status": "not_run",
+        "expected_checks": 1,
+        "existing_task_files": []
+      }
+    ]
+  },
+  "saved_evidence_audit": {
+    "mode": "interrupted_saved_evidence_audit",
+    "is_final": false,
+    "archive_identity_verified": true,
+    "suite_seal_present": false,
+    "completed_scenes_verified": [
+      "ef36e27a"
+    ],
+    "scored_tasks": 57,
+    "passed_tasks": 50,
+    "saved_checks_verified": 292,
+    "note": "Only original saved check responses are evaluated offline. No live world query, new score, service, recovery or model call.",
+    "attempt_file_count": 719,
+    "attempt_files_unchanged": true
+  },
+  "recommendation": {
+    "decision": "provisionally retain as a candidate, not an established complete-run improvement",
+    "reasons": [
+      "6 new passes versus 1 regression among the same 57 scored tasks",
+      "3 directional-movement cases have actual corrective flight-segment evidence"
+    ],
+    "limitations": [
+      "3 tasks unscored and suite unsealed",
+      "historical B0 comparison, not concurrent causal control",
+      "method bundles early B1 navigation and latest remedies",
+      "relative-distance movement and coverage-handle recovery have no demonstrated gain here",
+      "target knowledge and coverage inheritance affect gains and regression"
+    ],
+    "algorithm_changed_during_analysis": false,
+    "new_model_runs": 0,
+    "automatic_followup": "PAUSED"
+  },
+  "case_analysis_files": [
+    "CASES_CN.md",
+    "cases.json",
+    "MECHANISMS_CN.md",
+    "mechanisms.json"
+  ],
+  "usage_including_unscored": {
+    "root_scored56_tokens": 48755964,
+    "scene_scored57": {
+      "tokens": 48948005,
+      "started_calls": 759,
+      "completed_calls": 759,
+      "unfinished_calls": 0,
+      "calls_with_usage": 759
+    },
+    "unscored_observed": [
+      {
+        "scene": "ad34350a",
+        "task": "23a9d67d",
+        "status": "running",
+        "observed_tokens": 1714906,
+        "started_calls": 18,
+        "unfinished_calls": 1
+      }
+    ],
+    "all_observed_tokens_including_unscored": 50662911,
+    "scene_status": [
+      {
+        "scene": "ad34350a",
+        "performance_exists": false,
+        "raw_metrics_malformed": 0,
+        "saved_row_usage_mismatches": []
+      },
+      {
+        "scene": "ef36e27a",
+        "performance_exists": true,
+        "raw_metrics_malformed": 0,
+        "saved_row_usage_mismatches": []
+      },
+      {
+        "scene": "3973d0d6",
+        "performance_exists": false,
+        "raw_metrics_malformed": 0,
+        "saved_row_usage_mismatches": []
+      }
+    ],
+    "window_count": 57,
+    "window_sum_seconds": 4811.655777215958,
+    "window_median_seconds": 45.164111852645874,
+    "limitations": "Window excludes preparation and later worker-exit wait; sums are not wall-clock elapsed. Tokens only observed usage, unfinished calls not imputed, no monetary estimate."
+  }
+}

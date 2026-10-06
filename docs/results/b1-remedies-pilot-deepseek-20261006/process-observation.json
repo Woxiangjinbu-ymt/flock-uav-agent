@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-10-06T14:59:43.030867+08:00",
+  "method": "ps -axo pid,ppid,pgid,lstart,state,command; exact attempt/script and registered PID/PGID filter; own probe excluded",
+  "registered_pids": [
+    53849,
+    53874,
+    59679,
+    59686
+  ],
+  "matching_processes": [],
+  "prior_exec_session_observation": "72912 returned Unknown process id at 14:46 on 2026-10-06",
+  "actions": "read-only; no signals, restarts, lock writes or services"
+}

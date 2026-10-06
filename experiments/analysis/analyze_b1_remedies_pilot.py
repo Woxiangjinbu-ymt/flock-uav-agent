@@ -199,7 +199,65 @@ def pair_summary(rows):
     return dict(Counter(row["paired_outcome"] for row in rows))
 
 
-def analyze(attempt, output, *, partial=False):
+def saved_scene_snapshots(inputs, attempt, manifest, current):
+    """Read already scored scene rows after an interrupted root-summary update.
+
+    Never replay a checker or write to the attempt. Conflicting scored snapshots
+    are rejected; an extra row needs the original worker/checks/window evidence.
+    """
+    root_counts = {"scored_tasks": sum(row.get("status") == "scored" for row in current),
+                   "passed_tasks": sum(row.get("status") == "scored" and row.get("task_pass") is True for row in current)}
+    selected, additions = [], []
+    scenes = {}
+    for sid, record in manifest["scenes"].items():
+        require(record.get("generation") == 1, "Scene snapshot must be generation 1")
+        directory = (attempt / record["directory"]).resolve()
+        require(directory.is_relative_to(attempt), "Unsafe scene snapshot directory")
+        path = directory / "results.json"
+        local = inputs.read(path)
+        expected = [(row["session_id"], row["task_id"]) for row in current if row["session_id"] == sid]
+        require([(row["session_id"], row["task_id"]) for row in local] == expected, "Scene snapshot task order differs")
+        scenes[sid] = directory, path, {row["task_id"]: row for row in local}
+    for root_row in current:
+        sid, tid = root_row["session_id"], root_row["task_id"]
+        directory, path, local = scenes[sid]
+        scene_row = local[tid]
+        chosen, source = root_row, attempt / "results.json"
+        if root_row["status"] == "scored":
+            keys = ("status", "passed", "task_pass", "job_id", "expected_checks", "leaves")
+            require(all(scene_row.get(key) == root_row.get(key) for key in keys), "Conflicting scored root/scene snapshots")
+        elif scene_row["status"] == "scored":
+            require(root_row["status"] == "running" and not any(
+                row.get(key) for row in (root_row, scene_row)
+                for key in ("provider_errors", "error", "agent_error")),
+                "Only an error-free running root snapshot can gain a saved scene score")
+            root_definitions = [leaf.get("definition") for leaf in root_row["leaves"]]
+            require(root_definitions == [leaf.get("definition") for leaf in scene_row["leaves"]],
+                    "Extra scene row changed original check definitions")
+            checks = [leaf for leaf in inputs.read(directory / (tid + ".checks.json")) if leaf.get("type") == "leaf"]
+            require(len(checks) == len(root_definitions) and all(
+                definition and check.get("endpoint") == definition.get("endpoint")
+                and check.get("parameters") == definition.get("parameters")
+                for check, definition in zip(checks, root_definitions)),
+                "Extra saved check endpoint/parameters differ from original definitions")
+            require(bool(root_row.get("job_id")) and root_row["job_id"] == scene_row.get("job_id")
+                    and root_row["expected_checks"] == scene_row["expected_checks"], "Extra scene row has a different job/check count")
+            require(scene_row.get("continuation_safe") is True, "Extra scene row lacks continuation evidence")
+            verified = current_row(inputs, directory, scene_row)
+            require(verified["worker_confirmed"], "Extra scene row lacks a finished matching worker")
+            worker = inputs.read(directory / (tid + ".agent-state.json"))
+            require((worker.get("job") or {}).get("job_id") == scene_row["job_id"],
+                    "Extra scene row has mismatched internal worker job identity")
+            chosen, source = scene_row, path
+            additions.append({"scene_id": sid, "task_id": tid, "job_id": scene_row["job_id"],
+                              "root_status": root_row["status"], "scene_status": scene_row["status"],
+                              "task_pass": scene_row["task_pass"], "source": path_key(path)})
+        selected.append({**chosen, "analysis_result_source": path_key(source)})
+    return selected, {"root_snapshot": root_counts, "additional_saved_scores": additions,
+                      "note": "Only previously saved generation-1 scores; no live re-scoring or run recovery. Saved-response verification is recorded separately; still unsealed diagnostics."}
+
+
+def analyze(attempt, output, *, partial=False, use_scene_snapshots=False):
     attempt, output = Path(attempt).resolve(), Path(output).resolve()
     require(not output.is_relative_to(attempt), "Analysis output cannot be inside the experiment")
     require(not output.is_relative_to((ROOT / "experiments/runs").resolve()),
@@ -207,6 +265,8 @@ def analyze(attempt, output, *, partial=False):
     inputs = Inputs()
     manifest, plan = inputs.read(attempt / "manifest.json"), inputs.read(attempt / "plan.json")
     verification = {"completed": False, "status": "not_attempted", "error": None}
+    require(not use_scene_snapshots or (partial and manifest.get("status") != "completed"),
+            "Saved scene snapshots are only allowed for incomplete provisional diagnostics")
     if manifest.get("status") == "completed":
         try:
             verification["runner_summary"] = verify_completed(attempt)
@@ -240,6 +300,9 @@ def analyze(attempt, output, *, partial=False):
     ledger = {(row["session_id"], row["task_id"]): row for row in ledger_rows
               if row["model"] == "deepseek" and row["cohort"] == "first_attempt_no_replay"}
     current = inputs.read(attempt / "results.json")
+    reconciliation = None
+    if use_scene_snapshots:
+        current, reconciliation = saved_scene_snapshots(inputs, attempt, manifest, current)
     expected_keys = [(scene["id"], task["id"]) for scene in plan["sessions"] for task in scene["tasks"]]
     require([(row["scene_id"], row["task_id"]) for row in baseline["rows"]] == expected_keys, "B0 task order mismatch")
     require([(row["session_id"], row["task_id"]) for row in current] == expected_keys, "B1 task order mismatch")
@@ -254,6 +317,7 @@ def analyze(attempt, output, *, partial=False):
         row = {name: old[name] for name in ("scene_id", "scene_name", "family", "task_index", "task_id", "task_name", "category", "template", "difficulty")}
         row["b0"] = historical_row(inputs, old, ledger[key])
         row["b1"] = current_row(inputs, directory, new)
+        row["b1"]["result_source"] = new.get("analysis_result_source", path_key(attempt / "results.json"))
         row["paired_outcome"] = pair_names[row["b0"]["task_pass"], row["b1"]["task_pass"]] if row["b1"]["valid_scored"] else "unscored_or_invalid"
         rows.append(row)
     require(len(rows) == 60, "Fixed denominator changed")
@@ -261,7 +325,7 @@ def analyze(attempt, output, *, partial=False):
     require(not final or all(row["b1"]["valid_scored"] for row in rows), "Completed run lacks all 60 valid scores")
     summary = {"schema": 1, "attempt": path_key(attempt), "mode": "verified_final" if final else "provisional_diagnostics",
                "is_final": final, "manifest_status": manifest["status"], "agent_commit": METHOD_COMMIT,
-               "verification": verification, "planned_tasks_per_method": 60,
+               "verification": verification, "snapshot_reconciliation": reconciliation, "planned_tasks_per_method": 60,
                "methods": {"b0": method_summary(rows, "b0", True), "b1": method_summary(rows, "b1", final)},
                "paired_outcomes": pair_summary(rows), "baseline_source": baseline["baseline_source"],
                "limitations": [*plan["study"]["comparison_limitations"], PACKAGE_LIMITATION],
@@ -307,7 +371,7 @@ def analyze(attempt, output, *, partial=False):
     output.mkdir(parents=True, exist_ok=True)
     (output / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2, allow_nan=False) + "\n")
     with (output / "paired-tasks.csv").open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(flat[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(flat[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(flat)
     (output / "input-sha256.json").write_text(json.dumps({"algorithm": "sha256", "paths_relative_to": "repository root unless absolute",
@@ -316,6 +380,9 @@ def analyze(attempt, output, *, partial=False):
     report = ["# B1 定向补救与历史 B0：60题对照", "",
               "**已完成并通过冻结验证。**" if final else "**仅未完成/未核验诊断，不是最终成功率。**", "",
               f"B0历史外判通过 {b0['task_passes']}/60；本轮已有效计分 {b1['valid_scored_tasks']}/60，其中通过 {b1['task_passes']}。", ""]
+    if reconciliation:
+        root = reconciliation["root_snapshot"]
+        report += [f"根汇总原快照：{root['scored_tasks']}题计分、{root['passed_tasks']}题通过；另有{len(reconciliation['additional_saved_scores'])}题已保存的场景计分证据。仅做离线快照核对，没有重判、恢复运行或修改原目录。", ""]
     if final:
         delta = 100 * (b1["final_task_pass_rate"] - b0["final_task_pass_rate"])
         report += [f"最终任务通过率：B0 {b0['final_task_pass_rate']:.2%}，B1 {b1['final_task_pass_rate']:.2%}，差值 {delta:+.2f} 个百分点。", ""]
@@ -348,8 +415,9 @@ def main():
     parser.add_argument("--attempt", type=Path, default=DEFAULT_ATTEMPT)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--partial", action="store_true", help="Write clearly provisional diagnostics; never bypass baseline/row consistency checks")
+    parser.add_argument("--saved-scene-results", action="store_true", help="With --partial, include already scored scene rows missing from an interrupted root snapshot; never replay checks")
     args = parser.parse_args()
-    summary = analyze(args.attempt, args.output, partial=args.partial)
+    summary = analyze(args.attempt, args.output, partial=args.partial, use_scene_snapshots=args.saved_scene_results)
     print(json.dumps({"mode": summary["mode"], "b1_scored": summary["methods"]["b1"]["valid_scored_tasks"],
                       "b1_passed": summary["methods"]["b1"]["task_passes"], "paired_outcomes": summary["paired_outcomes"]}))
 
