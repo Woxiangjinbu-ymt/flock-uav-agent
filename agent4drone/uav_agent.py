@@ -332,10 +332,13 @@ class UAVControlAgent:
     ):
         mode = task_progress_mode if task_progress_mode is not None else os.environ.get("UAV_TASK_PROGRESS_MODE", "off")
         self.task_progress_mode = str(mode).strip().lower()
-        if self.task_progress_mode not in {"off", "shadow", "summary"}:
-            raise ValueError("task_progress_mode must be off, shadow, or summary")
+        if self.task_progress_mode not in {"off", "shadow", "summary", "evidence_shadow", "evidence_prompt", "evidence"}:
+            raise ValueError("task_progress_mode must be off, shadow, or summary (v1), or evidence_shadow, evidence_prompt, evidence (M1-R)")
         self._task_progress = None
         self._task_progress_middleware = None
+        self._model_request_audit_enabled = self.task_progress_mode.startswith("evidence") or os.environ.get("UAV_MODEL_REQUEST_AUDIT") == "1"
+        self._model_wire_requests = []
+        self._model_wire_errors = []
         self.client = UAVAPIClient(base_url, api_key=uav_api_key)
         self.verbose = verbose
         self.debug = debug
@@ -479,10 +482,40 @@ class UAVControlAgent:
             api_key=llm_api_key,
             base_url=final_base_url,
         )
+        if getattr(self, "_model_request_audit_enabled", False):
+            try:
+                from model_request_audit import attach_request_hooks
+                attach_request_hooks(llm, self._audit_model_request, self._aaudit_model_request)
+            except Exception as exc:
+                self._model_wire_errors.append("setup:" + type(exc).__name__)
         if self.debug:
             print(f"✅ {provider_name} LLM initialized")
             print()
         return llm
+
+    def _audit_model_request(self, request) -> None:
+        try:
+            from model_request_audit import request_record
+            record = request_record(request)
+            previous = self._model_wire_requests[-1] if self._model_wire_requests else None
+            common = 0
+            if previous:
+                for a, b in zip(previous["message_sha256"], record["message_sha256"]):
+                    if a != b:
+                        break
+                    common += 1
+            record["common_prefix_messages"] = common
+            record["previous_message_count"] = len(previous["message_sha256"]) if previous else 0
+            record["request_index"] = len(self._model_wire_requests)
+            ledger = getattr(self, "_task_progress", None)
+            model_calls = getattr(ledger, "model_requests", [])
+            record["middleware_request_index"] = len(model_calls) - 1 if model_calls else None
+            self._model_wire_requests.append(record)
+        except Exception as exc:
+            self._model_wire_errors.append(type(exc).__name__)
+
+    async def _aaudit_model_request(self, request) -> None:
+        self._audit_model_request(request)
 
     def _create_tools(self, blackboard: Optional[PerceptionBlackboard] = None) -> List[Any]:
         return create_uav_tools(self.client, blackboard=blackboard)
@@ -496,7 +529,34 @@ class UAVControlAgent:
         if not isinstance(session, dict):
             return None
         session_id = session.get("id")
+        if session_id and getattr(self, "task_progress_mode", "off").startswith("evidence"):
+            # Use metadata from the already-required request, never another API
+            # call or global entity snapshot. These signals detect visible
+            # resets; callers must explicitly reset memory for same-ID reloads
+            # that preserve every marker (the server exposes no reset epoch).
+            markers = getattr(self, "_evidence_session_markers", {})
+            stats = session.get("statistics")
+            stats = stats if isinstance(stats, dict) else {}
+            marker = (session.get("created_at"), stats.get("environment_id"), stats.get("total_commands_executed"))
+            previous = markers.get(str(session_id))
+            decreased = bool(previous and isinstance(previous[2], (int, float)) and
+                             isinstance(marker[2], (int, float)) and marker[2] < previous[2])
+            if previous and (marker[:2] != previous[:2] or decreased):
+                self.reset_task_evidence(str(session_id))
+            markers[str(session_id)] = marker
+            self._evidence_session_markers = markers
         return str(session_id) if session_id else None
+
+    def reset_task_evidence(self, session_id: Optional[str] = None) -> None:
+        """Invalidate scene memory after an explicit same-ID world reload/reset."""
+        boards = getattr(self, "_session_blackboards", {})
+        for sid, board in list(boards.items()):
+            if session_id is None or sid == session_id:
+                board.clear()
+                del boards[sid]
+        current = getattr(self, "blackboard", None)
+        if current is not None and (session_id is None or current.session_id == session_id):
+            current.clear()
 
     def _blackboard_for_current_command(self) -> PerceptionBlackboard:
         session_id = self._current_session_id()
@@ -537,6 +597,19 @@ class UAVControlAgent:
             from task_progress import TaskProgressLedger, TaskProgressMiddleware
 
             inherited = self.blackboard.full() if self.share_blackboard_by_session else None
+            if mode in {"evidence_shadow", "evidence_prompt", "evidence"}:
+                from task_evidence import SessionEvidenceIndex, TaskEvidenceLedger
+                from task_evidence_context import TaskEvidenceMiddleware
+
+                index = getattr(self.blackboard, "task_evidence_index", None)
+                if index is None:
+                    index = SessionEvidenceIndex(self.blackboard.session_id)
+                    self.blackboard.task_evidence_index = index
+                ledger = TaskEvidenceLedger(command, command_id, index=index,
+                                            inherited_blackboard=inherited, max_summary_chars=3900)
+                self._task_progress_middleware = TaskEvidenceMiddleware(ledger, mode)
+                self._task_progress = ledger
+                return
             ledger = TaskProgressLedger(
                 command=command,
                 command_id=command_id,
@@ -941,6 +1014,9 @@ Drones: {len(drones)} available
                 "tool_chain": tool_chain_from_steps(steps),
                 "api_calls": api_calls,
             }
+            if getattr(self, "_model_request_audit_enabled", False):
+                record["model_requests_wire"] = self._model_wire_requests
+                record["model_request_audit_errors"] = self._model_wire_errors
             ledger = getattr(self, "_task_progress", None)
             if ledger is not None:
                 try:
@@ -996,6 +1072,8 @@ Drones: {len(drones)} available
         command_id = str(uuid.uuid4())
         self._task_progress = None
         self._task_progress_middleware = None
+        self._model_wire_requests = []
+        self._model_wire_errors = [e for e in getattr(self, "_model_wire_errors", []) if e.startswith("setup:")]
         started_at = datetime.now().isoformat()
         start_api_recording = getattr(getattr(self, "client", None), "start_api_call_recording", None)
         stop_api_recording = getattr(getattr(self, "client", None), "stop_api_call_recording", None)

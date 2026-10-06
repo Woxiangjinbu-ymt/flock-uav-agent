@@ -31,12 +31,17 @@ class PerceptionBlackboard:
         self.obstacles: dict[str, dict[str, Any]] = {}
         self.drones: dict[str, dict[str, Any]] = {}
         self._step = 0
+        # M1-R attaches an optional session evidence sidecar. Baseline views
+        # and serialization remain unchanged; clear() shares its lifecycle.
+        self.task_evidence_index = None
 
     def clear(self) -> None:
         self.targets.clear()
         self.obstacles.clear()
         self.drones.clear()
         self._step = 0
+        if self.task_evidence_index is not None:
+            self.task_evidence_index.clear()
 
     def next_step(self) -> int:
         self._step += 1
