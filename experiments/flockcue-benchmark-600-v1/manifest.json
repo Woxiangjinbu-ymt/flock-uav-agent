@@ -1,0 +1,29 @@
+{
+  "dataset_id": "flockcue-benchmark-600-v1",
+  "status": "frozen",
+  "confirmed_on": "2026-11-08",
+  "purpose": "Common original-benchmark pool for subsequent teacher data construction, student training, and system comparisons.",
+  "exposure": "Previously used for benchmarking and development. Record per-run training, tuning, and evaluation exposure at full-session granularity.",
+  "source": {
+    "path": "benchmark/benchmark.zip",
+    "sha256": "b5040097d2bfdd44600f3bf486fdb43ee3eb1247fec9c67900b5fcda6feb94a3",
+    "sessions": 75,
+    "tasks": 1500
+  },
+  "selection": {
+    "path": "candidate-600.json",
+    "sha256": "c3d60aadde603a65c7481495db0db5274d7512f4f823a6e5cb356814a6241e06",
+    "strata": 15,
+    "sessions_per_stratum": 2,
+    "sessions": 30,
+    "tasks_per_session": 20,
+    "tasks": 600
+  },
+  "sessions_archive": {
+    "path": "sessions-600.zip",
+    "sha256": "4843962ad5c6a37f71651a851e92b61043803201564a12b45112d24548247a5c",
+    "ordering": "Selected sessions in strata order, each JSON task array in its original order.",
+    "contents": "Unmodified original session JSONs, including instructions, scene setup, and private scoring definitions."
+  },
+  "unit": "One complete original session, running all 20 tasks in their stored order with the original state carryover."
+}

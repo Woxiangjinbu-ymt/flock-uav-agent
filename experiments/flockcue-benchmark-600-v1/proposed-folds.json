@@ -1,0 +1,100 @@
+{
+  "protocol_id": "flockcue-benchmark-600-scene-twofold-proposal-v1",
+  "status": "proposed",
+  "dataset_id": "flockcue-benchmark-600-v1",
+  "selection_sha256": "c3d60aadde603a65c7481495db0db5274d7512f4f823a6e5cb356814a6241e06",
+  "rule": "Per stratum use the first selected whole session for A and the second for B. Each fold has 15 sessions and 300 tasks.",
+  "evaluation": "Train on A and evaluate on B, then train from the same initial weights on B and evaluate on A. Include each task only from the model that held out its entire session.",
+  "strata": [
+    {
+      "family": "area_assignment_and_patrol",
+      "difficulty": "Easy",
+      "A": "04cd6269",
+      "B": "14289fc5"
+    },
+    {
+      "family": "area_assignment_and_patrol",
+      "difficulty": "Intermediate",
+      "A": "72ccacd0",
+      "B": "09aae7d9"
+    },
+    {
+      "family": "area_assignment_and_patrol",
+      "difficulty": "Moderate",
+      "A": "0567e470",
+      "B": "c67bc3cd"
+    },
+    {
+      "family": "area_assignment_and_patrol",
+      "difficulty": "Hard",
+      "A": "5be2589b",
+      "B": "cc05a425"
+    },
+    {
+      "family": "area_assignment_and_patrol",
+      "difficulty": "Extreme",
+      "A": "640b66d4",
+      "B": "ad34350a"
+    },
+    {
+      "family": "area_search",
+      "difficulty": "Easy",
+      "A": "25239af9",
+      "B": "5aabad33"
+    },
+    {
+      "family": "area_search",
+      "difficulty": "Intermediate",
+      "A": "5b8dd44e",
+      "B": "ff4fbc38"
+    },
+    {
+      "family": "area_search",
+      "difficulty": "Moderate",
+      "A": "0293952c",
+      "B": "a2931e29"
+    },
+    {
+      "family": "area_search",
+      "difficulty": "Hard",
+      "A": "ef36e27a",
+      "B": "0cec9497"
+    },
+    {
+      "family": "area_search",
+      "difficulty": "Extreme",
+      "A": "793e7745",
+      "B": "9b21081a"
+    },
+    {
+      "family": "target_assignment",
+      "difficulty": "Easy",
+      "A": "7f1a1456",
+      "B": "597d7169"
+    },
+    {
+      "family": "target_assignment",
+      "difficulty": "Intermediate",
+      "A": "58fe4605",
+      "B": "e76728cc"
+    },
+    {
+      "family": "target_assignment",
+      "difficulty": "Moderate",
+      "A": "35ce64d8",
+      "B": "dcae50c1"
+    },
+    {
+      "family": "target_assignment",
+      "difficulty": "Hard",
+      "A": "193e179a",
+      "B": "5de86ceb"
+    },
+    {
+      "family": "target_assignment",
+      "difficulty": "Extreme",
+      "A": "cc14d231",
+      "B": "823c15d5"
+    }
+  ]
+}
