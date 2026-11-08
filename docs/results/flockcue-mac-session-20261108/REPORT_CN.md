@@ -40,6 +40,14 @@ PYTHONPATH=scripts agent4drone/.venv/bin/python -m flockcue_session_cpu accept \
 
 ## 下一步在 Linux 上无卡复验
 
+从 Mac 项目根目录执行下面一条命令，将 `myserver` 换成日常使用的 SSH 别名或 `用户名@服务器地址`。若平时使用 `ssh -p 2222 myserver`，则在脚本名后同样写 `-p 2222 myserver`。
+
+```sh
+bash scripts/replay_linux_cpu.sh myserver
+```
+
+脚本上传下述四个文件，在服务器的 `~/flockcue-runs/` 下创建独立目录，用 Python 3.11.16 安装 Agent、server、controller 三个环境，然后执行同一场景的四组验收。首次安装需能下载 Python 和依赖。结束时 Linux 的逐题结果会传回 Mac，并与已封存的 Mac 结果核对。终端会显示两边的目录；服务器保留 `setup-and-run.log` 和全部原始记录。也可以按下面的命令手动执行。[Mac 端 SSH 脚本](../../../scripts/replay_linux_cpu.sh)
+
 复制原 CPU 交付包、这次的会话补充包及各自的 `.sha256` 文件，到目标 Linux 主机上的同一空目录。两个包解开后共用 `flockcue-g1g2/`。原包提供 Agent 和仿真，补充包提供这次的会话入口、原检查器、controller 依赖锁和冻结题单。[原 CPU 包](../../../outputs/flockcue-g1g2-cpu-20261108.tar.gz) · [原包摘要](../../../outputs/flockcue-g1g2-cpu-20261108.tar.gz.sha256) · [会话补充包](../../../outputs/flockcue-session-cpu-addon-20261108.tar.gz) · [补充包摘要](../../../outputs/flockcue-session-cpu-addon-20261108.tar.gz.sha256)
 
 ```sh
