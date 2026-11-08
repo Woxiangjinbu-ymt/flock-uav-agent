@@ -1,0 +1,44 @@
+{
+  "scope": "one previously seen teacher decision, CPU format check only",
+  "target_sha256": "d711d4310129211bb113f8eefba90b76ac78291eaa6eef6919e9da615cb1697a",
+  "new_teacher_calls": 0,
+  "examples_added_to_training": 0,
+  "variants": {
+    "keep": {
+      "masked_prompt_tokens": 11979,
+      "supervised_tokens": 252,
+      "prompt_ids_sha256": "2b37138f3da81e61beea1b53ff7b5ed735bf1515b693588ddbf53a89ff1b42f8",
+      "target_ids_sha256": "7bb6bee697a81f686f3895910f8181b70e287b3129db028ab3b4c97aba256d12",
+      "labels_sha256": "c6d6f06b0114740f7aaad9e6c12d448cfd5de0200c4646fc9cd34b9925f16501",
+      "last_supervised_id": 248046,
+      "one_pass_ids_equal_split_ids": true
+    },
+    "skip_prefilled": {
+      "masked_prompt_tokens": 11981,
+      "supervised_tokens": 63,
+      "prompt_ids_sha256": "7eaa7c1dfa1264e0d0d8cbe499ee067a6be106010be2680af16ba908732c0d6b",
+      "target_ids_sha256": "3cb2e882965c82bf81531a714c8e4e37f64ff038b46ed4473d735d8e7d67738c",
+      "labels_sha256": "87164070d0bc3d42a34a2c3b77a43a412dcac8dc3d617b19e1f75646267f1c33",
+      "last_supervised_id": 248046,
+      "one_pass_ids_equal_split_ids": true
+    },
+    "skip_same_prompt": {
+      "masked_prompt_tokens": 11979,
+      "supervised_tokens": 66,
+      "prompt_ids_sha256": "2b37138f3da81e61beea1b53ff7b5ed735bf1515b693588ddbf53a89ff1b42f8",
+      "target_ids_sha256": "e3b03e9d06fadf39ea8fa26833e539a01573ddd0e23d1f4e644bac499e62fd9d",
+      "labels_sha256": "12247d4b0d28d5d8f98a747e74eb0b6904c053cf31b45ccc38c8b9d7bae891d3",
+      "last_supervised_id": 248046,
+      "one_pass_ids_equal_split_ids": false
+    },
+    "keep_linked_history": {
+      "masked_prompt_tokens": 12008,
+      "supervised_tokens": 252,
+      "prompt_ids_sha256": "ce7973437867470b8b24a5ff14ceb1800d90f2673f9ef6ba703b91c58b58e5ea",
+      "target_ids_sha256": "7bb6bee697a81f686f3895910f8181b70e287b3129db028ab3b4c97aba256d12",
+      "labels_sha256": "1ff643c03c00cc72a062f106d9f29d6337785c172df10810b74fa86e82f44e57",
+      "last_supervised_id": 248046,
+      "one_pass_ids_equal_split_ids": true
+    }
+  }
+}

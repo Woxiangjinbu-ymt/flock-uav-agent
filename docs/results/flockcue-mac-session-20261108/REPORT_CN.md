@@ -38,7 +38,7 @@ PYTHONPATH=scripts agent4drone/.venv/bin/python -m flockcue_session_cpu accept \
 
 一次执行会生成四份账本、每题终态、工具与模型记录、原检查结果，以及总验收文件。只想做一场时，将 `accept` 换为 `run`，可用 `--session` 指定冻结场景 ID。本次只对上述一场做了完整验收。[运行入口](../../../scripts/flockcue_session_cpu/__main__.py)
 
-## 下一步在 Linux 上无卡复验
+## 租用 GPU 主机时在 Linux 上无卡复验
 
 从 Mac 项目根目录执行下面一条命令，将 `myserver` 换成日常使用的 SSH 别名或 `用户名@服务器地址`。若平时使用 `ssh -p 2222 myserver`，则在脚本名后同样写 `-p 2222 myserver`。
 

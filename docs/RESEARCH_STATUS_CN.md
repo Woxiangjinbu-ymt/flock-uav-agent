@@ -16,6 +16,8 @@
 
 ## Verified Results — 已有证据
 
+- **Qwen3.5-2B 的首条 SFT 格式样例已在 Mac 复算。** 同一条已见教师开发轮的思考、工具动作和损失边界可回查。两架飞机同名调用的合成例中，官方模板丢失回执归属；在回执中补入公开调用序号和参数后可以区分。实际模型生成待验证。[开发样例与复算](audit/qwen35-2b-input-20261108/REPORT_CN.md)
+
 - **600 题中的一个完整会话已在 Mac 跑通。** 场景 `04cd6269` 用本地脚本模型连续做完 20 题，重开后 79 项原检查结果逐项相同。19 次题间交接均保留了黑板。超时和 HTTP 503 分别验证了继续做题与停止后保留分母。此场已用于工程开发。[整场验收](results/flockcue-mac-session-20261108/REPORT_CN.md)
 - **学生推理链路通过 Mac 无卡回归。** 三个固定回复回合分别验证悬停完成、整组畸形拒绝和取消，10 次请求从归档重建的 token ID 全部一致。解包后 100 项回归通过。[验收报告](results/thinking-student-cpu-20261108/REPORT_CN.md)
 - **G3 执行事件区分度通过。** 31 个开发回合的 183 个非首轮中，77 轮出现事件、106 轮为 E0、0 轮不可判，事件占比 42.08%。全部 31 个回合的第二轮都含新信息，第 3 轮以后仍有 46/152 轮出现事件。6 个效果未知轮均在故障注入条件下。[离线复算报告](results/thinking-events-g3-20261108/REPORT_CN.md)
@@ -71,7 +73,7 @@
 
 ## Next Actions — 当前交接点
 
-下一项是在目标 Linux 主机上无卡复验学生接入（T36a）和新增的 20 题连续会话。后者还需安装 controller 依赖来运行原检查器。租卡后先做 T37 真实权重测速。[连续会话入口](results/flockcue-mac-session-20261108/REPORT_CN.md) · [学生接入无卡步骤](results/thinking-student-cpu-20261108/LINUX_CPU_CN.md)
+当前在 Mac 准备 Qwen3.5-2B 的工具输出解析。输入和训练掩码已用开发轮复算，下一项用固定回复验证动作派发、倒序回执和截断拒绝。用户于 2026-11-08 将两项 Linux 验收顺延到租用 GPU 服务器时。届时先在同一台主机用 CPU 复验学生接入（T36a）和 20 题连续会话，再做 T37 真实权重测速。若租金从开机计起，安装和复验用时一并计入该次预算。[连续会话入口](results/flockcue-mac-session-20261108/REPORT_CN.md) · [学生接入无卡步骤](results/thinking-student-cpu-20261108/LINUX_CPU_CN.md)
 
 原 G1/G2 的 116 个推理槽（29 道开发题 × 四个条件）仍待运行。同时可评审 600 题的采数、训练和会话评测方案。正式教师采集须先通过三道门槛并批准该阶段预算。[实施任务](specs/01-thinking-events/task.md) · [验收进度](specs/01-thinking-events/checklist.md)
 

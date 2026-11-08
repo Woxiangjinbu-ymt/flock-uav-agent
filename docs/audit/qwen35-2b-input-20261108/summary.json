@@ -1,0 +1,90 @@
+{
+  "scope": "Mac text-only tokenizer and native template on a synthetic fixture",
+  "model": "Qwen/Qwen3.5-2B",
+  "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "source": "https://huggingface.co/Qwen/Qwen3.5-2B/tree/15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "files": {
+    "chat_template.jinja": {
+      "bytes": 7755,
+      "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+    },
+    "config.json": {
+      "bytes": 2908,
+      "sha256": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4"
+    },
+    "tokenizer.json": {
+      "bytes": 12807982,
+      "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42"
+    },
+    "tokenizer_config.json": {
+      "bytes": 16709,
+      "sha256": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c"
+    }
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "transformers": "4.57.3",
+    "tokenizers": "0.22.1",
+    "jinja2": "3.1.6",
+    "tokenizer_class": "Qwen2TokenizerFast"
+  },
+  "default_equals_off": true,
+  "on_opens_reasoning_in_prompt": true,
+  "off_closes_reasoning_in_prompt": true,
+  "keep_reasoning_after_latest_user": true,
+  "keep_reasoning_before_latest_user": false,
+  "preserve_thinking_true_false_changes_fixture": false,
+  "preserve_thinking_referenced_in_template": false,
+  "native_tool_format": "function and parameter tags",
+  "native_tool_call_ids_visible": false,
+  "reply_payload_order_retained": true,
+  "reassigning_two_same_name_replies_gives_identical_ids": true,
+  "special_token_ids": {
+    "<think>": 248068,
+    "</think>": 248069,
+    "<|im_start|>": 248045,
+    "<|im_end|>": 248046,
+    "<|endoftext|>": 248044
+  },
+  "tokenizer_eos_id": 248046,
+  "config_text_eos_id": 248044,
+  "frozen_qwen3_parser_anomalies_on_native_scripted_output": {
+    "off": [
+      "generated_json"
+    ],
+    "on": [
+      "malformed_thinking"
+    ]
+  },
+  "candidate_receipt_projection": {
+    "scope": "history-only candidate projection on synthetic public observations",
+    "receipt_order": [
+      "call_2",
+      "call_1"
+    ],
+    "tokens_with_thinking_on": 437,
+    "swapping_owners_changes_token_ids": true,
+    "renaming_vendor_ids_changes_token_ids": false,
+    "invalid_histories_rejected": {
+      "duplicate": "tool_id_mapping",
+      "missing": "tool_receipt_missing"
+    }
+  },
+  "fixture_inputs": {
+    "default": {
+      "tokens": 387,
+      "token_ids_sha256": "76aa9b7a0a4005a0ef5577f92147bc7c512c621a51d8bcc30630043de281d6b6"
+    },
+    "off": {
+      "tokens": 387,
+      "token_ids_sha256": "76aa9b7a0a4005a0ef5577f92147bc7c512c621a51d8bcc30630043de281d6b6"
+    },
+    "on": {
+      "tokens": 385,
+      "token_ids_sha256": "cd10d41aab7529ac80a7d93b21977dee530e2c1ac6fe76e2f9a2cde088405ccd"
+    }
+  },
+  "model_weight_files_downloaded": 0,
+  "model_generations": 0,
+  "paid_teacher_calls": 0
+}
