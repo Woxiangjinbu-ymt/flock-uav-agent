@@ -1,0 +1,26 @@
+{
+  "verifier_sha256": "cb214ae8c9f2f3c785dd51fe052c6ddfb76993aa87b27592c59354655dcd36cd",
+  "verification_sha256": "9c70c22c143b9c83795de50c0242266c68b9fcd0989900e14748e5193200a769",
+  "runs": {
+    "normal": {
+      "run-input.json": "d6476581e1342c2d9dbbdb45608fd721e1627b8071d2a43c08254f494582c6c1",
+      "worker-exit.json": "824abc2fc1e68640f2917c206bf3fc160aadf54bab203b397a8bedd06a8b7693",
+      "scorer-exit.json": "08f2b091342d1be7cd798489ea9d8e386aba7247d053338962a5e369fc3d1cea"
+    },
+    "restart": {
+      "run-input.json": "d6476581e1342c2d9dbbdb45608fd721e1627b8071d2a43c08254f494582c6c1",
+      "worker-exit.json": "34f0244b0b317f5f0b5a1f14c0e1ce7e8eb3d087785287679827f8ea86449b86",
+      "scorer-exit.json": "b599e6654e155bd3a136cc67445d7e5413eec9f37a00a506a04975cd80bd779b"
+    },
+    "deadline": {
+      "run-input.json": "edc407cb12e282d20b332626b0e12ca07d98ced28a2f89d64cadce9a6ec05b15",
+      "worker-exit.json": "14376aeaefc74bc237cbdfded1fd0c9f9b79ef15381edfb495ae36df78696bd1",
+      "scorer-exit.json": "8500e64c8bca6b76d57bd37c360b6a32d077c4ac40af04c4d2e284d3b676a965"
+    },
+    "interrupted": {
+      "run-input.json": "cbe2686be8ae8a16ef66e696bb314e2dfe5bfbd8fd1f4048f4fa13d8fca2c7c4",
+      "worker-exit.json": "8826fdaa8e36dff7bab1be552a4c743eaaa3f2f76dae2b5da595a5490932b322",
+      "scorer-exit.json": "657424e21b97636a117c0de70bdd8080c0c1ab666b21641d5191151a7bd251ea"
+    }
+  }
+}
