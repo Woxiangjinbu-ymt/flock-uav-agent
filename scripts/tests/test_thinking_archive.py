@@ -193,7 +193,7 @@ def test_no_terminal_evidence_files_read(monkeypatch):
     monkeypatch.setattr(Path, "open", inspect)
     sources, _ = archive.verify_sources(ROOT)
     archive.read_turns(sources[0])
-    assert opened and all(not {"private", "evaluation"}.intersection(path.parts) and
+    assert opened and all(not {"private", "evaluation"}.intersection(path.relative_to(ROOT).parts) and
                           path.name not in {"task-state.json", "execution-state.json", "results.json"} for path in opened)
 
 
