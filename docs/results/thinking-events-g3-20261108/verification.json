@@ -1,0 +1,89 @@
+{
+  "checks": {
+    "determinism": {
+      "byte_identical_to_delivered": true,
+      "fresh_replays": 2,
+      "outputs_sha256": {
+        "attempts.jsonl": "5b1647559e1ee6a7e9142c0a9a63e3ad0f74b0e60d7085b1805f9b6578b9f212",
+        "g3.json": "fcb9a63f1a99b24e30372d70cc06b37f889feba129829100cdf214477edca8a4",
+        "sources.json": "e01fb34e92162e72f57fe01a0a25575aae663dc12de57d5c692b379a0c331344",
+        "turns.jsonl": "9c474c6fe5c612ad9d9e49a9b29feb6b7693efdf4ad6f59f779b10d17fbef88d"
+      }
+    },
+    "g3_tests": {
+      "PYTHONPATH": "scripts",
+      "command": "agent4drone/.venv/bin/python -m pytest -q scripts/tests/test_thinking_archive.py scripts/tests/test_thinking_events.py scripts/tests/test_thinking_labels.py scripts/tests/test_thinking_replay.py scripts/tests/test_thinking_report.py",
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 63
+    },
+    "reused_components_tests": {
+      "PYTHONPATH": "agent4drone",
+      "command": "agent4drone/.venv/bin/python -m pytest -q agent4drone/tests/test_command_results.py agent4drone/tests/test_task_execution_state.py agent4drone/tests/test_hover_completion.py",
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 324
+    },
+    "teacher_usage_probe": {
+      "byte_identical": true,
+      "command": "python3 -I docs/audit/teacher-reasoning-usage-20261108/probe.py",
+      "reference": "docs/audit/teacher-reasoning-usage-20261108/summary.json",
+      "sha256": "192cd075120b007c74e218e2daa654f052da68f046f5111ec1dd6a93048537bf"
+    },
+    "v2_tool_ids": {
+      "manifest_sha256": "e3c8c0a6f56f073014aa1812cb22326ec451f0163f0163201dfb187b0b022795",
+      "passed": true,
+      "provider_calls": 0,
+      "source_files_match_current": 10
+    },
+    "v5": {
+      "baseline": "general-agent-v5-local",
+      "profile_sha256": "fcf6b641c8c12cbe9610d6fd3a72b5f039ad7eeeafeda29f94c021b2c446b9f7",
+      "provider_calls": 0,
+      "source_files": 93
+    },
+    "w3": {
+      "conversion_counts": {
+        "eligible_episodes": 12,
+        "excluded_decisions": 37,
+        "excluded_episodes": 8,
+        "exported_samples": 61,
+        "logical_decisions": 98,
+        "planned_episodes": 22,
+        "unrun_episodes": 2
+      },
+      "conversion_manifest_sha256": "9377805432cdcd1041305d2e2e7d689f91686388867acb42da8c1a12bbabf2be",
+      "encoded_samples": 61,
+      "passed": true,
+      "provider_calls": 0,
+      "source_snapshot_files_match_current": 17,
+      "student_manifest_sha256": "5d548f56ccee87024f20af14720dbda2bbe426f7aaac7c4ceea5ef23f768ab6f"
+    }
+  },
+  "gpu_hours": 0,
+  "new_provider_calls": 0,
+  "python": "Python 3.11.16",
+  "schema": "thinking-events-g3-verification-v1",
+  "scope": "G3 local CPU, four sealed DeepSeek development batches",
+  "source_sha256": {
+    "agent4drone/command_results.py": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee",
+    "agent4drone/hover_completion.py": "52f320ce238d9f12147772b2cc789989de97e726148d0b51ac9e0d06281f36fb",
+    "agent4drone/task_execution_state.py": "55a15f5eee08e7daf206c2ed4165d2d9cfb9e896b2a7a12561849b8fe6884a1f",
+    "scripts/convert_agent_samples.py": "26f2cfc214258d68029999c587b54aacb9f1eb27aba07fdc7bacadde8d6387a4",
+    "scripts/tests/test_thinking_archive.py": "1cbbddffd2860551e3a175c4fe45a84235a0860eb47f7137e329b185bd447bab",
+    "scripts/tests/test_thinking_events.py": "f30f8e3ce570afaa44561aaf576de934f869ef25abaf3fc6ecd1266bc0bf8cb1",
+    "scripts/tests/test_thinking_labels.py": "5ae19cdcbb5a6a78425ce96bb7bcf9d1252d9dba6b64e18c794f567943cb3e9e",
+    "scripts/tests/test_thinking_replay.py": "43434392c4605c7db3165676fb76f536da423c680ebbfe07e03fa9ccc5aeefdd",
+    "scripts/tests/test_thinking_report.py": "7d268138396a9d34e0ae67805b6946375762242f90df98d5c61eb8e2bfb2a288",
+    "scripts/thinking_events/__init__.py": "030bbe660dfc9e4326dad403c946e586ef1a378da2d3c0a9be39ea12dc9e039b",
+    "scripts/thinking_events/__main__.py": "f49ef8b0ac11c28dc93d49ddc8bc165c86f807a13316522a13d3cc0c729de8a1",
+    "scripts/thinking_events/archive.py": "d48acdb9377f634e3d83ca3225bcb5209739e24d12e0249ae153c068778567d7",
+    "scripts/thinking_events/event_clauses.py": "2521828502334d364f2872c90966a26eb6b982b40bcae013e5b59787719cf381",
+    "scripts/thinking_events/event_observations.py": "a40c28f2a18fba58e8c531d72493359b5a32021b83f71d6387fef1282f991b0b",
+    "scripts/thinking_events/events.py": "b72067854ceca2e7a0daf8a3165433eab971606af1093e7d1cce584545c08c24",
+    "scripts/thinking_events/labels.py": "da7d96df7a720a8014d9fedd0ae3cb8c0027448386499a774d7f66aaa2aef87e",
+    "scripts/thinking_events/report.py": "6e0e7306428f7e6bebdba2a4a3c909771eb9bb55087dfd686c176a909a06c8c7"
+  }
+}

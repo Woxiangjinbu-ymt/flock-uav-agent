@@ -1,0 +1,3198 @@
+{
+  "attempt_status_counts": {
+    "no_response": 4,
+    "response": 214
+  },
+  "counts": {
+    "A": 77,
+    "B": 106,
+    "U": 0
+  },
+  "denominator": 183,
+  "event_fraction_among_decidable": 0.4207650273224044,
+  "fixed_schedule": {
+    "absolute_effective_difference_pp": 3.7383177570093458,
+    "candidates": [
+      {
+        "absolute_count_difference": 106,
+        "k": 1,
+        "requested": 214
+      },
+      {
+        "absolute_count_difference": 3,
+        "k": 2,
+        "requested": 111
+      },
+      {
+        "absolute_count_difference": 29,
+        "k": 3,
+        "requested": 79
+      },
+      {
+        "absolute_count_difference": 43,
+        "k": 4,
+        "requested": 65
+      },
+      {
+        "absolute_count_difference": 48,
+        "k": 5,
+        "requested": 60
+      },
+      {
+        "absolute_count_difference": 64,
+        "k": 6,
+        "requested": 44
+      },
+      {
+        "absolute_count_difference": 69,
+        "k": 7,
+        "requested": 39
+      },
+      {
+        "absolute_count_difference": 72,
+        "k": 8,
+        "requested": 36
+      },
+      {
+        "absolute_count_difference": 73,
+        "k": 9,
+        "requested": 35
+      },
+      {
+        "absolute_count_difference": 75,
+        "k": 10,
+        "requested": 33
+      },
+      {
+        "absolute_count_difference": 75,
+        "k": 11,
+        "requested": 33
+      },
+      {
+        "absolute_count_difference": 77,
+        "k": 12,
+        "requested": 31
+      }
+    ],
+    "common_turns": 214,
+    "event": {
+      "effective": 85,
+      "effective_known": 214,
+      "effective_rate": 0.397196261682243,
+      "requested": 108,
+      "requested_known": 214,
+      "requested_rate": 0.5046728971962616,
+      "requested_without_text": 23,
+      "retained_reasoning_tokens_known_sum": 19816,
+      "retained_turns_missing_token_count": 0,
+      "turns": 214
+    },
+    "fixed_interval": {
+      "effective": 77,
+      "effective_known": 214,
+      "effective_rate": 0.3598130841121495,
+      "requested": 111,
+      "requested_known": 214,
+      "requested_rate": 0.5186915887850467,
+      "requested_without_text": 34,
+      "retained_reasoning_tokens_known_sum": 27326,
+      "retained_turns_missing_token_count": 0,
+      "turns": 214
+    },
+    "k": 2,
+    "within_2pp": false
+  },
+  "gate": "G3",
+  "inputs_sha256": {
+    "attempts.jsonl": "5b1647559e1ee6a7e9142c0a9a63e3ad0f74b0e60d7085b1805f9b6578b9f212",
+    "sources.json": "e01fb34e92162e72f57fe01a0a25575aae663dc12de57d5c692b379a0c331344",
+    "turns.jsonl": "9c474c6fe5c612ad9d9e49a9b29feb6b7693efdf4ad6f59f779b10d17fbef88d"
+  },
+  "integrity_issues": [],
+  "interval": [
+    0.4207650273224044,
+    0.4207650273224044
+  ],
+  "keep_all_equals_teacher_effective": true,
+  "label_totals": {
+    "drop_all": {
+      "effective": 0,
+      "effective_known": 214,
+      "effective_rate": 0.0,
+      "requested": 0,
+      "requested_known": 214,
+      "requested_rate": 0.0,
+      "requested_without_text": 0,
+      "retained_reasoning_tokens_known_sum": 0,
+      "retained_turns_missing_token_count": 0,
+      "turns": 214
+    },
+    "event": {
+      "effective": 85,
+      "effective_known": 214,
+      "effective_rate": 0.397196261682243,
+      "requested": 108,
+      "requested_known": 214,
+      "requested_rate": 0.5046728971962616,
+      "requested_without_text": 23,
+      "retained_reasoning_tokens_known_sum": 19816,
+      "retained_turns_missing_token_count": 0,
+      "turns": 214
+    },
+    "fixed_interval": {
+      "effective": 77,
+      "effective_known": 214,
+      "effective_rate": 0.3598130841121495,
+      "requested": 111,
+      "requested_known": 214,
+      "requested_rate": 0.5186915887850467,
+      "requested_without_text": 34,
+      "retained_reasoning_tokens_known_sum": 27326,
+      "retained_turns_missing_token_count": 0,
+      "turns": 214
+    },
+    "keep_all": {
+      "effective": 145,
+      "effective_known": 214,
+      "effective_rate": 0.677570093457944,
+      "requested": 214,
+      "requested_known": 214,
+      "requested_rate": 1.0,
+      "requested_without_text": 69,
+      "retained_reasoning_tokens_known_sum": 53319,
+      "retained_turns_missing_token_count": 0,
+      "turns": 214
+    },
+    "logic": {
+      "effective": 0,
+      "effective_known": 0,
+      "effective_rate": null,
+      "requested": 0,
+      "requested_known": 0,
+      "requested_rate": null,
+      "requested_without_text": 0,
+      "retained_reasoning_tokens_known_sum": 0,
+      "retained_turns_missing_token_count": 0,
+      "turns": 214
+    },
+    "teacher": {
+      "effective": 145,
+      "effective_known": 214,
+      "effective_rate": 0.677570093457944,
+      "requested": 145,
+      "requested_known": 214,
+      "requested_rate": 0.677570093457944,
+      "requested_without_text": 0,
+      "retained_reasoning_tokens_known_sum": 53319,
+      "retained_turns_missing_token_count": 0,
+      "turns": 214
+    }
+  },
+  "overall": {
+    "A": 77,
+    "B": 106,
+    "U": 0,
+    "clauses": {
+      "by_kind": {
+        "action_required": {
+          "supported": 2,
+          "total": 2,
+          "triggered": 2
+        },
+        "checkpoint_hold": {
+          "supported": 0,
+          "total": 6,
+          "triggered": 0
+        },
+        "checkpoint_path": {
+          "supported": 6,
+          "total": 6,
+          "triggered": 0
+        },
+        "checkpoint_takeoff": {
+          "supported": 0,
+          "total": 6,
+          "triggered": 0
+        },
+        "duration_unverified": {
+          "supported": 0,
+          "total": 2,
+          "triggered": 0
+        },
+        "not_applicable": {
+          "supported": 0,
+          "total": 7,
+          "triggered": 0
+        },
+        "state_goal": {
+          "supported": 12,
+          "total": 12,
+          "triggered": 6
+        },
+        "unsupported": {
+          "supported": 0,
+          "total": 2,
+          "triggered": 0
+        }
+      },
+      "status_ever": {
+        "completed": 8,
+        "elapsed_duration_unverified": 8,
+        "explicit_hover_action_receipt_required": 1,
+        "fresh_actor_status_required": 14,
+        "fresh_pre_takeoff_position_anchor_required": 4,
+        "hovering_airborne_stationary_state_not_confirmed": 2,
+        "latest_status_not_complete_ordered_observation": 1,
+        "no_named_actor": 7,
+        "outside_initial_grammar": 8,
+        "same_command_takeoff_attempt_required": 1,
+        "status_stale_after_or_overlapping_actor_action": 5,
+        "unconfirmed": 20
+      },
+      "supported": 20,
+      "total": 43,
+      "triggered": 8
+    },
+    "episodes": 31,
+    "event_state_x_teacher_request": {
+      "E0": {
+        "skip": 46,
+        "think": 60
+      },
+      "event": {
+        "skip": 8,
+        "think": 69
+      },
+      "start": {
+        "skip": 15,
+        "think": 16
+      }
+    },
+    "events": {
+      "E1": {
+        "calls": 6,
+        "episodes": 5,
+        "turns": 6
+      },
+      "E2": {
+        "calls": 6,
+        "episodes": 6,
+        "turns": 6
+      },
+      "E3": {
+        "calls": 3,
+        "episodes": 1,
+        "turns": 1
+      },
+      "E4": {
+        "calls": 9,
+        "episodes": 7,
+        "turns": 9
+      },
+      "E5": {
+        "calls": 62,
+        "episodes": 31,
+        "turns": 53
+      },
+      "E6": {
+        "calls": 8,
+        "episodes": 8,
+        "turns": 8
+      }
+    },
+    "start": 31,
+    "teacher_reasoning_tokens": {
+      "E0": {
+        "missing": 0,
+        "n": 106,
+        "p25": 0,
+        "p50": 13,
+        "p75": 84,
+        "p95": 1621,
+        "sum": 33503,
+        "turns": 106,
+        "zero": 46,
+        "zero_fraction": 0.4339622641509434
+      },
+      "event": {
+        "missing": 0,
+        "n": 77,
+        "p25": 23,
+        "p50": 42,
+        "p75": 93,
+        "p95": 1052,
+        "sum": 18134,
+        "turns": 77,
+        "zero": 8,
+        "zero_fraction": 0.1038961038961039
+      }
+    },
+    "turns": 214,
+    "turns_with_gaps": 3
+  },
+  "population": {
+    "deepseek-behavior-pilot-20261102": {
+      "attempts": 38,
+      "episodes": 5,
+      "no_response": 1,
+      "responses": 37
+    },
+    "deepseek-contract-pilot-20261103": {
+      "attempts": 58,
+      "episodes": 8,
+      "no_response": 2,
+      "responses": 56
+    },
+    "deepseek-cost-pilot-20261103": {
+      "attempts": 69,
+      "episodes": 10,
+      "no_response": 1,
+      "responses": 68
+    },
+    "deepseek-hover-pilot-20261103": {
+      "attempts": 53,
+      "episodes": 8,
+      "no_response": 0,
+      "responses": 53
+    }
+  },
+  "quantile_method": "nearest_rank",
+  "schema_version": "thinking-events-v1",
+  "split_usage": "development",
+  "status": "pass",
+  "strata": {
+    "by_arm": [
+      {
+        "A": 17,
+        "B": 31,
+        "U": 0,
+        "arm": "baseline",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 2
+            },
+            "unsupported": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "completed": 2,
+            "elapsed_duration_unverified": 2,
+            "fresh_actor_status_required": 2,
+            "no_named_actor": 2,
+            "outside_initial_grammar": 3,
+            "unconfirmed": 4
+          },
+          "supported": 4,
+          "total": 11,
+          "triggered": 2
+        },
+        "episodes": 7,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 12,
+            "think": 19
+          },
+          "event": {
+            "skip": 1,
+            "think": 16
+          },
+          "start": {
+            "skip": 4,
+            "think": 3
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          },
+          "E2": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 23,
+            "episodes": 7,
+            "turns": 14
+          },
+          "E6": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          }
+        },
+        "start": 7,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 31,
+            "p25": 0,
+            "p50": 16,
+            "p75": 192,
+            "p95": 1618,
+            "sum": 6875,
+            "turns": 31,
+            "zero": 12,
+            "zero_fraction": 0.3870967741935484
+          },
+          "event": {
+            "missing": 0,
+            "n": 17,
+            "p25": 19,
+            "p50": 32,
+            "p75": 168,
+            "p95": 4778,
+            "sum": 10595,
+            "turns": 17,
+            "zero": 1,
+            "zero_fraction": 0.058823529411764705
+          }
+        },
+        "turns": 55,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 24,
+        "B": 27,
+        "U": 0,
+        "arm": "candidate",
+        "clauses": {
+          "by_kind": {
+            "action_required": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            },
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "duration_unverified": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 4,
+              "total": 4,
+              "triggered": 3
+            }
+          },
+          "status_ever": {
+            "completed": 4,
+            "elapsed_duration_unverified": 2,
+            "fresh_actor_status_required": 5,
+            "fresh_pre_takeoff_position_anchor_required": 1,
+            "hovering_airborne_stationary_state_not_confirmed": 1,
+            "latest_status_not_complete_ordered_observation": 1,
+            "no_named_actor": 2,
+            "outside_initial_grammar": 1,
+            "status_stale_after_or_overlapping_actor_action": 2,
+            "unconfirmed": 6
+          },
+          "supported": 6,
+          "total": 11,
+          "triggered": 4
+        },
+        "episodes": 9,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 15,
+            "think": 12
+          },
+          "event": {
+            "skip": 4,
+            "think": 20
+          },
+          "start": {
+            "skip": 6,
+            "think": 3
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E2": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          },
+          "E3": {
+            "calls": 3,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E4": {
+            "calls": 2,
+            "episodes": 1,
+            "turns": 2
+          },
+          "E5": {
+            "calls": 15,
+            "episodes": 9,
+            "turns": 15
+          },
+          "E6": {
+            "calls": 4,
+            "episodes": 4,
+            "turns": 4
+          }
+        },
+        "start": 9,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 27,
+            "p25": 0,
+            "p50": 0,
+            "p75": 61,
+            "p95": 522,
+            "sum": 3760,
+            "turns": 27,
+            "zero": 15,
+            "zero_fraction": 0.5555555555555556
+          },
+          "event": {
+            "missing": 0,
+            "n": 24,
+            "p25": 16,
+            "p50": 40,
+            "p75": 76,
+            "p95": 178,
+            "sum": 2910,
+            "turns": 24,
+            "zero": 4,
+            "zero_fraction": 0.16666666666666666
+          }
+        },
+        "turns": 60,
+        "turns_with_gaps": 1
+      },
+      {
+        "A": 23,
+        "B": 29,
+        "U": 0,
+        "arm": "control",
+        "clauses": {
+          "by_kind": {
+            "action_required": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            },
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "duration_unverified": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 4,
+              "total": 4,
+              "triggered": 1
+            }
+          },
+          "status_ever": {
+            "completed": 2,
+            "elapsed_duration_unverified": 2,
+            "explicit_hover_action_receipt_required": 1,
+            "fresh_actor_status_required": 5,
+            "fresh_pre_takeoff_position_anchor_required": 2,
+            "hovering_airborne_stationary_state_not_confirmed": 1,
+            "no_named_actor": 2,
+            "outside_initial_grammar": 1,
+            "same_command_takeoff_attempt_required": 1,
+            "status_stale_after_or_overlapping_actor_action": 2,
+            "unconfirmed": 6
+          },
+          "supported": 6,
+          "total": 11,
+          "triggered": 2
+        },
+        "episodes": 9,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 12,
+            "think": 17
+          },
+          "event": {
+            "skip": 2,
+            "think": 21
+          },
+          "start": {
+            "skip": 3,
+            "think": 6
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 2,
+            "episodes": 1,
+            "turns": 2
+          },
+          "E2": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 4,
+            "episodes": 4,
+            "turns": 4
+          },
+          "E5": {
+            "calls": 14,
+            "episodes": 9,
+            "turns": 14
+          },
+          "E6": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          }
+        },
+        "start": 9,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 29,
+            "p25": 0,
+            "p50": 17,
+            "p75": 69,
+            "p95": 959,
+            "sum": 10146,
+            "turns": 29,
+            "zero": 12,
+            "zero_fraction": 0.41379310344827586
+          },
+          "event": {
+            "missing": 0,
+            "n": 23,
+            "p25": 28,
+            "p50": 55,
+            "p75": 99,
+            "p95": 755,
+            "sum": 3066,
+            "turns": 23,
+            "zero": 2,
+            "zero_fraction": 0.08695652173913043
+          }
+        },
+        "turns": 61,
+        "turns_with_gaps": 1
+      },
+      {
+        "A": 13,
+        "B": 19,
+        "U": 0,
+        "arm": "integrated",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 0
+            },
+            "unsupported": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "elapsed_duration_unverified": 2,
+            "fresh_actor_status_required": 2,
+            "fresh_pre_takeoff_position_anchor_required": 1,
+            "no_named_actor": 1,
+            "outside_initial_grammar": 3,
+            "status_stale_after_or_overlapping_actor_action": 1,
+            "unconfirmed": 4
+          },
+          "supported": 4,
+          "total": 10,
+          "triggered": 0
+        },
+        "episodes": 6,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 7,
+            "think": 12
+          },
+          "event": {
+            "skip": 1,
+            "think": 12
+          },
+          "start": {
+            "skip": 2,
+            "think": 4
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E2": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 3,
+            "episodes": 2,
+            "turns": 3
+          },
+          "E5": {
+            "calls": 10,
+            "episodes": 6,
+            "turns": 10
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 6,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 19,
+            "p25": 0,
+            "p50": 16,
+            "p75": 93,
+            "p95": 6049,
+            "sum": 12722,
+            "turns": 19,
+            "zero": 7,
+            "zero_fraction": 0.3684210526315789
+          },
+          "event": {
+            "missing": 0,
+            "n": 13,
+            "p25": 25,
+            "p50": 38,
+            "p75": 80,
+            "p95": 995,
+            "sum": 1563,
+            "turns": 13,
+            "zero": 1,
+            "zero_fraction": 0.07692307692307693
+          }
+        },
+        "turns": 38,
+        "turns_with_gaps": 1
+      }
+    ],
+    "by_batch": [
+      {
+        "A": 9,
+        "B": 23,
+        "U": 0,
+        "batch": "deepseek-behavior-pilot-20261102",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "unsupported": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "elapsed_duration_unverified": 2,
+            "no_named_actor": 1,
+            "outside_initial_grammar": 4,
+            "unconfirmed": 2
+          },
+          "supported": 2,
+          "total": 9,
+          "triggered": 0
+        },
+        "episodes": 5,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 9,
+            "think": 14
+          },
+          "event": {
+            "think": 9
+          },
+          "start": {
+            "skip": 1,
+            "think": 4
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E5": {
+            "calls": 14,
+            "episodes": 5,
+            "turns": 9
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 5,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 23,
+            "p25": 0,
+            "p50": 10,
+            "p75": 182,
+            "p95": 1014,
+            "sum": 4276,
+            "turns": 23,
+            "zero": 9,
+            "zero_fraction": 0.391304347826087
+          },
+          "event": {
+            "missing": 0,
+            "n": 9,
+            "p25": 16,
+            "p50": 29,
+            "p75": 83,
+            "p95": 4778,
+            "sum": 9069,
+            "turns": 9,
+            "zero": 0,
+            "zero_fraction": 0.0
+          }
+        },
+        "turns": 37,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 21,
+        "B": 27,
+        "U": 0,
+        "batch": "deepseek-contract-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 4,
+              "total": 4,
+              "triggered": 2
+            }
+          },
+          "status_ever": {
+            "completed": 2,
+            "elapsed_duration_unverified": 2,
+            "fresh_actor_status_required": 4,
+            "fresh_pre_takeoff_position_anchor_required": 1,
+            "no_named_actor": 2,
+            "outside_initial_grammar": 2,
+            "status_stale_after_or_overlapping_actor_action": 1,
+            "unconfirmed": 6
+          },
+          "supported": 6,
+          "total": 12,
+          "triggered": 2
+        },
+        "episodes": 8,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 10,
+            "think": 17
+          },
+          "event": {
+            "skip": 2,
+            "think": 19
+          },
+          "start": {
+            "skip": 5,
+            "think": 3
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          },
+          "E2": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 2,
+            "episodes": 1,
+            "turns": 2
+          },
+          "E5": {
+            "calls": 19,
+            "episodes": 8,
+            "turns": 15
+          },
+          "E6": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          }
+        },
+        "start": 8,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 27,
+            "p25": 0,
+            "p50": 51,
+            "p75": 192,
+            "p95": 4561,
+            "sum": 15321,
+            "turns": 27,
+            "zero": 10,
+            "zero_fraction": 0.37037037037037035
+          },
+          "event": {
+            "missing": 0,
+            "n": 21,
+            "p25": 23,
+            "p50": 38,
+            "p75": 80,
+            "p95": 995,
+            "sum": 3089,
+            "turns": 21,
+            "zero": 2,
+            "zero_fraction": 0.09523809523809523
+          }
+        },
+        "turns": 56,
+        "turns_with_gaps": 1
+      },
+      {
+        "A": 30,
+        "B": 28,
+        "U": 0,
+        "batch": "deepseek-cost-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 4,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 4,
+              "total": 4,
+              "triggered": 2
+            }
+          },
+          "status_ever": {
+            "completed": 2,
+            "elapsed_duration_unverified": 2,
+            "fresh_actor_status_required": 4,
+            "fresh_pre_takeoff_position_anchor_required": 2,
+            "latest_status_not_complete_ordered_observation": 1,
+            "no_named_actor": 4,
+            "outside_initial_grammar": 2,
+            "status_stale_after_or_overlapping_actor_action": 2,
+            "unconfirmed": 6
+          },
+          "supported": 6,
+          "total": 14,
+          "triggered": 2
+        },
+        "episodes": 10,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 14,
+            "think": 14
+          },
+          "event": {
+            "skip": 2,
+            "think": 28
+          },
+          "start": {
+            "skip": 5,
+            "think": 5
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 3,
+            "episodes": 2,
+            "turns": 3
+          },
+          "E2": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          },
+          "E3": {
+            "calls": 3,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E4": {
+            "calls": 2,
+            "episodes": 1,
+            "turns": 2
+          },
+          "E5": {
+            "calls": 21,
+            "episodes": 10,
+            "turns": 21
+          },
+          "E6": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          }
+        },
+        "start": 10,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 28,
+            "p25": 0,
+            "p50": 0,
+            "p75": 77,
+            "p95": 2565,
+            "sum": 13034,
+            "turns": 28,
+            "zero": 14,
+            "zero_fraction": 0.5
+          },
+          "event": {
+            "missing": 0,
+            "n": 30,
+            "p25": 27,
+            "p50": 53,
+            "p75": 135,
+            "p95": 933,
+            "sum": 5196,
+            "turns": 30,
+            "zero": 2,
+            "zero_fraction": 0.06666666666666667
+          }
+        },
+        "turns": 68,
+        "turns_with_gaps": 2
+      },
+      {
+        "A": 17,
+        "B": 28,
+        "U": 0,
+        "batch": "deepseek-hover-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "action_required": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 2
+            },
+            "duration_unverified": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 4,
+              "total": 4,
+              "triggered": 2
+            }
+          },
+          "status_ever": {
+            "completed": 4,
+            "elapsed_duration_unverified": 2,
+            "explicit_hover_action_receipt_required": 1,
+            "fresh_actor_status_required": 6,
+            "fresh_pre_takeoff_position_anchor_required": 1,
+            "hovering_airborne_stationary_state_not_confirmed": 2,
+            "same_command_takeoff_attempt_required": 1,
+            "status_stale_after_or_overlapping_actor_action": 2,
+            "unconfirmed": 6
+          },
+          "supported": 6,
+          "total": 8,
+          "triggered": 4
+        },
+        "episodes": 8,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 13,
+            "think": 15
+          },
+          "event": {
+            "skip": 4,
+            "think": 13
+          },
+          "start": {
+            "skip": 4,
+            "think": 4
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 4,
+            "episodes": 4,
+            "turns": 4
+          },
+          "E5": {
+            "calls": 8,
+            "episodes": 8,
+            "turns": 8
+          },
+          "E6": {
+            "calls": 4,
+            "episodes": 4,
+            "turns": 4
+          }
+        },
+        "start": 8,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 28,
+            "p25": 0,
+            "p50": 13,
+            "p75": 43,
+            "p95": 108,
+            "sum": 872,
+            "turns": 28,
+            "zero": 13,
+            "zero_fraction": 0.4642857142857143
+          },
+          "event": {
+            "missing": 0,
+            "n": 17,
+            "p25": 7,
+            "p50": 35,
+            "p75": 73,
+            "p95": 178,
+            "sum": 780,
+            "turns": 17,
+            "zero": 4,
+            "zero_fraction": 0.23529411764705882
+          }
+        },
+        "turns": 53,
+        "turns_with_gaps": 0
+      }
+    ],
+    "by_batch_arm_condition": [
+      {
+        "A": 6,
+        "B": 16,
+        "U": 0,
+        "arm": "baseline",
+        "batch": "deepseek-behavior-pilot-20261102",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "unsupported": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "elapsed_duration_unverified": 1,
+            "no_named_actor": 1,
+            "outside_initial_grammar": 2,
+            "unconfirmed": 1
+          },
+          "supported": 1,
+          "total": 5,
+          "triggered": 0
+        },
+        "condition": "natural",
+        "episodes": 3,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 6,
+            "think": 10
+          },
+          "event": {
+            "think": 6
+          },
+          "start": {
+            "skip": 1,
+            "think": 2
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 11,
+            "episodes": 3,
+            "turns": 6
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 3,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 16,
+            "p25": 0,
+            "p50": 10,
+            "p75": 185,
+            "p95": 1885,
+            "sum": 4204,
+            "turns": 16,
+            "zero": 6,
+            "zero_fraction": 0.375
+          },
+          "event": {
+            "missing": 0,
+            "n": 6,
+            "p25": 16,
+            "p50": 26,
+            "p75": 4071,
+            "p95": 4778,
+            "sum": 8943,
+            "turns": 6,
+            "zero": 0,
+            "zero_fraction": 0.0
+          }
+        },
+        "turns": 25,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 3,
+        "B": 7,
+        "U": 0,
+        "arm": "integrated",
+        "batch": "deepseek-behavior-pilot-20261102",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "unsupported": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "elapsed_duration_unverified": 1,
+            "outside_initial_grammar": 2,
+            "unconfirmed": 1
+          },
+          "supported": 1,
+          "total": 4,
+          "triggered": 0
+        },
+        "condition": "natural",
+        "episodes": 2,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 3,
+            "think": 4
+          },
+          "event": {
+            "think": 3
+          },
+          "start": {
+            "think": 2
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E5": {
+            "calls": 3,
+            "episodes": 2,
+            "turns": 3
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 2,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 7,
+            "p25": 0,
+            "p50": 3,
+            "p75": 16,
+            "p95": 41,
+            "sum": 72,
+            "turns": 7,
+            "zero": 3,
+            "zero_fraction": 0.42857142857142855
+          },
+          "event": {
+            "missing": 0,
+            "n": 3,
+            "p25": 14,
+            "p50": 29,
+            "p75": 83,
+            "p95": 83,
+            "sum": 126,
+            "turns": 3,
+            "zero": 0,
+            "zero_fraction": 0.0
+          }
+        },
+        "turns": 12,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 3,
+        "B": 2,
+        "U": 0,
+        "arm": "baseline",
+        "batch": "deepseek-contract-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            }
+          },
+          "status_ever": {
+            "completed": 1,
+            "fresh_actor_status_required": 1,
+            "unconfirmed": 1
+          },
+          "supported": 1,
+          "total": 1,
+          "triggered": 1
+        },
+        "condition": "injected",
+        "episodes": 1,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 1,
+            "think": 1
+          },
+          "event": {
+            "think": 3
+          },
+          "start": {
+            "skip": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E6": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          }
+        },
+        "start": 1,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 2,
+            "p25": 0,
+            "p50": 0,
+            "p75": 22,
+            "p95": 22,
+            "sum": 22,
+            "turns": 2,
+            "zero": 1,
+            "zero_fraction": 0.5
+          },
+          "event": {
+            "missing": 0,
+            "n": 3,
+            "p25": 17,
+            "p50": 23,
+            "p75": 63,
+            "p95": 63,
+            "sum": 103,
+            "turns": 3,
+            "zero": 0,
+            "zero_fraction": 0.0
+          }
+        },
+        "turns": 6,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 8,
+        "B": 13,
+        "U": 0,
+        "arm": "baseline",
+        "batch": "deepseek-contract-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            }
+          },
+          "status_ever": {
+            "completed": 1,
+            "elapsed_duration_unverified": 1,
+            "fresh_actor_status_required": 1,
+            "no_named_actor": 1,
+            "outside_initial_grammar": 1,
+            "unconfirmed": 2
+          },
+          "supported": 2,
+          "total": 5,
+          "triggered": 1
+        },
+        "condition": "natural",
+        "episodes": 3,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 5,
+            "think": 8
+          },
+          "event": {
+            "skip": 1,
+            "think": 7
+          },
+          "start": {
+            "skip": 2,
+            "think": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 11,
+            "episodes": 3,
+            "turns": 7
+          },
+          "E6": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          }
+        },
+        "start": 3,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 13,
+            "p25": 0,
+            "p50": 20,
+            "p75": 192,
+            "p95": 1618,
+            "sum": 2649,
+            "turns": 13,
+            "zero": 5,
+            "zero_fraction": 0.38461538461538464
+          },
+          "event": {
+            "missing": 0,
+            "n": 8,
+            "p25": 19,
+            "p50": 32,
+            "p75": 168,
+            "p95": 1052,
+            "sum": 1549,
+            "turns": 8,
+            "zero": 1,
+            "zero_fraction": 0.125
+          }
+        },
+        "turns": 24,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 2,
+        "B": 3,
+        "U": 0,
+        "arm": "integrated",
+        "batch": "deepseek-contract-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "fresh_actor_status_required": 1,
+            "fresh_pre_takeoff_position_anchor_required": 1,
+            "status_stale_after_or_overlapping_actor_action": 1,
+            "unconfirmed": 1
+          },
+          "supported": 1,
+          "total": 1,
+          "triggered": 0
+        },
+        "condition": "injected",
+        "episodes": 1,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 1,
+            "think": 2
+          },
+          "event": {
+            "think": 2
+          },
+          "start": {
+            "think": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 1,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 3,
+            "p25": 0,
+            "p50": 68,
+            "p75": 93,
+            "p95": 93,
+            "sum": 161,
+            "turns": 3,
+            "zero": 1,
+            "zero_fraction": 0.3333333333333333
+          },
+          "event": {
+            "missing": 0,
+            "n": 2,
+            "p25": 25,
+            "p50": 25,
+            "p75": 56,
+            "p95": 56,
+            "sum": 81,
+            "turns": 2,
+            "zero": 0,
+            "zero_fraction": 0.0
+          }
+        },
+        "turns": 6,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 8,
+        "B": 9,
+        "U": 0,
+        "arm": "integrated",
+        "batch": "deepseek-contract-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "elapsed_duration_unverified": 1,
+            "fresh_actor_status_required": 1,
+            "no_named_actor": 1,
+            "outside_initial_grammar": 1,
+            "unconfirmed": 2
+          },
+          "supported": 2,
+          "total": 5,
+          "triggered": 0
+        },
+        "condition": "natural",
+        "episodes": 3,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 3,
+            "think": 6
+          },
+          "event": {
+            "skip": 1,
+            "think": 7
+          },
+          "start": {
+            "skip": 2,
+            "think": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 2,
+            "episodes": 1,
+            "turns": 2
+          },
+          "E5": {
+            "calls": 6,
+            "episodes": 3,
+            "turns": 6
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 3,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 9,
+            "p25": 0,
+            "p50": 61,
+            "p75": 1621,
+            "p95": 6049,
+            "sum": 12489,
+            "turns": 9,
+            "zero": 3,
+            "zero_fraction": 0.3333333333333333
+          },
+          "event": {
+            "missing": 0,
+            "n": 8,
+            "p25": 11,
+            "p50": 38,
+            "p75": 80,
+            "p95": 995,
+            "sum": 1356,
+            "turns": 8,
+            "zero": 1,
+            "zero_fraction": 0.125
+          }
+        },
+        "turns": 20,
+        "turns_with_gaps": 1
+      },
+      {
+        "A": 4,
+        "B": 4,
+        "U": 0,
+        "arm": "candidate",
+        "batch": "deepseek-cost-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "fresh_actor_status_required": 1,
+            "fresh_pre_takeoff_position_anchor_required": 1,
+            "latest_status_not_complete_ordered_observation": 1,
+            "status_stale_after_or_overlapping_actor_action": 1,
+            "unconfirmed": 1
+          },
+          "supported": 1,
+          "total": 1,
+          "triggered": 0
+        },
+        "condition": "injected",
+        "episodes": 1,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 3,
+            "think": 1
+          },
+          "event": {
+            "skip": 1,
+            "think": 3
+          },
+          "start": {
+            "skip": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 2,
+            "episodes": 1,
+            "turns": 2
+          },
+          "E5": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 1,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 4,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "p95": 61,
+            "sum": 61,
+            "turns": 4,
+            "zero": 3,
+            "zero_fraction": 0.75
+          },
+          "event": {
+            "missing": 0,
+            "n": 4,
+            "p25": 0,
+            "p50": 16,
+            "p75": 27,
+            "p95": 58,
+            "sum": 101,
+            "turns": 4,
+            "zero": 1,
+            "zero_fraction": 0.25
+          }
+        },
+        "turns": 9,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 12,
+        "B": 9,
+        "U": 0,
+        "arm": "candidate",
+        "batch": "deepseek-cost-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            }
+          },
+          "status_ever": {
+            "completed": 1,
+            "elapsed_duration_unverified": 1,
+            "fresh_actor_status_required": 1,
+            "no_named_actor": 2,
+            "outside_initial_grammar": 1,
+            "unconfirmed": 2
+          },
+          "supported": 2,
+          "total": 6,
+          "triggered": 1
+        },
+        "condition": "natural",
+        "episodes": 4,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 5,
+            "think": 4
+          },
+          "event": {
+            "think": 12
+          },
+          "start": {
+            "skip": 2,
+            "think": 2
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 3,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 10,
+            "episodes": 4,
+            "turns": 10
+          },
+          "E6": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          }
+        },
+        "start": 4,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 9,
+            "p25": 0,
+            "p50": 0,
+            "p75": 77,
+            "p95": 2565,
+            "sum": 3178,
+            "turns": 9,
+            "zero": 5,
+            "zero_fraction": 0.5555555555555556
+          },
+          "event": {
+            "missing": 0,
+            "n": 12,
+            "p25": 40,
+            "p50": 73,
+            "p75": 123,
+            "p95": 1648,
+            "sum": 2502,
+            "turns": 12,
+            "zero": 0,
+            "zero_fraction": 0.0
+          }
+        },
+        "turns": 25,
+        "turns_with_gaps": 1
+      },
+      {
+        "A": 2,
+        "B": 4,
+        "U": 0,
+        "arm": "control",
+        "batch": "deepseek-cost-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "fresh_actor_status_required": 1,
+            "fresh_pre_takeoff_position_anchor_required": 1,
+            "status_stale_after_or_overlapping_actor_action": 1,
+            "unconfirmed": 1
+          },
+          "supported": 1,
+          "total": 1,
+          "triggered": 0
+        },
+        "condition": "injected",
+        "episodes": 1,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 1,
+            "think": 3
+          },
+          "event": {
+            "think": 2
+          },
+          "start": {
+            "think": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 1,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 4,
+            "p25": 0,
+            "p50": 5,
+            "p75": 57,
+            "p95": 84,
+            "sum": 146,
+            "turns": 4,
+            "zero": 1,
+            "zero_fraction": 0.25
+          },
+          "event": {
+            "missing": 0,
+            "n": 2,
+            "p25": 35,
+            "p50": 35,
+            "p75": 84,
+            "p95": 84,
+            "sum": 119,
+            "turns": 2,
+            "zero": 0,
+            "zero_fraction": 0.0
+          }
+        },
+        "turns": 7,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 12,
+        "B": 11,
+        "U": 0,
+        "arm": "control",
+        "batch": "deepseek-cost-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            }
+          },
+          "status_ever": {
+            "completed": 1,
+            "elapsed_duration_unverified": 1,
+            "fresh_actor_status_required": 1,
+            "no_named_actor": 2,
+            "outside_initial_grammar": 1,
+            "unconfirmed": 2
+          },
+          "supported": 2,
+          "total": 6,
+          "triggered": 1
+        },
+        "condition": "natural",
+        "episodes": 4,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 5,
+            "think": 6
+          },
+          "event": {
+            "skip": 1,
+            "think": 11
+          },
+          "start": {
+            "skip": 2,
+            "think": 2
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 2,
+            "episodes": 1,
+            "turns": 2
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 9,
+            "episodes": 4,
+            "turns": 9
+          },
+          "E6": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          }
+        },
+        "start": 4,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 11,
+            "p25": 0,
+            "p50": 38,
+            "p75": 361,
+            "p95": 8069,
+            "sum": 9649,
+            "turns": 11,
+            "zero": 5,
+            "zero_fraction": 0.45454545454545453
+          },
+          "event": {
+            "missing": 0,
+            "n": 12,
+            "p25": 16,
+            "p50": 37,
+            "p75": 195,
+            "p95": 933,
+            "sum": 2474,
+            "turns": 12,
+            "zero": 1,
+            "zero_fraction": 0.08333333333333333
+          }
+        },
+        "turns": 27,
+        "turns_with_gaps": 1
+      },
+      {
+        "A": 3,
+        "B": 2,
+        "U": 0,
+        "arm": "candidate",
+        "batch": "deepseek-hover-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            }
+          },
+          "status_ever": {
+            "completed": 1,
+            "fresh_actor_status_required": 1,
+            "unconfirmed": 1
+          },
+          "supported": 1,
+          "total": 1,
+          "triggered": 1
+        },
+        "condition": "injected",
+        "episodes": 1,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "think": 2
+          },
+          "event": {
+            "skip": 1,
+            "think": 2
+          },
+          "start": {
+            "skip": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E6": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          }
+        },
+        "start": 1,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 2,
+            "p25": 43,
+            "p50": 43,
+            "p75": 85,
+            "p95": 85,
+            "sum": 128,
+            "turns": 2,
+            "zero": 0,
+            "zero_fraction": 0.0
+          },
+          "event": {
+            "missing": 0,
+            "n": 3,
+            "p25": 0,
+            "p50": 23,
+            "p75": 24,
+            "p95": 24,
+            "sum": 47,
+            "turns": 3,
+            "zero": 1,
+            "zero_fraction": 0.3333333333333333
+          }
+        },
+        "turns": 6,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 5,
+        "B": 12,
+        "U": 0,
+        "arm": "candidate",
+        "batch": "deepseek-hover-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "action_required": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            },
+            "duration_unverified": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            }
+          },
+          "status_ever": {
+            "completed": 2,
+            "elapsed_duration_unverified": 1,
+            "fresh_actor_status_required": 2,
+            "hovering_airborne_stationary_state_not_confirmed": 1,
+            "status_stale_after_or_overlapping_actor_action": 1,
+            "unconfirmed": 2
+          },
+          "supported": 2,
+          "total": 3,
+          "triggered": 2
+        },
+        "condition": "natural",
+        "episodes": 3,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 7,
+            "think": 5
+          },
+          "event": {
+            "skip": 2,
+            "think": 3
+          },
+          "start": {
+            "skip": 2,
+            "think": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E5": {
+            "calls": 3,
+            "episodes": 3,
+            "turns": 3
+          },
+          "E6": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          }
+        },
+        "start": 3,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 12,
+            "p25": 0,
+            "p50": 0,
+            "p75": 20,
+            "p95": 225,
+            "sum": 393,
+            "turns": 12,
+            "zero": 7,
+            "zero_fraction": 0.5833333333333334
+          },
+          "event": {
+            "missing": 0,
+            "n": 5,
+            "p25": 0,
+            "p50": 35,
+            "p75": 47,
+            "p95": 178,
+            "sum": 260,
+            "turns": 5,
+            "zero": 2,
+            "zero_fraction": 0.4
+          }
+        },
+        "turns": 20,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 2,
+        "B": 3,
+        "U": 0,
+        "arm": "control",
+        "batch": "deepseek-hover-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "fresh_actor_status_required": 1,
+            "fresh_pre_takeoff_position_anchor_required": 1,
+            "unconfirmed": 1
+          },
+          "supported": 1,
+          "total": 1,
+          "triggered": 0
+        },
+        "condition": "injected",
+        "episodes": 1,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 2,
+            "think": 1
+          },
+          "event": {
+            "think": 2
+          },
+          "start": {
+            "think": 1
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E5": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E6": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          }
+        },
+        "start": 1,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 3,
+            "p25": 0,
+            "p50": 0,
+            "p75": 108,
+            "p95": 108,
+            "sum": 108,
+            "turns": 3,
+            "zero": 2,
+            "zero_fraction": 0.6666666666666666
+          },
+          "event": {
+            "missing": 0,
+            "n": 2,
+            "p25": 7,
+            "p50": 7,
+            "p75": 99,
+            "p95": 99,
+            "sum": 106,
+            "turns": 2,
+            "zero": 0,
+            "zero_fraction": 0.0
+          }
+        },
+        "turns": 6,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 7,
+        "B": 11,
+        "U": 0,
+        "arm": "control",
+        "batch": "deepseek-hover-pilot-20261103",
+        "clauses": {
+          "by_kind": {
+            "action_required": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 1
+            },
+            "duration_unverified": {
+              "supported": 0,
+              "total": 1,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 1,
+              "total": 1,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "completed": 1,
+            "elapsed_duration_unverified": 1,
+            "explicit_hover_action_receipt_required": 1,
+            "fresh_actor_status_required": 2,
+            "hovering_airborne_stationary_state_not_confirmed": 1,
+            "same_command_takeoff_attempt_required": 1,
+            "status_stale_after_or_overlapping_actor_action": 1,
+            "unconfirmed": 2
+          },
+          "supported": 2,
+          "total": 3,
+          "triggered": 1
+        },
+        "condition": "natural",
+        "episodes": 3,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 4,
+            "think": 7
+          },
+          "event": {
+            "skip": 1,
+            "think": 6
+          },
+          "start": {
+            "skip": 1,
+            "think": 2
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 3,
+            "episodes": 3,
+            "turns": 3
+          },
+          "E5": {
+            "calls": 3,
+            "episodes": 3,
+            "turns": 3
+          },
+          "E6": {
+            "calls": 1,
+            "episodes": 1,
+            "turns": 1
+          }
+        },
+        "start": 3,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 11,
+            "p25": 0,
+            "p50": 17,
+            "p75": 43,
+            "p95": 69,
+            "sum": 243,
+            "turns": 11,
+            "zero": 4,
+            "zero_fraction": 0.36363636363636365
+          },
+          "event": {
+            "missing": 0,
+            "n": 7,
+            "p25": 31,
+            "p50": 55,
+            "p75": 73,
+            "p95": 93,
+            "sum": 367,
+            "turns": 7,
+            "zero": 1,
+            "zero_fraction": 0.14285714285714285
+          }
+        },
+        "turns": 21,
+        "turns_with_gaps": 0
+      }
+    ],
+    "by_condition": [
+      {
+        "A": 16,
+        "B": 18,
+        "U": 0,
+        "clauses": {
+          "by_kind": {
+            "state_goal": {
+              "supported": 6,
+              "total": 6,
+              "triggered": 2
+            }
+          },
+          "status_ever": {
+            "completed": 2,
+            "fresh_actor_status_required": 6,
+            "fresh_pre_takeoff_position_anchor_required": 4,
+            "latest_status_not_complete_ordered_observation": 1,
+            "status_stale_after_or_overlapping_actor_action": 3,
+            "unconfirmed": 6
+          },
+          "supported": 6,
+          "total": 6,
+          "triggered": 2
+        },
+        "condition": "injected",
+        "episodes": 6,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 8,
+            "think": 10
+          },
+          "event": {
+            "skip": 2,
+            "think": 14
+          },
+          "start": {
+            "skip": 3,
+            "think": 3
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E2": {
+            "calls": 6,
+            "episodes": 6,
+            "turns": 6
+          },
+          "E3": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E4": {
+            "calls": 3,
+            "episodes": 2,
+            "turns": 3
+          },
+          "E5": {
+            "calls": 6,
+            "episodes": 6,
+            "turns": 6
+          },
+          "E6": {
+            "calls": 2,
+            "episodes": 2,
+            "turns": 2
+          }
+        },
+        "start": 6,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 18,
+            "p25": 0,
+            "p50": 5,
+            "p75": 68,
+            "p95": 108,
+            "sum": 626,
+            "turns": 18,
+            "zero": 8,
+            "zero_fraction": 0.4444444444444444
+          },
+          "event": {
+            "missing": 0,
+            "n": 16,
+            "p25": 16,
+            "p50": 24,
+            "p75": 56,
+            "p95": 99,
+            "sum": 557,
+            "turns": 16,
+            "zero": 2,
+            "zero_fraction": 0.125
+          }
+        },
+        "turns": 40,
+        "turns_with_gaps": 0
+      },
+      {
+        "A": 61,
+        "B": 88,
+        "U": 0,
+        "clauses": {
+          "by_kind": {
+            "action_required": {
+              "supported": 2,
+              "total": 2,
+              "triggered": 2
+            },
+            "checkpoint_hold": {
+              "supported": 0,
+              "total": 6,
+              "triggered": 0
+            },
+            "checkpoint_path": {
+              "supported": 6,
+              "total": 6,
+              "triggered": 0
+            },
+            "checkpoint_takeoff": {
+              "supported": 0,
+              "total": 6,
+              "triggered": 0
+            },
+            "duration_unverified": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            },
+            "not_applicable": {
+              "supported": 0,
+              "total": 7,
+              "triggered": 0
+            },
+            "state_goal": {
+              "supported": 6,
+              "total": 6,
+              "triggered": 4
+            },
+            "unsupported": {
+              "supported": 0,
+              "total": 2,
+              "triggered": 0
+            }
+          },
+          "status_ever": {
+            "completed": 6,
+            "elapsed_duration_unverified": 8,
+            "explicit_hover_action_receipt_required": 1,
+            "fresh_actor_status_required": 8,
+            "hovering_airborne_stationary_state_not_confirmed": 2,
+            "no_named_actor": 7,
+            "outside_initial_grammar": 8,
+            "same_command_takeoff_attempt_required": 1,
+            "status_stale_after_or_overlapping_actor_action": 2,
+            "unconfirmed": 14
+          },
+          "supported": 14,
+          "total": 37,
+          "triggered": 6
+        },
+        "condition": "natural",
+        "episodes": 25,
+        "event_state_x_teacher_request": {
+          "E0": {
+            "skip": 38,
+            "think": 50
+          },
+          "event": {
+            "skip": 6,
+            "think": 55
+          },
+          "start": {
+            "skip": 12,
+            "think": 13
+          }
+        },
+        "events": {
+          "E1": {
+            "calls": 6,
+            "episodes": 5,
+            "turns": 6
+          },
+          "E2": {
+            "calls": 0,
+            "episodes": 0,
+            "turns": 0
+          },
+          "E3": {
+            "calls": 3,
+            "episodes": 1,
+            "turns": 1
+          },
+          "E4": {
+            "calls": 6,
+            "episodes": 5,
+            "turns": 6
+          },
+          "E5": {
+            "calls": 56,
+            "episodes": 25,
+            "turns": 47
+          },
+          "E6": {
+            "calls": 6,
+            "episodes": 6,
+            "turns": 6
+          }
+        },
+        "start": 25,
+        "teacher_reasoning_tokens": {
+          "E0": {
+            "missing": 0,
+            "n": 88,
+            "p25": 0,
+            "p50": 13,
+            "p75": 96,
+            "p95": 1885,
+            "sum": 32877,
+            "turns": 88,
+            "zero": 38,
+            "zero_fraction": 0.4318181818181818
+          },
+          "event": {
+            "missing": 0,
+            "n": 61,
+            "p25": 26,
+            "p50": 47,
+            "p75": 135,
+            "p95": 1052,
+            "sum": 17577,
+            "turns": 61,
+            "zero": 6,
+            "zero_fraction": 0.09836065573770492
+          }
+        },
+        "turns": 174,
+        "turns_with_gaps": 3
+      }
+    ]
+  },
+  "teacher_usage_all_turns": {
+    "missing": 0,
+    "n": 214,
+    "p25": 0,
+    "p50": 28,
+    "p75": 93,
+    "p95": 1052,
+    "sum": 53319,
+    "turns": 214,
+    "zero": 69,
+    "zero_fraction": 0.32242990654205606
+  },
+  "usage_text_discrepancies": {}
+}
