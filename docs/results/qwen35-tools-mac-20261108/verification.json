@@ -1,0 +1,49 @@
+{
+  "cpu-success": {
+    "reproduced_requests": 6,
+    "reversed_receipts": [
+      {
+        "call_id": "call_3",
+        "drone_id": "eedfa187"
+      },
+      {
+        "call_id": "call_2",
+        "drone_id": "3d229034"
+      }
+    ],
+    "tool_dispatches": [
+      "list_drones",
+      "get_drone_status",
+      "get_drone_status",
+      "take_off",
+      "hover",
+      "get_drone_status"
+    ],
+    "physical_actions": [
+      "take_off",
+      "hover"
+    ],
+    "stop_reason": null,
+    "checker": {
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "snapshot_sha256": "850361588e7e285dc178c5d8345c8484995988969e38760b2ef7a8de77b28d02"
+    }
+  },
+  "cpu-truncated": {
+    "reproduced_requests": 2,
+    "reversed_receipts": [],
+    "tool_dispatches": [
+      "list_drones"
+    ],
+    "physical_actions": [],
+    "stop_reason": "generation_truncated",
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 2,
+      "snapshot_sha256": "23a9b797b7a0c2d3f736ae74c6566a0ed82946fcc3d979e77da1fb0e11d65b62"
+    }
+  }
+}
