@@ -1,4 +1,4 @@
-"""Replay the sealed teacher development archives from the repository root."""
+"""Replay the teacher archives and prepare the paired student development study."""
 
 import argparse
 import hashlib
@@ -81,13 +81,28 @@ def main():
     commands = parser.add_subparsers(dest="command", required=True)
     runner = commands.add_parser("replay", help="recompute G3 from four sealed development batches")
     runner.add_argument("--output", required=True, type=Path, help="new local output directory")
+    prepare = commands.add_parser("prepare-dev", help="freeze the 29-task development study and 116 planned slots")
+    prepare.add_argument("--study", type=Path, required=True)
+    prepare.add_argument("--output", type=Path, required=True)
+    dev = commands.add_parser("run-dev", help="verify the relocated campaign and record CPU-only readiness")
+    dev.add_argument("--run", type=Path, required=True)
+    dev.add_argument("--g3", type=Path, required=True)
     args = parser.parse_args()
     try:
-        gate = replay(args.output)
+        if args.command == "replay":
+            gate = replay(args.output)
+            result = {"status": gate["status"], "counts": gate["counts"], "interval": gate["interval"],
+                      "output": str(args.output)}
+        elif args.command == "prepare-dev":
+            from .campaign import prepare_dev
+            prepare_dev(args.study, args.output)
+            result = {"output": str(args.output), "planned_slots": 116}
+        else:
+            from .campaign import run_dev
+            result = run_dev(args.run, args.g3)
     except (ValueError, OSError) as error:
-        parser.exit(1, f"replay: {error}\n")
-    print(json.dumps({"status": gate["status"], "counts": gate["counts"],
-                      "interval": gate["interval"], "output": str(args.output)}, ensure_ascii=False))
+        parser.exit(1, f"{args.command}: {error}\n")
+    print(json.dumps(result, ensure_ascii=False))
 
 
 if __name__ == "__main__":
