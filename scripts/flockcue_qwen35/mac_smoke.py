@@ -1,4 +1,4 @@
-"""One real-weight, thinking-off development episode on the Mac's local v5 simulator."""
+"""One real-weight development episode on the Mac's local v5 simulator."""
 import argparse
 import json
 import os
@@ -20,31 +20,36 @@ from .smoke import MODEL, ROOT, TOKENIZER_DIR, hover_trial, prepare_source
 
 SCOPE = "qwen35_mac_real_weights_dev_hover"
 SLOT = "mac-qwen35-off"
+ON_SLOT = "mac-qwen35-on"
 
 
-def model_spec():
+def model_spec(thinking=False):
     from .mac_model import WEIGHT_FILE, WEIGHT_SHA256
 
     return {"model": MODEL, "backend": "mlx", "revision": REVISION, "weight_file": WEIGHT_FILE,
-            "weight_sha256": WEIGHT_SHA256, "thinking": False, "sampling": SAMPLING, "eos_ids": sorted(EOS_IDS)}
+            "weight_sha256": WEIGHT_SHA256, "thinking": thinking, "sampling": SAMPLING, "eos_ids": sorted(EOS_IDS)}
 
 
-def prepare(output, cache, *, takeoff_example=False):
+def prepare(output, cache, *, takeoff_example=False, thinking=False):
     from agent_harness.__main__ import validate_output
 
-    spec = model_spec()
+    if thinking and not takeoff_example:
+        raise ValueError("The paired thinking-on run requires the corrected take_off example")
+    spec = model_spec(thinking)
     run = validate_output(output) / "mac-run"
     common = prepare_source(run, cache, extra_files=[ROOT / "training/requirements-qwen35-mac-mlx.lock"])
-    manifest = {**common, "scope": SCOPE, "model": spec, "trials": [hover_trial(SLOT)],
+    manifest = {**common, "scope": SCOPE, "model": spec, "trials": [hover_trial(ON_SLOT if thinking else SLOT)],
                 "seed_rule": "first four bytes of SHA256(task_id/turn), big-endian",
                 "formal_slots_started": 0, "teacher_calls": 0}
     if takeoff_example:
-        from .takeoff_example import CONTROL_MANIFEST_SHA, FIRST_PROMPT, match_command_id, prepare_variant
+        from . import takeoff_example as control
 
-        manifest["intervention"] = prepare_variant(run, manifest["sources"])
-        manifest["matched_command_id"] = match_command_id(run, manifest["sources"])
-        manifest["control_baseline"] = {"manifest_sha256": CONTROL_MANIFEST_SHA,
-                                        "expected_treatment_first_prompt": FIRST_PROMPT}
+        manifest["intervention"] = control.prepare_variant(run, manifest["sources"])
+        manifest["matched_command_id"] = control.match_command_id(run, manifest["sources"])
+        manifest["control_baseline"] = {
+            "manifest_sha256": control.PAIRED_OFF_MANIFEST_SHA if thinking else control.CONTROL_MANIFEST_SHA,
+            "expected_treatment_first_prompt": control.ON_FIRST_PROMPT if thinking else control.FIRST_PROMPT,
+        }
     write(run / "manifest.json", manifest)
     (run / "manifest.sha256").write_text(sha((run / "manifest.json").read_bytes()) + "\n")
     return run
@@ -53,17 +58,19 @@ def prepare(output, cache, *, takeoff_example=False):
 class LiveService:
     """Render public SDK requests, generate raw tokens in the model process and dispatch atomically."""
 
-    def __init__(self, model, tokenizer, *, guard_run=None):
+    def __init__(self, model, tokenizer, *, guard_run=None, thinking=False):
         self.model = model
         self.tokenizer = tokenizer
         self.guard_run = guard_run
+        self.thinking = thinking
+        self.slot = ON_SLOT if thinking else SLOT
 
     def cancel(self):
         self.model.cancel()
 
     def request(self, *, slot, turn, messages, tools, thinking, seed, spent_tokens, episode_deadline, request_timeout):
         start = time.monotonic()
-        if slot != SLOT or thinking or turn < 1 or turn > 12 or not _public_history(messages, tools):
+        if slot != self.slot or thinking is not self.thinking or turn < 1 or turn > 12 or not _public_history(messages, tools):
             return stopped("input_rejected")
         deadline = min(episode_deadline, start + request_timeout)
         timeout = "episode_deadline" if episode_deadline <= start + request_timeout else "request_timeout"
@@ -76,7 +83,7 @@ class LiveService:
         if turn == 1 and self.guard_run is not None:
             from .takeoff_example import check_first_prompt
 
-            check_first_prompt(self.guard_run, prompt, seed)
+            check_first_prompt(self.guard_run, prompt, seed, thinking_slot=self.slot if thinking else None)
         ids = prompt["input_ids"]
         limit, reason = output_budget(len(ids), spent_tokens)
         audit = {key: prompt[key] for key in ("input_ids", "template_sha256", "history_reasoning_tokens")}
@@ -109,7 +116,9 @@ def run_trial(run, manifest, model_python, weights):
     from .mac_model import MacModel
 
     trial, = manifest["trials"]
-    result = {"trial_id": SLOT, "task_id": trial["task_id"], "passed": None, "status": "unscored"}
+    slot = trial["trial_id"]
+    thinking = manifest["model"]["thinking"]
+    result = {"trial_id": slot, "task_id": trial["task_id"], "passed": None, "status": "unscored"}
     for name in ("process-logs", "worker-exit-seals", "scorer-exit-seals"):
         (run / name).mkdir()
     try:
@@ -121,14 +130,14 @@ def run_trial(run, manifest, model_python, weights):
             fields = ("backend", "model", "revision", "weight_sha256")
             if not runtime.get("weights_loaded") or any(runtime.get(k) != manifest["model"][k] for k in fields):
                 raise ValueError("Loaded model does not match the frozen model identity")
-            service = LiveService(model, tokenizer, guard_run=run if "intervention" in manifest else None)
-            proc = _run_with_service(run, manifest, trial, MODEL, False, service, False, None)
+            service = LiveService(model, tokenizer, thinking=thinking, guard_run=run if "intervention" in manifest else None)
+            proc = _run_with_service(run, manifest, trial, MODEL, thinking, service, False, None)
             result["worker_pid"] = proc["pid"]
         worker = validate_worker(run, trial, proc, manifest=manifest)
         result.update(initial=worker["initial"], stop_reason=worker["limits"]["stop_reason"],
                       agent_returned=worker["agent"]["success"],
-                      worker_seal_sha256=sha((run / "worker-exit-seals" / f"{SLOT}.json").read_bytes()))
-        folder = run / "trials" / SLOT
+                      worker_seal_sha256=sha((run / "worker-exit-seals" / f"{slot}.json").read_bytes()))
+        folder = run / "trials" / slot
         usage = _metrics(folder, worker, "mlx")
         usage.update(cost_cny=0, cost_basis="own Mac; no rental or external service",
                      vram_measurement="no dedicated VRAM counter; see MLX memory in per-request audit")
@@ -138,7 +147,7 @@ def run_trial(run, manifest, model_python, weights):
         if scorer["pid"] == proc["pid"]:
             raise ValueError("Scorer reused worker process identity")
         result.update(status="scored", passed=score["checker"]["passed"], scorer_pid=scorer["pid"],
-                      scorer_seal_sha256=sha((run / "scorer-exit-seals" / f"{SLOT}.json").read_bytes()))
+                      scorer_seal_sha256=sha((run / "scorer-exit-seals" / f"{slot}.json").read_bytes()))
     except (OSError, ValueError, RuntimeError, KeyError, EOFError, TimeoutError, subprocess.SubprocessError) as exc:
         result["unscored_reason"] = f"{type(exc).__name__}: {exc}"
     return result
@@ -148,14 +157,17 @@ def execute(run, model_python, weights):
     if ROOT != run / "source":
         raise ValueError("Launch the coordinator from its frozen source")
     manifest = _manifest(run)
-    if manifest["scope"] != SCOPE or manifest["trials"] != [hover_trial(SLOT)] or manifest["model"] != model_spec():
+    thinking = manifest["model"]["thinking"]
+    slot = ON_SLOT if thinking else SLOT
+    if (type(thinking) is not bool or manifest["scope"] != SCOPE or manifest["trials"] != [hover_trial(slot)]
+            or manifest["model"] != model_spec(thinking)):
         raise ValueError("Malformed development trial or different model settings")
-    ledger = SlotLedger(run, [{"slot_id": SLOT, "trial_id": SLOT, "task_id": manifest["trials"][0]["task_id"]}])
+    ledger = SlotLedger(run, [{"slot_id": slot, "trial_id": slot, "task_id": manifest["trials"][0]["task_id"]}])
     ledger.initialize()
-    if not ledger.claim(SLOT, (run / "manifest.sha256").read_text().strip()):
+    if not ledger.claim(slot, (run / "manifest.sha256").read_text().strip()):
         raise ValueError("This development slot has already been claimed")
     result = run_trial(run, manifest, model_python, weights)
-    ledger.finish(SLOT, result)
+    ledger.finish(slot, result)
     report = {"scope": SCOPE, "formal_slots_started": 0, "teacher_calls": 0, "rental_cost_cny": 0, "row": result}
     atomic_write(run.parent / "smoke.json", json_bytes(report))
     print(json.dumps(report, ensure_ascii=False, indent=2))
@@ -172,6 +184,8 @@ def main():
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE, help="pinned local tokenizer files")
     parser.add_argument("--takeoff-example", action="store_true",
                         help="change only the take_off example to the wrapped input_json form")
+    parser.add_argument("--thinking", action="store_true",
+                        help="enable the native thinking template in the paired takeoff-example run")
     args = parser.parse_args()
     if args.frozen_run:
         return execute(args.frozen_run.resolve(), args.model_python, args.weights)
@@ -180,7 +194,7 @@ def main():
     weights = args.weights.resolve(strict=True)
     if not python.is_file():
         parser.error("model Python does not exist")
-    run = prepare(args.output, args.cache, takeoff_example=args.takeoff_example)
+    run = prepare(args.output, args.cache, takeoff_example=args.takeoff_example, thinking=args.thinking)
     source = run / "source"
     env = {key: os.environ[key] for key in ("PATH", "HOME", "TMPDIR", "LANG", "LC_ALL") if key in os.environ}
     env.update(PYTHONPATH=str(source / "scripts"), PYTHONDONTWRITEBYTECODE="1", PYTHONNOUSERSITE="1",

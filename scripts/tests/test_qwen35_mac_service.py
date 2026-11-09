@@ -33,3 +33,23 @@ def test_request_deadline_never_dispatches_a_late_command(monkeypatch, complete)
         assert result["late_generation"] and result["usage"]["total_tokens"] == 2
     else:
         assert result["generated_ids"] is None and result["usage"] is None
+
+
+def test_thinking_run_uses_its_declared_slot_and_mode(monkeypatch):
+    model = Mock()
+    service = mac_smoke.LiveService(model, tokenizer=None, thinking=True)
+    request = dict(slot=mac_smoke.ON_SLOT, turn=1, messages=[{"role": "user", "content": "hover"}],
+                   tools=[], thinking=True, seed=6, spent_tokens=0, episode_deadline=float("inf"), request_timeout=10.0)
+    for invalid in ({"thinking": False}, {"slot": mac_smoke.SLOT}):
+        assert service.request(**{**request, **invalid})["stop_reason"] == "input_rejected"
+    model.generate.assert_not_called()
+    render = Mock(return_value=({"input_ids": [20], "history_reasoning_tokens": 0, "template_sha256": "test"}, {}))
+    parse = Mock(return_value={"message": {"role": "assistant", "content": "done", "reasoning_content": "a"},
+                               "reasoning_tokens": 1, "anomalies": [], "terminated": True})
+    monkeypatch.setattr(mac_smoke, "render", render)
+    monkeypatch.setattr(mac_smoke, "parse_generation", parse)
+    model.generate.return_value = {"first_token_monotonic": None, "timing": {}, "generated_ids": [248046]}
+    result = service.request(**request)
+    render.assert_called_once_with(None, request["messages"], [], True)
+    parse.assert_called_once_with(None, [248046], mac_smoke.EOS_IDS, True, {}, 2048)
+    assert result["status"] == "ok" and result["thinking"] is True and result["reasoning_tokens"] == 1

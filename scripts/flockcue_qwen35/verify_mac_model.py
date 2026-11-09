@@ -18,7 +18,7 @@ TASK = "c74d7020"
 ACTOR = "3d229034"
 
 
-def verify_identity(run, manifest):
+def verify_identity(run, manifest, slot, thinking):
     require(sha((run / "manifest.json").read_bytes()) == (run / "manifest.sha256").read_text().strip(),
             "run manifest changed")
     require(manifest["scope"] == "qwen35_mac_real_weights_dev_hover" and not (run / "fixture-replies.json").exists(),
@@ -28,9 +28,10 @@ def verify_identity(run, manifest):
     require({"scripts/flockcue_qwen35/mac_model.py", "scripts/flockcue_qwen35/mac_smoke.py",
              "scripts/flockcue_qwen35/adapter.py", "scripts/thinking_events/worker_child.py"}
             <= manifest["sources"].keys(), "missing frozen inference or worker code")
+    require(manifest["model"]["thinking"] is thinking, "wrong declared thinking mode")
     trial, = manifest["trials"]
-    require((trial["trial_id"], trial["task_id"]) == (SLOT, TASK)
-            and {p.name for p in (run / "trials").glob("*")} <= {SLOT}, "wrong trial set")
+    require((trial["trial_id"], trial["task_id"]) == (slot, TASK)
+            and {p.name for p in (run / "trials").glob("*")} <= {slot}, "wrong trial set")
     expected_limits = {"max_http_attempts": 12, "max_total_tokens": 100000, "max_output_tokens": 2048,
                        "per_request_timeout_seconds": 120}
     require(trial["runtime"]["task_seconds"] == 500 and trial["runtime"]["request_limits"] == expected_limits,
@@ -38,11 +39,11 @@ def verify_identity(run, manifest):
     return trial
 
 
-def check_runtime(model, runtime):
+def check_runtime(model, runtime, thinking):
     for key, value in {"model": "Qwen3.5-2B", "revision": REVISION, "backend": "mlx",
                        "weight_sha256": OFFICIAL_WEIGHT_SHA}.items():
         require(model[key] == runtime[key] == value, "unexpected model identity: " + key)
-    require(runtime["weights_loaded"] is True and model["thinking"] is False
+    require(runtime["weights_loaded"] is True and model["thinking"] is thinking
             and set(model["eos_ids"]) == EOS_IDS, "unexpected model mode or EOS")
     require(runtime["config_sha256"] == FILES["config.json"] and runtime["weight_bytes"] == 4548221488
             and not runtime["quantized"] and runtime["precision"] and runtime["sampling"] == model["sampling"] == SAMPLING
@@ -51,11 +52,12 @@ def check_runtime(model, runtime):
 
 
 def score_evidence(run, folder, worker, summary):
+    slot = folder.name
     score = read(folder / "evaluation/result.json")
     boundary = read(folder / "private/score-boundary.json")
     files = set()
     for kind in ("worker", "scorer"):
-        seal_path = run / f"{kind}-exit-seals/{SLOT}.json"
+        seal_path = run / f"{kind}-exit-seals/{slot}.json"
         require(sha(seal_path.read_bytes()) == summary[kind + "_seal_sha256"], "exit seal mismatch")
         seal = read(seal_path)
         check_hashes(folder, seal)
@@ -65,7 +67,7 @@ def score_evidence(run, folder, worker, summary):
     snapshot = sha((folder / "private/score-world.pkl").read_bytes())
     require(snapshot == worker["snapshot"]["sha256"] == score["snapshot_sha256"] == boundary["snapshot_sha256"],
             "scoring snapshot differs from the worker's final state")
-    require((worker["trial_id"], worker["task_id"]) == (SLOT, TASK) and score["trial_id"] == SLOT
+    require((worker["trial_id"], worker["task_id"]) == (slot, TASK) and score["trial_id"] == slot
             and score["worker_result_sha256"] == sha((folder / "worker-result.json").read_bytes())
             and score["worker_pid"] == worker["pid"] == summary["worker_pid"] != score["pid"] == summary["scorer_pid"]
             and score["checker_tree_matches_original"] and score["private_canary_present"]
@@ -91,7 +93,7 @@ def score_evidence(run, folder, worker, summary):
             "flight_state": ground["check_response"].get("status"), "snapshot_sha256": snapshot}
 
 
-def turns_evidence(folder, worker, tok):
+def turns_evidence(folder, worker, tok, thinking):
     archive, = (folder / "policy/modelio").glob("*.jsonl")
     events = rows(archive)
     requests = [e["data"] for e in events if e["kind"] == "http_request"]
@@ -111,7 +113,7 @@ def turns_evidence(folder, worker, tok):
                 "SDK request not in worker budget log")
         wire = json.loads(body)
         ids = tok.apply_chat_template(project(wire["messages"]), tools=wire["tools"], tokenize=True,
-                                      enable_thinking=False, add_generation_prompt=True)
+                                      enable_thinking=thinking, add_generation_prompt=True)
         parts = [e["data"] for e in events if e["kind"] == "http_response_chunk"
                  and e["data"]["attempt_id"] == request["attempt_id"]]
         response = b"".join(base64.b64decode(r["body"]["base64"], validate=True) for r in parts)
@@ -122,7 +124,7 @@ def turns_evidence(folder, worker, tok):
             require(not response and not attempt["delivered_to_sdk"], "missing successful generation record")
             item["stop_reason"] = attempt["outcome"]
             continue
-        require(row["request_body_sha256"] == sha(body) and row["slot"] == SLOT
+        require(row["request_body_sha256"] == sha(body) and row["slot"] == folder.name
                 and row["spent_before"] == spent and math.isfinite(row["round_trip_seconds"]),
                 "student request identity or token accounting failed")
         seed = int.from_bytes(hashlib.sha256(f"{TASK}/{turn}".encode()).digest()[:4], "big")
@@ -136,16 +138,20 @@ def turns_evidence(folder, worker, tok):
             require(row["status"] != "ok" and row["message"] is None and not response and not row.get("usage"),
                     "failed generation produced an SDK response or claimed known usage")
             continue
-        require(row.get("thinking") is False and row["input_ids"] == ids, "wrong generation mode or prompt")
+        require(row.get("thinking") is thinking and row["input_ids"] == ids, "wrong generation mode or prompt")
         cap, reason = output_budget(len(ids), spent)
         require(reason is None and row["max_new_tokens"] == cap, "generation cap differs")
-        _, prepared = render(tok, wire["messages"], wire["tools"], False)
-        parsed = parse_generation(tok, generated, EOS_IDS, False, prepared, cap)
+        prompt, prepared = render(tok, wire["messages"], wire["tools"], thinking)
+        require(row["history_reasoning_tokens"] == prompt["history_reasoning_tokens"],
+                "wrong historical reasoning-token accounting")
+        parsed = parse_generation(tok, generated, EOS_IDS, thinking, prepared, cap)
         usage = row["usage"]
         require((usage["prompt_tokens"], usage["completion_tokens"], usage["total_tokens"]) ==
                 (len(ids), len(generated), len(ids) + len(generated)), "wrong usage")
         item["completion_tokens"] = len(generated)
         item["reasoning_tokens"] = parsed["reasoning_tokens"]
+        require(usage["completion_tokens_details"]["reasoning_tokens"] == parsed["reasoning_tokens"],
+                "wrong completion reasoning-token accounting")
         item["peak_mlx_allocated_bytes"] = row["peak_allocated_bytes"]
         timing = row["timing"]
         require(timing["timing_source"] == "mlx_metal_token_stream" and item["peak_mlx_allocated_bytes"] > 0
@@ -204,26 +210,27 @@ def action_evidence(folder, worker, dispatched):
     return result
 
 
-def verify(run):
+def verify(run, *, thinking=False):
+    slot = "mac-qwen35-on" if thinking else SLOT
     run = Path(run).resolve()
     manifest = read(run / "manifest.json")
-    trial = verify_identity(run, manifest)
+    trial = verify_identity(run, manifest, slot, thinking)
     report = read(run.parent / "smoke.json")
     row = report["row"]
-    require(report["scope"] == manifest["scope"] and (row["trial_id"], row["task_id"]) == (SLOT, TASK)
+    require(report["scope"] == manifest["scope"] and (row["trial_id"], row["task_id"]) == (slot, TASK)
             and report["formal_slots_started"] == report["teacher_calls"] == report["rental_cost_cny"] == 0,
             "wrong scope or outcome")
     ledger, = rows(run / "slots.jsonl")
     selected = (run / "selected-backend.sha256").read_text().strip()
-    require(ledger["result"] == row and ledger["slot_id"] == SLOT
+    require(ledger["result"] == row and ledger["slot_id"] == slot
             and ledger["status"] == row["status"] and ledger["backend_sha256"] == selected
             and selected == (run / "manifest.sha256").read_text().strip(), "slot journal or backend differs")
-    output = {"scope": manifest["scope"], "task_id": TASK, "thinking": False,
+    output = {"scope": manifest["scope"], "task_id": TASK, "thinking": thinking,
               "manifest_sha256": sha((run / "manifest.json").read_bytes()), "status": row["status"]}
     runtime_path = run / "model-runtime.json"
     if runtime_path.is_file():
         runtime = read(runtime_path)
-        check_runtime(manifest["model"], runtime)
+        check_runtime(manifest["model"], runtime, thinking)
         output["model"] = {k: runtime[k] for k in ("revision", "model", "backend", "weight_sha256", "quantized",
                                                    "checkpoint_dtype", "precision", "mlx", "mlx_lm", "device")}
         output["model_runtime_sha256"] = sha(runtime_path.read_bytes())
@@ -232,13 +239,13 @@ def verify(run):
         require(row["passed"] is None and row.get("unscored_reason"), "unscored attempt needs a reason")
         return {**output, "outcome": "unscored", "unscored_reason": row["unscored_reason"], "checker": None}
     require(row["status"] == "scored" and runtime_path.is_file(), "unknown status or real runtime missing")
-    folder = run / "trials" / SLOT
+    folder = run / "trials" / slot
     worker = read(folder / "worker-result.json")
     require(runtime["pid"] not in {row["worker_pid"], row["scorer_pid"]} and worker["runtime"] == trial["runtime"],
             "model not isolated or runtime budgets changed")
     checker = score_evidence(run, folder, worker, row)
     tok = load_tokenizer(run / "source/training/tokenizers/qwen35-dev")
-    turns, dispatched = turns_evidence(folder, worker, tok)
+    turns, dispatched = turns_evidence(folder, worker, tok, thinking)
     actions = action_evidence(folder, worker, dispatched)
     reason = worker["limits"]["stop_reason"]
     require(reason == row["stop_reason"], "worker and terminal stop reasons differ")

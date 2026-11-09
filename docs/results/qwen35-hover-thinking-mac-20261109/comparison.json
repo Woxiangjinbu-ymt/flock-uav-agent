@@ -1,0 +1,557 @@
+{
+  "first_prompt": {
+    "sdk_request_sha256": "308fcf9bd76bd6147e90ad1461c697d953bcf837d11cb88f2a049878e9f5b144",
+    "tool_count": 31,
+    "off": {
+      "seed": 3346213468,
+      "input_tokens": 8535,
+      "prompt_text_sha256": "ee65e9abaa249a1f96f50ba8c5c83a235bfcdb3c0f3cf2564f715e183a90b3c8",
+      "input_ids_sha256": "a1d902e9ea65e59e5856eddd79b53d979e93f0f64b61975188b7fd7c33b28a0a"
+    },
+    "on": {
+      "seed": 3346213468,
+      "input_tokens": 8533,
+      "prompt_text_sha256": "927e3db5b468f9262e9a0f06b98046d8c92f47fddeb0e1ff369cd259230b1bba",
+      "input_ids_sha256": "72de77596f00b2c689c2ce40c0d0325dd569aa1643d7ccb701d89ef8a318e461",
+      "sdk_request_sha256": "308fcf9bd76bd6147e90ad1461c697d953bcf837d11cb88f2a049878e9f5b144"
+    }
+  },
+  "off": {
+    "scope": "qwen35_mac_real_weights_dev_hover",
+    "task_id": "c74d7020",
+    "thinking": false,
+    "manifest_sha256": "47df5abc53082fb5d895bb806b09ddb7c62471b742826e7adbd5b5afb007772b",
+    "status": "scored",
+    "model": {
+      "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+      "model": "Qwen3.5-2B",
+      "backend": "mlx",
+      "weight_sha256": "aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1",
+      "quantized": false,
+      "checkpoint_dtype": "bfloat16",
+      "precision": {
+        "bfloat16": 284,
+        "float32": 36
+      },
+      "mlx": "0.32.4",
+      "mlx_lm": "0.32.2",
+      "device": {
+        "device_name": "Apple M2 Pro",
+        "max_recommended_working_set_size": 11453251584,
+        "memory_size": 17179869184,
+        "architecture": "applegpu_g14s",
+        "max_buffer_length": 8589934592,
+        "resource_limit": 499000
+      }
+    },
+    "model_runtime_sha256": "5faad064b4d264cd495850f53cce255c3d3d54ec1ea6a5b745b985485394f5be",
+    "outcome": "checker_passed",
+    "stop_reason": null,
+    "checker": {
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "target_drone": "3d229034",
+      "altitude_m": 12.0,
+      "flight_state": "hovering",
+      "snapshot_sha256": "108c25f12e55d6ea689d68baefb6179e1562cf5fbf04fba89679c926377e1b1c"
+    },
+    "steps": [
+      {
+        "turn": 1,
+        "sdk_prompt_tokens": 8535,
+        "completion_tokens": 15,
+        "tool_calls": [
+          "list_drones"
+        ],
+        "round_trip_seconds": 7.147815290999915,
+        "stop_reason": null,
+        "reasoning_tokens": 0,
+        "peak_mlx_allocated_bytes": 4457833260,
+        "timing": {
+          "ttft_seconds": 6.754964250000057,
+          "generation_seconds": 7.079985541000042,
+          "decode_tokens_per_second": 39.96716982479567
+        }
+      },
+      {
+        "turn": 2,
+        "sdk_prompt_tokens": 9187,
+        "completion_tokens": 69,
+        "tool_calls": [
+          "get_weather"
+        ],
+        "round_trip_seconds": 8.725757749999957,
+        "stop_reason": null,
+        "reasoning_tokens": 0,
+        "peak_mlx_allocated_bytes": 4457833298,
+        "timing": {
+          "ttft_seconds": 6.988897833999999,
+          "generation_seconds": 8.659115749999955,
+          "decode_tokens_per_second": 40.63472841709824
+        }
+      },
+      {
+        "turn": 3,
+        "sdk_prompt_tokens": 9471,
+        "completion_tokens": 91,
+        "tool_calls": [
+          "take_off"
+        ],
+        "round_trip_seconds": 9.485494499999959,
+        "stop_reason": null,
+        "reasoning_tokens": 0,
+        "peak_mlx_allocated_bytes": 4466664300,
+        "timing": {
+          "ttft_seconds": 7.239038375000064,
+          "generation_seconds": 9.440000625000039,
+          "decode_tokens_per_second": 40.745174166133026
+        }
+      },
+      {
+        "turn": 4,
+        "sdk_prompt_tokens": 9749,
+        "completion_tokens": 78,
+        "tool_calls": [
+          "get_drone_status"
+        ],
+        "round_trip_seconds": 9.533573875000002,
+        "stop_reason": null,
+        "reasoning_tokens": 0,
+        "peak_mlx_allocated_bytes": 4479755116,
+        "timing": {
+          "ttft_seconds": 7.569292917000212,
+          "generation_seconds": 9.463513750000175,
+          "decode_tokens_per_second": 40.55771512425667
+        }
+      },
+      {
+        "turn": 5,
+        "sdk_prompt_tokens": 10161,
+        "completion_tokens": 112,
+        "tool_calls": [],
+        "round_trip_seconds": 10.607654499999853,
+        "stop_reason": null,
+        "reasoning_tokens": 0,
+        "peak_mlx_allocated_bytes": 4479755116,
+        "timing": {
+          "ttft_seconds": 7.825236749999931,
+          "generation_seconds": 10.558002250000072,
+          "decode_tokens_per_second": 40.48756387927111
+        }
+      }
+    ],
+    "dispatched_tools": [
+      "list_drones",
+      "get_weather",
+      "take_off",
+      "get_drone_status"
+    ],
+    "flight_commands": [
+      {
+        "tool": "take_off",
+        "endpoint": "/drones/3d229034/command/take_off",
+        "params": {
+          "altitude": 12.0
+        },
+        "committed": true,
+        "status": "success"
+      }
+    ],
+    "known_prompt_tokens": 47103,
+    "known_completion_tokens": 365,
+    "unknown_generation_turns": [],
+    "known_reasoning_tokens": 0,
+    "unknown_reasoning_turns": [],
+    "elapsed_seconds": 45.749180874999865,
+    "request_latency_samples": 5,
+    "request_latency_percentile_method": "nearest rank",
+    "request_p50_seconds": 9.485494499999959,
+    "request_p95_seconds": 10.607654499999853
+  },
+  "on": {
+    "scope": "qwen35_mac_real_weights_dev_hover",
+    "task_id": "c74d7020",
+    "thinking": true,
+    "manifest_sha256": "cd946d6eaa284dfbeefaefc2dd6129d9426c01e8c92d5b911abfdcec102df0d1",
+    "status": "scored",
+    "model": {
+      "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+      "model": "Qwen3.5-2B",
+      "backend": "mlx",
+      "weight_sha256": "aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1",
+      "quantized": false,
+      "checkpoint_dtype": "bfloat16",
+      "precision": {
+        "bfloat16": 284,
+        "float32": 36
+      },
+      "mlx": "0.32.4",
+      "mlx_lm": "0.32.2",
+      "device": {
+        "device_name": "Apple M2 Pro",
+        "max_recommended_working_set_size": 11453251584,
+        "memory_size": 17179869184,
+        "architecture": "applegpu_g14s",
+        "max_buffer_length": 8589934592,
+        "resource_limit": 499000
+      }
+    },
+    "model_runtime_sha256": "09d08cbfd0ba7fc21fbb1dc87f40cdf0ede63acfb49ab719706161f72e999270",
+    "outcome": "checker_passed",
+    "stop_reason": null,
+    "checker": {
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "target_drone": "3d229034",
+      "altitude_m": 12.0,
+      "flight_state": "hovering",
+      "snapshot_sha256": "73a649386be4c7c5f3c8910f86b639824c54c0cdb4b5d5c4701ef7a7ec6fc8e2"
+    },
+    "steps": [
+      {
+        "turn": 1,
+        "sdk_prompt_tokens": 8533,
+        "completion_tokens": 94,
+        "tool_calls": [
+          "list_drones"
+        ],
+        "round_trip_seconds": 9.213497499999903,
+        "stop_reason": null,
+        "reasoning_tokens": 77,
+        "peak_mlx_allocated_bytes": 4457833260,
+        "timing": {
+          "ttft_seconds": 6.874459874999957,
+          "generation_seconds": 9.127083291999952,
+          "decode_tokens_per_second": 40.59028827387975
+        }
+      },
+      {
+        "turn": 2,
+        "sdk_prompt_tokens": 9262,
+        "completion_tokens": 137,
+        "tool_calls": [
+          "take_off"
+        ],
+        "round_trip_seconds": 10.523099125000044,
+        "stop_reason": null,
+        "reasoning_tokens": 85,
+        "peak_mlx_allocated_bytes": 4466664300,
+        "timing": {
+          "ttft_seconds": 7.0927972919998865,
+          "generation_seconds": 10.47444679199998,
+          "decode_tokens_per_second": 40.134909366299546
+        }
+      },
+      {
+        "turn": 3,
+        "sdk_prompt_tokens": 9584,
+        "completion_tokens": 104,
+        "tool_calls": [
+          "hover"
+        ],
+        "round_trip_seconds": 9.927260208000007,
+        "stop_reason": null,
+        "reasoning_tokens": 54,
+        "peak_mlx_allocated_bytes": 4466664300,
+        "timing": {
+          "ttft_seconds": 7.311488457999985,
+          "generation_seconds": 9.879465540999945,
+          "decode_tokens_per_second": 40.03211508416717
+        }
+      },
+      {
+        "turn": 4,
+        "sdk_prompt_tokens": 9862,
+        "completion_tokens": 83,
+        "tool_calls": [
+          "get_drone_status"
+        ],
+        "round_trip_seconds": 9.640645500000119,
+        "stop_reason": null,
+        "reasoning_tokens": 39,
+        "peak_mlx_allocated_bytes": 4479755116,
+        "timing": {
+          "ttft_seconds": 7.5904394169999705,
+          "generation_seconds": 9.578125333000116,
+          "decode_tokens_per_second": 40.829113156114566
+        }
+      },
+      {
+        "turn": 5,
+        "sdk_prompt_tokens": 10277,
+        "completion_tokens": 234,
+        "tool_calls": [],
+        "round_trip_seconds": 13.67780779199984,
+        "stop_reason": null,
+        "reasoning_tokens": 130,
+        "peak_mlx_allocated_bytes": 4497056620,
+        "timing": {
+          "ttft_seconds": 7.91172937500005,
+          "generation_seconds": 13.635547208999924,
+          "decode_tokens_per_second": 40.66582965742745
+        }
+      }
+    ],
+    "dispatched_tools": [
+      "list_drones",
+      "take_off",
+      "hover",
+      "get_drone_status"
+    ],
+    "flight_commands": [
+      {
+        "tool": "take_off",
+        "endpoint": "/drones/3d229034/command/take_off",
+        "params": {
+          "altitude": 12.0
+        },
+        "committed": true,
+        "status": "success"
+      },
+      {
+        "tool": "hover",
+        "endpoint": "/drones/3d229034/command/hover",
+        "params": {
+          "duration": 5.0
+        },
+        "committed": true,
+        "status": "success"
+      }
+    ],
+    "known_prompt_tokens": 47518,
+    "known_completion_tokens": 652,
+    "unknown_generation_turns": [],
+    "known_reasoning_tokens": 385,
+    "unknown_reasoning_turns": [],
+    "elapsed_seconds": 53.24521075000007,
+    "request_latency_samples": 5,
+    "request_latency_percentile_method": "nearest rank",
+    "request_p50_seconds": 9.927260208000007,
+    "request_p95_seconds": 13.67780779199984
+  },
+  "paired_task_comparison": true,
+  "identical_first_wire_bytes": true,
+  "identical_initial_state": {
+    "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+    "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+    "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+    "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+  },
+  "matched_command_id": "c11d5d84-e59d-4409-b65c-b9c839e85cd6",
+  "off_flight": {
+    "target_takeoff_to_12m_committed": true,
+    "target_hover_command_committed": false,
+    "target_takeoff_then_hover": false,
+    "original_checker_passed": true
+  },
+  "on_flight": {
+    "target_takeoff_to_12m_committed": true,
+    "target_hover_command_committed": true,
+    "target_takeoff_then_hover": true,
+    "original_checker_passed": true
+  },
+  "off_completion": {
+    "target_drone": "3d229034",
+    "turns": [
+      {
+        "turn": 1,
+        "sdk_request_sequence": 3,
+        "sdk_response_end_sequence": 6,
+        "public_content": "",
+        "called_tools": [
+          {
+            "call_id": "call_1",
+            "name": "list_drones"
+          }
+        ],
+        "target_hover_committed_before_reply": false,
+        "successful_target_hover_receipts_in_prompt": []
+      },
+      {
+        "turn": 2,
+        "sdk_request_sequence": 11,
+        "sdk_response_end_sequence": 14,
+        "public_content": "I can see Drone 4 (id: 3d229034) is currently on the ground with a battery level of 100%. Let me first get the current weather conditions to ensure safe flying, then proceed with the takeoff.",
+        "called_tools": [
+          {
+            "call_id": "call_2",
+            "name": "get_weather"
+          }
+        ],
+        "target_hover_committed_before_reply": false,
+        "successful_target_hover_receipts_in_prompt": []
+      },
+      {
+        "turn": 3,
+        "sdk_request_sequence": 19,
+        "sdk_response_end_sequence": 22,
+        "public_content": "Good, the weather is clear with good visibility and only 6.1m/s wind speed, which is safe for flying. Now let me take Drone 4 to 12 meters altitude.",
+        "called_tools": [
+          {
+            "call_id": "call_3",
+            "name": "take_off"
+          }
+        ],
+        "target_hover_committed_before_reply": false,
+        "successful_target_hover_receipts_in_prompt": []
+      },
+      {
+        "turn": 4,
+        "sdk_request_sequence": 27,
+        "sdk_response_end_sequence": 30,
+        "public_content": "The drone has taken off. Now I need to verify it's hovering at 12 meters altitude. Let me get the drone status to confirm the hovering state and altitude.",
+        "called_tools": [
+          {
+            "call_id": "call_4",
+            "name": "get_drone_status"
+          }
+        ],
+        "target_hover_committed_before_reply": false,
+        "successful_target_hover_receipts_in_prompt": []
+      },
+      {
+        "turn": 5,
+        "sdk_request_sequence": 35,
+        "sdk_response_end_sequence": 38,
+        "public_content": "The drone is now hovering at 12.0 meters altitude with status \"hovering\", speed 0.0, and position at z=12.0. The task has been completed successfully:\n\n- Drone 4 (3d229034) has taken off to 12 meters altitude\n- It is now in a hovering state with zero speed\n- Position verified: x=660.0, y=734.0, z=12.0\n\nThe task is complete.",
+        "called_tools": [],
+        "target_hover_committed_before_reply": false,
+        "successful_target_hover_receipts_in_prompt": []
+      }
+    ],
+    "flight_actions": [
+      {
+        "tool": "take_off",
+        "call_id": "call_3",
+        "span_id": "tool-3",
+        "model_id": "model-3",
+        "request_id": 12,
+        "endpoint": "/drones/3d229034/command/take_off",
+        "committed": true,
+        "status": "success",
+        "start_sequence": 24,
+        "receipt_sequence": 25,
+        "simulator_start_seconds": 25.556850124999983,
+        "simulator_end_seconds": 25.56010124999989,
+        "receipt_success": true,
+        "receipt_drone": "3d229034",
+        "receipt_command": "take_off",
+        "receipt_command_id": "1c3737ab"
+      }
+    ]
+  },
+  "on_completion": {
+    "target_drone": "3d229034",
+    "turns": [
+      {
+        "turn": 1,
+        "sdk_request_sequence": 3,
+        "sdk_response_end_sequence": 6,
+        "public_content": "",
+        "called_tools": [
+          {
+            "call_id": "call_1",
+            "name": "list_drones"
+          }
+        ],
+        "target_hover_committed_before_reply": false,
+        "successful_target_hover_receipts_in_prompt": []
+      },
+      {
+        "turn": 2,
+        "sdk_request_sequence": 11,
+        "sdk_response_end_sequence": 14,
+        "public_content": "",
+        "called_tools": [
+          {
+            "call_id": "call_2",
+            "name": "take_off"
+          }
+        ],
+        "target_hover_committed_before_reply": false,
+        "successful_target_hover_receipts_in_prompt": []
+      },
+      {
+        "turn": 3,
+        "sdk_request_sequence": 19,
+        "sdk_response_end_sequence": 22,
+        "public_content": "",
+        "called_tools": [
+          {
+            "call_id": "call_3",
+            "name": "hover"
+          }
+        ],
+        "target_hover_committed_before_reply": false,
+        "successful_target_hover_receipts_in_prompt": []
+      },
+      {
+        "turn": 4,
+        "sdk_request_sequence": 27,
+        "sdk_response_end_sequence": 30,
+        "public_content": "",
+        "called_tools": [
+          {
+            "call_id": "call_4",
+            "name": "get_drone_status"
+          }
+        ],
+        "target_hover_committed_before_reply": true,
+        "successful_target_hover_receipts_in_prompt": [
+          "call_3"
+        ]
+      },
+      {
+        "turn": 5,
+        "sdk_request_sequence": 35,
+        "sdk_response_end_sequence": 38,
+        "public_content": "**Task Completed Successfully:**\n\n- **Drone 4 (ID: 3d229034)** was taken off to altitude 12 meters\n- The drone is now **hovering** at position (x: 660.0, y: 734.0, z: 12.0) with 0 speed and 99.4% battery\n- The drone is stationary at the target altitude as confirmed by the status check",
+        "called_tools": [],
+        "target_hover_committed_before_reply": true,
+        "successful_target_hover_receipts_in_prompt": [
+          "call_3"
+        ]
+      }
+    ],
+    "flight_actions": [
+      {
+        "tool": "take_off",
+        "call_id": "call_2",
+        "span_id": "tool-2",
+        "model_id": "model-2",
+        "request_id": 11,
+        "endpoint": "/drones/3d229034/command/take_off",
+        "committed": true,
+        "status": "success",
+        "start_sequence": 16,
+        "receipt_sequence": 17,
+        "simulator_start_seconds": 19.936749125000006,
+        "simulator_end_seconds": 19.941212375000077,
+        "receipt_success": true,
+        "receipt_drone": "3d229034",
+        "receipt_command": "take_off",
+        "receipt_command_id": "1c3737ab"
+      },
+      {
+        "tool": "hover",
+        "call_id": "call_3",
+        "span_id": "tool-3",
+        "model_id": "model-3",
+        "request_id": 12,
+        "endpoint": "/drones/3d229034/command/hover",
+        "committed": true,
+        "status": "success",
+        "start_sequence": 24,
+        "receipt_sequence": 25,
+        "simulator_start_seconds": 29.87825362500007,
+        "simulator_end_seconds": 29.880546290999973,
+        "receipt_success": true,
+        "receipt_drone": "3d229034",
+        "receipt_command": "hover",
+        "receipt_command_id": "b8da32c9"
+      }
+    ]
+  }
+}
