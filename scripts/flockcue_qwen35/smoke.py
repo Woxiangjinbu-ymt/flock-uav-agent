@@ -49,14 +49,13 @@ def fixture_replies():
     }
 
 
-def prepare(output, cache):
-    from agent_harness.__main__ import checked_reference, prepare_locked, validate_output
+def prepare_source(run, cache, *, extra_files=()):
+    """Copy the locked simulator, checker, tokenizer and student source into a fresh run."""
+    from agent_harness.__main__ import checked_reference, prepare_locked
 
-    output = validate_output(output)
     lock = json.loads((ROOT / "agent_harness/baseline.lock.json").read_bytes())
     ref = checked_reference(lock)
     check_hashes(cache, FILES)
-    run = output / "cpu-run"
     run.mkdir(parents=True)
     source = run / "source"
     with TemporaryDirectory() as scratch:
@@ -68,7 +67,7 @@ def prepare(output, cache):
         ROOT / lock["profile"], ROOT / "training/requirements-input.lock",
         ROOT / "scripts/student_input.py", ROOT / "scripts/student_input_v2.py",
         ROOT / "scripts/prepare_task_dataset.py", *sorted((ROOT / "scripts/thinking_events").glob("*.py")),
-        *sorted((ROOT / "scripts/flockcue_qwen35").glob("*.py")),
+        *sorted((ROOT / "scripts/flockcue_qwen35").glob("*.py")), *extra_files,
     ]
     files = {p.relative_to(ROOT): p for p in dependencies}
     files.update({TOKENIZER_DIR / name: cache / name for name in FILES})
@@ -79,17 +78,29 @@ def prepare(output, cache):
         shutil.copyfile(origin, dest)
         sources[str(relative)] = sha(dest.read_bytes())
 
+    check_hashes(source, sources)
+    return {"workspace": str(ROOT), "study": str(run / "inputs"), "sources": sources,
+            "inputs": ref["inputs"], "private_canary": ref["private_canary"]}
+
+
+def hover_trial(slot):
     runtime = {"task_seconds": 500, "drain_seconds": 0.5, "request_limits": {
         "max_total_tokens": 100000, "max_http_attempts": 12, "max_output_tokens": 2048,
         "per_request_timeout_seconds": 120}}
+    return {"trial_id": slot, "task_id": "c74d7020", "scheduler": "applicability",
+            "runtime": runtime, "watchdog_seconds": 515}
+
+
+def prepare(output, cache):
+    from agent_harness.__main__ import validate_output
+
+    run = validate_output(output) / "cpu-run"
+    common = prepare_source(run, cache)
     replies = fixture_replies()
     write(run / "fixture-replies.json", replies)
-    manifest = {"scope": "student_cpu_regression", "workspace": str(ROOT), "study": str(run / "inputs"),
-                "sources": sources, "inputs": ref["inputs"], "private_canary": ref["private_canary"],
+    manifest = {**common, "scope": "student_cpu_regression",
                 "fixture_sha256": sha((run / "fixture-replies.json").read_bytes()),
-                "trials": [{"trial_id": slot, "task_id": "c74d7020", "scheduler": "applicability",
-                            "runtime": runtime, "watchdog_seconds": 515} for slot in replies]}
-    check_hashes(source, sources)
+                "trials": [hover_trial(slot) for slot in replies]}
     write(run / "manifest.json", manifest)
     (run / "manifest.sha256").write_text(sha((run / "manifest.json").read_bytes()) + "\n")
     return run

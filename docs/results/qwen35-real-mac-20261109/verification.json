@@ -1,0 +1,107 @@
+{
+  "scope": "qwen35_mac_real_weights_dev_hover",
+  "task_id": "c74d7020",
+  "thinking": false,
+  "manifest_sha256": "e5edb6c70e8952bedd9a921074fc03b4000d2c198710e8d059d4cae0bdf9781f",
+  "status": "scored",
+  "model": {
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "model": "Qwen3.5-2B",
+    "backend": "mlx",
+    "weight_sha256": "aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1",
+    "quantized": false,
+    "checkpoint_dtype": "bfloat16",
+    "precision": {
+      "bfloat16": 284,
+      "float32": 36
+    },
+    "mlx": "0.32.4",
+    "mlx_lm": "0.32.2",
+    "device": {
+      "device_name": "Apple M2 Pro",
+      "max_recommended_working_set_size": 11453251584,
+      "memory_size": 17179869184,
+      "architecture": "applegpu_g14s",
+      "max_buffer_length": 8589934592,
+      "resource_limit": 499000
+    }
+  },
+  "model_runtime_sha256": "b011ed57226c6337c8999e64001bca4c9f818f32bb3c60e01553ed2e6a312a9d",
+  "outcome": "stopped_before_task_success",
+  "stop_reason": "tool_arguments",
+  "checker": {
+    "passed": false,
+    "checks_passed": 0,
+    "checks_expected": 2,
+    "target_drone": "3d229034",
+    "altitude_m": 0.0,
+    "flight_state": "idle",
+    "snapshot_sha256": "46ee2ad3f2481e693d58d901fd6b1cbe4b12dec7c6d461fca50f46a5b08bed81"
+  },
+  "steps": [
+    {
+      "turn": 1,
+      "sdk_prompt_tokens": 8530,
+      "completion_tokens": 15,
+      "tool_calls": [
+        "list_drones"
+      ],
+      "round_trip_seconds": 7.336787208999908,
+      "stop_reason": null,
+      "reasoning_tokens": 0,
+      "peak_mlx_allocated_bytes": 4457833260,
+      "timing": {
+        "ttft_seconds": 6.949527582999963,
+        "generation_seconds": 7.271491625000067,
+        "decode_tokens_per_second": 40.81889002831681
+      }
+    },
+    {
+      "turn": 2,
+      "sdk_prompt_tokens": 9182,
+      "completion_tokens": 69,
+      "tool_calls": [
+        "get_weather"
+      ],
+      "round_trip_seconds": 8.840536957999916,
+      "stop_reason": null,
+      "reasoning_tokens": 0,
+      "peak_mlx_allocated_bytes": 4457833298,
+      "timing": {
+        "ttft_seconds": 7.014866667000092,
+        "generation_seconds": 8.703145082999981,
+        "decode_tokens_per_second": 40.228858830571305
+      }
+    },
+    {
+      "turn": 3,
+      "sdk_prompt_tokens": 9466,
+      "completion_tokens": 92,
+      "tool_calls": [],
+      "round_trip_seconds": 9.510908666999967,
+      "stop_reason": "tool_arguments",
+      "reasoning_tokens": 0,
+      "peak_mlx_allocated_bytes": 4466664300,
+      "timing": {
+        "ttft_seconds": 7.2330609589999995,
+        "generation_seconds": 9.470754875000011,
+        "decode_tokens_per_second": 40.60110758946943
+      }
+    }
+  ],
+  "dispatched_tools": [
+    "list_drones",
+    "get_weather"
+  ],
+  "flight_commands": [],
+  "known_prompt_tokens": 27178,
+  "known_completion_tokens": 176,
+  "unknown_generation_turns": [],
+  "known_reasoning_tokens": 0,
+  "unknown_reasoning_turns": [],
+  "elapsed_seconds": 25.90666791600006,
+  "request_latency_samples": 3,
+  "request_latency_percentile_method": "nearest rank",
+  "request_p50_seconds": 8.840536957999916,
+  "request_p95_seconds": 9.510908666999967
+}

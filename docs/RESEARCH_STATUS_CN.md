@@ -1,6 +1,6 @@
 # FlockCue 研究状态
 
-更新于 2026-11-08。第一篇论文的主问题定为**多无人机小模型 Agent 什么时候需要思考**：从 DeepSeek 教师轨迹蒸馏约 2B 的指挥模型，由执行状态事件决定每轮是否思考。项目处于第 0 阶段，第 1 步规格、技术方案及预算上限已确认。G3 已完成四批开发归档的本机复算，G1、G2 待测。轨迹验证器移到第二篇论文。[研究路线](RESEARCH_ROADMAP_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md) · [技术方案](specs/01-thinking-events/plan.md) · [任务清单](specs/01-thinking-events/task.md) · [验收清单](specs/01-thinking-events/checklist.md) · [FlockCue 入口](../agent_harness/README.md)
+更新于 2026-11-09。第一篇论文的主问题定为**多无人机小模型 Agent 什么时候需要思考**：从 DeepSeek 教师轨迹蒸馏约 2B 的指挥模型，由执行状态事件决定每轮是否思考。项目处于第 0 阶段，第 1 步规格、技术方案及预算上限已确认。G3 已完成四批开发归档的本机复算，G1、G2 待测。轨迹验证器移到第二篇论文。[研究路线](RESEARCH_ROADMAP_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md) · [技术方案](specs/01-thinking-events/plan.md) · [任务清单](specs/01-thinking-events/task.md) · [验收清单](specs/01-thinking-events/checklist.md) · [FlockCue 入口](../agent_harness/README.md)
 
 ## Confirmed Decisions — 已确定
 
@@ -16,8 +16,10 @@
 
 ## Verified Results — 已有证据
 
+- **Qwen3.5-2B 真实权重已在 Mac 自主跑完首个开发回合。** 关闭思考，独立评分 0/1 题成功。先查询机队和天气，随后选择正确的飞机及 12 米高度，但起飞指令遗漏外层 `input_json`，仿真记录零飞行动作。离线仅补参数包装即可通过同一解析器。[逐轮证据与原评分](results/qwen35-real-mac-20261109/REPORT_CN.md)
+
 - **Qwen3.5-2B 格式的固定回复已接入 Mac 仿真。** 完整回复触发起飞和悬停，目标机终态为 12 米，独立检查 2/2 通过。第二条指令截断时整组零派发，目标机留在地面。两机同名状态查询的回执倒序进入下一轮，逐一对应到原机。两个回合共 8 次请求，输入和生成 token ID 均已独立复算。[工具执行验收](results/qwen35-tools-mac-20261108/REPORT_CN.md)
-- **Qwen3.5-2B 的首条 SFT 格式样例已在 Mac 复算。** 同一条已见教师开发轮的思考、工具动作和损失边界可回查。两架飞机同名调用的合成例中，官方模板丢失回执归属；在回执中补入公开调用序号和参数后可以区分。实际模型生成待验证。[开发样例与复算](audit/qwen35-2b-input-20261108/REPORT_CN.md)
+- **Qwen3.5-2B 的首条 SFT 格式样例已在 Mac 复算。** 同一条已见教师开发轮的思考、工具动作和损失边界可回查。两架飞机同名调用的合成例中，官方模板丢失回执归属；在回执中补入公开调用序号和参数后可以区分。模型在多机倒序回执后的决策能力待验证。[开发样例与复算](audit/qwen35-2b-input-20261108/REPORT_CN.md)
 
 - **600 题中的一个完整会话已在 Mac 跑通。** 场景 `04cd6269` 用本地脚本模型连续做完 20 题，重开后 79 项原检查结果逐项相同。19 次题间交接均保留了黑板。超时和 HTTP 503 分别验证了继续做题与停止后保留分母。此场已用于工程开发。[整场验收](results/flockcue-mac-session-20261108/REPORT_CN.md)
 - **学生推理链路通过 Mac 无卡回归。** 三个固定回复回合分别验证悬停完成、整组畸形拒绝和取消，10 次请求从归档重建的 token ID 全部一致。解包后 100 项回归通过。[验收报告](results/thinking-student-cpu-20261108/REPORT_CN.md)
@@ -45,7 +47,7 @@
 | S10 Teacher 接入与成本 | — |
 | S11 任务来源与划分 | 已冻结父场景划分，测试侧做过预定质量审计。共享模板、目标初始可见和少量测试父场景限制泛化结论。[划分报告](results/task-coverage-splits-20261103/REPORT_CN.md) |
 | S12 历史动作样本 | 旧监督目标是主 Agent 的下一条回复，推理不进入输入与监督。22 个计划槽、98 次决策产出 61 条开发格式样本，已有 tokenizer、调用 ID 对齐和加载验证。新样本保留推理，使用新版转换器，旧样本不改写。[旧样本验收](results/agent-samples-student-input-20261103/REPORT_CN.md) · [同名工具 ID 修复](results/student-tool-ids-v2-20261103/REPORT_CN.md) |
-| S13 学生 SFT | Qwen3-1.7B tokenizer 已用于开发输入长度检查；固定模板会渲染首条任务之后的历史推理。学生接入已通过 Mac 无卡夹具验证，真实权重推理、SFT 参数更新和导出仍待实施。[Mac 验收](results/thinking-student-cpu-20261108/REPORT_CN.md) |
+| S13 学生 SFT | Qwen3-1.7B tokenizer 已用于开发输入长度检查；固定模板会渲染首条任务之后的历史推理。学生接入已通过 Mac 无卡夹具验证，Qwen3.5-2B 的真实权重完成了单题开发运行。SFT 参数更新及导出仍待实施。[Mac 验收](results/thinking-student-cpu-20261108/REPORT_CN.md) |
 | S14 RL 与最终评测 | 有历史任务评分器、独立进程与公平对照协议可复用。尚无本项目 RL 结果。RL 与轨迹验证器归入第二篇论文。[公平验证协议](HARNESS_VALIDATION_PROTOCOL_CN.md) · [研究路线](RESEARCH_ROADMAP_CN.md) |
 
 ### 真实小批与本地修复的解释范围
@@ -74,7 +76,7 @@
 
 ## Next Actions — 当前交接点
 
-Qwen3.5-2B 在 Mac 的固定回复执行验收已完成。下一项与模型有关的验证是让真实权重在同一开发任务上生成指令，检查能否完成任务、是否发生工具格式错误。若选择 2B 进入正式 G1/G2，先修订现行 1.7B/4B 对照协议。[工具执行验收](results/qwen35-tools-mac-20261108/REPORT_CN.md)
+2B 的首个 Mac 真实权重回合已评分。建议下一项单独做工具说明对照，仅将起飞工具的例子改为带 `input_json` 的完整格式，沿用同一题、同一初态、种子和关思考设置，比较能否派发起飞并完成悬停。若选择 2B 进入正式 G1/G2，先修订现行 1.7B/4B 对照协议。[首跑及失败定位](results/qwen35-real-mac-20261109/REPORT_CN.md)
 
 用户于 2026-11-08 将两项 Linux 验收顺延到租用 GPU 服务器时。届时先在同一台主机用 CPU 复验学生接入（T36a）和 20 题连续会话，再做 T37 真实权重测速。若租金从开机计起，安装和复验用时一并计入该次预算。[连续会话入口](results/flockcue-mac-session-20261108/REPORT_CN.md) · [学生接入无卡步骤](results/thinking-student-cpu-20261108/LINUX_CPU_CN.md)
 
