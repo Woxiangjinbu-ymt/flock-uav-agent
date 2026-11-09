@@ -29,7 +29,7 @@ def model_spec():
             "weight_sha256": WEIGHT_SHA256, "thinking": False, "sampling": SAMPLING, "eos_ids": sorted(EOS_IDS)}
 
 
-def prepare(output, cache):
+def prepare(output, cache, *, takeoff_example=False):
     from agent_harness.__main__ import validate_output
 
     spec = model_spec()
@@ -38,6 +38,13 @@ def prepare(output, cache):
     manifest = {**common, "scope": SCOPE, "model": spec, "trials": [hover_trial(SLOT)],
                 "seed_rule": "first four bytes of SHA256(task_id/turn), big-endian",
                 "formal_slots_started": 0, "teacher_calls": 0}
+    if takeoff_example:
+        from .takeoff_example import CONTROL_MANIFEST_SHA, FIRST_PROMPT, match_command_id, prepare_variant
+
+        manifest["intervention"] = prepare_variant(run, manifest["sources"])
+        manifest["matched_command_id"] = match_command_id(run, manifest["sources"])
+        manifest["control_baseline"] = {"manifest_sha256": CONTROL_MANIFEST_SHA,
+                                        "expected_treatment_first_prompt": FIRST_PROMPT}
     write(run / "manifest.json", manifest)
     (run / "manifest.sha256").write_text(sha((run / "manifest.json").read_bytes()) + "\n")
     return run
@@ -46,9 +53,10 @@ def prepare(output, cache):
 class LiveService:
     """Render public SDK requests, generate raw tokens in the model process and dispatch atomically."""
 
-    def __init__(self, model, tokenizer):
+    def __init__(self, model, tokenizer, *, guard_run=None):
         self.model = model
         self.tokenizer = tokenizer
+        self.guard_run = guard_run
 
     def cancel(self):
         self.model.cancel()
@@ -65,6 +73,10 @@ class LiveService:
             prompt, prepared = render(self.tokenizer, messages, tools, thinking)
         except InputRejected as exc:
             return {**stopped("input_rejected"), "error": exc.code}
+        if turn == 1 and self.guard_run is not None:
+            from .takeoff_example import check_first_prompt
+
+            check_first_prompt(self.guard_run, prompt, seed)
         ids = prompt["input_ids"]
         limit, reason = output_budget(len(ids), spent_tokens)
         audit = {key: prompt[key] for key in ("input_ids", "template_sha256", "history_reasoning_tokens")}
@@ -109,7 +121,8 @@ def run_trial(run, manifest, model_python, weights):
             fields = ("backend", "model", "revision", "weight_sha256")
             if not runtime.get("weights_loaded") or any(runtime.get(k) != manifest["model"][k] for k in fields):
                 raise ValueError("Loaded model does not match the frozen model identity")
-            proc = _run_with_service(run, manifest, trial, MODEL, False, LiveService(model, tokenizer), False, None)
+            service = LiveService(model, tokenizer, guard_run=run if "intervention" in manifest else None)
+            proc = _run_with_service(run, manifest, trial, MODEL, False, service, False, None)
             result["worker_pid"] = proc["pid"]
         worker = validate_worker(run, trial, proc, manifest=manifest)
         result.update(initial=worker["initial"], stop_reason=worker["limits"]["stop_reason"],
@@ -157,6 +170,8 @@ def main():
     parser.add_argument("--weights", type=Path, required=True)
     parser.add_argument("--model-python", type=Path, required=True, help="Python environment for native generation")
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE, help="pinned local tokenizer files")
+    parser.add_argument("--takeoff-example", action="store_true",
+                        help="change only the take_off example to the wrapped input_json form")
     args = parser.parse_args()
     if args.frozen_run:
         return execute(args.frozen_run.resolve(), args.model_python, args.weights)
@@ -165,7 +180,7 @@ def main():
     weights = args.weights.resolve(strict=True)
     if not python.is_file():
         parser.error("model Python does not exist")
-    run = prepare(args.output, args.cache)
+    run = prepare(args.output, args.cache, takeoff_example=args.takeoff_example)
     source = run / "source"
     env = {key: os.environ[key] for key in ("PATH", "HOME", "TMPDIR", "LANG", "LC_ALL") if key in os.environ}
     env.update(PYTHONPATH=str(source / "scripts"), PYTHONDONTWRITEBYTECODE="1", PYTHONNOUSERSITE="1",
