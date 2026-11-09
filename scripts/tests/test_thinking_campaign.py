@@ -29,14 +29,18 @@ def study(tmp_path_factory):
     return out
 
 
-def test_relocation_freezes_29_tasks_and_four_paired_arms(tmp_path, study):
+@pytest.mark.parametrize("protocol,main,reference", [
+    (campaign.LEGACY_PROTOCOL, "1.7B", "4B"),
+    (campaign.PAIRED_PROTOCOL, "Qwen3.5-2B", "Qwen3-4B"),
+])
+def test_relocation_freezes_29_tasks_and_four_paired_arms(tmp_path, study, protocol, main, reference):
     run = tmp_path / "mac"
-    summary = campaign.prepare_dev(study, run)
+    summary = campaign.prepare_dev(study, run, protocol=protocol)
     assert summary["tasks"] == 29 and summary["parent_scenes"] == 5 and summary["slots"] == 116
     rows = read_jsonl(run / "plan-slots.jsonl")
     assert [(r["model"], r["thinking"]) for r in rows[:4]] == [
-        ("1.7B", True), ("1.7B", False), ("1.7B", False), ("1.7B", True)]
-    assert {r["model"] for r in rows[58:]} == {"4B"}
+        (main, True), (main, False), (main, False), (main, True)]
+    assert {r["model"] for r in rows[58:]} == {reference}
     for i in range(0, 58, 2):
         left, right = rows[i:i + 2]
         ref = hashlib.sha256((left["task_id"] + "/1").encode()).digest()[:4]
@@ -62,7 +66,7 @@ def test_relocation_freezes_29_tasks_and_four_paired_arms(tmp_path, study):
     assert str(tmp_path) not in (moved / "campaign.json").read_text()
     assert str(tmp_path) not in (moved / "study/manifest.json").read_text()
     second = tmp_path / "restored-portable-study"
-    campaign.prepare_dev(moved / "study", second)
+    campaign.prepare_dev(moved / "study", second, protocol=protocol)
     assert (second / "campaign.sha256").read_bytes() == seal
     with pytest.raises(FileExistsError):
         campaign.prepare_dev(study, second)

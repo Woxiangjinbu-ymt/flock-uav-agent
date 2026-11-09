@@ -25,6 +25,12 @@ DATASET_SHA = "4d2da10b0a6ea753a924ec22f6f16ad29d59711a94ecef6fbd013cbadf226f4e"
 DEV_PICKLES_SHA = "de8a8f8d3d0204ec02d11d050e97dd38045c9153d643690a479fe312673d9789"
 G3_SHA = "fcb9a63f1a99b24e30372d70cc06b37f889feba129829100cdf214477edca8a4"
 MODELS = MODEL_REVISIONS
+LEGACY_PROTOCOL = "thinking-events-dev-v1"
+PAIRED_PROTOCOL = "thinking-events-dev-v2"
+PAIRED_MODELS = {"Qwen3.5-2B": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+                 "Qwen3-4B": MODEL_REVISIONS["4B"]}
+# Checksum of the corrected tool source in the paired Mac hover experiment.
+PAIRED_TOOLS_SHA = "8fc01b2a4e8488f5d5ee3171cc673adf12fec611b47dc24526171cbb873f990f"
 RUNTIME = {"task_seconds": 500, "drain_seconds": 0.5,
            "request_limits": {"max_http_attempts": 12, "max_total_tokens": EPISODE_TOKEN_LIMIT,
                               "max_output_tokens": MAX_GENERATION, "per_request_timeout_seconds": 120}}
@@ -103,7 +109,7 @@ def _study_inputs(study):
     return sorted(tasks, key=lambda r: (r["scene_id"], r["task_id"])), inputs, portable
 
 
-def _frozen_sources(root):
+def _frozen_sources(root, protocol):
     lock_name = "agent_harness/baseline.lock.json"
     baseline = parse_json(safe_path(root, lock_name).read_bytes())
     orig = safe_path(root, baseline["reference_campaign"])
@@ -115,9 +121,15 @@ def _frozen_sources(root):
     extras = [lock_name, "scripts/prepare_task_dataset.py", "scripts/convert_agent_samples.py",
               "scripts/student_input.py", "scripts/student_input_v2.py", "training/requirements-input.lock",
               "training/templates/qwen3-tool-ids-v2.jinja"]
-    for backend in ("inference", "vllm"):
-        extras.extend(f"training/requirements-{backend}-linux.{suffix}" for suffix in ("in", "lock"))
-    for model, revision in MODELS.items():
+    if protocol == LEGACY_PROTOCOL:
+        for backend in ("inference", "vllm"):
+            extras.extend(f"training/requirements-{backend}-linux.{suffix}" for suffix in ("in", "lock"))
+        legacy_models = MODELS
+    else:
+        extras.extend(["scripts/flockcue_qwen35/" + name for name in
+                       ("__init__.py", "adapter.py", "mac_model.py", "takeoff_example.py")])
+        legacy_models = {"4B": MODEL_REVISIONS["4B"]}
+    for model, revision in legacy_models.items():
         name = f"training/model-manifests/{model}.json"
         expected = parse_json(safe_path(root, name).read_bytes())
         if expected["revision"] != revision or expected["repository"] != "Qwen/Qwen3-" + model:
@@ -136,27 +148,49 @@ def turn_seed(task_id, turn):
     return int.from_bytes(hashlib.sha256(f"{task_id}/{turn}".encode()).digest()[:4], "big")
 
 
-def planned_slots(tasks):
+def planned_slots(tasks, protocol=PAIRED_PROTOCOL):
+    if protocol not in (LEGACY_PROTOCOL, PAIRED_PROTOCOL):
+        raise ValueError("Unknown paired-study protocol")
+    models = MODELS if protocol == LEGACY_PROTOCOL else PAIRED_MODELS
     slots = []
-    for model in MODELS:
+    for model in models:
         for index, task in enumerate(tasks):
             first = index % 2 == 0
             for thinking in (first, not first):
                 arm = "on" if thinking else "off"
-                slot_id = f"qwen3-{model.lower().replace('.', 'p')}-{arm}-{task['task_id']}"
+                prefix = "qwen3-" + model if protocol == LEGACY_PROTOCOL else model
+                slot_id = f"{prefix.lower().replace('.', 'p')}-{arm}-{task['task_id']}"
                 slots.append({**task, "slot_id": slot_id, "trial_id": slot_id, "model": model, "thinking": thinking,
                               "arm": arm, "order": len(slots) + 1,
                               "turn_seeds": [turn_seed(task["task_id"], turn) for turn in range(1, 13)]})
     return slots
 
 
-def prepare_dev(study, output):
+def _paired_config(sources):
+    from flockcue_qwen35 import adapter, mac_model, takeoff_example
+    if adapter.REVISION != PAIRED_MODELS["Qwen3.5-2B"]:
+        raise ValueError("2B adapter is not pinned to the main model")
+    return {
+        "main": "Qwen3.5-2B", "reference": "Qwen3-4B",
+        "tools_source_sha256": sources[takeoff_example.SOURCE],
+        "qwen35_tokenizer_files": adapter.FILES,
+        "qwen35_weight": {"file": mac_model.WEIGHT_FILE, "bytes": mac_model.WEIGHT_BYTES,
+                          "sha256": mac_model.WEIGHT_SHA256},
+        "qwen35_adapter_sha256": sources["scripts/flockcue_qwen35/adapter.py"],
+        "qwen3_template_sha256": sources["training/templates/qwen3-tool-ids-v2.jinja"],
+        "qwen3_adapter_sha256": sources["scripts/thinking_events/student.py"],
+        "qwen3_manifest_sha256": sources["training/model-manifests/4B.json"],
+        "linux_backend": "pending_compatibility_and_t37", "paid_launch_enabled": False,
+    }
+
+
+def prepare_dev(study, output, *, protocol=PAIRED_PROTOCOL):
     study, output = Path(study).resolve(), Path(output).absolute()
     if output.exists() or output.is_symlink() or output.resolve().is_relative_to(study):
         raise FileExistsError(f"Use a fresh directory outside the materialized study: {output}")
     tasks, inputs, portable_study = _study_inputs(study)
-    sources, baseline, ref = _frozen_sources(ROOT)
-    slots = planned_slots(tasks)
+    slots = planned_slots(tasks, protocol)
+    sources, baseline, ref = _frozen_sources(ROOT, protocol)
     output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=output.parent, prefix=".prepare-dev-") as tmp:
         stage = Path(tmp)
@@ -167,20 +201,28 @@ def prepare_dev(study, output):
         (stage / "study/manifest.sha256").write_bytes(study_seal)
         inputs.update({"manifest.json": digest(raw_study), "manifest.sha256": digest(study_seal)})
         _copy_files(ROOT, stage / "source", sources)
+        if protocol == PAIRED_PROTOCOL:
+            from flockcue_qwen35.takeoff_example import prepare_variant
+            tool_example = prepare_variant(stage, sources)
         save_rows(stage / "plan-slots.jsonl", slots)
-        campaign = {"schema": "thinking-events-dev-v1", "split": "dev", "purpose": "development",
+        campaign = {"schema": protocol, "split": "dev", "purpose": "development",
                     "dataset_sha256": DATASET_SHA, "g3_reference_sha256": G3_SHA,
-                    "sources": sources, "inputs": inputs, "model_revisions": MODELS,
+                    "sources": sources, "inputs": inputs,
+                    "model_revisions": MODELS if protocol == LEGACY_PROTOCOL else PAIRED_MODELS,
                     "plan_slots_sha256": digest((stage / "plan-slots.jsonl").read_bytes()),
                     "agent_profile": ref["agent_profile"], "profile_file": baseline["profile"],
                     "study": "study", "workspace_source": "source", "runtime": RUNTIME,
-                    "backend_candidates": {"transformers": "4.57.3", "vllm": "0.11.2"},
                     "formal_admission": {"host_preparation": "T36a", "calibration": "T37",
                                          "open_estimated_seconds_max": 250, "full_p95_required": True},
                     "generation": {"dtype": "bfloat16", "batch_size": 1,
                                    "context_tokens": MAX_CONTEXT, **SAMPLING},
                     "cost_caps": {"cards": 1, "card": "A100 40GB", "seconds": 72000, "total_cny": 200,
                                   "training_hours": 0, "teacher_calls": 0}}
+        if protocol == PAIRED_PROTOCOL:
+            campaign["paired_protocol"] = _paired_config(sources)
+            campaign["tool_example"] = tool_example
+        else:
+            campaign["backend_candidates"] = {"transformers": "4.57.3", "vllm": "0.11.2"}
         payload = json_bytes(campaign)
         (stage / "campaign.json").write_bytes(payload)
         (stage / "campaign.sha256").write_text(digest(payload) + "\n")
@@ -203,9 +245,11 @@ def prepare_dev(study, output):
 def verify_run(run):
     run = Path(run).resolve()
     campaign = _sealed(run, "campaign.json", "campaign.sha256")
-    if (campaign["schema"] != "thinking-events-dev-v1" or campaign["split"] != "dev" or
+    protocol = campaign["schema"]
+    models = MODELS if protocol == LEGACY_PROTOCOL else PAIRED_MODELS
+    if (protocol not in (LEGACY_PROTOCOL, PAIRED_PROTOCOL) or campaign["split"] != "dev" or
             campaign["purpose"] != "development" or campaign["dataset_sha256"] != DATASET_SHA
-            or campaign["g3_reference_sha256"] != G3_SHA or campaign["model_revisions"] != MODELS):
+            or campaign["g3_reference_sha256"] != G3_SHA or campaign["model_revisions"] != models):
         raise ValueError("Invalid dev campaign identity")
     _check_pickle_inventory(campaign["inputs"])
     for folder, items in (("source", campaign["sources"]), ("study", campaign["inputs"])):
@@ -220,8 +264,14 @@ def verify_run(run):
     rows = read_jsonl(run / "plan-slots.jsonl")
     if (len(rows) != 116 or len({r["task_id"] for r in rows}) != 29 or
             Counter((r["model"], r["thinking"]) for r in rows) !=
-            {(m, t): 29 for m in MODELS for t in (True, False)}):
+            {(m, t): 29 for m in models for t in (True, False)}):
         raise ValueError("Invalid four-arm dev slot population")
+    if protocol == PAIRED_PROTOCOL:
+        tasks, _, _ = _study_inputs(run / "study")
+        if rows != planned_slots(tasks, protocol) or campaign["paired_protocol"] != _paired_config(campaign["sources"]):
+            raise ValueError("Revised pairing differs from frozen tasks, seeds or models")
+        if campaign["paired_protocol"]["tools_source_sha256"] != PAIRED_TOOLS_SHA:
+            raise ValueError("Revised campaign does not contain the reviewed tool example")
     SlotLedger(run, rows).read()
     return campaign
 

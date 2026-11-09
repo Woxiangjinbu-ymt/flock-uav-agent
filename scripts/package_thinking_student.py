@@ -35,6 +35,10 @@ def transfer_files():
                   campaign / "runs/action/summary.json", RESULT / "LINUX_CPU_CN.md"})
     for case in json.loads((ROOT / cases).read_bytes()):
         names.add(cases.parent / case["trace_file"])
+    # The historical bundle also exercises preparation of a fresh v2 plan in its CPU tests.
+    names.add(Path("experiments/task-splits-v1/manifest.json"))
+    for filename in ("__init__.py", "adapter.py", "mac_model.py", "takeoff_example.py"):
+        names.add(Path("scripts/flockcue_qwen35") / filename)
     for pattern in ("scripts/thinking_events/*.py", "scripts/tests/test_thinking_*.py", "training/requirements-*",
                     "training/model-manifests/*.json", "training/templates/*", "training/tokenizers/**/*",
                     str(campaign / "studies/action/**/*"), str(G3 / "run-01/*")):
@@ -60,7 +64,7 @@ def add_member(tar, name, data):
 
 
 def package(study, output):
-    from thinking_events.campaign import prepare_dev
+    from thinking_events.campaign import LEGACY_PROTOCOL, prepare_dev
     output = output.resolve()
     sidecar = output.with_name(output.name + ".sha256")
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -69,7 +73,7 @@ def package(study, output):
     with tempfile.TemporaryDirectory(dir=output.parent) as tmp:
         scratch = Path(tmp)
         prepared = scratch / "prepared-dev"
-        prepare_dev(study, prepared)
+        prepare_dev(study, prepared, protocol=LEGACY_PROTOCOL)
         files = transfer_files()
         # Absolute host paths are reconstructed from immutable hashes on the receiver.
         for path in prepared.rglob("*"):

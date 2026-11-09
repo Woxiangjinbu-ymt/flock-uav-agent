@@ -1,6 +1,6 @@
 # FlockCue 后训练方案：执行事件驱动的选择性思考
 
-更新于 2026-11-08。学生是一个约 2B 的多无人机指挥模型，从 DeepSeek 教师轨迹蒸馏而来，自己选择工具、分配飞机和重规划。研究问题是每一轮该不该输出推理。第 1 步规格、技术方案及预算上限已确认。G3 已通过，G1、G2 待测。[G3 复算报告](results/thinking-events-g3-20261108/REPORT_CN.md) 正式训练集和权重尚未产生。[研究路线](RESEARCH_ROADMAP_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md) · [技术方案](specs/01-thinking-events/plan.md) · [任务清单](specs/01-thinking-events/task.md) · [验收清单](specs/01-thinking-events/checklist.md)
+更新于 2026-11-09。学生是一个约 2B 的多无人机指挥模型，从 DeepSeek 教师轨迹蒸馏而来，自己选择工具、分配飞机和重规划。研究问题是每一轮该不该输出推理。第 1 步规格、技术方案及预算上限已确认。G3 已通过，G1、G2 待测。[G3 复算报告](results/thinking-events-g3-20261108/REPORT_CN.md) 正式训练集和权重尚未产生。[研究路线](RESEARCH_ROADMAP_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md) · [技术方案](specs/01-thinking-events/plan.md) · [任务清单](specs/01-thinking-events/task.md) · [验收清单](specs/01-thinking-events/checklist.md)
 
 ## 学生学什么
 
@@ -27,7 +27,7 @@
 | 固定间隔 | 每 *k* 轮保留推理，在共同可判轮次上尽量匹配执行事件的思考比例，报告实际偏差 | 收益是否只来自思考次数 |
 | RSI（权重不动） | 不训练，只按 dev 错例迭代 Harness 说明 | 训练权重是否必要 |
 
-同一折的训练方法共用教师轨迹、基座、训练设置和 Harness。Qwen3.5-2B 是后训练优先验证的学生候选。正式评测拟按完整会话重复 3 次，并按原题池的任务族、场景难度和实际机队规模报告。在相同协议下配对比较原 Agent4Drone 与 FlockCue（同一 DeepSeek），以及 FlockCue 中的原版和蒸馏学生。[600 题系统对比](specs/02-benchmark600-sft/spec.md#最终怎样比较)
+同一折的训练方法共用教师轨迹、基座、训练设置和 Harness。Qwen3.5-2B 已确认为 G1/G2 的主模型，也是后训练优先验证的学生。正式评测拟按完整会话重复 3 次，并按原题池的任务族、场景难度和实际机队规模报告。在相同协议下配对比较原 Agent4Drone 与 FlockCue（同一 DeepSeek），以及 FlockCue 中的原版和蒸馏学生。[600 题系统对比](specs/02-benchmark600-sft/spec.md#最终怎样比较)
 
 ## 资源与预算
 
@@ -35,7 +35,7 @@
 
 - **教师采数。** 首档拟在 30 个完整场景各采一遍，共 600 个教师题次。二遍为 1,200 题次，四遍为 2,400 题次。[历史开发成本](results/deepseek-cost-pilot-20261103/REPORT_CN.md)
 - **训练。** 单卡 LoRA，单卡上限 80 GB，40 GB 更好。实际峰值显存、吞吐和上下文长度在第 1 阶段实测。旧 68 个请求中有 18 个超过 4,096 token，长度分布需在新样本上重测。
-- **学生推理。** 原 Qwen3 接入已完成 Mac 无卡回归；Qwen3.5-2B 需要复核模板、真实权重和连续会话。600 题教师采数、训练与最终评测单独核算。[学生接入报告](results/thinking-student-cpu-20261108/REPORT_CN.md) · [第 1 步技术方案](specs/01-thinking-events/plan.md)
+- **学生推理。** 原 Qwen3 接入已完成 Mac 无卡回归。Qwen3.5-2B 的模板、真实权重单题执行均已在 Mac 验证，Linux 兼容性和 29 题真实配对待测。600 题教师采数、训练与最终评测单独核算。[学生接入报告](results/thinking-student-cpu-20261108/REPORT_CN.md) · [第 1 步技术方案](specs/01-thinking-events/plan.md)
 
 付费调用和 GPU 在各步 plan.md 中写明上限，用户批准后执行。
 

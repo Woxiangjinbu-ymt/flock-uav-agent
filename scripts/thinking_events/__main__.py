@@ -84,9 +84,16 @@ def main():
     prepare = commands.add_parser("prepare-dev", help="freeze the 29-task development study and 116 planned slots")
     prepare.add_argument("--study", type=Path, required=True)
     prepare.add_argument("--output", type=Path, required=True)
+    prepare.add_argument("--legacy", action="store_true", help="rebuild the historical 1.7B/4B task layout")
     dev = commands.add_parser("run-dev", help="verify the relocated campaign and record CPU-only readiness")
     dev.add_argument("--run", type=Path, required=True)
     dev.add_argument("--g3", type=Path, required=True)
+    simulate = commands.add_parser("simulate-paired", help="exercise the revised gate rules with synthetic outcomes on CPU")
+    report = commands.add_parser("report", help="score an explicitly synthetic result set against a verified v2 plan")
+    for command in (simulate, report):
+        command.add_argument("--run", type=Path, required=True, help="prepared Qwen3.5-2B/4B campaign")
+        command.add_argument("--output", type=Path, required=True, help="new report directory, outside the prepared run")
+    report.add_argument("--results", type=Path, required=True, help="one synthetic results.json from simulate-paired")
     args = parser.parse_args()
     try:
         if args.command == "replay":
@@ -94,12 +101,27 @@ def main():
             result = {"status": gate["status"], "counts": gate["counts"], "interval": gate["interval"],
                       "output": str(args.output)}
         elif args.command == "prepare-dev":
-            from .campaign import prepare_dev
-            prepare_dev(args.study, args.output)
-            result = {"output": str(args.output), "planned_slots": 116}
-        else:
+            from .campaign import LEGACY_PROTOCOL, PAIRED_PROTOCOL, prepare_dev
+            result = prepare_dev(args.study, args.output, protocol=LEGACY_PROTOCOL if args.legacy else PAIRED_PROTOCOL)
+            result["output"] = str(args.output)
+        elif args.command == "run-dev":
             from .campaign import run_dev
             result = run_dev(args.run, args.g3)
+        else:
+            from .campaign import PAIRED_PROTOCOL, verify_run
+            from .campaign_storage import read_jsonl
+            from .paired_simulation import report_paired, simulate_paired
+            campaign = verify_run(args.run)
+            if campaign["schema"] != PAIRED_PROTOCOL:
+                raise ValueError("Paired scoring requires a revised Qwen3.5-2B campaign")
+            if args.output.resolve().is_relative_to(args.run.resolve()):
+                raise ValueError("Keep synthetic reports outside the prepared campaign")
+            plan = read_jsonl(args.run / "plan-slots.jsonl")
+            if args.command == "simulate-paired":
+                simulate_paired(plan, args.output)
+            else:
+                report_paired(plan, args.results, args.output)
+            result = {"evidence": "synthetic", "output": str(args.output), "formal_launches": 0}
     except (ValueError, OSError) as error:
         parser.exit(1, f"{args.command}: {error}\n")
     print(json.dumps(result, ensure_ascii=False))

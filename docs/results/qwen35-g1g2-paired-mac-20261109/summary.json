@@ -1,0 +1,181 @@
+{
+  "G3": {
+    "sha256": "fcb9a63f1a99b24e30372d70cc06b37f889feba129829100cdf214477edca8a4",
+    "status": "pass",
+    "turns_sha256": "9c474c6fe5c612ad9d9e49a9b29feb6b7693efdf4ad6f59f779b10d17fbef88d",
+    "verified": true
+  },
+  "cases": [
+    {
+      "G1": "pass",
+      "G2": "pass",
+      "case": "pass",
+      "description": "跨场景净增 3 题",
+      "four_cells": {
+        "both_failure": 19,
+        "both_success": 5,
+        "only_off": 1,
+        "only_on": 4
+      },
+      "improved_scenes": 2,
+      "input_sha256": "d7e8d02abb09e85ba7b00ac2bd05bc14d35fc4c1c588ec76853a3604731886d4",
+      "missing_pairs": 0,
+      "net_gain": 3
+    },
+    {
+      "G1": "pass",
+      "G2": "fail",
+      "case": "single_parent",
+      "description": "同样净增 3 题，但全部来自一个父场景",
+      "four_cells": {
+        "both_failure": 21,
+        "both_success": 5,
+        "only_off": 0,
+        "only_on": 3
+      },
+      "improved_scenes": 1,
+      "input_sha256": "8265515f70e945608abd31d97735b41b3fc445526ea71c93523b7cb418b2e7e0",
+      "missing_pairs": 0,
+      "net_gain": 3
+    },
+    {
+      "G1": "fail",
+      "G2": "fail",
+      "case": "two_successes",
+      "description": "主模型开臂只有 2 题成功，参照模型仍有净改善",
+      "four_cells": {
+        "both_failure": 23,
+        "both_success": 2,
+        "only_off": 4,
+        "only_on": 0
+      },
+      "improved_scenes": 0,
+      "input_sha256": "6cd8be1a54f58968f6f024592210f2d7829edd6cd4aac4628c18d351f70274a6",
+      "missing_pairs": 0,
+      "net_gain": -4
+    },
+    {
+      "G1": "pass",
+      "G2": "indeterminate",
+      "case": "deadline",
+      "description": "仅开臂触及回合墙钟",
+      "four_cells": {
+        "both_failure": 19,
+        "both_success": 5,
+        "only_off": 1,
+        "only_on": 4
+      },
+      "improved_scenes": 2,
+      "input_sha256": "cd4c3c5b7d58773e74dee338434226933c289a6d219de183c00a5405f2629f67",
+      "missing_pairs": 0,
+      "net_gain": 3
+    },
+    {
+      "G1": "pass",
+      "G2": "indeterminate",
+      "case": "request_timeout",
+      "description": "仅开臂触及请求时限",
+      "four_cells": {
+        "both_failure": 19,
+        "both_success": 5,
+        "only_off": 1,
+        "only_on": 4
+      },
+      "improved_scenes": 2,
+      "input_sha256": "ee9351940ec5c007212f594d93242ea15d15e26172839c4fbb722f72ebb572cf",
+      "missing_pairs": 0,
+      "net_gain": 3
+    },
+    {
+      "G1": "pass",
+      "G2": "indeterminate",
+      "case": "context_length",
+      "description": "仅开臂超过上下文长度",
+      "four_cells": {
+        "both_failure": 19,
+        "both_success": 5,
+        "only_off": 1,
+        "only_on": 4
+      },
+      "improved_scenes": 2,
+      "input_sha256": "da3037143e177ec25408462f84e3a1d0d8aabc7313f5a3e48f9b54b2b9e5b86c",
+      "missing_pairs": 0,
+      "net_gain": 3
+    },
+    {
+      "G1": "pass",
+      "G2": "indeterminate",
+      "case": "balanced_union",
+      "description": "同题开臂墙钟截止、关臂请求超时，合并数相同",
+      "four_cells": {
+        "both_failure": 19,
+        "both_success": 5,
+        "only_off": 1,
+        "only_on": 4
+      },
+      "improved_scenes": 2,
+      "input_sha256": "41c2c0289557f8812ed2e298cfea0a266003921b29cf8166bb653ed4f06e8876",
+      "missing_pairs": 0,
+      "net_gain": 3
+    },
+    {
+      "G1": "pass",
+      "G2": "indeterminate",
+      "case": "missing",
+      "description": "关臂一题服务出错、一题未启动",
+      "four_cells": {
+        "both_failure": 17,
+        "both_success": 5,
+        "only_off": 1,
+        "only_on": 4
+      },
+      "improved_scenes": 2,
+      "input_sha256": "4d2c4be63a0be30d8f08d290ec9dab3968eb2b2dbda4d1e6069749895a9868fb",
+      "missing_pairs": 2,
+      "net_gain": 3
+    },
+    {
+      "G1": "pass",
+      "G2": "pass",
+      "case": "budget",
+      "description": "开臂分别耗尽累计 token、请求次数、单轮生成额度",
+      "four_cells": {
+        "both_failure": 19,
+        "both_success": 5,
+        "only_off": 1,
+        "only_on": 4
+      },
+      "improved_scenes": 2,
+      "input_sha256": "be62872785dc7237a371c2ffae01827e31bca6b108ed5b37d25ee2bba7b29269",
+      "missing_pairs": 0,
+      "net_gain": 3
+    },
+    {
+      "G1": "indeterminate",
+      "G2": "indeterminate",
+      "case": "unstarted",
+      "description": "全部 116 槽未启动",
+      "four_cells": {
+        "both_failure": 0,
+        "both_success": 0,
+        "only_off": 0,
+        "only_on": 0
+      },
+      "improved_scenes": 0,
+      "input_sha256": "10307939b5a275f2f0db8c2e461ed8e22ae2215ea65d5e69a9d98122e580e0d4",
+      "missing_pairs": 29,
+      "net_gain": 0
+    }
+  ],
+  "eligible_for_collection": false,
+  "expected_cases_passed": 10,
+  "formal_G1": "unmeasured",
+  "formal_G2": "unmeasured",
+  "formal_launches": 0,
+  "plan_sha256": "8975ceb7acecc1a69abd1cd45002c748f4453c398ebe90fd3cecd555eaeb1364",
+  "primary_model": "Qwen3.5-2B",
+  "reference_model": "Qwen3-4B",
+  "scope": "synthetic",
+  "teacher_calls": 0,
+  "training_steps": 0
+}

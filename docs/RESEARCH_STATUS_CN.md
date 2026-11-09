@@ -12,9 +12,11 @@
 | 第 1 步技术方案与额度 | — |
 | 顺序与门槛 | 第 0 阶段先过 G1 学生零样本、G2 思考开关、G3 事件区分度三道门槛，再采教师数据。研究窗口约 1–2 个月。[阶段与门槛](RESEARCH_ROADMAP_CN.md#阶段与门槛) |
 | 正式题目 | 用户确认从原基准冻结的 30 个完整会话、600 题用于后续示范采集、SFT 和最终系统比较。原题有历史开发暴露，逐场保留原题序和状态继承。[600 题清单](../experiments/flockcue-benchmark-600-v1/) |
-| 资源 | 教师 DeepSeek。已批准的 G1/G2 使用 Qwen3-1.7B 和 4B；后训练优先验证 Qwen3.5-2B，替换门槛主模型须修订协议。单卡 LoRA，40 GB 优先、80 GB 为上限。付费调用与 GPU 在各步 plan.md 写明上限，用户批准后执行。 |
+| 资源 | 教师 DeepSeek。11 月 9 日确认 G1/G2 主模型为 Qwen3.5-2B，沿用 Qwen3-4B 作参照。两者来自不同系列，真实门槛仅按 2B 的配对结果判定。单卡 LoRA，40 GB 优先、80 GB 为上限。付费调用与 GPU 在各步 plan.md 写明上限，用户批准后执行。 |
 
 ## Verified Results — 已有证据
+
+- **Qwen3.5-2B 的 29 题配对计分已在 Mac 验收。** 新计划沿用五个父场景，每臂 29 题。10 组合成输入分别覆盖阈值、跨场景改善、超时偏向开臂、缺评分和全未启动；从保存的输入重新生成的报告均逐字节一致。Qwen3-4B 的成绩单列，真实 116 槽保持未启动。[模拟报告](results/qwen35-g1g2-paired-mac-20261109/REPORT_CN.md) · [独立复算](results/qwen35-g1g2-paired-mac-20261109/verification.json)
 
 - **DeepSeek 开发轨迹已整理成 16 条可回查的 SFT 样例。** 同一道悬停开发题的四个变体共 26 个决策轮，16 轮保留、10 轮剔除，每轮都有原始请求、回复、回执或评分依据及取舍理由。7 条保留了教师思考，9 条思考为空。已用 Qwen3.5-2B 分词器复核本轮监督范围，正式训练样本新增 0 条。[逐轮审阅与回查](results/deepseek-sft-dev-examples-20261109/REPORT_CN.md)
 
@@ -82,10 +84,10 @@
 
 ## Next Actions — 当前交接点
 
-修正示例下的 2B 单题开关思考开发对照已完成，原评分器与实际动作顺序分别归档。若选择 2B 进入正式 G1/G2，先修订现行 1.7B/4B 的主模型及对照定义，再在多题上检验收益。[同题开关思考对照](results/qwen35-hover-thinking-mac-20261109/REPORT_CN.md)
+修正示例下的 2B 单题开关思考开发对照已完成，原评分器与实际动作顺序分别归档。2B 已确定为 29 题正式筛查的主模型，两臂沿用同一修正版起飞示例，另列按题面要求执行的动作与公开回执。[同题开关思考对照](results/qwen35-hover-thinking-mac-20261109/REPORT_CN.md)
 
 用户于 2026-11-08 将两项 Linux 验收顺延到租用 GPU 服务器时。届时先在同一台主机用 CPU 复验学生接入（T36a）和 20 题连续会话，再做 T37 真实权重测速。若租金从开机计起，安装和复验用时一并计入该次预算。[连续会话入口](results/flockcue-mac-session-20261108/REPORT_CN.md) · [学生接入无卡步骤](results/thinking-student-cpu-20261108/LINUX_CPU_CN.md)
 
-原 G1/G2 的 116 个推理槽（29 道开发题 × 四个条件）仍待运行。同时可评审 600 题的采数、训练和会话评测方案。正式教师采集须先通过三道门槛并批准该阶段预算。[实施任务](specs/01-thinking-events/task.md) · [验收进度](specs/01-thinking-events/checklist.md)
+新版 G1/G2 的 116 个推理槽（29 道开发题 × 四个条件）仍待运行。同时可评审 600 题的采数、训练和会话评测方案。正式教师采集须先通过三道门槛并批准该阶段预算。[实施任务](specs/01-thinking-events/task.md) · [验收进度](specs/01-thinking-events/checklist.md)
 
 2026-11-08 的仓库整理记录见[清理清单](maintenance/cleanup-20261108.json)。旧报告中的 W 编号、"第五项"、验证器六步和当批"下一步"属于当时的编排，对照见[研究路线](RESEARCH_ROADMAP_CN.md#旧编号对照)。[实验依据](EXPERIMENT_EVIDENCE_CN.md) · [原始后训练调研](SMALL_MODEL_POSTTRAINING_SURVEY_CN.html)
