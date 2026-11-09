@@ -12,6 +12,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 import student_input_v2 as v2
 from flockcue_qwen35 import adapter
+from flockcue_qwen35.dev_sample_tokens import supervise
 
 TOOLS = [
     {"type": "function", "function": {"name": "get_drone_status", "parameters": {"type": "object",
@@ -183,3 +184,37 @@ def test_no_arguments_and_prior_turn_reasoning_policy(tok):
     prompt, _ = adapter.render(tok, messages, TOOLS, False)
     assert "Inspect both aircraft." not in prompt["prompt_text"]
     assert prompt["history_reasoning_tokens"] == 0
+
+
+@pytest.mark.parametrize("thought", ["Inspect A again.", None])
+@pytest.mark.parametrize("legacy", [False, True])
+def test_supervised_suffix_replays_teacher_fields_and_masks_receipts(tok, thought, legacy):
+    messages = history()
+    payload = {"drone_id": "A"}
+    argument = json.dumps(payload) if legacy else payload
+    target = {"role": "assistant", "content": "Checking.", "tool_calls": [{"type": "function",
+              "function": {"name": "get_drone_status", "arguments": {"input_json": argument}}}]}
+    if thought is not None:
+        target["reasoning_content"] = thought
+    original = deepcopy(target)
+    ids, labels, audit = supervise(tok, messages, TOOLS, target)
+    prompt, _ = adapter.render(tok, messages, TOOLS, True)
+    start = len(prompt["input_ids"])
+    assert ids[:start] == prompt["input_ids"] and labels[:start] == [-100] * start
+    assert labels[start:] == ids[start:] and labels[-1] == tok.eos_token_id
+    assert audit["masked_prompt_tokens"] == start and audit["supervised_tokens"] == len(ids) - start
+    assert audit["linked_public_receipts"] == 2 and audit["historical_reasoning_tokens"] > 0
+    assert (audit["supervised_reasoning_tokens"] > 0) == bool(thought)
+    assert audit["legacy_input_json_replayed_as_object_call_indices"] == ([0] if legacy else [])
+    assert target == original
+    suffix = tok.decode(labels[start:], clean_up_tokenization_spaces=False)
+    assert suffix.lstrip().startswith(thought or "</think>")
+    assert "battery" not in suffix and "Inspect both aircraft." not in suffix
+
+
+def test_supervision_rejects_invalid_target_instead_of_repairing(tok):
+    missing = {"role": "assistant", "tool_calls": [{"type": "function",
+               "function": {"name": "get_drone_status", "arguments": {}}}]}
+    with pytest.raises(v2.InputRejected) as rejected:
+        supervise(tok, [USER], TOOLS, missing)
+    assert rejected.value.code == "sft_decode"

@@ -14,6 +14,7 @@
 
 ## 证据与维护规则
 
+- 11 月 9 日已将 4 个悬停开发回合的 26 个决策轮逐条核验，保留 16 条 Qwen3.5-2B 格式的 SFT 开发样例。该批只供格式和取舍规则回归。[样例与逐轮审阅](docs/results/deepseek-sft-dev-examples-20261109/REPORT_CN.md)
 - [研究路线](docs/RESEARCH_ROADMAP_CN.md)维护阶段、门槛与交付，[研究状态](docs/RESEARCH_STATUS_CN.md)维护已完成、待验证与待决事项。目录分工与冻结协议清单见[文档导航](docs/README.md)，实验数字从[实验依据](docs/EXPERIMENT_EVIDENCE_CN.md)追溯。被代码按路径读取或封存哈希引用的文档不改名不移动。
 - 始终区分 **Confirmed Decisions / Verified Results / Working Hypotheses / Open Questions / Next Actions**。设计不等于实现，离线接口通过不等于在线能力，开发 pilot 涨分不等于泛化。
 - 本项目 Teacher 数据集、SFT、Agentic RL、约 2B 训练后模型仍未完成。用户既往 TRL + GRPO + Qwen 入门实验是学习经历，不能当作本项目闭环成果。
