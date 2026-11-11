@@ -135,14 +135,10 @@ class ScriptedModel:
         return httpx.Response(200, json=body, request=request)
 
 
-def build_agent(world, policy, model, profile):
-    from harness_full100_online import agent_class
+def scripted_model_factory(model, profile):
     from langchain_openai import ChatOpenAI
     import openai
     from openai import _base_client
-    import toolchain_recorder
-    import uav_agent
-    toolchain_recorder.TOOLCHAIN_LOG_DIR = policy / "toolchains"
     httpx = getattr(_base_client, "httpx2", None) or _base_client.httpx
     sync = openai.DefaultHttpxClient(transport=httpx.MockTransport(model.respond), trust_env=False)
 
@@ -151,13 +147,21 @@ def build_agent(world, policy, model, profile):
             raise RuntimeError("Session CPU fixture is synchronous")
 
     async_client = openai.DefaultAsyncHttpxClient(transport=ClosedAsync(), trust_env=False)
+    return lambda **kwargs: ChatOpenAI(http_client=sync, http_async_client=async_client,
+            max_retries=0, max_tokens=profile.runtime()["request_limits"]["max_output_tokens"], streaming=False, **kwargs)
+
+
+def build_agent(world, policy, model, profile, teacher=None):
+    from harness_full100_online import agent_class
+    import toolchain_recorder
+    import uav_agent
+    toolchain_recorder.TOOLCHAIN_LOG_DIR = policy / "toolchains"
 
     def no_settings(*args, **kwargs):
         raise RuntimeError("Provider settings are disabled in the session CPU regression")
 
     uav_agent.load_llm_settings = no_settings
-    uav_agent.ChatOpenAI = lambda **kwargs: ChatOpenAI(http_client=sync, http_async_client=async_client,
-              max_retries=0, max_tokens=profile.runtime()["request_limits"]["max_output_tokens"], streaming=False, **kwargs)
+    uav_agent.ChatOpenAI = teacher.model_factory if teacher is not None else scripted_model_factory(model, profile)
     os.environ.update(profile.environment())
     base = agent_class(world, policy)
 
@@ -170,12 +174,14 @@ def build_agent(world, policy, model, profile):
 
     opts = profile.agent_kwargs()
     opts["share_blackboard_by_session"] = True
+    if teacher is not None:
+        opts["llm_model"] = teacher.limits["teacher_model"]
     return SessionAgent(base_url="http://testserver", llm_api_key="synthetic-local-key",
             llm_base_url="https://offline.invalid/v1", temperature=.1, verbose=False,
             model_io_archive_dir=policy / "modelio", **opts)
 
 
-def run_session(scene: dict, output: Path, *, fault: str = "none"):
+def run_session(scene: dict, output: Path, *, fault: str = "none", teacher=None, seed=None):
     from harness_episode_local import setup_paths
     from reproduction import prepare_task
     from agent_profile import AgentProfile
@@ -187,13 +193,13 @@ def run_session(scene: dict, output: Path, *, fault: str = "none"):
     setup_paths(policy)
     for name in ("models", "controllers"):
         sys.modules[name + ".__init__"] = importlib.import_module(name)
-    world = SessionWorld()
+    world = SessionWorld() if seed is None else SessionWorld(seed=seed)
     world.import_session(scene)
     api = PreparationAPI(world)
     profile = AgentProfile.load(ROOT / "experiments/hover-compact-contract-v2/profile.json")
     model = ScriptedModel()
     cold_world = world.snapshot()
-    agent = build_agent(world, policy, model, profile)
+    agent = build_agent(world, policy, model, profile, teacher)
     # Initialize via the same public session identity path used by execute().
     board = agent._blackboard_for_current_command()
     world.restore(cold_world)
@@ -201,12 +207,15 @@ def run_session(scene: dict, output: Path, *, fault: str = "none"):
     session = {"session_id": scene["id"], "worker_pid": os.getpid(), "initial": initial,
                "initial_world_sha256": initial["world_state_sha256"], "initial_board_sha256": initial["blackboard_sha256"],
                "fault": fault, "preparation": PREPARATION, "tasks": []}
-    aborted = False
+    stop_reason = teacher.blocked_reason() if teacher is not None else None
+    if teacher is not None:
+        session.update(runtime_seed=seed, seeded_rngs=["python.random", "simulator.world.rng"],
+                       teacher_mode="local_fixed_replies", teacher_api_seed=None)
     for index, task in enumerate(scene["tasks"], start=1):
         row = {"index": index, "task_id": task["id"], "directory": f"tasks/{index:02}-{task['id']}"}
         session["tasks"].append(row)
-        if aborted:
-            row.update(status="unstarted", reason="upstream_service_failure")
+        if stop_reason:
+            row.update(status="unstarted", reason=stop_reason)
             continue
         folder = output / row["directory"]
         folder.mkdir(parents=True)
@@ -217,30 +226,51 @@ def run_session(scene: dict, output: Path, *, fault: str = "none"):
         world.offset = world.clock.relative
         start = projection(world, board)
         write_json(folder / "before.json", {"prepare_before": before, "policy_start": start})
+        if teacher is not None:
+            initial_blob = world.snapshot()
+            (folder / "initial-world.pkl").write_bytes(initial_blob)
         injected = fault if index == 2 else "none"
-        world.deadline_seconds = 1.5 if injected == "deadline" else profile.runtime()["task_seconds"]
+        task_seconds = teacher.limits["max_task_seconds"] if teacher is not None else profile.runtime()["task_seconds"]
+        world.deadline_seconds = 1.5 if injected == "deadline" else task_seconds
         world.start(timer=True)
-        model.begin(task["content"], injected, world.started + world.deadline_seconds, folder)
+        deadline = world.started + world.deadline_seconds
+        if teacher is not None:
+            if not teacher.begin(task["id"], task["content"], folder, deadline):
+                raise RuntimeError("Teacher budget changed between two sequential tasks")
+        else:
+            model.begin(task["content"], injected, deadline, folder)
         request_start, event_start = len(world.requests), len(world.physical_events)
         result = agent.execute(task["content"])
         blob = world.freeze_score()
         world._timer.join()
-        if injected != "none" and not model.triggered:
-            raise RuntimeError(f"Fixture fault did not fire: {injected}")
         timed_out = world.score_seconds >= world.deadline_seconds
-        if timed_out != (injected == "deadline"):
-            raise RuntimeError("Unexpected deadline disposition")
         if agent.entry_board != start["blackboard"] or board is not agent.blackboard:
             raise RuntimeError("Agent failed to inherit the previous command's blackboard")
         archive_path = Path(agent._model_io_archive.info()["path"])
         archive_rows = list(map(json.loads, archive_path.read_text().splitlines()))
         statuses = [r["data"]["status_code"] for r in archive_rows if r["kind"] == "http_response_start"]
-        provider_failed = statuses == [503] and result.get("success") is False
-        if provider_failed != (injected == "abort-after-1"):
-            raise RuntimeError(f"Unexpected provider result: {statuses}, {result.get('error')}")
-        if injected == "none" and (statuses != [200] * 5 or model.step != 5):
-            raise RuntimeError(f"Scripted Agent path incomplete: {result.get('error') or result.get('output')}")
-        reason = "provider_503" if provider_failed else "deadline" if timed_out else "agent_finished"
+        provider_failed = False
+        if teacher is None:
+            if injected != "none" and not model.triggered:
+                raise RuntimeError(f"Fixture fault did not fire: {injected}")
+            if timed_out != (injected == "deadline"):
+                raise RuntimeError("Unexpected deadline disposition")
+            provider_failed = statuses == [503] and result.get("success") is False
+            if provider_failed != (injected == "abort-after-1"):
+                raise RuntimeError(f"Unexpected provider result: {statuses}, {result.get('error')}")
+            if injected == "none" and (statuses != [200] * 5 or model.step != 5):
+                raise RuntimeError(f"Scripted Agent path incomplete: {result.get('error') or result.get('output')}")
+            reason = "provider_503" if provider_failed else "deadline" if timed_out else "agent_finished"
+            if provider_failed:
+                stop_reason = "upstream_service_failure"
+        else:
+            settlement = teacher.finish()
+            reason = settlement["stop_reason"] or ("deadline" if timed_out else "agent_finished")
+            if settlement["batch_stopped"]:
+                stop_reason = reason
+            if reason == "agent_finished" and (result.get("success") is not True or not statuses
+                    or any(code != 200 for code in statuses) or len(statuses) != settlement["fixture_dispatches"]):
+                raise RuntimeError(f"Incomplete fixed teacher trajectory: {statuses}, {result.get('error')}")
         row.update(status="invalid" if provider_failed else "completed", reason=reason)
         (folder / "world.pkl").write_bytes(blob)
         world_sha = sha(blob)
@@ -252,10 +282,14 @@ def run_session(scene: dict, output: Path, *, fault: str = "none"):
                     "archive": str(archive_path.relative_to(output)), "http_statuses": statuses,
                     "agent_success": result.get("success"), "marked_done": False}
         public_requests = [r for r in world.requests[request_start:] if r["phase"] == "task"]
-        if (provider_failed or timed_out) and any(r["action"] and r["committed"] for r in public_requests):
+        fields = ("request_id", "method", "endpoint", "admin", "action", "committed", "origin")
+        if teacher is not None:
+            boundary.update(initial_world_sha256=sha(initial_blob), teacher=settlement)
+            fields += ("params", "body", "response", "error", "relative_seconds", "ended_seconds")
+        if teacher is None and (provider_failed or timed_out) and any(r["action"] and r["committed"] for r in public_requests):
             raise RuntimeError("Injected fault allowed a committed public action")
-        write_json(folder / "actions.json", {"requests": [{k: r[k] for k in ("request_id", "method", "endpoint", "admin",
-                  "action", "committed", "origin")} for r in public_requests], "events": world.physical_events[event_start:]})
+        write_json(folder / "actions.json", {"requests": [{k: r[k] for k in fields if k in r} for r in public_requests],
+                   "events": world.physical_events[event_start:]})
         if timed_out:
             endpoint = f"/drones/{next(iter(terminal['positions']))}/command/land"
             try:
@@ -282,7 +316,6 @@ def run_session(scene: dict, output: Path, *, fault: str = "none"):
                 boundary["marked_done"] = True
         boundary["continuation"] = projection(world, board)
         write_json(folder / "boundary.json", boundary)
-        aborted = row["status"] == "invalid"
-        if not aborted and index < len(scene["tasks"]):
+        if not stop_reason and index < len(scene["tasks"]):
             time.sleep(PREPARATION["between_tasks_seconds"])
     write_json(output / "session.json", session)

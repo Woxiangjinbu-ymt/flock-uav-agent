@@ -1,0 +1,169 @@
+{
+  "scope": "synthetic DeepSeek teacher continuous sessions, Mac CPU",
+  "eligible_for_training": false,
+  "batch_elapsed_seconds": {
+    "normal": 239.59,
+    "budget-stop": 6.217,
+    "missing-usage": 6.194
+  },
+  "by_case": {
+    "normal": {
+      "batch_cap": "30.00",
+      "case": "normal",
+      "external_provider_calls": 0,
+      "finished": 40,
+      "fixture_dispatches": 200,
+      "formal_training_examples": 0,
+      "initial_passed": 0,
+      "interrupted_scored": 0,
+      "ledger_stop_reason": null,
+      "locked_reservation": "0",
+      "newly_passed": 1,
+      "per_task_cap": "4.00",
+      "planned": 40,
+      "reasoning_responses": 200,
+      "requests_with_reasoning_history": 160,
+      "scored": 40,
+      "sdk_requests": 200,
+      "settled_requests": 200,
+      "simulated_conservative_charge": "0.531200",
+      "started": 40,
+      "terminal_passed": 1,
+      "timed_sdk_requests": 200,
+      "tool_calls_with_receipts": 160,
+      "unstarted": 0,
+      "verified_transitions": 38
+    },
+    "budget-stop": {
+      "batch_cap": "2.162688",
+      "case": "budget-stop",
+      "external_provider_calls": 0,
+      "finished": 0,
+      "fixture_dispatches": 1,
+      "formal_training_examples": 0,
+      "initial_passed": 0,
+      "interrupted_scored": 1,
+      "ledger_stop_reason": "batch_budget_insufficient",
+      "locked_reservation": "0",
+      "newly_passed": 0,
+      "per_task_cap": "4.00",
+      "planned": 40,
+      "reasoning_responses": 1,
+      "requests_with_reasoning_history": 1,
+      "scored": 1,
+      "sdk_requests": 2,
+      "settled_requests": 1,
+      "simulated_conservative_charge": "0.002656",
+      "started": 1,
+      "terminal_passed": 0,
+      "timed_sdk_requests": 2,
+      "tool_calls_with_receipts": 1,
+      "unstarted": 39,
+      "verified_transitions": 0
+    },
+    "missing-usage": {
+      "batch_cap": "30.00",
+      "case": "missing-usage",
+      "external_provider_calls": 0,
+      "finished": 0,
+      "fixture_dispatches": 1,
+      "formal_training_examples": 0,
+      "initial_passed": 0,
+      "interrupted_scored": 1,
+      "ledger_stop_reason": "unknown_or_invalid_usage",
+      "locked_reservation": "2.162688",
+      "newly_passed": 0,
+      "per_task_cap": "4.00",
+      "planned": 40,
+      "reasoning_responses": 1,
+      "requests_with_reasoning_history": 0,
+      "scored": 1,
+      "sdk_requests": 1,
+      "settled_requests": 0,
+      "simulated_conservative_charge": "0",
+      "started": 1,
+      "terminal_passed": 0,
+      "timed_sdk_requests": 1,
+      "tool_calls_with_receipts": 0,
+      "unstarted": 39,
+      "verified_transitions": 0
+    }
+  },
+  "by_scene": {
+    "04cd6269": {
+      "scored": 20,
+      "initial_passed": 0,
+      "terminal_passed": 1,
+      "newly_passed": 1,
+      "matched_tool_receipts": 80,
+      "fixture_responses": 100,
+      "elapsed_seconds": {
+        "worker": 115.255,
+        "scorer": 1.799
+      },
+      "synthetic_usage": {
+        "prompt_tokens": 120000,
+        "completion_tokens": 3200,
+        "total_tokens": 123200,
+        "prompt_cache_hit_tokens": 80000,
+        "prompt_cache_miss_tokens": 40000,
+        "reasoning_tokens": 900
+      }
+    },
+    "ef36e27a": {
+      "scored": 20,
+      "initial_passed": 0,
+      "terminal_passed": 0,
+      "newly_passed": 0,
+      "matched_tool_receipts": 80,
+      "fixture_responses": 100,
+      "elapsed_seconds": {
+        "worker": 119.299,
+        "scorer": 2.553
+      },
+      "synthetic_usage": {
+        "prompt_tokens": 120000,
+        "completion_tokens": 3200,
+        "total_tokens": 123200,
+        "prompt_cache_hit_tokens": 80000,
+        "prompt_cache_miss_tokens": 40000,
+        "reasoning_tokens": 900
+      }
+    }
+  },
+  "normal_local_transport_ms": {
+    "sample_size": 200,
+    "p50": 11.6266,
+    "p95": 19.2451
+  },
+  "snapshot_rescore": {
+    "initial": {
+      "trees_matched": 40,
+      "leaves_matched": 186,
+      "trees_passed": 0
+    },
+    "terminal": {
+      "trees_matched": 40,
+      "leaves_matched": 186,
+      "trees_passed": 1
+    }
+  },
+  "verification_sha256": {
+    "normal.json": "f020a6629669d16be22dafe0d71bcd72a03172729743c6ed25f6e3468e8e98de",
+    "budget-stop.json": "db664d58d375377819997f8b9d25c976a350063e99b3f8879f5aec06b3958a0f",
+    "missing-usage.json": "4872a4efc4a23c694caf007d35880688dbb51d2650ae8c49444a39c1d5a26c75",
+    "rescore.json": "9f472786fb5778e89a17493851424f82642f7f1baf708f9c702251894c5c51d7",
+    "tamper-results.json": "04f4dc45ee3ce334ccb43c424f26a6fb4c28aef6923fe253f0a0b89677173ad3"
+  },
+  "ledger_sha256": {
+    "normal": "f89cc2b2c3cb7a0780d22139a1fe7ab3e0163823728e334ed3eaee7af3cf7625",
+    "budget-stop": "752bf1513a388896e361f2ae42c58a556a14a8d2b4dcd606b279c054e2fb5081",
+    "missing-usage": "c43facf3e3b9d3c75ead7941d12c5e85ac81b2a590b2836114501aad54ee9965"
+  },
+  "sources_sha256": {
+    "scripts/flockcue_session_cpu/teacher_verify.py": "991da69c21abecac01e2f394d219f7112f866331107b614154cf786533c8e03b",
+    "scripts/thinking_events/campaign_storage.py": "fc352093272fb09a9e7a63da9bbf77c944b882f1fec0e74d1190e0d70a7dbee5",
+    "docs/results/deepseek-teacher-pilot40-mac-20261111/rescore.py": "251bc984dfc91cd6aa132dafb11598aed94d8e39fe76f1f107ec1e4d65a71581"
+  },
+  "bundle_sha256": "7fc10c8eb4511a8e3360009b9913dc3f9fd9337af5154bf742dd0287bb09ae3e"
+}

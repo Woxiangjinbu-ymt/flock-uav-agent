@@ -51,10 +51,20 @@ def child(role, run):
     verify_files(ROOT, inputs["source_sha256"])
     if sha(run / "source-scene.json") != inputs["scene_sha256"]:
         raise ValueError("Scene differs from selected original bytes")
+    teacher = inputs.get("teacher")
     try:
         if role == "worker":
-            from .runtime import run_session
-            run_session(read(run / "source-scene.json"), run, fault=inputs["fault"])
+            scene = read(run / "source-scene.json")
+            if teacher is None:
+                from .runtime import run_session
+                run_session(scene, run, fault=inputs["fault"])
+            else:
+                from .teacher_session import run_teacher_session
+                config = {**teacher, "batch_root": (run / teacher["batch_root"]).resolve(),
+                          "manifest": (run / teacher["manifest"]).resolve()}
+                if sha(config["manifest"]) != teacher["pilot_sha256"]:
+                    raise ValueError("Teacher session manifest differs from the frozen pilot")
+                run_teacher_session(scene, run, config)
         else:
             worker = read(run / "worker-exit.json")
             if worker["role"] != "worker" or worker["returncode"] != 0:
@@ -62,6 +72,9 @@ def child(role, run):
             verify_files(run, worker["files"])
             from .score import score_session
             score_session(run)
+            if teacher is not None:
+                from .teacher_start_score import score_start_states
+                score_start_states(run)
     finally:
         write(run / f"{role}-boundary.json", {
             "role": role, "pid": os.getpid(), "network_attempts": attempts,
@@ -105,7 +118,7 @@ def launch(role, run, env, previous):
     return seal
 
 
-def run_session_cli(output, session_id, fault):
+def run_session_cli(output, session_id, fault, *, teacher=None):
     if output.exists() or output.is_symlink():
         raise FileExistsError(f"Choose a new output directory: {output}")
     env = {k: os.environ[k] for k in ("PATH", "HOME", "TMPDIR", "LANG", "LC_ALL") if k in os.environ}
@@ -133,13 +146,21 @@ def run_session_cli(output, session_id, fault):
                      *(ROOT / "controller" / name for name in ("app_version.py", "app_settings.py", "utils.py",
                        "api_server.py", "check_ui/__init__.py", "check_ui/agent_checker.py",
                        "check_ui/agent_client.py", "check_ui/result_compare_window.py"))]
+    if teacher is not None:
+        extra_sources.extend(ROOT / "scripts" / name for name in (
+            "run_teacher_pilot40.py", "harness_deepseek_adapter.py", "harness_live_cost.py",
+            "thinking_events/sense_example_prepare.py", "flockcue_session_cpu/teacher_transport.py",
+            "flockcue_session_cpu/teacher_session.py", "flockcue_session_cpu/teacher_start_score.py",
+            "flockcue_session_cpu/verify.py"))
     for path in extra_sources:
         sources[path.relative_to(ROOT).as_posix()] = sha(path)
     verify_files(ROOT, sources)
     output = output.resolve()
     output.mkdir(parents=True, exist_ok=False)
     (output / "source-scene.json").write_bytes(raw)
-    write(output / "run-input.json", {"scope": "stateful_session_cpu_regression", "session_id": session_id,
+    scope = "offline_deepseek_teacher_pilot40" if teacher is not None else "stateful_session_cpu_regression"
+    write(output / "run-input.json", {"scope": scope, "session_id": session_id,
+          **({"teacher": teacher} if teacher is not None else {}),
           "scene_sha256": selection["source_sha256"], "dataset_manifest_sha256": sha(POOL / "manifest.json"),
           "expected_task_ids": selection["task_ids_in_original_order"], "fault": fault, "baseline": baseline,
           "source_sha256": sources, "system": platform.system(), "machine": platform.machine(),
