@@ -29,7 +29,7 @@ posttraining/.venv/bin/python -m posttraining.sft.export --output /tmp/flockcue-
 | 24,920 | 1 | 60.07 秒 | 415 | 13.17 / 13.84 |
 | 32,608 | 3 | 98.18 秒 | 332 | 16.02 / 16.79 |
 
-每个长度先预热一步，表中耗时取后续计时步的中位数。最短、中位附近和最长三点分段线性插值，逐条累加 386 个样本得到 4 小时 10 分钟。加入两条区间中部样本复算为 **约 4 小时/epoch**，共处理 6,962,880 token，含 129,010 个监督 token。此估算覆盖纯训练时间，模型加载、存盘和仿真评测另计。测速使用临时适配器，正式 SFT 尚待启动。
+每个长度先预热一步，表中耗时取后续计时步的中位数。最短、中位附近和最长三点分段线性插值，逐条累加 386 个样本得到 4 小时 10 分钟。加入两条区间中部样本复算为 **约 4 小时/epoch**，共处理 6,962,880 token，含 129,010 个监督 token。此估算覆盖纯训练时间，模型加载、存盘和仿真评测另计。测速使用临时适配器。
 
 在配有同版本 CUDA 训练环境和固定权重的机器上，从项目根目录运行三档测速。输出目录使用新的仓库外路径。
 
@@ -38,6 +38,18 @@ python -m posttraining.sft.benchmark --model /path/to/Qwen3.5-2B \
   --dataset datasets/sft/qwen35-2b-first-pass/train.jsonl.gz \
   --output /tmp/flockcue-sft-benchmark --warmup 1 --steps 3
 ```
+
+## 首轮训练与结果
+
+从项目根目录，在上述 CUDA 环境运行一个 epoch。输出目录放在仓库外。程序会核验基座、训练集和逐行索引，用固定种子 123 打乱样本，每个样本训练一次。优化器采用恒定学习率 `2e-4` 的 AdamW。
+
+```sh
+python -u -m posttraining.sft.train --model /path/to/Qwen3.5-2B \
+  --dataset datasets/sft/qwen35-2b-first-pass/train.jsonl.gz \
+  --output /path/to/run/output
+```
+
+`progress.json` 显示当前步数和最近一次检查点，`steps.jsonl` 保留各步的原始样本行号、损失、耗时和显存。首步、每 10 步和末步原子保存 `checkpoint.pt`。发生中断时，给同一条命令追加 `--resume`，从最近的完整检查点继续。完成后，`summary.json` 记录整轮统计。`adapter.safetensors`、`adapter_config.json` 配合固定基座，通过 `TransformersModel(base_path, adapter_dir=output_dir)` 载入。
 
 ## 如何解释首轮结果
 

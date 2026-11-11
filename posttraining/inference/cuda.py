@@ -1,8 +1,9 @@
 """Transformers BF16 text inference for Qwen3.5-2B on a single CUDA device."""
+import json
 import time
 from . import SAMPLING
 from .timing import TokenTimes, generation_stats
-from .weights import verify_weights
+from .weights import MANIFEST, verify_weights
 
 
 def _cuda():
@@ -13,7 +14,7 @@ def _cuda():
 
 
 class TransformersModel:
-    def __init__(self, path):
+    def __init__(self, path, adapter_dir=None):
         from transformers import Qwen3_5ForCausalLM
         self.torch = _cuda()
         verify_weights(path)
@@ -30,7 +31,12 @@ class TransformersModel:
         self.load_info = {"class": type(loaded).__name__, "config_model_type": loaded.config.model_type,
                           "missing_keys": 0, "mismatched_keys": 0, "error_msgs": 0,
                           "unused_checkpoint_keys": len(report["unexpected_keys"])}
-        self.model = loaded.to("cuda").eval()
+        self.model = loaded.to("cuda")
+        if adapter_dir is not None:
+            from ..sft.checkpoint import load_adapter
+            revision = json.loads(MANIFEST.read_bytes())["revision"]
+            self.load_info["adapter"] = load_adapter(self.model, adapter_dir, revision)
+        self.model.eval()
 
     def generate(self, ids, limit, seed, eos):
         started = time.monotonic()
