@@ -60,18 +60,15 @@ class _RejectAsync(httpx.AsyncBaseTransport):
         raise RuntimeError("This rehearsal uses a synchronous local fixture")
 
 
-class TeacherFixture:
-    """A single locally simulated provider stream sharing one durable pilot ledger."""
+class BudgetedTeacher:
+    """Shared SDK and budget admission for one registered teacher session."""
 
-    def __init__(self, ledger_path, limits, *, currency="CNY", batch_cap=None, per_task_cap=None,
-                 missing_usage=False):
+    def __init__(self, ledger_path, limits, *, currency="CNY", batch_cap=None, per_task_cap=None):
         account = limits["accounts"][currency]
         self.ledger = LiveCostLedger.open(ledger_path, _policy(limits, currency),
                                           account["batch_cap"] if batch_cap is None else batch_cap)
         self.per_task_cap = account["per_task_cap"] if per_task_cap is None else per_task_cap
         self.limits = limits
-        self.missing_usage = missing_usage
-        self.script = ScriptedModel()
         self.clients = []
         self.task = None
         self.reason = None
@@ -79,12 +76,11 @@ class TeacherFixture:
         self.tokens = 0
 
     def model_factory(self, **kwargs):
-        # The SDK receives synthetic credentials. Both clients have explicit local transports.
         sync = openai.DefaultHttpxClient(transport=httpx.MockTransport(self._handle), trust_env=False,
                                          follow_redirects=False)
         async_client = openai.DefaultAsyncHttpxClient(transport=_RejectAsync(), trust_env=False,
                                                       follow_redirects=False)
-        model = PilotDeepSeekModel(model="deepseek-flash", api_key=SYNTHETIC_KEY, base_url=BASE_URL,
+        model = PilotDeepSeekModel(model="deepseek-flash", api_key=self.api_key, base_url=self.base_url,
                                    max_tokens=self.limits["max_output_tokens_per_request"],
                                    timeout=self.limits["max_request_seconds"], max_retries=0, temperature=None,
                                    streaming=False, use_responses_api=False, thinking_mode="enabled",
@@ -97,7 +93,7 @@ class TeacherFixture:
         state = self.ledger.snapshot()
         return state["stop_reason"] if state["blocked"] else None
 
-    def begin(self, task_id, command, folder, deadline):
+    def start_task(self, task_id, deadline):
         if self.blocked_reason():
             return False
         self.ledger.start_trial(task_id, self.per_task_cap)
@@ -107,6 +103,52 @@ class TeacherFixture:
         self.tokens = 0
         self.deadline = deadline
         self.start_count = len(self.ledger.snapshot()["attempts"])
+        return True
+
+    def _admit(self, request):
+        if self.reason:
+            raise LiveCostError(self.reason)
+        if self.start_count + self.turns >= self.limits["max_http_attempts_total"]:
+            self.reason = "batch_request_limit"
+            self.ledger.block(self.reason)
+        elif self.turns >= self.limits["max_http_attempts_per_task"]:
+            self.reason = "task_request_limit"
+        elif self.tokens >= self.limits["max_billed_usage_tokens_per_task_stop_after_response"]:
+            self.reason = "task_token_limit"
+        elif time.monotonic() >= self.deadline:
+            self.reason = "task_deadline"
+        if self.reason:
+            raise LiveCostError(self.reason)
+        try:
+            return self.cost_transport.handle_request(request)
+        except LiveCostError as exc:
+            self.reason = exc.reason
+            raise
+
+    def close(self):
+        self.ledger.close()
+        for model in self.clients:
+            model.root_client.close()
+            asyncio.run(model.root_async_client.close())
+        self.clients.clear()
+
+
+class TeacherFixture(BudgetedTeacher):
+    """A local fixed-response provider sharing the registered pilot ledger."""
+
+    mode = "local_fixed_replies"
+    api_key = SYNTHETIC_KEY
+    base_url = BASE_URL
+
+    def __init__(self, ledger_path, limits, *, currency="CNY", batch_cap=None, per_task_cap=None,
+                 missing_usage=False):
+        super().__init__(ledger_path, limits, currency=currency, batch_cap=batch_cap, per_task_cap=per_task_cap)
+        self.script = ScriptedModel()
+        self.missing_usage = missing_usage
+
+    def begin(self, task_id, command, folder, deadline):
+        if not self.start_task(task_id, deadline):
+            return False
         self.wire = Path(folder) / "fixture-wire"
         self.wire.mkdir()
         self.timing = Path(folder) / "fixture-timing"
@@ -139,26 +181,6 @@ class TeacherFixture:
             _finish_interval(record["transport"])
             atomic_write(timing_path, json_bytes(record))
             request.extensions.pop("flockcue_local_timing", None)
-
-    def _admit(self, request):
-        if self.reason:
-            raise LiveCostError(self.reason)
-        if self.start_count + self.turns >= self.limits["max_http_attempts_total"]:
-            self.reason = "batch_request_limit"
-            self.ledger.block(self.reason)
-        elif self.turns >= self.limits["max_http_attempts_per_task"]:
-            self.reason = "task_request_limit"
-        elif self.tokens >= self.limits["max_billed_usage_tokens_per_task_stop_after_response"]:
-            self.reason = "task_token_limit"
-        elif time.monotonic() >= self.deadline:
-            self.reason = "task_deadline"
-        if self.reason:
-            raise LiveCostError(self.reason)
-        try:
-            return self.cost_transport.handle_request(request)
-        except LiveCostError as exc:
-            self.reason = exc.reason
-            raise
 
     def _reply(self, request):
         record = request.extensions["flockcue_local_timing"]
@@ -219,10 +241,3 @@ class TeacherFixture:
         return {"stop_reason": state["stop_reason"] or self.reason, "blocked": state["blocked"],
                 "batch_stopped": state["blocked"], "fixture_dispatches": self.turns,
                 "attempts": self.turns, "actual_provider_calls": 0, "actual_fee": "0"}
-
-    def close(self):
-        self.ledger.close()
-        for model in self.clients:
-            model.root_client.close()
-            asyncio.run(model.root_async_client.close())
-        self.clients.clear()

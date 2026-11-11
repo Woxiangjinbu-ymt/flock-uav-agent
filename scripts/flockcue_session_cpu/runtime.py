@@ -210,7 +210,7 @@ def run_session(scene: dict, output: Path, *, fault: str = "none", teacher=None,
     stop_reason = teacher.blocked_reason() if teacher is not None else None
     if teacher is not None:
         session.update(runtime_seed=seed, seeded_rngs=["python.random", "simulator.world.rng"],
-                       teacher_mode="local_fixed_replies", teacher_api_seed=None)
+                       teacher_mode=teacher.mode, teacher_api_seed=None)
     for index, task in enumerate(scene["tasks"], start=1):
         row = {"index": index, "task_id": task["id"], "directory": f"tasks/{index:02}-{task['id']}"}
         session["tasks"].append(row)
@@ -268,7 +268,14 @@ def run_session(scene: dict, output: Path, *, fault: str = "none", teacher=None,
             reason = settlement["stop_reason"] or ("deadline" if timed_out else "agent_finished")
             if settlement["batch_stopped"]:
                 stop_reason = reason
-            if reason == "agent_finished" and (result.get("success") is not True or not statuses
+            if teacher.mode != "local_fixed_replies":
+                if reason == "agent_finished" and (not statuses or result.get("error")):
+                    stop_reason = reason = "teacher_service_or_agent_error"
+                    teacher.ledger.block(reason)
+                    settlement.update(stop_reason=reason, batch_stopped=True)
+                elif reason == "agent_finished" and result.get("success") is not True:
+                    reason = "agent_incomplete"
+            elif reason == "agent_finished" and (result.get("success") is not True or not statuses
                     or any(code != 200 for code in statuses) or len(statuses) != settlement["fixture_dispatches"]):
                 raise RuntimeError(f"Incomplete fixed teacher trajectory: {statuses}, {result.get('error')}")
         row.update(status="invalid" if provider_failed else "completed", reason=reason)

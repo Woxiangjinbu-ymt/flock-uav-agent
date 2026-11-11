@@ -1,0 +1,103 @@
+{
+  "scope": "Mac TCP loopback only",
+  "paid_api_calls": 0,
+  "formal_teacher_episodes": 0,
+  "cases": [
+    {
+      "case": "normal",
+      "peer_received": 60,
+      "first_scene_peer_received": 30,
+      "repeat_dispatches": 0,
+      "remote_api_calls": 0,
+      "planned": 40,
+      "reservations": 60,
+      "settled_estimate": "0.02160",
+      "locked_reservation": "0",
+      "stop_reason": null,
+      "task_statuses": {
+        "completed": 40
+      },
+      "ledger_sha256": "85082760deb3b7429124589f7c3597f3e21653df614aaa45945aa43d5cb7554f",
+      "peer_file_sha256": "e1ee74bc2fb5def14d5e25d67aee7a06ee3e0c1e29cb2d55ee1023763b986fd2"
+    },
+    {
+      "case": "disconnect",
+      "peer_received": 1,
+      "first_scene_peer_received": 1,
+      "repeat_dispatches": 0,
+      "remote_api_calls": 0,
+      "planned": 40,
+      "reservations": 1,
+      "settled_estimate": "0",
+      "locked_reservation": "2.162688",
+      "stop_reason": "transport_exception:RemoteProtocolError",
+      "task_statuses": {
+        "completed": 1,
+        "unstarted": 39
+      },
+      "ledger_sha256": "913e75597650c40cf3adb58fcd14b72677318a45a9820fb9bd24851bd1c60d75",
+      "peer_file_sha256": "dc2654ece0e3aa0026cb6618264b9a548547615d13a248350dee4c505c98c46a"
+    },
+    {
+      "case": "worker-kill",
+      "peer_received": 1,
+      "first_scene_peer_received": 1,
+      "repeat_dispatches": 0,
+      "remote_api_calls": 0,
+      "planned": 40,
+      "reservations": 1,
+      "settled_estimate": "0",
+      "locked_reservation": "2.162688",
+      "stop_reason": "unfinished_trial_after_reopen",
+      "task_statuses": {
+        "unverified": 1,
+        "unstarted": 39
+      },
+      "ledger_sha256": "4bddb51678e6c9890fd558e842339e92ff85470737281d7e475585703ccd488a",
+      "peer_file_sha256": "a6748dfd1370cf6a4d6a7006690c6e3d943bfdd593a01e8d3db64b067670cb53"
+    }
+  ],
+  "detached_worker": {
+    "transport": "loopback_http",
+    "peer_requests": 1,
+    "real_provider_calls": 0,
+    "duplicate_advance_refused_while_worker_alive": true,
+    "journal_unchanged_while_worker_alive": true,
+    "reservations_after_worker_exit": 1,
+    "stop_reason": "transport_exception:RemoteProtocolError"
+  },
+  "resume_scorer": {
+    "worker_pid": 21151,
+    "scorer_pid": 21168,
+    "network_attempts": [],
+    "peer_requests_before": 1,
+    "peer_requests_after": 1,
+    "ledger_byte_identical": true,
+    "original_scorer_never_started": true,
+    "scorer_claim_excluded": true,
+    "repeated_recovery_skipped": true,
+    "scored_tasks": [
+      {
+        "task_id": "a05a871a",
+        "passed": false
+      }
+    ],
+    "planned_tasks": 40
+  },
+  "normal_independently_scored": 40,
+  "source_hashes": {
+    "scripts/run_teacher_service.py": "1fac9a21c5bdaa9ff5382ac852944ac841a540f33da58a09117c9c4bd77be4f0",
+    "docs/results/deepseek-teacher-service-mac-20261111/acceptance.py": "4735094e6a1a688301ae51974b0fa7cf5881e3b22bb6a9561908643feb925742",
+    "scripts/flockcue_session_cpu/teacher_service_audit.py": "973b3b68a493c82733d22aeb040064ac894415d6d37b70e8aead297f00e88978",
+    "scripts/flockcue_session_cpu/teacher_recovery.py": "596b19399f8b974c85bc14283db066d1984c2a3fa4db4cab16ff7e4490342d76",
+    "scripts/flockcue_session_cpu/teacher_service.py": "f1a558eb7e249c98832f65f125ab9355eea1c9dbb4cc5962fcd2fd9b779e0467",
+    "scripts/flockcue_session_cpu/teacher_network.py": "c5f5128d71e6378b91177839b288d7761ea8c0cb100fbbee1555acc9e623bbe7",
+    "scripts/flockcue_session_cpu/teacher_session.py": "ea4a308fe27661352a44c6ca0716f677063e1dc1dc9da0603871063f28ee74f4",
+    "scripts/flockcue_session_cpu/teacher_transport.py": "8c8ef91c0dfea5fa9be7b7f4061b9ebf9890fcaeaf098eddf7a5aae98063e369",
+    "scripts/flockcue_session_cpu/runtime.py": "2dbaa09e6fb9395ec39a6f6306d20be1adf9a768925b4a6a5154fe2c536c8421",
+    "scripts/flockcue_session_cpu/__main__.py": "9de36f43dadf63b22e183dbb8d4970b42b410d55e42f5177219236756fac41e0"
+  },
+  "evidence_bundle": "outputs/teacher-service-mac-20261111/loopback-recovery.tar.gz",
+  "verified_file_count": 763,
+  "sha256": "38afd85ad17f67f29727914c647b27e40958018b6554b7dc3857409f5d7fdb7e"
+}

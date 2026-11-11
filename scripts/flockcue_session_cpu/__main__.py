@@ -1,6 +1,8 @@
 """Run one original 20-task session and score its immutable terminal snapshots."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
+
+from .teacher_network import SERVICE_MODES
 import hashlib
 import json
 import os
@@ -46,12 +48,16 @@ def verify_files(root, digests):
 
 def child(role, run):
     from harness_episode_local import block_network
-    attempts = block_network()
     inputs = read(run / "run-input.json")
+    teacher = inputs.get("teacher")
+    if role == "worker" and teacher and teacher["transport"] in SERVICE_MODES:
+        from .teacher_network import endpoint, restrict_network
+        attempts = restrict_network(endpoint(teacher))
+    else:
+        attempts = block_network()
     verify_files(ROOT, inputs["source_sha256"])
     if sha(run / "source-scene.json") != inputs["scene_sha256"]:
         raise ValueError("Scene differs from selected original bytes")
-    teacher = inputs.get("teacher")
     try:
         if role == "worker":
             scene = read(run / "source-scene.json")
@@ -152,6 +158,11 @@ def run_session_cli(output, session_id, fault, *, teacher=None):
             "thinking_events/sense_example_prepare.py", "flockcue_session_cpu/teacher_transport.py",
             "flockcue_session_cpu/teacher_session.py", "flockcue_session_cpu/teacher_start_score.py",
             "flockcue_session_cpu/verify.py"))
+    service = teacher is not None and teacher["transport"] in SERVICE_MODES
+    if service:
+        extra_sources.extend(ROOT / "scripts" / name for name in (
+            "flockcue_session_cpu/teacher_service.py", "flockcue_session_cpu/teacher_network.py",
+            "harness_request_limits.py", "deepseek_cost_pilot.py", "thinking_events/campaign_storage.py"))
     for path in extra_sources:
         sources[path.relative_to(ROOT).as_posix()] = sha(path)
     verify_files(ROOT, sources)
@@ -159,13 +170,21 @@ def run_session_cli(output, session_id, fault, *, teacher=None):
     output.mkdir(parents=True, exist_ok=False)
     (output / "source-scene.json").write_bytes(raw)
     scope = "offline_deepseek_teacher_pilot40" if teacher is not None else "stateful_session_cpu_regression"
+    if service:
+        scope = "deepseek_teacher_continuous_service"
     write(output / "run-input.json", {"scope": scope, "session_id": session_id,
           **({"teacher": teacher} if teacher is not None else {}),
           "scene_sha256": selection["source_sha256"], "dataset_manifest_sha256": sha(POOL / "manifest.json"),
           "expected_task_ids": selection["task_ids_in_original_order"], "fault": fault, "baseline": baseline,
           "source_sha256": sources, "system": platform.system(), "machine": platform.machine(),
           "python_version": platform.python_version()})
-    worker = launch("worker", output, env, inventory(output))
+    worker_env = env.copy()
+    if service and teacher["transport"] == "deepseek":
+        key = os.environ.get("DEEPSEEK_API_KEY")
+        if not key:
+            raise ValueError("Missing DeepSeek service credential")
+        worker_env["DEEPSEEK_API_KEY"] = key
+    worker = launch("worker", output, worker_env, inventory(output))
     scorer = launch("scorer", output, env, {**worker["files"], "worker-exit.json": sha(output / "worker-exit.json")})
     verify_files(ROOT, sources)
     return {"run": str(output), "session_id": session_id, "fault": fault,
