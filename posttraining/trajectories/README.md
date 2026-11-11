@@ -9,6 +9,13 @@ agent4drone/.venv/bin/python -m posttraining.trajectories.rebuild \
   --package all --output /tmp/flockcue-rebuilt-release
 ```
 
+要从同一批原始 HTTP、模型处理器和工具事件重新生成证据索引，可运行以下命令。`--workspace` 与公开包重建器接受相同的归档位置。该步骤读取已登记的 A 折场景和角色，核对每个场景的封存摘要、每题命令、请求、响应和回执，生成题级、轮级索引及一道完整公开样例。程序逐文件对照发布清单的 SHA-256，通过后才交付新目录。[索引重建代码](index_wire.py)
+
+```sh
+agent4drone/.venv/bin/python -m posttraining.trajectories.index_wire \
+  --output /tmp/flockcue-rebuilt-wire-index
+```
+
 [重建入口](rebuild.py)默认只导出经审阅的训练轮。可用 `--audit` 指定发布索引目录、`--workspace` 指定原始归档所在工作区。原始文件按索引中的路径存放在该工作区的 `outputs/` 下。所有输出必须写入新的目录。该命令复用已登记的场景、工具证据索引和审阅判定，具体重建范围及审阅标准见[首批构建报告](../../docs/results/flockcue-teacher-trajectories-a-20261111/REPORT_CN.md)。
 
 每一行的 `messages` 和 `tools` 为当轮输入，`target` 为实际教师回复，`post_action_receipts` 为回复后才返回的工具结果。下一轮才能观察到这些回执。
