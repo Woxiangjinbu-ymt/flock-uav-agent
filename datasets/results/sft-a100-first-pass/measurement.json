@@ -1,0 +1,582 @@
+{
+  "schema": "flockcue-sft-throughput/1",
+  "date": "2026-11-11",
+  "dataset_commit": "7fca399b",
+  "dataset": "datasets/sft/qwen35-2b-first-pass/train.jsonl.gz",
+  "model": {
+    "name": "Qwen3.5-2B",
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "manifest": "posttraining/sft/model.json",
+    "matched_required_files": 6
+  },
+  "remote_run_directory": "/uav/flockcue-20261110/flockcue-a100/operations/sft-bench-20261111-r8pEH9",
+  "primary_driver_sha256": "6a3afe811daa2e67d7cff4aea77d066a10b42091b84bf443609a5ed78449f954",
+  "repo_driver": "posttraining/sft/benchmark.py",
+  "repo_driver_sha256": "edf11e92afd06170d45022c62b98dd62903dbe423456a71130a94c84ab6fde4a",
+  "interpolation_check_dataset_sha256": "ae436aae3785a7e617fbca1ddbe4a0dcc50230937afce9165f2a680075cbb6d3",
+  "epoch_estimate": {
+    "method": "sum piecewise-linear step-time interpolants at 5 measured unpadded lengths over all 386 individual rows",
+    "steps": 386,
+    "tokens_including_supervision": 6962880,
+    "supervised_tokens": 129010,
+    "training_only_sec": 14425.896918939867,
+    "three_point_training_only_sec": 15010.58573204222,
+    "includes": [
+      "forward",
+      "backward",
+      "AdamW update"
+    ],
+    "excludes": [
+      "initialization",
+      "file I/O",
+      "checkpoint saves",
+      "task evaluation"
+    ],
+    "average_total_tokens_per_sec": 482.6653094171485
+  },
+  "three_length_benchmark": {
+    "samples": 386,
+    "tokens": 6962880,
+    "loss_tokens": 129010,
+    "dataset_sha256": "1dfb4117fd0a4e0beadda1d33a10fa9b8e6fa703fae58c0a0ebd086226d60386",
+    "representative": {
+      "short": {
+        "row_zero_based": 269,
+        "tokens": 8517,
+        "loss_tokens": 31
+      },
+      "medium": {
+        "row_zero_based": 180,
+        "tokens": 17168,
+        "loss_tokens": 388
+      },
+      "long": {
+        "row_zero_based": 208,
+        "tokens": 32608,
+        "loss_tokens": 260
+      }
+    },
+    "case_results": {
+      "short": {
+        "case": "short",
+        "status": "ok",
+        "sample": {
+          "row_zero_based": 269,
+          "tokens": 8517,
+          "loss_tokens": 31
+        },
+        "model": "/uav/flockcue-20261110/flockcue-a100/models/Qwen3.5-2B",
+        "rank": 16,
+        "alpha": 32.0,
+        "lora_dropout": 0,
+        "batch_size": 1,
+        "gradient_accumulation": 1,
+        "padding": 0,
+        "gradient_checkpointing": "nonreentrant",
+        "amp": "bf16",
+        "optimizer": "fused AdamW",
+        "lr": 0.0002,
+        "measured_steps": 3,
+        "warmup_steps": 1,
+        "lm_head": "only supervised causal predecessors",
+        "steps": [
+          {
+            "phase": "warmup",
+            "loss": 1.3337745666503906,
+            "forward_sec": 2.1268459856510162,
+            "backward_sec": 8.133005052804947,
+            "optimizer_sec": 0.020249709486961365,
+            "sec": 10.280100747942924,
+            "tokens_per_sec": 828.493825968026,
+            "peak_allocated_gib": 6.78883695602417,
+            "peak_reserved_gib": 7.138671875
+          },
+          {
+            "phase": "measured",
+            "loss": 0.2116582989692688,
+            "forward_sec": 1.676969189196825,
+            "backward_sec": 7.963107071816921,
+            "optimizer_sec": 0.0049253180623054504,
+            "sec": 9.645001579076052,
+            "tokens_per_sec": 883.0480669362307,
+            "peak_allocated_gib": 6.847249507904053,
+            "peak_reserved_gib": 7.1953125
+          },
+          {
+            "phase": "measured",
+            "loss": 0.05006842315196991,
+            "forward_sec": 1.7594414502382278,
+            "backward_sec": 7.941385641694069,
+            "optimizer_sec": 0.0046491920948028564,
+            "sec": 9.7054762840271,
+            "tokens_per_sec": 877.5458051468274,
+            "peak_allocated_gib": 6.847249507904053,
+            "peak_reserved_gib": 7.1953125
+          },
+          {
+            "phase": "measured",
+            "loss": 0.008656882680952549,
+            "forward_sec": 1.5754248462617397,
+            "backward_sec": 7.92185802385211,
+            "optimizer_sec": 0.0047927722334861755,
+            "sec": 9.502075642347336,
+            "tokens_per_sec": 896.3304777371791,
+            "peak_allocated_gib": 6.847249507904053,
+            "peak_reserved_gib": 7.1953125
+          }
+        ],
+        "hardware": {
+          "gpu": "NVIDIA A100-PCIE-40GB",
+          "memory_gib": 39.4945068359375,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "torch": "2.8.0+cu128",
+          "cuda": "12.8",
+          "packages": {
+            "transformers": "5.22.2",
+            "flash-attn": null,
+            "flash-linear-attention": null,
+            "fla-core": null,
+            "causal-conv1d": null,
+            "triton": "3.4.0"
+          }
+        },
+        "projections": {
+          "linear_attn.out_proj": 18,
+          "linear_attn.in_proj_qkv": 18,
+          "linear_attn.in_proj_z": 18,
+          "linear_attn.in_proj_b": 18,
+          "linear_attn.in_proj_a": 18,
+          "self_attn.q_proj": 6,
+          "self_attn.k_proj": 6,
+          "self_attn.v_proj": 6,
+          "self_attn.o_proj": 6
+        },
+        "trainable_params": 7382016,
+        "attention": "sdpa",
+        "linear_attention_kernels": {
+          "torch_chunk_gated_delta_rule": "transformers.models.qwen3_5.modeling_qwen3_5.torch_chunk_gated_delta_rule",
+          "causal_conv1d_fn": "transformers.models.qwen3_5.modeling_qwen3_5.causal_conv1d_fn"
+        },
+        "first_lora_B_grad_abs_max": 0.53515625,
+        "median_sec": 9.645001579076052,
+        "peak_allocated_gib": 6.847249507904053,
+        "peak_reserved_gib": 7.1953125
+      },
+      "medium": {
+        "case": "medium",
+        "status": "ok",
+        "sample": {
+          "row_zero_based": 180,
+          "tokens": 17168,
+          "loss_tokens": 388
+        },
+        "model": "/uav/flockcue-20261110/flockcue-a100/models/Qwen3.5-2B",
+        "rank": 16,
+        "alpha": 32.0,
+        "lora_dropout": 0,
+        "batch_size": 1,
+        "gradient_accumulation": 1,
+        "padding": 0,
+        "gradient_checkpointing": "nonreentrant",
+        "amp": "bf16",
+        "optimizer": "fused AdamW",
+        "lr": 0.0002,
+        "measured_steps": 3,
+        "warmup_steps": 1,
+        "lm_head": "only supervised causal predecessors",
+        "steps": [
+          {
+            "phase": "warmup",
+            "loss": 0.5919908881187439,
+            "forward_sec": 3.623240642249584,
+            "backward_sec": 28.033219702541828,
+            "optimizer_sec": 0.08208446949720383,
+            "sec": 31.738544814288616,
+            "tokens_per_sec": 540.9195695787228,
+            "peak_allocated_gib": 10.211444854736328,
+            "peak_reserved_gib": 11.189453125
+          },
+          {
+            "phase": "measured",
+            "loss": 0.38767462968826294,
+            "forward_sec": 3.1390775367617607,
+            "backward_sec": 27.712059684097767,
+            "optimizer_sec": 0.008447326719760895,
+            "sec": 30.85958454757929,
+            "tokens_per_sec": 556.3263489024094,
+            "peak_allocated_gib": 10.266155242919922,
+            "peak_reserved_gib": 11.244140625
+          },
+          {
+            "phase": "measured",
+            "loss": 0.25182831287384033,
+            "forward_sec": 3.288391973823309,
+            "backward_sec": 27.70727165788412,
+            "optimizer_sec": 0.007771298289299011,
+            "sec": 31.00343492999673,
+            "tokens_per_sec": 553.7450943343525,
+            "peak_allocated_gib": 10.266155242919922,
+            "peak_reserved_gib": 11.244140625
+          },
+          {
+            "phase": "measured",
+            "loss": 0.15823350846767426,
+            "forward_sec": 3.068625845015049,
+            "backward_sec": 27.849415820091963,
+            "optimizer_sec": 0.008247099816799164,
+            "sec": 30.92628876492381,
+            "tokens_per_sec": 555.1264211007342,
+            "peak_allocated_gib": 10.266155242919922,
+            "peak_reserved_gib": 11.244140625
+          }
+        ],
+        "hardware": {
+          "gpu": "NVIDIA A100-PCIE-40GB",
+          "memory_gib": 39.4945068359375,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "torch": "2.8.0+cu128",
+          "cuda": "12.8",
+          "packages": {
+            "transformers": "5.22.2",
+            "flash-attn": null,
+            "flash-linear-attention": null,
+            "fla-core": null,
+            "causal-conv1d": null,
+            "triton": "3.4.0"
+          }
+        },
+        "projections": {
+          "linear_attn.out_proj": 18,
+          "linear_attn.in_proj_qkv": 18,
+          "linear_attn.in_proj_z": 18,
+          "linear_attn.in_proj_b": 18,
+          "linear_attn.in_proj_a": 18,
+          "self_attn.q_proj": 6,
+          "self_attn.k_proj": 6,
+          "self_attn.v_proj": 6,
+          "self_attn.o_proj": 6
+        },
+        "trainable_params": 7382016,
+        "attention": "sdpa",
+        "linear_attention_kernels": {
+          "torch_chunk_gated_delta_rule": "transformers.models.qwen3_5.modeling_qwen3_5.torch_chunk_gated_delta_rule",
+          "causal_conv1d_fn": "transformers.models.qwen3_5.modeling_qwen3_5.causal_conv1d_fn"
+        },
+        "first_lora_B_grad_abs_max": 0.022705078125,
+        "median_sec": 30.92628876492381,
+        "peak_allocated_gib": 10.266155242919922,
+        "peak_reserved_gib": 11.244140625
+      },
+      "long": {
+        "case": "long",
+        "status": "ok",
+        "sample": {
+          "row_zero_based": 208,
+          "tokens": 32608,
+          "loss_tokens": 260
+        },
+        "model": "/uav/flockcue-20261110/flockcue-a100/models/Qwen3.5-2B",
+        "rank": 16,
+        "alpha": 32.0,
+        "lora_dropout": 0,
+        "batch_size": 1,
+        "gradient_accumulation": 1,
+        "padding": 0,
+        "gradient_checkpointing": "nonreentrant",
+        "amp": "bf16",
+        "optimizer": "fused AdamW",
+        "lr": 0.0002,
+        "measured_steps": 3,
+        "warmup_steps": 1,
+        "lm_head": "only supervised causal predecessors",
+        "steps": [
+          {
+            "phase": "warmup",
+            "loss": 1.1614331007003784,
+            "forward_sec": 6.888836260885,
+            "backward_sec": 92.28897755220532,
+            "optimizer_sec": 0.12487588077783585,
+            "sec": 99.30268969386816,
+            "tokens_per_sec": 328.36975615186697,
+            "peak_allocated_gib": 15.960899353027344,
+            "peak_reserved_gib": 16.734375
+          },
+          {
+            "phase": "measured",
+            "loss": 0.8277202248573303,
+            "forward_sec": 6.257696568965912,
+            "backward_sec": 91.94661964848638,
+            "optimizer_sec": 0.029624752700328827,
+            "sec": 98.23394097015262,
+            "tokens_per_sec": 331.94229690843423,
+            "peak_allocated_gib": 16.019182205200195,
+            "peak_reserved_gib": 16.7890625
+          },
+          {
+            "phase": "measured",
+            "loss": 0.5916093587875366,
+            "forward_sec": 6.196786861866713,
+            "backward_sec": 91.95443799346685,
+            "optimizer_sec": 0.02972603589296341,
+            "sec": 98.18095089122653,
+            "tokens_per_sec": 332.12145231844414,
+            "peak_allocated_gib": 16.019182205200195,
+            "peak_reserved_gib": 16.7890625
+          },
+          {
+            "phase": "measured",
+            "loss": 0.42372748255729675,
+            "forward_sec": 6.169469125568867,
+            "backward_sec": 91.88064069673419,
+            "optimizer_sec": 0.029414866119623184,
+            "sec": 98.07952468842268,
+            "tokens_per_sec": 332.46490644799235,
+            "peak_allocated_gib": 16.019182205200195,
+            "peak_reserved_gib": 16.7890625
+          }
+        ],
+        "hardware": {
+          "gpu": "NVIDIA A100-PCIE-40GB",
+          "memory_gib": 39.4945068359375,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "torch": "2.8.0+cu128",
+          "cuda": "12.8",
+          "packages": {
+            "transformers": "5.22.2",
+            "flash-attn": null,
+            "flash-linear-attention": null,
+            "fla-core": null,
+            "causal-conv1d": null,
+            "triton": "3.4.0"
+          }
+        },
+        "projections": {
+          "linear_attn.out_proj": 18,
+          "linear_attn.in_proj_qkv": 18,
+          "linear_attn.in_proj_z": 18,
+          "linear_attn.in_proj_b": 18,
+          "linear_attn.in_proj_a": 18,
+          "self_attn.q_proj": 6,
+          "self_attn.k_proj": 6,
+          "self_attn.v_proj": 6,
+          "self_attn.o_proj": 6
+        },
+        "trainable_params": 7382016,
+        "attention": "sdpa",
+        "linear_attention_kernels": {
+          "torch_chunk_gated_delta_rule": "transformers.models.qwen3_5.modeling_qwen3_5.torch_chunk_gated_delta_rule",
+          "causal_conv1d_fn": "transformers.models.qwen3_5.modeling_qwen3_5.causal_conv1d_fn"
+        },
+        "first_lora_B_grad_abs_max": 0.039306640625,
+        "median_sec": 98.18095089122653,
+        "peak_allocated_gib": 16.019182205200195,
+        "peak_reserved_gib": 16.7890625
+      }
+    },
+    "estimated_epoch_training_only_sec": 15010.58573204222,
+    "estimator": "piecewise linear per-sample time by unpadded length, summed over actual rows"
+  },
+  "interpolation_checks": [
+    {
+      "train_row_one_based": 166,
+      "tokens": 12971,
+      "loss_tokens": 168,
+      "row_sha256": "9daaacd793314346e7674e9a9ced8b09da602bf21d675eeb7c9fa20abfc0ff78",
+      "task_id": "678dc868",
+      "session_id": "25239af9",
+      "measurement": {
+        "case": "short",
+        "status": "ok",
+        "sample": {
+          "row_zero_based": 0,
+          "tokens": 12971,
+          "loss_tokens": 168
+        },
+        "model": "/uav/flockcue-20261110/flockcue-a100/models/Qwen3.5-2B",
+        "rank": 16,
+        "alpha": 32.0,
+        "lora_dropout": 0,
+        "batch_size": 1,
+        "gradient_accumulation": 1,
+        "padding": 0,
+        "gradient_checkpointing": "nonreentrant",
+        "amp": "bf16",
+        "optimizer": "fused AdamW",
+        "lr": 0.0002,
+        "measured_steps": 1,
+        "warmup_steps": 1,
+        "lm_head": "only supervised causal predecessors",
+        "steps": [
+          {
+            "loss": 0.6156696677207947,
+            "forward_sec": 2.8290544748306274,
+            "backward_sec": 16.98981211706996,
+            "optimizer_sec": 0.05774460360407829,
+            "sec": 19.876611195504665,
+            "tokens_per_sec": 652.5760288018084,
+            "peak_allocated_gib": 8.531105995178223,
+            "peak_reserved_gib": 8.88671875,
+            "phase": "warmup"
+          },
+          {
+            "loss": 0.3413553833961487,
+            "forward_sec": 2.359645839780569,
+            "backward_sec": 16.86589615046978,
+            "optimizer_sec": 0.006466716527938843,
+            "sec": 19.232008706778288,
+            "tokens_per_sec": 674.4485299358456,
+            "peak_allocated_gib": 8.585814476013184,
+            "peak_reserved_gib": 8.94140625,
+            "phase": "measured"
+          }
+        ],
+        "hardware": {
+          "gpu": "NVIDIA A100-PCIE-40GB",
+          "memory_gib": 39.4945068359375,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "torch": "2.8.0+cu128",
+          "cuda": "12.8",
+          "packages": {
+            "transformers": "5.22.2",
+            "flash-attn": null,
+            "flash-linear-attention": null,
+            "fla-core": null,
+            "causal-conv1d": null,
+            "triton": "3.4.0"
+          }
+        },
+        "projections": {
+          "linear_attn.out_proj": 18,
+          "linear_attn.in_proj_qkv": 18,
+          "linear_attn.in_proj_z": 18,
+          "linear_attn.in_proj_b": 18,
+          "linear_attn.in_proj_a": 18,
+          "self_attn.q_proj": 6,
+          "self_attn.k_proj": 6,
+          "self_attn.v_proj": 6,
+          "self_attn.o_proj": 6
+        },
+        "trainable_params": 7382016,
+        "attention": "sdpa",
+        "linear_attention_kernels": {
+          "torch_chunk_gated_delta_rule": "transformers.models.qwen3_5.modeling_qwen3_5.torch_chunk_gated_delta_rule",
+          "causal_conv1d_fn": "transformers.models.qwen3_5.modeling_qwen3_5.causal_conv1d_fn"
+        },
+        "first_lora_B_grad_abs_max": 0.048583984375,
+        "median_sec": 19.232008706778288,
+        "peak_allocated_gib": 8.585814476013184,
+        "peak_reserved_gib": 8.94140625
+      },
+      "three_point_predicted_step_sec": 20.60175260505755,
+      "measured_minus_predicted_sec": -1.3697438982792605
+    },
+    {
+      "train_row_one_based": 298,
+      "tokens": 24920,
+      "loss_tokens": 353,
+      "row_sha256": "6af2707ee0737f7b6981ba18a6b08cb0011857dfbc971cc27bd70ac750c0c399",
+      "task_id": "5550f3a1",
+      "session_id": "7f1a1456",
+      "measurement": {
+        "case": "long",
+        "status": "ok",
+        "sample": {
+          "row_zero_based": 1,
+          "tokens": 24920,
+          "loss_tokens": 353
+        },
+        "model": "/uav/flockcue-20261110/flockcue-a100/models/Qwen3.5-2B",
+        "rank": 16,
+        "alpha": 32.0,
+        "lora_dropout": 0,
+        "batch_size": 1,
+        "gradient_accumulation": 1,
+        "padding": 0,
+        "gradient_checkpointing": "nonreentrant",
+        "amp": "bf16",
+        "optimizer": "fused AdamW",
+        "lr": 0.0002,
+        "measured_steps": 1,
+        "warmup_steps": 1,
+        "lm_head": "only supervised causal predecessors",
+        "steps": [
+          {
+            "loss": 0.6003161072731018,
+            "forward_sec": 5.186132349073887,
+            "backward_sec": 55.77110483124852,
+            "optimizer_sec": 0.1020267941057682,
+            "sec": 61.05926397442818,
+            "tokens_per_sec": 408.12807718148355,
+            "peak_allocated_gib": 13.113273620605469,
+            "peak_reserved_gib": 13.78515625,
+            "phase": "warmup"
+          },
+          {
+            "loss": 0.41937920451164246,
+            "forward_sec": 4.442885369062424,
+            "backward_sec": 55.602786641567945,
+            "optimizer_sec": 0.026299159973859787,
+            "sec": 60.07197117060423,
+            "tokens_per_sec": 414.8357297819855,
+            "peak_allocated_gib": 13.169805526733398,
+            "peak_reserved_gib": 13.841796875,
+            "phase": "measured"
+          }
+        ],
+        "hardware": {
+          "gpu": "NVIDIA A100-PCIE-40GB",
+          "memory_gib": 39.4945068359375,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "torch": "2.8.0+cu128",
+          "cuda": "12.8",
+          "packages": {
+            "transformers": "5.22.2",
+            "flash-attn": null,
+            "flash-linear-attention": null,
+            "fla-core": null,
+            "causal-conv1d": null,
+            "triton": "3.4.0"
+          }
+        },
+        "projections": {
+          "linear_attn.out_proj": 18,
+          "linear_attn.in_proj_qkv": 18,
+          "linear_attn.in_proj_z": 18,
+          "linear_attn.in_proj_b": 18,
+          "linear_attn.in_proj_a": 18,
+          "self_attn.q_proj": 6,
+          "self_attn.k_proj": 6,
+          "self_attn.v_proj": 6,
+          "self_attn.o_proj": 6
+        },
+        "trainable_params": 7382016,
+        "attention": "sdpa",
+        "linear_attention_kernels": {
+          "torch_chunk_gated_delta_rule": "transformers.models.qwen3_5.modeling_qwen3_5.torch_chunk_gated_delta_rule",
+          "causal_conv1d_fn": "transformers.models.qwen3_5.modeling_qwen3_5.causal_conv1d_fn"
+        },
+        "first_lora_B_grad_abs_max": 0.0220947265625,
+        "median_sec": 60.07197117060423,
+        "peak_allocated_gib": 13.169805526733398,
+        "peak_reserved_gib": 13.841796875
+      },
+      "three_point_predicted_step_sec": 64.69300772885506,
+      "measured_minus_predicted_sec": -4.621036558250836
+    }
+  ]
+}
