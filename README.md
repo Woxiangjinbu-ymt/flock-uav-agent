@@ -24,7 +24,7 @@ posttraining/.venv/bin/python -m posttraining.sft
 
 正式评测沿用 30 场 × 20 题的原顺序、8 个 worker 和 500 秒动作窗口。FlockCue + DeepSeek 首遍通过 544/600。同日同指纹的 200 题配对中，FlockCue 通过 182 题，原版通过 168 题。[设置、完整分母及逐题对照](datasets/results/README.md)
 
-项目同时保存 1,500 道原题及十月原版首遍记录、600 道核心基准及十一月 FlockCue 首遍记录。后训练以 240 题为首版训练来源，60 题用于内部验证，B 折 300 题固定为独立测试集。若学生能力仍不足，可从核心基准外 900 题中选取完整场景补充训练。已筛出 110 题的 386 个可监督决策轮。[数据与划分](datasets/README.md) · [正式运行记录](datasets/results/README.md) · [后训练进度](posttraining/README.md)
+项目同时保存 1,500 道原题及十月原版首遍记录、600 道核心基准及十一月 FlockCue 首遍记录。后训练以 240 题为首版训练来源，60 题用于内部验证，B 折 300 题固定为独立测试集。若学生能力仍不足，可从核心基准外 900 题中选取完整场景补充训练。首版 Qwen3.5-2B SFT 数据已生成，含 110 题的 386 个真实教师决策轮和 129,010 个监督 token。[训练数据与使用方法](posttraining/sft/README.md) · [划分](datasets/README.md) · [正式运行记录](datasets/results/README.md)
 
 ## 来源与归档
 

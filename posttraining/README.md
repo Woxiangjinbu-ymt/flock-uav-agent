@@ -5,7 +5,7 @@
 | 目录 | 当前内容 |
 | --- | --- |
 | [trajectories/](trajectories/README.md) | 从真实 HTTP、工具执行和独立审阅表重建 300 题的证据索引和公开教师包。 |
-| [sft/](sft/README.md) | 学生原生分词器、工具回执绑定、目标区间掩码与已审阅样本的逐轮 token 核验。 |
+| [sft/](sft/README.md) | 学生原生分词器、工具回执绑定、目标区间掩码，以及可复建的[首版 SFT 数据](../datasets/sft/qwen35-2b-first-pass/)。 |
 | [inference/](inference/README.md) | 固定 2B 基座的权重验证、Mac Metal 和单卡 CUDA 推理。 |
 | [rl/](rl/README.md) | 首轮在线 GRPO 的训练边界和当前实现状态。 |
 

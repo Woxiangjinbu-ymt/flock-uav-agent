@@ -5,6 +5,7 @@
 | [原版题库](original-benchmark/benchmark.zip) | 75 个原场景、1,500 题，包含场景初态和私有评分规则。 |
 | [FlockCue 600](flockcue-600/README_CN.md) | 冻结的 30 场、600 题，每场保留原始顺序，构成论文主基准。 |
 | [DeepSeek 教师轨迹](teacher/2026-11-11-fold-a/README.md) | 正式首遍的 A 折。12 个训练场景、3 个内部验证场景。首位学生将 B 折用于折外评测。 |
+| [Qwen3.5-2B 首版 SFT 数据](sft/qwen35-2b-first-pass/) | 训练侧 110 题的 386 个已审阅决策轮，含分词后的输入、损失掩码、逐行来源和发布清单。[使用与重建](../posttraining/sft/README.md) |
 | [系统评测结果](results/README.md) | 十月原版 1,500 题首遍、十一月 FlockCue 600 题首遍及同日 200 题配对对照。 |
 
 ## 训练与评测划分

@@ -1,0 +1,51 @@
+{
+  "schema": "flockcue-sft-causal-lm-v1",
+  "split": "baseline_train",
+  "teacher_release": "flockcue-teacher-trajectories-a-20261111",
+  "teacher_manifest_sha256": "210dd19888a70c9eeaf9106a75b4bf198ba0215dee8b45fb5a39a4147189beac",
+  "source_files": {
+    "audit/reviewed-qwen-projection.jsonl": "53e88f511eceaf637b58544ad8fef9fb4dc70bada276e9277767a01731c5a5ee",
+    "public/reviewed-compatible-public-turns.jsonl.gz": "c912714d315e915f6abed3768efa1c710b241b0d168fe3253de34570e7669818",
+    "audit/episodes.jsonl": "c0c53c0e63de41809055a1bcdb4a0a8f8f52c1650949d44af5abba1e8dd6df69"
+  },
+  "scene_roles_sha256": "2f59f5e5ee3bd8cc79732c823a2c54d29490c1b08a2dedf9aac12200a629c393",
+  "tokenizer": {
+    "repository": "Qwen/Qwen3.5-2B",
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "files": {
+      "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+      "config.json": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c"
+    }
+  },
+  "policy": {
+    "unit": "one reviewed decision",
+    "reasoning": "retain_available_teacher_reasoning",
+    "ignore_index": -100,
+    "target": "assistant suffix including EOS",
+    "padding": false,
+    "truncation": false,
+    "max_sequence_tokens": 32768,
+    "max_target_tokens": 2048
+  },
+  "counts": {
+    "masked_prompt_tokens": 6833870,
+    "supervised_tokens": 129010,
+    "supervised_reasoning_tokens": 83907,
+    "rows_without_full_generation_reserve": 9,
+    "decisions": 386,
+    "tasks": 110,
+    "scenes": 12
+  },
+  "files": {
+    "train.jsonl.gz": {
+      "sha256": "1dfb4117fd0a4e0beadda1d33a10fa9b8e6fa703fae58c0a0ebd086226d60386",
+      "bytes": 5474134
+    },
+    "index.jsonl": {
+      "sha256": "cfd6aa57834231819d3adf39631a5be0a4c06de8d646ce4dc79644e491384d4b",
+      "bytes": 143321
+    }
+  }
+}
