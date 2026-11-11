@@ -1,15 +1,15 @@
 # 两场景、40 题 DeepSeek 教师轨迹试采
 
-2026-11-11 · 方案待审，教师调用尚未启动。600 题母集已经确认。本提案具体化第 2 步草案中的首次试采，用两场的实耗和示范保留量决定是否申请首遍 600 题的其余工作。[母集规格](../02-benchmark600-sft/spec.md) · [试采方案与预算](plan.md)
+2026-11-11 · 用户已放行这两场 40 题的教师轨迹可行性试采。600 题母集已经确认。本提案具体化第 2 步草案中的首次试采，用两场的实耗和示范保留量决定是否申请首遍 600 题的其余工作。[母集规格](../02-benchmark600-sft/spec.md) · [试采方案与预算](plan.md)
 
 ## 场景及使用范围
 
 | 顺序 | 原场景 | 任务族／场景难度 | 机队 | 本轮使用及历史暴露 |
 | --- | --- | --- | ---: | --- |
-| 1 | `04cd6269` | 区域分配与巡逻／Easy | 5 | 建议 A 折，20 题。Mac 和 Linux 已用该场做脚本模型的会话工程验收。该场与旧 main300 的场景＋题 ID 重合为 0/20。 |
-| 2 | `ef36e27a` | 区域搜索／Hard | 10 | 建议 A 折，20 题。该场全部 20 题位于旧 main300。 |
+| 1 | `04cd6269` | 区域分配与巡逻／Easy | 5 | A 训练折，20 题。Mac 和 Linux 已用该场做脚本模型的会话工程验收。该场与旧 main300 的场景＋题 ID 重合为 0/20。 |
+| 2 | `ef36e27a` | 区域搜索／Hard | 10 | A 训练折，20 题。该场全部 20 题位于旧 main300。 |
 
-第一场沿用已验证的题间继承流程；第二场提高协作规模和场景难度，并更换任务族。选择只读分层元数据与开发暴露记录。两场都属于已有历史部署记录的题池，各自从冻结 JSON 的原始世界开始，按原题序连续执行 20 题。两场及其逐轮样本归拟议 A 训练侧。以 B 折为训练侧的另一学生将这两场作为折外评测场景，其训练与调参不得访问本次示范和人工审阅结果。[40 题及原文件摘要](pilot40.json) · [600 题清单](../../../experiments/flockcue-benchmark-600-v1/) · [建议分折](../../../experiments/flockcue-benchmark-600-v1/proposed-folds.json) · [main300](../../../experiments/subsets/representative-v1/main300.json)
+第一场沿用已验证的题间继承流程；第二场提高协作规模和场景难度，并更换任务族。选择只读分层元数据与开发暴露记录。两场都属于已有历史部署记录的题池，各自从冻结 JSON 的原始世界开始，按原题序连续执行 20 题。两场及其逐轮样本归 A 训练侧。以 B 折为训练侧的另一学生将这两场作为折外评测场景，其训练与调参不得访问本次示范和人工审阅结果。[40 题及原文件摘要](pilot40.json) · [600 题清单](../../../experiments/flockcue-benchmark-600-v1/) · [建议分折](../../../experiments/flockcue-benchmark-600-v1/proposed-folds.json) · [main300](../../../experiments/subsets/representative-v1/main300.json)
 
 ## 首批交付
 
@@ -20,6 +20,10 @@
 
 ## 开始时间
 
-11 月 11 日两次 29 题复测均已结束。感知说明 B 和显式允许无参感知的接口 C 各自开思考 1/29、关思考 0/29。C 的 58 个回合全部独立评分并由 Mac 重算。G1、G2 均未通过，G3 已通过。按现行协议，正式教师试采暂缓。[B 复测](../../results/flockcue-a100-g1g2-retest-20261111/REPORT_CN.md) · [C 复测](../../results/flockcue-a100-sense-default-20261111/REPORT_CN.md) · [启动门槛](../01-thinking-events/spec.md#第-0-阶段门槛)
+11 月 11 日两次 29 题复测均已结束。感知说明 B 和显式允许无参感知的接口 C 各自开思考 1/29、关思考 0/29。C 的 58 个回合全部独立评分并由 Mac 重算。G1、G2 均未通过，G3 已通过。这两次整题筛查未达到第 0 阶段原定的开采条件。[B 复测](../../results/flockcue-a100-g1g2-retest-20261111/REPORT_CN.md) · [C 复测](../../results/flockcue-a100-sense-default-20261111/REPORT_CN.md) · [启动门槛](../01-thinking-events/spec.md#第-0-阶段门槛)
 
-Mac 已用固定回复验证两场连续会话，并在独立回环 HTTP 服务验证真实传输入口、按场核账、断线锁额和重启去重。两场清单、训练折、拟用工具版本、账户币种及付费额度由用户决定。[固定回复与逐题轨迹](../../results/deepseek-teacher-pilot40-mac-20261111/REPORT_CN.md) · [HTTP 断线恢复实测](../../results/deepseek-teacher-service-mac-20261111/REPORT_CN.md) · [试采方案及预算](plan.md)
+Mac 已用固定回复验证两场连续会话，并在独立回环 HTTP 服务验证真实传输入口、按场核账、断线锁额和重启去重。[固定回复与逐题轨迹](../../results/deepseek-teacher-pilot40-mac-20261111/REPORT_CN.md) · [HTTP 断线恢复实测](../../results/deepseek-teacher-service-mac-20261111/REPORT_CN.md) · [试采方案及预算](plan.md)
+
+用户在 11 月 11 日明确决定直接开展这两场 40 题可行性试采，作为当前启动门槛的限量例外。原 G1、G2 判定保持未通过，后续扩采与 SFT 训练待真实试采结果。[本次开跑登记](../../results/deepseek-teacher-pilot40-live-20261111/PROTOCOL_CN.md)
+
+两场真实试采已完成。复核 40 题的题初与终态后，22 个可归因题位共导出 148 个合格决策轮。[全分母结果与训练数据](../../results/deepseek-teacher-pilot40-live-20261111/REPORT_CN.md)

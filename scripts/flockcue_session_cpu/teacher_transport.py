@@ -7,13 +7,16 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import time
+from typing import Literal
 
 import openai
 
 from harness_deepseek_adapter import BASE_URL, SYNTHETIC_KEY, _DeepSeekCandidate, httpx
 from harness_live_cost import LiveCostError, LiveCostLedger, LiveCostPolicy, make_cost_transport
 from thinking_events.campaign_storage import atomic_write, json_bytes
+from thinking_events.sense_default import effective_tools
 from thinking_events.sense_example_prepare import SENSE, variant
+from .teacher_sense import execution_history
 from .runtime import ScriptedModel
 
 
@@ -48,11 +51,27 @@ def ledger_snapshot(path, limits, *, currency="CNY", batch_cap=None):
 class PilotDeepSeekModel(_DeepSeekCandidate):
     """Apply the registered description before SDK serialization and archive hooks."""
 
+    sense_interface: Literal["B", "C"] = "B"
+
     def _get_request_payload(self, input_, *, stop=None, **kwargs):
         body = super()._get_request_payload(input_, stop=stop, **kwargs)
         if any(t["function"]["name"] == SENSE for t in body.get("tools", [])):
-            body = variant(body)
+            if self.sense_interface == "C":
+                body["tools"] = effective_tools(body["tools"])
+            else:
+                body = variant(body)
         return body
+
+    def _create_chat_result(self, response, generation_info=None):
+        if self.sense_interface == "C":
+            data = response if isinstance(response, dict) else response.model_dump(warnings=False)
+            choices = data.get("choices", [])
+            if len(choices) == 1 and isinstance(choices[0].get("message"), dict):
+                generated = choices[0]["message"]
+                execution = execution_history(generated)
+                if execution is not generated:
+                    response = {**data, "choices": [{**choices[0], "message": execution}]}
+        return super()._create_chat_result(response, generation_info)
 
 
 class _RejectAsync(httpx.AsyncBaseTransport):
@@ -62,6 +81,8 @@ class _RejectAsync(httpx.AsyncBaseTransport):
 
 class BudgetedTeacher:
     """Shared SDK and budget admission for one registered teacher session."""
+
+    sense_interface = "B"
 
     def __init__(self, ledger_path, limits, *, currency="CNY", batch_cap=None, per_task_cap=None):
         account = limits["accounts"][currency]
@@ -84,7 +105,7 @@ class BudgetedTeacher:
                                    max_tokens=self.limits["max_output_tokens_per_request"],
                                    timeout=self.limits["max_request_seconds"], max_retries=0, temperature=None,
                                    streaming=False, use_responses_api=False, thinking_mode="enabled",
-                                   candidate_effort="high", extra_body={"thinking": {"type": "enabled"}},
+                                   candidate_effort="high", sense_interface=self.sense_interface, extra_body={"thinking": {"type": "enabled"}},
                                    http_client=sync, http_async_client=async_client)
         self.clients.append(model)
         return model

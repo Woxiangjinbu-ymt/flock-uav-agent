@@ -2,6 +2,8 @@
 
 截至 2026-11-09。第一篇论文的开发证据包括 G3 四批逐轮复算、4 个封存真实 DeepSeek 批次的逐轮推理用量（214 次响应，推理 token 占输出 70.5%，32.2% 的响应推理为 0），以及从 4 份归档提取的 4 个开发前缀（2 道题）。Qwen3.5-2B 已在 Mac 完成单题思考开关对照。正式 29 题成功率及开关差异待测，项目尚未训练学生权重。[单题开发对照](results/qwen35-hover-thinking-mac-20261109/REPORT_CN.md) · [推理用量审计](audit/teacher-reasoning-usage-20261108/summary.json) · [开发前缀与复算方法](audit/trajectory-verifier-plan-20261107/REPORT_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md)
 
+11 月 11 日获单独授权后，用真实 DeepSeek 完成了 A 训练折两场 40 题的可行性试采。358 次真实请求、526 个工具回执均可追溯，80 棵题初／终态检查树与独立重放一致。终态通过 26/40，22 道题贡献 148 个可用决策轮。原始学生的门槛结果保持原判。[试采与训练样本](results/deepseek-teacher-pilot40-live-20261111/REPORT_CN.md)
+
 下表按原批次记录 Harness 实验。对历史 W3 的 61 条样本按主 Agent 的开发样本理解。当前验证进展见[研究状态](RESEARCH_STATUS_CN.md)，开发顺序见[研究路线](RESEARCH_ROADMAP_CN.md)。
 
 本地证据支持的范围如下。失败、中断、成本退化与无增益结果同样保留，不把不同模型、协议或选择性子集的成绩合成一个“当前最好分数”。

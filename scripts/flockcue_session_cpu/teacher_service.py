@@ -44,6 +44,9 @@ def recover_ledger(path, limits, *, currency, batch_cap, abandoned_scene=False, 
 class TeacherService(BudgetedTeacher):
     def __init__(self, path, limits, config):
         self.mode = config["transport"]
+        self.sense_interface = config.get("sense_interface", "B")
+        if self.sense_interface not in ("B", "C"):
+            raise ValueError("Unknown registered sensing interface")
         self.base_url = endpoint(config)
         currency = config["currency"]
         account = limits["accounts"][currency]

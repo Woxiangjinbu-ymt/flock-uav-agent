@@ -155,7 +155,8 @@ def run_session_cli(output, session_id, fault, *, teacher=None):
     if teacher is not None:
         extra_sources.extend(ROOT / "scripts" / name for name in (
             "run_teacher_pilot40.py", "harness_deepseek_adapter.py", "harness_live_cost.py",
-            "thinking_events/sense_example_prepare.py", "flockcue_session_cpu/teacher_transport.py",
+            "thinking_events/sense_example_prepare.py", "thinking_events/sense_default.py",
+            "flockcue_session_cpu/teacher_sense.py", "flockcue_session_cpu/teacher_transport.py",
             "flockcue_session_cpu/teacher_session.py", "flockcue_session_cpu/teacher_start_score.py",
             "flockcue_session_cpu/verify.py"))
     service = teacher is not None and teacher["transport"] in SERVICE_MODES

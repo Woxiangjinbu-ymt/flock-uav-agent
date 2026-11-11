@@ -11,7 +11,7 @@ from .verify import (ROOT, check_actions, check_initial, check_prepare, check_pr
                      original_scene, owned, process_evidence, read, require)
 
 
-def task_requests(scene, folder, task, boundary, seals, limits, ledger):
+def task_requests(scene, folder, task, boundary, seals, limits, ledger, sense_interface="B"):
     if str(ROOT / "agent4drone") not in sys.path:
         sys.path.insert(0, str(ROOT / "agent4drone"))
     from model_io_archive import verify_archive
@@ -52,6 +52,14 @@ def task_requests(scene, folder, task, boundary, seals, limits, ledger):
         require(body["model"] == limits["teacher_model"] and body["thinking"]["type"] == limits["teacher_thinking"]
                 and body["reasoning_effort"] == limits["reasoning_effort"] and not body.get("stream")
                 and body["max_tokens"] == limits["max_output_tokens_per_request"], "Teacher request contract changed")
+        if sense_interface == "C":
+            sensing = [t["function"] for t in body.get("tools", []) if t["function"]["name"] == "sense_nearby_entities"]
+            require(len(sensing) <= 1, "Duplicate public sensing tool")
+            if sensing:
+                sense = sensing[0]
+                require(hashlib.sha256(sense["description"].encode()).hexdigest() ==
+                        "27f62012a8b37dd0b92e97cb33c93a015e6b573432bd4c98a8f8296902848227" and
+                        not sense["parameters"].get("required"), "Incorrect public default for sensing")
         _history(body["messages"], task["content"], prior, receipts, injections)
         t = read(timing)
         require(t["task_id"] == task["id"] and t["attempt"] == i and t["request_body_sha256"] == file_sha(req)
@@ -85,6 +93,9 @@ def task_requests(scene, folder, task, boundary, seals, limits, ledger):
                     "Provider response, SDK archive and settled usage differ")
             msg = dict(payload["choices"][0]["message"])
             msg.setdefault("reasoning_content", None)
+            if sense_interface == "C":
+                from .teacher_sense import execution_history
+                msg = execution_history(msg)
             prior.append(msg)
             row["reasoning_present"] = bool(msg["reasoning_content"])
         else:
@@ -140,7 +151,8 @@ def audit_scene(scene, spec, config, limits, ledger):
         score_rows.append({"task_id":tid, "passed":final})
         summary.update(initial_passed=initial, terminal_passed=final,
                        committed_actions=check_actions(read(folder/"actions.json")),
-                       turns=task_requests(scene, folder, task, boundary, worker["files"], limits, ledger))
+                       turns=task_requests(scene, folder, task, boundary, worker["files"], limits, ledger,
+                                           config.get("sense_interface", "B")))
         transport = boundary["teacher"]
         dispatched = sum(t["dispatched"] for t in summary["turns"])
         require(transport["attempts"] == dispatched and transport["sdk_attempts"] == len(summary["turns"])

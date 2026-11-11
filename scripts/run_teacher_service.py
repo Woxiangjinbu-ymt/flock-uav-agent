@@ -11,8 +11,9 @@ from run_teacher_pilot40 import PILOT, PILOT_SHA, load_pilot, status_rows
 from thinking_events.campaign_storage import atomic_write, json_bytes, locked
 
 
-def prepare(base, transport, currency, loopback_url=None):
+def prepare(base, transport, currency, loopback_url=None, *, sense_interface="B"):
     pilot = load_pilot()
+    require(sense_interface in {"B", "C"}, "Unknown sensing interface")
     if transport == "loopback_http":
         url = urlsplit(loopback_url or "")
         require(url.scheme == "http" and url.hostname == "127.0.0.1" and url.port and
@@ -24,7 +25,7 @@ def prepare(base, transport, currency, loopback_url=None):
     rates = limits["accounts"][currency]
     config = {"pilot_sha256": PILOT_SHA, "transport": transport, "currency": currency,
               "per_task_cap": rates["per_task_cap"], "batch_cap": rates["batch_cap"],
-              "synthetic": transport == "loopback_http",
+              "synthetic": transport == "loopback_http", "sense_interface": sense_interface,
               "sessions": [s["session_id"] for s in pilot["sessions"]]}
     if loopback_url:
         config["loopback_url"] = loopback_url
@@ -138,13 +139,14 @@ def main():
     prepare_cmd.add_argument("--run", type=Path, required=True)
     prepare_cmd.add_argument("--transport", choices=("loopback_http", "deepseek"), required=True)
     prepare_cmd.add_argument("--loopback-url")
+    prepare_cmd.add_argument("--sense-interface", choices=("B", "C"), default="B")
     prepare_cmd.add_argument("--currency", choices=("CNY", "USD"), required=True)
     run = sub.add_parser("advance", help="run or verify precisely one named scene")
     run.add_argument("--run", type=Path, required=True)
     run.add_argument("--scene", required=True)
     args = parser.parse_args()
     if args.cmd == "prepare":
-        prepare(args.run.resolve(), args.transport, args.currency, args.loopback_url)
+        prepare(args.run.resolve(), args.transport, args.currency, args.loopback_url, sense_interface=args.sense_interface)
     else:
         from harness_episode_local import block_network
         attempts = block_network()  # Only the separately started service worker needs network access.
