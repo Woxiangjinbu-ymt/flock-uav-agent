@@ -3,6 +3,9 @@
   "version": "0.2.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
   "scripts": {
     "dev": "cross-env VITE_VIEWER_DATA_SOURCE=backend vite --host 127.0.0.1 --port 5173",
     "dev:demo": "cross-env VITE_VIEWER_DATA_SOURCE=demo vite --host 127.0.0.1 --port 5173",

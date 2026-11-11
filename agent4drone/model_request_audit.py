@@ -7,14 +7,16 @@ import hashlib
 import json
 
 
-def attach_request_hooks(model, sync_hook, async_hook):
+def attach_request_hooks(model, sync_hook, async_hook, sync_response_hook=None, async_response_hook=None):
     # Keep the exact clients LangChain created (timeouts, proxy, connection
     # limits, socket settings, retry behavior). Only extend public hook lists.
     # Access to the SDK's underlying client is tested against the pinned SDK;
     # missing access fails open and is explicitly logged as setup unavailable.
     clients = (model.root_client._client, model.root_async_client._client)
-    for client, hook in zip(clients, (sync_hook, async_hook)):
+    for client, hook, response_hook in zip(clients, (sync_hook, async_hook), (sync_response_hook, async_response_hook)):
         client.event_hooks["request"].append(hook)
+        if response_hook is not None:
+            client.event_hooks["response"].append(response_hook)
 
 
 def request_record(request):

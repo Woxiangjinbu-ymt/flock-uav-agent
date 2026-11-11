@@ -32,7 +32,8 @@ def transfer_files():
             "scripts/prepare_task_dataset.py", "scripts/verify_student_weights.py", "scripts/accept_student_cpu.sh",
             "scripts/setup_student_cpu.sh", lock["profile"], *lock["dependency_files"], *original["sources"])}
     names.update({cases, campaign / "campaign-seal.json", campaign / "runs/action/manifest.json",
-                  campaign / "runs/action/summary.json", RESULT / "LINUX_CPU_CN.md"})
+                  campaign / "runs/action/summary.json", RESULT / "LINUX_CPU_CN.md",
+                  RESULT / "verification.json", Path("docs/results/flockcue-mac-session-20261108/verification.json")})
     for case in json.loads((ROOT / cases).read_bytes()):
         names.add(cases.parent / case["trace_file"])
     # The historical bundle also exercises preparation of a fresh v2 plan in its CPU tests.
@@ -63,8 +64,8 @@ def add_member(tar, name, data):
     tar.addfile(header, io.BytesIO(data))
 
 
-def package(study, output):
-    from thinking_events.campaign import LEGACY_PROTOCOL, prepare_dev
+def package(study, output, *, paired=False, tokenizer=None):
+    from thinking_events.campaign import LEGACY_PROTOCOL, PAIRED_PROTOCOL, prepare_dev
     output = output.resolve()
     sidecar = output.with_name(output.name + ".sha256")
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -73,8 +74,16 @@ def package(study, output):
     with tempfile.TemporaryDirectory(dir=output.parent) as tmp:
         scratch = Path(tmp)
         prepared = scratch / "prepared-dev"
-        prepare_dev(study, prepared, protocol=LEGACY_PROTOCOL)
+        prepare_dev(study, prepared, protocol=PAIRED_PROTOCOL if paired else LEGACY_PROTOCOL)
         files = transfer_files()
+        if paired:
+            from flockcue_qwen35.adapter import DEFAULT_CACHE, FILES
+            directory = tokenizer or DEFAULT_CACHE
+            for name, expected in FILES.items():
+                source = directory / name
+                if hashlib.sha256(source.read_bytes()).hexdigest() != expected:
+                    raise ValueError(f"Wrong Qwen3.5-2B tokenizer file: {name}")
+                files[f"training/tokenizers/qwen35-2b/{name}"] = source
         # Absolute host paths are reconstructed from immutable hashes on the receiver.
         for path in prepared.rglob("*"):
             name = path.relative_to(prepared)
@@ -108,5 +117,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--study", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--paired", action="store_true", help="package the 2B/4B study and offline 2B tokenizer")
+    parser.add_argument("--qwen35-tokenizer", type=Path, help="verified local Qwen3.5-2B tokenizer directory")
     args = parser.parse_args()
-    print(json.dumps(package(args.study, args.output), indent=2))
+    print(json.dumps(package(args.study, args.output, paired=args.paired, tokenizer=args.qwen35_tokenizer), indent=2))

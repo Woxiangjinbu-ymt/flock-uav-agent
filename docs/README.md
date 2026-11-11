@@ -1,6 +1,6 @@
 # FlockCue 文档导航
 
-截至 2026-11-08。第一篇论文研究多无人机小模型 Agent 的选择性思考，当前在第 0 阶段。第 1 步规格、技术方案及预算上限已确认。G3 已通过，G1、G2 待测。[G3 复算报告](results/thinking-events-g3-20261108/REPORT_CN.md)
+更新于 2026-11-11。当前工作是在冻结的 600 题上，按原 1,500 题全量部署设置正式评测 FlockCue + DeepSeek。模块取舍、后续教师轨迹及 2B 训练顺序见现行路线。[本批规格](specs/05-deepseek-harness-ab600/spec.md) · [研究路线](RESEARCH_ROADMAP_CN.md)
 
 ## 目录分工
 
@@ -42,7 +42,7 @@
 
 ## 历史材料
 
-- [验证器草案与预算（2026-11-07）](history/verifier-plan-20261107/)：原第 1 步判断契约与 300 条样本预算，第二篇论文再启用。研究依据见[验证器方案调研](audit/trajectory-verifier-plan-20261107/REPORT_CN.md)。
+- [验证器草案与预算（2026-11-07）](history/verifier-plan-20261107/)：原第 1 步判断契约与 300 条样本预算，供后续过程奖励研究参考。研究依据见[验证器方案调研](audit/trajectory-verifier-plan-20261107/REPORT_CN.md)。
 - [B1/M1 研究笔记（2026-10-06）](history/agent4drone-notes-20261006/)：原放在 `agent4drone/docs/`。
 - 11 月 1 日的[合并报告](RESEARCH_COMBINED_REPORT_CN.html)、[Harness 阶段报告](HARNESS_STAGE_REPORT_CN.html)、[后训练阶段报告](POSTTRAINING_STAGE_REPORT_CN.html)和 10 月 17 日的[后训练调研](SMALL_MODEL_POSTTRAINING_SURVEY_CN.html)保留当时的方案与用词，留在原位：后训练调研被封存完整性校验引用，三份阶段报告互相链接，且 `assets/posttraining-stage-20261101/build_route.py` 按固定路径写回报告。
 - 上游论文：[精读](MULTIUAV_PLAT_READING_CN.md) · [中文翻译](MULTIUAV_PLAT_FULL_TRANSLATION_CN.md)。

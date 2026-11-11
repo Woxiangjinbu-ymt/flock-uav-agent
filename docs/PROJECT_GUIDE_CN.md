@@ -1,8 +1,8 @@
 # FlockCue 的研究贡献与项目展示
 
-2026-11-08。**FlockCue** 是基于执行反馈的多无人机协作智能体框架（*An Agent Harness for Multi-UAV Coordination with Execution Feedback*）。一个集中式 Agent 选择飞机、分配任务、调用公开工具并决定后续行动。FlockCue 记录每个调用属于哪架飞机、回执支持了什么结论，以及哪些任务要求仍待核实。[系统与代码入口](../agent_harness/README.md)
+更新于 2026-11-11。**FlockCue** 是基于执行反馈的多无人机协作智能体框架（*An Agent Harness for Multi-UAV Coordination with Execution Feedback*）。一个集中式 Agent 选择飞机、分配任务、调用公开工具并决定后续行动。FlockCue 记录每个调用属于哪架飞机、回执支持了什么结论，以及哪些任务要求仍待核实。[系统与代码入口](../agent_harness/README.md)
 
-第一篇论文从 DeepSeek 教师轨迹蒸馏约 2B 的指挥模型，研究**它在哪些轮次需要思考**。FlockCue 已有的回执解析给出执行状态事件（受阻、效果未知、部分完成、失败、新信息、义务变化），作为"思考或不思考"的标签来源之一。[研究路线](RESEARCH_ROADMAP_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md)
+当前先按原 1,500 题设置评测冻结 600 题，依据成绩决定模块取舍。定型后用可信教师轨迹完成 2B 的 SFT、RL 和整题评测。下列文献定位与机制假设来自原选择性思考方案，供后续论文研究参考。[研究路线](RESEARCH_ROADMAP_CN.md) · [原研究规格](specs/01-thinking-events/spec.md)
 
 ## 与已有工作的关系
 

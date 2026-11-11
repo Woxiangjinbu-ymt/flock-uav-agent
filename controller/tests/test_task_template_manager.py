@@ -4,9 +4,9 @@ import unittest
 from pathlib import Path
 
 from task_template_dialog import format_suitable_task_label, template_matches_task_type
-from task_template_manager import TaskTemplateManager
+from task_template_manager import SUPPORTED_SESSION_TASK_TYPES, TaskTemplateManager
 
-NEW_TARGET_ASSIGNMENT_TEMPLATE_IDS = [
+TARGET_COORDINATION_TEMPLATE_IDS = [
     "dual_drone_same_target",
     "triple_drone_target_search",
     "relay_find_and_support_target",
@@ -230,17 +230,22 @@ class TestTaskTemplateManagerSuitableTask(unittest.TestCase):
             ["all"],
         )
 
-    def test_new_builtin_target_assignment_templates_load_with_expected_metadata(self):
+    def test_builtin_target_coordination_templates_are_available_for_all_session_types(self):
         manager = TaskTemplateManager()
 
-        for template_id in NEW_TARGET_ASSIGNMENT_TEMPLATE_IDS:
+        for template_id in TARGET_COORDINATION_TEMPLATE_IDS:
             with self.subTest(template_id=template_id):
                 template = manager.get_template(template_id)
                 self.assertIsNotNone(template)
                 self.assertTrue(template["is_builtin"])
-                self.assertEqual(template["suitable_task"], ["target_assignment"])
+                # These templates check takeoff and target visits, which work in
+                # every session type; they do not check task-specific progress.
+                self.assertEqual(template["suitable_task"], ["all"])
+                for task_type in SUPPORTED_SESSION_TASK_TYPES:
+                    with self.subTest(task_type=task_type):
+                        self.assertTrue(template_matches_task_type(template, task_type))
 
-    def test_new_builtin_target_assignment_templates_do_not_leak_suitable_task_on_instantiation(self):
+    def test_builtin_target_coordination_templates_do_not_leak_suitable_task_on_instantiation(self):
         manager = TaskTemplateManager()
 
         template_parameters = {
@@ -377,14 +382,32 @@ class TestTaskTemplateManagerSuitableTask(unittest.TestCase):
         self.assertIn("Blue Target", instantiated["content"])
         self.assertEqual(instantiated["related_apis"][0]["parameters"]["id"], "drone-alpha")
         self.assertEqual(instantiated["related_apis"][3]["parameters"]["id"], "drone-delta")
-        self.assertEqual(
-            instantiated["execution_check_apis"]["checks"][0]["parameters"]["target_id"],
-            "target-red",
+        checks = instantiated["execution_check_apis"]["checks"]
+        self.assertEqual(len(checks), 8)
+        # Select checks by their meaning, rather than assuming target checks
+        # precede the four takeoff checks in the template.
+        takeoff_checks = [
+            check for check in checks
+            if check["endpoint"] == "/check/drone_has_taken_off"
+        ]
+        target_checks = [
+            check for check in checks
+            if check["endpoint"] == "/check/target_is_reached_by_drone"
+        ]
+        self.assertCountEqual(
+            [check["parameters"]["drone_id"] for check in takeoff_checks],
+            ["drone-alpha", "drone-bravo", "drone-charlie", "drone-delta"],
         )
-        self.assertEqual(
-            instantiated["execution_check_apis"]["checks"][3]["parameters"]["target_id"],
-            "target-blue",
+        self.assertCountEqual(
+            [check["parameters"] for check in target_checks],
+            [
+                {"target_id": "target-red", "drone_id": "drone-alpha"},
+                {"target_id": "target-blue", "drone_id": "drone-bravo"},
+                {"target_id": "target-red", "drone_id": "drone-charlie"},
+                {"target_id": "target-blue", "drone_id": "drone-delta"},
+            ],
         )
+        self.assertNotRegex(json.dumps(instantiated), r"\{(?:drone|target)_\d+_(?:id|name)\}")
 
 
 if __name__ == "__main__":

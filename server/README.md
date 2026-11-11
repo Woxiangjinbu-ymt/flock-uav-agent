@@ -54,6 +54,8 @@ A comprehensive drone control and simulation system featuring a RESTful API buil
 ## Quick Start
 
 ### Prerequisites
+
+Use a separate Python 3.11 environment from the agent. The repository-root command `bash scripts/setup_python_envs.sh --dev` provides verified local environments on macOS/Linux; afterward run `source .venv/bin/activate` from this directory. The locked FastAPI 0.107.0 / Starlette 0.28.0 pair is required for the request-body logging middleware. See [dependency setup and validation](../docs/DEPENDENCY_SETUP_CN.md).
 - Conda, using Python 3.11 for the recommended server environment
 - pip inside the active conda environment
 

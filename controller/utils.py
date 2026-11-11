@@ -160,7 +160,7 @@ def parse_vertices_from_text(text: str) -> List[Dict[str, float]]:
 
 
 def format_vertices_to_text(vertices: List[Dict[str, float]]) -> str:
-    """Format vertices to user-friendly text format."""
+    """Format editable vertices without rounding their stored coordinates."""
     if not vertices:
         return ""
 
@@ -168,7 +168,8 @@ def format_vertices_to_text(vertices: List[Dict[str, float]]) -> str:
     for vertex in vertices:
         x = vertex.get('x', 0)
         y = vertex.get('y', 0)
-        lines.append(f"{format_number(x)}, {format_number(y)}")
+        # This text is parsed back on save; display rounding would alter geometry.
+        lines.append(f"{x}, {y}")
 
     return '\n'.join(lines)
 

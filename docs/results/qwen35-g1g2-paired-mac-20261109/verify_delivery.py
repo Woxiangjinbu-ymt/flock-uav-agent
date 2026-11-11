@@ -1,10 +1,15 @@
-"""Replay the Mac rehearsal from a materialized 29-task dev study using the public CLI."""
+"""Rebuild the current plan and replay the 11/09 delivery with its sealed CLI.
+
+Use --archive to locate a restored copy of the original 11/09 dev-run.
+All regenerated manifests, journals and reports are written in a temporary directory.
+"""
 import argparse
 from collections import Counter
 import hashlib
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 from tempfile import TemporaryDirectory
@@ -13,13 +18,28 @@ from tempfile import TemporaryDirectory
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 OLD_RUN = ROOT / "outputs/flockcue-g1g2-mac-acceptance-20261108/dev-run"
+ARCHIVE = ROOT / "outputs/flockcue-g1g2-paired-mac-20261109/dev-run"
 G3 = ROOT / "docs/results/thinking-events-g3-20261108/run-01/g3.json"
 
 
-def verify(study):
-    def run(*args, success=True):
-        env = {**os.environ, "PYTHONPATH": str(ROOT / "scripts"), "HF_HUB_OFFLINE": "1", "CUDA_VISIBLE_DEVICES": ""}
-        result = subprocess.run([sys.executable, "-m", "thinking_events", *map(str, args)], cwd=ROOT,
+def _copy_inventory(source, destination, inventory):
+    for name, expected in inventory.items():
+        origin = source / name
+        if Path(name).is_absolute() or ".." in Path(name).parts or not origin.resolve().is_relative_to(source.resolve()):
+            raise ValueError(f"Invalid archive path: {name}")
+        raw = origin.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != expected:
+            raise ValueError(f"Historical file differs: {name}")
+        target = destination / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(raw)
+
+
+def verify(study, archive=ARCHIVE):
+    def run(*args, source=ROOT, success=True):
+        env = {**os.environ, "PYTHONPATH": str(source / "scripts"), "PYTHONDONTWRITEBYTECODE": "1",
+               "HF_HUB_OFFLINE": "1", "CUDA_VISIBLE_DEVICES": ""}
+        result = subprocess.run([sys.executable, "-m", "thinking_events", *map(str, args)], cwd=source,
                                 env=env, capture_output=True, text=True)
         if (result.returncode == 0) != success:
             raise ValueError(f"Unexpected exit from {args[0]}: {result.stderr}")
@@ -33,16 +53,42 @@ def verify(study):
 
     with TemporaryDirectory() as tmp:
         tmp = Path(tmp)
-        prepared, simulated = tmp / "prepared", tmp / "simulated"
-        run("prepare-dev", "--study", study, "--output", prepared)
+        current, prepared, simulated = tmp / "current", tmp / "historical", tmp / "simulated"
+        run("prepare-dev", "--study", Path(study).resolve(), "--output", current)
+        same(current / "plan-slots.jsonl", HERE / "plan-slots.jsonl")
+        raw = (HERE / "campaign.json").read_bytes()
+        original_sha = hashlib.sha256(raw).hexdigest()
+        if (original_sha != (HERE / "campaign.sha256").read_text().strip()
+                or original_sha != read(HERE / "dev-readiness.json")["campaign_sha256"]):
+            raise ValueError("Historical campaign seal differs")
+        campaign = json.loads(raw)
+        prepared.mkdir()
         for name in ("campaign.json", "campaign.sha256", "plan-slots.jsonl"):
-            same(prepared / name, HERE / name)
-        run("run-dev", "--run", prepared, "--g3", G3)
+            same(archive / name, HERE / name)
+            shutil.copyfile(archive / name, prepared / name)
+        _copy_inventory(archive / "source", prepared / "source", campaign["sources"])
+        _copy_inventory(current / "study", prepared / "study", campaign["inputs"])
+        # Use the original journal and let the historical entry point validate its plan, statuses and cost.
+        for name in ("slots.jsonl", "cost-ledger.json"):
+            shutil.copyfile(archive / name, prepared / name)
+        # The historical reporting CLI locates G3 relative to its own package root.
+        # Give it a separate checked tree so the worker snapshot inventory stays exact.
+        cli = tmp / "historical-cli"
+        shutil.copytree(prepared / "source", cli)
+        relative_g3 = G3.relative_to(ROOT)
+        _copy_inventory(ROOT, cli, {str(relative_g3): campaign["g3_reference_sha256"]})
+        _copy_inventory(G3.parent, cli / relative_g3.parent, read(cli / relative_g3)["inputs_sha256"])
+        run("run-dev", "--run", prepared, "--g3", G3, source=cli)
         same(prepared / "dev-readiness.json", HERE / "dev-readiness.json")
-        run("simulate-paired", "--run", prepared, "--output", simulated)
-        for path in simulated.rglob("*"):
-            if path.is_file():
-                same(path, HERE / path.relative_to(simulated))
+        expected_files = {Path("summary.json"), Path("REPORT_CN.md")}
+        expected_files.update(p.relative_to(HERE) for p in (HERE / "cases").rglob("*") if p.is_file())
+        for source, campaign_dir, output in ((cli, prepared, simulated), (ROOT, current, tmp / "current-sim")):
+            run("simulate-paired", "--run", campaign_dir, "--output", output, source=source)
+            actual_files = {p.relative_to(output) for p in output.rglob("*") if p.is_file()}
+            if actual_files != expected_files:
+                raise ValueError("Simulated delivery files differ from the archive")
+            for name in expected_files:
+                same(output / name, HERE / name)
         plan = [json.loads(line) for line in (prepared / "plan-slots.jsonl").read_bytes().splitlines()]
         counts = Counter((r["model"], r["arm"]) for r in plan)
         assert counts == {(m, a): 29 for m in ("Qwen3.5-2B", "Qwen3-4B") for a in ("on", "off")}
@@ -51,7 +97,7 @@ def verify(study):
         reports = sorted((HERE / "cases").iterdir())
         for case in reports:
             out = tmp / case.name
-            run("report", "--run", prepared, "--results", case / "results.json", "--output", out)
+            run("report", "--run", prepared, "--results", case / "results.json", "--output", out, source=cli)
             for name in ("gates.json", "REPORT_CN.md"):
                 same(out / name, case / name)
             # Independently count the four matched cells directly from the saved synthetic checker replies.
@@ -79,8 +125,10 @@ def verify(study):
             else:
                 broken["schema"] = "formal"
             bad.write_text(json.dumps(broken))
-            run("report", "--run", prepared, "--results", bad, "--output", tmp / "invalid", success=False)
-            assert not (tmp / "invalid").exists()
+            for source, campaign_dir in ((cli, prepared), (ROOT, current)):
+                run("report", "--run", campaign_dir, "--results", bad, "--output", tmp / "invalid", source=source,
+                    success=False)
+                assert not (tmp / "invalid").exists()
         slots = [json.loads(line)["status"] for line in (prepared / "slots.jsonl").read_bytes().splitlines()]
         assert Counter(slots) == {"unstarted": 116}
         return {"replayed_cases": len(reports), "four_arms_per_case": dict(sorted(
@@ -93,4 +141,6 @@ def verify(study):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--study", type=Path, default=OLD_RUN / "study")
-    print(json.dumps(verify(parser.parse_args().study), ensure_ascii=False, indent=2))
+    parser.add_argument("--archive", type=Path, default=ARCHIVE, help="sealed original 11/09 dev-run")
+    args = parser.parse_args()
+    print(json.dumps(verify(args.study, args.archive), ensure_ascii=False, indent=2))

@@ -4,6 +4,7 @@ Wrapper for the UAV Control System API to simplify drone operations
 """
 import json
 import requests
+import time
 from datetime import datetime
 from typing import Dict, List, Any, Optional
 
@@ -159,6 +160,15 @@ class UAVAPIClient:
 
     def _request(self, method: str, endpoint: str, **kwargs) -> Any:
         """Make HTTP request to the API"""
+        # Only the explicitly enabled minimal harness sets this task deadline.
+        # Default transports retain their original behavior. requests timeouts
+        # bound socket inactivity, not a hard end-to-end wall-clock guarantee.
+        deadline = getattr(self, "_harness_deadline", None)
+        if deadline is not None:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise TimeoutError("Harness deadline reached before public API request")
+            kwargs.setdefault("timeout", min(10.0, remaining))
         url = f"{self.base_url}{endpoint}"
 
         # Merge authentication headers with any provided headers

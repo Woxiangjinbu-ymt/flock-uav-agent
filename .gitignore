@@ -1,2 +1,19 @@
 .DS_Store
 *.pyc
+__pycache__/
+.venv/
+.cache/
+.runtimes/
+.pytest_cache/
+logs/
+server/server_logs/
+agent4drone/llm_settings.json
+controller/UAVSessions/
+experiments/runs/
+experiments/*.local.json
+
+# Runtime output and scratch (2026-11-08 cleanup)
+server_logs/
+/tmp/*
+!/tmp/task-splits-pilot-01/
+/outputs/

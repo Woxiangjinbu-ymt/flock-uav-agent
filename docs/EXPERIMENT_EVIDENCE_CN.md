@@ -1,8 +1,26 @@
 # 实验依据与结论边界
 
-截至 2026-11-09。第一篇论文的开发证据包括 G3 四批逐轮复算、4 个封存真实 DeepSeek 批次的逐轮推理用量（214 次响应，推理 token 占输出 70.5%，32.2% 的响应推理为 0），以及从 4 份归档提取的 4 个开发前缀（2 道题）。Qwen3.5-2B 已在 Mac 完成单题思考开关对照。正式 29 题成功率及开关差异待测，项目尚未训练学生权重。[单题开发对照](results/qwen35-hover-thinking-mac-20261109/REPORT_CN.md) · [推理用量审计](audit/teacher-reasoning-usage-20261108/summary.json) · [开发前缀与复算方法](audit/trajectory-verifier-plan-20261107/REPORT_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md)
+11 月 11 日从正式 DeepSeek 首遍重建 A 折 300 题、4,426 个可核验决策轮。训练侧 240 题中有 157 题通过动作与题意核查，110 题贡献了 386 个可完整编码的决策轮。训练与内部验证以场景隔离。[首批教师轨迹](results/flockcue-teacher-trajectories-a-20261111/REPORT_CN.md)
+
+11 月 11 日的原版 Agent4Drone 晚间 200 题同日对照已于 19:47 完成。实测任务响应的 DeepSeek 服务指纹一致，FlockCue 与原版通过数为 182/200 和 168/200，净增 14 题、7 个百分点。目标分配贡献其中 11 题；两臂运行时段和 HTTP 时延不同。[正式对照](results/agent4drone-matched200-20261111/REPORT_CN.md) · [10 场选择规则](../experiments/agent4drone-matched200-v1/README_CN.md)
+
+11 月 11 日，按十月 1,500 题原部署设置对冻结 600 题做 FlockCue + DeepSeek 首遍评测。FlockCue 独立通过 544/600（90.67%），十月原版通过 506/600（84.33%）。50 题由失转过、12 题由过转失。十月 14 道终止性服务故障题贡献 8 道净增，其余 586 题净增 30。两期模型预检指纹不同。原试采两场本次通过 40/40。[正式报告](results/flockcue-deployment600-20261111/REPORT_CN.md) · [不一致题的执行证据](results/flockcue-deployment600-20261111/MECHANISMS_CN.md) · [原两场 40 题复核](results/flockcue-deployment600-20261111/FOCAL40_CN.md)
+
+截至 2026-11-11。第一篇论文的开发证据包括 G3 四批逐轮复算、4 个封存真实 DeepSeek 批次的逐轮推理用量（214 次响应，推理 token 占输出 70.5%，32.2% 的响应推理为 0），以及从 4 份归档提取的 4 个开发前缀（2 道题）。Qwen3.5-2B 已在 Mac 完成单题思考开关对照。A100 上已完成 29 题、四臂的 116 个独立评分。主模型的 G1、G2 均未通过，项目尚未训练学生权重。[单题开发对照](results/qwen35-hover-thinking-mac-20261109/REPORT_CN.md) · [推理用量审计](audit/teacher-reasoning-usage-20261108/summary.json) · [开发前缀与复算方法](audit/trajectory-verifier-plan-20261107/REPORT_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md)
 
 11 月 11 日获单独授权后，用真实 DeepSeek 完成了 A 训练折两场 40 题的可行性试采。358 次真实请求、526 个工具回执均可追溯，80 棵题初／终态检查树与独立重放一致。终态通过 26/40，22 道题贡献 148 个可用决策轮。原始学生的门槛结果保持原判。[试采与训练样本](results/deepseek-teacher-pilot40-live-20261111/REPORT_CN.md)
+
+11 月 11 日，原始 Qwen3.5-2B 在 28 道开发题的 50 个历史决策位置各运行旧、新感知说明。仅改示例，整组通过且调用感知由 4/50 升至 15/50，配对净增 11。100 条原始输出经 Mac 独立复算。该诊断按历史行为选样，整题成绩仍取前一日独立评分。[逐对报告](results/flockcue-a100-sense-example-20261111/REPORT_CN.md)
+
+同日把新说明用于 29 题整题复测，原始 2B 共执行 58 个回合，开、关思考分别为 1/29、0/29。开臂新成功 1 题，旧批成功的另一题在本批失败。159 次模型请求的实际输入 ID 均可从归档独立重建。G1、G2 均未通过。[复测与独立评分](results/flockcue-a100-g1g2-retest-20261111/REPORT_CN.md)
+
+11 月 10 日，29 题四臂的真实执行与独立评分入口在 Mac 用固定回复跑完 116 槽，232 次请求可从原始 SDK 归档复算。该 Mac 演练启动的真实权重正式槽为零。[Mac 批次证据](results/qwen35-g1g2-execution-mac-20261110/README_CN.md)
+
+同日，包周 A100 主机完成两项 Linux CPU 复验、2B/4B 权重摘要核对及首选 GPU 环境的 BF16 检查。迁移验收结束时的权重生成和正式槽启动次数均为零。[服务器验收](results/flockcue-a100-linux-20261110/REPORT_CN.md)
+
+随后在同一张 A100 40 GB 上完成 T37，使用两套原始权重、Transformers、BF16 和 batch=1。4 次预热通过，36/36 次自然请求到达 EOS，40/40 次满长请求各生成 2,048 个新 ID。2B、4B 的满长 P95 依次为 68.41、69.15 秒，开思考的 12 轮模型等待估算为 111.94、157.06 秒，两个模型均通过测速准入。含两次启动中断在内，首条命令启动至末条退出为 3,255.37 秒。测速使用 dev 以外的公开合成输入，29 题开发集的任务成功率由 T38 独立评分。[T37 逐档测速与墙钟](results/flockcue-a100-g1g2-20261110/T37_CN.md) · [正式后端准入原件](results/flockcue-a100-g1g2-20261110/t37-admission.json)
+
+T38 在相同后端完成原 29 道开发题的 116 个回合，独立评分完整。原始 Qwen3.5-2B 开思考成功 1/29，关思考 0/29；原始 Qwen3-4B 两臂各 0/29。2B 开臂有 28 个可归因执行失败，成功数低于 G1 所需的 3 题；开关净增 1 题、1 个父场景改善，低于 G2 的 3 题及 2 个父场景。G3 通过，G1、G2 均未通过，本阶段未进入正式教师采集。[正式成绩与时延](results/flockcue-a100-g1g2-20261110/REPORT_CN.md) · [独立评分复点](results/flockcue-a100-g1g2-20261110/independent-recount.json) · [2B 工具参数核查](results/flockcue-a100-g1g2-20261110/TOOL_ARGUMENTS_CN.md)
 
 下表按原批次记录 Harness 实验。对历史 W3 的 61 条样本按主 Agent 的开发样本理解。当前验证进展见[研究状态](RESEARCH_STATUS_CN.md)，开发顺序见[研究路线](RESEARCH_ROADMAP_CN.md)。
 
@@ -12,9 +30,9 @@
 | --- | --- | --- |
 | [允许无参感知的 2B 整题复测](results/flockcue-a100-sense-default-20261111/REPORT_CN.md) | 29 个初态两种写法效果一致。A100 运行 58 个回合，31 次无参感知全部有回执，开思考成功 1/29，关思考 0/29。 | G1、G2 均未通过。教师入口另用本地 HTTP 服务验证断线重启去重，真实调用 0 次。[恢复证据](results/deepseek-teacher-service-mac-20261111/REPORT_CN.md) |
 | [两场 40 题教师连续会话免费验收](results/deepseek-teacher-pilot40-mac-20261111/REPORT_CN.md) | Mac 固定回复，世界与黑板按原题序继承，隔离评分；两种预算停线另跑，各保留 40 个题位。 | 正式教师轨迹及训练样本新增 0。 |
-| [Qwen3.5-2B 开关思考配对计分](results/qwen35-g1g2-paired-mac-20261109/REPORT_CN.md) | 29 道冻结开发题，2B 主模型、4B 参照。10 组合成输入的机器和中文报告在 Mac 独立重建并逐字节核对。 | 验证配对计分与缺失、偏倚处理。真实 116 槽均未启动，G1/G2 待测。 |
-| [学生接入与 Mac 无卡回归](results/thinking-student-cpu-20261108/REPORT_CN.md) | 三个夹具使用同一初态，独立评分依次为通过、未通过、未通过。10 次请求的输入 ID 复算一致，解包后 100 项回归通过 | 固定回复验证了学生接入、仿真工具与独立评分。116 个正式槽保持未启动，租卡费为零。 |
-| [G3 执行事件离线复算](results/thinking-events-g3-20261108/REPORT_CN.md) | 31 回合、218 请求、214 回复；183 个非首轮中 77 个事件、106 个 E0、0 个不可判，42.08%，G3 通过 | E5 出现于 53 轮，E2 的 6 轮均来自故障注入；零新增调用与卡时。学生成功率与思考收益待 G1/G2 测量。 |
+| [Qwen3.5-2B 开关思考配对计分](results/qwen35-g1g2-paired-mac-20261109/REPORT_CN.md) | 29 道冻结开发题，2B 主模型、4B 参照。10 组合成输入的机器和中文报告在 Mac 独立重建并逐字节核对。 | 验证配对计分与缺失、偏倚处理。该批次只含模拟输入。 |
+| [学生接入与 Mac 无卡回归](results/thinking-student-cpu-20261108/REPORT_CN.md) | 三个夹具使用同一初态，独立评分依次为通过、未通过、未通过。10 次请求的输入 ID 复算一致，解包后 100 项回归通过 | 固定回复验证了学生接入、仿真工具与独立评分。该次验收启动的正式槽和租卡费均为零。 |
+| [G3 执行事件离线复算](results/thinking-events-g3-20261108/REPORT_CN.md) | 31 回合、218 请求、214 回复；183 个非首轮中 77 个事件、106 个 E0、0 个不可判，42.08%，G3 通过 | E5 出现于 53 轮，E2 的 6 轮均来自故障注入；零新增调用与卡时。该批验证执行事件分布。 |
 | [v5输入压缩与只读并行本地修复](results/hover-compact-contract-20261103/REPORT_CN.md) | 20/20脚本槽、224检查、1,511项主回归；native工具字节−38.35%，26旧N请求元数据反事实字节−27.57%；只读并行误拒解除，动作/未知重叠仍拒绝，原unknown无重放恢复保留 | — |
 | [v4悬停/输入DeepSeek同期对照](results/deepseek-hover-pilot-20261103/REPORT_CN.md) | 4条件8/8槽，支持3对独立真值均3/3，时长2槽均不可确证；N17object无类型拒绝，C1类型＋1字段错误；unknown各1/1无重放，N少1hover。53HTTP/579,790token，1,317测试、275独立检查及347文件封存 | — |
 | [悬停完成与输入类型本地验收](results/hover-input-contract-20261103/REPORT_CN.md) | 最终16槽/16独立评分、171检查、1,100代码测试通过；8完成确认/7未验证/1旧版off。对象与字符串动作等效，raw/skill unknown各1次起飞且历史不改，非法参数拒绝后可脚本接续；920文件封存 | 首次完整16槽169/171，raw超时文本未识别，修复后另16槽通过；总32本地回合，另16仅prepare。少量英文单机完整语法；duration不证明持续时间，非通用判题器。模型全脚本，provider0，不修改旧4/5、不宣称自然成功率/token收益，第五项未启动 |

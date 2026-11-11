@@ -18,6 +18,9 @@ mkdir -p "$out"
 export PYTHONPATH="$PWD/scripts" PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
 export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 CUDA_VISIBLE_DEVICES=""
 export FLOCKCUE_TOKENIZER_PYTHON="$PWD/training/.venv-input/bin/python"
+if [[ -d "$PWD/training/tokenizers/qwen35-2b" ]]; then
+  export FLOCKCUE_QWEN35_TOKENIZER="$PWD/training/tokenizers/qwen35-2b"
+fi
 export THINKING_DEV_STUDY="$PWD/prepared-dev/study"
 agent="$PWD/agent4drone/.venv/bin/python"
 for python in "$agent" "$PWD/server/.venv/bin/python" "$FLOCKCUE_TOKENIZER_PYTHON"; do
@@ -83,11 +86,30 @@ agent_tests=()
 student_tests=()
 for suite in scripts/tests/test_thinking_*.py; do
   case "$suite" in
-    scripts/tests/test_thinking_student*) student_tests+=("$suite");;
+    scripts/tests/test_thinking_student*|scripts/tests/test_thinking_paired_backend.py) student_tests+=("$suite");;
     *) agent_tests+=("$suite");;
   esac
 done
 "$agent" -m pytest -q "${agent_tests[@]}" --junitxml="$out/agent-tests.xml" >"$out/agent-tests.log"
 "$FLOCKCUE_TOKENIZER_PYTHON" -m pytest -q "${student_tests[@]}" --junitxml="$out/student-tests.xml" >"$out/student-tests.log"
+"$agent" - "$out" <<'PY'
+import json
+import sys
+from pathlib import Path
+from xml.etree import ElementTree
+
+out = Path(sys.argv[1])
+def read(name):
+    return json.loads((out / name).read_bytes())
+
+counts = {}
+for suite in ("agent", "student"):
+    result = ElementTree.parse(out / (suite + "-tests.xml")).getroot().find("testsuite")
+    counts[suite] = {k: int(result.attrib[k]) for k in ("tests", "failures", "errors", "skipped")}
+summary = {"platform": read("host.json"), "baseline": read("baseline-check.json"),
+           "baseline_smoke": read("baseline-smoke.json")["verification"], "pytest": counts,
+           "student_smoke": read("student-smoke.json"), "cpu_preflight": read("dev-readiness.json")}
+(out / "verification.json").write_text(json.dumps(summary, indent=2) + "\n")
+PY
 cat "$out/dev-readiness.json"
 echo "CPU acceptance passed. Evidence: $out"

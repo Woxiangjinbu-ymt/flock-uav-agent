@@ -8,6 +8,14 @@ from typing import Any, Iterable
 
 from .parsing_error import PARSING_ERROR_TEMPLATE
 
+INPUT_LAYOUTS = ("full_v1", "compact_tools_v1")
+
+
+def validate_input_layout(value: str) -> str:
+    if not isinstance(value, str) or value not in INPUT_LAYOUTS:
+        raise ValueError("input_layout must be full_v1 or compact_tools_v1")
+    return value
+
 
 SYSTEM_PROMPT_TEMPLATE = """You are an intelligent UAV (drone) control agent. Your job is to understand user intentions and control drones safely and efficiently.
 
@@ -84,13 +92,35 @@ Be concise, safe, and operationally precise."""
 def build_system_prompt(
     tools: Iterable[Any],
     parsing_error_template: str = PARSING_ERROR_TEMPLATE,
+    *,
+    input_layout: str = "full_v1",
+    tool_input_contract: str = "string_v1",
 ) -> str:
+    """Choose only the duplicate textual tool catalog layout.
+
+    The actual tool objects/schema, operating rules, messages and evidence are
+    unchanged. full_v1 retains the historical byte representation by default.
+    """
+    validate_input_layout(input_layout)
     tool_lines = []
     for tool in tools:
-        description = " ".join(str(getattr(tool, "description", "")).split())
-        tool_lines.append(f"- {tool.name}: {description}")
+        if input_layout == "full_v1":
+            description = " ".join(str(getattr(tool, "description", "")).split())
+            tool_lines.append(f"- {tool.name}: {description}")
+        else:
+            tool_lines.append(f"- {tool.name}")
 
-    return SYSTEM_PROMPT_TEMPLATE.format(
+    prompt = SYSTEM_PROMPT_TEMPLATE.format(
         parsing_error_template=parsing_error_template,
         tool_lines=os.linesep.join(tool_lines),
     )
+    if tool_input_contract != "string_v1":
+        from tool_input_contract import validate_input_json_contract, tool_input_rules
+        validate_input_json_contract(tool_input_contract)
+        start = prompt.index("TOOL INPUT RULES:\n")
+        end = prompt.index("\nAVAILABLE TOOLS:\n", start)
+        rules = ("TOOL INPUT RULES:\n- Tools without parameters can be called directly.\n"
+                 + tool_input_rules(tool_input_contract).rstrip()
+                 + "\n- On a tool-input validation error, correct the representation and required fields before retrying.\n")
+        prompt = prompt[:start] + rules + prompt[end:]
+    return prompt

@@ -127,10 +127,15 @@ class TestUtils(unittest.TestCase):
         expected = [{'x': 10.0, 'y': 20.0}, {'x': 30.0, 'y': 40.0}]
         self.assertEqual(parse_vertices_from_text(text), expected)
 
+    def test_parse_vertices_from_text_with_whitespace_separator(self):
+        text = "10 20\n30\t40 # comment\n"
+        expected = [{'x': 10.0, 'y': 20.0}, {'x': 30.0, 'y': 40.0}]
+        self.assertEqual(parse_vertices_from_text(text), expected)
+
     def test_parse_vertices_from_text_invalid_format(self):
-        text = "10 20" # Missing comma
-        with self.assertRaises(ValueError):
-            parse_vertices_from_text(text)
+        for text in ("10", "10, 20, 30", "10 20 30"):
+            with self.subTest(text=text), self.assertRaises(ValueError):
+                parse_vertices_from_text(text)
 
     def test_parse_vertices_from_text_invalid_number(self):
         text = "10, abc"
@@ -139,8 +144,20 @@ class TestUtils(unittest.TestCase):
 
     def test_format_vertices_to_text(self):
         vertices = [{'x': 10.123, 'y': 20.456}, {'x': 30.0, 'y': 40.0}]
-        expected = "10.12, 20.46\n30.00, 40.00"
+        expected = "10.123, 20.456\n30.0, 40.0"
         self.assertEqual(format_vertices_to_text(vertices), expected)
+
+    def test_editable_vertices_round_trip_preserves_geometry(self):
+        vertices = [
+            {'x': 10.123, 'y': 20.456},
+            {'x': 10.124, 'y': 20.457},
+            {'x': 10.125, 'y': 20.456},
+            {'x': 1e-10, 'y': -2.345678901234567},
+        ]
+        self.assertEqual(
+            parse_vertices_from_text(format_vertices_to_text(vertices)),
+            vertices,
+        )
 
     def test_distance_point_to_point(self):
         self.assertAlmostEqual(distance_point_to_point(0, 0, 3, 4), 5.0)

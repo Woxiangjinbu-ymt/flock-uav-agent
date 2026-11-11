@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "agent4drone"))
 from langchain_core.messages import AIMessage
@@ -13,7 +14,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "agent4drone/tests"
 from test_task_progress_integration import ScriptedModel, call
 
 
-def test_service_environment_activates_frozen_revision_and_records_it(monkeypatch, tmp_path):
+@pytest.mark.parametrize("mode,revision", [("evidence", "m1-r1"), ("evidence_r2", "m1-r2"),
+                                            ("evidence_r2_hints", "m1-r2")])
+def test_service_environment_activates_revision_and_records_it(monkeypatch, tmp_path, mode, revision):
     class LocalClient:
         def __init__(self, *args, **kwargs):
             pass
@@ -35,7 +38,7 @@ def test_service_environment_activates_frozen_revision_and_records_it(monkeypatc
         "type": "openai-compatible", "base_url": "https://api.deepseek.com", "default_model": "deepseek-flash",
         "requires_api_key": True, "api_key": "offline-fixture"}},
         "share_blackboard_by_session": True, "toolchain_json_recording": True}
-    monkeypatch.setenv("UAV_TASK_PROGRESS_MODE", "evidence")
+    monkeypatch.setenv("UAV_TASK_PROGRESS_MODE", mode)
     monkeypatch.setenv("UAV_MODEL_REQUEST_AUDIT", "1")
     monkeypatch.setattr(service, "load_llm_settings", lambda _: settings)
     monkeypatch.setattr(uav_agent, "UAVAPIClient", LocalClient)
@@ -50,9 +53,9 @@ def test_service_environment_activates_frozen_revision_and_records_it(monkeypatc
     result = agent.execute("Drone 1 flies to target Fixed Target 10.")
     assert result["success"] and agent.share_blackboard_by_session and agent._model_request_audit_enabled
     trace = captured[0]
-    assert trace["runtime"]["task_progress_mode"] == "evidence"
+    assert trace["runtime"]["task_progress_mode"] == mode
     assert trace["runtime"]["task_progress_active"] is True
-    assert trace["task_progress"]["revision"] == "m1-r1"
+    assert trace["task_progress"]["revision"] == revision
     assert trace["task_progress"]["observer_errors"] == []
     ref = trace["task_progress"]["task_evidence"]["requirements"][0]
     assert ref["knowledge_state"] == "reported_only" and ref["execution_state"] == "evidenced"
@@ -61,3 +64,8 @@ def test_service_environment_activates_frozen_revision_and_records_it(monkeypatc
     # tests separately require and verify actual serialized request hashes.
     assert trace["model_requests_wire"] == []
     assert Path(uav_agent.__file__).resolve().parents[1] == Path(__file__).resolve().parents[2]
+    if mode == "evidence_harness":
+        assert trace["harness"] == result["harness"]
+        assert trace["harness"]["schema"] == "minimal-harness-v1"
+        assert sum(e["kind"] == "model_request_start" for e in trace["harness"]["events"]) == 3
+        assert trace["harness"]["events"][-1]["kind"] == "task_end"

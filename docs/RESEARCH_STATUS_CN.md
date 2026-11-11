@@ -1,28 +1,42 @@
 # FlockCue 研究状态
 
-更新于 2026-11-09。第一篇论文的主问题定为**多无人机小模型 Agent 什么时候需要思考**：从 DeepSeek 教师轨迹蒸馏约 2B 的指挥模型，由执行状态事件决定每轮是否思考。项目处于第 0 阶段，第 1 步规格、技术方案及预算上限已确认。G3 已完成四批开发归档的本机复算，G1、G2 待测。轨迹验证器移到第二篇论文。[研究路线](RESEARCH_ROADMAP_CN.md) · [第 1 步规格](specs/01-thinking-events/spec.md) · [技术方案](specs/01-thinking-events/plan.md) · [任务清单](specs/01-thinking-events/task.md) · [验收清单](specs/01-thinking-events/checklist.md) · [FlockCue 入口](../agent_harness/README.md)
+更新于 2026-11-11。FlockCue 正式首遍与同日原版对照均已结束。当前论文工作是从可追溯的 DeepSeek 教师轨迹制作 SFT 数据，随后在同一 Harness 上验证 2B 学生和在线 GRPO 的整题成绩。[研究路线](RESEARCH_ROADMAP_CN.md) · [正式报告](results/flockcue-deployment600-20261111/REPORT_CN.md)
 
 ## Confirmed Decisions — 已确定
 
 | 项目 | 现行口径 |
 | --- | --- |
-| 第一篇主问题 | 执行事件驱动的选择性思考。比较执行事件、教师自选、LoGiC、固定间隔四种思考标签，外加每轮思考、从不思考两个端点。用户 2026-11-08 确认。[后训练方案](POSTTRAINING_PLAN_CN.md) |
+| 2B 学生目标 | 用户于 2026-11-11 确认先提高同一 Harness、同一评测设置下独立评分的整题 pass rate。Think/No-Think 等复杂训练场景延后。[后训练方案](POSTTRAINING_PLAN_CN.md) |
 | 教师推理用作 SFT 目标 | 允许把 DeepSeek `reasoning_content` 作为学生的监督目标。用户 2026-11-08 确认。旧 W3 契约及其 61 条样本保持冻结，新样本另建版本。 |
-| 第二篇与基线 | 轨迹验证器训练成过程奖励用于 GRPO，放在第二篇。PenguinHarness 式 Harness 迭代作为不训练权重的对照臂。 |
+| 后续研究 | 原方案中的执行事件驱动选择性思考、轨迹验证器过程奖励和仅迭代 Harness 的对照留待基础流程跑通后研究。 |
 | 第 1 步技术方案与额度 | — |
-| 顺序与门槛 | 第 0 阶段先过 G1 学生零样本、G2 思考开关、G3 事件区分度三道门槛，再采教师数据。研究窗口约 1–2 个月。[阶段与门槛](RESEARCH_ROADMAP_CN.md#阶段与门槛) |
+| 当前启动范围 | 正式测当前 FlockCue 一遍，共 30 场 600 题。对照原版同题首次部署的历史结果，披露模型服务跨月的差异。[阶段与门槛](RESEARCH_ROADMAP_CN.md#阶段与门槛) |
 | 正式题目 | 用户确认从原基准冻结的 30 个完整会话、600 题用于后续示范采集、SFT 和最终系统比较。原题有历史开发暴露，逐场保留原题序和状态继承。[600 题清单](../experiments/flockcue-benchmark-600-v1/) |
-| 资源 | 教师 DeepSeek。11 月 9 日确认 G1/G2 主模型为 Qwen3.5-2B，沿用 Qwen3-4B 作参照。两者来自不同系列，真实门槛仅按 2B 的配对结果判定。单卡 LoRA，40 GB 优先、80 GB 为上限。付费调用与 GPU 在各步 plan.md 写明上限，用户批准后执行。 |
+| 资源 | 教师 DeepSeek。11 月 9 日确认 G1/G2 主模型为 Qwen3.5-2B，沿用 Qwen3-4B 作参照。两者来自不同系列，真实门槛仅按 2B 的配对结果判定。单卡 LoRA，40 GB 优先、80 GB 为上限。600 题正式首遍已单独获准、不设金额上限。其他付费阶段按各自 plan.md 确认。 |
 
 ## Verified Results — 已有证据
 
+- **首批教师轨迹。** 从正式首遍重建 A 折 300 题的 4,426 个决策轮，训练侧 240 题中有 157 题获本题实际动作支持。110 道题贡献了 386 个语义审阅通过、符合当前 2B 模板及长度的轮。B 折留作首个学生的折外评测。[构建报告](results/flockcue-teacher-trajectories-a-20261111/REPORT_CN.md)
+
+- **同日、相同 DeepSeek 服务指纹的 200 题首遍。** FlockCue 通过 182/200（91%），原版 Agent4Drone 通过 168/200（84%）。20 题仅 FlockCue 过、6 题仅原版过，净增 14 题。巡逻、搜索、目标分配分别净增 2、1、11 题。两期这批题全部 3,110 和 2,846 次成功响应的后端指纹一致。白天与晚间 HTTP P95 分别为 23.68 和 36.00 秒；固定 500 秒动作窗口下，时延差异可能影响成绩。[同日正式对照](results/agent4drone-matched200-20261111/REPORT_CN.md)
+
+- **冻结 600 题。** 当前 FlockCue 通过 544/600（90.67%），十月原版 506/600（84.33%）。巡逻 186/200、搜索 189/200、目标分配 169/200，分别净增 7、3、28 题。50 题由失转过、12 题由过转失。去掉十月 14 道终止性服务错误后，其余 586 题仍净增 30 题。两期预检指纹不同。[正式报告](results/flockcue-deployment600-20261111/REPORT_CN.md) · [不一致题的执行证据](results/flockcue-deployment600-20261111/MECHANISMS_CN.md)
+
+- 同两场 40 题，十月原版通过 37/40，十一月 FlockCue 教师试采通过 26/40，本次原协议通过 40/40。试采失败的 14 题中有 12 道的正式成功轨迹会被试采的请求数或累计 token 限制截短。两场有 29 题的题初机队位置在试采和本次间不同。[原两场 40 题复核](results/flockcue-deployment600-20261111/FOCAL40_CN.md)
+
 - **两场真实教师首遍已独立复算，首批 SFT 数据已生成。** 巡逻、搜索分别通过 16/20、10/20。3 道题开局已过，另有 1 题欠缺足时悬停证据。其余 22 题贡献 148 个合格决策轮，两种监督目标各 148 条。执行到评分结束历时 24 分 32 秒，GPU 0 卡时。[完整报告](results/deepseek-teacher-pilot40-live-20261111/REPORT_CN.md)
 
-- **允许无参感知后，G1、G2 仍未通过。** Mac 在 29/29 个初态执行两种调用，回执、黑板和终态一致。A100 上 31 次无参感知均实际执行并取得回执。2B 开思考 1/29、关思考 0/29，58 个回合全部独立重评分，净增 1 题、1 个父场景净改善。教师真实 HTTP 入口已用本地服务验收，断线恢复未重复派发。正式采集 0 题。[A100 结果](results/flockcue-a100-sense-default-20261111/REPORT_CN.md) · [教师入口](results/deepseek-teacher-service-mac-20261111/REPORT_CN.md)
+- **允许无参感知后，G1、G2 仍未通过。** Mac 在 29/29 个初态执行两种调用，回执、黑板和终态一致。A100 上 31 次无参感知均实际执行并取得回执。2B 开思考 1/29、关思考 0/29，58 个回合全部独立重评分，净增 1 题、1 个父场景净改善。教师真实 HTTP 入口已用本地服务验收，断线恢复未重复派发。该次验收的真实调用为零。[A100 结果](results/flockcue-a100-sense-default-20261111/REPORT_CN.md) · [教师入口](results/deepseek-teacher-service-mac-20261111/REPORT_CN.md)
 
-- **教师连续会话已在 Mac 完成两场 40 题免费验收。** 固定回复的请求、历史思考、工具回执、世界交接与题初／终态独立评分可逐题回查。另行注入预算不足与用量缺失，均保留完整 40 个题位。正式教师采集仍为 0 题。[验收与开采条件](results/deepseek-teacher-pilot40-mac-20261111/REPORT_CN.md)
+- **教师连续会话已在 Mac 完成两场 40 题免费验收。** 固定回复的请求、历史思考、工具回执、世界交接与题初／终态独立评分可逐题回查。另行注入预算不足与用量缺失，均保留完整 40 个题位。该次固定回复验收的真实调用为零。[验收与开采条件](results/deepseek-teacher-pilot40-mac-20261111/REPORT_CN.md)
 
-- **Qwen3.5-2B 的 29 题配对计分已在 Mac 验收。** 新计划沿用五个父场景，每臂 29 题。10 组合成输入分别覆盖阈值、跨场景改善、超时偏向开臂、缺评分和全未启动；从保存的输入重新生成的报告均逐字节一致。Qwen3-4B 的成绩单列，真实 116 槽保持未启动。[模拟报告](results/qwen35-g1g2-paired-mac-20261109/REPORT_CN.md) · [独立复算](results/qwen35-g1g2-paired-mac-20261109/verification.json)
+- **第 0 阶段的 116 个正式回合全部获得独立评分。** 单张 A100 40 GB 上，Transformers 通过 T37，2B 与 4B 各 20 次满长请求的 P95 分别为 68.41 秒、69.15 秒。在 5 个父场景的 29 道冻结 dev 题上，Qwen3.5-2B 开思考成功 1/29、关思考 0/29，开臂可归因的执行失败为 28/29，G1 未通过。开关净差为 +1 题，仅 1 个父场景净改善，G2 未通过。Qwen3-4B 开、关两臂均为 0/29。[独立评分](results/flockcue-a100-g1g2-20261110/REPORT_CN.md) · [T37 实测](results/flockcue-a100-g1g2-20261110/T37_CN.md)
+
+- **已迁到租用的 A100 40 GB 主机。** 两项 Linux CPU 复验通过：117 项 Agent 与 29 项学生回归全部通过，整场 20 题的原检查与 Mac 一致。两模型官方修订权重已校验，候选 Transformers 环境和 BF16 硬件检查已通过。[目标机验收与路径](results/flockcue-a100-linux-20261110/REPORT_CN.md)
+
+- **29 题真实批次的运行、独立评分与报告入口已在 Mac 验收。** 两种模型的真实 tokenizer 和固定回复驱动 5 场、29 题的四臂执行，先运行 2 槽，再恢复 114 槽，116 槽均由独立进程按原 checker 评分。已从 wire 重建 232 次请求的 token ID，两次生成的报告逐字节一致。固定回复只查询机队后声明完成，四臂均为 0/29。[验收与上机交接](results/qwen35-g1g2-execution-mac-20261110/README_CN.md)
+
+- **Qwen3.5-2B 的 29 题配对计分已在 Mac 验收。** 新计划沿用五个父场景，每臂 29 题。10 组合成输入分别覆盖阈值、跨场景改善、超时偏向开臂、缺评分和全未启动；从保存的输入重新生成的报告均逐字节一致。[模拟报告](results/qwen35-g1g2-paired-mac-20261109/REPORT_CN.md) · [独立复算](results/qwen35-g1g2-paired-mac-20261109/verification.json)
 
 - **DeepSeek 开发轨迹已整理成 16 条可回查的 SFT 样例。** 同一道悬停开发题的四个变体共 26 个决策轮，16 轮保留、10 轮剔除，每轮都有原始请求、回复、回执或评分依据及取舍理由。7 条保留了教师思考，9 条思考为空。已用 Qwen3.5-2B 分词器复核本轮监督范围，正式训练样本新增 0 条。[逐轮审阅与回查](results/deepseek-sft-dev-examples-20261109/REPORT_CN.md)
 
@@ -41,7 +55,7 @@
 
 - **FlockCue 本地基线。** `agent4drone/.venv/bin/python -m agent_harness check` 于 2026-11-08 整理前后均返回 0，核对 `general-agent-v5-local` 的 93 个源码文件、配置与依赖清单。v5 以本地脚本模型验收，真实模型表现另测。[复现入口](../agent_harness/README.md) · [v5 本地验收](results/hover-compact-contract-20261103/REPORT_CN.md)
 - **教师推理已归档。** 4 个封存真实批次共 214 次响应，服务模型均为 `deepseek-flash`（thinking enabled / high）。推理 token 53,319，占输出 token 70.5%、全部 token 1.8%；69 次（32.2%）响应推理为 0，说明教师本身已在选择性思考。只覆盖开发任务，不是 train 侧教师数据。[复算脚本与汇总](audit/teacher-reasoning-usage-20261108/summary.json)
-- **数据与训练状态。** 既有 174 题划分含 116/29/29 道训练、开发及测试题。G1/G2 保留其中 29 道开发题。另行确认的 600 题来自原 1,500 题基准；正式教师数据、新学生权重和本轮对照成绩待产出。[划分与暴露记录](results/task-coverage-splits-20261103/REPORT_CN.md)
+- **数据与训练状态。** 既有 174 题划分含 116/29/29 道训练、开发及测试题。G1/G2 保留其中 29 道开发题。冻结的 600 题已完成教师正式评测。用于训练的轨迹还需按场景归属、动作与回执及质量筛选，学生 SFT 与 RL 尚未启动。[划分与暴露记录](results/task-coverage-splits-20261103/REPORT_CN.md) · [正式报告](results/flockcue-deployment600-20261111/REPORT_CN.md)
 
 ### S01–S14 · 可复用能力与验证边界
 
@@ -61,8 +75,8 @@
 | S10 Teacher 接入与成本 | — |
 | S11 任务来源与划分 | 已冻结父场景划分，测试侧做过预定质量审计。共享模板、目标初始可见和少量测试父场景限制泛化结论。[划分报告](results/task-coverage-splits-20261103/REPORT_CN.md) |
 | S12 历史动作样本 | 旧监督目标是主 Agent 的下一条回复，推理不进入输入与监督。22 个计划槽、98 次决策产出 61 条开发格式样本，已有 tokenizer、调用 ID 对齐和加载验证。新样本保留推理，使用新版转换器，旧样本不改写。[旧样本验收](results/agent-samples-student-input-20261103/REPORT_CN.md) · [同名工具 ID 修复](results/student-tool-ids-v2-20261103/REPORT_CN.md) |
-| S13 学生 SFT | Qwen3-1.7B tokenizer 已用于开发输入长度检查；固定模板会渲染首条任务之后的历史推理。学生接入已通过 Mac 无卡夹具验证，Qwen3.5-2B 的真实权重完成了单题开发运行。SFT 参数更新及导出仍待实施。[Mac 验收](results/thinking-student-cpu-20261108/REPORT_CN.md) |
-| S14 RL 与最终评测 | 有历史任务评分器、独立进程与公平对照协议可复用。尚无本项目 RL 结果。RL 与轨迹验证器归入第二篇论文。[公平验证协议](HARNESS_VALIDATION_PROTOCOL_CN.md) · [研究路线](RESEARCH_ROADMAP_CN.md) |
+| S13 学生 SFT | Qwen3-1.7B tokenizer 已用于开发输入长度检查；固定模板会渲染首条任务之后的历史推理。学生接入已通过 Mac 和 Linux 检查，两种原始权重已完成 29 题零样本筛查。SFT 参数更新及导出仍待实施。[Mac 验收](results/thinking-student-cpu-20261108/REPORT_CN.md) |
+| S14 RL 与最终评测 | 有历史任务评分器、独立进程与公平对照协议可复用。尚无本项目 RL 结果。RL 接在 SFT 之后，轨迹验证器的过程奖励仍属后续研究。[公平验证协议](HARNESS_VALIDATION_PROTOCOL_CN.md) · [研究路线](RESEARCH_ROADMAP_CN.md) |
 
 ### 真实小批与本地修复的解释范围
 
@@ -79,21 +93,27 @@
 
 ## Working Hypotheses — 待检验的贡献
 
-小型指挥模型需要深思的轮次，集中在执行状态发生变化的时刻。用执行事件监督思考，在相同成功率下比教师自选、LoGiC 和固定间隔消耗更少的推理 token，机队越大优势越明显。只做 SFT 的降幅可能有限，RACE 只做 SFT 时为 4.3–20.0%。若四种标签相当，结论改为"执行状态信号已被教师或似然信号隐含"。[研究路线](RESEARCH_ROADMAP_CN.md#研究主线)
+当前待检验的是定型 Harness 上，可信 DeepSeek 示范能否改善 2B 的独立整题成功率，以及 RL 能否在 SFT 基础上进一步改善。
+
+暂缓的选择性思考假设认为，小型指挥模型需要深思的轮次集中在执行状态发生变化的时刻。用执行事件监督思考，在相同成功率下比教师自选、LoGiC 和固定间隔消耗更少的推理 token，机队越大优势越明显。只做 SFT 的降幅可能有限，RACE 只做 SFT 时为 4.3–20.0%。若四种标签相当，结论改为"执行状态信号已被教师或似然信号隐含"。[研究路线](RESEARCH_ROADMAP_CN.md#研究主线)
 
 ## Open Questions — 待确定
 
-- 约 2B 学生在 compact 工具下的零样本成功率和上下文长度是多少，任务是否太简单或输入太长（G1）？
-- 学生开启与关闭思考的成功率差距有多大（G2）？
+- 哪些模块独立影响整题通过率，以及后续对 2B 学生“足够好”的通过率数值。
+- 2B 的 58 个回合中有 56 个因工具参数格式错误停止。实际工具描述中的示例对这一行为影响多大，现有数据尚不能确定。[参数错误核查](results/flockcue-a100-g1g2-20261110/TOOL_ARGUMENTS_CN.md)
 - 在扩大任务族后，效果未知和部分完成能否在自然条件下获得足够样本？当前开发回合的分层频次见 [G3 报告](results/thinking-events-g3-20261108/REPORT_CN.md)。
-- 600 题中如何分配每个学生可用于训练、选参数和最终计分的场景？当前建议按“任务族 × 难度”分层做整场景两折，每折 300 题。这衡量已知基准上本轮训练留出场景的表现；对全新场景的泛化需要单独证据。[第 2 步规格草案](specs/02-benchmark600-sft/spec.md)
+- 首个学生已按 A 折 12 场训练、3 场内部验证、B 折 15 场外部评测分开构建数据。反向训练的权重与配方仍待确定，两方向的选参须与相应折外场景隔离。[第 2 步规格草案](specs/02-benchmark600-sft/spec.md)
 
 ## Next Actions — 当前交接点
 
-修正示例下的 2B 单题开关思考开发对照已完成，原评分器与实际动作顺序分别归档。2B 已确定为 29 题正式筛查的主模型，两臂沿用同一修正版起飞示例，另列按题面要求执行的动作与公开回执。[同题开关思考对照](results/qwen35-hover-thinking-mac-20261109/REPORT_CN.md)
+先用 A 折已审阅教师轮生成 SFT 样本，复核训练侧的完成声明、失败恢复和长上下文，定稿学生目标与损失掩码。以同一 Harness 下的独立整题通过率比较原始 2B、SFT 和后续 GRPO。[教师轨迹与当前覆盖](results/flockcue-teacher-trajectories-a-20261111/REPORT_CN.md)
 
-用户于 2026-11-08 将两项 Linux 验收顺延到租用 GPU 服务器时。届时先在同一台主机用 CPU 复验学生接入（T36a）和 20 题连续会话，再做 T37 真实权重测速。若租金从开机计起，安装和复验用时一并计入该次预算。[连续会话入口](results/flockcue-mac-session-20261108/REPORT_CN.md) · [学生接入无卡步骤](results/thinking-student-cpu-20261108/LINUX_CPU_CN.md)
+同日 Harness 对照已完成。核查具体机制时，可从这 200 题的 26 个不一致题定位场景、动作和失败检查。[同日逐题配对](results/agent4drone-matched200-20261111/pairs.csv)
 
-新版 G1/G2 的 116 个推理槽（29 道开发题 × 四个条件）仍待运行。同时可评审 600 题的采数、训练和会话评测方案。正式教师采集须先通过三道门槛并批准该阶段预算。[实施任务](specs/01-thinking-events/task.md) · [验收进度](specs/01-thinking-events/checklist.md)
+12 道旧过新失题中，8 题有指定机拍照成功但目标入镜检查未过的记录，5 题同时出现指定机的障碍回执和未满足的位置或路程要求，两项可重叠。12 题均未直接调用预定义子程序。先核查拍照、到位及完成声明是否有公开证据支撑。评估单个模块时固定题初状态与教师服务。[不一致题的执行证据](results/flockcue-deployment600-20261111/MECHANISMS_CN.md)
+
+### 选择性思考前期交接记录
+
+在原选择性思考方案中，教师采集的三道门槛仅 G3 通过。第 0 阶段交接材料为 116 个回合的独立评分、T37 测速及 2B 参数错误核查。11 月 11 日已重放 4B 全部 147 次请求，50 个因工具顶层字段错误而停止的回合均出现模型自填的调用 ID。[4B 全量核验](results/flockcue-a100-g1g2-20261110/TOOL_FIELDS_4B_CN.md) 2B 已定位到 24 道题、46 个回合的感知工具参数错误，并核实另 4 个回合有正确感知回执。这 50 个历史位置的 2B 配对推理已完成，旧、新说明中合法感知调用分别为 4/50、15/50，12 对改善、1 对退化。100 份输出均经 Mac 独立复算。随后已完成新说明下全部 58 个整题回合。2B 开思考仍为 1/29、关思考为 0/29，开臂有 26 个可归因失败，G1 未通过。开关净差 +1 且仅 1 个父场景改善，G2 未通过。感知工具参数导致的停机从 46 个回合降至 33 个，其他工具参数导致的停机从 10 个增至 22 个。两场 40 题的教师试采随后获得用户授权，沿用复测 C 接口和冻结清单。[整题复测](results/flockcue-a100-g1g2-retest-20261111/REPORT_CN.md) · [40 题试采预算](specs/04-deepseek-pilot40/plan.md)。[单轮正式结果](results/flockcue-a100-sense-example-20261111/REPORT_CN.md) · [验收记录](specs/03-sense-tool-example/checklist.md#验收记录) [感知工具复核](results/flockcue-a100-interface-20261111/README_CN.md) · [已确认规格](specs/03-sense-tool-example/spec.md) · [技术方案与卡时](specs/03-sense-tool-example/plan.md)。600 题的采数与训练方案仍为草案。[筛查报告](results/flockcue-a100-g1g2-20261110/REPORT_CN.md) · [错误核查](results/flockcue-a100-g1g2-20261110/TOOL_ARGUMENTS_CN.md) · [第 2 步规格草案](specs/02-benchmark600-sft/spec.md)
 
 2026-11-08 的仓库整理记录见[清理清单](maintenance/cleanup-20261108.json)。旧报告中的 W 编号、"第五项"、验证器六步和当批"下一步"属于当时的编排，对照见[研究路线](RESEARCH_ROADMAP_CN.md#旧编号对照)。[实验依据](EXPERIMENT_EVIDENCE_CN.md) · [原始后训练调研](SMALL_MODEL_POSTTRAINING_SURVEY_CN.html)

@@ -1,0 +1,14 @@
+# Direct dependencies. Compile with Python 3.11.
+# 0.107.0 brings Starlette 0.28 body replay required by RequestLoggingMiddleware.
+fastapi==0.107.0
+httpx[socks]==0.27.2
+uvicorn==0.23.2
+pygame==2.5.2
+pydantic==2.4.2
+typing-extensions==4.8.0
+python-dotenv==1.0.0
+geopy==2.4.0
+Pillow==10.4.0
+shapely>=2.0,<3
+# Pygame 2.5.2 imports pkg_resources, which newer setuptools removes.
+setuptools<81

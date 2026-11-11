@@ -22,10 +22,12 @@ A Python GUI application for controlling UAVs (drones) through a RESTful API int
 
 Before running the GUI controller, make sure you have:
 
-1. Python 3.7 or higher installed
+1. Python 3.11 with working Tcl/Tk (verified with the project-local Python 3.11.16)
 2. The MultiUAV-Plat Control System API server running on `http://127.0.0.1:8000`
 
 ## Installation
+
+Use this component's own virtual environment. The repository-root command `bash scripts/setup_python_envs.sh --dev` installs the verified environments on macOS/Linux; afterward run `source .venv/bin/activate` from this directory. See [dependency setup and remaining test issues](../docs/DEPENDENCY_SETUP_CN.md). For manual installation, create and activate a Python 3.11 environment with Tk before the command below.
 
 1. Install the required dependencies:
 ```bash

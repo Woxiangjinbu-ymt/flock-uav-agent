@@ -181,5 +181,5 @@ def test_mode_configuration_default_off_explicit_override_and_invalid_value(monk
     assert UAVControlAgent().task_progress_mode == "summary"
     assert UAVControlAgent(task_progress_mode="off").task_progress_mode == "off"
     monkeypatch.setenv("UAV_TASK_PROGRESS_MODE", "invalid")
-    with pytest.raises(ValueError, match="off, shadow, or summary"):
+    with pytest.raises(ValueError, match="Unsupported task_progress_mode"):
         UAVControlAgent()

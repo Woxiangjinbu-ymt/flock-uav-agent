@@ -128,6 +128,7 @@ def _frozen_sources(root, protocol):
     else:
         extras.extend(["scripts/flockcue_qwen35/" + name for name in
                        ("__init__.py", "adapter.py", "mac_model.py", "takeoff_example.py")])
+        extras.append("training/model-manifests/Qwen3.5-2B.json")
         legacy_models = {"4B": MODEL_REVISIONS["4B"]}
     for model, revision in legacy_models.items():
         name = f"training/model-manifests/{model}.json"

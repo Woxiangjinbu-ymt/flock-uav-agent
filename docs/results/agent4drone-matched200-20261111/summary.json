@@ -1,0 +1,427 @@
+{
+  "status": "completed",
+  "started_at": "2026-11-11T18:05:04+0800",
+  "finished_at": "2026-11-11T19:47:28+0800",
+  "attempt": "./outputs/agent4drone-matched200-v1/experiments/runs/20261111-180503-agent4drone-matched200-v1-22e06f82",
+  "identity_sha256": "c10aa4612ff50e2f56cfa22a106cd6b9ab981fc2137c333eb340a050ffc2e1d4",
+  "plan_sha256": "d1c252e1f377c8c79a612063594451f7d553960dcea67474ba7b16a9711b7ec3",
+  "scene_seals": {
+    "14289fc5": true,
+    "72ccacd0": true,
+    "c67bc3cd": true,
+    "25239af9": true,
+    "9b21081a": true,
+    "ef36e27a": true,
+    "cc14d231": true,
+    "5de86ceb": true,
+    "e76728cc": true,
+    "35ce64d8": true
+  },
+  "totals": {
+    "n": 200,
+    "october_agent4drone": 168,
+    "day_flockcue": 182,
+    "evening_agent4drone": 168,
+    "flockcue_minus_evening": 14,
+    "evening_minus_october": 0,
+    "current_pairs": {
+      "both_pass": 162,
+      "flockcue_only": 20,
+      "agent4drone_only": 6,
+      "both_fail": 12
+    }
+  },
+  "by_scene": {
+    "14289fc5": {
+      "n": 20,
+      "october_agent4drone": 19,
+      "day_flockcue": 19,
+      "evening_agent4drone": 19,
+      "flockcue_minus_evening": 0,
+      "evening_minus_october": 0,
+      "current_pairs": {
+        "both_pass": 19,
+        "flockcue_only": 0,
+        "agent4drone_only": 0,
+        "both_fail": 1
+      }
+    },
+    "72ccacd0": {
+      "n": 20,
+      "october_agent4drone": 18,
+      "day_flockcue": 19,
+      "evening_agent4drone": 17,
+      "flockcue_minus_evening": 2,
+      "evening_minus_october": -1,
+      "current_pairs": {
+        "both_pass": 17,
+        "flockcue_only": 2,
+        "agent4drone_only": 0,
+        "both_fail": 1
+      }
+    },
+    "c67bc3cd": {
+      "n": 20,
+      "october_agent4drone": 19,
+      "day_flockcue": 18,
+      "evening_agent4drone": 18,
+      "flockcue_minus_evening": 0,
+      "evening_minus_october": -1,
+      "current_pairs": {
+        "both_pass": 17,
+        "flockcue_only": 1,
+        "agent4drone_only": 1,
+        "both_fail": 1
+      }
+    },
+    "25239af9": {
+      "n": 20,
+      "october_agent4drone": 18,
+      "day_flockcue": 18,
+      "evening_agent4drone": 19,
+      "flockcue_minus_evening": -1,
+      "evening_minus_october": 1,
+      "current_pairs": {
+        "both_pass": 18,
+        "flockcue_only": 0,
+        "agent4drone_only": 1,
+        "both_fail": 1
+      }
+    },
+    "9b21081a": {
+      "n": 20,
+      "october_agent4drone": 18,
+      "day_flockcue": 18,
+      "evening_agent4drone": 16,
+      "flockcue_minus_evening": 2,
+      "evening_minus_october": -2,
+      "current_pairs": {
+        "both_pass": 15,
+        "flockcue_only": 3,
+        "agent4drone_only": 1,
+        "both_fail": 1
+      }
+    },
+    "ef36e27a": {
+      "n": 20,
+      "october_agent4drone": 18,
+      "day_flockcue": 20,
+      "evening_agent4drone": 20,
+      "flockcue_minus_evening": 0,
+      "evening_minus_october": 2,
+      "current_pairs": {
+        "both_pass": 20,
+        "flockcue_only": 0,
+        "agent4drone_only": 0,
+        "both_fail": 0
+      }
+    },
+    "cc14d231": {
+      "n": 20,
+      "october_agent4drone": 12,
+      "day_flockcue": 18,
+      "evening_agent4drone": 11,
+      "flockcue_minus_evening": 7,
+      "evening_minus_october": -1,
+      "current_pairs": {
+        "both_pass": 10,
+        "flockcue_only": 8,
+        "agent4drone_only": 1,
+        "both_fail": 1
+      }
+    },
+    "5de86ceb": {
+      "n": 20,
+      "october_agent4drone": 15,
+      "day_flockcue": 16,
+      "evening_agent4drone": 15,
+      "flockcue_minus_evening": 1,
+      "evening_minus_october": 0,
+      "current_pairs": {
+        "both_pass": 14,
+        "flockcue_only": 2,
+        "agent4drone_only": 1,
+        "both_fail": 3
+      }
+    },
+    "e76728cc": {
+      "n": 20,
+      "october_agent4drone": 18,
+      "day_flockcue": 18,
+      "evening_agent4drone": 17,
+      "flockcue_minus_evening": 1,
+      "evening_minus_october": -1,
+      "current_pairs": {
+        "both_pass": 16,
+        "flockcue_only": 2,
+        "agent4drone_only": 1,
+        "both_fail": 1
+      }
+    },
+    "35ce64d8": {
+      "n": 20,
+      "october_agent4drone": 13,
+      "day_flockcue": 18,
+      "evening_agent4drone": 16,
+      "flockcue_minus_evening": 2,
+      "evening_minus_october": 3,
+      "current_pairs": {
+        "both_pass": 16,
+        "flockcue_only": 2,
+        "agent4drone_only": 0,
+        "both_fail": 2
+      }
+    }
+  },
+  "by_family": {
+    "area_assignment_and_patrol": {
+      "n": 60,
+      "october_agent4drone": 56,
+      "day_flockcue": 56,
+      "evening_agent4drone": 54,
+      "flockcue_minus_evening": 2,
+      "evening_minus_october": -2,
+      "current_pairs": {
+        "both_pass": 53,
+        "flockcue_only": 3,
+        "agent4drone_only": 1,
+        "both_fail": 3
+      }
+    },
+    "area_search": {
+      "n": 60,
+      "october_agent4drone": 54,
+      "day_flockcue": 56,
+      "evening_agent4drone": 55,
+      "flockcue_minus_evening": 1,
+      "evening_minus_october": 1,
+      "current_pairs": {
+        "both_pass": 53,
+        "flockcue_only": 3,
+        "agent4drone_only": 2,
+        "both_fail": 2
+      }
+    },
+    "target_assignment": {
+      "n": 80,
+      "october_agent4drone": 58,
+      "day_flockcue": 70,
+      "evening_agent4drone": 59,
+      "flockcue_minus_evening": 11,
+      "evening_minus_october": 1,
+      "current_pairs": {
+        "both_pass": 56,
+        "flockcue_only": 14,
+        "agent4drone_only": 3,
+        "both_fail": 7
+      }
+    }
+  },
+  "by_difficulty": {
+    "Easy": {
+      "n": 40,
+      "october_agent4drone": 37,
+      "day_flockcue": 37,
+      "evening_agent4drone": 38,
+      "flockcue_minus_evening": -1,
+      "evening_minus_october": 1,
+      "current_pairs": {
+        "both_pass": 37,
+        "flockcue_only": 0,
+        "agent4drone_only": 1,
+        "both_fail": 2
+      }
+    },
+    "Intermediate": {
+      "n": 40,
+      "october_agent4drone": 36,
+      "day_flockcue": 37,
+      "evening_agent4drone": 34,
+      "flockcue_minus_evening": 3,
+      "evening_minus_october": -2,
+      "current_pairs": {
+        "both_pass": 33,
+        "flockcue_only": 4,
+        "agent4drone_only": 1,
+        "both_fail": 2
+      }
+    },
+    "Moderate": {
+      "n": 40,
+      "october_agent4drone": 32,
+      "day_flockcue": 36,
+      "evening_agent4drone": 34,
+      "flockcue_minus_evening": 2,
+      "evening_minus_october": 2,
+      "current_pairs": {
+        "both_pass": 33,
+        "flockcue_only": 3,
+        "agent4drone_only": 1,
+        "both_fail": 3
+      }
+    },
+    "Extreme": {
+      "n": 40,
+      "october_agent4drone": 30,
+      "day_flockcue": 36,
+      "evening_agent4drone": 27,
+      "flockcue_minus_evening": 9,
+      "evening_minus_october": -3,
+      "current_pairs": {
+        "both_pass": 25,
+        "flockcue_only": 11,
+        "agent4drone_only": 2,
+        "both_fail": 2
+      }
+    },
+    "Hard": {
+      "n": 40,
+      "october_agent4drone": 33,
+      "day_flockcue": 36,
+      "evening_agent4drone": 35,
+      "flockcue_minus_evening": 1,
+      "evening_minus_october": 2,
+      "current_pairs": {
+        "both_pass": 34,
+        "flockcue_only": 2,
+        "agent4drone_only": 1,
+        "both_fail": 3
+      }
+    }
+  },
+  "equal_family_delta_pp": 6.25,
+  "whole_scene_descriptive_95_pp": [
+    3.5000000000000004,
+    10.5
+  ],
+  "common_checked_current": {
+    "n": 200,
+    "october_agent4drone": 168,
+    "day_flockcue": 182,
+    "evening_agent4drone": 168,
+    "flockcue_minus_evening": 14,
+    "evening_minus_october": 0,
+    "current_pairs": {
+      "both_pass": 162,
+      "flockcue_only": 20,
+      "agent4drone_only": 6,
+      "both_fail": 12
+    }
+  },
+  "common_checked_all_three": {
+    "n": 194,
+    "october_agent4drone": 168,
+    "day_flockcue": 177,
+    "evening_agent4drone": 164,
+    "flockcue_minus_evening": 13,
+    "evening_minus_october": -4,
+    "current_pairs": {
+      "both_pass": 158,
+      "flockcue_only": 19,
+      "agent4drone_only": 6,
+      "both_fail": 11
+    }
+  },
+  "evening_accounting": {
+    "observed_checker": 200
+  },
+  "evening_unscored": 0,
+  "evening_unstarted": 0,
+  "evening_strict": 168,
+  "evening_timeouts": 7,
+  "evening_observed_checks": 1303,
+  "expected_checks": 1303,
+  "scoring_ready_s": {
+    "count": 200,
+    "mean_seconds": 130.0809582388401,
+    "p50_seconds": 80.35972428321838,
+    "p95_seconds": 411.5009187459945,
+    "max_seconds": 500.06935000419617
+  },
+  "day_scoring_ready_s": {
+    "count": 200,
+    "mean_seconds": 100.2183599615097,
+    "p50_seconds": 50.597667813301086,
+    "p95_seconds": 384.07951971292465,
+    "max_seconds": 500.0579421520233
+  },
+  "day_http_latency_s": {
+    "count": 3111,
+    "mean_seconds": 6.200059319073979,
+    "p50_seconds": 2.7272677079999994,
+    "p95_seconds": 23.677268312501837,
+    "max_seconds": 285.56173424999724
+  },
+  "gateway_evening": [
+    {
+      "name": "first_response_metadata",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 43,
+        "total_tokens": 354,
+        "cache_hit_tokens": 128,
+        "cache_miss_tokens": 183
+      }
+    },
+    {
+      "name": "final_response_metadata",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "usage": {
+        "prompt_tokens": 375,
+        "completion_tokens": 3,
+        "total_tokens": 378,
+        "cache_hit_tokens": 128,
+        "cache_miss_tokens": 247
+      }
+    }
+  ],
+  "day_preflight_fingerprints": [
+    "bc19ba97cbe016479903222bb1578db6"
+  ],
+  "day_task_fingerprints": {
+    "bc19ba97cbe016479903222bb1578db6": 3110
+  },
+  "day_2xx": 3110,
+  "day_http_with_usage": 3110,
+  "evening_2xx": 2846,
+  "evening_2xx_fingerprints": {
+    "bc19ba97cbe016479903222bb1578db6": 2846
+  },
+  "evening_2xx_models": {
+    "deepseek-flash": 2846
+  },
+  "evening_transport_errors": {},
+  "known_task_usage": {
+    "http_dispatched": 2846,
+    "status_codes": {
+      "200": 2846
+    },
+    "http_with_usage": 2846,
+    "http_with_reasoning_usage": 2846,
+    "http_with_wire_response_facts": 0,
+    "http_retries": 0,
+    "models": {
+      "deepseek-flash": 2846
+    },
+    "fingerprints": {
+      "bc19ba97cbe016479903222bb1578db6": 2846
+    },
+    "finish_reasons": {},
+    "latency_seconds": {
+      "count": 2846,
+      "mean_seconds": 8.949730900179887,
+      "p50_seconds": 3.202859396000349,
+      "p95_seconds": 36.00375163574881,
+      "max_seconds": 176.64319662499474
+    },
+    "prompt_tokens": 147652051,
+    "completion_tokens": 4372508,
+    "total_tokens": 152024559,
+    "cache_hit_tokens": 139944576,
+    "cache_miss_tokens": 7707475,
+    "reasoning_tokens": 3811975
+  }
+}

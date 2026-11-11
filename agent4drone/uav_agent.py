@@ -7,7 +7,10 @@ switching the internal agent runtime away from langchain_classic.
 import argparse
 import json
 import os
+import threading
+import time
 import uuid
+from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 from types import SimpleNamespace
@@ -24,10 +27,17 @@ from blackboard import PerceptionBlackboard
 from uav_api_client import UAVAPIClient
 from uav_langchain_tools import create_uav_tools
 from logging_config import get_logger
-from template.system_prompt import build_system_prompt
+from template.system_prompt import build_system_prompt, validate_input_layout
 
 
 logger = get_logger(__name__)
+_EPISODE_GATE_INITIALIZATION = threading.Lock()
+
+
+class AgentBusyError(RuntimeError):
+    """An operation was refused before touching an active agent command."""
+
+    code = "agent_busy"
 
 
 def patch_openai_compatible_reasoning_content() -> None:
@@ -329,14 +339,45 @@ class UAVControlAgent:
         share_blackboard_by_session: bool = False,
         toolchain_json_recording: bool = False,
         task_progress_mode: Optional[str] = None,
+        model_io_archive: Optional[bool] = None,
+        model_io_archive_dir: Optional[str] = None,
+        input_layout: Optional[str] = None,
+        completion_contract: Optional[str] = None,
+        tool_input_contract: Optional[str] = None,
     ):
+        from hover_completion import validate_completion_contract
+        from tool_input_contract import validate_input_json_contract
+        self.completion_contract = validate_completion_contract(
+            os.environ.get("UAV_COMPLETION_CONTRACT", "off") if completion_contract is None else completion_contract
+        )
+        self.tool_input_contract = validate_input_json_contract(
+            os.environ.get("UAV_TOOL_INPUT_CONTRACT", "string_v1") if tool_input_contract is None else tool_input_contract
+        )
+        self.input_layout = validate_input_layout(
+            os.environ.get("UAV_AGENT_INPUT_LAYOUT", "full_v1") if input_layout is None else input_layout
+        )
         mode = task_progress_mode if task_progress_mode is not None else os.environ.get("UAV_TASK_PROGRESS_MODE", "off")
         self.task_progress_mode = str(mode).strip().lower()
-        if self.task_progress_mode not in {"off", "shadow", "summary", "evidence_shadow", "evidence_prompt", "evidence"}:
-            raise ValueError("task_progress_mode must be off, shadow, or summary (v1), or evidence_shadow, evidence_prompt, evidence (M1-R)")
+        if self.completion_contract != "off" and self.task_progress_mode == "off":
+            raise ValueError("Completion contract requires a command-local public evidence ledger")
+        if self.task_progress_mode not in {"off", "shadow", "summary", "evidence_shadow", "evidence_prompt", "evidence",
+                                           "evidence_r2", "evidence_r2_hints", "evidence_r2_shadow",
+                                           "evidence_r3", "evidence_r3_shadow", "evidence_r2_worker",
+                                           "evidence_r2_search", "evidence_harness",
+                                           "evidence_memory", "evidence_memory_harness",
+                                           "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}:
+            raise ValueError("Unsupported task_progress_mode; use off, shadow, summary, evidence[_shadow|_prompt], evidence_r2[_hints|_shadow|_worker|_search], evidence_harness, evidence_memory[_v2|_v3|_v4][_harness], or evidence_r3[_shadow]")
         self._task_progress = None
         self._task_progress_middleware = None
-        self._model_request_audit_enabled = self.task_progress_mode.startswith("evidence") or os.environ.get("UAV_MODEL_REQUEST_AUDIT") == "1"
+        self._episode_lock = threading.Lock()
+        self._model_io_archive_enabled = (os.environ.get("UAV_MODEL_IO_ARCHIVE") == "1"
+                                          if model_io_archive is None else bool(model_io_archive))
+        self._model_io_archive_dir = model_io_archive_dir or os.environ.get("UAV_MODEL_IO_ARCHIVE_DIR")
+        self._model_io_archive = None
+        self._model_io_archive_error = None
+        self._model_request_audit_enabled = (self.task_progress_mode.startswith("evidence")
+                                             or os.environ.get("UAV_MODEL_REQUEST_AUDIT") == "1"
+                                             or self._model_io_archive_enabled)
         self._model_wire_requests = []
         self._model_wire_errors = []
         self.client = UAVAPIClient(base_url, api_key=uav_api_key)
@@ -485,7 +526,11 @@ class UAVControlAgent:
         if getattr(self, "_model_request_audit_enabled", False):
             try:
                 from model_request_audit import attach_request_hooks
-                attach_request_hooks(llm, self._audit_model_request, self._aaudit_model_request)
+                if (getattr(self, "_model_io_archive_enabled", False) or self.task_progress_mode in {"evidence_harness", "evidence_memory_harness", "evidence_memory_v2_harness", "evidence_memory_v3_harness", "evidence_memory_v4_harness", "evidence_memory_v5_harness", "evidence_memory_v6_harness", "evidence_memory_v7_harness"}):
+                    attach_request_hooks(llm, self._audit_model_request, self._aaudit_model_request,
+                                         self._audit_model_response, self._aaudit_model_response)
+                else:
+                    attach_request_hooks(llm, self._audit_model_request, self._aaudit_model_request)
             except Exception as exc:
                 self._model_wire_errors.append("setup:" + type(exc).__name__)
         if self.debug:
@@ -494,10 +539,36 @@ class UAVControlAgent:
         return llm
 
     def _audit_model_request(self, request) -> None:
+        if getattr(self, "_model_io_archive_enabled", False):
+            try:
+                from model_io_archive import archive_request, current_archive
+                owner = current_archive()
+                # Never attribute a detached/late request to whichever command
+                # is current now. The direct observation worker is explicitly
+                # outside this archive, but retains its existing hash audit.
+                if getattr(self, "_in_observation_worker", False):
+                    # A nested bare llm.invoke inherits its parent's ContextVar
+                    # but is not that graph call. Keep only its old hash audit.
+                    pass
+                elif owner is None:
+                    # This also quarantines any previously bound Request
+                    # reused outside a logical model call.
+                    archive_request(request)
+                    return
+                elif owner is not getattr(self, "_model_io_archive", None) or owner.closed:
+                    return
+                else:
+                    if archive_request(request) is None:
+                        return
+            except Exception as exc:
+                self._note_model_io_archive_error(exc)
         try:
             from model_request_audit import request_record
             record = request_record(request)
-            previous = self._model_wire_requests[-1] if self._model_wire_requests else None
+            role = "observation_worker" if getattr(self, "_in_observation_worker", False) else "main"
+            record["agent_role"] = role
+            previous = next((item for item in reversed(self._model_wire_requests)
+                             if item.get("agent_role", "main") == role), None)
             common = 0
             if previous:
                 for a, b in zip(previous["message_sha256"], record["message_sha256"]):
@@ -510,12 +581,35 @@ class UAVControlAgent:
             ledger = getattr(self, "_task_progress", None)
             model_calls = getattr(ledger, "model_requests", [])
             record["middleware_request_index"] = len(model_calls) - 1 if model_calls else None
+            harness = getattr(self, "_harness", None)
+            if harness is not None:
+                harness.wire_start(request, record)
+                request.extensions["uav_harness_owner"] = harness
             self._model_wire_requests.append(record)
         except Exception as exc:
             self._model_wire_errors.append(type(exc).__name__)
 
     async def _aaudit_model_request(self, request) -> None:
         self._audit_model_request(request)
+
+    def _audit_model_response(self, response) -> None:
+        if getattr(self, "_model_io_archive_enabled", False):
+            try:
+                from model_io_archive import archive_response, request_is_ambiguous
+                archive_response(response)
+                if request_is_ambiguous(response.request):
+                    return
+            except Exception as exc:
+                self._note_model_io_archive_error(exc)
+        try:
+            harness = response.request.extensions.get("uav_harness_owner")
+            if harness is not None and not getattr(harness, "_closed", False):
+                harness.wire_response(response)
+        except Exception as exc:
+            self._model_wire_errors.append(type(exc).__name__)
+
+    async def _aaudit_model_response(self, response) -> None:
+        self._audit_model_response(response)
 
     def _create_tools(self, blackboard: Optional[PerceptionBlackboard] = None) -> List[Any]:
         return create_uav_tools(self.client, blackboard=blackboard)
@@ -542,13 +636,24 @@ class UAVControlAgent:
             decreased = bool(previous and isinstance(previous[2], (int, float)) and
                              isinstance(marker[2], (int, float)) and marker[2] < previous[2])
             if previous and (marker[:2] != previous[:2] or decreased):
-                self.reset_task_evidence(str(session_id))
+                # Command preparation already owns the episode gate. This
+                # internal observed-reset path must not reacquire that gate.
+                self._clear_task_evidence(str(session_id))
             markers[str(session_id)] = marker
             self._evidence_session_markers = markers
         return str(session_id) if session_id else None
 
     def reset_task_evidence(self, session_id: Optional[str] = None) -> None:
-        """Invalidate scene memory after an explicit same-ID world reload/reset."""
+        """Clear idle-agent memory after world reset; never reset the world.
+
+        A cancellation request alone does not make the agent idle. The caller
+        must wait for execute() to return before restoring a shared world and
+        clearing evidence. Busy resets have no memory/client side effects.
+        """
+        with self._exclusive_episode("reset_task_evidence"):
+            self._clear_task_evidence(session_id)
+
+    def _clear_task_evidence(self, session_id: Optional[str] = None) -> None:
         boards = getattr(self, "_session_blackboards", {})
         for sid, board in list(boards.items()):
             if session_id is None or sid == session_id:
@@ -569,16 +674,41 @@ class UAVControlAgent:
         return blackboard
 
     def _build_system_prompt(self) -> str:
-        return build_system_prompt(self.tools)
+        prompt = build_system_prompt(self.tools, input_layout=getattr(self, "input_layout", "full_v1"),
+                                    tool_input_contract=getattr(self, "tool_input_contract", "string_v1"))
+        if getattr(self, "_harness", None) is not None:
+            from harness_integration import HARNESS_RULES
+            prompt += "\n\n" + HARNESS_RULES
+        if getattr(self, "completion_contract", "off") in {"hover_completion_v1", "hover_completion_v2"}:
+            from hover_completion import completion_rules
+            rules = completion_rules(getattr(self, "_completion_command", ""), contract=self.completion_contract)
+            if rules:
+                prompt = prompt.replace("1. Always end the final answer with [TASK DONE].",
+                    "1. Use [TASK DONE] only when the scoped hover completion evidence is verified; "
+                    "otherwise state that completion is unverified without this marker.", 1)
+                prompt += "\n\n" + rules
+        return prompt
 
     def _create_agent_runtime(self) -> Any:
+        from tool_input_contract import adapt_input_json_tools
+        self.tools = adapt_input_json_tools(self.tools, getattr(self, "tool_input_contract", "string_v1"))
         middleware = getattr(self, "_task_progress_middleware", None)
-        if middleware is not None:
+        middlewares = [middleware] if middleware is not None else []
+        archive = getattr(self, "_model_io_archive", None)
+        if archive is not None:
+            try:
+                from model_io_archive import ModelIOArchiveMiddleware
+                # Outermost observes rejections as well as successful tool calls.
+                # Its graph input is not the final provider input; HTTP bytes are.
+                middlewares.insert(0, ModelIOArchiveMiddleware(archive))
+            except Exception as exc:
+                self._note_model_io_archive_error(exc)
+        if middlewares:
             return create_agent(
                 model=self.llm,
                 tools=self.tools,
                 system_prompt=self._build_system_prompt(),
-                middleware=[middleware],
+                middleware=middlewares,
             )
         return create_agent(
             model=self.llm,
@@ -597,6 +727,87 @@ class UAVControlAgent:
             from task_progress import TaskProgressLedger, TaskProgressMiddleware
 
             inherited = self.blackboard.full() if self.share_blackboard_by_session else None
+            if mode in {"evidence_r2", "evidence_r2_hints", "evidence_r2_shadow", "evidence_r3", "evidence_r3_shadow", "evidence_r2_worker", "evidence_r2_search", "evidence_harness", "evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}:
+                from task_evidence_r2 import (SessionEvidenceIndexR2, TaskEvidenceLedgerR2,
+                                               TaskEvidenceR2Middleware, progress_tool)
+
+                ledger_type, middleware_type = TaskEvidenceLedgerR2, TaskEvidenceR2Middleware
+                if mode in {"evidence_r3", "evidence_r3_shadow"}:
+                    from task_evidence_r3 import TaskEvidenceLedgerR3, TaskEvidenceR3Middleware
+                    ledger_type, middleware_type = TaskEvidenceLedgerR3, TaskEvidenceR3Middleware
+                memory_mode = mode in {"evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}
+                if memory_mode:
+                    from execution_memory import ExecutionMemoryLedger, SessionEvidenceIndexMemory
+                    from execution_memory_context import ExecutionMemoryMiddleware
+                    ledger_type, middleware_type = ExecutionMemoryLedger, ExecutionMemoryMiddleware
+                    if mode in {"evidence_memory_v2", "evidence_memory_v2_harness"}:
+                        from execution_memory_v2 import ExecutionMemoryLedgerV2
+                        from execution_memory_v2_context import ExecutionMemoryV2Middleware
+                        ledger_type, middleware_type = ExecutionMemoryLedgerV2, ExecutionMemoryV2Middleware
+                    if mode in {"evidence_memory_v3", "evidence_memory_v3_harness"}:
+                        from execution_memory_v3 import ExecutionMemoryLedgerV3
+                        from execution_memory_v3_context import ExecutionMemoryV3Middleware
+                        ledger_type, middleware_type = ExecutionMemoryLedgerV3, ExecutionMemoryV3Middleware
+                    if mode in {"evidence_memory_v4", "evidence_memory_v4_harness"}:
+                        from execution_memory_v4 import ExecutionMemoryLedgerV4
+                        from execution_memory_v4_context import ExecutionMemoryV4Middleware
+                        ledger_type, middleware_type = ExecutionMemoryLedgerV4, ExecutionMemoryV4Middleware
+                    if mode in {"evidence_memory_v5", "evidence_memory_v5_harness"}:
+                        from execution_memory_v5 import ExecutionMemoryLedgerV5
+                        from execution_memory_v5_context import ExecutionMemoryV5Middleware
+                        ledger_type, middleware_type = ExecutionMemoryLedgerV5, ExecutionMemoryV5Middleware
+                    if mode in {"evidence_memory_v6", "evidence_memory_v6_harness"}:
+                        from execution_memory_v6 import ExecutionMemoryLedgerV6
+                        from execution_memory_v6_context import ExecutionMemoryV6Middleware
+                        ledger_type, middleware_type = ExecutionMemoryLedgerV6, ExecutionMemoryV6Middleware
+                    if mode in {"evidence_memory_v7", "evidence_memory_v7_harness"}:
+                        from execution_memory_v7 import ExecutionMemoryLedgerV7
+                        from execution_memory_v7_context import ExecutionMemoryV7Middleware
+                        ledger_type, middleware_type = ExecutionMemoryLedgerV7, ExecutionMemoryV7Middleware
+                if mode == "evidence_r2_worker":
+                    from observation_worker_r2 import (TaskEvidenceWorkerLedger,
+                                                       TaskEvidenceWorkerMiddleware,
+                                                       run_observation_worker)
+                    ledger_type, middleware_type = TaskEvidenceWorkerLedger, TaskEvidenceWorkerMiddleware
+                if mode == "evidence_r2_search":
+                    from coordinated_search_worker_r2 import (TaskEvidenceSearchLedger,
+                                                               TaskEvidenceSearchMiddleware,
+                                                               run_public_search)
+                    ledger_type, middleware_type = TaskEvidenceSearchLedger, TaskEvidenceSearchMiddleware
+                index = getattr(self.blackboard, "task_evidence_index", None)
+                if index is None:
+                    index = (SessionEvidenceIndexMemory if memory_mode else SessionEvidenceIndexR2)(self.blackboard.session_id)
+                    self.blackboard.task_evidence_index = index
+                if not isinstance(index, SessionEvidenceIndexR2):
+                    raise ValueError("Changing evidence revision requires a fresh agent/blackboard")
+                if memory_mode and not isinstance(index, SessionEvidenceIndexMemory):
+                    raise ValueError("Execution memory requires a fresh agent/blackboard")
+                ledger = ledger_type(command, command_id, index=index,
+                                               aggregate_feedback=mode != "evidence_r2_hints",
+                                               inherited_blackboard=inherited, max_summary_chars=3900)
+                if mode in {"evidence_harness", "evidence_memory_harness", "evidence_memory_v2_harness", "evidence_memory_v3_harness", "evidence_memory_v4_harness", "evidence_memory_v5_harness", "evidence_memory_v6_harness", "evidence_memory_v7_harness"}:
+                    from harness_integration import install_harness
+                    middleware = install_harness(self, ledger, execution_memory=memory_mode,
+                                                 memory_variant=mode if memory_mode else "evidence_memory_harness")
+                elif mode == "evidence_r2_worker":
+                    middleware = middleware_type(
+                        ledger,
+                        lambda candidate, run: run_observation_worker(self, ledger, candidate, run),
+                        self._observation_worker_task_started)
+                elif mode == "evidence_r2_search":
+                    middleware = middleware_type(
+                        ledger,
+                        lambda candidate, run: run_public_search(self, ledger, candidate, run),
+                        self._public_search_task_started)
+                else:
+                    middleware = middleware_type(ledger, mode)
+                # Only explicit aggregate tasks gain this tool. No hidden API
+                # call occurs here; the model chooses reads within its budget.
+                if ledger.aggregate and mode in {"evidence_r2", "evidence_r3", "evidence_r2_search", "evidence_harness", "evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}:
+                    self.tools = [*self.tools, progress_tool(self.client, self.blackboard.session_id)]
+                self._task_progress_middleware = middleware
+                self._task_progress = ledger
+                return
             if mode in {"evidence_shadow", "evidence_prompt", "evidence"}:
                 from task_evidence import SessionEvidenceIndex, TaskEvidenceLedger
                 from task_evidence_context import TaskEvidenceMiddleware
@@ -619,6 +830,8 @@ class UAVControlAgent:
             self._task_progress_middleware = TaskProgressMiddleware(ledger, mode=mode)
             self._task_progress = ledger
         except Exception:
+            if mode in {"evidence_harness", "evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}:
+                raise  # An explicitly requested experiment must not silently become a baseline.
             logger.exception("Task-progress observer unavailable command_id=%s; continuing baseline execution", command_id)
 
     def _recursion_limit_for_steps(self) -> int:
@@ -627,6 +840,10 @@ class UAVControlAgent:
 
     def refresh_session_context(self) -> None:
         """Refresh session context information."""
+        with self._exclusive_episode("refresh_session_context"):
+            self._refresh_session_context()
+
+    def _refresh_session_context(self) -> None:
         try:
             session = self.client.get_current_session()
             self.session_context = {
@@ -642,6 +859,12 @@ class UAVControlAgent:
 
     def get_session_summary(self) -> str:
         """Get a summary of the current session."""
+        # This method shares the client recorder/deadline with execute(). Even
+        # read-only requests must not enter another command's API archive.
+        with self._exclusive_episode("get_session_summary"):
+            return self._get_session_summary()
+
+    def _get_session_summary(self) -> str:
         try:
             session = self.client.get_current_session()
             progress = self.client.get_task_progress()
@@ -670,6 +893,12 @@ Drones: {len(drones)} available
     def _normalize_tool_input(self, args: Any) -> Any:
         if isinstance(args, dict) and "input_json" in args and len(args) == 1:
             raw = args.get("input_json")
+            if isinstance(raw, dict) and getattr(self, "tool_input_contract", "string_v1") in {"json_object_or_string_v1", "json_object_or_string_v2"}:
+                # A derived step view only; raw model messages and wire remain intact.
+                try:
+                    return json.loads(json.dumps(raw, ensure_ascii=False, allow_nan=False))
+                except (TypeError, ValueError):
+                    return args  # Keep rejected arguments inspectable; do not execute or repair them here.
             if isinstance(raw, str):
                 try:
                     return json.loads(raw)
@@ -927,12 +1156,20 @@ Drones: {len(drones)} available
         tool_names = self._extract_tool_names(steps)
         recent_tools = ", ".join(tool_names[-10:]) if tool_names else "none"
         last_observation = self._last_observation_preview(steps, max_length=1200) or "none"
+        final_rule = "The final answer must end with [TASK DONE]."
+        finish_rule = "finish only when the mission is complete."
+        if getattr(self, "completion_contract", "off") in {"hover_completion_v1", "hover_completion_v2"}:
+            from hover_completion import parse_hover_contract
+            if parse_hover_contract(original_command)["kind"] != "not_applicable":
+                final_rule = ("Use [TASK DONE] only when the scoped hover completion evidence is verified; "
+                              "otherwise state that completion is unverified without this marker.")
+                finish_rule = "finish with the verified result or explicitly state why completion remains unverified."
         return (
             "Continue the UAV mission after an empty assistant response.\n"
             "Do not restart or repeat completed actions unless current state verification proves it is required.\n"
-            "Check the current drone/session state, continue from the last completed observation, and finish only "
-            "when the mission is complete.\n"
-            "The final answer must end with [TASK DONE].\n\n"
+            "Check the current drone/session state, continue from the last completed observation, and "
+            f"{finish_rule}\n"
+            f"{final_rule}\n\n"
             f"Original command:\n{original_command}\n\n"
             f"Recovery attempt: {retry_index}\n"
             f"Completed tool step count: {len(steps)}\n"
@@ -943,6 +1180,13 @@ Drones: {len(drones)} available
     def _incomplete_output_reason(self, output: str) -> Optional[str]:
         if not output.strip():
             return "Agent stopped without a final response; task completion was not verified."
+        if getattr(self, "completion_contract", "off") in {"hover_completion_v1", "hover_completion_v2"}:
+            from hover_completion import parse_hover_contract
+            if parse_hover_contract(getattr(self, "_completion_command", ""))["kind"] != "not_applicable":
+                # An honest incomplete/unsupported final answer is a normal
+                # return. Evidence assessment, not a string marker, decides
+                # whether a completion claim can be accepted.
+                return None
         if "[TASK DONE]" not in output:
             return "Agent final response did not include [TASK DONE]; task completion was not verified."
         return None
@@ -964,6 +1208,10 @@ Drones: {len(drones)} available
             "empty_response_retries": empty_response_retries,
             "share_blackboard_by_session": getattr(self, "share_blackboard_by_session", None),
         }
+        if getattr(self, "completion_contract", "off") != "off" or getattr(self, "tool_input_contract", "string_v1") != "string_v1":
+            metadata.update(completion_contract=getattr(self, "completion_contract", "off"),
+                            tool_input_contract=getattr(self, "tool_input_contract", "string_v1"),
+                            input_layout=getattr(self, "input_layout", "full_v1"))
         if getattr(self, "task_progress_mode", "off") != "off":
             metadata["task_progress_mode"] = self.task_progress_mode
             metadata["task_progress_active"] = getattr(self, "_task_progress", None) is not None
@@ -981,6 +1229,45 @@ Drones: {len(drones)} available
         empty_response_retries: int,
         tool_names: Optional[List[str]] = None,
     ) -> Dict[str, Any]:
+        if getattr(self, "completion_contract", "off") in {"hover_completion_v1", "hover_completion_v2"}:
+            from hover_completion import assess_hover_completion
+            ledger = getattr(self, "_task_progress", None)
+            try:
+                assessment = assess_hover_completion(command, ledger.snapshot() if ledger is not None else {},
+                                                     contract=self.completion_contract)
+            except Exception as exc:
+                assessment = {"schema": self.completion_contract.replace("_", "-"), "status": "unverified",
+                    "task_completed": None, "completion_claim_accepted": False,
+                    "reasons": ["completion_observer_error:" + type(exc).__name__], "evidence_refs": []}
+            model_output = str(result.get("output", ""))
+            marker_present = "[TASK DONE]" in model_output
+            assessment = {**assessment, "completion_marker_present": marker_present,
+                          "run_returned_normally": bool(result.get("success"))}
+            result = {**result, "completion_assessment": assessment,
+                      "task_completed": assessment.get("task_completed"), "model_output": model_output}
+            if assessment.get("completion_claim_accepted") is False:
+                result["output"] = "Task completion is not verified by the public evidence: " + ", ".join(
+                    str(reason) for reason in assessment.get("reasons", ["completion_evidence_missing"]))
+            # success remains the existing run-status field; task completion is
+            # an explicit separate result, never supplied by a private checker.
+        archive_info = self._finish_model_io_archive(status)
+        if archive_info is not None:
+            result = {**result, "model_io_archive": archive_info}
+        worker_usage = getattr(self, "_observation_worker_token_usage", None)
+        harness = getattr(self, "_harness", None)
+        if harness is not None:
+            harness.close(status)
+            result = {**result, "harness": harness.snapshot()}
+        memory = getattr(self, "_task_progress", None)
+        if (getattr(self, "task_progress_mode", "off") in {"evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}
+                and memory is not None):
+            try:
+                result = {**result, "memory_handoff": memory.handoff()}
+            except Exception as exc:
+                result = {**result, "memory_handoff_error": type(exc).__name__}
+        if worker_usage and worker_usage.get("llm_calls"):
+            result = {**result, "token_usage": dict(result.get("token_usage") or self._empty_token_usage())}
+            merge_token_usage(result["token_usage"], worker_usage)
         if not getattr(self, "toolchain_json_recording", False):
             stop_recording = getattr(getattr(self, "client", None), "stop_api_call_recording", None)
             if callable(stop_recording):
@@ -1014,9 +1301,18 @@ Drones: {len(drones)} available
                 "tool_chain": tool_chain_from_steps(steps),
                 "api_calls": api_calls,
             }
+            if "completion_assessment" in result:
+                record.update(completion_assessment=result["completion_assessment"],
+                              task_completed=result.get("task_completed"), model_output=result["model_output"])
             if getattr(self, "_model_request_audit_enabled", False):
                 record["model_requests_wire"] = self._model_wire_requests
                 record["model_request_audit_errors"] = self._model_wire_errors
+            if archive_info is not None:
+                record["model_io_archive"] = archive_info
+            if harness is not None:
+                record["harness"] = result["harness"]
+            if "memory_handoff" in result:
+                record["memory_handoff"] = result["memory_handoff"]
             ledger = getattr(self, "_task_progress", None)
             if ledger is not None:
                 try:
@@ -1057,7 +1353,87 @@ Drones: {len(drones)} available
             config=config,
         )
 
+    def _note_model_io_archive_error(self, exc):
+        self._model_io_archive_error = type(exc).__name__
+        archive = getattr(self, "_model_io_archive", None)
+        if archive is not None:
+            try:
+                archive.mark_incomplete("observer_error")
+            except Exception:
+                pass
+
+    def _finish_model_io_archive(self, reason):
+        if not getattr(self, "_model_io_archive_enabled", False):
+            return None
+        archive = getattr(self, "_model_io_archive", None)
+        if archive is not None:
+            try:
+                info = archive.close(reason)
+                error = getattr(self, "_model_io_archive_error", None)
+                if error:
+                    info = {**info, "complete": False, "state": "incomplete",
+                            "error_types": sorted(set(info.get("error_types", []) + [error]))}
+                return info
+            except Exception as exc:
+                self._model_io_archive_error = type(exc).__name__
+        return {"state": "incomplete", "complete": False, "path": None,
+                "reasons": ["archive_unavailable"],
+                "error_types": [self._model_io_archive_error] if getattr(self, "_model_io_archive_error", None) else []}
+
+    @contextmanager
+    def _exclusive_episode(self, operation: str):
+        # Older test adapters use __new__; initialize their instance gate under
+        # a lock too, rather than racing two different lazily created locks.
+        with _EPISODE_GATE_INITIALIZATION:
+            gate = getattr(self, "_episode_lock", None)
+            if gate is None:
+                gate = self._episode_lock = threading.Lock()
+        if not gate.acquire(blocking=False):
+            raise AgentBusyError(
+                f"agent_busy: cannot {operation} while this agent has an active operation; "
+                "wait for it to return before retrying or resetting the shared world")
+        try:
+            if getattr(self, "_episode_cleanup_failed", False):
+                raise AgentBusyError(
+                    "agent_busy: previous aborted-command cleanup failed; create a fresh agent instance")
+            yield
+        finally:
+            # Keep ownership through exception/cancellation handling and file
+            # export. A job status flag is not proof its execution has drained.
+            gate.release()
+
     def execute(
+        self,
+        command: str,
+        callbacks: Optional[List[Any]] = None,
+        step_callback: Optional[Any] = None,
+    ) -> Dict[str, Any]:
+        """Run one command exclusively; a busy attempt performs no execution."""
+        with self._exclusive_episode("execute"):
+            try:
+                return self._execute_command(command, callbacks, step_callback)
+            except BaseException:
+                # The legacy body handles Exception and exports its result.
+                # BaseException (e.g. async cancellation) can bypass that path:
+                # invalidate the old runtime and stop recording before reuse,
+                # without inventing a successfully persisted command result.
+                harness = getattr(self, "_harness", None)
+                cleanup = []
+                cleanup.append(lambda: self._finish_model_io_archive("execute_aborted"))
+                if harness is not None:
+                    cleanup.append(lambda: harness.close("execute_aborted"))
+                stop = getattr(getattr(self, "client", None), "stop_api_call_recording", None)
+                if callable(stop):
+                    cleanup.append(stop)
+                for finish in cleanup:
+                    try:
+                        finish()
+                    except BaseException as exc:
+                        self._episode_cleanup_failed = True
+                        logger.error("Aborted command cleanup failed: %s", type(exc).__name__)
+                raise
+
+    def _execute_command(
         self,
         command: str,
         callbacks: Optional[List[Any]] = None,
@@ -1070,10 +1446,39 @@ Drones: {len(drones)} available
             Dictionary with 'output', 'intermediate_steps', and 'success' keys.
         """
         command_id = str(uuid.uuid4())
+        self._completion_command = command
+        self._model_io_archive = None
+        self._model_io_archive_error = None
+        if getattr(self, "_model_io_archive_enabled", False):
+            try:
+                from model_io_archive import ModelIOArchive
+                self._model_io_archive = ModelIOArchive(command_id, getattr(self, "_model_io_archive_dir", None))
+                if self.llm_provider not in {"openai", "openai-compatible"}:
+                    self._model_io_archive.mark_incomplete("unsupported_provider")
+                if self.task_progress_mode == "evidence_r2_worker":
+                    self._model_io_archive.mark_incomplete("observation_worker_not_instrumented")
+                if any(e.startswith("setup:") for e in getattr(self, "_model_wire_errors", [])):
+                    self._model_io_archive.mark_incomplete("hook_setup_unavailable")
+            except Exception as exc:
+                self._model_io_archive_error = type(exc).__name__
         self._task_progress = None
         self._task_progress_middleware = None
         self._model_wire_requests = []
+        self._harness = None
+        self._harness_task_started = time.monotonic()
+        if getattr(getattr(self, "client", None), "_harness_deadline", None) is not None:
+            self.client._harness_deadline = None
+        def check_harness_cancellation():
+            for callback in callbacks or []:
+                check = getattr(callback, "_check_cancellation", None)
+                if callable(check):
+                    check()
+        self._harness_cancel_check = check_harness_cancellation
         self._model_wire_errors = [e for e in getattr(self, "_model_wire_errors", []) if e.startswith("setup:")]
+        self._in_observation_worker = False
+        self._observation_worker_token_usage = empty_token_usage()
+        self._observation_worker_task_started = time.monotonic()
+        self._public_search_task_started = time.monotonic()
         started_at = datetime.now().isoformat()
         start_api_recording = getattr(getattr(self, "client", None), "start_api_call_recording", None)
         stop_api_recording = getattr(getattr(self, "client", None), "stop_api_call_recording", None)

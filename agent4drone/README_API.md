@@ -6,11 +6,13 @@ This service provides a REST API for the UAV Control Agent. It allows external a
 
 ### Prerequisites
 
-Ensure you have the required dependencies installed:
+Use a dedicated Python 3.11 environment. From the repository root, `bash scripts/setup_python_envs.sh --dev` installs the project-local environments on macOS/Linux. Alternatively, inside this directory create and activate a Python 3.11 virtual environment, then install the complete locked runtime dependencies:
 
 ```bash
-pip install fastapi uvicorn pydantic requests
+python -m pip install -r requirements.txt
 ```
+
+The server and agent environments are separate because they require different Pydantic versions. See [dependency setup and validation](../docs/DEPENDENCY_SETUP_CN.md). For GUI mode, Python must include Tk; speech recognition dependencies are optional.
 
 ### Starting the Server
 
@@ -27,6 +29,15 @@ The server will start on **port 18000** by default:
 ---
 
 ## 🛠 API Reference
+
+Concurrent commands, cancellation completion, and evidence reset follow the
+[command isolation contract](README_SERVICE.md#command-isolation-and-reset).
+Busy synchronous calls return HTTP 409; an async job that cannot acquire the
+shared agent fails explicitly without automatic retries.
+
+An optional [model I/O archive](README_SERVICE.md#optional-model-io-archive)
+records reconstructible request/response evidence per command. It is disabled
+by default and reports gaps separately from task success.
 
 ### 1. Asynchronous Execution (Recommended)
 Since agent commands can take 1-3 minutes to process, use the async "Job" pattern to avoid timeouts.

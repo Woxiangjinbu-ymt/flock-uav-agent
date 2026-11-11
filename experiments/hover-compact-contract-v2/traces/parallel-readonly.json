@@ -1,0 +1,37 @@
+[
+  {
+    "parallel_tools": [
+      {
+        "tool": "list_drones",
+        "arguments": {}
+      },
+      {
+        "tool": "get_weather",
+        "arguments": {}
+      }
+    ],
+    "local_api_barrier": "two_public_calls_v1"
+  },
+  {
+    "tool": "take_off",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 4",
+        "altitude": 12
+      }
+    },
+    "input_json_encoding": "object"
+  },
+  {
+    "tool": "get_drone_status",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 4"
+      }
+    },
+    "input_json_encoding": "object"
+  },
+  {
+    "final": "Task complete. [TASK DONE]"
+  }
+]

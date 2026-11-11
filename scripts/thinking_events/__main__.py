@@ -85,15 +85,31 @@ def main():
     prepare.add_argument("--study", type=Path, required=True)
     prepare.add_argument("--output", type=Path, required=True)
     prepare.add_argument("--legacy", action="store_true", help="rebuild the historical 1.7B/4B task layout")
-    dev = commands.add_parser("run-dev", help="verify the relocated campaign and record CPU-only readiness")
+    dev = commands.add_parser("run-dev", help="check readiness or execute a frozen paired batch")
     dev.add_argument("--run", type=Path, required=True)
     dev.add_argument("--g3", type=Path, required=True)
+    dev.add_argument("--backend", choices=("fixture", "transformers", "vllm"),
+                     help="omit for readiness only; fixture runs the local acceptance study")
+    dev.add_argument("--student-python", type=Path, help="interpreter for the student service")
+    dev.add_argument("--backend-python", type=Path, help="separate inference interpreter, if selected at T37")
+    dev.add_argument("--model-root", type=Path, help="contains offline Qwen3.5-2B and Qwen3-4B snapshots")
+    dev.add_argument("--qwen35-tokenizer", type=Path, help="local fixture tokenizer directory")
+    dev.add_argument("--max-new", type=int, help="stop after claiming this many new slots; rerun to resume")
+    admit = commands.add_parser("admit-t37", help="verify measured T37 evidence and seal the selected backend")
+    for name in ("run", "linux-cpu", "session-cpu", "backend-lock", "lease", "student-python"):
+        admit.add_argument("--" + name, type=Path, required=True)
+    admit.add_argument("--backend", choices=("transformers", "vllm"), required=True)
+    admit.add_argument("--backend-python", type=Path)
+    admit.add_argument("--fallback-reason", type=Path, help="failed Transformers verdict for a vLLM admission")
+    settle = commands.add_parser("settle-prepaid", help="record occupied card seconds and incremental cost at stage end")
+    settle.add_argument("--run", type=Path, required=True)
     simulate = commands.add_parser("simulate-paired", help="exercise the revised gate rules with synthetic outcomes on CPU")
-    report = commands.add_parser("report", help="score an explicitly synthetic result set against a verified v2 plan")
+    report = commands.add_parser("report", help="replay independent slot scores, or explicit synthetic results")
     for command in (simulate, report):
         command.add_argument("--run", type=Path, required=True, help="prepared Qwen3.5-2B/4B campaign")
         command.add_argument("--output", type=Path, required=True, help="new report directory, outside the prepared run")
-    report.add_argument("--results", type=Path, required=True, help="one synthetic results.json from simulate-paired")
+    report.add_argument("--results", type=Path, help="explicit synthetic results; omit to report the executed run")
+    report.add_argument("--g3", type=Path, help="G3 evidence for the executed run")
     args = parser.parse_args()
     try:
         if args.command == "replay":
@@ -104,9 +120,34 @@ def main():
             from .campaign import LEGACY_PROTOCOL, PAIRED_PROTOCOL, prepare_dev
             result = prepare_dev(args.study, args.output, protocol=LEGACY_PROTOCOL if args.legacy else PAIRED_PROTOCOL)
             result["output"] = str(args.output)
+        elif args.command == "admit-t37":
+            from .paired_admission import admit_t37
+            result = admit_t37(args.run, backend=args.backend, linux_cpu=args.linux_cpu, session_cpu=args.session_cpu,
+                               backend_lock=args.backend_lock, lease=args.lease, student_python=args.student_python,
+                               backend_python=args.backend_python, fallback_reason=args.fallback_reason)
+        elif args.command == "settle-prepaid":
+            from .campaign_storage import RentalBudget, locked
+            with locked(args.run, ".coordinator.lock"):
+                result = RentalBudget(args.run).settle_prepaid()
         elif args.command == "run-dev":
-            from .campaign import run_dev
-            result = run_dev(args.run, args.g3)
+            if args.backend is None:
+                if any(v is not None for v in (
+                    args.student_python, args.backend_python, args.model_root, args.qwen35_tokenizer, args.max_new
+                )):
+                    raise ValueError("Select --backend when requesting batch execution")
+                from .campaign import run_dev
+                result = run_dev(args.run, args.g3)
+            else:
+                from .paired_batch import execute_batch
+                if args.student_python is None:
+                    raise ValueError("Select the student service with --student-python")
+                result = execute_batch(args.run, args.g3, backend=args.backend, student_python=args.student_python,
+                                       model_root=args.model_root, backend_python=args.backend_python,
+                                       tokenizer=args.qwen35_tokenizer, max_new=args.max_new)
+        elif args.command == "report" and args.results is None:
+            from .paired_actual_report import report_actual
+            from .paired_batch import DEFAULT_G3
+            result = report_actual(args.run, args.output, g3=args.g3 or DEFAULT_G3)
         else:
             from .campaign import PAIRED_PROTOCOL, verify_run
             from .campaign_storage import read_jsonl
@@ -122,7 +163,7 @@ def main():
             else:
                 report_paired(plan, args.results, args.output)
             result = {"evidence": "synthetic", "output": str(args.output), "formal_launches": 0}
-    except (ValueError, OSError) as error:
+    except (ValueError, OSError, KeyError, RuntimeError) as error:
         parser.exit(1, f"{args.command}: {error}\n")
     print(json.dumps(result, ensure_ascii=False))
 

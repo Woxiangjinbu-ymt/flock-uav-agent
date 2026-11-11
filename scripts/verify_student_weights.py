@@ -1,8 +1,9 @@
-"""Verify the two approved model snapshots against the shipped revision-specific digests."""
+"""Verify a student snapshot against the shipped revision-specific digests."""
 import argparse
 import json
 from pathlib import Path
 
+from thinking_events import paired_backend
 from thinking_events.student_service import verify_model
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,11 +11,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model", choices=["1.7B", "4B"], required=True)
+    parser.add_argument("--model", choices=["1.7B", "4B", *paired_backend.MANIFESTS], required=True)
     parser.add_argument("--directory", type=Path, required=True)
     parser.add_argument("--download", action="store_true", help="fetch missing snapshot files on the target host")
     args = parser.parse_args()
-    manifest = json.loads((ROOT / "training/model-manifests" / f"{args.model}.json").read_bytes())
+    filename = paired_backend.MANIFESTS.get(args.model, f"{args.model}.json")
+    manifest = json.loads((ROOT / "training/model-manifests" / filename).read_bytes())
     directory = args.directory.resolve()
     if args.download:
         from huggingface_hub import snapshot_download

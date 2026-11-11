@@ -8,6 +8,8 @@ import json
 import os
 from pathlib import Path
 from tempfile import NamedTemporaryFile
+import time
+import math
 
 from prepare_task_dataset import parse_json
 
@@ -197,7 +199,7 @@ class RentalBudget:
             return parse_json(self.path.read_bytes())
 
     def reserve(self, name, *, elapsed_seconds, work_seconds, shutdown_seconds,
-                billing_seconds, hourly_cny, extra_cny=0):
+                billing_seconds, hourly_cny, extra_cny=0, prepaid_terms=None):
         """elapsed_seconds is actual uptime since this lease began, incl. idle time.
 
         Each entry settled below closes one lease. While a lease remains active,
@@ -216,7 +218,8 @@ class RentalBudget:
             if any(row["lease"] == name for row in log["entries"]):
                 raise ValueError("Duplicate lease ID")
             if current and (current["lease"] != name or elapsed < current["elapsed_seconds"]
-                            or price != _money(current["hourly_cny"]) or quantum != current["billing_seconds"]
+                            or current.get("prepaid_terms") != prepaid_terms
+                            or price != _money(current.get("hourly_cny", 0)) or quantum != current["billing_seconds"]
                             or extra < _money(current["extra_cny"])):
                 raise ValueError("Unsettled lease or inconsistent quote")
             if log["gpu_billed_seconds"] + rounded > self.max_seconds:
@@ -227,8 +230,47 @@ class RentalBudget:
                                   "shutdown_seconds": shutdown, "billing_seconds": quantum,
                                   "hourly_cny": str(price), "extra_cny": str(extra),
                                   "reserved_billed_seconds": rounded, "reserved_cny": str(cost)}
+            if prepaid_terms is not None:
+                del log["reservation"]["hourly_cny"]
+                log["reservation"]["prepaid_terms"] = prepaid_terms
             atomic_write(self.path, json_bytes(log))
             return "admitted"
+
+    def reserve_prepaid(self, quote, work_seconds):
+        """Attribute this stage's occupied card time and incremental fee on a prepaid order."""
+        started = quote["stage_started_unix"]
+        if (quote["billing_mode"] != "prepaid_week" or type(started) not in (int, float)
+                or not math.isfinite(started) or started <= 0 or started > time.time()
+                or _money(quote["incremental_cny"]) != 0 or _seconds(quote["shutdown_seconds"]) <= 0
+                or any(key in quote for key in ("hourly_cny", "started_unix", "extra_cny"))):
+            raise ValueError("Invalid prepaid weekly stage terms")
+        prior = _seconds(quote["prior_stage_seconds"])
+        elapsed = prior + math.ceil(time.time() - started)
+        return self.reserve(quote["id"], elapsed_seconds=elapsed, work_seconds=work_seconds,
+                            shutdown_seconds=quote["shutdown_seconds"], billing_seconds=1, hourly_cny=0,
+                            prepaid_terms=dict(quote))
+
+    def settle_prepaid(self):
+        """Finalize one prepaid stage after both calibration and formal work have stopped."""
+        with locked(self.run, ".budget.lock"):
+            log = parse_json(self.path.read_bytes())
+            reserved = log["reservation"]
+            if reserved is None:
+                if log["entries"] and "prepaid_terms" in log["entries"][-1]:
+                    return log["entries"][-1]
+                raise ValueError("No prepaid stage to settle")
+            terms = reserved.get("prepaid_terms")
+            if not terms:
+                raise ValueError("Settlement requires a prepaid stage")
+            seconds = terms["prior_stage_seconds"] + math.ceil(time.time() - terms["stage_started_unix"])
+            if seconds < reserved["elapsed_seconds"]:
+                raise ValueError("Prepaid stage clock moved backwards")
+            entry = {"lease": reserved["lease"], "billed_seconds": seconds, "charged_cny": "0",
+                     "prepaid_terms": terms}
+            log["entries"].append(entry)
+            log.update(gpu_billed_seconds=log["gpu_billed_seconds"] + seconds, reservation=None)
+            atomic_write(self.path, json_bytes(log))
+            return entry
 
     def settle(self, name, *, billed_seconds, charged_cny):
         duration, charge = _seconds(billed_seconds), _money(charged_cny)
@@ -243,6 +285,8 @@ class RentalBudget:
             reserved = log["reservation"]
             if reserved is None or reserved["lease"] != name:
                 raise ValueError("Unknown lease")
+            if "prepaid_terms" in reserved:
+                raise ValueError("Use prepaid stage settlement")
             log["entries"].append(entry)
             log.update(gpu_billed_seconds=log["gpu_billed_seconds"] + duration,
                        paid_cny=str(_money(log["paid_cny"]) + charge), reservation=None)

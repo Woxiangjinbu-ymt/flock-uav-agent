@@ -111,15 +111,14 @@ def stopped(reason):
 class StudentProcess:
     """One fully initialized tokenizer/model pair, serving one request at a time.
 
-    model_manifest must be the independently verified inventory of the pinned
-    model revision. The fixture backend only loads the frozen 1.7B tokenizer.
+    A fixture loads the indicated model's tokenizer, without its weights.
     """
     def __init__(self, python, *, backend="fixture", model="1.7B", fixture_replies=None,
                  model_path=None, revision=None, model_manifest=None, tokenizer_path=None,
                  backend_python=None, startup_timeout=90, scripts_root=None):
         if backend not in {"fixture", "transformers", "vllm"}:
             raise ValueError("unsupported student backend")
-        if model not in {"1.7B", "4B"} or (backend == "fixture" and model != "1.7B"):
+        if model not in {"1.7B", "4B", "Qwen3.5-2B", "Qwen3-4B"} or (backend == "fixture" and model == "4B"):
             raise ValueError("unsupported model for this backend")
         if backend != "fixture" and (not model_path or fixture_replies is not None or not model_manifest):
             raise ValueError("real generation requires a verified local model inventory")

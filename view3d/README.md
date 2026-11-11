@@ -18,15 +18,18 @@ The current frontend is designed as the final visual rendering surface. It focus
 
 ## Requirements
 
-- Node.js 18 or newer.
+- Node.js 24.x (tested with 24.14.0; pinned in `.node-version`). The test command uses Node's built-in TypeScript support, which is unavailable in Node.js 18.
 - Optional for live data: the `server` FastAPI backend running on `http://127.0.0.1:8000`.
 
 ## Install
 
 ```bash
 cd view3d
-npm install
+node --version # should show v24.x; use 24.14.0 for the verified environment
+npm ci
 ```
+
+Select Node.js 24.14.0 with your Node version manager before running these commands. `npm ci` installs the versions committed in `package-lock.json`; it does not update the lockfile. Dependencies are installed locally in `view3d/node_modules` and do not require a global npm install.
 
 ## Run
 

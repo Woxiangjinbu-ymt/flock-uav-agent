@@ -12,7 +12,11 @@ from api.server import (
     get_current_user_role,
     require_role,
 )
-from config.privilege_keys import SYSTEM_3D_VIEW_PRIVILEGE_KEY
+from config.privilege_keys import (
+    ADMIN_PRIVILEGE_KEYS,
+    SYSTEM_PRIVILEGE_KEYS,
+    USER_PRIVILEGE_KEYS,
+)
 
 
 class AuthenticationKeyTests(unittest.TestCase):
@@ -21,21 +25,34 @@ class AuthenticationKeyTests(unittest.TestCase):
         cls.client = TestClient(app)
 
     def test_all_configured_privilege_keys_authenticate_to_expected_role(self):
-        for role in (UserRole.USER, UserRole.SYSTEM, UserRole.ADMIN):
+        configured_keys = {
+            UserRole.USER: USER_PRIVILEGE_KEYS,
+            UserRole.SYSTEM: SYSTEM_PRIVILEGE_KEYS,
+            UserRole.ADMIN: ADMIN_PRIVILEGE_KEYS,
+        }
+        for role, keys in configured_keys.items():
             with self.subTest(role=role.value):
-                self.assertGreaterEqual(len(ROLE_SECRET_KEYS[role]), 3)
-                for key in ROLE_SECRET_KEYS[role]:
+                self.assertGreaterEqual(len(keys), 3)
+                self.assertEqual(ROLE_SECRET_KEYS[role], keys)
+                for key in keys:
                     self.assertEqual(get_current_user_role(key), role)
 
-    def test_3d_view_system_key_authenticates_as_system_when_configured(self):
-        if not SYSTEM_3D_VIEW_PRIVILEGE_KEY:
-            self.skipTest("MULTIUAV_3D_VIEW_SYSTEM_KEY is not configured")
+    def test_all_privileged_keys_can_read_system_endpoint(self):
+        # The viewer credential is now part of the configured SYSTEM tuple.
+        # Exercise every key through the HTTP authentication dependency.
+        for role in (UserRole.SYSTEM, UserRole.ADMIN):
+            for index, key in enumerate(ROLE_SECRET_KEYS[role]):
+                with self.subTest(role=role.value, key_index=index):
+                    response = self.client.get("/environments", headers={"X-API-Key": key})
+                    self.assertEqual(response.status_code, 200)
 
-        self.assertIn(SYSTEM_3D_VIEW_PRIVILEGE_KEY, ROLE_SECRET_KEYS[UserRole.SYSTEM])
-        self.assertEqual(
-            get_current_user_role(SYSTEM_3D_VIEW_PRIVILEGE_KEY),
-            UserRole.SYSTEM,
-        )
+    def test_basic_roles_cannot_read_system_endpoint(self):
+        self.assertEqual(self.client.get("/environments").status_code, 403)
+        for role in (UserRole.USER, UserRole.AGENT):
+            for index, key in enumerate(ROLE_SECRET_KEYS[role]):
+                with self.subTest(role=role.value, key_index=index):
+                    response = self.client.get("/environments", headers={"X-API-Key": key})
+                    self.assertEqual(response.status_code, 403)
 
     def test_role_secrets_keep_first_key_compatibility(self):
         for role, keys in ROLE_SECRET_KEYS.items():

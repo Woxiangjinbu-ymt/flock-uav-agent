@@ -13,25 +13,34 @@ import time
 import student_input_v2 as v2
 
 from .student_timing import TokenTimes, generation_stats, vllm_timestamps
-from . import student
+from . import paired_backend, student
 from .student_process import receive, send, spawn_service, stopped
 
 
 def verify_model(path, model, revision, manifest):
     """Bind all files that the offline tokenizer and model loaders can consume."""
-    if revision != student.MODEL_REVISIONS[model] or manifest.get("revision") != revision or manifest.get("model") != model:
+    if model in paired_backend.MANIFESTS:
+        pinned = paired_backend.pinned_manifest(model)
+        if manifest != pinned or revision != pinned["revision"]:
+            raise ValueError("paired student manifest or revision mismatch")
+    elif revision != student.MODEL_REVISIONS[model] or manifest.get("revision") != revision or manifest.get("model") != model:
         raise ValueError("student revision mismatch")
     files = manifest["files"]
-    required = {"config.json", "tokenizer_config.json", "tokenizer.json", "generation_config.json"}
+    required = {"config.json", "tokenizer_config.json", "tokenizer.json"}
+    if model == paired_backend.MAIN:
+        required.update(("chat_template.jinja", "model.safetensors.index.json"))
+    else:
+        required.add("generation_config.json")
     shards = {name for name in files if name.endswith(".safetensors")}
     if not required <= files.keys() or not shards:
         raise ValueError("incomplete student manifest")
     path = Path(path)
     actual = {entry.name for entry in path.iterdir() if entry.is_file() and
               entry.suffix.lower() in {".json", ".safetensors", ".model", ".txt", ".jinja", ".tiktoken", ".bin"}}
-    if not actual <= files.keys() or any(name.endswith(".bin") for name in actual):
+    optional = {name: sha for name, sha in manifest.get("optional_files", {}).items() if name in actual}
+    if not actual <= files.keys() | optional.keys() or any(name.endswith(".bin") for name in actual):
         raise ValueError("unregistered student model files")
-    for name, expected in files.items():
+    for name, expected in (files | optional).items():
         if not name or Path(name).name != name or not (path / name).is_file():
             raise ValueError("invalid student model file")
         with (path / name).open("rb") as stream:
@@ -54,11 +63,28 @@ def _cuda():
 
 
 class TransformersModel:
-    def __init__(self, path):
+    def __init__(self, path, model=None):
         from transformers import AutoModelForCausalLM
         self.torch = _cuda()
-        self.model = AutoModelForCausalLM.from_pretrained(str(path), local_files_only=True, dtype=self.torch.bfloat16,
-                                                        trust_remote_code=False, use_safetensors=True).to("cuda").eval()
+        loader = AutoModelForCausalLM
+        if model == paired_backend.MAIN:
+            from transformers import Qwen3_5ForCausalLM
+
+            loader = Qwen3_5ForCausalLM
+        loaded, report = loader.from_pretrained(str(path), local_files_only=True, dtype=self.torch.bfloat16,
+                                                trust_remote_code=False, use_safetensors=True,
+                                                output_loading_info=True)
+        for field in ("missing_keys", "mismatched_keys", "error_msgs", "unexpected_keys"):
+            problems = report[field]
+            # The pinned 2B checkpoint also ships the vision tower and MTP.
+            if model == paired_backend.MAIN and field == "unexpected_keys":
+                problems = [k for k in problems if not k.startswith(("mtp.", "model.visual."))]
+            if problems:
+                raise ValueError(f"Unusable student checkpoint: {field}: {sorted(map(str, problems))[:4]}")
+        self.load_info = {"class": type(loaded).__name__, "config_model_type": loaded.config.model_type,
+                          "missing_keys": 0, "mismatched_keys": 0, "error_msgs": 0,
+                          "unused_checkpoint_keys": len(report["unexpected_keys"])}
+        self.model = loaded.to("cuda").eval()
 
     def generate(self, ids, limit, seed, eos):
         started = time.monotonic()
@@ -80,14 +106,16 @@ class TransformersModel:
 
 
 class VllmModel:
-    def __init__(self, path):
-        if version("vllm") != "0.11.2":
+    def __init__(self, path, model=None):
+        if model not in paired_backend.MANIFESTS and version("vllm") != "0.11.2":
             raise ValueError("expected vLLM 0.11.2")
         from vllm import LLM
         self.torch = _cuda()
+        options = {"language_model_only": True} if model == paired_backend.MAIN else {}
         self.model = LLM(model=str(path), dtype="bfloat16", tensor_parallel_size=1,
                          enable_prefix_caching=False, max_model_len=student.MAX_CONTEXT,
-                         max_num_seqs=1, trust_remote_code=False, generation_config="vllm", disable_log_stats=False)
+                         max_num_seqs=1, trust_remote_code=False, generation_config="vllm",
+                         disable_log_stats=False, **options)
 
     def generate(self, ids, limit, seed, eos):
         from vllm import SamplingParams
@@ -107,12 +135,14 @@ class VllmModel:
 def device_info(model):
     torch = model.torch
     return {"torch": torch.__version__, "cuda": torch.version.cuda, "device": torch.cuda.get_device_name(),
+            "gpu_count": torch.cuda.device_count(),
+            "gpu_memory_bytes": torch.cuda.get_device_properties(torch.cuda.current_device()).total_memory,
             "dtype": "bfloat16"}
 
 
 def serve_engine(sock, config):
     # A distinct interpreter keeps vLLM's dependency set away from the renderer.
-    engine = VllmModel(config["model_path"])
+    engine = VllmModel(config["model_path"], config.get("model"))
     send(sock, {"status": "ready", "metadata": {**device_info(engine), "vllm": version("vllm"),
                                                 "engine_python": sys.executable}})
     while True:
@@ -126,34 +156,47 @@ def serve_engine(sock, config):
 class Renderer:
     def __init__(self, config):
         self.backend = config["backend"]
-        if version("transformers") != "4.57.3":
+        model = config["model"]
+        paired = model in paired_backend.MANIFESTS
+        if not paired and version("transformers") != "4.57.3":
             raise ValueError("expected Transformers 4.57.3")
         self.fixture = config["fixture_replies"]
-        self.metadata = {"backend": self.backend, "model": config["model"], "python": sys.executable,
+        self.codec = student
+        self.metadata = {"backend": self.backend, "model": model, "python": sys.executable,
                          "source": str(Path(__file__).resolve()), "transformers": version("transformers"),
                          "template_sha256": v2.template_hash()}
+        if paired:
+            pinned = paired_backend.pinned_manifest(model)
+            tokenizer_path = config["tokenizer_path"] if self.backend == "fixture" else config["model_path"]
+            self.tokenizer, self.codec, self.eos, template = paired_backend.load_codec(model, tokenizer_path)
+            self.metadata.update(template_sha256=template, tokenizer_files=paired_backend.tokenizer_files(model),
+                                 revision=pinned["revision"], tokenizers=version("tokenizers"), eos_ids=self.eos)
         if self.backend == "fixture":
-            path = Path(config["tokenizer_path"] or v2.base.DEFAULT_TOKENIZER)
-            self.tokenizer = v2.load_tokenizer(path)
-            self.metadata.update(weights_loaded=False, tokenizer_manifest_sha256=v2.base.TOKENIZER_MANIFEST_SHA256)
+            self.metadata["weights_loaded"] = False
+            if not paired:
+                path = Path(config["tokenizer_path"] or v2.base.DEFAULT_TOKENIZER)
+                self.tokenizer = v2.load_tokenizer(path)
+                self.metadata["tokenizer_manifest_sha256"] = v2.base.TOKENIZER_MANIFEST_SHA256
         else:
             from transformers import AutoTokenizer
             path = Path(config["model_path"])
             digest = verify_model(path, config["model"], config["revision"], config["model_manifest"])
-            self.tokenizer = AutoTokenizer.from_pretrained(str(path), local_files_only=True,
-                                                          trust_remote_code=False, use_fast=True)
+            if not paired:
+                self.tokenizer = AutoTokenizer.from_pretrained(str(path), local_files_only=True,
+                                                              trust_remote_code=False, use_fast=True)
             self.metadata.update(weights_loaded=True, model_manifest_sha256=digest, revision=config["revision"])
             if self.backend == "transformers":
-                self.engine = TransformersModel(path)
-                self.metadata.update(device_info(self.engine))
+                self.engine = TransformersModel(path, model)
+                self.metadata.update(device_info(self.engine), checkpoint_load=self.engine.load_info)
             else:
                 self.process, self.engine_sock = spawn_service(config["backend_python"], "engine", own_group=False)
-                send(self.engine_sock, {"model_path": str(path)})
+                send(self.engine_sock, {"model_path": str(path), "model": model})
                 ready = receive(self.engine_sock)
                 if ready.get("status") != "ready":
                     raise RuntimeError(f"vLLM startup failed: {ready.get('error')}")
                 self.metadata.update(ready["metadata"])
-        self.eos = json.loads((path / "generation_config.json").read_bytes())["eos_token_id"]
+        if not paired:
+            self.eos = json.loads((path / "generation_config.json").read_bytes())["eos_token_id"]
         if type(self.eos) is int:
             self.eos = [self.eos]
         if not self.eos or any(type(token) is not int or token < 0 for token in self.eos):
@@ -186,7 +229,7 @@ class Renderer:
             raise ValueError("invalid public student request")
         if time.monotonic() >= request["deadline"]:
             return stopped("request_timeout")
-        prompt, prepared = student.render(self.tokenizer, request["messages"], request["tools"], request["thinking"])
+        prompt, prepared = self.codec.render(self.tokenizer, request["messages"], request["tools"], request["thinking"])
         ids = prompt.pop("input_ids")
         prompt.pop("prompt_text")
         limit, reason = student.output_budget(len(ids), request["spent_tokens"])
@@ -202,7 +245,7 @@ class Renderer:
         measurement["timing"]["ttft_seconds"] = first - request["started"] if first is not None else None
         if len(generated) > limit or any(type(t) is not int or t < 0 for t in generated):
             raise ValueError("generation exceeded admitted budget or contained invalid IDs")
-        parsed = student.parse_generation(self.tokenizer, generated, self.eos, request["thinking"], prepared, limit)
+        parsed = self.codec.parse_generation(self.tokenizer, generated, self.eos, request["thinking"], prepared, limit)
         reasoning = parsed.pop("reasoning_tokens")
         success = parsed["message"] is not None
         return {**audit, **parsed, **measurement, "status": "ok" if success else "format_error",

@@ -248,9 +248,24 @@ def _check_student_identity(run, manifest, metadata, model, backend):
         return
     import student_input_v2 as v2
 
-    if model not in ("1.7B", "4B"):
+    from . import paired_backend
+
+    if model in paired_backend.MANIFESTS:
+        key = str(paired_backend.manifest_path(model))
+        if Path(metadata["source"]).resolve() != run / "source/scripts/thinking_events/student_service.py":
+            raise ValueError("paired renderer is outside the checked source")
+        if model == paired_backend.MAIN:
+            from flockcue_qwen35.adapter import FILES
+
+            template = FILES["chat_template.jinja"]
+        else:
+            template = manifest["sources"]["training/templates/qwen3-tool-ids-v2.jinja"]
+        if metadata.get("template_sha256") != template:
+            raise ValueError("paired renderer loaded a different template")
+    elif model in ("1.7B", "4B"):
+        key = f"training/model-manifests/{model}.json"
+    else:
         raise ValueError("unknown student model")
-    key = f"training/model-manifests/{model}.json"
     path = run / "source" / key
     if _sha(path) != manifest["sources"].get(key):
         raise ValueError("unregistered model manifest")
@@ -258,7 +273,7 @@ def _check_student_identity(run, manifest, metadata, model, backend):
     digest = hashlib.sha256(v2.canonical(pinned)).hexdigest()
     if (
         not metadata.get("weights_loaded")
-        or pinned.get("model") != model
+        or pinned.get("model") != ("4B" if model == paired_backend.REFERENCE else model)
         or metadata.get("revision") != pinned["revision"]
         or metadata.get("model_manifest_sha256") != digest
     ):
@@ -285,13 +300,22 @@ def run_slot(
         raise ValueError("invalid slot ID")
     manifest = _manifest(run)
     (trial,) = [t for t in manifest["trials"] if t["trial_id"] == trial_id]
-    if backend == "fixture" and manifest["scope"] != "student_cpu_regression":
+    paired = (manifest["scope"] == "thinking_events_dev_local_backend"
+              and model in {"Qwen3.5-2B", "Qwen3-4B"})
+    if paired:
+        from .paired_worker import admitted_batch
+
+        if service is None or reverse_receipts or cancel_at is not None or fixture_replies is not None:
+            raise ValueError("Paired slots require a selected service and unmodified receipts")
+        admitted_batch(run, trial_id, manifest, model=model, thinking=thinking, backend=backend,
+                       fingerprint=admitted_backend_sha256)
+    if backend == "fixture" and not paired and manifest["scope"] != "student_cpu_regression":
         raise ValueError("scripted generation requires a separate CPU fixture manifest")
     if backend != "fixture" and (
         service is None or reverse_receipts or cancel_at is not None or fixture_replies is not None
     ):
         raise ValueError("formal runs require a qualified warm service and unmodified receipts")
-    if backend != "fixture":
+    if backend != "fixture" and not paired:
         scope = manifest["scope"]
         if scope == "thinking_events_dev_local_backend":
             from .campaign import verify_run

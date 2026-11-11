@@ -8,8 +8,18 @@ type PackageJson = {
 
 const packageJson = JSON.parse(readFileSync('package.json', 'utf8')) as PackageJson;
 
-test('npm run dev tries backend by default while demo mode is explicit', () => {
-  assert.equal(packageJson.scripts.dev, 'VITE_VIEWER_DATA_SOURCE=backend vite --host 127.0.0.1 --port 5173');
-  assert.equal(packageJson.scripts['dev:backend'], 'VITE_VIEWER_DATA_SOURCE=backend vite --host 127.0.0.1 --port 5173');
-  assert.equal(packageJson.scripts['dev:demo'], 'VITE_VIEWER_DATA_SOURCE=demo vite --host 127.0.0.1 --port 5173');
-});
+for (const [script, dataSource] of [
+  ['dev', 'backend'],
+  ['dev:backend', 'backend'],
+  ['dev:demo', 'demo']
+] as const) {
+  test(`npm run ${script} explicitly selects ${dataSource} across platforms`, () => {
+    assert.deepEqual(packageJson.scripts[script].trim().split(/\s+/), [
+      'cross-env',
+      `VITE_VIEWER_DATA_SOURCE=${dataSource}`,
+      'vite',
+      '--host', '127.0.0.1',
+      '--port', '5173'
+    ]);
+  });
+}

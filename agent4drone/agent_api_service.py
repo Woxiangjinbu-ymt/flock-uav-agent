@@ -15,7 +15,7 @@ from pydantic import BaseModel
 from langchain_core.callbacks import BaseCallbackHandler
 
 # Import your existing project modules
-from uav_agent import UAVControlAgent, bool_setting, load_llm_settings
+from uav_agent import AgentBusyError, UAVControlAgent, bool_setting, load_llm_settings
 from logging_config import get_logger
 
 logger = get_logger("agent_api_service")
@@ -257,6 +257,7 @@ def process_agent_command(job_id: str, command: str):
 
     if job.status == JobStatus.CANCELLED:
         logger.info(f"Job {job_id} cancelled before start.")
+        job.completed_at = datetime.now()
         return
 
     job.status = JobStatus.RUNNING
@@ -284,7 +285,14 @@ def process_agent_command(job_id: str, command: str):
     except JobCancelledException:
         logger.info(f"Job {job_id} execution stopped by user cancellation.")
         # Status is already updated to CANCELLED by the endpoint
-        
+    except AgentBusyError as e:
+        # Submission does not reserve an agent. A competing background job is
+        # explicitly failed without execution or automatic retries; a cancelled
+        # job remains cancelled. The owner keeps its lease until execute returns.
+        if job.status != JobStatus.CANCELLED:
+            job.error = str(e)
+            job.status = JobStatus.FAILED
+        logger.info("Job %s could not acquire the agent: %s", job_id, e)
     except Exception as e:
         logger.error(f"Job {job_id} failed: {e}", exc_info=True)
         job.error = str(e)
@@ -348,7 +356,10 @@ async def execute_command(request: CommandRequest):
     if not agent_instance:
         raise HTTPException(status_code=503, detail="Agent not initialized")
     
-    return command_response_from_result(agent_instance.execute(request.command))
+    try:
+        return command_response_from_result(agent_instance.execute(request.command))
+    except AgentBusyError as exc:
+        raise HTTPException(status_code=409, detail={"code": exc.code, "message": str(exc)}) from exc
 
 @app.get("/agent/session", response_model=SessionSummaryResponse)
 async def get_session_summary():
@@ -357,6 +368,8 @@ async def get_session_summary():
     try:
         summary = agent_instance.get_session_summary()
         return SessionSummaryResponse(summary=summary)
+    except AgentBusyError as exc:
+        raise HTTPException(status_code=409, detail={"code": exc.code, "message": str(exc)}) from exc
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
