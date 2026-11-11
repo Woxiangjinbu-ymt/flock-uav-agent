@@ -16,6 +16,8 @@
 
 ## Verified Results — 已有证据
 
+- **允许无参感知后，G1、G2 仍未通过。** Mac 在 29/29 个初态执行两种调用，回执、黑板和终态一致。A100 上 31 次无参感知均实际执行并取得回执。2B 开思考 1/29、关思考 0/29，58 个回合全部独立重评分，净增 1 题、1 个父场景净改善。教师真实 HTTP 入口已用本地服务验收，断线恢复未重复派发。正式采集 0 题。[A100 结果](results/flockcue-a100-sense-default-20261111/REPORT_CN.md) · [教师入口](results/deepseek-teacher-service-mac-20261111/REPORT_CN.md)
+
 - **教师连续会话已在 Mac 完成两场 40 题免费验收。** 固定回复的请求、历史思考、工具回执、世界交接与题初／终态独立评分可逐题回查。另行注入预算不足与用量缺失，均保留完整 40 个题位。正式教师采集仍为 0 题。[验收与开采条件](results/deepseek-teacher-pilot40-mac-20261111/REPORT_CN.md)
 
 - **Qwen3.5-2B 的 29 题配对计分已在 Mac 验收。** 新计划沿用五个父场景，每臂 29 题。10 组合成输入分别覆盖阈值、跨场景改善、超时偏向开臂、缺评分和全未启动；从保存的输入重新生成的报告均逐字节一致。Qwen3-4B 的成绩单列，真实 116 槽保持未启动。[模拟报告](results/qwen35-g1g2-paired-mac-20261109/REPORT_CN.md) · [独立复算](results/qwen35-g1g2-paired-mac-20261109/verification.json)

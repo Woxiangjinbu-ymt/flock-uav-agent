@@ -20,4 +20,6 @@
 
 ## 开始时间
 
-11 月 11 日整题复测已经完成，开思考 1/29、关思考 0/29，G1、G2 均未通过，G3 已通过。按当前协议，正式试采暂缓，开采日期待定。[独立复测报告](../../results/flockcue-a100-g1g2-retest-20261111/REPORT_CN.md) Mac 已用固定回复完成两场的无付费验收。任一门槛未通过时，保留完整试采提案，正式教师调用继续暂缓。启动时间取决于上述实际结果。[门槛定义](../01-thinking-events/spec.md#第-0-阶段门槛) · [试采执行与验收](plan.md)
+11 月 11 日两次 29 题复测均已结束。感知说明 B 和显式允许无参感知的接口 C 各自开思考 1/29、关思考 0/29。C 的 58 个回合全部独立评分并由 Mac 重算。G1、G2 均未通过，G3 已通过。按现行协议，正式教师试采暂缓。[B 复测](../../results/flockcue-a100-g1g2-retest-20261111/REPORT_CN.md) · [C 复测](../../results/flockcue-a100-sense-default-20261111/REPORT_CN.md) · [启动门槛](../01-thinking-events/spec.md#第-0-阶段门槛)
+
+Mac 已用固定回复验证两场连续会话，并在独立回环 HTTP 服务验证真实传输入口、按场核账、断线锁额和重启去重。两场清单、训练折、拟用工具版本、账户币种及付费额度由用户决定。[固定回复与逐题轨迹](../../results/deepseek-teacher-pilot40-mac-20261111/REPORT_CN.md) · [HTTP 断线恢复实测](../../results/deepseek-teacher-service-mac-20261111/REPORT_CN.md) · [试采方案及预算](plan.md)
