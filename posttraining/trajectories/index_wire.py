@@ -9,10 +9,9 @@ from pathlib import Path
 import shutil
 from tempfile import TemporaryDirectory
 
-from flockcue.evaluation.report_flockcue_deployment600 import provider_payload
+from flockcue.provider import execution_history
 
-from .rebuild import AUDIT, ROOT, blob, digest, file_digest, must_match, packed
-from .teacher_sense import execution_history
+from .rebuild import AUDIT, ROOT, blob, digest, file_digest, must_match, packed, provider_payload
 
 
 EXAMPLE = ("04cd6269", "a05a871a")
@@ -394,7 +393,7 @@ def annotations_for(folder, files, command_id, command):
     return annotations
 
 
-def scene_indices(workspace, folder, files, scene_id, split):
+def scene_indices(registered_run, folder, files, scene_id, split):
     commands = defaultdict(set)
     metrics = folder / "agent-traces/reproduction-metrics.jsonl"
     for line in sealed_bytes(folder, files, metrics).splitlines():
@@ -422,7 +421,7 @@ def scene_indices(workspace, folder, files, scene_id, split):
             "task_id": task_id,
             "job_id": job_id,
             "command_id": command_id,
-            "archive_path": path.relative_to(workspace).as_posix(),
+            "archive_path": (registered_run / scene_id / path.relative_to(folder)).as_posix(),
             "archive_sha256": files[path.relative_to(folder).as_posix()],
             "split": split,
             "archive_complete": False,
@@ -437,7 +436,7 @@ def scene_indices(workspace, folder, files, scene_id, split):
         yield episode, models, {"task": job["command"], "turns": sample} if sample else None
 
 
-def build_indices(workspace, stage):
+def build_indices(run, stage):
     registration = read_json(AUDIT / "source-seals.json")
     roles = read_json(AUDIT / "scene-roles.json")
     fold = read_json(ROOT / "datasets/flockcue-600/proposed-folds.json")
@@ -446,7 +445,7 @@ def build_indices(workspace, stage):
     role_by_scene = {row["session_id"]: row["role"] for row in roles["scenes"]}
     must_match(set(role_by_scene), set(scenes), "registered scenes")
     must_match(roles["run"], registration["run"], "formal run")
-    run = workspace / registration["run"]
+    registered_run = Path(registration["run"])
     manifest = read_json(run / "manifest.json")
     counts = Counter()
     with ExitStack() as streams:
@@ -463,7 +462,7 @@ def build_indices(workspace, stage):
             must_match(seal_hash, seal_record["scene_seal_sha256"], "registered scene seal")
             must_match(seal_hash, manifest["scenes"][scene_id]["seal_sha256"], "run scene seal")
             files = read_json(seal_path)["files"]
-            for episode, models, sample in scene_indices(workspace, folder, files, scene_id, split):
+            for episode, models, sample in scene_indices(registered_run, folder, files, scene_id, split):
                 episodes.write(packed(episode) + b"\n")
                 for model in models:
                     turns.write(packed(model) + b"\n")
@@ -477,7 +476,7 @@ def build_indices(workspace, stage):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--workspace", type=Path, default=ROOT, help="Root containing the registered outputs/ archive"
+        "--run", type=Path, default=AUDIT.parent / "raw", help="Captured run containing its manifest and scene folders (default: local teacher release raw/)"
     )
     parser.add_argument("--output", type=Path, required=True, help="Fresh directory for verified indices")
     args = parser.parse_args()
@@ -487,7 +486,7 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=output.parent) as temp:
         stage = Path(temp)
-        counts = build_indices(args.workspace.resolve(), stage)
+        counts = build_indices(args.run.resolve(), stage)
         manifest = read_json(AUDIT / "manifest.json")
         checks = {Path(entry["path"]).name: entry["sha256"] for entry in manifest["files"]}
         for name in OUTPUT_FILES:

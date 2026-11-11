@@ -1,1 +1,0 @@
-"""FlockCue mechanism."""

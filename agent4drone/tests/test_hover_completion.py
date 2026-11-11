@@ -1,1 +1,0 @@
-../../flockcue/tests/test_hover_completion.py

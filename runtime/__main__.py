@@ -1,0 +1,98 @@
+"""Prepare or run the paper's frozen stateful 600-task deployment."""
+import argparse
+import json
+import os
+from pathlib import Path
+import signal
+
+from . import executor, parallel
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("command", choices=["prepare", "verify", "preflight", "run", "status", "score"])
+    parser.add_argument("--stage", type=Path, default=executor.STAGE)
+    parser.add_argument("--attempt", type=Path, help="Attempt directory for status and score")
+    parser.add_argument("--settings", type=Path, help="Local file containing the official provider credential")
+    args = parser.parse_args()
+    executor.use_stage(args.stage)
+    if args.settings:
+        os.environ["FLOCKCUE_SETTINGS"] = str(args.settings.resolve())
+    if args.command == "prepare":
+        executor.prepare()
+        return 0
+    if args.command in {"status", "score"}:
+        if not args.attempt:
+            parser.error("--attempt is required")
+        attempt = args.attempt.resolve()
+        if args.command == "status":
+            result = parallel.status(executor, attempt)
+        else:
+            result = score(attempt)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 0 if result.get("valid_complete_run", True) else 2
+    plan = executor.verify_registration()
+    if args.command == "verify":
+        print(json.dumps({"sessions": len(plan["sessions"]), "tasks": plan["expected_tasks"],
+                          "leaf_checks": plan["expected_checks"], "plan_sha256": executor.PLAN_SHA,
+                          "sources": len(executor.current_source_hashes())}))
+        return 0
+    # Child credentials and service configuration are supplied by the coordinator.
+    for name in list(os.environ):
+        if name.startswith(("UAV_", "LANGCHAIN_", "LANGSMITH_", "REPRO_", "OPENAI_", "LLM_")) or name in {
+            "BUPT_API_KEY", "DASHSCOPE_API_KEY", "PYTHONPATH"
+        }:
+            del os.environ[name]
+    os.environ.update(PYTHONUNBUFFERED="1", PYTHONNOUSERSITE="1", LANGSMITH_TRACING="false",
+                      LANGCHAIN_TRACING_V2="false", NO_PROXY="127.0.0.1,localhost", no_proxy="127.0.0.1,localhost")
+    with parallel.first_pass_lock(executor.STAGE):
+        if args.command == "preflight":
+            return 0 if executor.preflight(gateway=True) else 2
+
+        def interrupt(signum, frame):
+            raise KeyboardInterrupt("SIGTERM")
+
+        signal.signal(signal.SIGTERM, interrupt)
+        return 0 if parallel.run_attempt(executor, executor.PLAN, workers=8) else 2
+
+
+def score(attempt):
+    """Read all 30 sealed scenes, re-evaluate original checks, retain the full denominator."""
+    plan = executor.load_plan(executor.PLAN)
+    if executor.read_json(attempt / "plan.json") != plan:
+        raise ValueError("Attempt is not from the registered 600-task plan")
+    with parallel.attempt_lock(attempt, exclusive=False):
+        parallel.verify_archive(executor, attempt)
+        manifest = executor.read_json(attempt / "manifest.json")
+        if manifest["status"] != "completed":
+            raise ValueError("Attempt is incomplete; use status to inspect progress")
+        records = manifest["scenes"]
+        rows = []
+        passed = strict = 0
+        for scene in plan["sessions"]:
+            record = records[scene["id"]]
+            if record["status"] != "completed":
+                raise ValueError(f"Incomplete scene: {scene['id']}")
+            scene_rows = parallel.verify_scene(executor, attempt, plan, scene, record)
+            rows.extend(scene_rows)
+            directory = parallel.safe_directory(attempt, record["directory"])
+            terminal_jobs = set()
+            with (directory / "agent-traces/reproduction-metrics.jsonl").open() as events:
+                for line in events:
+                    event = json.loads(line)
+                    if (event["event"] == "llm_error" and isinstance(event.get("status_code"), int)
+                            and event["status_code"] >= 400):
+                        terminal_jobs.add(event["job_id"])
+            for row in scene_rows:
+                success = row["task_pass"] and row["job_id"] not in terminal_jobs
+                passed += success
+                strict += success and row["continuation_safe"]
+
+    result = executor.summarize(plan, rows, manifest["status"])
+    result.update(passed_tasks=passed, pass_rate=passed / len(rows),
+                  strict_deployment_passed=strict, strict_deployment_rate=strict / len(rows))
+    return result
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

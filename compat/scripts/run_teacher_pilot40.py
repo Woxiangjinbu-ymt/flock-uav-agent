@@ -1,1 +1,0 @@
-../../posttraining/trajectories/pilot/run_teacher_pilot40.py

@@ -1,1 +1,0 @@
-../posttraining/resources/replay_linux_cpu.sh

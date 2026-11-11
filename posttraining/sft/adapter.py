@@ -6,10 +6,10 @@ import json
 from pathlib import Path
 import re
 
-import student_input_v2 as v2
+from . import history
 
 REVISION = "15852e8c16360a2fea060d615a32b45270f8a8fc"
-DEFAULT_CACHE = Path.home() / ".cache/flockcue/Qwen3.5-2B" / REVISION
+DEFAULT_CACHE = Path(__file__).with_name("tokenizer")
 FILES = {
     "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
     "config.json": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
@@ -49,25 +49,25 @@ def load_tokenizer(cache=None):
 
 def render(tokenizer, messages, tools, thinking):
     """Resolve public receipts by ID before the native template drops those IDs."""
-    history = deepcopy(messages)
+    messages = deepcopy(messages)
     reasoning = {}
-    for index, msg in enumerate(history):
+    for index, msg in enumerate(messages):
         if isinstance(msg, dict) and msg.get("role") == "assistant":
             body = msg.pop("reasoning_content", None)
             if body is not None:
-                v2.require(isinstance(body, str) and not CONTROL.search(body)
+                history.require(isinstance(body, str) and not CONTROL.search(body)
                            and "<think>" not in body and "</think>" not in body,
                            "history_reasoning", "Invalid historical reasoning")
                 reasoning[index] = body
-    prepared = v2.prepare_history(history, tools)
+    prepared = history.prepare_history(messages, tools)
     formatted = deepcopy(prepared["messages"])
     functions = {c["id"]: c["function"] for m in formatted for c in m.get("tool_calls", [])}
     for func in functions.values():
         arguments = json.dumps(func["arguments"], ensure_ascii=False)
-        v2.require(not NATIVE_TAG.search(arguments) and not CONTROL.search(arguments),
+        history.require(not NATIVE_TAG.search(arguments) and not CONTROL.search(arguments),
                    "history_arguments", "Reserved delimiters in a historical function argument")
     for index, msg in enumerate(formatted):
-        v2.require(not CONTROL.search(msg["content"]), "history_control", "Reserved Qwen control marker")
+        history.require(not CONTROL.search(msg["content"]), "history_control", "Reserved Qwen control marker")
         if index in reasoning:
             msg["reasoning_content"] = reasoning[index]
     for link in prepared["id_sidecar"]:
@@ -96,9 +96,9 @@ def _argument(name, raw, schema):
     if name == "input_json" and types <= {"string", "object"}:
         # Harness envelopes always carry a JSON object, including legacy strings.
         parsed = _strict_json(raw)
-        v2.require(isinstance(parsed, dict), "tool_arguments", "input_json must encode an object")
+        history.require(isinstance(parsed, dict), "tool_arguments", "input_json must encode an object")
         decoded = json.dumps(parsed, ensure_ascii=False)
-        v2.require(not NATIVE_TAG.search(decoded) and not CONTROL.search(decoded), "tool_arguments",
+        history.require(not NATIVE_TAG.search(decoded) and not CONTROL.search(decoded), "tool_arguments",
                    "Control markup in decoded input_json")
         return parsed if "object" in types else raw
     if types == {"string"}:
@@ -107,34 +107,34 @@ def _argument(name, raw, schema):
         normalized = {"True": "true", "False": "false", "None": "null"}.get(raw, raw)
         try:
             value = _strict_json(normalized)
-        except v2.InputRejected:
+        except history.InputRejected:
             if "string" not in types:
                 raise
             value = raw
         actual = JSON_TYPES[type(value)]
         if actual not in types and not (actual == "integer" and "number" in types):
-            v2.require("string" in types, "tool_arguments", "Parameter type differs from tool schema")
+            history.require("string" in types, "tool_arguments", "Parameter type differs from tool schema")
             value = raw
     if "enum" in schema:
-        v2.require(any(type(value) is type(item) and value == item for item in schema["enum"]),
+        history.require(any(type(value) is type(item) and value == item for item in schema["enum"]),
                    "tool_arguments", "Parameter outside advertised choices")
     return value
 
 
 def _strict_json(raw):
     try:
-        value = v2.base.parse(raw)
+        value = history.parse(raw)
         # Covers float overflow, deep recursion and unpaired Unicode surrogates, too.
-        v2.canonical(value)
+        history.canonical(value)
     except (ValueError, TypeError, RecursionError) as exc:
-        raise v2.InputRejected("tool_arguments", "Expected a strict finite JSON parameter") from exc
+        raise history.InputRejected("tool_arguments", "Expected a strict finite JSON parameter") from exc
     return value
 
 
 def _decision(text, tools):
     """Parse the complete answer, then let the caller attach all calls in one step."""
     prefix, opening, tail = text.partition("<tool_call>")
-    v2.require(not NATIVE_TAG.search(prefix), "generated_format", "Stray tool/thinking delimiter")
+    history.require(not NATIVE_TAG.search(prefix), "generated_format", "Stray tool/thinking delimiter")
     decision = {"role": "assistant", "content": prefix.strip()}
     if not opening:
         return decision
@@ -142,28 +142,28 @@ def _decision(text, tools):
     remaining = opening + tail
     calls = []
     while remaining:
-        v2.require(remaining.startswith("<tool_call>"), "generated_format", "Unexpected suffix after call")
+        history.require(remaining.startswith("<tool_call>"), "generated_format", "Unexpected suffix after call")
         remaining = remaining[len("<tool_call>"):].lstrip()
         function = FUNCTION.match(remaining)
-        v2.require(function, "generated_format", "Expected a function block")
+        history.require(function, "generated_format", "Expected a function block")
         name = function.group(1)
-        v2.require(name in schemas, "tool_calls", "Unadvertised function")
+        history.require(name in schemas, "tool_calls", "Unadvertised function")
         schema = schemas[name]
         props = schema.get("properties", {})
         args = {}
         remaining = remaining[function.end():]
         while parameter := PARAMETER.match(remaining):
             key = parameter.group(1)
-            v2.require(key in props and key not in args, "tool_arguments", "Unknown or duplicate parameter")
+            history.require(key in props and key not in args, "tool_arguments", "Unknown or duplicate parameter")
             raw, close, tail = remaining[parameter.end():].partition("</parameter>")
-            v2.require(close and not NATIVE_TAG.search(raw), "generated_format", "Malformed parameter block")
+            history.require(close and not NATIVE_TAG.search(raw), "generated_format", "Malformed parameter block")
             args[key] = _argument(key, raw, props[key])
             remaining = tail.lstrip()
-        v2.require(remaining.startswith("</function>"), "generated_format", "Unclosed function")
+        history.require(remaining.startswith("</function>"), "generated_format", "Unclosed function")
         remaining = remaining[len("</function>"):].lstrip()
-        v2.require(remaining.startswith("</tool_call>"), "generated_format", "Unclosed tool call")
+        history.require(remaining.startswith("</tool_call>"), "generated_format", "Unclosed tool call")
         remaining = remaining[len("</tool_call>"):].lstrip()
-        v2.require(set(schema.get("required", [])) <= args.keys(), "tool_arguments", "Missing required parameter")
+        history.require(set(schema.get("required", [])) <= args.keys(), "tool_arguments", "Missing required parameter")
         calls.append({"type": "function", "function": {"name": name, "arguments": args}})
     decision["tool_calls"] = calls
     return decision
@@ -179,35 +179,35 @@ def parse_generation(tokenizer, generated, eos_ids, thinking, prepared, limit):
     terminated = bool(ids and ids[-1] in EOS_IDS and ids[-1] in eos_ids)
     result = {"message": None, "anomalies": [], "reasoning_tokens": None, "terminated": terminated}
     try:
-        v2.require(len(ids) <= limit, "generation_limit", "Generated sequence exceeds its limit")
-        v2.require(terminated, "generation_truncated" if len(ids) == limit else "missing_eos",
+        history.require(len(ids) <= limit, "generation_limit", "Generated sequence exceeds its limit")
+        history.require(terminated, "generation_truncated" if len(ids) == limit else "missing_eos",
                    "Generation needs a real terminal token")
         body = ids[:-1]
-        v2.require(not any(i in EOS_IDS for i in body), "interior_eos", "Internal end token")
+        history.require(not any(i in EOS_IDS for i in body), "interior_eos", "Internal end token")
         vocabulary_size = len(tokenizer)
-        v2.require(all(type(i) is int and 0 <= i < vocabulary_size for i in ids),
+        history.require(all(type(i) is int and 0 <= i < vocabulary_size for i in ids),
                    "generated_token", "Invalid tokenizer ID")
 
         def decode(tokens):
             return tokenizer.decode(tokens, skip_special_tokens=False, clean_up_tokenization_spaces=False)
 
         answer = decode(body)
-        v2.require(not CONTROL.search(answer), "generated_format", "Reserved control token")
+        history.require(not CONTROL.search(answer), "generated_format", "Reserved control token")
         thought = None
         result["reasoning_tokens"] = 0
         if thinking:
             close = tokenizer.convert_tokens_to_ids("</think>")
-            v2.require(body.count(close) == 1 and answer.count("</think>") == 1 and "<think>" not in answer,
+            history.require(body.count(close) == 1 and answer.count("</think>") == 1 and "<think>" not in answer,
                        "malformed_thinking", "Generation must close the prompt's open think block exactly once")
             index = body.index(close)
             thought = decode(body[:index])
             result["reasoning_tokens"] = index if thought.strip() else 0
             answer = decode(body[index + 1:]).lstrip("\n")
         else:
-            v2.require("<think>" not in answer and "</think>" not in answer,
+            history.require("<think>" not in answer and "</think>" not in answer,
                        "unexpected_thinking", "Thinking-off output contains a thought delimiter")
         decision = _decision(answer, prepared["tools"])
-        message = v2.attach_generated_decision(prepared, decision)["messages"][-1]
+        message = history.attach_generated_decision(prepared, decision)["messages"][-1]
         used = {link["original_id"] for link in prepared["id_sidecar"]}
         index = prepared["next_call_index"]
         for call in message.get("tool_calls", []):
@@ -221,7 +221,7 @@ def parse_generation(tokenizer, generated, eos_ids, thinking, prepared, limit):
         if thought is not None:
             message["reasoning_content"] = thought
         result["message"] = message
-    except v2.InputRejected as error:
+    except history.InputRejected as error:
         result["anomalies"].append(error.code)
     except RecursionError:
         result["anomalies"].append("tool_arguments")

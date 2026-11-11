@@ -1,1 +1,0 @@
-../../../posttraining/tests/test_sense_retest.py

@@ -1,1 +1,0 @@
-../../../posttraining/tests/test_teacher_service_orphan.py

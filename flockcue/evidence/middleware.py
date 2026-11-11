@@ -11,8 +11,8 @@ import hashlib
 
 from langchain_core.messages import HumanMessage, SystemMessage, ToolMessage
 
-from task_evidence import encode
-from task_progress import TaskProgressMiddleware
+from flockcue.evidence.ledger import encode
+from flockcue.evidence.progress import TaskProgressMiddleware
 
 MODES = {"evidence_shadow", "evidence_prompt", "evidence"}
 RULES = (

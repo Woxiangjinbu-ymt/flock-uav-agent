@@ -9,12 +9,27 @@ from pathlib import Path
 import shutil
 from tempfile import TemporaryDirectory
 
-from report_flockcue_deployment600 import provider_payload
+import zlib
 
 
 ROOT = Path(__file__).resolve().parents[2]
 AUDIT = ROOT / "datasets/teacher/2026-11-11-fold-a/audit"
 REVIEWED = "reviewed-compatible-public-turns.jsonl.gz"
+
+
+def provider_payload(raw, header):
+    if header['body_scope'] == 'httpx_stream_before_content_decoding':
+        enc = header['content_encoding']
+        if enc == 'gzip':
+            raw = gzip.decompress(raw)
+        elif enc == 'deflate':
+            raw = zlib.decompress(raw)
+        elif enc != 'identity':
+            raise ValueError(f'Unsupported wire content-encoding {enc}')
+    if raw.lstrip().startswith((b'data:', b':')):
+        return [json.loads(line[5:].strip()) for line in raw.splitlines()
+                if line.startswith(b'data:') and line[5:].strip() not in (b'', b'[DONE]')]
+    return [json.loads(raw)]
 
 
 def rows(path):
@@ -88,7 +103,8 @@ def public_turn(stream, turn):
     return {"messages": visible["messages"], "tools": visible["tools"], "target": target, "post_action_receipts": receipts}
 
 
-def write_packages(audit, workspace, stage, selection):
+def write_packages(audit, run, stage, selection):
+    run_prefix = Path(json.loads((audit / "source-seals.json").read_bytes())["run"])
     summary = json.loads((audit / "summary.json").read_bytes())
     roles = json.loads((audit / "scene-roles.json").read_bytes())["scenes"]
     scene_role = {row["session_id"]: row["role"] for row in roles}
@@ -125,9 +141,10 @@ def write_packages(audit, workspace, stage, selection):
                 continue
             if previous != episode_id:
                 current.close()
-                path = (workspace / episode["archive_path"]).resolve()
-                if not path.is_relative_to(workspace):
-                    raise ValueError(f"Archive outside --workspace: {path}")
+                relative = Path(episode["archive_path"]).relative_to(run_prefix)
+                path = (run / relative).resolve()
+                if not path.is_relative_to(run):
+                    raise ValueError(f"Archive outside --run: {path}")
                 source = current.enter_context(path.open("rb"))
                 must_match(hashlib.file_digest(source, "sha256").hexdigest(), episode["archive_sha256"], str(path))
                 previous = episode_id
@@ -149,7 +166,7 @@ def write_packages(audit, workspace, stage, selection):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--audit", type=Path, default=AUDIT, help="released scene, wire and review indices")
-    parser.add_argument("--workspace", type=Path, default=ROOT, help="root containing the archived paths in wire-episodes.jsonl")
+    parser.add_argument("--run", type=Path, default=AUDIT.parent / "raw", help="captured run directory containing its scene folders (default: local teacher release raw/)")
     parser.add_argument("--output", type=Path, required=True, help="fresh output directory, published only after hash verification")
     parser.add_argument("--package", choices=("reviewed", "training", "validation", "all"), default="reviewed")
     args = parser.parse_args()
@@ -160,7 +177,7 @@ def main():
     selection = ("training", "validation", "reviewed") if args.package == "all" else (args.package,)
     with TemporaryDirectory(dir=output.parent) as tmp:
         stage = Path(tmp)
-        counts = write_packages(args.audit.resolve(), args.workspace.resolve(), stage, selection)
+        counts = write_packages(args.audit.resolve(), args.run.resolve(), stage, selection)
         output.mkdir()
         try:
             for file in stage.iterdir():

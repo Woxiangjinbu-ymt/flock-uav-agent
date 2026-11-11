@@ -1,1 +1,0 @@
-../../flockcue/tests/test_memory_compact_view.py

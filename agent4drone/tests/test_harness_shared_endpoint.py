@@ -1,1 +1,0 @@
-../../flockcue/tests/test_harness_shared_endpoint.py

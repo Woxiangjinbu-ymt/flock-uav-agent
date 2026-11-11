@@ -7,7 +7,6 @@ from pathlib import Path
 
 
 RELEASE = Path(__file__).resolve().parent
-ROOT = RELEASE.parents[2]
 MANIFEST_SHA256 = "210dd19888a70c9eeaf9106a75b4bf198ba0215dee8b45fb5a39a4147189beac"
 FULL_PAYLOADS = {"training-public-turns.jsonl.gz", "validation-public-turns.jsonl.gz"}
 
@@ -31,7 +30,9 @@ def verify(full):
     files = json.loads(manifest.read_bytes())["files"]
     checked = 0
     for record in files:
-        archived = ROOT / record["path"]
+        original = Path(record["path"])
+        group = "public" if original.parent == Path("outputs/flockcue-teacher-trajectories-a-20261111") else "audit"
+        archived = RELEASE / group / original.name
         if not full and archived.name in FULL_PAYLOADS:
             continue
         check(archived.is_file(), f"Missing archived file: {archived}")

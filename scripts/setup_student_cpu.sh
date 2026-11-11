@@ -1,1 +1,0 @@
-../posttraining/resources/setup_student_cpu.sh

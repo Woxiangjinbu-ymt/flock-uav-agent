@@ -1,1 +1,0 @@
-../../flockcue/tests/test_harness_entry_contract.py

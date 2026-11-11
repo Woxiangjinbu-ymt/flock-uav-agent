@@ -1,15 +1,15 @@
 # DeepSeek 教师轨迹 · 2026-11-11 A 折
 
-数据来自 FlockCue 正式 600 题首遍。A 折 12 个完整场景、240 题作为训练侧，另 3 个场景、60 题作为内部验证侧。B 折留作首个学生的折外评测。[300 题归属](audit/episodes.jsonl) · [场景划分](audit/scene-roles.json)
+首遍 FlockCue 600 题中的 12 个完整场景、240 题用于训练侧，另 3 个场景、60 题用于内部验证。B 折 15 场、300 题供学生折外评测。本题库有历史开发暴露。[场景角色](audit/scene-roles.json) · [逐题取舍](audit/episodes.jsonl)
 
-| 文件 | 记录单位与用途 |
+| 数据 | 用途 |
 | --- | --- |
-| [public/reviewed-compatible-public-turns.jsonl.gz](public/reviewed-compatible-public-turns.jsonl.gz) | 随 Git 分发的 386 个训练侧决策轮，来自 110 道题。已核查执行证据和当前 2B 模板长度，可用于随后制作 SFT 数据。 |
-| `public/training-public-turns.jsonl.gz` | 本地完整训练侧包，3,417 个可重建决策轮，含成功与失败行为。文件大小和 SHA-256 见清单。 |
-| `public/validation-public-turns.jsonl.gz` | 本地内部验证包，1,009 个可重建决策轮。用于检查泛化与选参。 |
-| [audit/manifest.json](audit/manifest.json) | 25 个发布文件的登记路径、大小、SHA-256。审阅理由和评分仅在 `audit/` 中。 |
-| [audit/reviewed-qwen-projection.jsonl](audit/reviewed-qwen-projection.jsonl) | 从保留轮定位原场景、题目、模型逻辑轮、训练包行与学生 token 检查。 |
+| [public/reviewed-compatible-public-turns.jsonl.gz](public/reviewed-compatible-public-turns.jsonl.gz) | Git 随附的 386 个经审阅的训练侧决策轮，覆盖 110 道题。 |
+| `public/training-public-turns.jsonl.gz` | 完整训练侧 3,417 个可重建决策轮，含成功与失败行为。 |
+| `public/validation-public-turns.jsonl.gz` | 独立的内部验证包，1,009 个可重建决策轮。 |
+| [audit/](audit/) | 封存清单、原报告、题目与轮次索引、证据边界和学生投影。 |
+| `raw/` | 重建所需的本地原始证据，含父清单、15 个 A 折场景的题目派发记录、封存摘要、工具执行记录和 HTTP 原件。 |
 
-每个公开记录含当轮可见的 `messages`、`tools`、实际教师 `target` 和执行后才产生的 `post_action_receipts`。仅前两项可用于构造当轮输入。训练侧和内部验证侧的归档分别存储，数据本身有历史开发暴露。[发布报告](../../../docs/results/flockcue-teacher-trajectories-a-20261111/REPORT_CN.md) · [格式与证据定位](../../../docs/results/flockcue-teacher-trajectories-a-20261111/WIRE_FORMAT_CN.md)
+每个公开记录的 `messages`、`tools` 是当前输入，`target` 是教师实发回复，`post_action_receipts` 在动作执行后才产生。原始报告保留发布时的名称与路径。清单中 `docs/results/…` 所列文件在本包的 `audit/`，`outputs/…` 所列数据在 `public/`。[原发布报告](audit/REPORT_CN.md) · [原始格式](audit/WIRE_FORMAT_CN.md) · [SHA-256 清单](audit/manifest.json)
 
-`python3 datasets/teacher/2026-11-11-fold-a/verify.py` 核验 Git 随附的索引、报告、样例和 386 个决策轮。若已取回两份完整包，放入 `public/` 后加上 `--full`；校验会要求全部 25 个封存文件到齐。
+运行 `python3 datasets/teacher/2026-11-11-fold-a/verify.py` 检查 Git 随附的 23 项。当前工作区额外保存两个完整公开包和原始证据。取回完整包后，用 `--full` 逐一核验全部 25 项。[从原始执行证据重建](../../../posttraining/trajectories/README.md)

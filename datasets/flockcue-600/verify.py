@@ -9,7 +9,6 @@ import zipfile
 
 
 PACKAGE = Path(__file__).resolve().parent
-REPO = PACKAGE.parent.parent
 SELECTION_SHA = "c3d60aadde603a65c7481495db0db5274d7512f4f823a6e5cb356814a6241e06"
 SOURCE_SHA = "b5040097d2bfdd44600f3bf486fdb43ee3eb1247fec9c67900b5fcda6feb94a3"
 HISTORY_SHA = "69c5d3b3451f1029c52bcd8e5ccefacfb955aaba1d80d056b119aa95be28f2c3"
@@ -89,6 +88,18 @@ def check_package():
 
 
 def check_historical(path, pairs, history):
+    # The November paired results contain the October reference for just these 600 tasks.
+    # The full October CSV can also be supplied from the external run archive.
+    paired_sha = "838e7d82b934a63893d4c1334b53274d2257cfceca39e8adc02a529c2d3264da"
+    if digest(path.read_bytes()) == paired_sha:
+        with path.open(encoding="utf-8-sig", newline="") as file:
+            rows = list(csv.DictReader(file))
+        require(len(rows) == len(pairs) and {(r["session_id"], r["task_id"]) for r in rows} == pairs,
+                "Paired rows differ from the frozen benchmark")
+        require(sum(r["historical_pass"] == "True" for r in rows) == history["task_pass"] and
+                Counter(r["historical_accounting_reason"] for r in rows) == history["accounting_reasons"],
+                "Historical scores or failure accounting differ from the paired release")
+        return "published_600_pairs"
     checked_file(path, history["historic_task_file_sha256"])
     with path.open(encoding="utf-8-sig", newline="") as file:
         rows = [row for row in csv.DictReader(file) if row["model"] == history["model"]
@@ -100,28 +111,28 @@ def check_historical(path, pairs, history):
     require(passing == history["task_pass"] == 506 and deployed == history["deployment_pass"] == 506 and
             Counter(r["accounting_reason"] for r in rows) == history["accounting_reasons"],
             "Historical score or failure accounting differs")
+    return "original_october_csv"
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group()
-    group.add_argument("--benchmark", type=Path, default=REPO / "benchmark/benchmark.zip")
+    group.add_argument("--benchmark", type=Path, default=PACKAGE.parent / "original-benchmark/benchmark.zip")
     group.add_argument("--standalone", action="store_true", help="Verify the portable package without the full benchmark")
     parser.add_argument("--historical-csv", nargs="?", type=Path,
-                        const=REPO / "docs/results/baseline-deployment-20261005/tasks.csv",
-                        help="Also reproduce the historical DeepSeek count from its original CSV")
+                        const=PACKAGE.parent / "results/benchmark-600/tasks.csv",
+                        help="Recount October scores using the 600 paired rows, or supply the original October CSV")
     args = parser.parse_args()
     strata, pairs = check_package()
     if not args.standalone:
         check_source(args.benchmark, strata)
     history = json.loads(checked_file(PACKAGE / "historical-reference-600.json", HISTORY_SHA))
     require(history["selection_sha256"] == SELECTION_SHA, "Historical reference belongs to another selection")
-    if args.historical_csv:
-        check_historical(args.historical_csv, pairs, history)
+    source = check_historical(args.historical_csv, pairs, history) if args.historical_csv else None
     print(json.dumps({"dataset_id": "flockcue-benchmark-600-v1", "strata": len(strata), "sessions": 30,
                       "tasks": len(pairs), "proposed_fold_sizes": [300, 300],
                       "full_source_verified": not args.standalone,
-                      "historical_score_recomputed": bool(args.historical_csv)}))
+                      "historical_score_recomputed": bool(source), "historical_score_source": source}))
 
 
 if __name__ == "__main__":
