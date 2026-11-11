@@ -1,6 +1,6 @@
 # FlockCue 文档导航
 
-更新于 2026-11-11。当前工作是在冻结的 600 题上，按原 1,500 题全量部署设置正式评测 FlockCue + DeepSeek。模块取舍、后续教师轨迹及 2B 训练顺序见现行路线。[本批规格](specs/05-deepseek-harness-ab600/spec.md) · [研究路线](RESEARCH_ROADMAP_CN.md)
+更新于 2026-11-11。600 题首遍与同日 200 题基线对照已完成。当前工作是从真实 DeepSeek 轨迹生成学生数据。代码入口见[项目目录](../README_CN.md)，训练、评测与数据归属见[后训练方案](POSTTRAINING_PLAN_CN.md)。
 
 ## 目录分工
 
@@ -21,10 +21,10 @@
 | 接下来做什么，门槛是什么？ | [研究路线](RESEARCH_ROADMAP_CN.md) |
 | 什么已经验证，什么还是假设？ | [研究状态](RESEARCH_STATUS_CN.md) |
 | 学生学什么，怎样对照，要多少资源？ | [后训练方案](POSTTRAINING_PLAN_CN.md) |
-| 哪 600 道题用于构建 SFT 数据和最终系统比较？ | [冻结题目清单](../experiments/flockcue-benchmark-600-v1/) · [采数、训练与评测规格草案](specs/02-benchmark600-sft/spec.md) |
+| 哪 600 道题用于构建 SFT 数据和最终系统比较？ | [冻结题目清单](../datasets/flockcue-600/) · [采数、训练与评测规格草案](specs/02-benchmark600-sft/spec.md) |
 | 第 1 步的执行事件与思考标签如何定义、如何验证？ | [规格](specs/01-thinking-events/spec.md) · [技术方案](specs/01-thinking-events/plan.md) · [任务清单](specs/01-thinking-events/task.md) · [验收清单](specs/01-thinking-events/checklist.md) |
 | 与已有工作的差异、贡献标准、展示与归属 | [项目指南](PROJECT_GUIDE_CN.md) |
-| FlockCue 如何启动与复核 | [Harness 入口](../agent_harness/README.md) · [运行手册](REPRODUCTION_RUNBOOK_CN.md) · [依赖安装](DEPENDENCY_SETUP_CN.md) |
+| FlockCue 如何启动与复核 | [Harness 入口](../flockcue/README.md) · [运行手册](REPRODUCTION_RUNBOOK_CN.md) · [依赖安装](DEPENDENCY_SETUP_CN.md) |
 | 各批实验的结果和边界 | [实验依据](EXPERIMENT_EVIDENCE_CN.md) |
 | 脚本和实验目录 | [脚本导航](../scripts/README.md) · [实验目录](../experiments/README.md) |
 

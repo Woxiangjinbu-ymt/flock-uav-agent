@@ -1,47 +1,33 @@
-# FlockCue: Multi-UAV Coordination with Execution Feedback
+# FlockCue
 
-**FlockCue** is an agent harness for multi-UAV coordination with execution feedback. The agent picks tools and directs the fleet. FlockCue records which UAV acted, what each receipt confirmed, and which task requirements still lack evidence. After evaluating the harness, the project will use verified DeepSeek trajectories to train a ~2B commander with SFT and RL and measure its task pass rate. [中文](README_CN.md) · [Run FlockCue](agent_harness/README.md)
+FlockCue is an agent harness for coordinating multiple UAVs. The agent uses tool receipts and the fleet’s execution state to plan its next action. The project uses real DeepSeek trajectories to train a 2B commander and evaluates task pass rate under the same harness before training, after SFT and after GRPO. [中文](README_CN.md) · [Research roadmap](docs/RESEARCH_ROADMAP_CN.md)
 
-## Current work · 2026-11-11
+## Repository
 
-The formal evaluation uses 600 frozen tasks from 30 complete scenarios and the original 1,500-task deployment settings. The historical Agent4Drone run with DeepSeek passed 506 of those 600 tasks. FlockCue’s results will inform which modules to keep. [Evaluation specification](docs/specs/05-deepseek-harness-ab600/spec.md) · [Benchmark and historical scores](experiments/flockcue-benchmark-600-v1/README_CN.md)
-
-| Question | Start here |
+| Component | Directory |
 | --- | --- |
-| Research question and stages | Evaluate FlockCue, settle the harness design, then train and evaluate the student. [Roadmap](docs/RESEARCH_ROADMAP_CN.md) |
-| What the student learns and how arms are compared | Verified teacher demonstrations and task pass rates before SFT, after SFT and after RL. [Post-training plan](docs/POSTTRAINING_PLAN_CN.md) |
-| What already runs | The local v5 baseline replays; teacher reasoning usage in four sealed real batches has been recomputed. No student weights yet. [Status](docs/RESEARCH_STATUS_CN.md) · [Evidence index](docs/EXPERIMENT_EVIDENCE_CN.md) |
-| Thesis, paper and demo | Differences from RACE and PenguinHarness, and what counts as a contribution. [Project guide](docs/PROJECT_GUIDE_CN.md) |
+| FlockCue runtime, execution memory, evidence and tools | [flockcue/](flockcue/README.md) |
+| Agent4Drone service and upstream integrations | [agent4drone/](agent4drone/README.md) |
+| Formal system evaluation | [flockcue/evaluation/](flockcue/evaluation/) |
+| Teacher trajectory reconstruction | [posttraining/trajectories/](posttraining/trajectories/) |
+| Student formatting, tokenizer checks and SFT | [posttraining/sft/](posttraining/sft/) |
+| Online RL and GRPO | [posttraining/rl/](posttraining/rl/) |
+| Original and frozen benchmarks, teacher and SFT data | [datasets/](datasets/README.md) |
+| Experiment manifests and research reports | [experiments/](experiments/README.md) · [docs/](docs/README.md) |
 
-## Repository map
+The simulator and independent checker live in [server/](server/README.md), the scenario controller in [controller/](controller/README.md), and the 3D viewer in [view3d/](view3d/README.md). Shared environment and deployment scripts live in [scripts/](scripts/README.md).
 
-```text
-agent_harness/ FlockCue research entry: version lock, check and smoke
-agent4drone/   UAV agent, harness runtime, receipt parsing, model I/O archive
-server/        Simulation, public APIs and isolated checkers
-controller/    Scenario management and execution GUI
-view3d/        3D viewer
-benchmark/     Upstream tasks and scenes
-scripts/       Runners, batch entry points, validation and audits (see scripts/README.md)
-training/      Pinned tokenizer and input checks
-experiments/   Frozen splits, profiles, fixtures and historical experiments (see experiments/README.md)
-docs/          Current docs, specs, sealed results and history (see docs/README.md)
-tmp/           Scratch; only task-splits-pilot-01 is kept for the split audit
-tutorial/      Upstream platform walkthroughs
-```
+## Run locally
 
-## Getting started
-
-Set up the per-component environments with the [dependency guide](docs/DEPENDENCY_SETUP_CN.md). Platform startup is in the [runbook](docs/REPRODUCTION_RUNBOOK_CN.md); see also the [English tutorial](tutorial/tutorial_en.md). Keep provider credentials in ignored local settings.
-
-Verify the research baseline from the repository root:
+Install the per-component environments using the [setup guide](docs/DEPENDENCY_SETUP_CN.md), then run these offline checks from the repository root.
 
 ```bash
-agent4drone/.venv/bin/python -m agent_harness check
+agent4drone/.venv/bin/python -m flockcue check
+python3 datasets/flockcue-600/verify.py --historical-csv
 ```
 
-## Attribution and history
+FlockCue + DeepSeek passed 544/600 tasks on the formal first pass. On 200 matched tasks with the same DeepSeek service fingerprint, FlockCue passed 182 and Agent4Drone passed 168. The first teacher release contains 386 reviewed decisions from 110 training tasks. Student SFT and GRPO have yet to run. [Formal evaluation](docs/results/flockcue-deployment600-20261111/REPORT_CN.md) · [Matched comparison](docs/results/agent4drone-matched200-20261111/REPORT_CN.md) · [Teacher release](docs/results/flockcue-teacher-trajectories-a-20261111/REPORT_CN.md)
 
-The simulator, benchmark, Agent4Drone foundation and viewer come from MultiUAV-Plat. Local changes and their evidence are recorded separately. [Upstream documentation and citation](docs/upstream/README.md) · [License](LICENSE)
+## Versions and data
 
-The 2026-11-08 cleanup moved development scratch output out of the repository and moved the superseded verifier draft and budget into `docs/history/`. See the [cleanup manifest](docs/maintenance/cleanup-20261108.json) and the earlier [2026-10-28 manifest](docs/maintenance/cleanup-20261028.json).
+Edit the canonical module in place and use Git commits or tags to identify code revisions. The tag `project-layout-before-20261111` preserves the code before the directory move. Released protocol IDs and byte-level manifests retain their published names. Git includes the benchmark, manifests and reviewed teacher subset. The full teacher traces and run archives are stored locally and checked against their published hashes. [Migration notes](docs/maintenance/project-layout-20261111.md) · [Upstream components and citation](docs/upstream/README.md) · [License](LICENSE)

@@ -727,87 +727,10 @@ class UAVControlAgent:
             from task_progress import TaskProgressLedger, TaskProgressMiddleware
 
             inherited = self.blackboard.full() if self.share_blackboard_by_session else None
-            if mode in {"evidence_r2", "evidence_r2_hints", "evidence_r2_shadow", "evidence_r3", "evidence_r3_shadow", "evidence_r2_worker", "evidence_r2_search", "evidence_harness", "evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}:
-                from task_evidence_r2 import (SessionEvidenceIndexR2, TaskEvidenceLedgerR2,
-                                               TaskEvidenceR2Middleware, progress_tool)
-
-                ledger_type, middleware_type = TaskEvidenceLedgerR2, TaskEvidenceR2Middleware
-                if mode in {"evidence_r3", "evidence_r3_shadow"}:
-                    from task_evidence_r3 import TaskEvidenceLedgerR3, TaskEvidenceR3Middleware
-                    ledger_type, middleware_type = TaskEvidenceLedgerR3, TaskEvidenceR3Middleware
-                memory_mode = mode in {"evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}
-                if memory_mode:
-                    from execution_memory import ExecutionMemoryLedger, SessionEvidenceIndexMemory
-                    from execution_memory_context import ExecutionMemoryMiddleware
-                    ledger_type, middleware_type = ExecutionMemoryLedger, ExecutionMemoryMiddleware
-                    if mode in {"evidence_memory_v2", "evidence_memory_v2_harness"}:
-                        from execution_memory_v2 import ExecutionMemoryLedgerV2
-                        from execution_memory_v2_context import ExecutionMemoryV2Middleware
-                        ledger_type, middleware_type = ExecutionMemoryLedgerV2, ExecutionMemoryV2Middleware
-                    if mode in {"evidence_memory_v3", "evidence_memory_v3_harness"}:
-                        from execution_memory_v3 import ExecutionMemoryLedgerV3
-                        from execution_memory_v3_context import ExecutionMemoryV3Middleware
-                        ledger_type, middleware_type = ExecutionMemoryLedgerV3, ExecutionMemoryV3Middleware
-                    if mode in {"evidence_memory_v4", "evidence_memory_v4_harness"}:
-                        from execution_memory_v4 import ExecutionMemoryLedgerV4
-                        from execution_memory_v4_context import ExecutionMemoryV4Middleware
-                        ledger_type, middleware_type = ExecutionMemoryLedgerV4, ExecutionMemoryV4Middleware
-                    if mode in {"evidence_memory_v5", "evidence_memory_v5_harness"}:
-                        from execution_memory_v5 import ExecutionMemoryLedgerV5
-                        from execution_memory_v5_context import ExecutionMemoryV5Middleware
-                        ledger_type, middleware_type = ExecutionMemoryLedgerV5, ExecutionMemoryV5Middleware
-                    if mode in {"evidence_memory_v6", "evidence_memory_v6_harness"}:
-                        from execution_memory_v6 import ExecutionMemoryLedgerV6
-                        from execution_memory_v6_context import ExecutionMemoryV6Middleware
-                        ledger_type, middleware_type = ExecutionMemoryLedgerV6, ExecutionMemoryV6Middleware
-                    if mode in {"evidence_memory_v7", "evidence_memory_v7_harness"}:
-                        from execution_memory_v7 import ExecutionMemoryLedgerV7
-                        from execution_memory_v7_context import ExecutionMemoryV7Middleware
-                        ledger_type, middleware_type = ExecutionMemoryLedgerV7, ExecutionMemoryV7Middleware
-                if mode == "evidence_r2_worker":
-                    from observation_worker_r2 import (TaskEvidenceWorkerLedger,
-                                                       TaskEvidenceWorkerMiddleware,
-                                                       run_observation_worker)
-                    ledger_type, middleware_type = TaskEvidenceWorkerLedger, TaskEvidenceWorkerMiddleware
-                if mode == "evidence_r2_search":
-                    from coordinated_search_worker_r2 import (TaskEvidenceSearchLedger,
-                                                               TaskEvidenceSearchMiddleware,
-                                                               run_public_search)
-                    ledger_type, middleware_type = TaskEvidenceSearchLedger, TaskEvidenceSearchMiddleware
-                index = getattr(self.blackboard, "task_evidence_index", None)
-                if index is None:
-                    index = (SessionEvidenceIndexMemory if memory_mode else SessionEvidenceIndexR2)(self.blackboard.session_id)
-                    self.blackboard.task_evidence_index = index
-                if not isinstance(index, SessionEvidenceIndexR2):
-                    raise ValueError("Changing evidence revision requires a fresh agent/blackboard")
-                if memory_mode and not isinstance(index, SessionEvidenceIndexMemory):
-                    raise ValueError("Execution memory requires a fresh agent/blackboard")
-                ledger = ledger_type(command, command_id, index=index,
-                                               aggregate_feedback=mode != "evidence_r2_hints",
-                                               inherited_blackboard=inherited, max_summary_chars=3900)
-                if mode in {"evidence_harness", "evidence_memory_harness", "evidence_memory_v2_harness", "evidence_memory_v3_harness", "evidence_memory_v4_harness", "evidence_memory_v5_harness", "evidence_memory_v6_harness", "evidence_memory_v7_harness"}:
-                    from harness_integration import install_harness
-                    middleware = install_harness(self, ledger, execution_memory=memory_mode,
-                                                 memory_variant=mode if memory_mode else "evidence_memory_harness")
-                elif mode == "evidence_r2_worker":
-                    middleware = middleware_type(
-                        ledger,
-                        lambda candidate, run: run_observation_worker(self, ledger, candidate, run),
-                        self._observation_worker_task_started)
-                elif mode == "evidence_r2_search":
-                    middleware = middleware_type(
-                        ledger,
-                        lambda candidate, run: run_public_search(self, ledger, candidate, run),
-                        self._public_search_task_started)
-                else:
-                    middleware = middleware_type(ledger, mode)
-                # Only explicit aggregate tasks gain this tool. No hidden API
-                # call occurs here; the model chooses reads within its budget.
-                if ledger.aggregate and mode in {"evidence_r2", "evidence_r3", "evidence_r2_search", "evidence_harness", "evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}:
-                    self.tools = [*self.tools, progress_tool(self.client, self.blackboard.session_id)]
-                self._task_progress_middleware = middleware
-                self._task_progress = ledger
-                return
+            if mode.startswith("evidence_") and mode not in {"evidence_shadow", "evidence_prompt"}:
+                from harness_integration import initialize_evidence_progress
+                if initialize_evidence_progress(self, command, command_id, mode, inherited):
+                    return
             if mode in {"evidence_shadow", "evidence_prompt", "evidence"}:
                 from task_evidence import SessionEvidenceIndex, TaskEvidenceLedger
                 from task_evidence_context import TaskEvidenceMiddleware
@@ -830,7 +753,7 @@ class UAVControlAgent:
             self._task_progress_middleware = TaskProgressMiddleware(ledger, mode=mode)
             self._task_progress = ledger
         except Exception:
-            if mode in {"evidence_harness", "evidence_memory", "evidence_memory_harness", "evidence_memory_v2", "evidence_memory_v2_harness", "evidence_memory_v3", "evidence_memory_v3_harness", "evidence_memory_v4", "evidence_memory_v4_harness", "evidence_memory_v5", "evidence_memory_v5_harness", "evidence_memory_v6", "evidence_memory_v6_harness", "evidence_memory_v7", "evidence_memory_v7_harness"}:
+            if mode == "evidence_harness" or mode.startswith("evidence_memory"):
                 raise  # An explicitly requested experiment must not silently become a baseline.
             logger.exception("Task-progress observer unavailable command_id=%s; continuing baseline execution", command_id)
 

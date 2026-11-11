@@ -1,47 +1,35 @@
 # FlockCue 多无人机协作执行反馈框架
 
-**FlockCue** 是基于执行反馈的多无人机协作智能体框架。Agent 选择工具并指挥机群，FlockCue 记录每架机执行了什么、回执证实了什么、哪些任务要求还待核实。Harness 评测定型后，以可信 DeepSeek 教师轨迹训练约 2B 的指挥模型，用整题 pass rate 衡量 SFT、RL 的效果。[English](README.md) · [运行 FlockCue](agent_harness/README.md)
+FlockCue 的主 Agent 根据任务指令和机队回执选择下一步工具调用。研究目标是在同一仿真环境中，用真实 DeepSeek 执行轨迹训练约 2B 的指挥模型，并用整题通过率比较基座、SFT 与 GRPO。[English](README.md) · [研究路线](docs/RESEARCH_ROADMAP_CN.md)
 
-## 当前工作 · 2026-11-11
+## 从哪里开始
 
-按十月原 1,500 题全量实验设置，在冻结的 30 个场景、600 题上正式评测 FlockCue + DeepSeek。原版 Agent4Drone + DeepSeek 的同题历史成绩为 506/600。根据 FlockCue 的实测结果决定模块取舍。[本批规格](docs/specs/05-deepseek-harness-ab600/spec.md) · [冻结题单与历史成绩](experiments/flockcue-benchmark-600-v1/README_CN.md)
-
-| 要了解什么 | 从哪里开始 |
+| 我想做什么 | 位置 |
 | --- | --- |
-| 研究问题与阶段 | 先评测并定型 Harness，再训练、评测学生。[研究路线](docs/RESEARCH_ROADMAP_CN.md) |
-| 学生学什么、怎样对照 | 核验教师轨迹，在同一 Harness 上比较原始、SFT 和 RL 学生的整题成绩。[后训练方案](docs/POSTTRAINING_PLAN_CN.md) |
-| 哪些已经跑通 | 本地 v5 基线可重放；4 个封存真实批次的教师推理用量已复算。学生权重尚未产生。[研究状态](docs/RESEARCH_STATUS_CN.md) · [实验依据](docs/EXPERIMENT_EVIDENCE_CN.md) |
-| 论文、大论文与展示 | 与 RACE、PenguinHarness 的差异和贡献标准。[项目指南](docs/PROJECT_GUIDE_CN.md) |
+| 改 FlockCue Agent 的执行流程、记忆、证据或工具 | [flockcue/](flockcue/README.md) |
+| 查看 Agent4Drone 服务和上游组件 | [agent4drone/](agent4drone/README.md) |
+| 运行正式系统评测或复核结果 | [flockcue/evaluation/](flockcue/evaluation/) |
+| 根据实发请求、工具调用与回执重建教师轨迹 | [posttraining/trajectories/](posttraining/trajectories/) |
+| 制作学生 SFT 样本、检查模板与监督边界 | [posttraining/sft/](posttraining/sft/) |
+| 开展在线 RL 或 GRPO | [posttraining/rl/](posttraining/rl/) |
+| 查原始题库、冻结 600 题、教师轨迹及 SFT 数据 | [datasets/](datasets/README.md) |
+| 查实验配置、结果和研究决策 | [experiments/](experiments/README.md) · [docs/](docs/README.md) |
 
-## 仓库结构
+仿真 API 与评分器位于 [server/](server/README.md)，场景管理与执行控制位于 [controller/](controller/README.md)，三维界面位于 [view3d/](view3d/README.md)。共享的部署工具和环境安装在 [scripts/](scripts/README.md)。
 
-```text
-agent_harness/ FlockCue 研究入口：版本锁、check 与 smoke
-agent4drone/   无人机 Agent、Harness 运行时、回执解析、模型 I/O 归档
-server/        仿真服务、公开 API 与隔离检查器
-controller/    场景管理与执行控制 GUI
-view3d/        三维可视化
-benchmark/     上游任务与场景资源
-scripts/       运行器、批次入口、验证与审计脚本（见 scripts/README.md）
-training/      固定 tokenizer 与输入检查
-experiments/   冻结的数据划分、配置、fixture 与历史实验（见 experiments/README.md）
-docs/          现行文档、规格、结果原件与历史材料（见 docs/README.md）
-tmp/           开发临时目录；只保留划分审计所需的 task-splits-pilot-01
-tutorial/      上游平台操作教程
-```
+## 本地复核
 
-## 开始使用
-
-按[依赖安装](docs/DEPENDENCY_SETUP_CN.md)准备各组件的独立环境，平台启动见[运行入口](docs/REPRODUCTION_RUNBOOK_CN.md)，操作见[中文教程](tutorial/tutorial_zh.md)。模型凭据放在被忽略的本地配置中，不提交。
-
-在仓库根目录核验研究基线：
+按[依赖安装](docs/DEPENDENCY_SETUP_CN.md)准备各组件环境。从仓库根目录执行以下离线检查。
 
 ```bash
-agent4drone/.venv/bin/python -m agent_harness check
+agent4drone/.venv/bin/python -m flockcue check
+python3 datasets/flockcue-600/verify.py --historical-csv
 ```
 
-## 上游与历史材料
+首遍 FlockCue + DeepSeek 通过 544/600。同日、相同服务指纹的 200 题对照中，FlockCue 通过 182 题，原版通过 168 题。目前已从 A 折筛出 110 道训练题的 386 个教师决策轮，学生 SFT 和 GRPO 尚未启动。[正式评测](docs/results/flockcue-deployment600-20261111/REPORT_CN.md) · [同日对照](docs/results/agent4drone-matched200-20261111/REPORT_CN.md) · [教师轨迹构建报告](docs/results/flockcue-teacher-trajectories-a-20261111/REPORT_CN.md)
 
-仿真、Benchmark、Agent4Drone 底座及可视化来自上游 MultiUAV-Plat，本地增量与证据单独记录。[上游说明与引用](docs/upstream/README_CN.md) · [许可证](LICENSE)
+## 代码与数据的版本
 
-2026-11-08 的整理把开发临时输出移出仓库，把被取代的验证器草案和预算移入 `docs/history/`。清单与恢复位置见[清理记录](docs/maintenance/cleanup-20261108.json)，更早的一次见[10-28 清理记录](docs/maintenance/cleanup-20261028.json)。
+在所属目录的稳定文件名上修改代码，以 Git 提交或标签标识实现版本。迁移前的源码保存在标签 `project-layout-before-20261111`。要追溯单个文件可使用 `git log --follow -- <路径>`。已发布的实验 ID、数据协议和校验清单沿用原名，旧运行器所用的兼容路径见[目录迁移说明](docs/maintenance/project-layout-20261111.md)。
+
+Git 保存源码、依赖锁、冻结题单和已审阅的 386 轮数据包。完整教师公开轮和原始请求、仿真快照留存在本地，按发布清单校验。平台、数据集、Agent4Drone 与可视化组件的来源见[上游说明](docs/upstream/README_CN.md)和[许可证](LICENSE)。

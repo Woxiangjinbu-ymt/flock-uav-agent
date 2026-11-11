@@ -5,11 +5,11 @@
 ## 复现当前 Harness 基线
 
 ```bash
-agent4drone/.venv/bin/python -m agent_harness check
-agent4drone/.venv/bin/python -m agent_harness smoke --output experiments/runs/flockcue-smoke-01
+agent4drone/.venv/bin/python -m flockcue check
+agent4drone/.venv/bin/python -m flockcue smoke --output experiments/runs/flockcue-smoke-01
 ```
 
-`check` 核对 `general-agent-v5-local` 的配置、源码、固定输入和依赖清单。`smoke` 用脚本模型和本地仿真重新运行两个回合，各自独立评分。输出需要一个新目录，再次运行时更换名称。打开该目录的 `summary.json` 对照两条轨迹：有显式悬停回执与只有悬停状态时，原评分器均通过，Harness 的公开完成判断分别为已验证与未验证。两条命令均在本地完成。[基线锁、代码地图与复现范围](../agent_harness/README.md)
+`check` 核对 `general-agent-v5-local` 的配置、源码、固定输入和依赖清单。`smoke` 用脚本模型和本地仿真重新运行两个回合，各自独立评分。输出需要一个新目录，再次运行时更换名称。打开该目录的 `summary.json` 对照两条轨迹：有显式悬停回执与只有悬停状态时，原评分器均通过，Harness 的公开完成判断分别为已验证与未验证。两条命令均在本地完成。[基线锁、代码地图与复现范围](../flockcue/README.md)
 
 ## 从封存的真实回合复核开发样例
 
@@ -27,7 +27,7 @@ training/.venv-input/bin/python docs/audit/trajectory-verifier-plan-20261107/che
 python3 -I docs/audit/teacher-reasoning-usage-20261108/probe.py | diff - docs/audit/teacher-reasoning-usage-20261108/summary.json
 ```
 
-教师采集、SFT、导出和学生回接的运行入口仍待开发。[第 1 步规格](specs/01-thinking-events/spec.md) · [后训练方案](POSTTRAINING_PLAN_CN.md)
+A 折正式教师轨迹可从已保存的原始归档离线重建。参见[轨迹构建目录](../posttraining/trajectories/)和[数据集索引](../datasets/README.md)。[第 1 步规格](specs/01-thinking-events/spec.md) · [后训练方案](POSTTRAINING_PLAN_CN.md)
 
 ## 启动平台应用
 

@@ -16,4 +16,55 @@ experiments/*.local.json
 server_logs/
 /tmp/*
 !/tmp/task-splits-pilot-01/
-/outputs/
+/outputs/*
+!/outputs/flockcue-teacher-trajectories-a-20261111
+
+# Local development environments and session settings
+.vscode/
+.ruff_cache/
+.env
+.env.local
+.venv-input/
+
+# Teacher source archives and full exports stay local. Git carries the
+# reviewed teaching subset, split/audit manifests and file digests.
+/datasets/teacher/*/public/*.jsonl.gz
+!/datasets/teacher/2026-11-11-fold-a/public/reviewed-compatible-public-turns.jsonl.gz
+/datasets/sft/pilot40-2026-11-11/*
+!/datasets/sft/pilot40-2026-11-11/paired-dataset.json
+
+# Historical execution bundles and snapshots. Small registered inputs and
+# reports are versioned explicitly. New run output goes under outputs/.
+/experiments/*/trials/
+/experiments/*/offline-oracles/
+/experiments/*/offline-traces/
+/experiments/*/runs/
+/experiments/*/frozen/
+/experiments/*/frozen-source/
+/experiments/*/source/
+/experiments/*/dispatch/
+/experiments/*/execution/
+/experiments/*/jobs/
+/experiments/**/fixtures/
+/experiments/**/campaign.lock
+/experiments/**/*.log
+/docs/results/**/trials/
+/docs/results/**/runs/
+/docs/results/**/source/
+/docs/results/**/fixtures/
+/docs/results/**/inputs/
+/docs/results/**/toolchain/
+/docs/results/**/toolchains/
+/docs/results/**/policy/
+/docs/results/**/process-logs/
+/docs/results/**/scorer-exit-seals/
+/docs/results/**/*.log
+/docs/audit/**/*.log
+/docs/related-paper/*.pdf
+
+# Previously generated replay traces and per-call performance dumps
+/docs/results/minimal-harness-offline-20261015/traces/
+/docs/results/**/encoded.jsonl
+/experiments/recovery/**/performance*.json
+/experiments/recovery/**/stopped-performance.json
+/experiments/*/.campaign.lock

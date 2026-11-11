@@ -6,7 +6,7 @@
 
 | 层次 | 当前版本/状态 | 管理方式与记录位置 |
 | --- | --- | --- |
-| 项目源码 | `main`，基于 `1794e45`；本次修复尚未提交 | Git 管理源码、依赖声明和锁文件；复现实验还需记录修复后的 commit |
+| 项目源码 | 历史起点 `1794e45`，当前源码版本由 Git SHA 标识 | Git 管理源码、依赖声明和锁文件；复现实验还需记录修复后的 commit |
 | 项目 Python | CPython **3.11.16**，macOS ARM | `uv` 安装到 `.runtimes/python/`；版本写在 `scripts/setup_python_envs.sh` |
 | Python 包管理器 | `uv 0.12.13` | 本机 Homebrew 安装；此版本是当前实测值，脚本未锁定 uv 自身版本 |
 | Server Python 环境 | `server/.venv`，Python 3.11.16 | 独立虚拟环境；`server/requirements.in` → `server/requirements.txt` |

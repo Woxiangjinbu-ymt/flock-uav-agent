@@ -1,0 +1,33 @@
+{
+  "fold": "A",
+  "source_scenes": {
+    "04cd6269": {
+      "decisions": 99,
+      "decisions_with_supervised_thought": 79,
+      "masked_prompt_tokens": 1354514,
+      "keep_target_tokens": 28629,
+      "remove_target_tokens": 11028,
+      "keep_thought_tokens": 17680
+    },
+    "ef36e27a": {
+      "decisions": 49,
+      "decisions_with_supervised_thought": 38,
+      "masked_prompt_tokens": 817109,
+      "keep_target_tokens": 12895,
+      "remove_target_tokens": 5925,
+      "keep_thought_tokens": 7008
+    }
+  },
+  "totals": {
+    "decisions": 148,
+    "decisions_with_supervised_thought": 117,
+    "masked_prompt_tokens": 2171623,
+    "keep_target_tokens": 41524,
+    "remove_target_tokens": 16953,
+    "keep_thought_tokens": 24688
+  },
+  "sha256": {
+    "A-keep-reasoning.jsonl": "f93f28a1cb44087d6fca89124a4dcc3a418373ead966ad9b2bf42024697a428e",
+    "A-remove-reasoning.jsonl": "651e222d2c74090cf1e374f27216371e51306e9017035379e3429797a95868bb"
+  }
+}
