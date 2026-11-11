@@ -1,0 +1,547 @@
+{
+  "arms": {
+    "A": {
+      "diagnoses": {
+        "sense": 4,
+        "sense_arguments": 46
+      },
+      "peak_vram_bytes": 6692012032,
+      "peak_vram_known": 50,
+      "request_seconds": {
+        "known": 50,
+        "p50": 4.078492313623428,
+        "p95": 8.655848786234856,
+        "sum": 238.08858405053616
+      },
+      "status": {
+        "completed": 50
+      },
+      "tokens": {
+        "input_tokens": {
+          "known": 50,
+          "sum": 451757
+        },
+        "output_tokens": {
+          "known": 50,
+          "sum": 6306
+        },
+        "reasoning_tokens": {
+          "known": 50,
+          "sum": 3084
+        },
+        "total_tokens": {
+          "known": 50,
+          "sum": 458063
+        }
+      }
+    },
+    "B": {
+      "diagnoses": {
+        "sense": 15,
+        "sense_arguments": 28,
+        "skip": 7
+      },
+      "peak_vram_bytes": 6692012032,
+      "peak_vram_known": 50,
+      "request_seconds": {
+        "known": 50,
+        "p50": 4.41579282283783,
+        "p95": 9.495961416512728,
+        "sum": 239.79856850206852
+      },
+      "status": {
+        "completed": 50
+      },
+      "tokens": {
+        "input_tokens": {
+          "known": 50,
+          "sum": 454157
+        },
+        "output_tokens": {
+          "known": 50,
+          "sum": 6386
+        },
+        "reasoning_tokens": {
+          "known": 50,
+          "sum": 3228
+        },
+        "total_tokens": {
+          "known": 50,
+          "sum": 460543
+        }
+      }
+    }
+  },
+  "backend": "transformers",
+  "groups": {
+    "flat_fields": {
+      "A": 0,
+      "B": 4,
+      "both": 0,
+      "comparable": 4,
+      "incomplete": 0,
+      "metrics": {
+        "A": {
+          "diagnoses": {
+            "sense_arguments": 4
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 4,
+          "request_seconds": {
+            "known": 4,
+            "p50": 5.315090347081423,
+            "p95": 6.629461668431759,
+            "sum": 21.410371385514736
+          },
+          "status": {
+            "completed": 4
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 4,
+              "sum": 37358
+            },
+            "output_tokens": {
+              "known": 4,
+              "sum": 576
+            },
+            "reasoning_tokens": {
+              "known": 4,
+              "sum": 99
+            },
+            "total_tokens": {
+              "known": 4,
+              "sum": 37934
+            }
+          }
+        },
+        "B": {
+          "diagnoses": {
+            "sense": 4
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 4,
+          "request_seconds": {
+            "known": 4,
+            "p50": 3.1676917895674706,
+            "p95": 6.638246063143015,
+            "sum": 16.173441257327795
+          },
+          "status": {
+            "completed": 4
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 4,
+              "sum": 37550
+            },
+            "output_tokens": {
+              "known": 4,
+              "sum": 415
+            },
+            "reasoning_tokens": {
+              "known": 4,
+              "sum": 99
+            },
+            "total_tokens": {
+              "known": 4,
+              "sum": 37965
+            }
+          }
+        }
+      },
+      "n": 4,
+      "neither": 0,
+      "net": 4,
+      "only_a": 0,
+      "only_b": 4
+    },
+    "missing_input_json": {
+      "A": 0,
+      "B": 8,
+      "both": 0,
+      "comparable": 42,
+      "incomplete": 0,
+      "metrics": {
+        "A": {
+          "diagnoses": {
+            "sense_arguments": 42
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 42,
+          "request_seconds": {
+            "known": 42,
+            "p50": 3.938945386558771,
+            "p95": 8.566045697778463,
+            "sum": 191.3554391860962
+          },
+          "status": {
+            "completed": 42
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 42,
+              "sum": 377910
+            },
+            "output_tokens": {
+              "known": 42,
+              "sum": 5033
+            },
+            "reasoning_tokens": {
+              "known": 42,
+              "sum": 2543
+            },
+            "total_tokens": {
+              "known": 42,
+              "sum": 382943
+            }
+          }
+        },
+        "B": {
+          "diagnoses": {
+            "sense": 8,
+            "sense_arguments": 28,
+            "skip": 6
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 42,
+          "request_seconds": {
+            "known": 42,
+            "p50": 4.40518881753087,
+            "p95": 9.495961416512728,
+            "sum": 200.98057524114847
+          },
+          "status": {
+            "completed": 42
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 42,
+              "sum": 379926
+            },
+            "output_tokens": {
+              "known": 42,
+              "sum": 5355
+            },
+            "reasoning_tokens": {
+              "known": 42,
+              "sum": 2695
+            },
+            "total_tokens": {
+              "known": 42,
+              "sum": 385281
+            }
+          }
+        }
+      },
+      "n": 42,
+      "neither": 34,
+      "net": 8,
+      "only_a": 0,
+      "only_b": 8
+    },
+    "observations_returned": {
+      "A": 4,
+      "B": 3,
+      "both": 3,
+      "comparable": 4,
+      "incomplete": 0,
+      "metrics": {
+        "A": {
+          "diagnoses": {
+            "sense": 4
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 4,
+          "request_seconds": {
+            "known": 4,
+            "p50": 5.624829582870007,
+            "p95": 8.655848786234856,
+            "sum": 25.322773478925228
+          },
+          "status": {
+            "completed": 4
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 4,
+              "sum": 36489
+            },
+            "output_tokens": {
+              "known": 4,
+              "sum": 697
+            },
+            "reasoning_tokens": {
+              "known": 4,
+              "sum": 442
+            },
+            "total_tokens": {
+              "known": 4,
+              "sum": 37186
+            }
+          }
+        },
+        "B": {
+          "diagnoses": {
+            "sense": 3,
+            "skip": 1
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 4,
+          "request_seconds": {
+            "known": 4,
+            "p50": 5.259381502866745,
+            "p95": 6.9959534257650375,
+            "sum": 22.644552003592253
+          },
+          "status": {
+            "completed": 4
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 4,
+              "sum": 36681
+            },
+            "output_tokens": {
+              "known": 4,
+              "sum": 616
+            },
+            "reasoning_tokens": {
+              "known": 4,
+              "sum": 434
+            },
+            "total_tokens": {
+              "known": 4,
+              "sum": 37297
+            }
+          }
+        }
+      },
+      "n": 4,
+      "neither": 0,
+      "net": -1,
+      "only_a": 1,
+      "only_b": 0
+    },
+    "off": {
+      "A": 0,
+      "B": 7,
+      "both": 0,
+      "comparable": 23,
+      "incomplete": 0,
+      "metrics": {
+        "A": {
+          "diagnoses": {
+            "sense_arguments": 23
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 23,
+          "request_seconds": {
+            "known": 23,
+            "p50": 2.9898231513798237,
+            "p95": 6.629461668431759,
+            "sum": 77.8813855536282
+          },
+          "status": {
+            "completed": 23
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 23,
+              "sum": 211107
+            },
+            "output_tokens": {
+              "known": 23,
+              "sum": 1930
+            },
+            "reasoning_tokens": {
+              "known": 23,
+              "sum": 0
+            },
+            "total_tokens": {
+              "known": 23,
+              "sum": 213037
+            }
+          }
+        },
+        "B": {
+          "diagnoses": {
+            "sense": 7,
+            "sense_arguments": 14,
+            "skip": 2
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 23,
+          "request_seconds": {
+            "known": 23,
+            "p50": 3.0035271272063255,
+            "p95": 6.638246063143015,
+            "sum": 80.53927800059319
+          },
+          "status": {
+            "completed": 23
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 23,
+              "sum": 212211
+            },
+            "output_tokens": {
+              "known": 23,
+              "sum": 2012
+            },
+            "reasoning_tokens": {
+              "known": 23,
+              "sum": 0
+            },
+            "total_tokens": {
+              "known": 23,
+              "sum": 214223
+            }
+          }
+        }
+      },
+      "n": 23,
+      "neither": 16,
+      "net": 7,
+      "only_a": 0,
+      "only_b": 7
+    },
+    "on": {
+      "A": 4,
+      "B": 8,
+      "both": 3,
+      "comparable": 27,
+      "incomplete": 0,
+      "metrics": {
+        "A": {
+          "diagnoses": {
+            "sense": 4,
+            "sense_arguments": 23
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 27,
+          "request_seconds": {
+            "known": 27,
+            "p50": 5.620679769665003,
+            "p95": 8.655848786234856,
+            "sum": 160.20719849690795
+          },
+          "status": {
+            "completed": 27
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 27,
+              "sum": 240650
+            },
+            "output_tokens": {
+              "known": 27,
+              "sum": 4376
+            },
+            "reasoning_tokens": {
+              "known": 27,
+              "sum": 3084
+            },
+            "total_tokens": {
+              "known": 27,
+              "sum": 245026
+            }
+          }
+        },
+        "B": {
+          "diagnoses": {
+            "sense": 8,
+            "sense_arguments": 14,
+            "skip": 5
+          },
+          "peak_vram_bytes": 6692012032,
+          "peak_vram_known": 27,
+          "request_seconds": {
+            "known": 27,
+            "p50": 5.259381502866745,
+            "p95": 10.078642129898071,
+            "sum": 159.25929050147533
+          },
+          "status": {
+            "completed": 27
+          },
+          "tokens": {
+            "input_tokens": {
+              "known": 27,
+              "sum": 241946
+            },
+            "output_tokens": {
+              "known": 27,
+              "sum": 4374
+            },
+            "reasoning_tokens": {
+              "known": 27,
+              "sum": 3228
+            },
+            "total_tokens": {
+              "known": 27,
+              "sum": 246320
+            }
+          }
+        }
+      },
+      "n": 27,
+      "neither": 18,
+      "net": 4,
+      "only_a": 1,
+      "only_b": 5
+    }
+  },
+  "historical_reproduction": {
+    "same_event": {
+      "equal": 50,
+      "known": 50
+    },
+    "same_ids": {
+      "equal": 50,
+      "known": 50
+    }
+  },
+  "ledger": {
+    "gpu_seconds": 496.56751019507647,
+    "gpu_seconds_cap": 14400,
+    "segments": [
+      {
+        "checkpoint_unix": 1794364400.2567844,
+        "end_unix": 1794364400.2532384,
+        "gpu_seconds": 496.56751019507647,
+        "loads": [
+          {
+            "ready_unix": 1794363921.633004,
+            "released_unix": 1794364400.2532365,
+            "service_sha256": "dd66656efa15b02487733fea7d26456dacb7d55c45d344ae76f1e20d58bd2d6b",
+            "start_unix": 1794363903.689772
+          }
+        ],
+        "release": "service_closed",
+        "renderer": null,
+        "start_unix": 1794363903.6892724,
+        "window_end_unix": 1794412799
+      }
+    ],
+    "status_counts": {
+      "completed": 100
+    },
+    "stop_reason": "finished",
+    "teacher_calls": 0,
+    "training_seconds": 0
+  },
+  "overall": {
+    "A": 4,
+    "B": 15,
+    "both": 3,
+    "comparable": 50,
+    "incomplete": 0,
+    "n": 50,
+    "neither": 34,
+    "net": 11,
+    "only_a": 1,
+    "only_b": 12
+  }
+}
