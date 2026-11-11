@@ -1,0 +1,2345 @@
+{
+  "G1": {
+    "attributable_failure_bounds": [
+      26,
+      26
+    ],
+    "attributable_failures": 26,
+    "attribution_unknown": 0,
+    "denominator": 29,
+    "reasons": [
+      "threshold_unreachable"
+    ],
+    "status": "fail",
+    "success": 1,
+    "success_bounds": [
+      1,
+      1
+    ],
+    "unscored": 0
+  },
+  "G2": {
+    "improved_scenes": 1,
+    "missing_pairs": 0,
+    "net_gain": 1,
+    "open_arm_excess": [],
+    "reasons": [
+      "net_gain_or_scene_threshold_not_met"
+    ],
+    "status": "fail"
+  },
+  "G3": {
+    "sha256": "fcb9a63f1a99b24e30372d70cc06b37f889feba129829100cdf214477edca8a4",
+    "status": "pass",
+    "turns_sha256": "9c474c6fe5c612ad9d9e49a9b29feb6b7693efdf4ad6f59f779b10d17fbef88d",
+    "verified": true
+  },
+  "backend": "transformers",
+  "campaign_sha256": "ba8b8e2d10bdc54af7c5ff97c6919f5b2727a50de7e68db80efb9c7f67f5d2d6",
+  "condition": "new",
+  "model": "Qwen3.5-2B",
+  "plan_sha256": "8975ceb7acecc1a69abd1cd45002c748f4453c398ebe90fd3cecd555eaeb1364",
+  "replayed_leaf_checks": 196,
+  "replayed_snapshots": 58,
+  "results": {
+    "arms": {
+      "off": {
+        "agent_claimed_done": 0,
+        "attributable_failures": 29,
+        "attribution_unknown": 0,
+        "failure_slot_ids": [
+          "qwen3p5-2b-off-07b3442204748182",
+          "qwen3p5-2b-off-0fe7f9e9a60a943c",
+          "qwen3p5-2b-off-4d8bf293b0eb6bb9",
+          "qwen3p5-2b-off-87719ec5bb2bf4fe",
+          "qwen3p5-2b-off-ad9ce155b30d7ab8",
+          "qwen3p5-2b-off-c840b5976f0a25fa",
+          "qwen3p5-2b-off-0dc1b960d5ee5ac0",
+          "qwen3p5-2b-off-9d063ab9267435e9",
+          "qwen3p5-2b-off-9e41539e75478d55",
+          "qwen3p5-2b-off-c1bf2f1dc4f03e70",
+          "qwen3p5-2b-off-c2809d80ca423bc1",
+          "qwen3p5-2b-off-d944f2e70749dec9",
+          "qwen3p5-2b-off-07270cab1e9afdb0",
+          "qwen3p5-2b-off-1ddf0ef6816d0ba2",
+          "qwen3p5-2b-off-2022b22584c63df0",
+          "qwen3p5-2b-off-d9981cc51dc358c1",
+          "qwen3p5-2b-off-dfaf50a32c6387aa",
+          "qwen3p5-2b-off-71351c827b3d3b83",
+          "qwen3p5-2b-off-723719bf932b46b6",
+          "qwen3p5-2b-off-7384fab72096de4e",
+          "qwen3p5-2b-off-9e4e7838691f0965",
+          "qwen3p5-2b-off-cd7296cb476a0152",
+          "qwen3p5-2b-off-fd1e21db480f8ec7",
+          "qwen3p5-2b-off-64a22104e7236968",
+          "qwen3p5-2b-off-c11be189a34a1ab7",
+          "qwen3p5-2b-off-c2ce01be95b8bb67",
+          "qwen3p5-2b-off-c997bcf6fc4388d7",
+          "qwen3p5-2b-off-e4ce6c79059cb32e",
+          "qwen3p5-2b-off-e853b0e6f45db319"
+        ],
+        "harness_completed": 0,
+        "planned": 29,
+        "scored": 29,
+        "status_counts": {
+          "scored": 29
+        },
+        "stop_counts": {
+          "any": 0,
+          "context_length": 0,
+          "episode_deadline": 0,
+          "generation_truncated": 0,
+          "request_limit": 0,
+          "request_timeout": 0,
+          "token_budget": 0,
+          "tool_arguments": 29
+        },
+        "success": 0,
+        "usage": {
+          "completion_tokens": {
+            "known_sum": 7090,
+            "measured_slots": 29,
+            "unknown_slots": 0
+          },
+          "episode_seconds": {
+            "missing": 0,
+            "n": 29,
+            "p50": 6.94071064516902,
+            "p95": 26.40207341313362
+          },
+          "history_reasoning_tokens": {
+            "known_sum": 0,
+            "measured_requests": 76,
+            "unknown_requests": 0
+          },
+          "peak_context": {
+            "maximum": 17395,
+            "measured_slots": 29
+          },
+          "peak_prompt": {
+            "maximum": 17175,
+            "measured_slots": 29
+          },
+          "peak_vram_bytes": {
+            "maximum": 10475274240,
+            "measured_slots": 29
+          },
+          "prompt_tokens": {
+            "known_sum": 725060,
+            "measured_slots": 29,
+            "unknown_slots": 0
+          },
+          "reasoning_tokens": {
+            "known_sum": 0,
+            "measured_slots": 29,
+            "unknown_slots": 0
+          },
+          "request_seconds": {
+            "missing": 0,
+            "n": 76,
+            "p50": 3.051423739641905,
+            "p95": 8.952823355793953
+          },
+          "total_tokens": {
+            "known_sum": 732150,
+            "measured_slots": 29,
+            "unknown_slots": 0
+          }
+        }
+      },
+      "on": {
+        "agent_claimed_done": 0,
+        "attributable_failures": 26,
+        "attribution_unknown": 0,
+        "failure_slot_ids": [
+          "qwen3p5-2b-on-07b3442204748182",
+          "qwen3p5-2b-on-0fe7f9e9a60a943c",
+          "qwen3p5-2b-on-87719ec5bb2bf4fe",
+          "qwen3p5-2b-on-c840b5976f0a25fa",
+          "qwen3p5-2b-on-0dc1b960d5ee5ac0",
+          "qwen3p5-2b-on-9d063ab9267435e9",
+          "qwen3p5-2b-on-9e41539e75478d55",
+          "qwen3p5-2b-on-c1bf2f1dc4f03e70",
+          "qwen3p5-2b-on-c2809d80ca423bc1",
+          "qwen3p5-2b-on-d944f2e70749dec9",
+          "qwen3p5-2b-on-07270cab1e9afdb0",
+          "qwen3p5-2b-on-1ddf0ef6816d0ba2",
+          "qwen3p5-2b-on-2022b22584c63df0",
+          "qwen3p5-2b-on-d9981cc51dc358c1",
+          "qwen3p5-2b-on-dfaf50a32c6387aa",
+          "qwen3p5-2b-on-71351c827b3d3b83",
+          "qwen3p5-2b-on-723719bf932b46b6",
+          "qwen3p5-2b-on-7384fab72096de4e",
+          "qwen3p5-2b-on-9e4e7838691f0965",
+          "qwen3p5-2b-on-cd7296cb476a0152",
+          "qwen3p5-2b-on-fd1e21db480f8ec7",
+          "qwen3p5-2b-on-64a22104e7236968",
+          "qwen3p5-2b-on-c2ce01be95b8bb67",
+          "qwen3p5-2b-on-c997bcf6fc4388d7",
+          "qwen3p5-2b-on-e4ce6c79059cb32e",
+          "qwen3p5-2b-on-e853b0e6f45db319"
+        ],
+        "harness_completed": 0,
+        "planned": 29,
+        "scored": 29,
+        "status_counts": {
+          "scored": 29
+        },
+        "stop_counts": {
+          "any": 0,
+          "context_length": 0,
+          "episode_deadline": 0,
+          "generation_truncated": 0,
+          "request_limit": 0,
+          "request_timeout": 0,
+          "token_budget": 2,
+          "tool_arguments": 26
+        },
+        "success": 1,
+        "usage": {
+          "completion_tokens": {
+            "known_sum": 16731,
+            "measured_slots": 27,
+            "unknown_slots": 2
+          },
+          "episode_seconds": {
+            "missing": 0,
+            "n": 29,
+            "p50": 16.067253299057484,
+            "p95": 59.01672695949674
+          },
+          "history_reasoning_tokens": {
+            "known_sum": 21804,
+            "measured_requests": 83,
+            "unknown_requests": 0
+          },
+          "peak_context": {
+            "maximum": 17608,
+            "measured_slots": 29
+          },
+          "peak_prompt": {
+            "maximum": 17958,
+            "measured_slots": 29
+          },
+          "peak_vram_bytes": {
+            "maximum": 10475274240,
+            "measured_slots": 29
+          },
+          "prompt_tokens": {
+            "known_sum": 850875,
+            "measured_slots": 27,
+            "unknown_slots": 2
+          },
+          "reasoning_tokens": {
+            "known_sum": 11903,
+            "measured_slots": 27,
+            "unknown_slots": 2
+          },
+          "request_seconds": {
+            "missing": 0,
+            "n": 83,
+            "p50": 5.797673285007477,
+            "p95": 16.69070554897189
+          },
+          "total_tokens": {
+            "known_sum": 867606,
+            "measured_slots": 27,
+            "unknown_slots": 2
+          }
+        }
+      }
+    },
+    "by_scene": [
+      {
+        "four_cells": {
+          "both_failure": 5,
+          "both_success": 0,
+          "only_off": 0,
+          "only_on": 1
+        },
+        "missing_pairs": 0,
+        "net_gain": 1,
+        "scene_id": "4acc59187dc88f05"
+      },
+      {
+        "four_cells": {
+          "both_failure": 6,
+          "both_success": 0,
+          "only_off": 0,
+          "only_on": 0
+        },
+        "missing_pairs": 0,
+        "net_gain": 0,
+        "scene_id": "b21d0cbb1b3ff556"
+      },
+      {
+        "four_cells": {
+          "both_failure": 5,
+          "both_success": 0,
+          "only_off": 0,
+          "only_on": 0
+        },
+        "missing_pairs": 0,
+        "net_gain": 0,
+        "scene_id": "b441ff645d01eac2"
+      },
+      {
+        "four_cells": {
+          "both_failure": 6,
+          "both_success": 0,
+          "only_off": 0,
+          "only_on": 0
+        },
+        "missing_pairs": 0,
+        "net_gain": 0,
+        "scene_id": "e2c0529e33a1ba3d"
+      },
+      {
+        "four_cells": {
+          "both_failure": 6,
+          "both_success": 0,
+          "only_off": 0,
+          "only_on": 0
+        },
+        "missing_pairs": 0,
+        "net_gain": 0,
+        "scene_id": "ed5f1545d9fddb96"
+      }
+    ],
+    "four_cells": {
+      "both_failure": 28,
+      "both_success": 0,
+      "only_off": 0,
+      "only_on": 1
+    },
+    "improved_scenes": 1,
+    "missing_pairs": 0,
+    "net_gain": 1,
+    "pairs": [
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 4: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L4"
+          },
+          "peak_context": 16764,
+          "scorer_seal_sha256": "fb2e2b3200ef79e07f518a0428ad7f01f0a661ca88af7722cd4d1ba1b2e8438f",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-07b3442204748182",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9802,
+          "scorer_seal_sha256": "e1d058cf24face7ab55b4aeccb7df1220d1b8d631893feec4dbd0488b338648f",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-07b3442204748182",
+        "scene_id": "4acc59187dc88f05",
+        "task_id": "07b3442204748182"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9572,
+          "scorer_seal_sha256": "de58fa8894a33ffc1c3bc054f238972c1674b05b6dad3b17f46d6a5aa84117ee",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-0fe7f9e9a60a943c",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8684,
+          "scorer_seal_sha256": "d77869a498312983c488c4ff1c85e6b4b61403add79d1b14d3e31b9daeea044a",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-0fe7f9e9a60a943c",
+        "scene_id": "4acc59187dc88f05",
+        "task_id": "0fe7f9e9a60a943c"
+      },
+      {
+        "cell": "only_on",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 15474,
+          "scorer_seal_sha256": "6d6b10186338cbd719a931cf7540c542f2a7102e0d060260a1a513f63cdcd9ad",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-4d8bf293b0eb6bb9",
+        "on": {
+          "attribution": null,
+          "checker_passed": true,
+          "failure_evidence": null,
+          "peak_context": 11504,
+          "scorer_seal_sha256": "f6332512973f991999d3d806ba59c98aeabcd0fb9c8c401ba7d54aba96d956f1",
+          "status": "scored",
+          "stop_reason": null,
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-4d8bf293b0eb6bb9",
+        "scene_id": "4acc59187dc88f05",
+        "task_id": "4d8bf293b0eb6bb9"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9437,
+          "scorer_seal_sha256": "52a49f21e9236fe3a9c6d5778f7e5b06c872b79ceb57bfea15f12cc2884c5951",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-87719ec5bb2bf4fe",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 15909,
+          "scorer_seal_sha256": "aad49990f024db84d9cd29bc5f36c9455bf5811e52f813572e607f5af1efafe3",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-87719ec5bb2bf4fe",
+        "scene_id": "4acc59187dc88f05",
+        "task_id": "87719ec5bb2bf4fe"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9707,
+          "scorer_seal_sha256": "85aef4c4f9c273acdf5ddc58a3b8577ecb9229ef27c51766c66142622f75dd0a",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-ad9ce155b30d7ab8",
+        "on": {
+          "attribution": "outside_task_attribution",
+          "checker_passed": false,
+          "failure_evidence": null,
+          "peak_context": 17608,
+          "scorer_seal_sha256": "7c7f6b1be40a9291a94396c08fd8263e0da8ab58e9dfbc2331d26d0531292ea5",
+          "status": "scored",
+          "stop_reason": "token_budget",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-ad9ce155b30d7ab8",
+        "scene_id": "4acc59187dc88f05",
+        "task_id": "ad9ce155b30d7ab8"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 17395,
+          "scorer_seal_sha256": "2319e4496f7820450dcb98789c90281e4f22bbb07fe3a880d0abad26d3a06c97",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-c840b5976f0a25fa",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 9128,
+          "scorer_seal_sha256": "b8a130a240a30c2e1d3147ae4aa547472cbdb60b700d1cb7cfe883c0e2fed51d",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-c840b5976f0a25fa",
+        "scene_id": "4acc59187dc88f05",
+        "task_id": "c840b5976f0a25fa"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 9845,
+          "scorer_seal_sha256": "9798241843717efb191458b3c06333a25a44c7c85600652a9e6739a7779633f6",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-0dc1b960d5ee5ac0",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 9119,
+          "scorer_seal_sha256": "0222758cd99615f10ce921b58f85484014e3416af730559a5539e8d5d8069644",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-0dc1b960d5ee5ac0",
+        "scene_id": "b21d0cbb1b3ff556",
+        "task_id": "0dc1b960d5ee5ac0"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 10009,
+          "scorer_seal_sha256": "001633f672517663d80d03b4a9c13174c705a89650ccdc50e0e4b394399db7b8",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-9d063ab9267435e9",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 9021,
+          "scorer_seal_sha256": "6075fbdd4e0388701053c167d786276f8cac76663db45e911626886677a39550",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-9d063ab9267435e9",
+        "scene_id": "b21d0cbb1b3ff556",
+        "task_id": "9d063ab9267435e9"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 8962,
+          "scorer_seal_sha256": "4cdc8580190553bb4cad4947cb00edb30d65821f090786666a1a425aeb9980e8",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-9e41539e75478d55",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 5: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L5"
+          },
+          "peak_context": 14453,
+          "scorer_seal_sha256": "a183a5f9c50defdba0a6ee89234d975a330a13d671a8aa8923e2f34ee6a91f7d",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-9e41539e75478d55",
+        "scene_id": "b21d0cbb1b3ff556",
+        "task_id": "9e41539e75478d55"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9444,
+          "scorer_seal_sha256": "554fa9458bd1cdd5765b98833e22a0c1ed5abce85f27c3f04cbcd38dc39b1d2c",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-c1bf2f1dc4f03e70",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8710,
+          "scorer_seal_sha256": "ab57f7cd49ef1e5633c8a152a80517596c7ac3b0560af8139e10542608121a68",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-c1bf2f1dc4f03e70",
+        "scene_id": "b21d0cbb1b3ff556",
+        "task_id": "c1bf2f1dc4f03e70"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9316,
+          "scorer_seal_sha256": "db5c69128df5800a32b4b2a95438e7a9940a900df30278c9aabd5953bc09e613",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-c2809d80ca423bc1",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 4: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L4"
+          },
+          "peak_context": 14875,
+          "scorer_seal_sha256": "5c6d3198692545daa1854d266437b0e7db02333a350b76f60fb058d864951751",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-c2809d80ca423bc1",
+        "scene_id": "b21d0cbb1b3ff556",
+        "task_id": "c2809d80ca423bc1"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8603,
+          "scorer_seal_sha256": "6ad6e3536aee678dd09ad88f5c21db1bfa5e023358456cceb3caff4567b04eb6",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-d944f2e70749dec9",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 9518,
+          "scorer_seal_sha256": "a1e74ec1f2f6c849c6a9150dce67150cf37ea6a911db9263d130da16c9496d9f",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-d944f2e70749dec9",
+        "scene_id": "b21d0cbb1b3ff556",
+        "task_id": "d944f2e70749dec9"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 8962,
+          "scorer_seal_sha256": "f6e0b2ab111971248867b62e2cc5605efe71368f0f07d247d4b05deca44ace0f",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-07270cab1e9afdb0",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8668,
+          "scorer_seal_sha256": "92ebe8bdb4e012ceb730e4ffed275bcd3edb59c254ee486e2772f09b1421db1c",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-07270cab1e9afdb0",
+        "scene_id": "b441ff645d01eac2",
+        "task_id": "07270cab1e9afdb0"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 8939,
+          "scorer_seal_sha256": "d82d958e16cffacac92c88fe35033ab13f5271041ff84f80c7a5ef95dfb1e9e5",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-1ddf0ef6816d0ba2",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8595,
+          "scorer_seal_sha256": "9a03d487582dc3515ed07bb42b9d26182007a32a2b7e112215cc8ceb393488d0",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-1ddf0ef6816d0ba2",
+        "scene_id": "b441ff645d01eac2",
+        "task_id": "1ddf0ef6816d0ba2"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 9140,
+          "scorer_seal_sha256": "5b911c47e921f54def009c818292b742eecb8b08d7698fb400e7a9e2a44a97a3",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-2022b22584c63df0",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 10050,
+          "scorer_seal_sha256": "4697804bdf289a46582cfdcfbce5d3c08ee3af11aec05a88666c39f3761e023c",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-2022b22584c63df0",
+        "scene_id": "b441ff645d01eac2",
+        "task_id": "2022b22584c63df0"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 8: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L8"
+          },
+          "peak_context": 11777,
+          "scorer_seal_sha256": "d67cf30e16d5e1552f4825ecb3f3dbeef6ea011fb33f910f1de14bbccae98975",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-d9981cc51dc358c1",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8709,
+          "scorer_seal_sha256": "c8262c697a39d31763c0decdeb74073fa05b187209fd76290cef8d3e9df92c70",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-d9981cc51dc358c1",
+        "scene_id": "b441ff645d01eac2",
+        "task_id": "d9981cc51dc358c1"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8649,
+          "scorer_seal_sha256": "ebaebb7e6132b7c1baee936bffddd39796e621ecb50a7e31b7ffa9944541b34e",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-dfaf50a32c6387aa",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 9797,
+          "scorer_seal_sha256": "22a3d00c57921017ebbba2290496c051a903cc9889949f0cbc02800355687269",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-dfaf50a32c6387aa",
+        "scene_id": "b441ff645d01eac2",
+        "task_id": "dfaf50a32c6387aa"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 8946,
+          "scorer_seal_sha256": "1a0fff69441817e6dc13c7362a05c38565c27bfa4cca478d6807a1f725b2eee8",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-71351c827b3d3b83",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8690,
+          "scorer_seal_sha256": "2ceae6eced9e0b0a4a31e09ff472bbdb86229653b9eea9b30ed0a6a3f34b4a4c",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-71351c827b3d3b83",
+        "scene_id": "e2c0529e33a1ba3d",
+        "task_id": "71351c827b3d3b83"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9041,
+          "scorer_seal_sha256": "20b86fe6ea4ecdb1d79d5de82845bae18c7bd030b7204963ed31eaf9722f19b7",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-723719bf932b46b6",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 8932,
+          "scorer_seal_sha256": "a9a0e4e17a546ce5891321af0d96c1227e06aee2deef35e3f697ef85926a2ab7",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-723719bf932b46b6",
+        "scene_id": "e2c0529e33a1ba3d",
+        "task_id": "723719bf932b46b6"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 4: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L4"
+          },
+          "peak_context": 9423,
+          "scorer_seal_sha256": "6a67eeb28248f7ab3514b032ae17df7e1d9d61f0e1fc22ddd7f1ca3bae503d17",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-7384fab72096de4e",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 4: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L4"
+          },
+          "peak_context": 9788,
+          "scorer_seal_sha256": "ea795494086a0a3308d54d990d93ed89460ffc3bc08ce04c8b0ef10da27a4663",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-7384fab72096de4e",
+        "scene_id": "e2c0529e33a1ba3d",
+        "task_id": "7384fab72096de4e"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8770,
+          "scorer_seal_sha256": "ad20e3be08cc89c1439a6c142ba6a905b6488b3498526581ad0a0665ab5cace0",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-9e4e7838691f0965",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8830,
+          "scorer_seal_sha256": "6db0157483c7ef299f7dd63a7474f0c9c4752462ff79a765b148905726325db6",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-9e4e7838691f0965",
+        "scene_id": "e2c0529e33a1ba3d",
+        "task_id": "9e4e7838691f0965"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 4: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L4"
+          },
+          "peak_context": 12252,
+          "scorer_seal_sha256": "ccd48bc07d8de243b3f1b0e4c4d7d870c24ccce662140351ae842d5df2a454ea",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-cd7296cb476a0152",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9327,
+          "scorer_seal_sha256": "8797dc63035fe81e1c9b6b3bc803dc9ee2c87b038ad136d39c11e63e24eec185",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-cd7296cb476a0152",
+        "scene_id": "e2c0529e33a1ba3d",
+        "task_id": "cd7296cb476a0152"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9020,
+          "scorer_seal_sha256": "0d1363875786ec0320db46c07fae17470c9bcd14d55d21ff87ca32da5b08000b",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-fd1e21db480f8ec7",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 7: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L7"
+          },
+          "peak_context": 14155,
+          "scorer_seal_sha256": "4e4cb9e5a7ed9af7e9a9bd9adc7e2f3f206055058f299b2f642d5ba1fb65cf1a",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-fd1e21db480f8ec7",
+        "scene_id": "e2c0529e33a1ba3d",
+        "task_id": "fd1e21db480f8ec7"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 5: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L5"
+          },
+          "peak_context": 10140,
+          "scorer_seal_sha256": "323ba8b50e4405fb032dc18eb7d2dfdf77ecc2917bc2e97162f123087a6b2708",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-64a22104e7236968",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 9911,
+          "scorer_seal_sha256": "b5dbff18bf448737400b13f4f9c2de9febef90d23c28d5bcc79552f7f18d737a",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-64a22104e7236968",
+        "scene_id": "ed5f1545d9fddb96",
+        "task_id": "64a22104e7236968"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9286,
+          "scorer_seal_sha256": "6b952e13372a0aed381de3868054c58e9d47ad45079bdeec2f09a9dcb1ac61e5",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-c11be189a34a1ab7",
+        "on": {
+          "attribution": "outside_task_attribution",
+          "checker_passed": false,
+          "failure_evidence": null,
+          "peak_context": 16157,
+          "scorer_seal_sha256": "100e34582d3c6813bc2c451e0e38d94fad2efe37703f65904814a7a26ea64b20",
+          "status": "scored",
+          "stop_reason": "token_budget",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-c11be189a34a1ab7",
+        "scene_id": "ed5f1545d9fddb96",
+        "task_id": "c11be189a34a1ab7"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 10430,
+          "scorer_seal_sha256": "9b2f2b5bb8fee59be795f67a403467ecfdfef21a7877d9578b16e2995ac352ca",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-c2ce01be95b8bb67",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 16587,
+          "scorer_seal_sha256": "05ee027bfe90ea992977956dba2007e6a99f3ef7599bfa19becc157c13d9d258",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-c2ce01be95b8bb67",
+        "scene_id": "ed5f1545d9fddb96",
+        "task_id": "c2ce01be95b8bb67"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 4: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L4"
+          },
+          "peak_context": 11436,
+          "scorer_seal_sha256": "bf691164061cf0c5dd86971742bce2bd6bb28ae42bd92dbafa60597a2515450a",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-c997bcf6fc4388d7",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9520,
+          "scorer_seal_sha256": "8e42e6727c8adfae251598a7b17314cce4659b01748022c18d6bc74efebfcd0f",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-c997bcf6fc4388d7",
+        "scene_id": "ed5f1545d9fddb96",
+        "task_id": "c997bcf6fc4388d7"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 1: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L1"
+          },
+          "peak_context": 8610,
+          "scorer_seal_sha256": "53f276179c8df76d4645b18e0aba1473201aaad976fe12192f3e4dd7d7d02a04",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-e4ce6c79059cb32e",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 2: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L2"
+          },
+          "peak_context": 9698,
+          "scorer_seal_sha256": "7cd1e7d59951b87c283334248d8ed95f248543234d319274d694597bc85af24d",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-e4ce6c79059cb32e",
+        "scene_id": "ed5f1545d9fddb96",
+        "task_id": "e4ce6c79059cb32e"
+      },
+      {
+        "cell": "both_failure",
+        "off": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 9355,
+          "scorer_seal_sha256": "fe5878bb25dd67dcfaa22d2aa3e9dae0b4af47c0164cef31b7cfae969f9e1dbf",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "off_slot": "qwen3p5-2b-off-e853b0e6f45db319",
+        "on": {
+          "attribution": "attributable",
+          "checker_passed": false,
+          "failure_evidence": {
+            "detail": "Generation parser rejected turn 3: tool_arguments",
+            "kind": "tool_format",
+            "reference": "private/student-requests.jsonl#L3"
+          },
+          "peak_context": 14207,
+          "scorer_seal_sha256": "8bd2426e1a6793860eca87456e9e6686793242f4e9e37f0a8f6a864b8d3cca3b",
+          "status": "scored",
+          "stop_reason": "tool_arguments",
+          "unscored_reason": null
+        },
+        "on_slot": "qwen3p5-2b-on-e853b0e6f45db319",
+        "scene_id": "ed5f1545d9fddb96",
+        "task_id": "e853b0e6f45db319"
+      }
+    ],
+    "stop_pairs": {
+      "any": {
+        "both": 0,
+        "only_off": 0,
+        "only_on": 0,
+        "unknown": 0
+      },
+      "context_length": {
+        "both": 0,
+        "only_off": 0,
+        "only_on": 0,
+        "unknown": 0
+      },
+      "episode_deadline": {
+        "both": 0,
+        "only_off": 0,
+        "only_on": 0,
+        "unknown": 0
+      },
+      "request_timeout": {
+        "both": 0,
+        "only_off": 0,
+        "only_on": 0,
+        "unknown": 0
+      }
+    }
+  },
+  "retest_timing": {
+    "billed_seconds": 1328,
+    "start_unix": 1794365134.1005788
+  },
+  "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "schema": "flockcue-sense-retest-2b-report-v1",
+  "slot_evidence": {
+    "qwen3p5-2b-off-07270cab1e9afdb0": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-07270cab1e9afdb0/evaluation/result.json",
+      "checker_result_sha256": "9023820ce3b81aff10e9f1b96f19897bd4c160929b86ce425046eabeec09277d",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-07270cab1e9afdb0/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "f6e0b2ab111971248867b62e2cc5605efe71368f0f07d247d4b05deca44ace0f",
+      "student_requests": "trials/qwen3p5-2b-off-07270cab1e9afdb0/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-07270cab1e9afdb0.json",
+      "terminal_sha256": "1b310157f261091ea7e688132500af4f01d650bb3b76967f1ddd5c3e3298615a",
+      "worker_seal_sha256": "850fc8bb4fa4a85aa27d30b2daeeb0a8e7ef269fda08c7aaa6843ae3a2bfef54"
+    },
+    "qwen3p5-2b-off-07b3442204748182": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-07b3442204748182/evaluation/result.json",
+      "checker_result_sha256": "01532237fdd75bfa8b7c3ae07f796bc95c4ed34b6b127af52847a9feed41e416",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-07b3442204748182/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "fb2e2b3200ef79e07f518a0428ad7f01f0a661ca88af7722cd4d1ba1b2e8438f",
+      "student_requests": "trials/qwen3p5-2b-off-07b3442204748182/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-07b3442204748182.json",
+      "terminal_sha256": "8397690840b6b57a472f909b5690011c0fdc33a587d82a47607ee2c904596179",
+      "worker_seal_sha256": "ef52f871ec26bcbe474803bdbcc8066f0e0f04f5fcf0a44d6edfa12adf2ec46b"
+    },
+    "qwen3p5-2b-off-0dc1b960d5ee5ac0": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-0dc1b960d5ee5ac0/evaluation/result.json",
+      "checker_result_sha256": "e4a974feb7f9299a3850081491b827316a3d1cc29952b172d2d76657711f17a3",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 1,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-0dc1b960d5ee5ac0/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "9798241843717efb191458b3c06333a25a44c7c85600652a9e6739a7779633f6",
+      "student_requests": "trials/qwen3p5-2b-off-0dc1b960d5ee5ac0/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-0dc1b960d5ee5ac0.json",
+      "terminal_sha256": "b6dc245435221d442a889ccfd536a4d36748642d7c63864806fb39d6c66ba8e8",
+      "worker_seal_sha256": "8bea64a15573d1cc08c3d6af8e935d022d3e76dd1b9d31915b999ecc13833b0a"
+    },
+    "qwen3p5-2b-off-0fe7f9e9a60a943c": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-0fe7f9e9a60a943c/evaluation/result.json",
+      "checker_result_sha256": "effd7c881c2f8ef58cc9071df17455134dd5a09be240c764b99984852f1bb777",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-0fe7f9e9a60a943c/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "de58fa8894a33ffc1c3bc054f238972c1674b05b6dad3b17f46d6a5aa84117ee",
+      "student_requests": "trials/qwen3p5-2b-off-0fe7f9e9a60a943c/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-0fe7f9e9a60a943c.json",
+      "terminal_sha256": "f43399b2acf8d7d9a9abfc8264d5f4b2620e883e62b26f6532cd7f65af769b70",
+      "worker_seal_sha256": "6591ac7e7ec52675dcf0555e24e227ce37b5d9199844dc62939ba7a3d6fa7c4d"
+    },
+    "qwen3p5-2b-off-1ddf0ef6816d0ba2": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-1ddf0ef6816d0ba2/evaluation/result.json",
+      "checker_result_sha256": "a7d3f5359334568ad172a204b49613ca72df64d1d7eca8052e0a21868b10bc54",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-1ddf0ef6816d0ba2/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "d82d958e16cffacac92c88fe35033ab13f5271041ff84f80c7a5ef95dfb1e9e5",
+      "student_requests": "trials/qwen3p5-2b-off-1ddf0ef6816d0ba2/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-1ddf0ef6816d0ba2.json",
+      "terminal_sha256": "a44097f2d1a6cfadf1647f89b58b21750843d08b284702db12881e8bb60143bc",
+      "worker_seal_sha256": "010615dd9d6ca438865fba51e3e11e1c69bc12ead517f62728dbb3d87f3c2c74"
+    },
+    "qwen3p5-2b-off-2022b22584c63df0": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-2022b22584c63df0/evaluation/result.json",
+      "checker_result_sha256": "72feef4b98d2585c6fc86ecd308ac5f3e9c7a27fae5a3988c7c8c9031703d14a",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 2,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-2022b22584c63df0/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "5b911c47e921f54def009c818292b742eecb8b08d7698fb400e7a9e2a44a97a3",
+      "student_requests": "trials/qwen3p5-2b-off-2022b22584c63df0/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-2022b22584c63df0.json",
+      "terminal_sha256": "8635c31784ecd8b1fd4f4f259cebf3c96550a9c9fde92ffd88aa2ab226e4422f",
+      "worker_seal_sha256": "a358c4c94bd05e43670b913a2bc9eab04e8e31d6b4de803ee1a6aa593d20f3e6"
+    },
+    "qwen3p5-2b-off-4d8bf293b0eb6bb9": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-4d8bf293b0eb6bb9/evaluation/result.json",
+      "checker_result_sha256": "8af8fdf5be42f8acf430d288b6640830d413f957cabad8b03a62cdd73037f844",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-4d8bf293b0eb6bb9/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "6d6b10186338cbd719a931cf7540c542f2a7102e0d060260a1a513f63cdcd9ad",
+      "student_requests": "trials/qwen3p5-2b-off-4d8bf293b0eb6bb9/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-4d8bf293b0eb6bb9.json",
+      "terminal_sha256": "283275035cb0567465cca45e4647ed16d405e030cd9af9fe0f98f7d1babbd0b8",
+      "worker_seal_sha256": "53b48f55f07ac4d9a2be20154d6f39af9e2ef6076056894a5ce18db13df0e5b6"
+    },
+    "qwen3p5-2b-off-64a22104e7236968": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-64a22104e7236968/evaluation/result.json",
+      "checker_result_sha256": "584d6bd29821440388c850a4ef28f9ca58594d1192469c5f221dabe5cf1eea38",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 2,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-64a22104e7236968/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "323ba8b50e4405fb032dc18eb7d2dfdf77ecc2917bc2e97162f123087a6b2708",
+      "student_requests": "trials/qwen3p5-2b-off-64a22104e7236968/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-64a22104e7236968.json",
+      "terminal_sha256": "a4a8a914b63c66c89dbbddec39ab49eb8a7f64db868ce5cb7cf8d320e353ddc5",
+      "worker_seal_sha256": "35de1db9bd4793cfedb0e39f783375d7c4bdfc5f827e4a0836f873a818a05d33"
+    },
+    "qwen3p5-2b-off-71351c827b3d3b83": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-71351c827b3d3b83/evaluation/result.json",
+      "checker_result_sha256": "70d0348dc73de58b1592aeb746d02111cd9043789b11881eb9c3da8a3e17e28d",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-71351c827b3d3b83/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "1a0fff69441817e6dc13c7362a05c38565c27bfa4cca478d6807a1f725b2eee8",
+      "student_requests": "trials/qwen3p5-2b-off-71351c827b3d3b83/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-71351c827b3d3b83.json",
+      "terminal_sha256": "e9eb9cf6018558d70df39dd95db056dde38e6840f0021ac9f34a913d4ce97f90",
+      "worker_seal_sha256": "454d105537bc8566d54204d589705619d5378e6b6d5dec5ea760b3d1f4cea172"
+    },
+    "qwen3p5-2b-off-723719bf932b46b6": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-723719bf932b46b6/evaluation/result.json",
+      "checker_result_sha256": "672737f58d708320b8dfc0d88f9ede6d5a5fd7ccbc55a1b5378402eb577ddf80",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-723719bf932b46b6/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "20b86fe6ea4ecdb1d79d5de82845bae18c7bd030b7204963ed31eaf9722f19b7",
+      "student_requests": "trials/qwen3p5-2b-off-723719bf932b46b6/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-723719bf932b46b6.json",
+      "terminal_sha256": "c2f0f1b3ed71cf14c5fa471bb22b384da5e95be8f1c1e8193f99c79102bdf895",
+      "worker_seal_sha256": "79a39e0dac52a84d838ae0ed9b73eea8cfcac0155328c5bde309670a581fde68"
+    },
+    "qwen3p5-2b-off-7384fab72096de4e": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-7384fab72096de4e/evaluation/result.json",
+      "checker_result_sha256": "b951aafd525d6ebd1c233a300366673c74b5b35378a7d024b15e9de0a061a7ac",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 2,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-7384fab72096de4e/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "6a67eeb28248f7ab3514b032ae17df7e1d9d61f0e1fc22ddd7f1ca3bae503d17",
+      "student_requests": "trials/qwen3p5-2b-off-7384fab72096de4e/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-7384fab72096de4e.json",
+      "terminal_sha256": "4dfbc82baf43a25ea025ce9e38aebaa387dd38e49abd42ba41e75119a7a835a0",
+      "worker_seal_sha256": "bf850ac0086432ab8fdbdb4e173d390c48d1126e14d4182676d12ee5a18450a3"
+    },
+    "qwen3p5-2b-off-87719ec5bb2bf4fe": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-87719ec5bb2bf4fe/evaluation/result.json",
+      "checker_result_sha256": "e9306869755e2d63bb6fe2328cee70870b3bde18ec6a261151342595071d550b",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-87719ec5bb2bf4fe/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "52a49f21e9236fe3a9c6d5778f7e5b06c872b79ceb57bfea15f12cc2884c5951",
+      "student_requests": "trials/qwen3p5-2b-off-87719ec5bb2bf4fe/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-87719ec5bb2bf4fe.json",
+      "terminal_sha256": "faeab76124560b14371d638b69fe45ae69140f90d886ff1a1cf8e7f4f59553a3",
+      "worker_seal_sha256": "552ed59b1a2ac32be7d0a6930b4ba97730268cc1cbb8571243d4d072618b8ea8"
+    },
+    "qwen3p5-2b-off-9d063ab9267435e9": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-9d063ab9267435e9/evaluation/result.json",
+      "checker_result_sha256": "539127bfa755d23e507595d0c9cc50d74a991d4a23ad38db96f5e2fa3c572be9",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-9d063ab9267435e9/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "001633f672517663d80d03b4a9c13174c705a89650ccdc50e0e4b394399db7b8",
+      "student_requests": "trials/qwen3p5-2b-off-9d063ab9267435e9/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-9d063ab9267435e9.json",
+      "terminal_sha256": "79998fbb384b681bd47cf7a23d8f3fe65274cf31ccd6139ef78df147769604bf",
+      "worker_seal_sha256": "fa7a1d5f9f6a4842e2bc6f09ddb8b37c499af5ec07fb4f822c6f886f87742845"
+    },
+    "qwen3p5-2b-off-9e41539e75478d55": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-9e41539e75478d55/evaluation/result.json",
+      "checker_result_sha256": "991ca43a0557bc81377da58d7c409b0c80339ce3a0cc5b4ebccea40057c0d5eb",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-9e41539e75478d55/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "4cdc8580190553bb4cad4947cb00edb30d65821f090786666a1a425aeb9980e8",
+      "student_requests": "trials/qwen3p5-2b-off-9e41539e75478d55/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-9e41539e75478d55.json",
+      "terminal_sha256": "1dca4fbf2e488f4c4ceb3f8d25da6908ea13df80cda27ed5fcec0cc1e73a5445",
+      "worker_seal_sha256": "89ae262190b0f3ac3fb995161d67ec2de0d610af6129ca2de8e7a3b30b86b211"
+    },
+    "qwen3p5-2b-off-9e4e7838691f0965": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-9e4e7838691f0965/evaluation/result.json",
+      "checker_result_sha256": "0ccf7b529f38ef5f379b57a3a0588ec6b327b6ecc0eee67d5392c93cfcafbacb",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-9e4e7838691f0965/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "ad20e3be08cc89c1439a6c142ba6a905b6488b3498526581ad0a0665ab5cace0",
+      "student_requests": "trials/qwen3p5-2b-off-9e4e7838691f0965/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-9e4e7838691f0965.json",
+      "terminal_sha256": "dce7de0f1c7f551db97d8d12b308565fe276ee9f3941934931ab73853f978af3",
+      "worker_seal_sha256": "2fe77d9bed343911ab3957dd186b1e609887323aced98f7b5f597fe3a4576263"
+    },
+    "qwen3p5-2b-off-ad9ce155b30d7ab8": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-ad9ce155b30d7ab8/evaluation/result.json",
+      "checker_result_sha256": "25b17e2d30649596002ac9a8cd9fa5ec733768d7225dde8b7c3abbb1dc15125d",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-ad9ce155b30d7ab8/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "85aef4c4f9c273acdf5ddc58a3b8577ecb9229ef27c51766c66142622f75dd0a",
+      "student_requests": "trials/qwen3p5-2b-off-ad9ce155b30d7ab8/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-ad9ce155b30d7ab8.json",
+      "terminal_sha256": "b4899bc75891d9b755a6cb44e8f56225de1b5609954b95be0725780a872a3fcc",
+      "worker_seal_sha256": "a5602e16d2d2c818cffb40cf33bea9deb345b21f89f22c4e30c8aed09af3f1fa"
+    },
+    "qwen3p5-2b-off-c11be189a34a1ab7": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-c11be189a34a1ab7/evaluation/result.json",
+      "checker_result_sha256": "5b0e57b40f153fbb4c73c319ec578c878d98b577d6a39b6a03e5472b53e130f5",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-c11be189a34a1ab7/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "6b952e13372a0aed381de3868054c58e9d47ad45079bdeec2f09a9dcb1ac61e5",
+      "student_requests": "trials/qwen3p5-2b-off-c11be189a34a1ab7/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-c11be189a34a1ab7.json",
+      "terminal_sha256": "224e849904f923be81b827dadcfb85dbbbc6565ea023849ca913f1106923ed49",
+      "worker_seal_sha256": "9c8014067216184fc48a7a6c7771f1d6c99bfe025ceb9903b0e6c638804a4563"
+    },
+    "qwen3p5-2b-off-c1bf2f1dc4f03e70": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-c1bf2f1dc4f03e70/evaluation/result.json",
+      "checker_result_sha256": "8ce6f89eab0e209ec816b9cb849a141e9f28db412bb45ee533e68c9dbf9d8ac5",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-c1bf2f1dc4f03e70/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "554fa9458bd1cdd5765b98833e22a0c1ed5abce85f27c3f04cbcd38dc39b1d2c",
+      "student_requests": "trials/qwen3p5-2b-off-c1bf2f1dc4f03e70/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-c1bf2f1dc4f03e70.json",
+      "terminal_sha256": "034150513a2326a9064beb9cbea93a60ea427e09a0958dfacb708f742158d0ac",
+      "worker_seal_sha256": "43436df99b7b45811bb6dc3f7a902d0a87a1a517624a128fef8feb1fc7984fed"
+    },
+    "qwen3p5-2b-off-c2809d80ca423bc1": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-c2809d80ca423bc1/evaluation/result.json",
+      "checker_result_sha256": "c03cd7a0d56930e556623769553f0d50360e34b6f9910518115b3ee6e1a470a2",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-c2809d80ca423bc1/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "db5c69128df5800a32b4b2a95438e7a9940a900df30278c9aabd5953bc09e613",
+      "student_requests": "trials/qwen3p5-2b-off-c2809d80ca423bc1/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-c2809d80ca423bc1.json",
+      "terminal_sha256": "0607995814628f4efdf894116000d7c99edb26a219a0668d66d3d395dbc3b111",
+      "worker_seal_sha256": "69991ba3e3e92fe58ee5eca87d4618343b1ceae14d4d7f6d9548dd33dba66669"
+    },
+    "qwen3p5-2b-off-c2ce01be95b8bb67": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-c2ce01be95b8bb67/evaluation/result.json",
+      "checker_result_sha256": "27f73fca9f2dc7283011ca0caadbf92b82a280a65137b3e2942b80b2f23faa56",
+      "cpu_replay": {
+        "checks_expected": 8,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-c2ce01be95b8bb67/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "9b2f2b5bb8fee59be795f67a403467ecfdfef21a7877d9578b16e2995ac352ca",
+      "student_requests": "trials/qwen3p5-2b-off-c2ce01be95b8bb67/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-c2ce01be95b8bb67.json",
+      "terminal_sha256": "bf866b88e075dbc1d488d3c2f90174b97d1c8b16f7c844d292c1d10ae4fd5f52",
+      "worker_seal_sha256": "9f991830adb6092fc1f11dd7e96830933415b92d21f0e2a2f336bcf2cc4d5132"
+    },
+    "qwen3p5-2b-off-c840b5976f0a25fa": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-c840b5976f0a25fa/evaluation/result.json",
+      "checker_result_sha256": "64e31bcf8c8f586940444519e9287d02e6b0be22193f90dd58b055e0e9e3da56",
+      "cpu_replay": {
+        "checks_expected": 10,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-c840b5976f0a25fa/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "2319e4496f7820450dcb98789c90281e4f22bbb07fe3a880d0abad26d3a06c97",
+      "student_requests": "trials/qwen3p5-2b-off-c840b5976f0a25fa/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-c840b5976f0a25fa.json",
+      "terminal_sha256": "c74a523508d1cd3a7612d5e72aa9f6414afab589bc61c45e6581fb7a2f74bb10",
+      "worker_seal_sha256": "3117d057afafd475464fe975ed82ac0d7ee1671f935bdff656b01e01b8a42ec6"
+    },
+    "qwen3p5-2b-off-c997bcf6fc4388d7": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-c997bcf6fc4388d7/evaluation/result.json",
+      "checker_result_sha256": "2dc66a964101978412a15252848e8fff160d92b10fc3336bc5ea8cfad9a43ff7",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-c997bcf6fc4388d7/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "bf691164061cf0c5dd86971742bce2bd6bb28ae42bd92dbafa60597a2515450a",
+      "student_requests": "trials/qwen3p5-2b-off-c997bcf6fc4388d7/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-c997bcf6fc4388d7.json",
+      "terminal_sha256": "47a3def36c42c4016d7bf2777102fe64447d00b1eea4b04636ca9f765583d8f4",
+      "worker_seal_sha256": "7133325c605fa38e256a0864eeff55c7ac9a5337f5a31056e90f104ac6c2f272"
+    },
+    "qwen3p5-2b-off-cd7296cb476a0152": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-cd7296cb476a0152/evaluation/result.json",
+      "checker_result_sha256": "86409aff30aaa615c5ef210aa24e7ee1a715691b3dfb53f783d4b42d1842eef1",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-cd7296cb476a0152/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "ccd48bc07d8de243b3f1b0e4c4d7d870c24ccce662140351ae842d5df2a454ea",
+      "student_requests": "trials/qwen3p5-2b-off-cd7296cb476a0152/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-cd7296cb476a0152.json",
+      "terminal_sha256": "764da3de42ed3f27f981121afff4b694a2a0012269cab9f20c8465c144e3ad50",
+      "worker_seal_sha256": "e2c4a6ffd25dce91abe398711a3b0c3f470703f09e36477195a9e6479c97d3e3"
+    },
+    "qwen3p5-2b-off-d944f2e70749dec9": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-d944f2e70749dec9/evaluation/result.json",
+      "checker_result_sha256": "0f78d95012539abfa107eb50f4cf5d69523492516e3dd432cce8ab4f37cc07b5",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-d944f2e70749dec9/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "6ad6e3536aee678dd09ad88f5c21db1bfa5e023358456cceb3caff4567b04eb6",
+      "student_requests": "trials/qwen3p5-2b-off-d944f2e70749dec9/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-d944f2e70749dec9.json",
+      "terminal_sha256": "84167d61b0b81e4c656751946e48637eaa3e411fa6b5ebe603e89d52dba7f3e9",
+      "worker_seal_sha256": "a208242f5b022411fe880539f29cb7590dbcf19c8bca2851d4db7bc5fdfa7f78"
+    },
+    "qwen3p5-2b-off-d9981cc51dc358c1": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-d9981cc51dc358c1/evaluation/result.json",
+      "checker_result_sha256": "6f7c20c3a6e997cd93ce450e092fc7f65e583c48fc927c0fd6dd9b9fff70df60",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-d9981cc51dc358c1/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "d67cf30e16d5e1552f4825ecb3f3dbeef6ea011fb33f910f1de14bbccae98975",
+      "student_requests": "trials/qwen3p5-2b-off-d9981cc51dc358c1/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-d9981cc51dc358c1.json",
+      "terminal_sha256": "54cc6dd2b10dbfdd4fa7b7b81afdc7edba8798194b447a0ed93ea3cd3c7d236c",
+      "worker_seal_sha256": "e21a2abd8e9e5b49259c52c01ced9d004469f8899c574a2929201f7783311699"
+    },
+    "qwen3p5-2b-off-dfaf50a32c6387aa": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-dfaf50a32c6387aa/evaluation/result.json",
+      "checker_result_sha256": "5e611175cbcf9c47600983aafe30c3ebb9a0487291a91bd99c1e477cf33ac049",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-dfaf50a32c6387aa/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "ebaebb7e6132b7c1baee936bffddd39796e621ecb50a7e31b7ffa9944541b34e",
+      "student_requests": "trials/qwen3p5-2b-off-dfaf50a32c6387aa/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-dfaf50a32c6387aa.json",
+      "terminal_sha256": "17dda74c4c93a25e9d4132bcef97498bc0927828e55aae30aa89d9d989c301b6",
+      "worker_seal_sha256": "543e0bd2674100d2969cd55cd3ea2aa7dc0e70805f536d3cfd928e79d64e2a38"
+    },
+    "qwen3p5-2b-off-e4ce6c79059cb32e": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-e4ce6c79059cb32e/evaluation/result.json",
+      "checker_result_sha256": "a239e26db569c6f0ef601f052023af3b3719dd65acbc3b6075fb1b0dca04f944",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-e4ce6c79059cb32e/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "53f276179c8df76d4645b18e0aba1473201aaad976fe12192f3e4dd7d7d02a04",
+      "student_requests": "trials/qwen3p5-2b-off-e4ce6c79059cb32e/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-e4ce6c79059cb32e.json",
+      "terminal_sha256": "8bfe817967dd19fbf722bd2d6158e74924322790f810aa250948f7a5d69f38ed",
+      "worker_seal_sha256": "5375690e93d70f512848b31e4ed4932bb959f48fb2cb3898741b0240212c994c"
+    },
+    "qwen3p5-2b-off-e853b0e6f45db319": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-e853b0e6f45db319/evaluation/result.json",
+      "checker_result_sha256": "98eab7364cfebe27af23e0e43f1d3d02031f4ea6d5f05a4d474ac1d87b24821c",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-e853b0e6f45db319/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "fe5878bb25dd67dcfaa22d2aa3e9dae0b4af47c0164cef31b7cfae969f9e1dbf",
+      "student_requests": "trials/qwen3p5-2b-off-e853b0e6f45db319/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-e853b0e6f45db319.json",
+      "terminal_sha256": "5c546b35b9fc3c0f18e8d896573255471c4923d1e5efa93f7ebf2aab1a435dd9",
+      "worker_seal_sha256": "85b1361a0bbd23d0e86fc1e33a5c5fecc9f0c4f81272033b9991c4da38e180a2"
+    },
+    "qwen3p5-2b-off-fd1e21db480f8ec7": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-off-fd1e21db480f8ec7/evaluation/result.json",
+      "checker_result_sha256": "da2c0a48dc597e560d696371f012f30cfe643e3c11b95e514e07ca1f063007c6",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-off-fd1e21db480f8ec7/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "0d1363875786ec0320db46c07fae17470c9bcd14d55d21ff87ca32da5b08000b",
+      "student_requests": "trials/qwen3p5-2b-off-fd1e21db480f8ec7/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-off-fd1e21db480f8ec7.json",
+      "terminal_sha256": "63c29071bb7cb8dc2fc80c789f3181f0f4afd557ddf60fc8f25e221552ca4a29",
+      "worker_seal_sha256": "50111d69f60561b797f4bc0999b04836a7db43c6bd3c60e7457e5067b922fc48"
+    },
+    "qwen3p5-2b-on-07270cab1e9afdb0": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-07270cab1e9afdb0/evaluation/result.json",
+      "checker_result_sha256": "3406b3f8ee2bf99bc9d56df73a78818519f11b5d7c84e2a7ac83b1aac807c33b",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-07270cab1e9afdb0/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "92ebe8bdb4e012ceb730e4ffed275bcd3edb59c254ee486e2772f09b1421db1c",
+      "student_requests": "trials/qwen3p5-2b-on-07270cab1e9afdb0/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-07270cab1e9afdb0.json",
+      "terminal_sha256": "5a6f6a5fb297ca866ef24f1f9c6e95c3cdf2ef683d8e4294912da7c6acd98db0",
+      "worker_seal_sha256": "0d2840b6f4a54899b235000693fc75f97a448ef6e3854df3689662be526f63fa"
+    },
+    "qwen3p5-2b-on-07b3442204748182": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-07b3442204748182/evaluation/result.json",
+      "checker_result_sha256": "665c3051c61525ab1ebfab5732bd01d6664179f027020e0f02377d2ca0676148",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-07b3442204748182/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "e1d058cf24face7ab55b4aeccb7df1220d1b8d631893feec4dbd0488b338648f",
+      "student_requests": "trials/qwen3p5-2b-on-07b3442204748182/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-07b3442204748182.json",
+      "terminal_sha256": "85a257f60d3b1e946497df9f6e243b5bff38c2c537609277fdfa088db6ec6a5f",
+      "worker_seal_sha256": "1090b1da129eab05b03c42187aac9b79b3c8f8eba899e30d7722747d5cefa1e5"
+    },
+    "qwen3p5-2b-on-0dc1b960d5ee5ac0": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-0dc1b960d5ee5ac0/evaluation/result.json",
+      "checker_result_sha256": "bbc2433eb38de712224d74a50f59154cbcdb1efd3483268217ec03379b31a139",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-0dc1b960d5ee5ac0/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "0222758cd99615f10ce921b58f85484014e3416af730559a5539e8d5d8069644",
+      "student_requests": "trials/qwen3p5-2b-on-0dc1b960d5ee5ac0/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-0dc1b960d5ee5ac0.json",
+      "terminal_sha256": "a0b77dea94233a664eaa22ab99e087f7596d26ed8a0cf7ba2ff52229f22849c2",
+      "worker_seal_sha256": "bd74b467235a21ecf7411d6aef2fa91dfbb1ea5f2f6a886dac10f2d7f3387fc5"
+    },
+    "qwen3p5-2b-on-0fe7f9e9a60a943c": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-0fe7f9e9a60a943c/evaluation/result.json",
+      "checker_result_sha256": "25285552925c0635d5849c5ea6280be75b4a250423eb90a8bc73be8f51e1e511",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-0fe7f9e9a60a943c/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "d77869a498312983c488c4ff1c85e6b4b61403add79d1b14d3e31b9daeea044a",
+      "student_requests": "trials/qwen3p5-2b-on-0fe7f9e9a60a943c/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-0fe7f9e9a60a943c.json",
+      "terminal_sha256": "fc68d748158317af300a7c3d0174279ffc9465a623c93687ab78f2a7840b9fca",
+      "worker_seal_sha256": "734b80238bec12ed9ba03f336a53cb391ec8c3eeb299c090dc9ec41147226da3"
+    },
+    "qwen3p5-2b-on-1ddf0ef6816d0ba2": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-1ddf0ef6816d0ba2/evaluation/result.json",
+      "checker_result_sha256": "a370bbeacaa0230b4ed26f8656fef8c9705a403cdc03c038bfe319d3153c159b",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-1ddf0ef6816d0ba2/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "9a03d487582dc3515ed07bb42b9d26182007a32a2b7e112215cc8ceb393488d0",
+      "student_requests": "trials/qwen3p5-2b-on-1ddf0ef6816d0ba2/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-1ddf0ef6816d0ba2.json",
+      "terminal_sha256": "4e643940a537609d2c7290cf3c7ec386b89f47459f4de5fb9b4266a7ed507686",
+      "worker_seal_sha256": "df2f4c3fb3257f964db3e573f9878cd9811814d627b988d7e1107f6d40f28d26"
+    },
+    "qwen3p5-2b-on-2022b22584c63df0": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-2022b22584c63df0/evaluation/result.json",
+      "checker_result_sha256": "17a4ce24efb509048abfe596fcb2e42e2e0a4c6c3328ee5b144a178345ccaeea",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-2022b22584c63df0/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "4697804bdf289a46582cfdcfbce5d3c08ee3af11aec05a88666c39f3761e023c",
+      "student_requests": "trials/qwen3p5-2b-on-2022b22584c63df0/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-2022b22584c63df0.json",
+      "terminal_sha256": "3db4efb5686a842a945eaee03f7e2ad4f54612f65c46820c5f7fddbbb87d65a2",
+      "worker_seal_sha256": "a457937c1f147dc6f22dce685f85d900191d68c0b591635b49f33ba62309fe09"
+    },
+    "qwen3p5-2b-on-4d8bf293b0eb6bb9": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-4d8bf293b0eb6bb9/evaluation/result.json",
+      "checker_result_sha256": "c4b69f141964e480ce9e26fcb564468d1241129bbafe4a2f2dda6eaa29a9c20b",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 4,
+        "passed": true
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-4d8bf293b0eb6bb9/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "f6332512973f991999d3d806ba59c98aeabcd0fb9c8c401ba7d54aba96d956f1",
+      "student_requests": "trials/qwen3p5-2b-on-4d8bf293b0eb6bb9/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-4d8bf293b0eb6bb9.json",
+      "terminal_sha256": "74af8f0b38f23c8dcfdac2e691eb5b9e2b61103e4ef2588e97f2ed35459d9e8c",
+      "worker_seal_sha256": "86797d5a3ecf6badffca1c7baa429670d766e5a23bf2d839d66caf24e2106dac"
+    },
+    "qwen3p5-2b-on-64a22104e7236968": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-64a22104e7236968/evaluation/result.json",
+      "checker_result_sha256": "6bd0d933e9c3b7d81968f3c11060f28a9f624b9db514605708ae8b62082ac4b7",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 2,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-64a22104e7236968/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "b5dbff18bf448737400b13f4f9c2de9febef90d23c28d5bcc79552f7f18d737a",
+      "student_requests": "trials/qwen3p5-2b-on-64a22104e7236968/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-64a22104e7236968.json",
+      "terminal_sha256": "d263411e44b90a8f1902adb03f00104659ce10f24ca23a3dfb83b5a0e56ecc2e",
+      "worker_seal_sha256": "2be00e122d7a249432fd9b4bb13b5b7fa8a45eef64fc23f75dded23d14cc95da"
+    },
+    "qwen3p5-2b-on-71351c827b3d3b83": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-71351c827b3d3b83/evaluation/result.json",
+      "checker_result_sha256": "7d44ebfa951355aef742543aab4badb6d12adc1f91c763d9c1f55cb7c6f4e2a1",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-71351c827b3d3b83/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "2ceae6eced9e0b0a4a31e09ff472bbdb86229653b9eea9b30ed0a6a3f34b4a4c",
+      "student_requests": "trials/qwen3p5-2b-on-71351c827b3d3b83/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-71351c827b3d3b83.json",
+      "terminal_sha256": "e27b8589b14be8f3aab510ca050166c699825f9d0f2b0af50a138a8c5399dd06",
+      "worker_seal_sha256": "0624c9912065d7488de7b3f93b8981a12ff85906f0342ab24d4ba2a86ac0361a"
+    },
+    "qwen3p5-2b-on-723719bf932b46b6": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-723719bf932b46b6/evaluation/result.json",
+      "checker_result_sha256": "f6db5890f95ede4f9cab421366ed957aa3344f90f395dbf5d16d1a75df86e446",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-723719bf932b46b6/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "a9a0e4e17a546ce5891321af0d96c1227e06aee2deef35e3f697ef85926a2ab7",
+      "student_requests": "trials/qwen3p5-2b-on-723719bf932b46b6/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-723719bf932b46b6.json",
+      "terminal_sha256": "dc110541ccd39979195685db55513f9863952afe11384c7b57512711f941c101",
+      "worker_seal_sha256": "410d62ce51a729dc057062682dce30541951689d69a15f6d1728a1f2ac434a88"
+    },
+    "qwen3p5-2b-on-7384fab72096de4e": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-7384fab72096de4e/evaluation/result.json",
+      "checker_result_sha256": "aafcc6fa32e3c48e5872a8eae89a9af27a45451a0ca4000341c3051ed2ca6974",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 2,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-7384fab72096de4e/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "ea795494086a0a3308d54d990d93ed89460ffc3bc08ce04c8b0ef10da27a4663",
+      "student_requests": "trials/qwen3p5-2b-on-7384fab72096de4e/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-7384fab72096de4e.json",
+      "terminal_sha256": "4211698c647f8a41230f1286196fdb1c23e29a79d4fccd0ab8bbeb9d8f1f8efc",
+      "worker_seal_sha256": "5da57180e0451d3103777fa61531c752aeef1d905bf628f3e4023f76f08f7405"
+    },
+    "qwen3p5-2b-on-87719ec5bb2bf4fe": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-87719ec5bb2bf4fe/evaluation/result.json",
+      "checker_result_sha256": "6394545f0b831cf7f00e054f44f49e9c59e6e5fbd2ef6d4c7dade2e570384b2d",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-87719ec5bb2bf4fe/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "aad49990f024db84d9cd29bc5f36c9455bf5811e52f813572e607f5af1efafe3",
+      "student_requests": "trials/qwen3p5-2b-on-87719ec5bb2bf4fe/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-87719ec5bb2bf4fe.json",
+      "terminal_sha256": "3bc5f119a05a7af016097d6d1e73f9d5392bee1623f6f5251fb77f88ae5d4374",
+      "worker_seal_sha256": "021bc524dee6af80f35256b3735f48dafff8fe970ee1ec68ba41b74632904f2e"
+    },
+    "qwen3p5-2b-on-9d063ab9267435e9": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-9d063ab9267435e9/evaluation/result.json",
+      "checker_result_sha256": "1f672b9c5b33273bf3e149c3db2c279446b439fa2ec63edc94b27e8162591a39",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-9d063ab9267435e9/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "6075fbdd4e0388701053c167d786276f8cac76663db45e911626886677a39550",
+      "student_requests": "trials/qwen3p5-2b-on-9d063ab9267435e9/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-9d063ab9267435e9.json",
+      "terminal_sha256": "5325518f4b89d3e6d86f8d39376fcb2def029dc5bd7462bf9b4650c9388c5b50",
+      "worker_seal_sha256": "dc7d4232157ac8f45fdc9f70682efce8437d6657fa33433a7ec915714b8a26d9"
+    },
+    "qwen3p5-2b-on-9e41539e75478d55": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-9e41539e75478d55/evaluation/result.json",
+      "checker_result_sha256": "07e11c1979be8fbf4ca95c8fcaba1a260a562c5620feef56b50709039dcc907f",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-9e41539e75478d55/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "a183a5f9c50defdba0a6ee89234d975a330a13d671a8aa8923e2f34ee6a91f7d",
+      "student_requests": "trials/qwen3p5-2b-on-9e41539e75478d55/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-9e41539e75478d55.json",
+      "terminal_sha256": "a7dd3b2508e9f3f52a1f1789ba89ec0323c738729b065eda90f90f2def274d3c",
+      "worker_seal_sha256": "4ccee0a23900a7acbe6c3620c62e5c497c69a867f58e507e94eea35a2eee4366"
+    },
+    "qwen3p5-2b-on-9e4e7838691f0965": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-9e4e7838691f0965/evaluation/result.json",
+      "checker_result_sha256": "6af0a37234b8dcc35df984fe8cb679fb3cd40161925535a31e174e3773af336d",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-9e4e7838691f0965/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "6db0157483c7ef299f7dd63a7474f0c9c4752462ff79a765b148905726325db6",
+      "student_requests": "trials/qwen3p5-2b-on-9e4e7838691f0965/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-9e4e7838691f0965.json",
+      "terminal_sha256": "2fe04b1d6eb854f3f5c1a8bf577a4a675fc11deab353eeeac26ec69b7544a89e",
+      "worker_seal_sha256": "0b5021a195efcf49d4cfebcdeefcc6a4a3a9c121c6908fb8445a1ba916f36df1"
+    },
+    "qwen3p5-2b-on-ad9ce155b30d7ab8": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-ad9ce155b30d7ab8/evaluation/result.json",
+      "checker_result_sha256": "eccd1835a2ab70863eae371c75b9e7badff344a7ff22b32371d14e8e063beb82",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 5,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-ad9ce155b30d7ab8/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "7c7f6b1be40a9291a94396c08fd8263e0da8ab58e9dfbc2331d26d0531292ea5",
+      "student_requests": "trials/qwen3p5-2b-on-ad9ce155b30d7ab8/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-ad9ce155b30d7ab8.json",
+      "terminal_sha256": "68b7edd67303326df6a9b2edf7e33d3657d8994d4da09275549d67348a79e507",
+      "worker_seal_sha256": "be44b56d8752789e11045725db5cf21a92cdcee639951f65ec952cdba9e2c102"
+    },
+    "qwen3p5-2b-on-c11be189a34a1ab7": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-c11be189a34a1ab7/evaluation/result.json",
+      "checker_result_sha256": "b10062d7a10fbc1dfd61a6dde2a56051153cce61d4f464dc23c7065f2796a8a9",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 5,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-c11be189a34a1ab7/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "100e34582d3c6813bc2c451e0e38d94fad2efe37703f65904814a7a26ea64b20",
+      "student_requests": "trials/qwen3p5-2b-on-c11be189a34a1ab7/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-c11be189a34a1ab7.json",
+      "terminal_sha256": "cb34acd82328dd7038bac0412a214fce11c2b552543052b12c4bcfa58478d9eb",
+      "worker_seal_sha256": "6a04cd1d4186143643e976ed1a5d1838cb863c1d119fa4acd308dcde10171031"
+    },
+    "qwen3p5-2b-on-c1bf2f1dc4f03e70": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-c1bf2f1dc4f03e70/evaluation/result.json",
+      "checker_result_sha256": "9bde72f30aca964035dd2511bd73afb03d31bc2e6d05ce8ea175856a49db1bac",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-c1bf2f1dc4f03e70/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "ab57f7cd49ef1e5633c8a152a80517596c7ac3b0560af8139e10542608121a68",
+      "student_requests": "trials/qwen3p5-2b-on-c1bf2f1dc4f03e70/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-c1bf2f1dc4f03e70.json",
+      "terminal_sha256": "ff243daf34e0645c21226d6532a06e04d12f0f1d3258af932a956b0472aa6047",
+      "worker_seal_sha256": "064191574a6752942f22823febec0fadbfa8004d95a990a54b5950eaca914fb1"
+    },
+    "qwen3p5-2b-on-c2809d80ca423bc1": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-c2809d80ca423bc1/evaluation/result.json",
+      "checker_result_sha256": "3f15fb4a2ba9c0d2168df4430867336881db271684c3e4a223af0e11885a72aa",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-c2809d80ca423bc1/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "5c6d3198692545daa1854d266437b0e7db02333a350b76f60fb058d864951751",
+      "student_requests": "trials/qwen3p5-2b-on-c2809d80ca423bc1/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-c2809d80ca423bc1.json",
+      "terminal_sha256": "24e343fd8b3825b975fc7ea1b166cd99a5860f4c19e7cb5b3342879f8bec5905",
+      "worker_seal_sha256": "556f98563d5bbfa082f43197ab41ee9dccb4b2eafd093ad6193296ab0fc0f2ce"
+    },
+    "qwen3p5-2b-on-c2ce01be95b8bb67": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-c2ce01be95b8bb67/evaluation/result.json",
+      "checker_result_sha256": "cd6e6df8810b1544db124b254b058779e9b165ada8a7a1279b4589825e2b505e",
+      "cpu_replay": {
+        "checks_expected": 8,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-c2ce01be95b8bb67/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "05ee027bfe90ea992977956dba2007e6a99f3ef7599bfa19becc157c13d9d258",
+      "student_requests": "trials/qwen3p5-2b-on-c2ce01be95b8bb67/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-c2ce01be95b8bb67.json",
+      "terminal_sha256": "527f672475e2c91e9ff28a8d97aa29a27594446b04237355b3a7bc3fa66f8a79",
+      "worker_seal_sha256": "e2965d1d56f0663a7f5ed3fc86b7d692ce3b79d4ad8f2a6cb6b20507713dd5bc"
+    },
+    "qwen3p5-2b-on-c840b5976f0a25fa": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-c840b5976f0a25fa/evaluation/result.json",
+      "checker_result_sha256": "31f0425fe2f2372ecdea2a107af676482e7f6aff5c6ceb0ffeee37525a3eac7a",
+      "cpu_replay": {
+        "checks_expected": 10,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-c840b5976f0a25fa/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "b8a130a240a30c2e1d3147ae4aa547472cbdb60b700d1cb7cfe883c0e2fed51d",
+      "student_requests": "trials/qwen3p5-2b-on-c840b5976f0a25fa/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-c840b5976f0a25fa.json",
+      "terminal_sha256": "7ef4a78c95ad06fa665a769a0d89a45e80c73fc4b3d3738a988d6abd4991d073",
+      "worker_seal_sha256": "f963255b5454ff2f6f1d005c12a29edf47847e053755bd5eab796eb089cec915"
+    },
+    "qwen3p5-2b-on-c997bcf6fc4388d7": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-c997bcf6fc4388d7/evaluation/result.json",
+      "checker_result_sha256": "ec903ccea4c1833115eebba5ade2b6e0fff5741113eab9cffde5f848479d81f5",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-c997bcf6fc4388d7/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "8e42e6727c8adfae251598a7b17314cce4659b01748022c18d6bc74efebfcd0f",
+      "student_requests": "trials/qwen3p5-2b-on-c997bcf6fc4388d7/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-c997bcf6fc4388d7.json",
+      "terminal_sha256": "a09a1c4ca4421be6cff101c5c1b22fc4fdc496aaceb5488ce304a8e71db18ef6",
+      "worker_seal_sha256": "85565586bc7e4ec33fcc65d9bdd84a746db81308a137d3db1cd3a85db766d495"
+    },
+    "qwen3p5-2b-on-cd7296cb476a0152": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-cd7296cb476a0152/evaluation/result.json",
+      "checker_result_sha256": "48c5621f7b42b5d7ccff803214a1f33461699f78f1e738ff6eedd8a38d32e3fb",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-cd7296cb476a0152/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "8797dc63035fe81e1c9b6b3bc803dc9ee2c87b038ad136d39c11e63e24eec185",
+      "student_requests": "trials/qwen3p5-2b-on-cd7296cb476a0152/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-cd7296cb476a0152.json",
+      "terminal_sha256": "4140600aa823e2a5b6d7f3dacae097883a35db4b56ecf6f40c3018e87243cd0a",
+      "worker_seal_sha256": "eb6ab3728d27b96cbc87db6e473fa726b7cadf424e864a7e4c82ac33dc028865"
+    },
+    "qwen3p5-2b-on-d944f2e70749dec9": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-d944f2e70749dec9/evaluation/result.json",
+      "checker_result_sha256": "83ea4f165fd71b1699ca9c55e4d6fa7c06f60d68dfaa65d98ac9d1209205c37a",
+      "cpu_replay": {
+        "checks_expected": 4,
+        "checks_passed": 2,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-d944f2e70749dec9/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "a1e74ec1f2f6c849c6a9150dce67150cf37ea6a911db9263d130da16c9496d9f",
+      "student_requests": "trials/qwen3p5-2b-on-d944f2e70749dec9/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-d944f2e70749dec9.json",
+      "terminal_sha256": "06e59ed49ef9a9b5d5f7ac50171e014e1f19d96d5d2ff70cfd98072822c74059",
+      "worker_seal_sha256": "00db7b0bf167fa0f409d82a8266fe33ae9555944506e08b749d2edd1394ff324"
+    },
+    "qwen3p5-2b-on-d9981cc51dc358c1": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-d9981cc51dc358c1/evaluation/result.json",
+      "checker_result_sha256": "e68256d981b18b79aed9bd4e41097db0faa091bde0e37a1b879c25238aa72d64",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-d9981cc51dc358c1/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "c8262c697a39d31763c0decdeb74073fa05b187209fd76290cef8d3e9df92c70",
+      "student_requests": "trials/qwen3p5-2b-on-d9981cc51dc358c1/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-d9981cc51dc358c1.json",
+      "terminal_sha256": "49e3b716bf179c9ec45b8d1500f711a9d0039db5e30134b08bead786d01c121a",
+      "worker_seal_sha256": "ae54a051590bf1c63d08d5b35bfa9d78d86a71c719ac78a2abd63cf8bd2f6e8a"
+    },
+    "qwen3p5-2b-on-dfaf50a32c6387aa": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-dfaf50a32c6387aa/evaluation/result.json",
+      "checker_result_sha256": "1e1d03038de949aa2505edcb18f635c15c36f57375022c6782d7df3d4d818830",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 1,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-dfaf50a32c6387aa/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "22a3d00c57921017ebbba2290496c051a903cc9889949f0cbc02800355687269",
+      "student_requests": "trials/qwen3p5-2b-on-dfaf50a32c6387aa/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-dfaf50a32c6387aa.json",
+      "terminal_sha256": "7b8f0adbe1852e98a0d7ea7639854ac0e70f70841211c3ca9af1266e986c2ef2",
+      "worker_seal_sha256": "84a01ac8938da4a9d6180de8d815a2f8533776d5d9f13de900a6a2cb3a9886fc"
+    },
+    "qwen3p5-2b-on-e4ce6c79059cb32e": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-e4ce6c79059cb32e/evaluation/result.json",
+      "checker_result_sha256": "47843a2fb267f43c7a66f4352876a322aa85d6e07a9248710550f10f9cd41aad",
+      "cpu_replay": {
+        "checks_expected": 2,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-e4ce6c79059cb32e/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "7cd1e7d59951b87c283334248d8ed95f248543234d319274d694597bc85af24d",
+      "student_requests": "trials/qwen3p5-2b-on-e4ce6c79059cb32e/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-e4ce6c79059cb32e.json",
+      "terminal_sha256": "d8f71314f2bf536e5ae4b2293059aebabcf2cb0e9cd94def58a794f8e6eb74a1",
+      "worker_seal_sha256": "b088550a8b3396713f453126b9e646c90ba446a1fc33c6dd77e7fd468a2a3a47"
+    },
+    "qwen3p5-2b-on-e853b0e6f45db319": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-e853b0e6f45db319/evaluation/result.json",
+      "checker_result_sha256": "b11c2bf5238a32052cbc3133d9330b99e0aca33e5049d0e726c524c488d44431",
+      "cpu_replay": {
+        "checks_expected": 1,
+        "checks_passed": 0,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-e853b0e6f45db319/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "8bd2426e1a6793860eca87456e9e6686793242f4e9e37f0a8f6a864b8d3cca3b",
+      "student_requests": "trials/qwen3p5-2b-on-e853b0e6f45db319/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-e853b0e6f45db319.json",
+      "terminal_sha256": "83836cd14fa892d4768f6000de1a548a9ab655bf7f7bb6e46d44f38125933a2e",
+      "worker_seal_sha256": "383d92b01138badefc97a0414e0666b686d147cd5c9f66913c579e1337178742"
+    },
+    "qwen3p5-2b-on-fd1e21db480f8ec7": {
+      "agent_completion_marker": false,
+      "checker_result": "trials/qwen3p5-2b-on-fd1e21db480f8ec7/evaluation/result.json",
+      "checker_result_sha256": "065731d7630d2be11e38bfc01e84bc34d425bee88e4e1979bde79beac6058f92",
+      "cpu_replay": {
+        "checks_expected": 6,
+        "checks_passed": 5,
+        "passed": false
+      },
+      "harness_completed": null,
+      "public_actions": "trials/qwen3p5-2b-on-fd1e21db480f8ec7/policy/worldlogs/public-api.jsonl",
+      "scorer_seal_sha256": "4e4cb9e5a7ed9af7e9a9bd9adc7e2f3f206055058f299b2f642d5ba1fb65cf1a",
+      "student_requests": "trials/qwen3p5-2b-on-fd1e21db480f8ec7/private/student-requests.jsonl",
+      "terminal": "terminal-results/qwen3p5-2b-on-fd1e21db480f8ec7.json",
+      "terminal_sha256": "5136fd2d718024dc8f83b6f8644b7558b56dff9459bed9db5bf0baddc7be6807",
+      "worker_seal_sha256": "15fa64cccdc30accb18bf2159385e0e40bceb83a18b80fafa30631a6dcde59a9"
+    }
+  },
+  "t37_sha256": "565ec937a768fcefa8a6b21afaddd3985e8668fbf559448aff79c6a010377515"
+}

@@ -1,0 +1,301 @@
+{
+  "proposal_id": "flockcue-deepseek-pilot40-v1",
+  "status": "proposed_unlaunched",
+  "dataset_id": "flockcue-benchmark-600-v1",
+  "source_sha256": {
+    "manifest.json": "4fd6fad8cf3cb4a1e9a7f512e6e5f231274ab427233597f884e0dd643ecedc43",
+    "candidate-600.json": "c3d60aadde603a65c7481495db0db5274d7512f4f823a6e5cb356814a6241e06",
+    "proposed-folds.json": "112b6c5e044dd6fe691f98a4935ec9ec18233ddffc4a39392dfbc693fcbf3c97",
+    "sessions-600.zip": "4843962ad5c6a37f71651a851e92b61043803201564a12b45112d24548247a5c"
+  },
+  "fold_assignment": "train_A_evaluate_B",
+  "repeat": 1,
+  "original_scene_generation_seed": null,
+  "runtime_seed_rule": "For each scene, big-endian uint32 from first 4 SHA-256 bytes of UTF-8 'flockcue-deepseek-pilot40-v1/<session_id>/1'. Initialize supported local runtime RNGs once at scene start; record seed and actual applied controls. No seed sent to the remote teacher.",
+  "teacher_api_seed": null,
+  "sessions": [
+    {
+      "session_order": 1,
+      "session_id": "04cd6269",
+      "family": "area_assignment_and_patrol",
+      "scene_difficulty": "Easy",
+      "fold": "A",
+      "scene_zip_member": "Area_Assignment_and_Patrol_Easy_3_04cd6269.json",
+      "scene_sha256": "216cc29058511615ddf465f604f732c283f11a6669924110bf0cbc38269a1888",
+      "runtime_seed": 3443555164,
+      "fleet_size": 5,
+      "historical_baseline_exposure": true,
+      "previous_engineering_session": true,
+      "historical_main300_overlap_tasks": 0,
+      "tasks": [
+        {
+          "index": 1,
+          "task_id": "a05a871a",
+          "command_sha256": "74f6467a4c7fc1d22977dfdd43fb87d016893be04174ca0291b89a789759691f"
+        },
+        {
+          "index": 2,
+          "task_id": "528d6d24",
+          "command_sha256": "8e7e945888311878a8c763e2714a089596c2fc7f59418252b12f38320ab1d151"
+        },
+        {
+          "index": 3,
+          "task_id": "a377d715",
+          "command_sha256": "c6fbec36d0eb79050ee414576fc683b36ed0fab37fcca6f95a765742681050d3"
+        },
+        {
+          "index": 4,
+          "task_id": "f4ff5428",
+          "command_sha256": "fcffb1fc8fc57c314f8bc54e6bbcaa7d04c32cf85d6d6c7a3ba98c0be1f4a24e"
+        },
+        {
+          "index": 5,
+          "task_id": "f70fd1c5",
+          "command_sha256": "be7c6cb2ff7435ad6b1f93ccf4368e7dbfd0553c6d333d7c51eddd06d240e085"
+        },
+        {
+          "index": 6,
+          "task_id": "a92537e4",
+          "command_sha256": "ba5ed4309231012432defb61ac9bd6e140790f7f31e416ad282a0e7379f9da7d"
+        },
+        {
+          "index": 7,
+          "task_id": "af8b4784",
+          "command_sha256": "2cce59e99aa0041b506d23d714efe80a8e7dbdf61ee7d484b4f176fdf350013d"
+        },
+        {
+          "index": 8,
+          "task_id": "cbaf43db",
+          "command_sha256": "9cf90c22fd012e0113b0af86cc13a36e09569fd2a1633a8d728c3940d5b776e9"
+        },
+        {
+          "index": 9,
+          "task_id": "f4ebd7cf",
+          "command_sha256": "7bd7a45d1996aa90c857640e54bf5370dbce669b20dca12e7aabb7e2fa4eb5bf"
+        },
+        {
+          "index": 10,
+          "task_id": "235684e3",
+          "command_sha256": "cdf956a24f7dcf88df6e57e9304c32d229d77c18e14d841c9668b91033e97c48"
+        },
+        {
+          "index": 11,
+          "task_id": "c56d8515",
+          "command_sha256": "d7144fe0f31b109484bceaa58c34960197457899839d170c42fe23d4a6850890"
+        },
+        {
+          "index": 12,
+          "task_id": "c86bcdc5",
+          "command_sha256": "1de46b5b2a0dd7732b34d99f79042a14ff420390640c0bfb0849c7afc9716595"
+        },
+        {
+          "index": 13,
+          "task_id": "e6b22f8c",
+          "command_sha256": "f23e52b56c5d5c0e08b3bc260651e37974bc7c8861e8dd4e87304539018f8c8c"
+        },
+        {
+          "index": 14,
+          "task_id": "0cb39a4a",
+          "command_sha256": "b7124cbb5410de0c87259a62ee53790e5bb4d3859e9c45d437df647d0ecf27a2"
+        },
+        {
+          "index": 15,
+          "task_id": "9a59bf38",
+          "command_sha256": "6d96d4e7bd0a1e475203b0e993c0991a5913b01cce365cef7d607f1539c6e53b"
+        },
+        {
+          "index": 16,
+          "task_id": "c8b934b1",
+          "command_sha256": "7804ccc007c78739b771f2ebe2828450e46fad472bb7c5488b03cb6970958211"
+        },
+        {
+          "index": 17,
+          "task_id": "f085d6c5",
+          "command_sha256": "752251389d152bb4c886176563717d1289c3f1cf76232f93ca47f5c594754ff5"
+        },
+        {
+          "index": 18,
+          "task_id": "dfb72cbb",
+          "command_sha256": "3f56abd97c8ff1ffb6207f85cbbb00d1d64401be0c9c4873b760da685c3e4ed4"
+        },
+        {
+          "index": 19,
+          "task_id": "d72edf40",
+          "command_sha256": "7907eea10deee9005c05b4f313ab440cfcbcfe396b000b4c57cc674cc7f1cc7c"
+        },
+        {
+          "index": 20,
+          "task_id": "4c8040f9",
+          "command_sha256": "c52ea203b80a8aca6cd8a36b734183b1624bdc25e2df3d69c434010748206816"
+        }
+      ]
+    },
+    {
+      "session_order": 2,
+      "session_id": "ef36e27a",
+      "family": "area_search",
+      "scene_difficulty": "Hard",
+      "fold": "A",
+      "scene_zip_member": "Area_Search_Hard_1_ef36e27a.json",
+      "scene_sha256": "b6ffef719d87e94155094aa441928cf74fd7884b35e37581967ab2cde5a0ada1",
+      "runtime_seed": 664273811,
+      "fleet_size": 10,
+      "historical_baseline_exposure": true,
+      "previous_engineering_session": false,
+      "historical_main300_overlap_tasks": 20,
+      "tasks": [
+        {
+          "index": 1,
+          "task_id": "e59d948d",
+          "command_sha256": "77094d16a3c6f5baca3ce47cbe17fbbd5281915b20044027fdb6097099f06147"
+        },
+        {
+          "index": 2,
+          "task_id": "5d8eab35",
+          "command_sha256": "fca304ccd632aefc610d3e4a5f9954a8a8b0e20e13562a616766ab236d2e2b4e"
+        },
+        {
+          "index": 3,
+          "task_id": "1c840341",
+          "command_sha256": "c383ca2b11c83f6fd155d23b6bd57fc5429b947439d63bf5954c4d94f1104111"
+        },
+        {
+          "index": 4,
+          "task_id": "98a62c0f",
+          "command_sha256": "d6ba7e34948ec0a0e3f25d9087a434b723fac2295d38bc9ea5854f22aa3876ea"
+        },
+        {
+          "index": 5,
+          "task_id": "4ccc9027",
+          "command_sha256": "25ef9870923e754d3b6e992f8c4b28086eafe6c4a71a809bea107c441bc8f92f"
+        },
+        {
+          "index": 6,
+          "task_id": "6f597461",
+          "command_sha256": "f81251cb243b910048b1b1d13ad382ecb909fa330eb7f231b56d39313458db40"
+        },
+        {
+          "index": 7,
+          "task_id": "9e042fbe",
+          "command_sha256": "b0907dc7abd482f7fcea43732acbe81506c71fc57d1f94397d046ed032f087f7"
+        },
+        {
+          "index": 8,
+          "task_id": "1a7d17b5",
+          "command_sha256": "0c5f3eaec1ce1f3d72ef5f0156f784f85481780c4831ceb3daaaf53b54cd1586"
+        },
+        {
+          "index": 9,
+          "task_id": "cdf3324b",
+          "command_sha256": "0eec1b6e95329c26343a26ebbcad40caff5858159a419289eb44ecd0e5b524ae"
+        },
+        {
+          "index": 10,
+          "task_id": "c7a8edb7",
+          "command_sha256": "95252c8007b385c50b71e6560756897cba13e61c8c80f3eb321ade3e7e240310"
+        },
+        {
+          "index": 11,
+          "task_id": "839993a2",
+          "command_sha256": "f333e3cd61b13c9ec76ed30e105948a34feb52fffa81073a90fcd138d6b73069"
+        },
+        {
+          "index": 12,
+          "task_id": "205d4c48",
+          "command_sha256": "fde7cdaac741b77269cfdef0fc182abef49b0e20a86d366c7fc831aca2dbf79d"
+        },
+        {
+          "index": 13,
+          "task_id": "2f4c6c85",
+          "command_sha256": "1f1043faeec8a9abb6684864c29eb599f6e5fb0b255d810ee0befcdc99dfb6ba"
+        },
+        {
+          "index": 14,
+          "task_id": "50dcb2b9",
+          "command_sha256": "dc7306bc5e34c66c82f9e685cda5c2b7dc9c606eff7b9d1ab9652c1d9d05ccd9"
+        },
+        {
+          "index": 15,
+          "task_id": "9fc24d43",
+          "command_sha256": "a1efd46d4f09e896b2f932b089b191975e8dc633631254e7e5657581ffb78762"
+        },
+        {
+          "index": 16,
+          "task_id": "ba8b14f3",
+          "command_sha256": "10393f38feaf5ddb74089ba748c65254627563f211927b1b6c72bcc17d08fe64"
+        },
+        {
+          "index": 17,
+          "task_id": "a55037ed",
+          "command_sha256": "05c64965fbbd8b625877157500405b2f2f97c5b0e1ad80ceb499dc675fa89b5a"
+        },
+        {
+          "index": 18,
+          "task_id": "de19fecd",
+          "command_sha256": "4ae46009c585091e925162b6d8dbc08a7dfbd7f8bf6182d6746251f9b1f027db"
+        },
+        {
+          "index": 19,
+          "task_id": "3ca9a106",
+          "command_sha256": "7e70f14da74ededcb4bffb7071692a16986f86d22112ee260db1e780f97bf8c9"
+        },
+        {
+          "index": 20,
+          "task_id": "69b0a271",
+          "command_sha256": "c52ea203b80a8aca6cd8a36b734183b1624bdc25e2df3d69c434010748206816"
+        }
+      ]
+    }
+  ],
+  "historical_usage_for_budget": {
+    "deepseek-behavior-pilot-20261102": {
+      "episodes": 5,
+      "archived_requests": 38,
+      "known_responses": 37,
+      "prompt_cache_hit_tokens": 452480,
+      "prompt_cache_miss_tokens": 36733,
+      "completion_tokens": 18229
+    },
+    "deepseek-contract-pilot-20261103": {
+      "episodes": 8,
+      "archived_requests": 58,
+      "known_responses": 56,
+      "prompt_cache_hit_tokens": 650880,
+      "prompt_cache_miss_tokens": 158177,
+      "completion_tokens": 24867
+    },
+    "deepseek-cost-pilot-20261103": {
+      "episodes": 10,
+      "archived_requests": 69,
+      "known_responses": 68,
+      "prompt_cache_hit_tokens": 655872,
+      "prompt_cache_miss_tokens": 321578,
+      "completion_tokens": 26278
+    },
+    "deepseek-hover-pilot-20261103": {
+      "episodes": 8,
+      "archived_requests": 53,
+      "known_responses": 53,
+      "prompt_cache_hit_tokens": 444800,
+      "prompt_cache_miss_tokens": 128690,
+      "completion_tokens": 6300
+    }
+  },
+  "pilot_limits": {
+    "planned_task_attempts": 40,
+    "max_http_attempts_per_task": 12,
+    "max_http_attempts_total": 480,
+    "max_output_tokens_per_request": 8192,
+    "max_billed_usage_tokens_per_task_stop_after_response": 200000,
+    "max_request_bytes": 200000,
+    "max_task_seconds": 500,
+    "max_request_seconds": 60,
+    "max_concurrent_model_requests": 1,
+    "sdk_retries": 0,
+    "accounts": {},
+    "teacher_model": "deepseek-flash",
+    "teacher_thinking": "enabled",
+    "reasoning_effort": "high",
+    "gpu_hours": 0
+  }
+}
