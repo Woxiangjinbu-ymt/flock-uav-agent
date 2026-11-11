@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[3] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import json
@@ -28,11 +28,14 @@ def stage(study, workspace):
         target = study / name
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source / name, target)
-    additions = list((workspace / 'scripts').glob('harness_full100_*.py'))
-    additions.append(workspace / 'scripts/tests/test_harness_full100.py')
-    for path in additions:
+    additions = {f"scripts/{path.name}": path
+                 for folder in ("scripts", "compat/scripts")
+                 for path in (workspace / folder).glob("harness_full100_*.py")}
+    test = "scripts/tests/test_harness_full100.py"
+    additions[test] = workspace / test
+    for name, path in additions.items():
         if path.exists():
-            target = runtime / path.relative_to(workspace)
+            target = runtime / name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(path, target)
     for component in ('agent4drone', 'server', 'controller'):

@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import copy
@@ -34,6 +34,14 @@ ANALYSIS_REL = "experiments/analysis/summarize_minimal_harness_online.py"
 
 def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def workspace_source(workspace, name):
+    path = workspace / name
+    if path.is_file() or not (workspace / "compat").is_dir():
+        return path
+    from flockcue.history import source_path
+    return source_path(workspace, name)
 
 
 def read(path):
@@ -155,14 +163,14 @@ def prepare(workspace):
         raise ValueError("Execution adapter already sealed; verify or start it")
     hashes = read(spec / "frozen/shared/source_hashes.json")
     for name in ("scripts/m1_progress_pilot.py", "scripts/reproduction.py", "scripts/reproduction_parallel.py"):
-        if digest(workspace / name) != hashes[name]:
+        if digest(workspace_source(workspace, name)) != hashes[name]:
             raise ValueError("Bootstrap helper differs from freeze")
     base, r, rp = load_modules(workspace)
     execution.mkdir(mode=0o700)
     try:
         for name in (SELF_REL, ANALYSIS_REL):
             target = execution / Path(name).name
-            shutil.copyfile(workspace / name, target)
+            shutil.copyfile(workspace_source(workspace, name), target)
         bootstrap = execution / "bootstrap"
         bootstrap.mkdir()
         base.materialize_runtime(bootstrap, spec / "frozen", "shared", workspace)

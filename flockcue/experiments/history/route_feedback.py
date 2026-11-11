@@ -24,7 +24,7 @@ import uuid
 # An archived run copies this file back to its original scripts directory.
 _source_dir = Path(__file__).resolve().parent
 if _source_dir.name == "history":
-    sys.path.insert(0, str(_source_dir.parents[2] / "scripts"))
+    sys.path[:0] = [str(_source_dir.parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 
 import m1_progress_pilot as base

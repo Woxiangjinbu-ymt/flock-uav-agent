@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import copy
@@ -164,7 +164,12 @@ def build_packet(root=ROOT):
     paths += [root / folder / "requirements.txt" for folder in ("agent4drone", "server")]
     paths += [p for p in (root / "experiments/harness-method-v1").iterdir()
               if p.is_file() and p.suffix in {".json", ".md"}]
-    sources = {str(p.relative_to(root)): sha(p.read_bytes()) for p in sorted(paths)}
+    if (root / "compat/agent4drone").is_dir():
+        from validate_harness_episode import agent_source_items
+        paths += [root / "scripts" / p.name for p in (root / "compat/scripts").glob("*.py")]
+        sources = {name: sha(p.read_bytes()) for name, p in agent_source_items(root, paths)}
+    else:
+        sources = {str(p.relative_to(root)): sha(p.read_bytes()) for p in sorted(paths)}
     documents = {name: safe(root, name).read_bytes()
         for name in (PLAN, METHOD, PROTOCOL, plan["reference_local_profile"])}
     packet = {"schema_version": 1, "scope": "research_specification_not_execution_authorization",

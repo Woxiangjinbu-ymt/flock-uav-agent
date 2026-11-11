@@ -14,13 +14,30 @@ def source_registry():
     return json.loads(REGISTRY.read_bytes())
 
 
+def source_path(root, name):
+    """Find a published logical source in a live checkout or a detached bundle."""
+    root, logical = Path(root).resolve(), Path(name)
+    if logical.is_absolute() or ".." in logical.parts:
+        raise ValueError(f"Non-local source path: {name}")
+    original = root / logical
+    if root != ROOT or original.exists() or logical.parts[:1] not in {("scripts",), ("agent4drone",)}:
+        return original
+    archived = root / "compat" / logical
+    if not archived.is_symlink():
+        return original
+    physical = archived.resolve(strict=True)
+    if not physical.is_relative_to(root):
+        raise ValueError(f"Source outside checkout: {name}")
+    return physical
+
+
 def sealed_source(root, name, expected_sha256):
     """Return the exact bytes to place in a frozen snapshot; never execute another revision."""
     root = Path(root).resolve()
     logical = Path(name)
     if logical.is_absolute() or ".." in logical.parts:
         raise ValueError(f"Non-local source path: {name}")
-    current = (root / logical).resolve()
+    current = source_path(root, logical).resolve()
     if not current.is_relative_to(root):
         raise ValueError(f"Source outside snapshot: {name}")
     data = current.read_bytes()

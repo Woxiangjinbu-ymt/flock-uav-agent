@@ -1,1 +1,0 @@
-../../posttraining/tests/test_student_parallel_corpus.py

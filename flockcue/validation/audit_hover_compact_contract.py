@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import copy
@@ -20,6 +20,7 @@ import re
 ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "agent4drone").is_dir() and (parent / "server").is_dir())
 sys.path.insert(0, str(ROOT / 'agent4drone'))
 import analyze_deepseek_hover_pilot as old
+from validate_harness_episode import workspace_source
 from hover_completion import assess_hover_completion
 from tool_input_contract import adapt_input_json_tools, tool_input_rules
 from langchain_core.tools import StructuredTool
@@ -155,7 +156,7 @@ def audit(run):
         'limitations': ['bytes are not token/cost estimates', 'no new natural model behavior or success-rate evidence',
                         'historical development evidence, not unseen test'],
         'source_verification': verification, 'source_manifest_sha256': sha((run / 'manifest.json').read_bytes()),
-        'implementation_sha256': {name: sha((ROOT / name).read_bytes()) for name in
+        'implementation_sha256': {name: sha(workspace_source(ROOT, name).read_bytes()) for name in
             ['scripts/audit_hover_compact_contract.py', 'agent4drone/tool_input_contract.py', 'agent4drone/hover_completion.py']},
         'totals': sums, 'requests': requests, 'control_reference': references, 'assessments': assessments}
 

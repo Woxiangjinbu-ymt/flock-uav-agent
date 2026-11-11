@@ -11,15 +11,25 @@
       "before_sha256": "0ce3e0d0935511b61d8461939907b81ab21ee70c7ab163746a3067c751aaa9b4",
       "after_sha256": "d0b2a0abb87794c37fbd0297e6d2c026d9f49f4aa38ecfb35512811adb772b00"
     },
+    "agent4drone/uav_api_client.py": {
+      "path": "agent4drone/uav_api_client.py",
+      "before_sha256": "5196331a1f7260f6fe25fecb3bd3be9888aeedcec81608ca11c399543739e420",
+      "after_sha256": "bab1c1c525f2a54c2e7f0e19c5e6fc1c628446ad4244799e1a60c3d6f8736ec5"
+    },
+    "agent4drone/uav_langchain_tools.py": {
+      "path": "agent4drone/uav_langchain_tools.py",
+      "before_sha256": "3809e3a2258a0b55b6e2680a89e42ff8ba668388fe2c2c9d05d1060e5cc9fa74",
+      "after_sha256": "7f7f39a6954e459fb15daee56fec3c95786d5e907d12902dc752a49255e5bedc"
+    },
     "agent_harness/__init__.py": {
       "path": "flockcue/__init__.py",
       "before_sha256": "0e208aa14672db4bdf9cd14f0db87c199ea5d602d633abfc69546020f90668f5",
-      "after_sha256": "fb9763480860d8e4e7eb7d0a4fa8bf6b715f7039f3495be74c59738f2deffe37"
+      "after_sha256": "b6d56b73ab840525246eca2163323e5d18ffbb4d801489df833de181d7ddfcfc"
     },
     "agent_harness/__main__.py": {
       "path": "flockcue/__main__.py",
       "before_sha256": "fb60c2ec8fb70da445171ac2f0db59927f1c25dc975b1b9a258ba2cae5cb17ed",
-      "after_sha256": "0cb8af2a7fc6a3a6d5e3b8b1d9500aab7caca7ec6d07243bbcff140e7e295820"
+      "after_sha256": "6ec92c29316471f43f1bbbdf2fab7fff214be7e75b6985833e7a27717e8b67e3"
     },
     "scripts/accept_student_cpu.sh": {
       "path": "posttraining/resources/accept_student_cpu.sh",
@@ -34,37 +44,37 @@
     "scripts/audit_flockcue_deployment600.py": {
       "path": "flockcue/evaluation/audit_flockcue_deployment600.py",
       "before_sha256": "47fd846b1dce09933120ada28a2d9fc0efd0083a574dde9365f0b660fb23e755",
-      "after_sha256": "9bbd6566237796ae63160cf640248269d61ae1d5366be7359bb02bc74fb293e1"
+      "after_sha256": "6cb9fcb7090ecfa05ab281d810e575f36082532810892df6118f83cba6f1897e"
     },
     "scripts/audit_general_agent.py": {
       "path": "flockcue/validation/audit_general_agent.py",
       "before_sha256": "64e6de1ff3608a8e5b4c6bb7be26269e4ab2c00203b4313e47c3d37f38a00896",
-      "after_sha256": "82d3f9ec9e9ffbaf122ef8ffab786f21103e9a7553391ad41980640a855bf599"
+      "after_sha256": "6154feac1f3d7d57fb33c2e91eb2c2a935156afdc9659865d864cf01f30a13f0"
     },
     "scripts/audit_harness_input_layout.py": {
       "path": "flockcue/validation/audit_harness_input_layout.py",
       "before_sha256": "0a2840339e0d9648775d099155cc51e32cdcdfd7fdea7787db93b6231fa51644",
-      "after_sha256": "3a4b3c9512bea63fbbb15c6af99d12b84d078beb97d4925fac88dfb6468e9fc8"
+      "after_sha256": "a58ea87e36a76c2972e71ba8afbb062c3e6403434702e9f51c78bed95065269e"
     },
     "scripts/audit_hover_compact_contract.py": {
       "path": "flockcue/validation/audit_hover_compact_contract.py",
       "before_sha256": "91dea66f7f87db492a3bb234532b56a67ae6a3257ff0bfcd0acc66b03f7fe272",
-      "after_sha256": "4165dcd63d1bc1a672eae67fef14fe7dc79ebffe628bc620420a70643feb4b56"
+      "after_sha256": "fe821c506d79611eb6c74d6a2d65f9d95501c0e76602d7c6e4a49a2a669a57d2"
     },
     "scripts/audit_hover_compact_parallel.py": {
       "path": "flockcue/validation/audit_hover_compact_parallel.py",
       "before_sha256": "70eabe003fa5eea68f358dc14df676d21ef62b1185517666b2f3d3bd985c2e30",
-      "after_sha256": "eb02fda9f932284050094e5175a5ba369dedb6e1a8d169192f46054020f042b9"
+      "after_sha256": "1dc3c7e9a8ebc8b7e8b506b296f36272145b8cb237acd6db44247f0f9a0ca375"
     },
     "scripts/audit_sense_default_retest.py": {
       "path": "posttraining/thinking_events/tools/audit_sense_default_retest.py",
       "before_sha256": "f9f1ab6c1105c54276929cc7a2e2dec578c7486ec9beb665a5cd10cc0c1ff020",
-      "after_sha256": "f07f1cc42413a6454d44e90921b0cc413a347e15cdabc61aecf19c4004d573f6"
+      "after_sha256": "775cd11ce292cbfe2b5991ed246affec38e62529f2c297996b926fe08356ba8e"
     },
     "scripts/audit_student_context.py": {
       "path": "posttraining/sft/formatting/audit_student_context.py",
       "before_sha256": "de52775f56ac6494433a3272fb262ff79739f33851e295de078e8f4c8fb78922",
-      "after_sha256": "1487f8842d7e38fa5ae1395143b467e95b20874b0824b3b069009ae0e7823134"
+      "after_sha256": "abcf9ee4a8e57c33c3ec88e8ee7188817b9ae959a2239b8a992ed89f71e16a96"
     },
     "scripts/audit_task_splits.py": {
       "path": "datasets/tools/audit_task_splits.py",
@@ -74,7 +84,7 @@
     "scripts/b1_remedies_pilot.py": {
       "path": "flockcue/experiments/history/navigation_remedies.py",
       "before_sha256": "d892977039a8e8b270477fbc9dc491d00231f53d536e63859a2ad490af7dd3a2",
-      "after_sha256": "1e22465e6cf8c5caa891caaea6c52a4299c09af8d9ace4cc4fe4c2b90dc47d8a"
+      "after_sha256": "cd2b91e13db065dff6b2a1920c026e1f16726131de5b7b9a9283691943626790"
     },
     "scripts/build_development_coverage.py": {
       "path": "datasets/tools/build_development_coverage.py",
@@ -89,92 +99,97 @@
     "scripts/coordinated_search_pilot.py": {
       "path": "flockcue/experiments/history/coordinated_search.py",
       "before_sha256": "c7523ac36c0c6ca606db8d20776116a5d8d923bfe319fc540b45bc754e6eeff5",
-      "after_sha256": "714276377ce3b124e244391f05ab5a2cfce4a1fb111042c87c37746f79e9f6dd"
+      "after_sha256": "96c318d6fa9c2190b6f8383d9b1f62acb98f478141aed25400f30f45a802a8ae"
     },
     "scripts/deepseek_behavior_pilot.py": {
       "path": "flockcue/experiments/teacher_pilots/deepseek_behavior_pilot.py",
       "before_sha256": "97f018900574f1cab573d6d3ada043c1bc52abb2bdf4ac2973b91887b7fc1c51",
-      "after_sha256": "cf9ef9a5ca2e3dce2829a8fc5a205e0406a51e4e64db9bc2c3ab9b82a706a6f3"
+      "after_sha256": "e2fab9c4a78423da584f88ea155d940b7a6415b594663eebf5517267dd5ab3e7"
     },
     "scripts/deepseek_contract_pilot.py": {
       "path": "flockcue/experiments/teacher_pilots/deepseek_contract_pilot.py",
       "before_sha256": "781855fb3c57e6cb17664a1a46694cd8fe012dff08196ab412277eef7283bff5",
-      "after_sha256": "06a28ad13806c03fc2f53d57d264195ff7d3ebad31f8526eb5c1980e660311c9"
+      "after_sha256": "8787f127c3391fd856cd897119c4d08bf310bd99cfc9990e60c9ce08d53200e9"
     },
     "scripts/deepseek_cost_pilot.py": {
       "path": "flockcue/experiments/teacher_pilots/deepseek_cost_pilot.py",
       "before_sha256": "945641827d31b4fae98b3a783946e87e015694913488f15fa20fe426d5160bed",
-      "after_sha256": "095a83498660ac0a7f3ecc9d30ebc4895339c968ca10c433b5c13f326bf03c4d"
+      "after_sha256": "fb9efe502c03732f49b487d7bf7595061133d07e1957633049025bd73fa0e344"
     },
     "scripts/deepseek_hover_pilot.py": {
       "path": "flockcue/experiments/teacher_pilots/deepseek_hover_pilot.py",
       "before_sha256": "ccc654b212ae8b7d803071225c7b2b7e4565907787c7a82956bbe10d0f5a020d",
-      "after_sha256": "d1984650709b501484d2df97498d5768dbbfeb1755fd8f9b5408c23613dd57b7"
+      "after_sha256": "995c13844ada41c90b3d111bd06fe2f3527f51c9bbdff76762249a1dcd88ce07"
     },
     "scripts/diagnose_sense_example.py": {
       "path": "posttraining/thinking_events/tools/diagnose_sense_example.py",
       "before_sha256": "8faa49611b59c4eadd6ab3934666ca10b5512e08ca91c9386de960909d246b4d",
-      "after_sha256": "3dc8fd34298c0a9b689f0e601aabec74e66197f08109232e01d33fe76bb689fe"
+      "after_sha256": "1653e01fc66ddb2f8696604681fb9861b32c357876f65c898d625a5cbb53cb22"
     },
     "scripts/flockcue_deployment_agent.py": {
       "path": "flockcue/evaluation/flockcue_deployment_agent.py",
       "before_sha256": "792d8b2268af7a5a45e3b018c5005025b3fd9210547f6c273e93b3e1b7808cf8",
-      "after_sha256": "7645e2a88008f84c13d40ccb6655bce2774ad2cf43333d46a188590053fd8619"
+      "after_sha256": "2ebf97123583b8ef67282ff24e1417ffb906290ea8f75b9fdccd96c6ac1b47d9"
     },
     "scripts/flockcue_qwen35/mac_model.py": {
       "path": "posttraining/sft/mac_model.py",
       "before_sha256": "b90e813e1cdb75d0ed869d49c3cf4eca343ae4b09e8d0f9da886854f2fa07b84",
       "after_sha256": "b66ff1b4a83f2d9b8d3ba151f353812d65eccf1f5505846376723c30dc54adc5"
     },
+    "scripts/flockcue_session_cpu/__init__.py": {
+      "path": "posttraining/trajectories/__init__.py",
+      "before_sha256": "5f95a5deefb060deabd22f39f23edb38ca62ed34a8ba8611421165948c5588ff",
+      "after_sha256": "16a52b705d3282d5e3390127e50423dc7053604cb8c9f5316116ca04e77cb6a3"
+    },
     "scripts/flockcue_session_cpu/__main__.py": {
       "path": "posttraining/trajectories/__main__.py",
       "before_sha256": "8c80c8f420eb08132f85fd101143e01fa811fe6faa72650e93883dc4dcd09cd3",
-      "after_sha256": "9effa728a433e2e35e460f2e39702a6c42b4d5a789e11f0ffc18c4a6adc89232"
+      "after_sha256": "878c81be0ce6ba9f60ce5c1250d49e24eeb668a8afeda0cdebfb347a7a96044d"
     },
     "scripts/freeze_harness_validation.py": {
       "path": "flockcue/validation/freeze_harness_validation.py",
       "before_sha256": "fd30f3b89680b4581943ba36abf6fccc0aae4234151372b3add6415e20978525",
-      "after_sha256": "0aab41d3baa687feba913dfed93d0ad34c43aa735374d8938ef9931c34cd4e3a"
+      "after_sha256": "ebbe6ccbffdbb19bcd17a3297e7217b1fbf466a6fc6bd383c5123df165c111e9"
     },
     "scripts/general_agent.py": {
       "path": "flockcue/execution/general_agent.py",
       "before_sha256": "ea2989446c3db5a8683dcae79722448c4217aee70f12e6beb4dca21a9d92dca7",
-      "after_sha256": "9a907c18f5fa8ab97a5966760444e9bed21233625b1f704436b8a8c4207f42d2"
+      "after_sha256": "01c988cbfad53a21cbf3c97e971b2a874a58fa4b2d20a76076870b60f75377cf"
     },
     "scripts/general_agent_local.py": {
       "path": "flockcue/execution/general_agent_local.py",
       "before_sha256": "33da551cfabeb8260e8b2a8e3a1d7fbab02005eca547386b442c85310f021d3a",
-      "after_sha256": "629c4ba259a6e0d41403b4a2eee622e143bf0c462b1cd00d1e6e0924503c248d"
+      "after_sha256": "4fbb0308b73cf022c9cac33c9616ddde356d73cf7965c6823f56ba224e19cc4c"
     },
     "scripts/harness_episode_local.py": {
       "path": "flockcue/execution/harness_episode_local.py",
       "before_sha256": "25b83ebb30fa6876932a0d8f93557e44810b9343cb0b213beff34ce88b582760",
-      "after_sha256": "375c903e7542149825396986f08983126d0a3f48af311129588a8fe9664ecf73"
+      "after_sha256": "5b1c88cf5410a8614975dcbe0e907fd38cfccfbb0f4523834b51aebcfa1cd3be"
     },
     "scripts/harness_full100_campaign.py": {
       "path": "flockcue/experiments/full_suite/campaign.py",
       "before_sha256": "b017dcff54720b242b641e9055c8f84c7b9b16fba85cbdbcb25825717ce90f1b",
-      "after_sha256": "6650fa4e2140d2dcaf1adb696a84128ccc6e71549b4370ee2dd7aa18db849fc6"
+      "after_sha256": "734e8203dd4c4bd5b46177d944bd5b8601bf3593c46a47fa7f6de46ffb681e94"
     },
     "scripts/harness_full100_freeze.py": {
       "path": "flockcue/experiments/full_suite/freeze.py",
       "before_sha256": "b9cd765780158d654660b10184a6c8b8c17b0914e69cfd470608f7c26cc0b8d7",
-      "after_sha256": "5da3ddf3d95853c32ca0d7c47429f1d6a0eefd6498196c4f47d7ede71d06fb16"
+      "after_sha256": "3cfd0073c2eec09dc760de214db2f29128eaf106d4bcbd4135c50daa8cb15eb6"
     },
     "scripts/harness_full100_online.py": {
       "path": "flockcue/experiments/full_suite/online.py",
       "before_sha256": "2d43bb9440c3fdcfc6741eef79b9ef4483a5080de1906790ec88dc30b168058d",
-      "after_sha256": "08f5ac6ed1edb01481bcbf9b4947a19e70242c081f9dc91a43b9a8a1cf34be10"
+      "after_sha256": "5c62c3e201e1f4d09a8975dc2759c438ce2212974e3949eefda940f6537f812b"
     },
     "scripts/harness_full100_prepare.py": {
       "path": "flockcue/experiments/full_suite/prepare.py",
       "before_sha256": "84e2d821ef1992904d19a90c8e060f7b1c9ea63e7b84d2bd8a04c01d9d34d6d5",
-      "after_sha256": "c47a366abd50b039bd38a00d49daae129ebb916b5dab1aa19db82606595fcaea"
+      "after_sha256": "1cc2c1bb8e4dcf7c54515da1f56310a146aa48ab62f1c6abd040cf50d4dd12b7"
     },
     "scripts/harness_natural_local.py": {
       "path": "flockcue/execution/harness_natural_local.py",
       "before_sha256": "763c986872adcb190874047b4539040fc492173c4bd30dd25a27956ee6859802",
-      "after_sha256": "7f34cf7e8effba6f546907daf89a247eae206826485071b6389271bdbfbd98b6"
+      "after_sha256": "0d587602176b6f440507c90455d2edfaaf3ab151f56175a58f4e5c3ed6b001ef"
     },
     "scripts/harness_natural_runner.py": {
       "path": "flockcue/execution/harness_natural_runner.py",
@@ -184,27 +199,27 @@
     "scripts/harness_provider_preflight.py": {
       "path": "flockcue/validation/harness_provider_preflight.py",
       "before_sha256": "3aaf2b23a79d1c8e4fc6e28eb9c30cf246faa7335d1130aa87abdfb6c16a8cd7",
-      "after_sha256": "0608fdc64903371137e402829c9c95d046c89dc3ac3d48b06bc58c9b5e8b67e2"
+      "after_sha256": "da043402b5326895551b08e5698d7e90e869085effb1df8c8dafa3c5cf303e3e"
     },
     "scripts/harness_v2_campaign.py": {
       "path": "flockcue/experiments/mechanism/campaign.py",
       "before_sha256": "33fdebe5366318cd6c382844ead7c9dc6a3851b38200e4ec2c76317c20f50550",
-      "after_sha256": "9b2f92d79b456696d8b0144dda2d3a42561495c0badd44d2321c3e5a8c83995f"
+      "after_sha256": "7f7aac65f5562e9e4b51441b958f0e57d56f58360ff782b4cf748e7440f45adb"
     },
     "scripts/harness_v2_freeze.py": {
       "path": "flockcue/experiments/mechanism/freeze.py",
       "before_sha256": "1f2c430678ce8ae76b4de20653cf35cc4031f16c4520a7aebc0cd91757f66fa0",
-      "after_sha256": "8ea8ed408bcbb89fe872edaee1cb86b268e2bcee3fec616a85f3ca744c4db8c8"
+      "after_sha256": "78bd49bd993ed748d2206c8aaeb7f88dee84e74b57600b76829a6795969d04b1"
     },
     "scripts/harness_v2_online.py": {
       "path": "flockcue/experiments/mechanism/online.py",
       "before_sha256": "9662c0f5f213fddc32472fc8069762962730e2febc2f4a493eae25ab99facff2",
-      "after_sha256": "eb98e0fc85402ae9426442fb969407d9cfa49f5a348174351c87ffbbe231628d"
+      "after_sha256": "89ca86e10c71143da9646413e7d0b95a6cf1aa74d7671cf24dc158ef20fd0264"
     },
     "scripts/harness_v2_prepare.py": {
       "path": "flockcue/experiments/mechanism/prepare.py",
       "before_sha256": "275e856e3cb2b6214ea92b173516d8f5aa1f9d55364c561de45eec3f1c02f479",
-      "after_sha256": "ad3eaf5ea2ab21a77b5a8abd303f30897ee66017b91e4aee12cb4dc04f394fdf"
+      "after_sha256": "acd971f10bbbdc56120dd4aae2bfd91306c6c9614aa57a0859d6eb8268b51827"
     },
     "scripts/harness_v2_world.py": {
       "path": "flockcue/experiments/mechanism/world.py",
@@ -214,72 +229,72 @@
     "scripts/m1_progress_job.py": {
       "path": "flockcue/experiments/history/progress_job.py",
       "before_sha256": "26671cb45350ca205fda7ea0282895e53fa7fb6f73cbcc49f20081af124dd829",
-      "after_sha256": "0e308946744dc92bb95e65a8450288400acfdc16d15a4953bdb7248a231161ea"
+      "after_sha256": "73130e31d7ea31c1cff45a45131cff4abfbb4ae403f91655fbae0f97f79ab684"
     },
     "scripts/m1_progress_pilot.py": {
       "path": "flockcue/experiments/history/progress_comparison.py",
       "before_sha256": "269cdbb3b36d07c09d5ea5f104910053ed3457da4543d1ec7a044b9c4b78fb55",
-      "after_sha256": "f0f9820d09e31f455c7350d23ca0a5d81c933febbe641762dc65df51957f7dc6"
+      "after_sha256": "ae6af6180cc8c0ab04536567b114392b92399dc3de0c852f81b83684983966f7"
     },
     "scripts/m1_revision2_job.py": {
       "path": "flockcue/experiments/history/evidence_hints_job.py",
       "before_sha256": "192b5ef99391c406d0062e56dbdc15b81cd8a62d9decfbca9a4f370d872e9ffa",
-      "after_sha256": "138dd3ab3c6add9ece3b4b2261f3bc868f4587381ee2181d88b719e2a834d007"
+      "after_sha256": "72bb43a41708a762517d8e61b920b8a864b4bd5760653aa533be2f7aa610fa25"
     },
     "scripts/m1_revision2_pilot.py": {
       "path": "flockcue/experiments/history/evidence_hints_comparison.py",
       "before_sha256": "31e20f0d3c672d3c10d366d0c428e3e576637b90bddfcdbdba6b108b80cfe4e1",
-      "after_sha256": "fb4e280dcd02671b6737357cba33895280de22c1126f3beda8a5f14b4c2e1f21"
+      "after_sha256": "568076b1f397ee12739aece92c2b3eec3fec5a30d9b9b520b7974c35856ab760"
     },
     "scripts/m1_revision_job.py": {
       "path": "flockcue/experiments/history/evidence_job.py",
       "before_sha256": "ae8fb3ca5dcae1141167001a6260d1314188e9da9e9d468c960b62ecf4b23104",
-      "after_sha256": "2f34f6685a8e590f8a6193c006cfc304427206cdf5e7b109c8599c933863e953"
+      "after_sha256": "6aef82190463210b22573658b9b0aa73166bffe934a1fb442d9c3cef643a6124"
     },
     "scripts/m1_revision_pilot.py": {
       "path": "flockcue/experiments/history/evidence_comparison.py",
       "before_sha256": "a236ce17888edb4b8a60d46bb2672744be943590f279f24ed58f5a2914d45205",
-      "after_sha256": "cc28beadff60671e516c84967a3402d25307f816241b1df29b961eb3342e8f0a"
+      "after_sha256": "147796cb257c0f9c77571d5f0cc69101c1db940df1d03394705e152af3faa44c"
     },
     "scripts/measure_paired_t37.py": {
       "path": "posttraining/thinking_events/tools/measure_paired_t37.py",
       "before_sha256": "d50577c3128c5856eb7cf799e57e348168000ba2ea712abb433d8214d81ea946",
-      "after_sha256": "99679e29a546390b542d5ac63558d3c74a2982dd2ab204a9ae8d200df18bdfb4"
+      "after_sha256": "9a8efba71cbe3fc8cc899e76c41870f400a332865b9de054d533cc5e19db3092"
     },
     "scripts/minimal_harness_online.py": {
       "path": "flockcue/validation/minimal_harness_online.py",
       "before_sha256": "6e34bc89e5165b0d9112324867c0cd71cd3d0443b6c7c20b52ae4c99db936438",
-      "after_sha256": "ea187054c3569f626d780a67b065cc7b8ddec4b31c5c004ff7f2a0980bc502bb"
+      "after_sha256": "c3db5a3a6b7deee15a480847c67457308cc1c5264be3ff26d3e92c4ad89a1ef4"
     },
     "scripts/minimal_harness_pilot.py": {
       "path": "flockcue/validation/minimal_harness_pilot.py",
       "before_sha256": "75e539e2f3f8902dbcf3350b1a96ea1141bfa4b1d126d239f7c35feeba1b20f2",
-      "after_sha256": "1b624d781d8f30a8b41d1656eda41a7a37d47b0e3249c22258342123e999355b"
+      "after_sha256": "82f22fbc9860e2e49c7d542cef1ca0b606921cc61c9fe43063caad47e675134e"
     },
     "scripts/observation_worker_pilot.py": {
       "path": "flockcue/experiments/history/observation_worker.py",
       "before_sha256": "34209d46251af52a7cf0b964c6b79e00d5fdd7fc66bfd5a48ed1fcac575057a3",
-      "after_sha256": "f143533b909daff12329ae171e8f2cc3a58d9a50a0748313b5a0dc258796ebfe"
+      "after_sha256": "8a889a70051432a8d02d21b7d1a0f94896b96ada36a517a646fda6b642677db7"
     },
     "scripts/package_flockcue_session_cpu.py": {
       "path": "posttraining/trajectories/pilot/package_flockcue_session_cpu.py",
       "before_sha256": "a064dc4e50a829694538d3fa1306eaae88f6272be342139d7779465115a61253",
-      "after_sha256": "f4d4491239af85e64701fd8dc5069fabb0b12624b09f41a42c9be6259d0db80e"
+      "after_sha256": "6b8716be284e65e30aee0968001cd645dea51772bc4a84ff8ea7794c7a3c6d0d"
     },
     "scripts/package_thinking_student.py": {
       "path": "posttraining/thinking_events/tools/package_thinking_student.py",
       "before_sha256": "13fc556e7c83b52b98927aec103dd8e2c11b43c8030b3430bfd119114ea6ca08",
-      "after_sha256": "db69a33110776c4a45e2fbc9265b137ef0078e556626dd07b54bfef425c233a3"
+      "after_sha256": "7cb1789d9e52606e35cca393cae7a24d5d0d113061ebab2f3160fa67ebc3bb2d"
     },
     "scripts/paired_t37_stress.py": {
       "path": "posttraining/thinking_events/tools/paired_t37_stress.py",
       "before_sha256": "abfc8a22762098f762149ddbea4715ccd9e7b59cdd9c241eb99b2deea52846f8",
-      "after_sha256": "12c4b7d23377597e1dffa8ce07fae861d6dd022ada7cb3838070d8da780088a3"
+      "after_sha256": "c9738a66c194d4480f83d41bb1239082141d32167f80d22d441c8878a787af20"
     },
     "scripts/prepare_harness_natural_agent.py": {
       "path": "flockcue/validation/prepare_harness_natural_agent.py",
       "before_sha256": "179834ec820b4cb7efdfc53cae127f07098b32fad0eb3a66cac29af235a2485e",
-      "after_sha256": "d1f4b5d8e78badfbaf1bb0d1ef6f70b9c9a98b7e7e3f9ccc64d8909333b09429"
+      "after_sha256": "e14b56e722d22c694a828deddc4d3f680ecf099957e81a8bbc87bb168f1828d3"
     },
     "scripts/prepare_task_dataset.py": {
       "path": "datasets/tools/prepare_task_dataset.py",
@@ -289,12 +304,12 @@
     "scripts/r3_route_pilot.py": {
       "path": "flockcue/experiments/history/route_feedback.py",
       "before_sha256": "8e81af28ad9a80ddd7240cbff04b7482f879634b475c3e111308b39df1100dcd",
-      "after_sha256": "39c91134d8cc8f3d73be25f5e6ecaa8c132c19f45bcbaa93846832419d81b046"
+      "after_sha256": "b36712e551ec2e67b25c373856cf917e1b6341a595c0fbb23a8e38dbb0644183"
     },
     "scripts/r3_valid_route_pilot.py": {
       "path": "flockcue/experiments/history/prospective_routes.py",
       "before_sha256": "5ef19ff5cc69f082433755ac83e8dcdcc844ba118f146d24ab74e4c718cc6b5d",
-      "after_sha256": "4011f4ac273d99bc4be5a0406a2de45c7e1fb62d80e23ce38fd50884990c6640"
+      "after_sha256": "f327c0dbffee4ba173010453a3cb3a28011096947f4cfa9153d92ddc193ecfae"
     },
     "scripts/replay_linux_cpu.sh": {
       "path": "posttraining/resources/replay_linux_cpu.sh",
@@ -304,57 +319,62 @@
     "scripts/report_agent4drone_matched200.py": {
       "path": "flockcue/evaluation/report_agent4drone_matched200.py",
       "before_sha256": "ffcf7f8b5fb050afa2bfeae3baacc68a54d2b39e1af81b6933179df95cfa51ab",
-      "after_sha256": "b160ecd9bf39f4cdb558e1a0d9a4d29ad01c17ef1e6f36b39a5d3a0bb3cc0298"
+      "after_sha256": "e9f7f536f5bf4a828e03395cc7714119511d322676fa781a39d8025a395e45a8"
     },
     "scripts/report_flockcue_deployment600.py": {
       "path": "flockcue/evaluation/report_flockcue_deployment600.py",
       "before_sha256": "090bf914b24d20538fdfb8056e7e8409a7ab17edd3ad2b2f0d2ea26f09f3425f",
-      "after_sha256": "f40820ecc41da8455e02ab7f7b4679f130e537d117cf9e538eeec3ca276c51c7"
+      "after_sha256": "d6026100829abc5512db87f52a795160a5c93ebb067adadc9672e4fee23e9264"
     },
     "scripts/report_flockcue_resource_comparison600.py": {
       "path": "flockcue/evaluation/report_flockcue_resource_comparison600.py",
       "before_sha256": "bb5d883ba5b78aa5b4f14f60bfd1f52bc3814a4dd809a1277b6927fe087d3808",
-      "after_sha256": "70e54f11c16ccdea6c7d8ee1538c5e8a842d1bdeabf9eab1d93a64a7a6de94df"
+      "after_sha256": "e20ee64953ce40e4042c651fc180c5368f16addd130a6d648fd65b6f48793477"
     },
     "scripts/report_sense_retest.py": {
       "path": "posttraining/thinking_events/tools/report_sense_retest.py",
       "before_sha256": "89dc281617b671564ebe49e042338fafcc0828161dec07947af6833fbd59a037",
-      "after_sha256": "4626ebfab02342394eb207842531b39fd4593a5d416bf7a35e666e00f9ee89e2"
+      "after_sha256": "59ada60e006f68c20f445e42c50cb26f5434ae378357a04263e117bcf3af7852"
+    },
+    "scripts/reproduction.py": {
+      "path": "scripts/reproduction.py",
+      "before_sha256": "f0c31f5ef0b431dfbd4e2404e68e2a39e1e328280c3d4b0fd32c611e67c1d1e4",
+      "after_sha256": "5d2bdc2da04ad33409cee014b66af1fac3aea5ee135e6040c572f9757eb8b08f"
     },
     "scripts/review_teacher_pilot40.py": {
       "path": "posttraining/trajectories/pilot/review_teacher_pilot40.py",
       "before_sha256": "6c9de7a9ba38f6c45533f41eae631f63321a60063e762313565373261038c50c",
-      "after_sha256": "6a4fae4d41b9b7584f6c34f38e7c9629cfaec514e446d9caad9ff7c6c80a5647"
+      "after_sha256": "d3bc748e215c6140fe89e71bf1ced959f2c6bdb858f907b142f2dd29df728f93"
     },
     "scripts/run_agent4drone_matched_subset.py": {
       "path": "flockcue/evaluation/run_agent4drone_matched_subset.py",
       "before_sha256": "11781fa8d3552c8bafd36dd7c391bb0001dbbdada3021c91504c2d1e6dbd67fc",
-      "after_sha256": "9a7dcd2442d579c8e3ffcc99ce48c7a009d259b20d5eb5c85062eaac8ed28d02"
+      "after_sha256": "c1b07971250b5f62051142cee9030967f08db097442f16900bd6aa083e803797"
     },
     "scripts/run_flockcue_deployment600.py": {
       "path": "flockcue/evaluation/run_flockcue_deployment600.py",
       "before_sha256": "a05d3a3c59c1d2ce2f4a2f8efba831dbe04fb215c9b7a79c8161bcc5a3dc2980",
-      "after_sha256": "e8ee255d60324e224f6deae0755235effea0bc91415833f141714365b0691ed6"
+      "after_sha256": "26f2d1df52d8efce9d0012380d6ec66ce906f8a27d196a83f26a4fbbb6cf4e1a"
     },
     "scripts/run_sense_default_retest.py": {
       "path": "posttraining/thinking_events/tools/run_sense_default_retest.py",
       "before_sha256": "bbed4367edc46acac385e62d69ae6f91871d4c3ee011d1441bcddf5d3d6e83c2",
-      "after_sha256": "c7c046c6e2b7e5a6f7bea1b3dff7d47288499766b04ca608bf6906c8bb1661c9"
+      "after_sha256": "dce243fbb757fc282562e1c18eb396071693bf85584a5d0f869d8fe0ab729d86"
     },
     "scripts/run_sense_retest.py": {
       "path": "posttraining/thinking_events/tools/run_sense_retest.py",
       "before_sha256": "448f0597f3a5c63aa6673632fb0cfc9a81f007617c71c3cfeec7f9c976a93722",
-      "after_sha256": "50e119d28e623edc9bf04b3c2d3fdd629b3f28271b0b3eb8f9692be63a564adc"
+      "after_sha256": "02ba5169c0da2f20c2ed11e0e19d1cf4f4b1d8761b4900a32533cf9c5e757913"
     },
     "scripts/run_teacher_pilot40.py": {
       "path": "posttraining/trajectories/pilot/run_teacher_pilot40.py",
       "before_sha256": "cb4c7498fa952047eeac274c344ce414989f3b30010ce2df7a2634aa27866208",
-      "after_sha256": "bdba743f233a142d50ae7bceab1092cc296ba7c9421beaae0e2a4098e8816f70"
+      "after_sha256": "ce2164525b5adfa71c2592ff687217bed82a45767ca21cfc866c40aa09991f33"
     },
     "scripts/run_teacher_service.py": {
       "path": "posttraining/trajectories/pilot/run_teacher_service.py",
       "before_sha256": "491bf31ed8280578b308955a5f26e35fd95fc47c2111659da5d4fff831016a33",
-      "after_sha256": "a7f060e8dfcaef375b3022e9f520e14d01f78594e767ee03ee4803a9858ed963"
+      "after_sha256": "6342947c5f8d7e362b4b15a213350cd1d9151d270678d4a979d2f130155856c7"
     },
     "scripts/setup_student_cpu.sh": {
       "path": "posttraining/resources/setup_student_cpu.sh",
@@ -379,17 +399,17 @@
     "scripts/task_split_generator.py": {
       "path": "datasets/tools/task_split_generator.py",
       "before_sha256": "267e9ae999b9942eabdb1ec0162f5011e98d04d2b4593df107a22ff22b367321",
-      "after_sha256": "1fe33b4b0b5cf8eb3d121152be5989bde332d76b71f836e91e14570c35ff04a6"
+      "after_sha256": "9ebcccf22900eb1e310a5462d45215f5a14639f67e68d17237d41c8b9e72bade"
     },
     "scripts/thinking_events/__init__.py": {
       "path": "posttraining/thinking_events/__init__.py",
       "before_sha256": "030bbe660dfc9e4326dad403c946e586ef1a378da2d3c0a9be39ea12dc9e039b",
-      "after_sha256": "cd0293c16e1292d844bb58f6fbb42121df4237126bf99a9ba6c58a5ce3e9d99a"
+      "after_sha256": "d5d7cd3d17bf34f1475a3330455e30c85976cc3dfaff83d9470577bb008e48cb"
     },
     "scripts/thinking_events/campaign.py": {
       "path": "posttraining/thinking_events/campaign.py",
       "before_sha256": "ca32b0530178a42d83c809c538fbd59679072bf889944d91240c410c8ed0f1be",
-      "after_sha256": "1ffc58262c652881a4cacf2899a4432aee2b4713399569b3d82c18ca4b2dabc7"
+      "after_sha256": "5866ac531af1705f2755798fe50be105a0d8d0e3e61bc3b6b6755f7fb1e1e8cf"
     },
     "scripts/thinking_events/worker_child.py": {
       "path": "posttraining/thinking_events/worker_child.py",
@@ -404,92 +424,92 @@
     "scripts/validate_harness_blocked_candidate.py": {
       "path": "flockcue/validation/validate_harness_blocked_candidate.py",
       "before_sha256": "d8d830757d2e61faf69d57aa8011c7255184c80fb89bf0dde4b847e747ea392c",
-      "after_sha256": "58ad8edf966809d410d187798fdd40009bd4d61726b24acbe97abb83fc306c32"
+      "after_sha256": "30c01de32567cbf259fe45b1828173cf6f4f959e222df034e3aa75ee66f86c67"
     },
     "scripts/validate_harness_cost_reduction.py": {
       "path": "flockcue/validation/validate_harness_cost_reduction.py",
       "before_sha256": "6d2212bce01f5278288d11627a7a4e2f34e7396e822c39de7337acbb96f97981",
-      "after_sha256": "c337be0bb56d0dbfdd6cbc2086a274b710f23e6a9603c106fed7f383249c3001"
+      "after_sha256": "c3e2dde268f8fbe417a3b55d9f31c7971f77a0da6021b5b865a4a39f2acb3c10"
     },
     "scripts/validate_harness_entry_contract.py": {
       "path": "flockcue/validation/validate_harness_entry_contract.py",
       "before_sha256": "3b538122a45a57615423a26030dac39269fd473c716aa7d0b757f2925dcd771c",
-      "after_sha256": "af5aab05f0498d51a5cb68913f7e546e63f0458d9a174985df57b94e59ac21e3"
+      "after_sha256": "47d098e4d4001c1cab07a5ea17ac77041d87300e21882643c983d50a1cceeb5b"
     },
     "scripts/validate_harness_episode.py": {
       "path": "flockcue/validation/validate_harness_episode.py",
       "before_sha256": "ccd7bd3e14c057bd2e4c8a0ce614cf301b1f0b937986a9feeae22d4c0a24ea4b",
-      "after_sha256": "b3b2f0114301bb18ee77910b017e738c286f4c3cfc47dddcd87cb4ff8fd024ba"
+      "after_sha256": "714b72cdf950cbebf54b7e27a5579d57a72d8c0a39c244b574b1fb841c935888"
     },
     "scripts/validate_harness_flight_state.py": {
       "path": "flockcue/validation/validate_harness_flight_state.py",
       "before_sha256": "f8bb5e5a6c0f39ff77a6716a0964bad3d7e67eab78143c06a71496da0aa47c23",
-      "after_sha256": "ab6312c91e036d396a8194392bc04d3e81550202d01b2470b74f96b100981fe4"
+      "after_sha256": "fe93057287ca38e21a3733a3630111f6b6b8c94d715f85f5100c7081569dcf21"
     },
     "scripts/validate_harness_method.py": {
       "path": "flockcue/validation/validate_harness_method.py",
       "before_sha256": "973c4462883f707c6b5b7fae7e7713cb6be6b867c23a6063c73f34a8635cd750",
-      "after_sha256": "799be15b71fbb23b360c5619670e0c88c35e5f2486fbedfc0e29a36aacdb227f"
+      "after_sha256": "6bf26fe66b9937a7b2f08685b3f46a66b20d57a584d4a69ff077a80a99e9dde7"
     },
     "scripts/validate_harness_natural_runner.py": {
       "path": "flockcue/validation/validate_harness_natural_runner.py",
       "before_sha256": "503e486cabaded3a28bf13c387d7bfa1e8894d43ab01869dc477c391b749a4d6",
-      "after_sha256": "9dced5c081af35a507cb059446fa28dbff9dad5ab1ed7a7764b81e429b986e7d"
+      "after_sha256": "701d607bcd32af8400f8bc37acd22c9578e566dbe73458de73972ded091b65d8"
     },
     "scripts/validate_harness_observed_target.py": {
       "path": "flockcue/validation/validate_harness_observed_target.py",
       "before_sha256": "2e59098902f2ab47a37587c24b93379265d901b79eec7aa6c2869fc08c84e40c",
-      "after_sha256": "b817c51deec6957b433d760128e628c327dddf40fbb194fd8a7842eaadd6c7a1"
+      "after_sha256": "8bc7fcf30cc42191f528b09a6f35b2f859215327a8d25a786ea7bc7e48eed040"
     },
     "scripts/validate_harness_partial_recovery.py": {
       "path": "flockcue/validation/validate_harness_partial_recovery.py",
       "before_sha256": "68e7d0cdc48f6a5423f85262e9573f58df869cc81427052e1acbfe73b8f34e78",
-      "after_sha256": "76d39a6178f83936310829a84f5594a5ccd24b456a00276b2065a6492be7ce13"
+      "after_sha256": "87c9cdc1db72c2a71305c86eebebcbb6d0f96ea4c76f33268df670aed0e72fe1"
     },
     "scripts/validate_harness_shared_endpoint.py": {
       "path": "flockcue/validation/validate_harness_shared_endpoint.py",
       "before_sha256": "f9c202a4b8f25f407fa52e4e8a1101e31e22162b9a76815594f2361dfd867600",
-      "after_sha256": "2c42f17356b55b3f81cf17e7a4b91d844d73516ef9597e26e60c98253da0737e"
+      "after_sha256": "bef9883a2313e1ba49fdbd2412138754873b1f821039a5ee333a9fc8b6423acd"
     },
     "scripts/validate_harness_terminal_progress.py": {
       "path": "flockcue/validation/validate_harness_terminal_progress.py",
       "before_sha256": "5e082fa3b9f44b0bfba8bf12669d09e4cb8285e7450ae4bb2bc5151ca8f87a01",
-      "after_sha256": "a89018f82b3834407a634c20231ba39f51c0ed664dd86dfdf313630849ef1c7a"
+      "after_sha256": "ffbcc848d841ea2440c29c2f2ac9c4f6bcdc832dfdbdc248fca6181ec369a5f5"
     },
     "scripts/validate_hover_compact_contract.py": {
       "path": "flockcue/validation/validate_hover_compact_contract.py",
       "before_sha256": "2952834517767b76c18cf14ef582ac42aa5ce5b244d0f9dfadaebae21aff9984",
-      "after_sha256": "bf4ae06428fa6b21b1b5272723900a942e9af362671153570f69070bb0200afb"
+      "after_sha256": "a7efc9c7680a35fd65d7eee24fbe715f97de3accc435dd90489213558e4196fa"
     },
     "scripts/validate_hover_input_contract.py": {
       "path": "flockcue/validation/validate_hover_input_contract.py",
       "before_sha256": "b1fc032a17e0cc86dd4821dee963a050365d61fee64501c65b9534e21b58cd0d",
-      "after_sha256": "090232f07e7ab43747b199e22087b24f2d3c8410b913a2cc4ddb45a2f6f6db38"
+      "after_sha256": "40075a60af186d382355a47d1392499fc630d0743f0b94615ad69c9aeb75a2c0"
     },
     "scripts/validate_search_progress.py": {
       "path": "flockcue/validation/validate_search_progress.py",
       "before_sha256": "3842f6e76577658bda2eef357eb9a8199c7c250bf02549a796710c5dcdf6bef5",
-      "after_sha256": "f82bc6ecbdb4dba7ca2fa3af8675258f1ced6e40b96fa8270e44c21fe310741e"
+      "after_sha256": "aa5f5f43ea827e7d7ac0953b64ae3aec9e15197c757c9da6873e462125f01706"
     },
     "scripts/validate_student_tool_ids.py": {
       "path": "posttraining/sft/formatting/validate_student_tool_ids.py",
       "before_sha256": "b60b1c7be9f673e156d2b1596f08f0d7c160d346d5c3337e5edd7620bad1da65",
-      "after_sha256": "3fe1732d99a935a535868abc8f223044940811c7ee23ced32d8272a99cce4182"
+      "after_sha256": "300fc27a8222a3a89a9773f08b35041b745767adc983c4f266552138dbc4ce19"
     },
     "scripts/validate_task_dataset.py": {
       "path": "datasets/tools/validate_task_dataset.py",
       "before_sha256": "11f39984f52684ae908e2365d1d4c7e8d5ef0382f476180274d72df5223701b0",
-      "after_sha256": "5eb07eeac654874709121b8dc197d5a0fb32ed605b8358303ac2c96eefc029e8"
+      "after_sha256": "288c6b877331dd8f9e38f5c18ceb3c0e5f3e68dbd7870b19a9540e99c7750f2e"
     },
     "scripts/verify_flockcue_deployment600.py": {
       "path": "flockcue/evaluation/verify_flockcue_deployment600.py",
       "before_sha256": "db8c8ceeec91438d30916c0b99cf6686aee7ceb755943b5ddc45ec89ebb48e3d",
-      "after_sha256": "0a9f2b7f2d3ed4cf50cb86c03cf984169122d1755f15485b5b07fd6cd21734a7"
+      "after_sha256": "36c28189fed0d2df4ac75c33a3f0902f4a4283f617ca501ae7eb5ce85d5a4df2"
     },
     "scripts/verify_student_weights.py": {
       "path": "posttraining/resources/verify_student_weights.py",
       "before_sha256": "b4e843fce4b261cc6fde69ecb4eb44678b7e0c2cdad2b0de47b7c0697318b72a",
-      "after_sha256": "1a8e385769a06760eb01fcd3164e37a0e05449bd91b5abe142137d51138aecd8"
+      "after_sha256": "1f584d2ba80a36d8213854e5bbc610b5f4b098a980a73591e54dccd5756d7fad"
     }
   }
 }

@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-SPEC = importlib.util.spec_from_file_location("freeze_harness_validation", ROOT / "scripts/freeze_harness_validation.py")
+SPEC = importlib.util.spec_from_file_location("freeze_harness_validation", ROOT / "flockcue/validation/freeze_harness_validation.py")
 module = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(module)
 

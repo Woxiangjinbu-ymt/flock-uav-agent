@@ -594,25 +594,41 @@ def summarize(plan, rows, status):
     return result
 
 
+def source_files():
+    """Bind the published flat snapshot names to files in this workspace."""
+    paths = {}
+    components = ("server", "controller", "agent4drone", "scripts")
+    for base in (ROOT, ROOT / "compat"):
+        included = components if base == ROOT else ("agent4drone", "scripts")
+        for component in included:
+            for folder, directories, filenames in os.walk(base / component):
+                directories[:] = [d for d in directories if not d.startswith(".")
+                                   and d not in {"logs", "server_logs", "__pycache__", "UAVSessions"}]
+                for name in filenames:
+                    path = Path(folder) / name
+                    if path.suffix != ".py" and not name.startswith("requirements"):
+                        continue
+                    logical = path.relative_to(base).as_posix()
+                    if base != ROOT and (not path.is_symlink() or not path.resolve(strict=True).is_relative_to(ROOT)):
+                        raise ValueError(f"Invalid compatibility source: {path}")
+                    if logical in paths:
+                        raise ValueError(f"Duplicate snapshot source: {logical}")
+                    paths[logical] = path
+    return dict(sorted(paths.items()))
+
+
 def current_source_hashes():
-    paths = []
-    for component in ("server", "controller", "agent4drone", "scripts"):
-        for folder, directories, filenames in os.walk(ROOT / component):
-            directories[:] = [d for d in directories if not d.startswith(".")
-                               and d not in {"logs", "server_logs", "__pycache__", "UAVSessions"}]
-            for name in filenames:
-                p = Path(folder) / name
-                if p.suffix == ".py" or p.name.startswith("requirements"):
-                    paths.append(p)
-    return {str(p.relative_to(ROOT)): digest(p.read_bytes()) for p in sorted(paths)}
+    return {name: digest(path.read_bytes()) for name, path in source_files().items()}
 
 
 def code_snapshot(destination):
-    hashes = current_source_hashes()
+    hashes = {}
     with zipfile.ZipFile(destination / "source.zip", "w", zipfile.ZIP_DEFLATED) as z:
-        for name in hashes:
-            p = ROOT / name
-            z.write(p, str(p.relative_to(ROOT)))
+        for name, path in source_files().items():
+            contents = path.read_bytes()
+            hashes[name] = digest(contents)
+            entry = zipfile.ZipInfo.from_file(path, name)
+            z.writestr(entry, contents, compress_type=zipfile.ZIP_DEFLATED)
     save_json(destination / "source_hashes.json", hashes)
     for c in ("server", "controller", "agent4drone"):
         result = subprocess.run(["uv", "--no-cache", "pip", "freeze", "--python", str(ROOT / c / ".venv/bin/python")],

@@ -391,12 +391,12 @@ def test_symlinks_are_rejected_even_when_target_stays_local(prepared, kind):
 def test_cli_has_no_execution_action(monkeypatch, argv):
     monkeypatch.setattr(sys, "argv", ["prepare_harness_natural_agent.py", *argv])
     with pytest.raises(SystemExit) as exc:
-        runpy.run_path(str(ROOT / preparation.SCRIPT), run_name="__main__")
+        runpy.run_path(str(Path(preparation.__file__).resolve()), run_name="__main__")
     assert exc.value.code == 2
 
 
 def test_preparation_imports_no_runtime_or_execution_modules():
-    tree = ast.parse((ROOT / preparation.SCRIPT).read_bytes())
+    tree = ast.parse(Path(preparation.__file__).read_bytes())
     imports = {node.module.split(".")[0] for node in ast.walk(tree) if isinstance(node, ast.ImportFrom)}
     imports |= {alias.name.split(".")[0] for node in ast.walk(tree) if isinstance(node, ast.Import) for alias in node.names}
     assert imports <= {"__future__", "argparse", "ast", "hashlib", "json", "os", "pathlib"}

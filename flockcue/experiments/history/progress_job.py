@@ -22,11 +22,19 @@ import uuid
 # An archived run copies this file back to its original scripts directory.
 _source_dir = Path(__file__).resolve().parent
 if _source_dir.name == "history":
-    sys.path.insert(0, str(_source_dir.parents[2] / "scripts"))
+    sys.path[:0] = [str(_source_dir.parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 
 ROOT = _source_dir.parents[2] if _source_dir.name == "history" else _source_dir.parent
 JOBS = ROOT / "experiments/m1-progress-v1/jobs"
+
+
+def launcher_path(root, logical_name):
+    """Read a live compatibility entry or a detached run's own source file."""
+    original = root / logical_name
+    if original.is_file():
+        return original
+    return root / "compat" / logical_name
 
 
 def now():
@@ -101,7 +109,7 @@ def run_job(directory, commands, cwd=ROOT):
 
 def worker(directory):
     request = json.loads((directory / "request.json").read_text())
-    driver = ROOT / "scripts/m1_progress_pilot.py"
+    driver = launcher_path(ROOT, "scripts/m1_progress_pilot.py")
     if hashlib.sha256(driver.read_bytes()).hexdigest() != request["driver_sha256"]:
         save(directory / "status.json", {"status": "failed", "reason": "driver_changed", "finished_at": now()})
         return 2
@@ -123,7 +131,7 @@ def start(method_commit):
     directory = JOBS / (datetime.now().strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:8])
     directory.mkdir(parents=True, mode=0o700)
     save(directory / "request.json", {"method_commit": commit, "arms": ["m0", "m1"],
-         "created_at": now(), "driver_sha256": hashlib.sha256((ROOT / "scripts/m1_progress_pilot.py").read_bytes()).hexdigest()})
+         "created_at": now(), "driver_sha256": hashlib.sha256((launcher_path(ROOT, "scripts/m1_progress_pilot.py")).read_bytes()).hexdigest()})
     save(directory / "status.json", {"status": "queued", "created_at": now()})
     with (directory / "owner.log").open("ab", buffering=0) as output:
         owner = subprocess.Popen([sys.executable, "-B", str(Path(__file__).resolve()),

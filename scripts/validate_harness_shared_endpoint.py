@@ -1,1 +1,0 @@
-../flockcue/validation/validate_harness_shared_endpoint.py

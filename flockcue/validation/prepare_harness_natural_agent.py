@@ -75,11 +75,15 @@ def local(root, relative):
     # Trial inputs and caller-supplied output paths keep strict symlink checks.
     aliases = {SCRIPT: "flockcue/validation/prepare_harness_natural_agent.py",
                TASK_SOURCE: "flockcue/validation/validate_harness_observed_target.py"}
-    if root == ROOT and str(value) in aliases and (root / value).is_symlink():
-        expected = root / aliases[str(value)]
-        if (root / value).resolve() != expected:
-            raise ValueError("Unexpected source alias target")
-        return absolute(expected)
+    if root == ROOT and str(value) in aliases:
+        registered = root / value
+        if not registered.exists():
+            registered = root / "compat" / value
+        if registered.is_symlink():
+            expected = root / aliases[str(value)]
+            if registered.resolve() != expected:
+                raise ValueError("Unexpected source alias target")
+            return absolute(expected)
     result = absolute(root / value)
     if not result.is_relative_to(root):
         raise ValueError("Artifact escapes its root")

@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
+sys.path[:0] = [str(ROOT / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 import general_agent
 from validate_harness_episode import check_hashes
 

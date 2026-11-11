@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import copy
@@ -26,7 +26,7 @@ import time
 from types import SimpleNamespace
 
 ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "agent4drone").is_dir() and (parent / "server").is_dir())
-sys.path[:0] = [str(ROOT / "scripts"), str(ROOT / "agent4drone"), str(ROOT / "server")]
+sys.path[:0] = [str(ROOT / name) for name in ("scripts", "compat/scripts", "agent4drone", "compat/agent4drone", "server")]
 ARMS = ("guarded_macro", "applicability", "failure")
 REVISION = "observed_target_v7"
 DEFAULT_CASES = ROOT / "experiments/harness-method-v1/method-cases.json"
@@ -414,12 +414,14 @@ def run_campaign(cases_path, output):
         raise ValueError("output already exists; frozen runs are never overwritten")
     if cases_path != DEFAULT_CASES.resolve():
         raise ValueError("campaign uses the fixed method case package")
-    sources = {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in source_paths()}
+    from validate_harness_episode import agent_source_items
+    paths = dict(agent_source_items(ROOT, source_paths()))
+    sources = {name: sha(p.read_bytes()) for name, p in paths.items()}
     output.mkdir(parents=True)
     for relative, expected_sha in sources.items():
         dest = output / "source" / relative
         dest.parent.mkdir(parents=True, exist_ok=True)
-        raw = (ROOT / relative).read_bytes()
+        raw = paths[relative].read_bytes()
         if sha(raw) != expected_sha:
             raise ValueError("source changed while freezing")
         dest.write_bytes(raw)
@@ -472,7 +474,7 @@ def run_campaign(cases_path, output):
                 "public_calls": len(r.get("calls", [])), "actions": len(r.get("actions", [])),
                 "first_return": r.get("first_return"), "opportunities": r.get("opportunities")}
                 for a, r in rows.items()}})
-    all_checks.append({"name": "all_sources_unchanged", "passed": all(sha((ROOT/p).read_bytes()) == h for p,h in sources.items())})
+    all_checks.append({"name": "all_sources_unchanged", "passed": all(sha(paths[p].read_bytes()) == h for p,h in sources.items())})
     all_checks.append({"name": "independent_worker_pids", "passed": len({r["pid"] for r in results}) == len(results)})
     all_checks.append({"name": "serial_join", "passed": all(a["joined_ns"] <= b["started_ns"] for a,b in zip(results, results[1:]))})
     report = {"schema": SCHEMA, "passed": all(c["passed"] for c in all_checks),

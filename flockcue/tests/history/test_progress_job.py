@@ -31,7 +31,7 @@ def test_failed_arm_does_not_dispatch_next_arm(tmp_path):
 
 
 def test_owner_sigterm_stops_child_and_preserves_signal(tmp_path):
-    module = (REPOSITORY / "scripts")
+    module = REPOSITORY / "compat/scripts"
     code = (f"import sys; sys.path.insert(0, {str(module)!r}); from m1_progress_job import run_job; "
             f"raise SystemExit(run_job({str(tmp_path)!r}, [('m0', [sys.executable, '-c', 'import time; time.sleep(60)'])]))")
     owner = subprocess.Popen([sys.executable, "-c", code])

@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import copy
@@ -22,7 +22,7 @@ import time
 ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "agent4drone").is_dir() and (parent / "server").is_dir())
 sys.path.insert(0, str(ROOT / "agent4drone"))
 from agent_profile import AgentProfile
-from validate_harness_episode import check_hashes, safe_path, sha, write
+from validate_harness_episode import agent_source_items, check_hashes, safe_path, sha, write
 from general_agent_local import validate_trace
 from validate_harness_natural_runner import validate_worker, validate_score
 
@@ -113,7 +113,7 @@ def prepare(profile_path, study, cases_path, output, *, workspace=ROOT, sealed_s
     source_paths = [p for directory in ("agent4drone", "server") for p in (workspace / directory).rglob("*.py")
         if not any(part in {".venv", "tests", "__pycache__"} for part in p.relative_to(workspace).parts)]
     source_paths += [workspace / "scripts" / name for name in SCRIPTS]
-    sources = {str(p.relative_to(workspace)): p.read_bytes() for p in source_paths}
+    sources = {name: p.read_bytes() for name, p in agent_source_items(workspace, source_paths)}
     if sealed_sources:
         for name, content in sealed_sources.items():
             if name not in sources:

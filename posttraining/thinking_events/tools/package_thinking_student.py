@@ -14,7 +14,7 @@ import sys
 
 _workspace = next(parent for parent in Path(__file__).resolve().parents if (parent / "scripts").is_dir())
 if __name__ == "__main__" and not __package__:
-    sys.path.insert(0, str(_workspace / "scripts"))
+    sys.path[:0] = [str(_workspace / "scripts"), str(_workspace / "compat/scripts"), str(_workspace)]
 
 from thinking_events.archive import BATCHES, verify_sources
 
@@ -51,6 +51,8 @@ def transfer_files():
                     "training/model-manifests/*.json", "training/templates/*", "training/tokenizers/**/*",
                     str(campaign / "studies/action/**/*"), str(G3 / "run-01/*")):
         names.update(p.relative_to(ROOT) for p in ROOT.glob(pattern) if p.is_file())
+    for test in (ROOT / "compat/scripts/tests").glob("test_thinking_*.py"):
+        names.add(Path("scripts/tests") / test.name)
     for batch in BATCHES:
         run = Path("docs/results") / batch / "run-01"
         names.update([run / "campaign-seal.json", run / "manifest.json"])
@@ -60,7 +62,10 @@ def transfer_files():
         run = trial.parents[1]
         names.update([Path(source["archive_path"]), trial / "worker-result.json",
                       run / "worker-exit-seals" / (source["episode"] + ".json")])
-    return {("LINUX_CPU_CN.md" if name == RESULT / "LINUX_CPU_CN.md" else str(name)): ROOT / name
+    # Use original member names in the portable bundle even when an implementation
+    # is reached through the compatibility namespace in the development checkout.
+    from thinking_events.campaign import _source_path
+    return {("LINUX_CPU_CN.md" if name == RESULT / "LINUX_CPU_CN.md" else str(name)): _source_path(ROOT, name)
             for name in names}
 
 

@@ -1,0 +1,1 @@
+../../../posttraining/tests/test_teacher_sense_c.py

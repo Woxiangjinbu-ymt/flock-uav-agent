@@ -139,9 +139,9 @@ SOURCE_ALIASES = {
 
 def source_file(name):
     archived = ROOT / name
-    if name in SOURCE_ALIASES and archived.is_symlink():
+    if name in SOURCE_ALIASES and (archived.is_symlink() or not archived.exists() and MODULE_DIR.name == "tools"):
         canonical = safe_path(ROOT, SOURCE_ALIASES[name])
-        if archived.resolve(strict=True) != canonical:
+        if archived.is_symlink() and archived.resolve(strict=True) != canonical:
             raise ValueError(f"Source alias changed: {name}")
         return canonical
     return safe_path(ROOT, name)
@@ -251,10 +251,11 @@ def audit(dataset, output):
     source_hashes = {}
     for path in sources:
         name = str(path.relative_to(ROOT))
-        source_hashes[name] = sha(path.read_bytes())
+        content = source_file(name).read_bytes()
+        source_hashes[name] = sha(content)
         target = output / "source" / name
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(path.read_bytes())
+        target.write_bytes(content)
     write(output / "run-manifest.json", {"schema_version": 1, "dataset": str(dataset),
           "dataset_manifest_sha256": sha(initial_manifest_bytes),
           "sources": source_hashes, "planned_tasks": len(manifest["tasks"]),

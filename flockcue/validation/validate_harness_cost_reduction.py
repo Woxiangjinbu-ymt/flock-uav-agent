@@ -9,14 +9,14 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import base64
 import copy
 import json
 
-from validate_harness_episode import sha, write, check_hashes
+from validate_harness_episode import workspace_source, sha, write, check_hashes
 from audit_agent_samples import canonical, inspect_archive, wire_calls, MARKER
 
 ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "agent4drone").is_dir() and (parent / "server").is_dir())
@@ -327,7 +327,7 @@ def run_validation(output, candidate_revision=REVISIONS[0]):
     configs = dict(original_configs)
     selected = profile_for_revision(json.loads(configs["candidate-profile.json"]), candidate_revision)
     source_names = SOURCE_NAMES + ((FOLLOWUP_PROTOCOL,) if candidate_revision == REVISIONS[1] else ())
-    sources = {name: (ROOT / name).read_bytes() for name in source_names}
+    sources = {name: workspace_source(ROOT, name).read_bytes() for name in source_names}
     selection = None
     if candidate_revision == REVISIONS[1]:
         base = configs["candidate-profile.json"]
@@ -364,7 +364,7 @@ def run_validation(output, candidate_revision=REVISIONS[0]):
     report["passed"] &= attempts == []
     write(output / "validation.json", report)
     for name, raw in sources.items():
-        if (ROOT / name).read_bytes() != raw:
+        if workspace_source(ROOT, name).read_bytes() != raw:
             raise ValueError("Acceptance source drift")
     for name, raw in original_configs.items():
         if (CONFIG / name).read_bytes() != raw:

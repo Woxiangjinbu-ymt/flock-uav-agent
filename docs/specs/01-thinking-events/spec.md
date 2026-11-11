@@ -10,7 +10,7 @@
 2. 每个主模型轮次"思考或不思考"的四种标签来源，统一格式。
 3. 第 0 阶段三道门槛的验收办法。门槛不通过，就不进入教师采数。
 
-本步不训练模型，不新增付费调用。教师采数、SFT、LoGiC 复算与正式评测留给后续步骤。旧草案中的 F2（执行效果）和 F4（未知与时间顺序）改写为下文的事件定义。F1（调用前依据）、F5（规则遗漏机会）和验证器训练移到第二篇论文。[研究路线](../../RESEARCH_ROADMAP_CN.md) · [后训练方案](../../POSTTRAINING_PLAN_CN.md)
+本步不训练模型，不新增付费调用。教师采数、SFT、LoGiC 复算与正式评测留给后续步骤。旧草案中的 F2（执行效果）和 F4（未知与时间顺序）改写为下文的事件定义。F1（调用前依据）、F5（规则遗漏机会）和验证器训练移到第二篇论文。[研究路线](../../RESEARCH_ROADMAP_CN.md) · [后训练方案](../../research/posttraining.md)
 
 ## 已确定的前提
 
@@ -27,7 +27,7 @@
 
 ## 执行状态事件
 
-命令回执的原始分类为 `completed / partial / blocked / error / unknown`。执行状态按调用身份给出 `effect_status` 和 `effect_reason`，结合两者可区分几何受阻、明确拒绝及效果未知。仅使用截至当轮公开的投影，后续查询保留为新的观测。[回执解析](../../../agent4drone/command_results.py) · [执行状态](../../../agent4drone/task_execution_state.py)
+命令回执的原始分类为 `completed / partial / blocked / error / unknown`。执行状态按调用身份给出 `effect_status` 和 `effect_reason`，结合两者可区分几何受阻、明确拒绝及效果未知。仅使用截至当轮公开的投影，后续查询保留为新的观测。[回执解析](../../../flockcue/evidence/command_results.py) · [执行状态](../../../flockcue/runtime/execution_state.py)
 
 | 编号 | 事件 | 判定方法（只用公开回执与任务原文） |
 | --- | --- | --- |

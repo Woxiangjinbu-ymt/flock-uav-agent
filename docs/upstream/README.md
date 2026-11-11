@@ -4,7 +4,7 @@
 
 **An LLM-Oriented Platform, Benchmark and Framework for Multi-UAV Collaborative Task Planning**
 
-🌐 Language: **English** | [中文](../../README_CN.md)
+🌐 Language: **English** | [中文](README_CN.md)
 
 [📄 Paper](https://arxiv.org/abs/2606.31073) | [🏠 Project Website](https://zhangsheng93.github.io/multiuavweb/) | [💻 Code](https://github.com/zhangsheng93/MultiUAV-Plat) | [📦 Benchmark](https://github.com/zhangsheng93/MultiUAV-Plat/releases) | [📚 Tutorial](../../tutorial/tutorial_en.md) | [⬇️ Releases](https://github.com/zhangsheng93/MultiUAV-Plat/releases) | [📝 Citation](#-citation)
 

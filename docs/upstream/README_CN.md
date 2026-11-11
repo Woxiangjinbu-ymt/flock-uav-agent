@@ -1,10 +1,10 @@
-> 上游平台说明存档；其中论文贡献、排行榜与平台规模属于上游，不是本研究新增成果。当前入口见[仓库首页](../../README_CN.md)。文中命令从仓库根目录及所示组件目录执行。
+> 上游平台说明存档；其中论文贡献、排行榜与平台规模属于上游，不是本研究新增成果。当前入口见[仓库首页](../../README.md)。文中命令从仓库根目录及所示组件目录执行。
 
 # MultiUAV-Plat 🚁
 
 **面向大语言模型的多无人机协同任务规划平台、基准与工作流框架**
 
-🌐 语言： [English](../../README.md) | **中文**
+🌐 语言： [English](README.md) | **中文**
 
 [📄 论文](https://arxiv.org/abs/2606.31073) | [🏠 项目主页](https://zhangsheng93.github.io/multiuavweb/) | [💻 代码](https://github.com/zhangsheng93/MultiUAV-Plat) | [📦 测评基准](https://github.com/zhangsheng93/MultiUAV-Plat/releases) | [📚 教程](../../tutorial/tutorial_zh.md) | [⬇️ Releases](https://github.com/zhangsheng93/MultiUAV-Plat/releases) | [📝 引用](#-引用)
 

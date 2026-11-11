@@ -14,7 +14,7 @@ from unittest.mock import patch
 
 _workspace = next(parent for parent in Path(__file__).resolve().parents if (parent / "scripts").is_dir())
 if __name__ == "__main__" and not __package__:
-    sys.path.insert(0, str(_workspace / "scripts"))
+    sys.path[:0] = [str(_workspace / "scripts"), str(_workspace / "compat/scripts"), str(_workspace)]
 
 import run_sense_retest as previous
 from thinking_events import paired_batch

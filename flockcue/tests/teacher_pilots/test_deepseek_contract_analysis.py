@@ -10,7 +10,7 @@ import pytest
 
 ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "scripts").is_dir())
 sys.path.insert(0, str(ROOT / "scripts"))
-SPEC = importlib.util.spec_from_file_location("contract_analysis", ROOT / "scripts/analyze_deepseek_contract_pilot.py")
+SPEC = importlib.util.spec_from_file_location("contract_analysis", ROOT / "flockcue/experiments/teacher_pilots/analyze_deepseek_contract_pilot.py")
 m = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(m)
 ACTOR = "3d229034"

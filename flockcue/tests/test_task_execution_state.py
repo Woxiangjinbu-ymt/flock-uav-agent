@@ -354,7 +354,7 @@ def test_prompt_limit_validation(limit):
 
 
 def test_module_import_is_standard_library_only_and_needs_no_model_framework():
-    directory = str((Path(__file__).resolve().parents[2] / "agent4drone"))
+    directory = str(Path(__file__).resolve().parents[2] / "compat/agent4drone")
     code = "import sys; sys.path.insert(0, sys.argv[1]); import task_execution_state; assert 'langchain' not in sys.modules; assert 'requests' not in sys.modules"
     subprocess.run([sys.executable, "-S", "-c", code, directory], check=True)
 

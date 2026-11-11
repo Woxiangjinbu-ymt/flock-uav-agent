@@ -12,7 +12,7 @@ import sys
 
 _workspace = next(parent for parent in Path(__file__).resolve().parents if (parent / "scripts").is_dir())
 if __name__ == "__main__" and not __package__:
-    sys.path.insert(0, str(_workspace / "scripts"))
+    sys.path[:0] = [str(_workspace / "scripts"), str(_workspace / "compat/scripts"), str(_workspace)]
 
 import convert_agent_samples as converter
 import student_input as v1
@@ -90,7 +90,11 @@ def run(output):
     plan = v1.parse(raw_plan)
     output = Path(output)
     validate_output(output, plan)
-    frozen = {name: (ROOT / name).read_bytes() for name in SOURCES}
+    source_files = {name: ROOT / name for name in SOURCES}
+    if (ROOT / "compat/scripts").is_dir():
+        from flockcue.history import source_path
+        source_files = {name: source_path(ROOT, name) for name in SOURCES}
+    frozen = {name: path.read_bytes() for name, path in source_files.items()}
     require(v1.sha(frozen[plan["protocol"]]) == plan["protocol_sha256"], "Protocol changed")
     requests = corpus.load_requests(ROOT / plan["source_plan"])
     samples = corpus.load_samples(ROOT / plan["conversion_package"])
@@ -201,7 +205,7 @@ def run(output):
     require(corpus.load_samples(ROOT / plan["conversion_package"]) == samples, "Converted source drift")
     verify_old_package(ROOT / plan["v1_student_package"], plan["v1_student_manifest_sha256"])
     v1.verify_tokenizer_bundle()
-    require(PLAN.read_bytes() == raw_plan and all((ROOT / name).read_bytes() == raw for name, raw in frozen.items()), "Implementation drift during validation")
+    require(PLAN.read_bytes() == raw_plan and all(source_files[name].read_bytes() == raw for name, raw in frozen.items()), "Implementation drift during validation")
     blobs = {"comparison.json": v1.encoded(report), "parallel-history.json": v1.encoded(parallel_summary),
              "synthetic-checks.json": v1.encoded({"passed": all(r["passed"] for r in synthetic_results), "cases": synthetic_results}),
              "prompt-comparison.jsonl": b"".join(v1.canonical(r)+b"\n" for r in prompt_rows),

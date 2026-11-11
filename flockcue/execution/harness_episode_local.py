@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import asyncio
@@ -82,7 +82,7 @@ def inputs(run, trial_id):
 
 def setup_paths(destination):
     os.chdir(destination)
-    sys.path[:0] = [str(ROOT / "scripts"), str(ROOT / "agent4drone"), str(ROOT / "server")]
+    sys.path[:0] = [str(ROOT / name) for name in ("scripts", "compat/scripts", "agent4drone", "compat/agent4drone", "server")]
     import logging_config
     logging_config.LOG_DIR = destination / "agent-logs"
 

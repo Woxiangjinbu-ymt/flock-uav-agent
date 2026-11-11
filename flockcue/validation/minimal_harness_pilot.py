@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import copy
@@ -48,7 +48,7 @@ def prepare():
     settings, _ = base.settings_for_run(ROOT)  # no key check or provider request
     public_config = r.public_settings(settings)
     freezes = dependency_freezes(ROOT)
-    sources = {name: (ROOT / name).read_bytes() for name in r.current_source_hashes()}
+    sources = {name: path.read_bytes() for name, path in base.source_files().items()}
     analysis = "experiments/analysis/validate_minimal_harness.py"
     sources[analysis] = (ROOT / analysis).read_bytes()
     required = {"agent4drone/harness_core.py", "agent4drone/harness_skills.py",

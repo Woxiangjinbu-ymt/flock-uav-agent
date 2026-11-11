@@ -1,1 +1,0 @@
-../flockcue/validation/audit_hover_compact_contract.py

@@ -269,7 +269,7 @@ def test_finished_pair_ids_cannot_be_reused_and_spend_accumulates(policy):
 
 
 def test_module_has_no_sdk_transport_process_or_network_dependencies():
-    tree = ast.parse((ROOT / "scripts/harness_cost_admission.py").read_bytes())
+    tree = ast.parse((ROOT / "flockcue/validation/harness_cost_admission.py").read_bytes())
     imports = {node.module.split(".")[0] for node in ast.walk(tree) if isinstance(node, ast.ImportFrom)}
     imports |= {alias.name.split(".")[0] for node in ast.walk(tree) if isinstance(node, ast.Import) for alias in node.names}
     assert imports <= {"__future__", "copy", "dataclasses", "decimal", "re"}

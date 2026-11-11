@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[3] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import json
@@ -28,12 +28,15 @@ def freeze(study, workspace):
     with zipfile.ZipFile(base_zip) as archive:
         archive.extractall(runtime)
         names = archive.namelist()
-    additions = [str(p.relative_to(workspace)) for p in (workspace / "scripts").glob("harness_v2_*.py")]
-    additions.append("scripts/tests/test_harness_v2.py")
-    for name in additions:
+    additions = {f"scripts/{path.name}": path
+                 for folder in ("scripts", "compat/scripts")
+                 for path in (workspace / folder).glob("harness_v2_*.py")}
+    test = "scripts/tests/test_harness_v2.py"
+    additions[test] = workspace / test
+    for name, source in additions.items():
         target = runtime / name
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(workspace / name, target)
+        shutil.copyfile(source, target)
     for component in ("agent4drone", "server", "controller"):
         env = runtime / component / ".venv"
         if not env.exists():
@@ -55,7 +58,7 @@ def freeze(study, workspace):
     files.extend((study / "fixtures").iterdir())
     files.extend(study / "frozen" / f"{c}-dependencies.txt" for c in ("agent4drone", "server", "controller"))
     files.append(study / "frozen/regression.log")
-    files.extend(runtime / name for name in set(names + additions))
+    files.extend(runtime / name for name in set(names).union(additions))
     manifest = {"schema": 2, "frozen_unix": time.time(), "status": "frozen_ready",
         "base_v1_zip_sha256": sha(base_zip.read_bytes()), "cases": 24, "executions": 96,
         "arms": ["applicability", "failure"], "repeats": 2, "workers": 2,

@@ -1,0 +1,1 @@
+../../../posttraining/tests/test_qwen35_mac_service.py

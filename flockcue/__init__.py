@@ -5,7 +5,8 @@ import sys
 # Published runners used flat names and materialize source snapshots under
 # these two directories. Keep both old CLI calls and new package imports usable.
 _ROOT = Path(__file__).resolve().parent.parent
-for _directory in (_ROOT / "scripts", _ROOT / "agent4drone"):
+for _directory in (_ROOT / "compat/scripts", _ROOT / "compat/agent4drone",
+                   _ROOT / "scripts", _ROOT / "agent4drone"):
     if str(_directory) not in sys.path:
         sys.path.insert(0, str(_directory))
 

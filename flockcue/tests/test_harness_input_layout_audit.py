@@ -9,7 +9,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
-SPEC = importlib.util.spec_from_file_location("input_audit", ROOT / "scripts/audit_harness_input_layout.py")
+SPEC = importlib.util.spec_from_file_location("input_audit", ROOT / "flockcue/validation/audit_harness_input_layout.py")
 m = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(m)
 

@@ -14,9 +14,10 @@ import tempfile
 
 _workspace = next(parent for parent in Path(__file__).resolve().parents if (parent / "scripts").is_dir())
 if __name__ == "__main__" and not __package__:
-    sys.path.insert(0, str(_workspace / "scripts"))
+    sys.path[:0] = [str(_workspace / "scripts"), str(_workspace / "compat/scripts"), str(_workspace)]
 
 from package_thinking_student import PREFIX, add_member
+from flockcue.history import sealed_source, source_path, source_registry
 
 ROOT = _workspace
 BASE = ROOT / "outputs/flockcue-g1g2-cpu-20261108.tar.gz"
@@ -59,10 +60,13 @@ def pack(acceptance, base, output):
                 raise ValueError(f"Overlay would change a sealed base file: {name}")
         elif name not in ALLOWED:
             raise ValueError(f"Unregistered overlay source: {name}")
-        elif sha(ROOT / name) != digest:
+        elif sha(source_path(ROOT, name)) != digest:
             # This handoff predates the network teacher. Reproduce its original
             # session code from the recorded Git revision when the live code evolves.
-            data = subprocess.check_output(["git", "show", f"{ACCEPTED_REVISION}:{name}"], cwd=ROOT)
+            if source_registry()["sources"].get(name, {}).get("before_sha256") == digest:
+                data = sealed_source(ROOT, name, digest)
+            else:
+                data = subprocess.check_output(["git", "show", f"{ACCEPTED_REVISION}:{name}"], cwd=ROOT)
             if hashlib.sha256(data).hexdigest() != digest:
                 raise ValueError(f"Missing or changed accepted source: {name}")
             accepted[name] = data
@@ -78,7 +82,7 @@ def pack(acceptance, base, output):
         with packed.open("wb") as raw, gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0) as gz:
             with tarfile.open(fileobj=gz, mode="w|") as archive:
                 for name in sorted(ALLOWED - existing.keys()):
-                    path = ROOT / name
+                    path = source_path(ROOT, name)
                     if not path.is_file() or not path.resolve().is_relative_to(ROOT):
                         raise ValueError(f"Unexpected overlay source: {name}")
                     data = accepted[name] if name in accepted else path.read_bytes()

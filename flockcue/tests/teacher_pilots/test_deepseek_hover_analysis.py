@@ -30,11 +30,13 @@ def no_network(monkeypatch):
 
 @pytest.fixture
 def frozen(tmp_path):
+    from validate_harness_episode import workspace_source
+
     for name in ("hover_completion.py", "tool_input_contract.py", "harness_integration.py",
                  "template/system_prompt.py", "template/parsing_error.py"):
         dest = tmp_path / "source/agent4drone" / name
         dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_bytes((ROOT / "agent4drone" / name).read_bytes())
+        dest.write_bytes(workspace_source(ROOT, "agent4drone/" + name).read_bytes())
     return tmp_path
 
 
@@ -273,7 +275,7 @@ def test_aggregation_keeps_missing_cost_usage_and_duration_distinct():
 
 
 def test_analyzer_import_does_not_import_provider_simulator_or_pickle():
-    code = "import sys; sys.path.insert(0, 'scripts'); import analyze_deepseek_hover_pilot; "
+    code = "import sys; sys.path[:0] = ['scripts', 'compat/scripts', 'compat/agent4drone']; import analyze_deepseek_hover_pilot; "
     code += "assert not any(n in sys.modules for n in ['pickle', 'openai', 'langchain', 'harness_natural_runner', 'harness_v2_world', 'harness_full100_world'])"
     completed = subprocess.run([sys.executable, "-B", "-c", code], cwd=ROOT, capture_output=True, text=True)
     assert completed.returncode == 0, completed.stderr
@@ -302,7 +304,7 @@ def test_zero_dispatch_full_analysis_is_read_only_and_keeps_eight_six_two_denomi
     assert report["groups"]["all_8"]["control"]["total_tokens"] is None
     assert report["same_success_supported_subset"]["pairs"] == 0
     assert "两臂同样成功" in m.markdown(report)
-    code = "import sys;sys.path.insert(0,'scripts');import analyze_deepseek_hover_pilot as m;from pathlib import Path;"
+    code = "import sys;sys.path[:0]=['scripts','compat/scripts','compat/agent4drone'];import analyze_deepseek_hover_pilot as m;from pathlib import Path;"
     code += "m.analyze(Path(sys.argv[1]));assert not any(n in sys.modules for n in ['pickle','openai','harness_natural_runner','harness_v2_world'])"
     checked = subprocess.run([sys.executable, "-B", "-c", code, str(run)], cwd=ROOT, capture_output=True, text=True)
     assert checked.returncode == 0, checked.stderr

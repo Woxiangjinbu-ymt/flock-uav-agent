@@ -1,0 +1,1 @@
+../../../posttraining/tests/test_sense_example_run.py

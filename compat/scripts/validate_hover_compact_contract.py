@@ -1,0 +1,1 @@
+../../flockcue/validation/validate_hover_compact_contract.py

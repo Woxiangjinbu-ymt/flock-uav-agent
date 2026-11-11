@@ -13,7 +13,7 @@ import zipfile
 
 _workspace = next(parent for parent in Path(__file__).resolve().parents if (parent / "scripts").is_dir())
 if __name__ == "__main__" and not __package__:
-    sys.path.insert(0, str(_workspace / "scripts"))
+    sys.path[:0] = [str(_workspace / "scripts"), str(_workspace / "compat/scripts"), str(_workspace)]
 
 from flockcue_session_cpu.__main__ import POOL, ROOT, read, run_session_cli, sha, verify_files, write
 from thinking_events.campaign_storage import atomic_write, json_bytes

@@ -19,7 +19,7 @@ from run_teacher_pilot40 import load_pilot
 
 def test_existing_worker_after_coordinator_kill_blocks_duplicate_dispatch(tmp_path):
     base = tmp_path / "run"
-    cli = [sys.executable, str(ROOT/"scripts/run_teacher_service.py")]
+    cli = [sys.executable, str(ROOT/"posttraining/trajectories/pilot/run_teacher_service.py")]
     env = {k:v for k,v in os.environ.items() if k in {"PATH", "HOME", "LANG", "TMPDIR"}}
     env["PYTHONDONTWRITEBYTECODE"] = "1"
     env["PYTHONNOUSERSITE"] = "1"

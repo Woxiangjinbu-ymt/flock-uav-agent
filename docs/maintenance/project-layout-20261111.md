@@ -22,7 +22,9 @@ git log --follow -- flockcue/memory/route_projection.py
 git diff --stat project-layout-before-20261111 HEAD -- flockcue posttraining datasets
 ```
 
-旧平铺文件名曾被打包器、导入语句、测试和冻结清单直接读取。兼容路径使用 Git 跟踪的相对符号链接，指向组件内的同一份实现或数据。源码字节已经变动的锁定运行器通过[迁移登记](../../flockcue/layout-source-lock.json)核对迁移前后的摘要。正式发布的封存材料仍按最初的字节与路径核验，工作区行为可以用现行 [FlockCue 命令](../../flockcue/README.md) 回放。
+旧平铺文件名曾被打包器、导入语句、测试和冻结清单直接读取。第一次迁移保留了原位相对符号链接，版本为 `project-layout-20261111`。第二次整理把 84 个脚本、35 个 Agent 模块和 72 个测试的旧名称移入 [compat/](../../compat/)。按封存清单打包时，这些名称解析到组件源码，再按原路径写入独立运行包。源码字节已经变动的锁定运行器通过[迁移登记](../../flockcue/layout-source-lock.json)核对摘要。历史报告中的相对链接与旧命令可在[标签对应的工作目录](../README.md)中打开。
+
+`scripts/` 顶层保留 9 个共享模块和 18 个供冻结运行器直接读取的名称。`agent4drone/` 顶层保留 9 个平台 Python 文件。仓库最外层保留[中文首页](../../README.md)与[协作约定](../../AGENTS.md)，英文首页在 [docs/en/](../en/README.md)，详细研究约定在 [docs/research/](../research/project-context.md)。
 
 ## 版本化范围与复核
 

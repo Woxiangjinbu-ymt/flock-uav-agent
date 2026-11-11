@@ -23,7 +23,7 @@ import uuid
 # An archived run copies this file back to its original scripts directory.
 _source_dir = Path(__file__).resolve().parent
 if _source_dir.name == "history":
-    sys.path.insert(0, str(_source_dir.parents[2] / "scripts"))
+    sys.path[:0] = [str(_source_dir.parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 
 import m1_progress_pilot as base
@@ -108,11 +108,12 @@ def prepare():
     control = base.agent_sources(R2_COMMIT)
     search = dict(control)
     search["agent4drone/uav_agent.py"] = search_agent_source(control["agent4drone/uav_agent.py"])
+    sources = base.source_files()
     for module in ("coordinated_search_r2.py", "coordinated_search_trigger_r2.py",
                    "coordinated_search_worker_r2.py"):
-        search["agent4drone/" + module] = (ROOT / "agent4drone" / module).read_bytes()
+        search["agent4drone/" + module] = sources["agent4drone/" + module].read_bytes()
     common = base.common_sources()
-    common["scripts/coordinated_search_pilot.py"] = (ROOT / "scripts/coordinated_search_pilot.py").read_bytes()
+    common["scripts/coordinated_search_pilot.py"] = Path(__file__).read_bytes()
     settings, key = base.settings_for_run(ROOT)
     if not key:
         raise ValueError("Official provider key is missing")

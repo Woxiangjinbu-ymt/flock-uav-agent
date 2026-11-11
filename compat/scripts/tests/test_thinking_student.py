@@ -1,0 +1,1 @@
+../../../posttraining/tests/test_thinking_student.py

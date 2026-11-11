@@ -1,1 +1,0 @@
-../flockcue/validation/validate_harness_flight_state.py

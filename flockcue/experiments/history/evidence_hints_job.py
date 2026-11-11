@@ -13,14 +13,14 @@ import uuid
 # An archived run copies this file back to its original scripts directory.
 _source_dir = Path(__file__).resolve().parent
 if _source_dir.name == "history":
-    sys.path.insert(0, str(_source_dir.parents[2] / "scripts"))
+    sys.path[:0] = [str(_source_dir.parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 
 import m1_revision2_pilot as pilot
-from m1_progress_job import run_job, save, now
+from m1_progress_job import launcher_path, run_job, save, now
 
 ROOT = _source_dir.parents[2] if _source_dir.name == "history" else _source_dir.parent
-DRIVER = ROOT / "scripts/m1_revision2_pilot.py"
+DRIVER = launcher_path(ROOT, "scripts/m1_revision2_pilot.py")
 
 
 def commands(request):
@@ -34,7 +34,7 @@ def worker(directory):
     directory = Path(directory).resolve()
     request = json.loads((directory / "request.json").read_text())
     for path, value in request["launcher_sha256"].items():
-        if hashlib.sha256((ROOT / path).read_bytes()).hexdigest() != value:
+        if hashlib.sha256(launcher_path(ROOT, path).read_bytes()).hexdigest() != value:
             save(directory / "status.json", {"status": "failed", "reason": "launcher_changed", "finished_at": now()})
             return 2
     with (directory.parent / ".job.lock").open("a") as lock:
@@ -62,7 +62,7 @@ def start(study_dir, method_commit):
     directory.mkdir(parents=True, mode=0o700)
     paths = ("scripts/m1_revision2_pilot.py", "scripts/m1_revision2_job.py", "scripts/m1_progress_job.py")
     save(directory / "request.json", {"method_commit": commit, "study_directory": str(study_dir), "arms": [pilot.ARM],
-         "created_at": now(), "launcher_sha256": {p: pilot.r.digest((ROOT / p).read_bytes()) for p in paths}})
+         "created_at": now(), "launcher_sha256": {p: pilot.r.digest(launcher_path(ROOT, p).read_bytes()) for p in paths}})
     save(directory / "status.json", {"status": "queued", "created_at": now()})
     with (directory / "owner.log").open("ab", buffering=0) as log:
         owner = subprocess.Popen([sys.executable, "-B", str(Path(__file__).resolve()), "worker", str(directory)],

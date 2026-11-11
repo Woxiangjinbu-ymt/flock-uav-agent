@@ -28,7 +28,7 @@
 
 | 可展示的交付 | 复核材料 | 适用范围 |
 | --- | --- | --- |
-| 固定基线运行与独立评分 | 从 FlockCue 入口启动两个悬停正反例，比较公开动作回执与评分器输出。[运行说明](REPRODUCTION_RUNBOOK_CN.md) | `general-agent-v5-local`，本地脚本模型。 |
+| 固定基线运行与独立评分 | 从 FlockCue 入口启动两个悬停正反例，比较公开动作回执与评分器输出。[运行说明](guides/reproduction.md) | `general-agent-v5-local`，本地脚本模型。 |
 | 教师逐轮推理用量 | 从封存的真实 DeepSeek 归档复算每轮推理 token，可对照同轮的执行事件。[用量审计](audit/teacher-reasoning-usage-20261108/summary.json) | 4 个开发批次、214 次响应，不是 train 侧教师数据。 |
 | 公开执行状态与失败恢复 | 任务状态、可中断子程序、局部修复、范围受限的反馈共享均有实现，部分路径恢复有正反例。[方法与历史验证](results/harness-method-validation-20261103/REPORT_CN.md) | 局部机制的适用条件和历史成本负结果随展示保留。[实验依据](EXPERIMENT_EVIDENCE_CN.md) |
 
@@ -39,7 +39,7 @@
 | 入口 | 工作与来源 |
 | --- | --- |
 | [FlockCue](../agent_harness/README.md) | 研究基线的配置锁、校验与本地复现。 |
-| [主 Agent](../agent4drone/uav_agent.py) · [Harness 接线](../agent4drone/harness_integration.py) · [模型 I/O 归档](../agent4drone/model_io_archive.py) | 复用 Agent4Drone 执行循环与工具能力。本地工作包括执行子程序、效果记录、恢复反馈、工具与模型调用关联。 |
-| [回执解析](../agent4drone/command_results.py) · [执行状态](../agent4drone/task_execution_state.py) | 执行事件抽取器的基础。 |
+| [主 Agent](../agent4drone/uav_agent.py) · [Harness 接线](../flockcue/runtime/integration.py) · [模型 I/O 归档](../flockcue/runtime/model_io.py) | 复用 Agent4Drone 执行循环与工具能力。本地工作包括执行子程序、效果记录、恢复反馈、工具与模型调用关联。 |
+| [回执解析](../flockcue/evidence/command_results.py) · [执行状态](../flockcue/runtime/execution_state.py) | 执行事件抽取器的基础。 |
 | [上游平台](upstream/README_CN.md) | MultiUAV-Plat 提供仿真、任务、控制与可视化。论文中在相关工作与实验设置里引用，不作为本文方法主体。 |
 | [训练准备](../training/README_INPUT_CN.md) | 固定 tokenizer 与旧版输入检查，新样本另建版本。 |

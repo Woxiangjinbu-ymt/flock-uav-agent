@@ -25,7 +25,7 @@ import zipfile
 # An archived run copies this file back to its original scripts directory.
 _source_dir = Path(__file__).resolve().parent
 if _source_dir.name == "history":
-    sys.path.insert(0, str(_source_dir.parents[2] / "scripts"))
+    sys.path[:0] = [str(_source_dir.parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 
 import reproduction as r
@@ -60,10 +60,17 @@ def agent_sources(commit):
     return sources
 
 
+def source_files():
+    # A detached study may supply the original flat reproduction module.
+    if hasattr(r, "source_files"):
+        return r.source_files()
+    return {name: ROOT / name for name in r.current_source_hashes()}
+
+
 def common_sources():
     # Requirements are recorded identically; method Python never comes from
     # the live worktree. The actual three dependency environments are frozen too.
-    return {name: (ROOT / name).read_bytes() for name in r.current_source_hashes()
+    return {name: path.read_bytes() for name, path in source_files().items()
             if not (name.startswith("agent4drone/") and name.endswith(".py"))}
 
 

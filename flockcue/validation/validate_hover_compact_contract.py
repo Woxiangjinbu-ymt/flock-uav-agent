@@ -9,14 +9,14 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import base64
 import copy
 import json
 
-from validate_harness_episode import sha, write, check_hashes
+from validate_harness_episode import sha, write, check_hashes, workspace_source
 
 ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "agent4drone").is_dir() and (parent / "server").is_dir())
 CONFIG = ROOT / "experiments/hover-compact-contract-v2"
@@ -122,7 +122,7 @@ def prepare_campaign(output):
         name = str(path.relative_to(ROOT))
         target = output / "selection-source" / name
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(path.read_bytes())
+        target.write_bytes(workspace_source(ROOT, name).read_bytes())
         source_hashes[name] = sha(target.read_bytes())
     source_manifest = output / "origin-study-manifest.json"
     source_manifest.write_bytes(origin_raw)

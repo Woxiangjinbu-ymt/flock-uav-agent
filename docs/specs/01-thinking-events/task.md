@@ -44,7 +44,7 @@ CPU 归档、仿真和报告测试使用 Agent 环境。学生模板测试使用
 | T13 导出复算产物 | T01、T11、T12 | `labels.py` 完成 `label_turns(turns, schedule)`；`__main__.py` 接入 `replay`。写开发用途、版本、归档/调用/截止引用、条款覆盖、`turns.jsonl`、`attempts.jsonl` 与来源清单。 | 同一夹具在两个新目录生成相同的确定性文件；每行能回查原请求，输出不含推理正文；已有输出不会被覆盖，失败尝试之前的有效前缀仍在。 |
 | T14 判定 G3 | T13 | `report.py` 按非首轮计算事件轮 A、E0 轮 B、不可判轮 U，报告 A/(A+B) 及 [A/183, (A+U)/183]。按批次、实验臂和自然/注入条件列事件频次、调用/回合覆盖、E6 条款覆盖和标签交叉表；分别给出事件轮与 E0 轮的推理 token 样本数、零值比例及分位数。 | — |
 
-复用依据：[命令分类](../../../agent4drone/command_results.py)、[执行状态](../../../agent4drone/task_execution_state.py)、[悬停契约](../../../agent4drone/hover_completion.py)、[旧归档解码](../../../scripts/convert_agent_samples.py)。
+复用依据：[命令分类](../../../flockcue/evidence/command_results.py)、[执行状态](../../../flockcue/runtime/execution_state.py)、[悬停契约](../../../flockcue/runtime/hover.py)、[旧归档解码](../../../posttraining/sft/formatting/wire_samples.py)。
 
 ## 学生推理与调用边界
 

@@ -287,7 +287,7 @@
 </tbody></table></div>
 <p>奖励以端到端任务成功为核心，公开可验证的进度、无效动作和调用成本可作为辅助候选。奖励项、范围、权重及终止规则需在训练／开发数据上校准，防止模型通过过早停止、重复领取进度或不完成任务来优化成本。不得用测试评分反复设计奖励；基础设施异常与策略失败要分别标识，既保留全部尝试，也避免把不可评分回合的缺失值直接解释为策略信号。</p>
 <p>PPO 与 GRPO 保留为算法候选。PPO 提供交互采样与策略更新框架；DeepSeekMath 中提出的 GRPO 使用组内相对奖励构造优化信号。若选择 GRPO，需要同任务条件下相互隔离的多条 rollout 和有区分度的奖励；组内结果近乎一致时，学习信号可能不足。算法在其他领域的效果不能直接外推到本项目。<a href="https://arxiv.org/abs/1707.06347">[PPO]</a> <a href="https://arxiv.org/abs/2402.03300">[DeepSeekMath / GRPO]</a></p>
-<p>环境可以从现有“fresh worker → 归档 → 退出 → 独立 scorer”路径起步，但需实测吞吐和训练器接口。现有 <code>World.restore</code> 尚不能代表通用 RL reset；同样，也不必把全量向量化 reset 系统设为 SFT 准备的前置条件。<a href="POSTTRAINING_PLAN_CN.md">[环境复用依据]</a></p>
+<p>环境可以从现有“fresh worker → 归档 → 退出 → 独立 scorer”路径起步，但需实测吞吐和训练器接口。现有 <code>World.restore</code> 尚不能代表通用 RL reset；同样，也不必把全量向量化 reset 系统设为 SFT 准备的前置条件。<a href="research/posttraining.md">[环境复用依据]</a></p>
 <p><strong>WP3 交付（如开展）：</strong>版本化奖励、rollout 适配、训练记录、策略检查点，以及同协议下相对固定 SFT 起点的收益与成本。若不开展，报告准入证据与限制，不把候选算法写成已完成训练。</p>
 </section>
 
@@ -348,7 +348,7 @@
 <p class="mini">本报告以用户提供的阶段二规划为主体。附件实际结束于 §5.4“初期采用参数高效微调作为候选实现”；本报告保留其 Teacher 轨迹、质量验证与 SFT 主线，并依据已确认研究路线补充条件式 RL、统一评测、监督细节和里程碑。补充内容属于路线设计，不是新增实验结论。</p>
 <ol class="source-list">
 <li><strong>本次阶段二规划原文。</strong><a href="assets/posttraining-stage-20261101/stage2-route-source.txt">原文存档（2026-11-01）</a>。保留所提供内容，不补写原件缺失部分。</li>
-<li><strong>当前项目依据。</strong><a href="RESEARCH_STATUS_CN.md">研究状态</a>、<a href="RESEARCH_ROADMAP_CN.md">研究路线</a>、<a href="POSTTRAINING_PLAN_CN.md">后训练准备</a>；事实依据为 2026-10-28 版本与阶段一报告。后训练尚无新实验结果。</li>
+<li><strong>当前项目依据。</strong><a href="RESEARCH_STATUS_CN.md">研究状态</a>、<a href="RESEARCH_ROADMAP_CN.md">研究路线</a>、<a href="research/posttraining.md">后训练准备</a>；事实依据为 2026-10-28 版本与阶段一报告。后训练尚无新实验结果。</li>
 <li><strong>阶段一与历史调研。</strong><a href="HARNESS_STAGE_REPORT_CN.html">Agent Harness 架构与阶段成果</a>、<a href="EXPERIMENT_EVIDENCE_CN.md">实验依据</a>、<a href="SMALL_MODEL_POSTTRAINING_SURVEY_CN.html">原始后训练调研 HTML</a>。原始调研保留，当前决策以最新研究状态和本路线为准。</li>
 <li><strong>工具调用 SFT 实现依据。</strong>Hugging Face TRL, <a href="https://huggingface.co/docs/trl/sft_trainer">SFT Trainer 官方文档</a>，核查于 2026-11-01。用于消息／工具格式与 assistant 掩码要求；实际训练须固定软件版本和模型模板。</li>
 <li><strong>参数高效训练候选。</strong>Hu et al. <a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation of Large Language Models</a>, 2021；Dettmers et al. <a href="https://arxiv.org/abs/2305.14314">QLoRA: Efficient Finetuning of Quantized LLMs</a>, 2023。</li>

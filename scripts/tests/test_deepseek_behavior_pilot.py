@@ -1,1 +1,0 @@
-../../flockcue/tests/teacher_pilots/test_deepseek_behavior_pilot.py

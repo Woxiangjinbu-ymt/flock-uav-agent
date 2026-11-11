@@ -6,7 +6,15 @@ import json
 import requests
 import time
 from datetime import datetime
+from pathlib import Path
+import sys
 from typing import Dict, List, Any, Optional
+
+# Standalone Agent4Drone launches do not import the FlockCue package first.
+# A staged experiment already carries its selected modules in this directory.
+_compat = Path(__file__).resolve().parents[1] / "compat/agent4drone"
+if _compat.is_dir() and str(_compat) not in sys.path:
+    sys.path.insert(0, str(_compat))
 
 from logging_config import get_logger
 from command_results import normalize_command_result

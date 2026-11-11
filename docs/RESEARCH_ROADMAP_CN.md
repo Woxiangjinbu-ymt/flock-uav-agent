@@ -1,12 +1,12 @@
 # FlockCue 研究路线
 
-更新于 2026-11-11。本页维护阶段顺序、门槛和交付。已验证的结果见[研究状态](RESEARCH_STATUS_CN.md)，训练细节见[后训练方案](POSTTRAINING_PLAN_CN.md)。
+更新于 2026-11-11。本页维护阶段顺序、门槛和交付。已验证的结果见[研究状态](RESEARCH_STATUS_CN.md)，训练细节见[后训练方案](research/posttraining.md)。
 
 ## 研究主线
 
 用户于 2026-11-11 确认先评测当前 Harness。按十月原 1,500 题全量实验的设置，记录当前 FlockCue + DeepSeek 在冻结 600 题上的独立整题成功率。同题原版 Agent4Drone 的历史首次成绩为 506/600。报告逐题增减、任务族和场景差异，以及服务时间窗与返回版本的可比范围。[原实验报告](results/baseline-deployment-20261005/REPORT_CN.md) · [冻结题单及历史成绩](../experiments/flockcue-benchmark-600-v1/README_CN.md)
 
-11 月 11 日晚，用户确认同日 200 题对照作为系统实验依据，进入教师轨迹构建阶段。使用正式首遍的 Harness 和真实教师执行证据，按轨迹审阅、SFT 数据生成、2B SFT、在线 GRPO 的顺序推进。学生接收一条任务指令，在同一 Harness 通过真实工具完成任务，按同一实验设置报告整题成功率。Think/No-Think、选择性思考标签与验证器过程奖励留待该流程跑通后研究。[同日对照](results/agent4drone-matched200-20261111/REPORT_CN.md) · [后训练方案](POSTTRAINING_PLAN_CN.md)
+11 月 11 日晚，用户确认同日 200 题对照作为系统实验依据，进入教师轨迹构建阶段。使用正式首遍的 Harness 和真实教师执行证据，按轨迹审阅、SFT 数据生成、2B SFT、在线 GRPO 的顺序推进。学生接收一条任务指令，在同一 Harness 通过真实工具完成任务，按同一实验设置报告整题成功率。Think/No-Think、选择性思考标签与验证器过程奖励留待该流程跑通后研究。[同日对照](results/agent4drone-matched200-20261111/REPORT_CN.md) · [后训练方案](research/posttraining.md)
 
 ## 阶段与门槛
 

@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import base64
@@ -64,6 +64,28 @@ def safe_path(root, relative):
     return candidate
 
 
+def workspace_source(workspace, name):
+    """Read a live component or the flat source in a sealed, standalone bundle."""
+    workspace = Path(workspace)
+    if workspace == ROOT and (workspace / "compat/agent4drone").is_dir():
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
+        from flockcue.history import source_path
+        return source_path(workspace, name)
+    return workspace / name
+
+
+def agent_source_items(workspace, paths):
+    """Yield the published source names together with their physical files."""
+    workspace = Path(workspace).resolve()
+    logical = {p.relative_to(workspace).as_posix() for p in paths}
+    if workspace == ROOT:
+        archive = workspace / "compat/agent4drone"
+        logical.update("agent4drone/" + p.name for p in archive.glob("*.py"))
+    for name in sorted(logical):
+        yield name, workspace_source(workspace, name)
+
+
 def check_hashes(root, expected):
     for name, checksum in expected.items():
         path = safe_path(root, name)
@@ -113,7 +135,7 @@ def prepare(workspace, output):
         "harness_full100_online.py", "harness_v2_world.py", "harness_v2_online.py"))
     # Read every source before creating an attempt, so a missing dependency does
     # not leave an apparently prepared campaign that can be silently resumed.
-    source_bytes = {str(p.relative_to(workspace)): p.read_bytes() for p in source_paths}
+    source_bytes = {name: p.read_bytes() for name, p in agent_source_items(workspace, source_paths)}
     output.mkdir(parents=True, exist_ok=False)
     for name, content in source_bytes.items():
         path = output / "source" / name

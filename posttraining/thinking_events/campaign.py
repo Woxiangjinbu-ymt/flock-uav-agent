@@ -42,7 +42,11 @@ def _source_path(root, name):
         relative = Path(name)
         if relative.is_absolute() or not relative.parts or ".." in relative.parts:
             raise ValueError(f"Non-local source name: {name}")
-        resolved = (ROOT / relative).resolve()
+        candidate = ROOT / relative
+        if not candidate.exists() and (ROOT / "flockcue/history.py").is_file():
+            from flockcue.history import source_path
+            candidate = source_path(ROOT, relative)
+        resolved = candidate.resolve()
         if not resolved.is_relative_to(ROOT):
             raise ValueError(f"Source path escaped the repository: {name}")
         return safe_path(ROOT, resolved.relative_to(ROOT))

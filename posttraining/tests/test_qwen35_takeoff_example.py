@@ -14,12 +14,13 @@ from validate_harness_episode import sha
 def test_changes_one_docstring_in_private_copy(tmp_path):
     path = tmp_path / "source" / control.SOURCE
     path.parent.mkdir(parents=True)
-    original = (ROOT / control.SOURCE).read_bytes()
+    working_source = (ROOT / control.SOURCE).read_bytes()
+    original = sealed_source(ROOT, control.SOURCE, control.CONTROL_SOURCE_SHA)
     path.write_bytes(original)
     sources = {control.SOURCE: sha(original)}
     declaration = control.prepare_variant(tmp_path, sources)
     derived = path.read_bytes()
-    assert (ROOT / control.SOURCE).read_bytes() == original
+    assert (ROOT / control.SOURCE).read_bytes() == working_source
     assert derived.count(control.REPLACEMENT.encode()) == 1
     assert derived.replace(control.REPLACEMENT.encode(), control.ORIGINAL.encode()) == original
     assert declaration["replacement_source_sha256"] == sources[control.SOURCE] == sha(derived)

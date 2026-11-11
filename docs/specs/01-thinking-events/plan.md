@@ -20,7 +20,7 @@
 
 ## 归档复算与可见证据（AC1、AC2）
 
-输入限定在下列批次的 `run-01`。按计划槽与执行清单枚举，保留行为批的未执行槽。逐份复核 campaign seal、worker exit seal 对归档的 SHA-256，以及归档内 HTTP 请求和回复的字节数与哈希。封存索引只用于认证文件。已有转换器中的 wire 解码与调用 ID 校验可复用，旧 W3 的整回合筛选会丢掉有效前缀，本步使用按轮次的准入规则。[旧转换器](../../../scripts/convert_agent_samples.py) · [用量复算](../../audit/teacher-reasoning-usage-20261108/probe.py)
+输入限定在下列批次的 `run-01`。按计划槽与执行清单枚举，保留行为批的未执行槽。逐份复核 campaign seal、worker exit seal 对归档的 SHA-256，以及归档内 HTTP 请求和回复的字节数与哈希。封存索引只用于认证文件。已有转换器中的 wire 解码与调用 ID 校验可复用，旧 W3 的整回合筛选会丢掉有效前缀，本步使用按轮次的准入规则。[旧转换器](../../../posttraining/sft/formatting/wire_samples.py) · [用量复算](../../audit/teacher-reasoning-usage-20261108/probe.py)
 
 | 封存批次 | 实际有归档的回合 | 请求 | 有回复 | 末尾无回复 |
 | --- | ---: | ---: | ---: | ---: |
@@ -38,9 +38,9 @@
 
 | 事件 | 首版判定 |
 | --- | --- |
-| E1–E4 | 复用命令分类与执行效果的语义。组合移动读取 `move_result` 或 `navigation_result`，核对外层及内层主体。几何拒绝为 E1。可归属动作的效果为 unknown 时记 E2，包括明确超时、传输异常或错主体。动作归类为 partial 即记 E3，剩余量可空；子程序交回时公开证实仍有剩余航点也记 E3。参数校验或其他明确拒绝为 E4。区分文本超时和参数错误。子程序只用公开返回的 `last_action`、剩余项与具体拒绝原因，单独的 `needs_replan` 不足以证明部分完成。[命令分类](../../../agent4drone/command_results.py) · [执行效果](../../../agent4drone/task_execution_state.py) |
+| E1–E4 | 复用命令分类与执行效果的语义。组合移动读取 `move_result` 或 `navigation_result`，核对外层及内层主体。几何拒绝为 E1。可归属动作的效果为 unknown 时记 E2，包括明确超时、传输异常或错主体。动作归类为 partial 即记 E3，剩余量可空；子程序交回时公开证实仍有剩余航点也记 E3。参数校验或其他明确拒绝为 E4。区分文本超时和参数错误。子程序只用公开返回的 `last_action`、剩余项与具体拒绝原因，单独的 `needs_replan` 不足以证明部分完成。[命令分类](../../../flockcue/evidence/command_results.py) · [执行效果](../../../flockcue/runtime/execution_state.py) |
 | E5 | 实体以“实体类型、公开 ID”去重。识别无人机列表和状态、目标详情、感知结果或公开黑板中的 `targets/obstacles/drones`，含组合工具与各机的感知分量。子程序公开返回的新目标（如 `state.observed_target_followup.targets[].target_id`）也进入历史。同会话的 `progress_percentage` 或等义百分数首次出现时建立基线，之后比较数值。时间戳、调用 ID 和重复实体属性不触发。并行矛盾进度保留证据缺口。 |
-| E6 | 条款以原文位置和唯一公开飞机绑定为键。具名悬停复用既有文法及状态目标、显式动作的证据要求；后者还须有该机成功的悬停回执。仅在公开前缀足够重建所需锚点与先后关系时确认。具名 checkpoint 模板中，仅当同一架机前往原文坐标的动作被几何拒绝时标记“原路径受阻”。首次证实状态转移触发；时长、模糊代词、缺主体和不受支持的条款分别报告覆盖率。[悬停契约](../../../agent4drone/hover_completion.py) · [航点模板](../../../experiments/task-splits-v1/source/controller/default_templates.py) |
+| E6 | 条款以原文位置和唯一公开飞机绑定为键。具名悬停复用既有文法及状态目标、显式动作的证据要求；后者还须有该机成功的悬停回执。仅在公开前缀足够重建所需锚点与先后关系时确认。具名 checkpoint 模板中，仅当同一架机前往原文坐标的动作被几何拒绝时标记“原路径受阻”。首次证实状态转移触发；时长、模糊代词、缺主体和不受支持的条款分别报告覆盖率。[悬停契约](../../../flockcue/runtime/hover.py) · [航点模板](../../../experiments/task-splits-v1/source/controller/default_templates.py) |
 | 首轮、E0、不可判 | 首轮为 `start`。非首轮全部预期回执齐全成功且未触发 E1–E6 时为 E0；只有文字的上一轮须确认没有待收回执及新信息。已证实的事件与同轮缺口分别记录。其余证据不足的轮次输出空标签及原因，缺回执本身不证明动作超时。 |
 
 ## 逐轮产物与对照（AC2、AC3）

@@ -6,7 +6,7 @@
 
 | 项目 | 现行口径 |
 | --- | --- |
-| 2B 学生目标 | 用户于 2026-11-11 确认先提高同一 Harness、同一评测设置下独立评分的整题 pass rate。Think/No-Think 等复杂训练场景延后。[后训练方案](POSTTRAINING_PLAN_CN.md) |
+| 2B 学生目标 | 用户于 2026-11-11 确认先提高同一 Harness、同一评测设置下独立评分的整题 pass rate。Think/No-Think 等复杂训练场景延后。[后训练方案](research/posttraining.md) |
 | 教师推理用作 SFT 目标 | 允许把 DeepSeek `reasoning_content` 作为学生的监督目标。用户 2026-11-08 确认。旧 W3 契约及其 61 条样本保持冻结，新样本另建版本。 |
 | 后续研究 | 原方案中的执行事件驱动选择性思考、轨迹验证器过程奖励和仅迭代 Harness 的对照留待基础流程跑通后研究。 |
 | 第 1 步技术方案与额度 | — |

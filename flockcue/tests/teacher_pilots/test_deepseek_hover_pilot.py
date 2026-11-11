@@ -150,5 +150,5 @@ def test_smoke_decisions_equivalent_but_candidate_objects_are_not_reencoded(cond
 
 
 def test_readonly_module_does_not_import_simulator_or_pickle():
-    code="import sys;sys.path.insert(0,'scripts');import deepseek_hover_pilot;assert not {'pickle','uav_agent','harness_natural_runner','harness_full100_world'} & set(sys.modules)"
+    code="import sys;sys.path[:0]=['scripts','compat/scripts','compat/agent4drone'];import deepseek_hover_pilot;assert not {'pickle','uav_agent','harness_natural_runner','harness_full100_world'} & set(sys.modules)"
     subprocess.run([sys.executable,'-c',code],cwd=ROOT,check=True,capture_output=True)

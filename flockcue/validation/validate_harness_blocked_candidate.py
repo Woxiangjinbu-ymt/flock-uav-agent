@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import hashlib
@@ -104,7 +104,7 @@ def fixture_inputs(workspace, study):
     return selected, fixtures
 
 
-def source_snapshot(workspace, destination):
+def source_files(workspace):
     sources = []
     for directory in ("agent4drone", "server"):
         sources.extend(p for p in (workspace / directory).rglob("*.py")
@@ -113,9 +113,17 @@ def source_snapshot(workspace, destination):
     sources.extend(workspace / "scripts" / name for name in (
         "validate_harness_blocked_candidate.py", "harness_full100_world.py",
         "harness_v2_world.py", "harness_v2_online.py"))
+    if (workspace / "compat/agent4drone").is_dir():
+        from validate_harness_episode import agent_source_items
+        entries = agent_source_items(workspace, sources)
+    else:
+        entries = ((str(p.relative_to(workspace)), p) for p in sorted(set(sources)))
+    return dict(entries)
+
+
+def source_snapshot(workspace, destination):
     checksums = {}
-    for path in sorted(set(sources)):
-        name = str(path.relative_to(workspace))
+    for name, path in source_files(workspace).items():
         target = destination / name
         target.parent.mkdir(parents=True, exist_ok=True)
         data = path.read_bytes()
@@ -602,12 +610,13 @@ def campaign(args):
             "same_blocked_candidate_metrics": result["blocked_candidate_metrics"] == old_blocked["summary"],
             "action_comparison": first_action_divergence(old_diagnostic, new_diagnostic)})
     write(output / "historical-baseline-comparison.json", historical)
+    live_sources = source_files(workspace)
     summary = {"expected_trials": 14, "attempted_trials": len(results),
         "verified_trials": sum(r["status"] == "verified" for r in results),
         "unstarted_trials": 14 - len(results), "pairs": paired,
         "all_original_fixture_hashes_unchanged": True, "frozen_sources_unchanged": True,
         "live_source_changes_since_freeze": [name for name, checksum in sources.items()
-            if sha((workspace / name).read_bytes()) != checksum],
+            if name not in live_sources or sha(live_sources[name].read_bytes()) != checksum],
         "interpretation": "Scripted skill selection, no model calls or raw-tool takeover; not online task success or generalization."}
     write(output / "summary.json", summary)
     write(output / "campaign-seal.json", {"files": {str(p.relative_to(output)): sha(p.read_bytes())

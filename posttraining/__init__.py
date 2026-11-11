@@ -13,11 +13,12 @@ if str(_scripts) not in sys.path:
 def _compatibility_names():
     """Use the same class objects for native imports and standalone bundle imports."""
     aliases = {}
-    for link in _scripts.glob("*.py"):
-        if link.is_symlink() and link.resolve().is_relative_to(_root / "posttraining"):
-            source = link.resolve()
-            name = ".".join(source.relative_to(_root).with_suffix("").parts)
-            aliases[name] = (link.stem, source)
+    for namespace in (_scripts, _root / "compat/scripts"):
+        for link in namespace.glob("*.py"):
+            if link.is_symlink() and link.resolve().is_relative_to(_root / "posttraining"):
+                source = link.resolve()
+                name = ".".join(source.relative_to(_root).with_suffix("").parts)
+                aliases[name] = (link.stem, source)
     for old in ("flockcue_session_cpu", "flockcue_qwen35", "thinking_events"):
         for source in (_scripts / old).resolve().glob("*.py"):
             if source.name != "__init__.py":

@@ -16,9 +16,9 @@ import time
 
 ROOT = next(parent for parent in Path(__file__).resolve().parents
             if (parent / "agent4drone").is_dir() and (parent / "scripts").is_dir())
-sys.path.insert(0, str(ROOT / "scripts"))
+sys.path[:0] = [str(ROOT / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 sys.path.insert(0, str(ROOT / "agent4drone"))
-from validate_harness_episode import check_hashes, safe_path, sha, write, policy_scan
+from validate_harness_episode import agent_source_items, check_hashes, safe_path, sha, write, policy_scan
 
 TASKS = ("c00d8b78", "b4714028", "7eba7390")
 RUNTIME = {"task_seconds": 500, "drain_seconds": 5.0, "request_limits": {
@@ -91,7 +91,7 @@ def prepare(output, *, local_smoke=False):
     paths = [p for directory in ("agent4drone", "server") for p in (ROOT / directory).rglob("*.py")
         if not any(part in {".venv", "tests", "__pycache__"} for part in p.relative_to(ROOT).parts)]
     paths += [ROOT / "scripts" / name for name in set(SCRIPTS) | set(EXTRA_SCRIPTS)]
-    sources = {str(p.relative_to(ROOT)): p.read_bytes() for p in paths}
+    sources = {name: p.read_bytes() for name, p in agent_source_items(ROOT, paths)}
     protocol = (ROOT / PROTOCOL).read_bytes()
     output.mkdir(parents=True)
     for folder, entries in (("source", sources), ("inputs", inputs)):

@@ -1,0 +1,1 @@
+../../flockcue/memory/compact_view.py

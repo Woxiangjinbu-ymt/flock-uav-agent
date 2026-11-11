@@ -13,7 +13,7 @@ class FlatModuleAlias:
             self.aliases = dict(aliases)
             return
         self.aliases = {}
-        for directory in ("agent4drone", "scripts"):
+        for directory in ("agent4drone", "scripts", "compat/agent4drone", "compat/scripts"):
             for link in (root / directory).glob("*.py"):
                 if link.is_symlink():
                     source = link.resolve()

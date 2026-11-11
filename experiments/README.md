@@ -21,4 +21,4 @@
 
 其余 M1/R2/R3、execution-memory、minimal-harness 目录为历史尝试，不自动进入当前任务。旧执行记忆顶层启动与汇总脚本已退役，原实验内封存材料仍可审计；所需原入口见[清理清单](../docs/maintenance/cleanup-20261028.json)。
 
-`runs/` 是被 Git 忽略的大体积历史原始运行数据，`*.local.json` 是本地配置，不提交。当前清理保留其证据内容，未将它们包装为训练数据。新实验使用独立目录与版本，不覆盖原批次、不拼接最优结果。结果导航见[实验依据](../docs/EXPERIMENT_EVIDENCE_CN.md)，新数据准备见[后训练计划](../docs/POSTTRAINING_PLAN_CN.md)。
+`runs/` 是被 Git 忽略的大体积历史原始运行数据，`*.local.json` 是本地配置，不提交。当前清理保留其证据内容，未将它们包装为训练数据。新实验使用独立目录与版本，不覆盖原批次、不拼接最优结果。结果导航见[实验依据](../docs/EXPERIMENT_EVIDENCE_CN.md)，新数据准备见[后训练计划](../docs/research/posttraining.md)。

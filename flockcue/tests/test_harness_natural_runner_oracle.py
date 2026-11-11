@@ -10,7 +10,7 @@ import tempfile
 import unittest
 
 
-SOURCE = (Path(__file__).resolve().parents[2] / "scripts") / "audit_harness_natural_runner.py"
+SOURCE = Path(__file__).resolve().parents[2] / "flockcue/validation/audit_harness_natural_runner.py"
 SPEC = importlib.util.spec_from_file_location("independent_natural_oracle", SOURCE)
 ORACLE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(ORACLE)

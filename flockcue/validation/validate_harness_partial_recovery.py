@@ -9,13 +9,13 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import base64
 import json
 
-from validate_harness_episode import sha, write, check_hashes
+from validate_harness_episode import workspace_source, sha, write, check_hashes
 
 
 ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "agent4drone").is_dir() and (parent / "server").is_dir())
@@ -164,7 +164,7 @@ def run_validation(output):
     inputs = {name: (FIXTURES / name).read_bytes() for name in INPUT_NAMES}
     source_names = ("scripts/general_agent_local.py", "scripts/validate_harness_partial_recovery.py",
                     "scripts/tests/test_harness_partial_recovery.py")
-    sources = {name: (ROOT / name).read_bytes() for name in source_names}
+    sources = {name: workspace_source(ROOT, name).read_bytes() for name in source_names}
     output.mkdir(parents=True)
     for name, raw in {**{"experiments/harness-method-v1/" + n: b for n, b in inputs.items()}, **sources}.items():
         destination = output / "source" / name
@@ -188,7 +188,7 @@ def run_validation(output):
     report["passed"] &= attempts == []
     write(output / "validation.json", report)
     for name, raw in sources.items():
-        if (ROOT / name).read_bytes() != raw:
+        if workspace_source(ROOT, name).read_bytes() != raw:
             raise ValueError("Partial validation source drift")
     for name, raw in inputs.items():
         if (FIXTURES / name).read_bytes() != raw:

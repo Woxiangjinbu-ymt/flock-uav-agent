@@ -114,7 +114,7 @@
 <path d="M1292,277 L1292,340 L1640,340 L1640,560 L1614,560" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
 <text x="42" y="671" font-size="18" font-weight="400" text-anchor="start">重绘只统一视觉语言；原论文已经包含短程规划、有界工具链、Memory 和 Verification，不能将这些概念本身视为本项目新增。</text></svg></div><div class="fig-tools"><button type="button" data-expand="fig-baseline">放大查看</button><button type="button" data-download="fig-baseline" data-name="agent4drone-baseline.svg">下载 SVG</button><a href="assets/harness-stage-20261101/agent4drone-baseline.png">PNG</a></div><figcaption>图 1．依据原论文 Fig. 4 统一风格重绘，保留任务输入、观察、任务理解、规划、工具链落地、执行、验证，以及 Memory、Decision Artifacts 和外部交互边界。箭头作概念归纳，不将其解释为逐个软件组件的调用图。</figcaption></figure>
 <p>论文以任务、合法观测和记忆产生下一项高层子任务与有界工具链，再用执行反馈更新状态。Memory 与 Decision Artifacts 支持后续决策；Verification 比较预期和实际变化，并决定完成、重试或重规划。六个模块描述的是概念职责，并非六个独立 LLM Agent。<a href="#s1">[1]</a></p>
-<div class="callout note"><p><strong>论文概念与当前源码分开看。</strong>论文描述平台验证反馈；当前主 Agent 注册工具中未发现对应的整任务检查工具接线。能够直接确认的是执行后独立 Checker，以及局部状态、动作反馈和特定公开进度读取。不能据此推断论文历史实验的实际接线，也不能将隐藏检查树作为策略输入。当前黑板主要保存感知实体与注释，完整任务语义并非现成的通用状态机。<a href="MULTIUAV_PLAT_READING_CN.md">[阅读与代码核对]</a></p></div>
+<div class="callout note"><p><strong>论文概念与当前源码分开看。</strong>论文描述平台验证反馈；当前主 Agent 注册工具中未发现对应的整任务检查工具接线。能够直接确认的是执行后独立 Checker，以及局部状态、动作反馈和特定公开进度读取。不能据此推断论文历史实验的实际接线，也不能将隐藏检查树作为策略输入。当前黑板主要保存感知实体与注释，完整任务语义并非现成的通用状态机。<a href="upstream/paper-notes.md">[阅读与代码核对]</a></p></div>
 </section>
 
 <section id="architecture">
@@ -297,7 +297,7 @@
 
 <h3>3.2　模型决策层：选择执行方式，并显式提交一个有界计划</h3>
 <p>主 LLM 读取原始任务、公开上下文和工具定义，决定选择技能、恢复仍有效的计划、取消计划，或调用原工具处理不支持的任务与剩余工作。当前 <code>run_harness</code> 接受 <code>start / resume / cancel</code>；<strong>模型提交的是技能选择，具体 DecisionFrame 由技能工厂编译</strong>，不是模型自由生成任意计划图。</p>
-<p>DecisionFrame 将计划身份、来源义务、执行主体、游标、证据引用、继续条件、失效因素、局部修复范围、停止条件和预算放在同一个可审计对象中。现有 <code>source_obligations</code> 主要引用整段命令；<code>continue_guards</code> 等字段记录契约，具体检查分布在 runtime 和技能逻辑中，尚非通用声明式规则解释器。<a href="../agent4drone/harness_core.py">[状态与运行时]</a><a href="../agent4drone/harness_skills.py">[技能工厂]</a></p>
+<p>DecisionFrame 将计划身份、来源义务、执行主体、游标、证据引用、继续条件、失效因素、局部修复范围、停止条件和预算放在同一个可审计对象中。现有 <code>source_obligations</code> 主要引用整段命令；<code>continue_guards</code> 等字段记录契约，具体检查分布在 runtime 和技能逻辑中，尚非通用声明式规则解释器。<a href="../flockcue/runtime/core.py">[状态与运行时]</a><a href="../flockcue/runtime/skills.py">[技能工厂]</a></p>
 
 <h3>3.3　有界执行层：把继续、观察、失效和退出落实为机制</h3>
 <p>运行时只在既定任务/场景作用域内推进游标，检查截止、API 与修复预算，并在检查点决定继续或交回。<code>applicability</code> 调度在技能仍适用时继续；<code>failure</code> 则在失败检查点暂停，由模型决定后续。两者可复用相同技能和强制失效守卫，形成有意义的调度消融。</p>
@@ -473,7 +473,7 @@ remaining_budget / permitted_next_controls</code></pre>
 <tr><td>区分系统与模型贡献</td><td>同模型、工具权限、初态、顺序与预算；同技能比较 failure/applicability，并分别消融证据投影或共享规则。</td><td>报告全分母成功、工具正确性、接管、模型调用、token、时间和动作；机会子集分母另列。</td></tr>
 
 </tbody></table></div>
-<p>—<code>online_ready=false</code>。它属于开发探针候选，不是已完成的新实验。阶段二训练路线已整理为<a href="POSTTRAINING_STAGE_REPORT_CN.html">第二份报告</a>，完整文献综述后续补充；本部分只固定“公开输入与真实模型决策 → 轨迹转换 → SFT → 同 Harness 回接评测”的接口，RL 仍为满足奖励和成本条件后的选项。<a href="RESEARCH_ROADMAP_CN.md">[研究路线]</a><a href="POSTTRAINING_PLAN_CN.md">[后训练准备]</a></p>
+<p>—<code>online_ready=false</code>。它属于开发探针候选，不是已完成的新实验。阶段二训练路线已整理为<a href="POSTTRAINING_STAGE_REPORT_CN.html">第二份报告</a>，完整文献综述后续补充；本部分只固定“公开输入与真实模型决策 → 轨迹转换 → SFT → 同 Harness 回接评测”的接口，RL 仍为满足奖励和成本条件后的选项。<a href="RESEARCH_ROADMAP_CN.md">[研究路线]</a><a href="research/posttraining.md">[后训练准备]</a></p>
 </section>
 
 <section id="ready-text">
@@ -490,14 +490,14 @@ remaining_budget / permitted_next_controls</code></pre>
 <section id="sources">
 <h2><span class="n">EVIDENCE / SOURCES</span>原论文、源码与实验依据</h2>
 <ol class="source-list">
-<li id="s1"><strong>原论文。</strong>Sheng Zhang, Qinglin Li, Yuechao Zang, Xueqin Huang, Yijia Fu, Cheng Zhu. <em>MultiUAV-Plat: An LLM-Oriented Platform, Benchmark and Framework for Multi-UAV Collaborative Task Planning.</em> 2026, arXiv:2606.31073v1. <a href="https://arxiv.org/abs/2606.31073v1">官方条目</a>；<a href="related-paper/Zhang 等 - 2026 - MultiUAV-Plat An LLM-Oriented Platform, Benchmark and Framework for Multi-UAV Collaborative Task Pl.pdf#page=8">本地 PDF 第 8 页 / Fig. 4</a>；<a href="MULTIUAV_PLAT_READING_CN.md">现有精读与代码核对</a>。图 1 为结构重绘，非原图截图。</li>
+<li id="s1"><strong>原论文。</strong>Sheng Zhang, Qinglin Li, Yuechao Zang, Xueqin Huang, Yijia Fu, Cheng Zhu. <em>MultiUAV-Plat: An LLM-Oriented Platform, Benchmark and Framework for Multi-UAV Collaborative Task Planning.</em> 2026, arXiv:2606.31073v1. <a href="https://arxiv.org/abs/2606.31073v1">官方条目</a>；<a href="related-paper/Zhang 等 - 2026 - MultiUAV-Plat An LLM-Oriented Platform, Benchmark and Framework for Multi-UAV Collaborative Task Pl.pdf#page=8">本地 PDF 第 8 页 / Fig. 4</a>；<a href="upstream/paper-notes.md">现有精读与代码核对</a>。图 1 为结构重绘，非原图截图。</li>
 <li id="s2"><strong>研究状态与贡献边界。</strong><a href="RESEARCH_STATUS_CN.md">S01–S14 状态表</a>；<a href="PROJECT_GUIDE_CN.md">项目贡献与展示</a>；<a href="EXPERIMENT_EVIDENCE_CN.md">全部实验索引</a>；<a href="RESEARCH_ROADMAP_CN.md">路线与门槛</a>。事实按 10-28 状态核查及本次代码读取组织，未新跑策略实验。</li>
-<li id="s3"><strong>核心代码。</strong><a href="../agent4drone/harness_core.py">DecisionFrame / HarnessRuntime</a>；<a href="../agent4drone/harness_skills.py">技能与工厂</a>；<a href="../agent4drone/harness_integration.py">模型工具接线</a>；<a href="../agent4drone/task_evidence_r2.py">公开证据 / progress</a>；<a href="../agent4drone/execution_memory_v7.py">执行记忆 v7</a>；<a href="../agent4drone/observed_target_search.py">已见目标跟进</a>；<a href="../agent4drone/uav_agent.py">主 Agent 与模式配置</a>。</li>
+<li id="s3"><strong>核心代码。</strong><a href="../flockcue/runtime/core.py">DecisionFrame / HarnessRuntime</a>；<a href="../flockcue/runtime/skills.py">技能与工厂</a>；<a href="../flockcue/runtime/integration.py">模型工具接线</a>；<a href="../flockcue/evidence/contact_evidence.py">公开证据 / progress</a>；<a href="../flockcue/memory/route_projection.py">执行记忆 v7</a>；<a href="../flockcue/runtime/target_followup.py">已见目标跟进</a>；<a href="../agent4drone/uav_agent.py">主 Agent 与模式配置</a>。</li>
 <li id="s4"><strong>记忆正负结果。</strong><a href="results/execution-memory-v7-20261016/REPORT_CN.md">v7 pilot</a>；<a href="results/execution-memory-v6-20261016/REPORT_CN.md">v6 退化</a>；<a href="results/execution-memory-v7-cross-task-20261023/REPORT_CN.md">14 题跨任务回放</a>；<a href="../experiments/execution-memory-mvp-v7/trials/route-blocked-r1-v5/start.json">原始模型配置示例</a>。</li>
 <li id="s5"><strong>96 次受控机制实验。</strong><a href="results/minimal-harness-v2-mechanism-20261016/FINAL_ANALYSIS_CN.md">最终分析</a>；<a href="../experiments/minimal-harness-v2/manifest.json">模型与冻结清单</a>；<a href="results/minimal-harness-v2-mechanism-20261016/TRAJECTORY_INDEX_CN.md">逐轨迹索引</a>。</li>
 <li id="s6"><strong>自然入口校准。</strong><a href="results/minimal-harness-full100-calibration-20261016/FINAL_ANALYSIS_CN.md">20 对 / 40 次原报告</a>；<a href="../experiments/minimal-harness-full100-v1/manifest.json">冻结配置</a>；<a href="HARNESS_NATURAL_AGENT_VALIDATION_CN.md">后续未执行的候选协议</a>。</li>
 <li id="s7"><strong>搜索技能迭代。</strong><a href="results/harness-shared-endpoint-20261023/REPORT_CN.md">v5 共享目的点</a>；<a href="results/harness-terminal-progress-20261023/REPORT_CN.md">v6 退出确认</a>；<a href="results/harness-observed-target-20261024/REPORT_CN.md">v7 已见目标跟进</a>。</li>
-<li id="s8"><strong>模型 I/O 与互斥。</strong><a href="results/harness-model-io-20261024/REPORT_CN.md">归档验收</a>；<a href="results/harness-episode-contract-20261024/REPORT_CN.md">单 Agent 回合隔离</a>；<a href="../agent4drone/model_io_archive.py">归档源码</a>。</li>
+<li id="s8"><strong>模型 I/O 与互斥。</strong><a href="results/harness-model-io-20261024/REPORT_CN.md">归档验收</a>；<a href="results/harness-episode-contract-20261024/REPORT_CN.md">单 Agent 回合隔离</a>；<a href="../flockcue/runtime/model_io.py">归档源码</a>。</li>
 <li id="s9"><strong>完整回合链。</strong><a href="results/harness-full-episode-20261025/REPORT_CN.md">完整报告</a>；<a href="results/harness-full-episode-20261025/run-20261025-02/summary.json">9 回合机器汇总</a>。</li>
 <li id="s10"><strong>—</strong><a href="results/harness-natural-runner-20261025/REPORT_CN.md">墙钟与排空报告</a>；<a href="results/harness-natural-runner-20261025/revalidation-summary.json">336 项复算</a>；<a href="results/harness-provider-preflight-20261025/REPORT_CN.md">—</a>；<a href="../scripts/harness_natural_runner.py">worker/scorer 源码</a>。</li>
 </ol>

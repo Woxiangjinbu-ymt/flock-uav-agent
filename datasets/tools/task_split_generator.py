@@ -239,7 +239,14 @@ def build_dataset(*, phase="pilot", master_seed=None, workspace=ROOT):
             for row in rows:
                 row.update(split=split, lineage_id=lineage)
                 tasks.append(row)
-    source_bytes = {name: (workspace / name).read_bytes() for name in SOURCE_FILES}
+    source_bytes = {}
+    for name in SOURCE_FILES:
+        path = workspace / name
+        if workspace == ROOT and MODULE_DIR.name == "tools" and not path.exists() and name.startswith("scripts/"):
+            # The generation, preparation and audit tools live together in this checkout;
+            # detached copies retain their published scripts/ names.
+            path = MODULE_DIR / path.name
+        source_bytes[name] = path.read_bytes()
     blobs.update({f"source/{name}": data for name, data in source_bytes.items()})
     manifest = {
         "schema_version": 1, "dataset_id": f"{GENERATOR_VERSION}-{phase}", "generator_version": GENERATOR_VERSION,

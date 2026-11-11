@@ -39,9 +39,16 @@ def inventory(root):
             if path.is_file()}
 
 
+def source_file(root, name):
+    if root == ROOT and (ROOT / "flockcue/history.py").is_file():
+        from flockcue.history import source_path
+        return source_path(root, name)
+    return root / name
+
+
 def verify_files(root, digests):
     for relative, expected in digests.items():
-        path = root / relative
+        path = source_file(root, relative)
         # Project source aliases are copied by content. Inputs in run bundles stay link-free.
         if (not path.resolve().is_relative_to(root.resolve())
                 or (root != ROOT and path.is_symlink()) or sha(path) != expected):
@@ -150,7 +157,7 @@ def run_session_cli(output, session_id, fault, *, teacher=None):
     # New sessions execute this checkout. Validate any registered source relocation
     # against the frozen baseline, then record the actual live bytes for the worker.
     for name, frozen_sha in list(sources.items()):
-        live_sha = sha(ROOT / name)
+        live_sha = sha(source_file(ROOT, name))
         if live_sha != frozen_sha:
             from flockcue.history import sealed_source
             sealed_source(ROOT, name, frozen_sha)
@@ -175,7 +182,8 @@ def run_session_cli(output, session_id, fault, *, teacher=None):
             "flockcue_session_cpu/teacher_service.py", "flockcue_session_cpu/teacher_network.py",
             "harness_request_limits.py", "deepseek_cost_pilot.py", "thinking_events/campaign_storage.py"))
     for path in extra_sources:
-        sources[path.relative_to(ROOT).as_posix()] = sha(path)
+        name = path.relative_to(ROOT).as_posix()
+        sources[name] = sha(source_file(ROOT, name))
     verify_files(ROOT, sources)
     output = output.resolve()
     output.mkdir(parents=True, exist_ok=False)

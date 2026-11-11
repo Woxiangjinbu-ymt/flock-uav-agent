@@ -1,1 +1,0 @@
-../posttraining/resources/verify_student_weights.py

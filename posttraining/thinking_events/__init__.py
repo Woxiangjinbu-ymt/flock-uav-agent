@@ -7,6 +7,6 @@ from pathlib import Path
 import sys
 
 _root = Path(__file__).resolve().parents[2]
-for _entry in (str(_root), str(_root / "scripts")):
+for _entry in (str(_root), str(_root / "compat/agent4drone"), str(_root / "compat/scripts"), str(_root / "scripts")):
     if _entry not in sys.path:
         sys.path.insert(0, _entry)

@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__" and Path(__file__).resolve().parent.name != "scripts":
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+    sys.path[:0] = [str(Path(__file__).resolve().parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 import argparse
 import base64
@@ -13,7 +13,7 @@ import json
 import os
 import subprocess
 import time
-from validate_harness_episode import sha, write, safe_path, check_hashes, policy_scan
+from validate_harness_episode import sha, write, safe_path, check_hashes, policy_scan, workspace_source
 
 ROOT = next(parent for parent in Path(__file__).resolve().parents if (parent / "agent4drone").is_dir() and (parent / "server").is_dir())
 PROTOCOL = "docs/results/harness-natural-runner-20261025/PROTOCOL_CN.md"
@@ -67,8 +67,8 @@ def prepare(workspace, output):
         "validate_harness_natural_runner.py", "validate_harness_observed_target.py", "audit_harness_natural_runner.py")}
     sources = {}
     for name in sorted(names):
-        source = workspace / name
-        if workspace == ROOT and source.is_symlink():
+        source = workspace_source(workspace, name)
+        if workspace == ROOT and (source.is_symlink() or source != workspace / name):
             canonical = source.resolve()
             if not canonical.is_relative_to(ROOT / "flockcue"):
                 raise ValueError("Source link outside FlockCue: " + name)

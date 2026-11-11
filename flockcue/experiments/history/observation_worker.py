@@ -23,7 +23,7 @@ import uuid
 # An archived run copies this file back to its original scripts directory.
 _source_dir = Path(__file__).resolve().parent
 if _source_dir.name == "history":
-    sys.path.insert(0, str(_source_dir.parents[2] / "scripts"))
+    sys.path[:0] = [str(_source_dir.parents[2] / folder) for folder in ("scripts", "compat/scripts", "compat/agent4drone", ".")]
 
 
 import m1_progress_pilot as base
@@ -123,7 +123,7 @@ def prepare():
     control = base.agent_sources(R2_COMMIT)
     worker = dict(control)
     worker["agent4drone/uav_agent.py"] = worker_agent_source(control["agent4drone/uav_agent.py"])
-    worker["agent4drone/observation_worker_r2.py"] = (ROOT / "agent4drone/observation_worker_r2.py").read_bytes()
+    worker["agent4drone/observation_worker_r2.py"] = base.source_files()["agent4drone/observation_worker_r2.py"].read_bytes()
     common = base.common_sources()
     settings, key = base.settings_for_run(ROOT)
     if not key:
