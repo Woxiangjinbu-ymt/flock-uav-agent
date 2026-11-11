@@ -1,0 +1,5943 @@
+[
+  {
+    "trial_id": "7eba7390-legacy",
+    "task_id": "7eba7390",
+    "scene_id": "3973d0d6",
+    "revision": "legacy",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "e5d545feea0b4251a465918036eda1d4fee9c5f717074d1698e36074a947f461",
+    "public_startup_sha256": "f8b693c3b74e117b2230dd912209a309658f76c1dfd04eaa1a2a33425bf92bd0",
+    "end_state_sha256": "9f39685d703723805d890ed404f65e7cb625d8e4979834ac24151a8035a1f492",
+    "snapshot_sha256": "8f26c13a96a25a6696674aee78280a5f72714986671403fe51b42343e9bcbe5d",
+    "response": {
+      "plan_id": "7eba7390-legacy:p1",
+      "skill": "public_search",
+      "status": "needs_replan",
+      "reason": "empty_public_obstacle_blackboard",
+      "cursor": 0,
+      "state": {
+        "progress_percent": 0,
+        "attempts": 0,
+        "outcomes": {},
+        "new_public_obstacles": 0
+      },
+      "actor_bindings": {},
+      "api_calls": 1,
+      "evidence_refs": [
+        "e1"
+      ],
+      "remaining_s": 499.9955664170011,
+      "mission_completion": "not_evaluated",
+      "next_control": "use original tools to resolve remaining task obligations"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "7eba7390-legacy:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "empty_public_obstacle_blackboard",
+          "cursor": 0,
+          "state": {
+            "progress_percent": 0,
+            "attempts": 0,
+            "outcomes": {},
+            "new_public_obstacles": 0
+          },
+          "actor_bindings": {},
+          "api_calls": 1,
+          "evidence_refs": [
+            "e1"
+          ],
+          "remaining_s": 499.9955664170011,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "rejected",
+          "reason": "skill_already_committed_use_plan_id"
+        },
+        "before": {
+          "world": "3adcf67ea7e2789972a2389066bf2f6ae01e6eb1fd9bf3fec49bbefe42a089a9",
+          "frames": "412d09da14a20179ac6877084d089b9c2b0e5cec3247d16cd666f665098ab4b1",
+          "api_requests": 7,
+          "events": 0
+        },
+        "after": {
+          "world": "3adcf67ea7e2789972a2389066bf2f6ae01e6eb1fd9bf3fec49bbefe42a089a9",
+          "frames": "412d09da14a20179ac6877084d089b9c2b0e5cec3247d16cd666f665098ab4b1",
+          "api_requests": 7,
+          "events": 0
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "7eba7390-legacy:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "empty_public_obstacle_blackboard",
+          "cursor": 0,
+          "state": {
+            "progress_percent": 0,
+            "attempts": 0,
+            "outcomes": {},
+            "new_public_obstacles": 0
+          },
+          "actor_bindings": {},
+          "api_calls": 1,
+          "evidence_refs": [
+            "e1"
+          ],
+          "remaining_s": 499.99084887500067,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        },
+        "before": {
+          "world": "3adcf67ea7e2789972a2389066bf2f6ae01e6eb1fd9bf3fec49bbefe42a089a9",
+          "frames": "412d09da14a20179ac6877084d089b9c2b0e5cec3247d16cd666f665098ab4b1",
+          "api_requests": 7,
+          "events": 0
+        },
+        "after": {
+          "world": "3adcf67ea7e2789972a2389066bf2f6ae01e6eb1fd9bf3fec49bbefe42a089a9",
+          "frames": "412d09da14a20179ac6877084d089b9c2b0e5cec3247d16cd666f665098ab4b1",
+          "api_requests": 7,
+          "events": 0
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "3973d0d6",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 3,
+        "visited_targets": 0,
+        "unvisited_targets": 3
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.95
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.0,
+              "session_id": "3973d0d6",
+              "expected_progress": 0.95,
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "is_completed": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 2,
+      "action_attempts": 0,
+      "action_receipts": {
+        "success": 0,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 0,
+      "length_xy": 0,
+      "length_xyz": 0,
+      "vertical_distance": 0,
+      "consumed_mah": 0,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.013767499996902188,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "7eba7390-entry_contract_v2",
+    "task_id": "7eba7390",
+    "scene_id": "3973d0d6",
+    "revision": "entry_contract_v2",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "e5d545feea0b4251a465918036eda1d4fee9c5f717074d1698e36074a947f461",
+    "public_startup_sha256": "f8b693c3b74e117b2230dd912209a309658f76c1dfd04eaa1a2a33425bf92bd0",
+    "end_state_sha256": "b34b46c6862d4d36ac860d7f420315cbb1b971117487035ecb3b96f02d8c96dc",
+    "snapshot_sha256": "692432f1200892eb67e9777da52cd8a61ba7d53ae86dd3d015046c4c2ef839a1",
+    "response": {
+      "plan_id": "7eba7390-entry_contract_v2:p1",
+      "skill": "public_search",
+      "status": "needs_replan",
+      "reason": "round_limit_below_threshold",
+      "cursor": 80,
+      "state": {
+        "progress_percent": 33,
+        "attempts": 80,
+        "outcomes": {
+          "completed": 80
+        },
+        "new_public_obstacles": 4,
+        "entry_observations": [
+          {
+            "actor": "1a4f0495",
+            "scene_id": "3973d0d6",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e5",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "492c9b8c",
+            "scene_id": "3973d0d6",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e7",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "5ed7d6ab",
+            "scene_id": "3973d0d6",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e9",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "a3b868a8",
+            "scene_id": "3973d0d6",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e11",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "d99f1904",
+            "scene_id": "3973d0d6",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e13",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          }
+        ],
+        "entry_observations_complete": true,
+        "last_action": {
+          "tool": "move_to",
+          "args": {
+            "drone_id": "d99f1904",
+            "x": 481.0,
+            "y": 525.0,
+            "z": 20.0
+          },
+          "receipt": {
+            "command_id": "d8a0026f",
+            "drone_id": "d99f1904",
+            "command": "move_to",
+            "status": "success",
+            "message": "Drone moved to position (481.0, 525.0, 20.0), heading: 135.0° (battery: -0.6%/-1mAh, remaining: 86.8%/78mAh)",
+            "timestamp": 1802649600.8061225,
+            "outcome": "completed"
+          }
+        },
+        "round_number": 16,
+        "last_actor": "d99f1904",
+        "last_move_outcome": "completed"
+      },
+      "actor_bindings": {
+        "Drone 1": "492c9b8c",
+        "Drone 2": "1a4f0495",
+        "Drone 3": "d99f1904",
+        "Drone 4": "a3b868a8",
+        "Drone 5": "5ed7d6ab"
+      },
+      "api_calls": 345,
+      "evidence_refs": [
+        "e675",
+        "e677",
+        "e679",
+        "e681",
+        "e683",
+        "e685",
+        "e687",
+        "e689"
+      ],
+      "remaining_s": 499.18383691599956,
+      "mission_completion": "not_evaluated",
+      "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+      "resumable": false
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "7eba7390-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "round_limit_below_threshold",
+          "cursor": 80,
+          "state": {
+            "progress_percent": 33,
+            "attempts": 80,
+            "outcomes": {
+              "completed": 80
+            },
+            "new_public_obstacles": 4,
+            "entry_observations": [
+              {
+                "actor": "1a4f0495",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "492c9b8c",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "5ed7d6ab",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "a3b868a8",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d99f1904",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "d99f1904",
+                "x": 481.0,
+                "y": 525.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "d8a0026f",
+                "drone_id": "d99f1904",
+                "command": "move_to",
+                "status": "success",
+                "message": "Drone moved to position (481.0, 525.0, 20.0), heading: 135.0° (battery: -0.6%/-1mAh, remaining: 86.8%/78mAh)",
+                "timestamp": 1802649600.8061225,
+                "outcome": "completed"
+              }
+            },
+            "round_number": 16,
+            "last_actor": "d99f1904",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "492c9b8c",
+            "Drone 2": "1a4f0495",
+            "Drone 3": "d99f1904",
+            "Drone 4": "a3b868a8",
+            "Drone 5": "5ed7d6ab"
+          },
+          "api_calls": 345,
+          "evidence_refs": [
+            "e675",
+            "e677",
+            "e679",
+            "e681",
+            "e683",
+            "e685",
+            "e687",
+            "e689"
+          ],
+          "remaining_s": 499.18383691599956,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "plan_id": "7eba7390-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "rejected",
+          "reason": "skill_already_committed_not_resumable",
+          "cursor": 80,
+          "state": {
+            "progress_percent": 33,
+            "attempts": 80,
+            "outcomes": {
+              "completed": 80
+            },
+            "new_public_obstacles": 4,
+            "entry_observations": [
+              {
+                "actor": "1a4f0495",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "492c9b8c",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "5ed7d6ab",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "a3b868a8",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d99f1904",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "d99f1904",
+                "x": 481.0,
+                "y": 525.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "d8a0026f",
+                "drone_id": "d99f1904",
+                "command": "move_to",
+                "status": "success",
+                "message": "Drone moved to position (481.0, 525.0, 20.0), heading: 135.0° (battery: -0.6%/-1mAh, remaining: 86.8%/78mAh)",
+                "timestamp": 1802649600.8061225,
+                "outcome": "completed"
+              }
+            },
+            "round_number": 16,
+            "last_actor": "d99f1904",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "492c9b8c",
+            "Drone 2": "1a4f0495",
+            "Drone 3": "d99f1904",
+            "Drone 4": "a3b868a8",
+            "Drone 5": "5ed7d6ab"
+          },
+          "api_calls": 345,
+          "evidence_refs": [
+            "e675",
+            "e677",
+            "e679",
+            "e681",
+            "e683",
+            "e685",
+            "e687",
+            "e689"
+          ],
+          "remaining_s": 499.1610879159998,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "start",
+          "plan_status": "needs_replan",
+          "plan_reason": "round_limit_below_threshold"
+        },
+        "before": {
+          "world": "f62a6a261151c607b0cffa6bcbe10dd9dff36053ee7346c8d628aa6730103b9c",
+          "frames": "1ff73fafa5f354b4a141d5002e9573624f631a11bd4ea6d49837692cbda42c2b",
+          "api_requests": 351,
+          "events": 85
+        },
+        "after": {
+          "world": "f62a6a261151c607b0cffa6bcbe10dd9dff36053ee7346c8d628aa6730103b9c",
+          "frames": "1ff73fafa5f354b4a141d5002e9573624f631a11bd4ea6d49837692cbda42c2b",
+          "api_requests": 351,
+          "events": 85
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "7eba7390-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "rejected",
+          "reason": "plan_not_resumable",
+          "cursor": 80,
+          "state": {
+            "progress_percent": 33,
+            "attempts": 80,
+            "outcomes": {
+              "completed": 80
+            },
+            "new_public_obstacles": 4,
+            "entry_observations": [
+              {
+                "actor": "1a4f0495",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "492c9b8c",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "5ed7d6ab",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "a3b868a8",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d99f1904",
+                "scene_id": "3973d0d6",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "d99f1904",
+                "x": 481.0,
+                "y": 525.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "d8a0026f",
+                "drone_id": "d99f1904",
+                "command": "move_to",
+                "status": "success",
+                "message": "Drone moved to position (481.0, 525.0, 20.0), heading: 135.0° (battery: -0.6%/-1mAh, remaining: 86.8%/78mAh)",
+                "timestamp": 1802649600.8061225,
+                "outcome": "completed"
+              }
+            },
+            "round_number": 16,
+            "last_actor": "d99f1904",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "492c9b8c",
+            "Drone 2": "1a4f0495",
+            "Drone 3": "d99f1904",
+            "Drone 4": "a3b868a8",
+            "Drone 5": "5ed7d6ab"
+          },
+          "api_calls": 345,
+          "evidence_refs": [
+            "e675",
+            "e677",
+            "e679",
+            "e681",
+            "e683",
+            "e685",
+            "e687",
+            "e689"
+          ],
+          "remaining_s": 499.1386525829985,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "resume",
+          "plan_status": "needs_replan",
+          "plan_reason": "round_limit_below_threshold"
+        },
+        "before": {
+          "world": "f62a6a261151c607b0cffa6bcbe10dd9dff36053ee7346c8d628aa6730103b9c",
+          "frames": "1ff73fafa5f354b4a141d5002e9573624f631a11bd4ea6d49837692cbda42c2b",
+          "api_requests": 351,
+          "events": 85
+        },
+        "after": {
+          "world": "f62a6a261151c607b0cffa6bcbe10dd9dff36053ee7346c8d628aa6730103b9c",
+          "frames": "1ff73fafa5f354b4a141d5002e9573624f631a11bd4ea6d49837692cbda42c2b",
+          "api_requests": 351,
+          "events": 85
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "3973d0d6",
+      "task_type": "target_assignment",
+      "progress_percentage": 33,
+      "details": {
+        "total_targets": 3,
+        "visited_targets": 1,
+        "unvisited_targets": 2
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.95
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.33,
+              "session_id": "3973d0d6",
+              "expected_progress": 0.95,
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "is_completed": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 346,
+      "action_attempts": 85,
+      "action_receipts": {
+        "success": 85,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 85,
+      "length_xy": 9782.38782015026,
+      "length_xyz": 9882.38782015026,
+      "vertical_distance": 100.0,
+      "consumed_mah": 55.04257576935267,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.8869710420003685,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "24ac1838-entry_contract_v2",
+    "task_id": "24ac1838",
+    "scene_id": "823c15d5",
+    "revision": "entry_contract_v2",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+    "public_startup_sha256": "fc8d5bb4b573f2df117b0c6d2677d45b744c9d6c7ae90057451e83f95a49efa7",
+    "end_state_sha256": "f8b1f5807c74a32781377a159bde7c276716cd431a98fedf2efd46c3837dce58",
+    "snapshot_sha256": "db008801b1b6c8fa2ad3b82b9b4c2a49af065b77c725f2141e9c7558d49c75e5",
+    "response": {
+      "plan_id": "24ac1838-entry_contract_v2:p1",
+      "skill": "public_search",
+      "status": "needs_replan",
+      "reason": "search_move_error",
+      "cursor": 22,
+      "state": {
+        "progress_percent": 5,
+        "attempts": 22,
+        "outcomes": {
+          "completed": 16,
+          "blocked": 6
+        },
+        "new_public_obstacles": 12,
+        "entry_observations": [
+          {
+            "actor": "016f4513",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e5",
+            "status": "valid_nonempty",
+            "obstacle_count": 2
+          },
+          {
+            "actor": "067d49a2",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e7",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "13150227",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e9",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "1d2b6769",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e11",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "1e74cdea",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e13",
+            "status": "valid_nonempty",
+            "obstacle_count": 2
+          },
+          {
+            "actor": "20dd2485",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e15",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "2d37b969",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e17",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "2dfc9922",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e19",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "318da56a",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e21",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "3ca2bbad",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e23",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "436f6476",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e25",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "4e22b83f",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e27",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "4f0a6ce5",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e29",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "5ee786b5",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e31",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "6264d2dc",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e33",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "75543d66",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e35",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "869a8e16",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e37",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "884ca74f",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e39",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "8ffc1bba",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e41",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "92e6a7b8",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e43",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "a1a9de39",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e45",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "a70c20d2",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e47",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "a83433e1",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e49",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "b407b91f",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e51",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "bc746fd7",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e53",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "bcda9199",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e55",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "e1432c2b",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e57",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "ec78a027",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e59",
+            "status": "valid_nonempty",
+            "obstacle_count": 2
+          },
+          {
+            "actor": "f762cfb2",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e61",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "f77bc481",
+            "scene_id": "823c15d5",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e63",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          }
+        ],
+        "entry_observations_complete": true,
+        "last_action": {
+          "tool": "move_to",
+          "args": {
+            "drone_id": "a83433e1",
+            "x": 455.0,
+            "y": 1575.0,
+            "z": 20.0
+          },
+          "receipt": {
+            "command_id": "6d41b03a",
+            "drone_id": "a83433e1",
+            "command": "move_to",
+            "status": "error",
+            "message": "Cannot move from current status: DroneStatus.IDLE",
+            "timestamp": 1802649601.1569157,
+            "outcome": "error"
+          }
+        },
+        "round_number": 1,
+        "last_actor": "a70c20d2",
+        "last_move_outcome": "completed"
+      },
+      "actor_bindings": {
+        "Drone 1": "92e6a7b8",
+        "Drone 2": "869a8e16",
+        "Drone 3": "3ca2bbad",
+        "Drone 4": "13150227",
+        "Drone 5": "a70c20d2",
+        "Drone 6": "436f6476",
+        "Drone 7": "318da56a",
+        "Drone 8": "ec78a027",
+        "Drone 9": "4f0a6ce5",
+        "Drone 10": "8ffc1bba",
+        "Drone 11": "6264d2dc",
+        "Drone 12": "f77bc481",
+        "Drone 13": "5ee786b5",
+        "Drone 14": "2dfc9922",
+        "Drone 15": "016f4513",
+        "Drone 16": "884ca74f",
+        "Drone 17": "bcda9199",
+        "Drone 18": "a1a9de39",
+        "Drone 19": "f762cfb2",
+        "Drone 20": "1d2b6769",
+        "Drone 21": "1e74cdea",
+        "Drone 22": "e1432c2b",
+        "Drone 23": "2d37b969",
+        "Drone 24": "bc746fd7",
+        "Drone 25": "067d49a2",
+        "Drone 26": "20dd2485",
+        "Drone 27": "4e22b83f",
+        "Drone 28": "b407b91f",
+        "Drone 29": "75543d66",
+        "Drone 30": "a83433e1"
+      },
+      "api_calls": 168,
+      "evidence_refs": [
+        "e321",
+        "e323",
+        "e325",
+        "e327",
+        "e329",
+        "e331",
+        "e333",
+        "e335"
+      ],
+      "remaining_s": 498.83897887499916,
+      "mission_completion": "not_evaluated",
+      "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+      "resumable": false
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "24ac1838-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "search_move_error",
+          "cursor": 22,
+          "state": {
+            "progress_percent": 5,
+            "attempts": 22,
+            "outcomes": {
+              "completed": 16,
+              "blocked": 6
+            },
+            "new_public_obstacles": 12,
+            "entry_observations": [
+              {
+                "actor": "016f4513",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "067d49a2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "13150227",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "1d2b6769",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "1e74cdea",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "20dd2485",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e15",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "2d37b969",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e17",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "2dfc9922",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e19",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "318da56a",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e21",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "3ca2bbad",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e23",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "436f6476",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e25",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "4e22b83f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e27",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "4f0a6ce5",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e29",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "5ee786b5",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e31",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "6264d2dc",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e33",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "75543d66",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e35",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "869a8e16",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e37",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "884ca74f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e39",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "8ffc1bba",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e41",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "92e6a7b8",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e43",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a1a9de39",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e45",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a70c20d2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e47",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a83433e1",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e49",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "b407b91f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e51",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "bc746fd7",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e53",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "bcda9199",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e55",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "e1432c2b",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e57",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "ec78a027",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e59",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "f762cfb2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e61",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "f77bc481",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e63",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "a83433e1",
+                "x": 455.0,
+                "y": 1575.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "6d41b03a",
+                "drone_id": "a83433e1",
+                "command": "move_to",
+                "status": "error",
+                "message": "Cannot move from current status: DroneStatus.IDLE",
+                "timestamp": 1802649601.1569157,
+                "outcome": "error"
+              }
+            },
+            "round_number": 1,
+            "last_actor": "a70c20d2",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "92e6a7b8",
+            "Drone 2": "869a8e16",
+            "Drone 3": "3ca2bbad",
+            "Drone 4": "13150227",
+            "Drone 5": "a70c20d2",
+            "Drone 6": "436f6476",
+            "Drone 7": "318da56a",
+            "Drone 8": "ec78a027",
+            "Drone 9": "4f0a6ce5",
+            "Drone 10": "8ffc1bba",
+            "Drone 11": "6264d2dc",
+            "Drone 12": "f77bc481",
+            "Drone 13": "5ee786b5",
+            "Drone 14": "2dfc9922",
+            "Drone 15": "016f4513",
+            "Drone 16": "884ca74f",
+            "Drone 17": "bcda9199",
+            "Drone 18": "a1a9de39",
+            "Drone 19": "f762cfb2",
+            "Drone 20": "1d2b6769",
+            "Drone 21": "1e74cdea",
+            "Drone 22": "e1432c2b",
+            "Drone 23": "2d37b969",
+            "Drone 24": "bc746fd7",
+            "Drone 25": "067d49a2",
+            "Drone 26": "20dd2485",
+            "Drone 27": "4e22b83f",
+            "Drone 28": "b407b91f",
+            "Drone 29": "75543d66",
+            "Drone 30": "a83433e1"
+          },
+          "api_calls": 168,
+          "evidence_refs": [
+            "e321",
+            "e323",
+            "e325",
+            "e327",
+            "e329",
+            "e331",
+            "e333",
+            "e335"
+          ],
+          "remaining_s": 498.83897887499916,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "plan_id": "24ac1838-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "rejected",
+          "reason": "skill_already_committed_not_resumable",
+          "cursor": 22,
+          "state": {
+            "progress_percent": 5,
+            "attempts": 22,
+            "outcomes": {
+              "completed": 16,
+              "blocked": 6
+            },
+            "new_public_obstacles": 12,
+            "entry_observations": [
+              {
+                "actor": "016f4513",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "067d49a2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "13150227",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "1d2b6769",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "1e74cdea",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "20dd2485",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e15",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "2d37b969",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e17",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "2dfc9922",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e19",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "318da56a",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e21",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "3ca2bbad",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e23",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "436f6476",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e25",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "4e22b83f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e27",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "4f0a6ce5",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e29",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "5ee786b5",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e31",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "6264d2dc",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e33",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "75543d66",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e35",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "869a8e16",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e37",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "884ca74f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e39",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "8ffc1bba",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e41",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "92e6a7b8",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e43",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a1a9de39",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e45",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a70c20d2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e47",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a83433e1",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e49",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "b407b91f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e51",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "bc746fd7",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e53",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "bcda9199",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e55",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "e1432c2b",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e57",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "ec78a027",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e59",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "f762cfb2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e61",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "f77bc481",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e63",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "a83433e1",
+                "x": 455.0,
+                "y": 1575.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "6d41b03a",
+                "drone_id": "a83433e1",
+                "command": "move_to",
+                "status": "error",
+                "message": "Cannot move from current status: DroneStatus.IDLE",
+                "timestamp": 1802649601.1569157,
+                "outcome": "error"
+              }
+            },
+            "round_number": 1,
+            "last_actor": "a70c20d2",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "92e6a7b8",
+            "Drone 2": "869a8e16",
+            "Drone 3": "3ca2bbad",
+            "Drone 4": "13150227",
+            "Drone 5": "a70c20d2",
+            "Drone 6": "436f6476",
+            "Drone 7": "318da56a",
+            "Drone 8": "ec78a027",
+            "Drone 9": "4f0a6ce5",
+            "Drone 10": "8ffc1bba",
+            "Drone 11": "6264d2dc",
+            "Drone 12": "f77bc481",
+            "Drone 13": "5ee786b5",
+            "Drone 14": "2dfc9922",
+            "Drone 15": "016f4513",
+            "Drone 16": "884ca74f",
+            "Drone 17": "bcda9199",
+            "Drone 18": "a1a9de39",
+            "Drone 19": "f762cfb2",
+            "Drone 20": "1d2b6769",
+            "Drone 21": "1e74cdea",
+            "Drone 22": "e1432c2b",
+            "Drone 23": "2d37b969",
+            "Drone 24": "bc746fd7",
+            "Drone 25": "067d49a2",
+            "Drone 26": "20dd2485",
+            "Drone 27": "4e22b83f",
+            "Drone 28": "b407b91f",
+            "Drone 29": "75543d66",
+            "Drone 30": "a83433e1"
+          },
+          "api_calls": 168,
+          "evidence_refs": [
+            "e321",
+            "e323",
+            "e325",
+            "e327",
+            "e329",
+            "e331",
+            "e333",
+            "e335"
+          ],
+          "remaining_s": 498.8194121660017,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "start",
+          "plan_status": "needs_replan",
+          "plan_reason": "search_move_error"
+        },
+        "before": {
+          "world": "e1a7658dff6d8007783a45a191f89ad6190bd008107f8890df19b2fd843ae485",
+          "frames": "e471fa9f5a20f6fafc2ecfce0038f0fe5c66aaecd62ba3d13a3a8e252ef1e31b",
+          "api_requests": 199,
+          "events": 38
+        },
+        "after": {
+          "world": "e1a7658dff6d8007783a45a191f89ad6190bd008107f8890df19b2fd843ae485",
+          "frames": "e471fa9f5a20f6fafc2ecfce0038f0fe5c66aaecd62ba3d13a3a8e252ef1e31b",
+          "api_requests": 199,
+          "events": 38
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "24ac1838-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "rejected",
+          "reason": "plan_not_resumable",
+          "cursor": 22,
+          "state": {
+            "progress_percent": 5,
+            "attempts": 22,
+            "outcomes": {
+              "completed": 16,
+              "blocked": 6
+            },
+            "new_public_obstacles": 12,
+            "entry_observations": [
+              {
+                "actor": "016f4513",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "067d49a2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "13150227",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "1d2b6769",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "1e74cdea",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "20dd2485",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e15",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "2d37b969",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e17",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "2dfc9922",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e19",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "318da56a",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e21",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "3ca2bbad",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e23",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "436f6476",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e25",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "4e22b83f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e27",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "4f0a6ce5",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e29",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "5ee786b5",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e31",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "6264d2dc",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e33",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "75543d66",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e35",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "869a8e16",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e37",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "884ca74f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e39",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "8ffc1bba",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e41",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "92e6a7b8",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e43",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a1a9de39",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e45",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a70c20d2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e47",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "a83433e1",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e49",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "b407b91f",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e51",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "bc746fd7",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e53",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "bcda9199",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e55",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "e1432c2b",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e57",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "ec78a027",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e59",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "f762cfb2",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e61",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "f77bc481",
+                "scene_id": "823c15d5",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e63",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "a83433e1",
+                "x": 455.0,
+                "y": 1575.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "6d41b03a",
+                "drone_id": "a83433e1",
+                "command": "move_to",
+                "status": "error",
+                "message": "Cannot move from current status: DroneStatus.IDLE",
+                "timestamp": 1802649601.1569157,
+                "outcome": "error"
+              }
+            },
+            "round_number": 1,
+            "last_actor": "a70c20d2",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "92e6a7b8",
+            "Drone 2": "869a8e16",
+            "Drone 3": "3ca2bbad",
+            "Drone 4": "13150227",
+            "Drone 5": "a70c20d2",
+            "Drone 6": "436f6476",
+            "Drone 7": "318da56a",
+            "Drone 8": "ec78a027",
+            "Drone 9": "4f0a6ce5",
+            "Drone 10": "8ffc1bba",
+            "Drone 11": "6264d2dc",
+            "Drone 12": "f77bc481",
+            "Drone 13": "5ee786b5",
+            "Drone 14": "2dfc9922",
+            "Drone 15": "016f4513",
+            "Drone 16": "884ca74f",
+            "Drone 17": "bcda9199",
+            "Drone 18": "a1a9de39",
+            "Drone 19": "f762cfb2",
+            "Drone 20": "1d2b6769",
+            "Drone 21": "1e74cdea",
+            "Drone 22": "e1432c2b",
+            "Drone 23": "2d37b969",
+            "Drone 24": "bc746fd7",
+            "Drone 25": "067d49a2",
+            "Drone 26": "20dd2485",
+            "Drone 27": "4e22b83f",
+            "Drone 28": "b407b91f",
+            "Drone 29": "75543d66",
+            "Drone 30": "a83433e1"
+          },
+          "api_calls": 168,
+          "evidence_refs": [
+            "e321",
+            "e323",
+            "e325",
+            "e327",
+            "e329",
+            "e331",
+            "e333",
+            "e335"
+          ],
+          "remaining_s": 498.79930112500006,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "resume",
+          "plan_status": "needs_replan",
+          "plan_reason": "search_move_error"
+        },
+        "before": {
+          "world": "e1a7658dff6d8007783a45a191f89ad6190bd008107f8890df19b2fd843ae485",
+          "frames": "e471fa9f5a20f6fafc2ecfce0038f0fe5c66aaecd62ba3d13a3a8e252ef1e31b",
+          "api_requests": 199,
+          "events": 38
+        },
+        "after": {
+          "world": "e1a7658dff6d8007783a45a191f89ad6190bd008107f8890df19b2fd843ae485",
+          "frames": "e471fa9f5a20f6fafc2ecfce0038f0fe5c66aaecd62ba3d13a3a8e252ef1e31b",
+          "api_requests": 199,
+          "events": 38
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "823c15d5",
+      "task_type": "target_assignment",
+      "progress_percentage": 5,
+      "details": {
+        "total_targets": 100,
+        "visited_targets": 5,
+        "unvisited_targets": 95
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.95
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.05,
+              "session_id": "823c15d5",
+              "expected_progress": 0.95,
+              "task_type": "target_assignment",
+              "progress_percentage": 5,
+              "is_completed": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 169,
+      "action_attempts": 45,
+      "action_receipts": {
+        "success": 38,
+        "partial_success": 0,
+        "error": 7
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 38,
+      "length_xy": 1660.7509812522874,
+      "length_xyz": 2100.750981252287,
+      "vertical_distance": 440.0,
+      "consumed_mah": 18.899449070566114,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 1.2244963749981252,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "24ac1838-legacy",
+    "task_id": "24ac1838",
+    "scene_id": "823c15d5",
+    "revision": "legacy",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+    "public_startup_sha256": "fc8d5bb4b573f2df117b0c6d2677d45b744c9d6c7ae90057451e83f95a49efa7",
+    "end_state_sha256": "2fb548ba8955d6a09e601ab50e8ea6c4152159cbe5066f814ba79486eab71be7",
+    "snapshot_sha256": "349d153598074a7264e257438b9849d04c6fb623e2172f910cdf66c28811a9d9",
+    "response": {
+      "plan_id": "24ac1838-legacy:p1",
+      "skill": "public_search",
+      "status": "needs_replan",
+      "reason": "empty_public_obstacle_blackboard",
+      "cursor": 0,
+      "state": {
+        "progress_percent": 0,
+        "attempts": 0,
+        "outcomes": {},
+        "new_public_obstacles": 0
+      },
+      "actor_bindings": {},
+      "api_calls": 1,
+      "evidence_refs": [
+        "e1"
+      ],
+      "remaining_s": 499.99510320899935,
+      "mission_completion": "not_evaluated",
+      "next_control": "use original tools to resolve remaining task obligations"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "24ac1838-legacy:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "empty_public_obstacle_blackboard",
+          "cursor": 0,
+          "state": {
+            "progress_percent": 0,
+            "attempts": 0,
+            "outcomes": {},
+            "new_public_obstacles": 0
+          },
+          "actor_bindings": {},
+          "api_calls": 1,
+          "evidence_refs": [
+            "e1"
+          ],
+          "remaining_s": 499.99510320899935,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "rejected",
+          "reason": "skill_already_committed_use_plan_id"
+        },
+        "before": {
+          "world": "29c0249378f2ba58003c6db5b15b6ab23c7084acf80e15d6598f02be69f46303",
+          "frames": "d1564cf0d0abdba7325b6b49d545da3b7797a6fb4ddb5d3b0bb3cfa0bb080340",
+          "api_requests": 32,
+          "events": 0
+        },
+        "after": {
+          "world": "29c0249378f2ba58003c6db5b15b6ab23c7084acf80e15d6598f02be69f46303",
+          "frames": "d1564cf0d0abdba7325b6b49d545da3b7797a6fb4ddb5d3b0bb3cfa0bb080340",
+          "api_requests": 32,
+          "events": 0
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "24ac1838-legacy:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "empty_public_obstacle_blackboard",
+          "cursor": 0,
+          "state": {
+            "progress_percent": 0,
+            "attempts": 0,
+            "outcomes": {},
+            "new_public_obstacles": 0
+          },
+          "actor_bindings": {},
+          "api_calls": 1,
+          "evidence_refs": [
+            "e1"
+          ],
+          "remaining_s": 499.98144049999974,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        },
+        "before": {
+          "world": "29c0249378f2ba58003c6db5b15b6ab23c7084acf80e15d6598f02be69f46303",
+          "frames": "d1564cf0d0abdba7325b6b49d545da3b7797a6fb4ddb5d3b0bb3cfa0bb080340",
+          "api_requests": 32,
+          "events": 0
+        },
+        "after": {
+          "world": "29c0249378f2ba58003c6db5b15b6ab23c7084acf80e15d6598f02be69f46303",
+          "frames": "d1564cf0d0abdba7325b6b49d545da3b7797a6fb4ddb5d3b0bb3cfa0bb080340",
+          "api_requests": 32,
+          "events": 0
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "823c15d5",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 100,
+        "visited_targets": 0,
+        "unvisited_targets": 100
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.95
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.0,
+              "session_id": "823c15d5",
+              "expected_progress": 0.95,
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "is_completed": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 2,
+      "action_attempts": 0,
+      "action_receipts": {
+        "success": 0,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 0,
+      "length_xy": 0,
+      "length_xyz": 0,
+      "vertical_distance": 0,
+      "consumed_mah": 0,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.029090833002555883,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "b1ad4f3e-legacy",
+    "task_id": "b1ad4f3e",
+    "scene_id": "35ce64d8",
+    "revision": "legacy",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+    "public_startup_sha256": "3fefe3bfa8e90e3b848f56827564e180d90221aab957231a14021d77b792fd30",
+    "end_state_sha256": "4f71e012f0986381fff1ee81d37684b1b4cde3fc1869ffabb0ed72a7fc38f307",
+    "snapshot_sha256": "794424d1546a54716c7eedc0084d23673306a7a3b9b44094b943be235316887c",
+    "response": {
+      "plan_id": "b1ad4f3e-legacy:p1",
+      "skill": "public_search",
+      "status": "needs_replan",
+      "reason": "empty_public_obstacle_blackboard",
+      "cursor": 0,
+      "state": {
+        "progress_percent": 0,
+        "attempts": 0,
+        "outcomes": {},
+        "new_public_obstacles": 0
+      },
+      "actor_bindings": {},
+      "api_calls": 1,
+      "evidence_refs": [
+        "e1"
+      ],
+      "remaining_s": 499.99645000000237,
+      "mission_completion": "not_evaluated",
+      "next_control": "use original tools to resolve remaining task obligations"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "b1ad4f3e-legacy:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "empty_public_obstacle_blackboard",
+          "cursor": 0,
+          "state": {
+            "progress_percent": 0,
+            "attempts": 0,
+            "outcomes": {},
+            "new_public_obstacles": 0
+          },
+          "actor_bindings": {},
+          "api_calls": 1,
+          "evidence_refs": [
+            "e1"
+          ],
+          "remaining_s": 499.99645000000237,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "rejected",
+          "reason": "skill_already_committed_use_plan_id"
+        },
+        "before": {
+          "world": "7833eeda6f19ca262bff80d2523c16facbc384cebf0a93e7bcd0cdc6a805394d",
+          "frames": "740e1b20ebcd4849ab86eb0584b5346fcfe6d934ddf086e85563c0e5fc40baf9",
+          "api_requests": 17,
+          "events": 0
+        },
+        "after": {
+          "world": "7833eeda6f19ca262bff80d2523c16facbc384cebf0a93e7bcd0cdc6a805394d",
+          "frames": "740e1b20ebcd4849ab86eb0584b5346fcfe6d934ddf086e85563c0e5fc40baf9",
+          "api_requests": 17,
+          "events": 0
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "b1ad4f3e-legacy:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "empty_public_obstacle_blackboard",
+          "cursor": 0,
+          "state": {
+            "progress_percent": 0,
+            "attempts": 0,
+            "outcomes": {},
+            "new_public_obstacles": 0
+          },
+          "actor_bindings": {},
+          "api_calls": 1,
+          "evidence_refs": [
+            "e1"
+          ],
+          "remaining_s": 499.98866937500134,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        },
+        "before": {
+          "world": "7833eeda6f19ca262bff80d2523c16facbc384cebf0a93e7bcd0cdc6a805394d",
+          "frames": "740e1b20ebcd4849ab86eb0584b5346fcfe6d934ddf086e85563c0e5fc40baf9",
+          "api_requests": 17,
+          "events": 0
+        },
+        "after": {
+          "world": "7833eeda6f19ca262bff80d2523c16facbc384cebf0a93e7bcd0cdc6a805394d",
+          "frames": "740e1b20ebcd4849ab86eb0584b5346fcfe6d934ddf086e85563c0e5fc40baf9",
+          "api_requests": 17,
+          "events": 0
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "35ce64d8",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 0,
+        "unvisited_targets": 20
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.95
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.0,
+              "session_id": "35ce64d8",
+              "expected_progress": 0.95,
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "is_completed": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 2,
+      "action_attempts": 0,
+      "action_receipts": {
+        "success": 0,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 0,
+      "length_xy": 0,
+      "length_xyz": 0,
+      "vertical_distance": 0,
+      "consumed_mah": 0,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.016911833998165093,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "b1ad4f3e-entry_contract_v2",
+    "task_id": "b1ad4f3e",
+    "scene_id": "35ce64d8",
+    "revision": "entry_contract_v2",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+    "public_startup_sha256": "3fefe3bfa8e90e3b848f56827564e180d90221aab957231a14021d77b792fd30",
+    "end_state_sha256": "9a569be1e080374504a044e69550c1d52f9815ef196204438ca0dd6dc3f2cc83",
+    "snapshot_sha256": "01ee52aeb637d4948eb4c5d816065fa04afbd26e8a467b0460f2fd739349b00a",
+    "response": {
+      "plan_id": "b1ad4f3e-entry_contract_v2:p1",
+      "skill": "public_search",
+      "status": "needs_replan",
+      "reason": "local_repair_budget_exhausted",
+      "cursor": 93,
+      "state": {
+        "progress_percent": 75,
+        "attempts": 92,
+        "outcomes": {
+          "completed": 76,
+          "blocked": 16
+        },
+        "new_public_obstacles": 11,
+        "entry_observations": [
+          {
+            "actor": "01e3ece4",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e5",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "04315908",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e7",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "176a4688",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e9",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "272fa7be",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e11",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "2a266de6",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e13",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "5f7a6eec",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e15",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "60892444",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e17",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "6126210f",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e19",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "63e09994",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e21",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "7954b39a",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e23",
+            "status": "valid_nonempty",
+            "obstacle_count": 1
+          },
+          {
+            "actor": "b6654aad",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e25",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "be69a550",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e27",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "d32ef0d8",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e29",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          },
+          {
+            "actor": "d4d95e8a",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e31",
+            "status": "valid_nonempty",
+            "obstacle_count": 2
+          },
+          {
+            "actor": "e444398a",
+            "scene_id": "35ce64d8",
+            "scene_epoch": 0,
+            "scope": "local_obstacle_observation",
+            "evidence_ref": "e33",
+            "status": "valid_empty",
+            "obstacle_count": 0
+          }
+        ],
+        "entry_observations_complete": true,
+        "last_action": {
+          "tool": "move_to",
+          "args": {
+            "drone_id": "176a4688",
+            "x": 875.0,
+            "y": 735.0,
+            "z": 20.0
+          },
+          "receipt": {
+            "command_id": "9447e871",
+            "drone_id": "176a4688",
+            "command": "move_to",
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+            "timestamp": 1802649601.2494981,
+            "outcome": "blocked"
+          }
+        },
+        "round_number": 7,
+        "last_actor": "04315908",
+        "last_move_outcome": "completed"
+      },
+      "actor_bindings": {
+        "Drone 1": "60892444",
+        "Drone 2": "e444398a",
+        "Drone 3": "7954b39a",
+        "Drone 4": "be69a550",
+        "Drone 5": "176a4688",
+        "Drone 6": "d32ef0d8",
+        "Drone 7": "6126210f",
+        "Drone 8": "272fa7be",
+        "Drone 9": "2a266de6",
+        "Drone 10": "b6654aad",
+        "Drone 11": "04315908",
+        "Drone 12": "01e3ece4",
+        "Drone 13": "5f7a6eec",
+        "Drone 14": "63e09994",
+        "Drone 15": "d4d95e8a"
+      },
+      "api_calls": 428,
+      "evidence_refs": [
+        "e841",
+        "e843",
+        "e845",
+        "e847",
+        "e849",
+        "e851",
+        "e853",
+        "e855"
+      ],
+      "remaining_s": 498.7408051249986,
+      "mission_completion": "not_evaluated",
+      "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+      "resumable": false
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "b1ad4f3e-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "local_repair_budget_exhausted",
+          "cursor": 93,
+          "state": {
+            "progress_percent": 75,
+            "attempts": 92,
+            "outcomes": {
+              "completed": 76,
+              "blocked": 16
+            },
+            "new_public_obstacles": 11,
+            "entry_observations": [
+              {
+                "actor": "01e3ece4",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "04315908",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "176a4688",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "272fa7be",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "2a266de6",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "5f7a6eec",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e15",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "60892444",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e17",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "6126210f",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e19",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "63e09994",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e21",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "7954b39a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e23",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "b6654aad",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e25",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "be69a550",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e27",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d32ef0d8",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e29",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d4d95e8a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e31",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "e444398a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e33",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "176a4688",
+                "x": 875.0,
+                "y": 735.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "9447e871",
+                "drone_id": "176a4688",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+                "timestamp": 1802649601.2494981,
+                "outcome": "blocked"
+              }
+            },
+            "round_number": 7,
+            "last_actor": "04315908",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "60892444",
+            "Drone 2": "e444398a",
+            "Drone 3": "7954b39a",
+            "Drone 4": "be69a550",
+            "Drone 5": "176a4688",
+            "Drone 6": "d32ef0d8",
+            "Drone 7": "6126210f",
+            "Drone 8": "272fa7be",
+            "Drone 9": "2a266de6",
+            "Drone 10": "b6654aad",
+            "Drone 11": "04315908",
+            "Drone 12": "01e3ece4",
+            "Drone 13": "5f7a6eec",
+            "Drone 14": "63e09994",
+            "Drone 15": "d4d95e8a"
+          },
+          "api_calls": 428,
+          "evidence_refs": [
+            "e841",
+            "e843",
+            "e845",
+            "e847",
+            "e849",
+            "e851",
+            "e853",
+            "e855"
+          ],
+          "remaining_s": 498.7408051249986,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "plan_id": "b1ad4f3e-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "rejected",
+          "reason": "skill_already_committed_not_resumable",
+          "cursor": 93,
+          "state": {
+            "progress_percent": 75,
+            "attempts": 92,
+            "outcomes": {
+              "completed": 76,
+              "blocked": 16
+            },
+            "new_public_obstacles": 11,
+            "entry_observations": [
+              {
+                "actor": "01e3ece4",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "04315908",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "176a4688",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "272fa7be",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "2a266de6",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "5f7a6eec",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e15",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "60892444",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e17",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "6126210f",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e19",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "63e09994",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e21",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "7954b39a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e23",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "b6654aad",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e25",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "be69a550",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e27",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d32ef0d8",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e29",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d4d95e8a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e31",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "e444398a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e33",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "176a4688",
+                "x": 875.0,
+                "y": 735.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "9447e871",
+                "drone_id": "176a4688",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+                "timestamp": 1802649601.2494981,
+                "outcome": "blocked"
+              }
+            },
+            "round_number": 7,
+            "last_actor": "04315908",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "60892444",
+            "Drone 2": "e444398a",
+            "Drone 3": "7954b39a",
+            "Drone 4": "be69a550",
+            "Drone 5": "176a4688",
+            "Drone 6": "d32ef0d8",
+            "Drone 7": "6126210f",
+            "Drone 8": "272fa7be",
+            "Drone 9": "2a266de6",
+            "Drone 10": "b6654aad",
+            "Drone 11": "04315908",
+            "Drone 12": "01e3ece4",
+            "Drone 13": "5f7a6eec",
+            "Drone 14": "63e09994",
+            "Drone 15": "d4d95e8a"
+          },
+          "api_calls": 428,
+          "evidence_refs": [
+            "e841",
+            "e843",
+            "e845",
+            "e847",
+            "e849",
+            "e851",
+            "e853",
+            "e855"
+          ],
+          "remaining_s": 498.70563191600013,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "start",
+          "plan_status": "needs_replan",
+          "plan_reason": "local_repair_budget_exhausted"
+        },
+        "before": {
+          "world": "91f4880f5ef5b6b6034a5b7b1b244f9b1fb6b32efc68698e271cce91ebf35114",
+          "frames": "600ad62658a2a63d564d438fb280283b181158fa22e8d0d45d70c52a7c86625e",
+          "api_requests": 444,
+          "events": 91
+        },
+        "after": {
+          "world": "91f4880f5ef5b6b6034a5b7b1b244f9b1fb6b32efc68698e271cce91ebf35114",
+          "frames": "600ad62658a2a63d564d438fb280283b181158fa22e8d0d45d70c52a7c86625e",
+          "api_requests": 444,
+          "events": 91
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "b1ad4f3e-entry_contract_v2:p1",
+          "skill": "public_search",
+          "status": "rejected",
+          "reason": "plan_not_resumable",
+          "cursor": 93,
+          "state": {
+            "progress_percent": 75,
+            "attempts": 92,
+            "outcomes": {
+              "completed": 76,
+              "blocked": 16
+            },
+            "new_public_obstacles": 11,
+            "entry_observations": [
+              {
+                "actor": "01e3ece4",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e5",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "04315908",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e7",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "176a4688",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e9",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "272fa7be",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e11",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "2a266de6",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e13",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "5f7a6eec",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e15",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "60892444",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e17",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "6126210f",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e19",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "63e09994",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e21",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "7954b39a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e23",
+                "status": "valid_nonempty",
+                "obstacle_count": 1
+              },
+              {
+                "actor": "b6654aad",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e25",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "be69a550",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e27",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d32ef0d8",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e29",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              },
+              {
+                "actor": "d4d95e8a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e31",
+                "status": "valid_nonempty",
+                "obstacle_count": 2
+              },
+              {
+                "actor": "e444398a",
+                "scene_id": "35ce64d8",
+                "scene_epoch": 0,
+                "scope": "local_obstacle_observation",
+                "evidence_ref": "e33",
+                "status": "valid_empty",
+                "obstacle_count": 0
+              }
+            ],
+            "entry_observations_complete": true,
+            "last_action": {
+              "tool": "move_to",
+              "args": {
+                "drone_id": "176a4688",
+                "x": 875.0,
+                "y": 735.0,
+                "z": 20.0
+              },
+              "receipt": {
+                "command_id": "9447e871",
+                "drone_id": "176a4688",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+                "timestamp": 1802649601.2494981,
+                "outcome": "blocked"
+              }
+            },
+            "round_number": 7,
+            "last_actor": "04315908",
+            "last_move_outcome": "completed"
+          },
+          "actor_bindings": {
+            "Drone 1": "60892444",
+            "Drone 2": "e444398a",
+            "Drone 3": "7954b39a",
+            "Drone 4": "be69a550",
+            "Drone 5": "176a4688",
+            "Drone 6": "d32ef0d8",
+            "Drone 7": "6126210f",
+            "Drone 8": "272fa7be",
+            "Drone 9": "2a266de6",
+            "Drone 10": "b6654aad",
+            "Drone 11": "04315908",
+            "Drone 12": "01e3ece4",
+            "Drone 13": "5f7a6eec",
+            "Drone 14": "63e09994",
+            "Drone 15": "d4d95e8a"
+          },
+          "api_calls": 428,
+          "evidence_refs": [
+            "e841",
+            "e843",
+            "e845",
+            "e847",
+            "e849",
+            "e851",
+            "e853",
+            "e855"
+          ],
+          "remaining_s": 498.670220041,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "resume",
+          "plan_status": "needs_replan",
+          "plan_reason": "local_repair_budget_exhausted"
+        },
+        "before": {
+          "world": "91f4880f5ef5b6b6034a5b7b1b244f9b1fb6b32efc68698e271cce91ebf35114",
+          "frames": "600ad62658a2a63d564d438fb280283b181158fa22e8d0d45d70c52a7c86625e",
+          "api_requests": 444,
+          "events": 91
+        },
+        "after": {
+          "world": "91f4880f5ef5b6b6034a5b7b1b244f9b1fb6b32efc68698e271cce91ebf35114",
+          "frames": "600ad62658a2a63d564d438fb280283b181158fa22e8d0d45d70c52a7c86625e",
+          "api_requests": 444,
+          "events": 91
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "35ce64d8",
+      "task_type": "target_assignment",
+      "progress_percentage": 75,
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 15,
+        "unvisited_targets": 5
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.95
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.75,
+              "session_id": "35ce64d8",
+              "expected_progress": 0.95,
+              "task_type": "target_assignment",
+              "progress_percentage": 75,
+              "is_completed": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 429,
+      "action_attempts": 108,
+      "action_receipts": {
+        "success": 91,
+        "partial_success": 0,
+        "error": 17
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 91,
+      "length_xy": 11180.164330001662,
+      "length_xyz": 11480.164330001662,
+      "vertical_distance": 300.0,
+      "consumed_mah": 66.71733206951083,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 1.3667264169998816,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "b1eb0270-entry_contract_v2",
+    "task_id": "b1eb0270",
+    "scene_id": "ad34350a",
+    "revision": "entry_contract_v2",
+    "skill": "simple_chain",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+    "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+    "end_state_sha256": "fe68c506f3a919dc7638fb525f3ad029b9ab9bbc3d857f9c458ce2a7136186bc",
+    "snapshot_sha256": "c36468f3850d813891ff639e0e2356cc187fdd03dc24427ca249488ac020b5e8",
+    "response": {
+      "plan_id": "b1eb0270-entry_contract_v2:p1",
+      "skill": "simple_chain",
+      "status": "completed",
+      "reason": "skill_public_stop_condition",
+      "cursor": 3,
+      "state": {
+        "last_action": {
+          "tool": "hover",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "receipt": {
+            "command_id": "2a2c7e98",
+            "drone_id": "f7635bdf",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+            "timestamp": 1802649600.0237515,
+            "outcome": "completed"
+          }
+        },
+        "last_verified_state": {
+          "id": "f7635bdf",
+          "name": "Drone 3",
+          "model": "Model-D",
+          "status": "hovering",
+          "position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 14.0
+          },
+          "heading": 353.0,
+          "speed": 0.0,
+          "battery_level": 99.2,
+          "max_speed": 33.0,
+          "max_altitude": 473.0,
+          "battery_capacity": 74.4,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "created_at": 1775666803.5496068,
+          "last_updated": 1802649600.0237515
+        },
+        "remaining_steps": [],
+        "public_stop_condition": "simple_sequence_and_final_state_supported"
+      },
+      "actor_bindings": {
+        "Drone 3": "f7635bdf"
+      },
+      "api_calls": 10,
+      "evidence_refs": [
+        "e5",
+        "e7",
+        "e9",
+        "e11",
+        "e13",
+        "e15",
+        "e17",
+        "e19"
+      ],
+      "remaining_s": 499.9719476659993,
+      "mission_completion": "not_evaluated",
+      "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+      "resumable": false
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "b1eb0270-entry_contract_v2:p1",
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "f7635bdf"
+              },
+              "receipt": {
+                "command_id": "2a2c7e98",
+                "drone_id": "f7635bdf",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+                "timestamp": 1802649600.0237515,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "f7635bdf",
+              "name": "Drone 3",
+              "model": "Model-D",
+              "status": "hovering",
+              "position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 14.0
+              },
+              "heading": 353.0,
+              "speed": 0.0,
+              "battery_level": 99.2,
+              "max_speed": 33.0,
+              "max_altitude": 473.0,
+              "battery_capacity": 74.4,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 0.0
+              },
+              "created_at": 1775666803.5496068,
+              "last_updated": 1802649600.0237515
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 3": "f7635bdf"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.9719476659993,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "plan_id": "b1eb0270-entry_contract_v2:p1",
+          "skill": "simple_chain",
+          "status": "rejected",
+          "reason": "skill_already_committed_not_resumable",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "f7635bdf"
+              },
+              "receipt": {
+                "command_id": "2a2c7e98",
+                "drone_id": "f7635bdf",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+                "timestamp": 1802649600.0237515,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "f7635bdf",
+              "name": "Drone 3",
+              "model": "Model-D",
+              "status": "hovering",
+              "position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 14.0
+              },
+              "heading": 353.0,
+              "speed": 0.0,
+              "battery_level": 99.2,
+              "max_speed": 33.0,
+              "max_altitude": 473.0,
+              "battery_capacity": 74.4,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 0.0
+              },
+              "created_at": 1775666803.5496068,
+              "last_updated": 1802649600.0237515
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 3": "f7635bdf"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.96533787500084,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "start",
+          "plan_status": "completed",
+          "plan_reason": "skill_public_stop_condition"
+        },
+        "before": {
+          "world": "1a7d92a16298f969dd9afd1a6903176788b6fa06e7e6164f2f0488f2ee8e7122",
+          "frames": "651b590fb1099d28e261f7afd5cfa952d6db1e958268939b85f01a172b249d3b",
+          "api_requests": 41,
+          "events": 3
+        },
+        "after": {
+          "world": "1a7d92a16298f969dd9afd1a6903176788b6fa06e7e6164f2f0488f2ee8e7122",
+          "frames": "651b590fb1099d28e261f7afd5cfa952d6db1e958268939b85f01a172b249d3b",
+          "api_requests": 41,
+          "events": 3
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "b1eb0270-entry_contract_v2:p1",
+          "skill": "simple_chain",
+          "status": "rejected",
+          "reason": "plan_not_resumable",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "f7635bdf"
+              },
+              "receipt": {
+                "command_id": "2a2c7e98",
+                "drone_id": "f7635bdf",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+                "timestamp": 1802649600.0237515,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "f7635bdf",
+              "name": "Drone 3",
+              "model": "Model-D",
+              "status": "hovering",
+              "position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 14.0
+              },
+              "heading": 353.0,
+              "speed": 0.0,
+              "battery_level": 99.2,
+              "max_speed": 33.0,
+              "max_altitude": 473.0,
+              "battery_capacity": 74.4,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 0.0
+              },
+              "created_at": 1775666803.5496068,
+              "last_updated": 1802649600.0237515
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 3": "f7635bdf"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.95918249999886,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "resume",
+          "plan_status": "completed",
+          "plan_reason": "skill_public_stop_condition"
+        },
+        "before": {
+          "world": "1a7d92a16298f969dd9afd1a6903176788b6fa06e7e6164f2f0488f2ee8e7122",
+          "frames": "651b590fb1099d28e261f7afd5cfa952d6db1e958268939b85f01a172b249d3b",
+          "api_requests": 41,
+          "events": 3
+        },
+        "after": {
+          "world": "1a7d92a16298f969dd9afd1a6903176788b6fa06e7e6164f2f0488f2ee8e7122",
+          "frames": "651b590fb1099d28e261f7afd5cfa952d6db1e958268939b85f01a172b249d3b",
+          "api_requests": 41,
+          "events": 3
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "ad34350a",
+      "task_type": "area_assignment_and_patrol",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 20
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "details": {
+        "result": true,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": true,
+            "type": "check",
+            "endpoint": "/check/drone_heading",
+            "parameters": {
+              "drone_id": "f7635bdf",
+              "expected_heading": 353.0,
+              "tolerance": 5.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": true,
+              "value": 353.0,
+              "drone_id": "f7635bdf",
+              "expected_heading": 353.0,
+              "heading_delta": 0.0,
+              "tolerance": 5.0
+            }
+          },
+          {
+            "result": true,
+            "type": "check",
+            "endpoint": "/check/drone_altitude",
+            "parameters": {
+              "drone_id": "f7635bdf",
+              "expected_altitude": 14.0,
+              "tolerance": 2.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": true,
+              "value": 14.0,
+              "drone_id": "f7635bdf",
+              "expected_altitude": 14.0,
+              "difference": 0.0,
+              "tolerance": 2.0
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 11,
+      "action_attempts": 3,
+      "action_receipts": {
+        "success": 3,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 3,
+      "length_xy": 0.0,
+      "length_xyz": 14.0,
+      "vertical_distance": 14.0,
+      "consumed_mah": 0.5952000000000055,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.04984675000014249,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "b1eb0270-legacy",
+    "task_id": "b1eb0270",
+    "scene_id": "ad34350a",
+    "revision": "legacy",
+    "skill": "simple_chain",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+    "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+    "end_state_sha256": "c5cafac93bce0d35d99f27db42bc82d07120e7b830a58c4745fbcfdbb3338c00",
+    "snapshot_sha256": "29a29fa79c6830aca3dc8027b01bb804e4fa01ac0df5514341d0209bf9504338",
+    "response": {
+      "plan_id": "b1eb0270-legacy:p1",
+      "skill": "simple_chain",
+      "status": "completed",
+      "reason": "skill_public_stop_condition",
+      "cursor": 3,
+      "state": {
+        "last_action": {
+          "tool": "hover",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "receipt": {
+            "command_id": "2a2c7e98",
+            "drone_id": "f7635bdf",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+            "timestamp": 1802649600.0234427,
+            "outcome": "completed"
+          }
+        },
+        "last_verified_state": {
+          "id": "f7635bdf",
+          "name": "Drone 3",
+          "model": "Model-D",
+          "status": "hovering",
+          "position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 14.0
+          },
+          "heading": 353.0,
+          "speed": 0.0,
+          "battery_level": 99.2,
+          "max_speed": 33.0,
+          "max_altitude": 473.0,
+          "battery_capacity": 74.4,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "created_at": 1775666803.5496068,
+          "last_updated": 1802649600.0234427
+        },
+        "remaining_steps": [],
+        "public_stop_condition": "simple_sequence_and_final_state_supported"
+      },
+      "actor_bindings": {
+        "Drone 3": "f7635bdf"
+      },
+      "api_calls": 10,
+      "evidence_refs": [
+        "e5",
+        "e7",
+        "e9",
+        "e11",
+        "e13",
+        "e15",
+        "e17",
+        "e19"
+      ],
+      "remaining_s": 499.97229670899833,
+      "mission_completion": "not_evaluated",
+      "next_control": "use original tools to resolve remaining task obligations"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "b1eb0270-legacy:p1",
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "f7635bdf"
+              },
+              "receipt": {
+                "command_id": "2a2c7e98",
+                "drone_id": "f7635bdf",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+                "timestamp": 1802649600.0234427,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "f7635bdf",
+              "name": "Drone 3",
+              "model": "Model-D",
+              "status": "hovering",
+              "position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 14.0
+              },
+              "heading": 353.0,
+              "speed": 0.0,
+              "battery_level": 99.2,
+              "max_speed": 33.0,
+              "max_altitude": 473.0,
+              "battery_capacity": 74.4,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 0.0
+              },
+              "created_at": 1775666803.5496068,
+              "last_updated": 1802649600.0234427
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 3": "f7635bdf"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.97229670899833,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "rejected",
+          "reason": "skill_already_committed_use_plan_id"
+        },
+        "before": {
+          "world": "104c90bd617d66c266de069f9feafd5124a3da17ac9de0cb4b27ad2010904320",
+          "frames": "938952cc4ba64c7701d2cbe507d2493c9639b9db151024c3ac26cbfad4b7542e",
+          "api_requests": 41,
+          "events": 3
+        },
+        "after": {
+          "world": "104c90bd617d66c266de069f9feafd5124a3da17ac9de0cb4b27ad2010904320",
+          "frames": "938952cc4ba64c7701d2cbe507d2493c9639b9db151024c3ac26cbfad4b7542e",
+          "api_requests": 41,
+          "events": 3
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "b1eb0270-legacy:p1",
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "f7635bdf"
+              },
+              "receipt": {
+                "command_id": "2a2c7e98",
+                "drone_id": "f7635bdf",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+                "timestamp": 1802649600.0234427,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "f7635bdf",
+              "name": "Drone 3",
+              "model": "Model-D",
+              "status": "hovering",
+              "position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 14.0
+              },
+              "heading": 353.0,
+              "speed": 0.0,
+              "battery_level": 99.2,
+              "max_speed": 33.0,
+              "max_altitude": 473.0,
+              "battery_capacity": 74.4,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 0.0
+              },
+              "created_at": 1775666803.5496068,
+              "last_updated": 1802649600.0234427
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 3": "f7635bdf"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.95987737500036,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        },
+        "before": {
+          "world": "104c90bd617d66c266de069f9feafd5124a3da17ac9de0cb4b27ad2010904320",
+          "frames": "938952cc4ba64c7701d2cbe507d2493c9639b9db151024c3ac26cbfad4b7542e",
+          "api_requests": 41,
+          "events": 3
+        },
+        "after": {
+          "world": "104c90bd617d66c266de069f9feafd5124a3da17ac9de0cb4b27ad2010904320",
+          "frames": "938952cc4ba64c7701d2cbe507d2493c9639b9db151024c3ac26cbfad4b7542e",
+          "api_requests": 41,
+          "events": 3
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "ad34350a",
+      "task_type": "area_assignment_and_patrol",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 20
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "details": {
+        "result": true,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": true,
+            "type": "check",
+            "endpoint": "/check/drone_heading",
+            "parameters": {
+              "drone_id": "f7635bdf",
+              "expected_heading": 353.0,
+              "tolerance": 5.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": true,
+              "value": 353.0,
+              "drone_id": "f7635bdf",
+              "expected_heading": 353.0,
+              "heading_delta": 0.0,
+              "tolerance": 5.0
+            }
+          },
+          {
+            "result": true,
+            "type": "check",
+            "endpoint": "/check/drone_altitude",
+            "parameters": {
+              "drone_id": "f7635bdf",
+              "expected_altitude": 14.0,
+              "tolerance": 2.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": true,
+              "value": 14.0,
+              "drone_id": "f7635bdf",
+              "expected_altitude": 14.0,
+              "difference": 0.0,
+              "tolerance": 2.0
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 11,
+      "action_attempts": 3,
+      "action_receipts": {
+        "success": 3,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 3,
+      "length_xy": 0.0,
+      "length_xyz": 14.0,
+      "vertical_distance": 14.0,
+      "consumed_mah": 0.5952000000000055,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.049577875000977656,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "898cfdca-legacy",
+    "task_id": "898cfdca",
+    "scene_id": "35ce64d8",
+    "revision": "legacy",
+    "skill": "simple_chain",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+    "public_startup_sha256": "3fefe3bfa8e90e3b848f56827564e180d90221aab957231a14021d77b792fd30",
+    "end_state_sha256": "e4817ecbe7f3dabd2a7f8e3f6e57d0d794e76ee862d74e77bad90abb47682bba",
+    "snapshot_sha256": "237ce1d1ff39d9e01abc53530398fba4f9fd3c419c5ff8d8a0e8581d612eafba",
+    "response": {
+      "plan_id": "898cfdca-legacy:p1",
+      "skill": "simple_chain",
+      "status": "completed",
+      "reason": "skill_public_stop_condition",
+      "cursor": 3,
+      "state": {
+        "last_action": {
+          "tool": "hover",
+          "args": {
+            "drone_id": "01e3ece4"
+          },
+          "receipt": {
+            "command_id": "854aa3c0",
+            "drone_id": "01e3ece4",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.3%/69mAh)",
+            "timestamp": 1802649600.021397,
+            "outcome": "completed"
+          }
+        },
+        "last_verified_state": {
+          "id": "01e3ece4",
+          "name": "Drone 12",
+          "model": "Model-X2",
+          "status": "hovering",
+          "position": {
+            "x": 877.0,
+            "y": 36.0,
+            "z": 30.0
+          },
+          "heading": 0.0,
+          "speed": 0.0,
+          "battery_level": 99.26336350000001,
+          "max_speed": 29.0,
+          "max_altitude": 234.0,
+          "battery_capacity": 69.9,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 877.0,
+            "y": 36.0,
+            "z": 0.0
+          },
+          "created_at": 1775667075.669599,
+          "last_updated": 1802649600.021397
+        },
+        "remaining_steps": [],
+        "public_stop_condition": "simple_sequence_and_final_state_supported"
+      },
+      "actor_bindings": {
+        "Drone 12": "01e3ece4"
+      },
+      "api_calls": 10,
+      "evidence_refs": [
+        "e5",
+        "e7",
+        "e9",
+        "e11",
+        "e13",
+        "e15",
+        "e17",
+        "e19"
+      ],
+      "remaining_s": 499.97409933400195,
+      "mission_completion": "not_evaluated",
+      "next_control": "use original tools to resolve remaining task obligations"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "898cfdca-legacy:p1",
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "01e3ece4"
+              },
+              "receipt": {
+                "command_id": "854aa3c0",
+                "drone_id": "01e3ece4",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.3%/69mAh)",
+                "timestamp": 1802649600.021397,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "01e3ece4",
+              "name": "Drone 12",
+              "model": "Model-X2",
+              "status": "hovering",
+              "position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 30.0
+              },
+              "heading": 0.0,
+              "speed": 0.0,
+              "battery_level": 99.26336350000001,
+              "max_speed": 29.0,
+              "max_altitude": 234.0,
+              "battery_capacity": 69.9,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 0.0
+              },
+              "created_at": 1775667075.669599,
+              "last_updated": 1802649600.021397
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 12": "01e3ece4"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.97409933400195,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "rejected",
+          "reason": "skill_already_committed_use_plan_id"
+        },
+        "before": {
+          "world": "79c1d0e890fd654ceb37c4434e2fc5965cc17a91de71a748615c072644e60a9f",
+          "frames": "97412135ef66d54269ae84b37edc6dd89689224d945aecb2615748ca833e4708",
+          "api_requests": 26,
+          "events": 3
+        },
+        "after": {
+          "world": "79c1d0e890fd654ceb37c4434e2fc5965cc17a91de71a748615c072644e60a9f",
+          "frames": "97412135ef66d54269ae84b37edc6dd89689224d945aecb2615748ca833e4708",
+          "api_requests": 26,
+          "events": 3
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "898cfdca-legacy:p1",
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "01e3ece4"
+              },
+              "receipt": {
+                "command_id": "854aa3c0",
+                "drone_id": "01e3ece4",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.3%/69mAh)",
+                "timestamp": 1802649600.021397,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "01e3ece4",
+              "name": "Drone 12",
+              "model": "Model-X2",
+              "status": "hovering",
+              "position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 30.0
+              },
+              "heading": 0.0,
+              "speed": 0.0,
+              "battery_level": 99.26336350000001,
+              "max_speed": 29.0,
+              "max_altitude": 234.0,
+              "battery_capacity": 69.9,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 0.0
+              },
+              "created_at": 1775667075.669599,
+              "last_updated": 1802649600.021397
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 12": "01e3ece4"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.96502570899975,
+          "mission_completion": "not_evaluated",
+          "next_control": "use original tools to resolve remaining task obligations"
+        },
+        "before": {
+          "world": "79c1d0e890fd654ceb37c4434e2fc5965cc17a91de71a748615c072644e60a9f",
+          "frames": "97412135ef66d54269ae84b37edc6dd89689224d945aecb2615748ca833e4708",
+          "api_requests": 26,
+          "events": 3
+        },
+        "after": {
+          "world": "79c1d0e890fd654ceb37c4434e2fc5965cc17a91de71a748615c072644e60a9f",
+          "frames": "97412135ef66d54269ae84b37edc6dd89689224d945aecb2615748ca833e4708",
+          "api_requests": 26,
+          "events": 3
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "35ce64d8",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 0,
+        "unvisited_targets": 20
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "details": {
+        "result": true,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": true,
+            "type": "check",
+            "endpoint": "/check/drone_altitude",
+            "parameters": {
+              "drone_id": "01e3ece4",
+              "expected_altitude": 30.0,
+              "tolerance": 2.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": true,
+              "value": 30.0,
+              "drone_id": "01e3ece4",
+              "expected_altitude": 30.0,
+              "difference": 0.0,
+              "tolerance": 2.0
+            }
+          },
+          {
+            "result": true,
+            "type": "check",
+            "endpoint": "/check/drone_hovering",
+            "parameters": {
+              "drone_id": "01e3ece4",
+              "tolerance": 0.5
+            },
+            "expected": null,
+            "check_response": {
+              "result": true,
+              "value": "hovering",
+              "drone_id": "01e3ece4",
+              "altitude": 30.0,
+              "tolerance": 0.5
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 11,
+      "action_attempts": 3,
+      "action_receipts": {
+        "success": 3,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 3,
+      "length_xy": 0.0,
+      "length_xyz": 30.0,
+      "vertical_distance": 30.0,
+      "consumed_mah": 0.514908913499994,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.04234629100028542,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "898cfdca-entry_contract_v2",
+    "task_id": "898cfdca",
+    "scene_id": "35ce64d8",
+    "revision": "entry_contract_v2",
+    "skill": "simple_chain",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+    "public_startup_sha256": "3fefe3bfa8e90e3b848f56827564e180d90221aab957231a14021d77b792fd30",
+    "end_state_sha256": "d66d8b87631aeebff52383ab82975e5c206990821afcfd8f72306d5b9ddd3cc0",
+    "snapshot_sha256": "d31e090419b1809918b56c09fda1b7428b3258f470c4c9ced3f56506f3fb2a82",
+    "response": {
+      "plan_id": "898cfdca-entry_contract_v2:p1",
+      "skill": "simple_chain",
+      "status": "completed",
+      "reason": "skill_public_stop_condition",
+      "cursor": 3,
+      "state": {
+        "last_action": {
+          "tool": "hover",
+          "args": {
+            "drone_id": "01e3ece4"
+          },
+          "receipt": {
+            "command_id": "854aa3c0",
+            "drone_id": "01e3ece4",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.3%/69mAh)",
+            "timestamp": 1802649600.0227938,
+            "outcome": "completed"
+          }
+        },
+        "last_verified_state": {
+          "id": "01e3ece4",
+          "name": "Drone 12",
+          "model": "Model-X2",
+          "status": "hovering",
+          "position": {
+            "x": 877.0,
+            "y": 36.0,
+            "z": 30.0
+          },
+          "heading": 0.0,
+          "speed": 0.0,
+          "battery_level": 99.26336350000001,
+          "max_speed": 29.0,
+          "max_altitude": 234.0,
+          "battery_capacity": 69.9,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 877.0,
+            "y": 36.0,
+            "z": 0.0
+          },
+          "created_at": 1775667075.669599,
+          "last_updated": 1802649600.0227938
+        },
+        "remaining_steps": [],
+        "public_stop_condition": "simple_sequence_and_final_state_supported"
+      },
+      "actor_bindings": {
+        "Drone 12": "01e3ece4"
+      },
+      "api_calls": 10,
+      "evidence_refs": [
+        "e5",
+        "e7",
+        "e9",
+        "e11",
+        "e13",
+        "e15",
+        "e17",
+        "e19"
+      ],
+      "remaining_s": 499.9732684590017,
+      "mission_completion": "not_evaluated",
+      "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+      "resumable": false
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "plan_id": "898cfdca-entry_contract_v2:p1",
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "01e3ece4"
+              },
+              "receipt": {
+                "command_id": "854aa3c0",
+                "drone_id": "01e3ece4",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.3%/69mAh)",
+                "timestamp": 1802649600.0227938,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "01e3ece4",
+              "name": "Drone 12",
+              "model": "Model-X2",
+              "status": "hovering",
+              "position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 30.0
+              },
+              "heading": 0.0,
+              "speed": 0.0,
+              "battery_level": 99.26336350000001,
+              "max_speed": 29.0,
+              "max_altitude": 234.0,
+              "battery_capacity": 69.9,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 0.0
+              },
+              "created_at": 1775667075.669599,
+              "last_updated": 1802649600.0227938
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 12": "01e3ece4"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.9732684590017,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "plan_id": "898cfdca-entry_contract_v2:p1",
+          "skill": "simple_chain",
+          "status": "rejected",
+          "reason": "skill_already_committed_not_resumable",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "01e3ece4"
+              },
+              "receipt": {
+                "command_id": "854aa3c0",
+                "drone_id": "01e3ece4",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.3%/69mAh)",
+                "timestamp": 1802649600.0227938,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "01e3ece4",
+              "name": "Drone 12",
+              "model": "Model-X2",
+              "status": "hovering",
+              "position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 30.0
+              },
+              "heading": 0.0,
+              "speed": 0.0,
+              "battery_level": 99.26336350000001,
+              "max_speed": 29.0,
+              "max_altitude": 234.0,
+              "battery_capacity": 69.9,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 0.0
+              },
+              "created_at": 1775667075.669599,
+              "last_updated": 1802649600.0227938
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 12": "01e3ece4"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.9688641249995,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "start",
+          "plan_status": "completed",
+          "plan_reason": "skill_public_stop_condition"
+        },
+        "before": {
+          "world": "5d7a3843ea3e1205b5b544abcc9cb16d5313a33a70053e7d3d03ba1f096d9e79",
+          "frames": "8ca52b0dd3b5abea833bd75648d8982c34cdee756a9c8de5c5b271bca490ae7f",
+          "api_requests": 26,
+          "events": 3
+        },
+        "after": {
+          "world": "5d7a3843ea3e1205b5b544abcc9cb16d5313a33a70053e7d3d03ba1f096d9e79",
+          "frames": "8ca52b0dd3b5abea833bd75648d8982c34cdee756a9c8de5c5b271bca490ae7f",
+          "api_requests": 26,
+          "events": 3
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "plan_id": "898cfdca-entry_contract_v2:p1",
+          "skill": "simple_chain",
+          "status": "rejected",
+          "reason": "plan_not_resumable",
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "01e3ece4"
+              },
+              "receipt": {
+                "command_id": "854aa3c0",
+                "drone_id": "01e3ece4",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.3%/69mAh)",
+                "timestamp": 1802649600.0227938,
+                "outcome": "completed"
+              }
+            },
+            "last_verified_state": {
+              "id": "01e3ece4",
+              "name": "Drone 12",
+              "model": "Model-X2",
+              "status": "hovering",
+              "position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 30.0
+              },
+              "heading": 0.0,
+              "speed": 0.0,
+              "battery_level": 99.26336350000001,
+              "max_speed": 29.0,
+              "max_altitude": 234.0,
+              "battery_capacity": 69.9,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 877.0,
+                "y": 36.0,
+                "z": 0.0
+              },
+              "created_at": 1775667075.669599,
+              "last_updated": 1802649600.0227938
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "actor_bindings": {
+            "Drone 12": "01e3ece4"
+          },
+          "api_calls": 10,
+          "evidence_refs": [
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "remaining_s": 499.96503979200133,
+          "mission_completion": "not_evaluated",
+          "next_control": "do not resume or restart this skill; use original tools to resolve remaining task obligations",
+          "resumable": false,
+          "control_action": "resume",
+          "plan_status": "completed",
+          "plan_reason": "skill_public_stop_condition"
+        },
+        "before": {
+          "world": "5d7a3843ea3e1205b5b544abcc9cb16d5313a33a70053e7d3d03ba1f096d9e79",
+          "frames": "8ca52b0dd3b5abea833bd75648d8982c34cdee756a9c8de5c5b271bca490ae7f",
+          "api_requests": 26,
+          "events": 3
+        },
+        "after": {
+          "world": "5d7a3843ea3e1205b5b544abcc9cb16d5313a33a70053e7d3d03ba1f096d9e79",
+          "frames": "8ca52b0dd3b5abea833bd75648d8982c34cdee756a9c8de5c5b271bca490ae7f",
+          "api_requests": 26,
+          "events": 3
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "35ce64d8",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 0,
+        "unvisited_targets": 20
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "details": {
+        "result": true,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": true,
+            "type": "check",
+            "endpoint": "/check/drone_altitude",
+            "parameters": {
+              "drone_id": "01e3ece4",
+              "expected_altitude": 30.0,
+              "tolerance": 2.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": true,
+              "value": 30.0,
+              "drone_id": "01e3ece4",
+              "expected_altitude": 30.0,
+              "difference": 0.0,
+              "tolerance": 2.0
+            }
+          },
+          {
+            "result": true,
+            "type": "check",
+            "endpoint": "/check/drone_hovering",
+            "parameters": {
+              "drone_id": "01e3ece4",
+              "tolerance": 0.5
+            },
+            "expected": null,
+            "check_response": {
+              "result": true,
+              "value": "hovering",
+              "drone_id": "01e3ece4",
+              "altitude": 30.0,
+              "tolerance": 0.5
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 11,
+      "action_attempts": 3,
+      "action_receipts": {
+        "success": 3,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 3,
+      "length_xy": 0.0,
+      "length_xyz": 30.0,
+      "vertical_distance": 30.0,
+      "consumed_mah": 0.514908913499994,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.04148779100069078,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "784d71f8-entry_contract_v2",
+    "task_id": "784d71f8",
+    "scene_id": "823c15d5",
+    "revision": "entry_contract_v2",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+    "public_startup_sha256": "fc8d5bb4b573f2df117b0c6d2677d45b744c9d6c7ae90057451e83f95a49efa7",
+    "end_state_sha256": "1f1d8dee346f15f9369559bb228913275998bc50b2508301c36563b9581a3510",
+    "snapshot_sha256": "e4a731edb8a063b203bc2123d79d4d55d5fd853de7388c1f61b519f1614e85a2",
+    "response": {
+      "status": "unsupported",
+      "reason": "unsupported_skill_or_full_task_grammar"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "status": "unsupported",
+          "reason": "unsupported_skill_or_full_task_grammar"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "unsupported",
+          "reason": "unsupported_skill_or_full_task_grammar"
+        },
+        "before": {
+          "world": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 31,
+          "events": 0
+        },
+        "after": {
+          "world": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 31,
+          "events": 0
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "status": "rejected",
+          "reason": "unknown_or_other_task_plan_id"
+        },
+        "before": {
+          "world": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 31,
+          "events": 0
+        },
+        "after": {
+          "world": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 31,
+          "events": 0
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "823c15d5",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 100,
+        "visited_targets": 0,
+        "unvisited_targets": 100
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 4,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.5
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.0,
+              "session_id": "823c15d5",
+              "expected_progress": 0.5,
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "is_completed": false
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "3c973382",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "823c15d5",
+              "target_id": "3c973382",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "6aeaf2c0",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "823c15d5",
+              "target_id": "6aeaf2c0",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "01877932",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "823c15d5",
+              "target_id": "01877932",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 1,
+      "action_attempts": 0,
+      "action_receipts": {
+        "success": 0,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 0,
+      "length_xy": 0,
+      "length_xyz": 0,
+      "vertical_distance": 0,
+      "consumed_mah": 0,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.02693895800257451,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "784d71f8-legacy",
+    "task_id": "784d71f8",
+    "scene_id": "823c15d5",
+    "revision": "legacy",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+    "public_startup_sha256": "fc8d5bb4b573f2df117b0c6d2677d45b744c9d6c7ae90057451e83f95a49efa7",
+    "end_state_sha256": "0ed5e90f1534903f0b3e18cde9a647f30dbb5989522ff2bc9c7c47a947ddbfa5",
+    "snapshot_sha256": "a3c534c7a05c089325997a9e2526a16a5ab5f8f31652f32d8b55a3f3f916f810",
+    "response": {
+      "status": "unsupported",
+      "reason": "unsupported_skill_or_full_task_grammar"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "status": "unsupported",
+          "reason": "unsupported_skill_or_full_task_grammar"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "unsupported",
+          "reason": "unsupported_skill_or_full_task_grammar"
+        },
+        "before": {
+          "world": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 31,
+          "events": 0
+        },
+        "after": {
+          "world": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 31,
+          "events": 0
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "status": "rejected",
+          "reason": "unknown_or_other_task_plan_id"
+        },
+        "before": {
+          "world": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 31,
+          "events": 0
+        },
+        "after": {
+          "world": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 31,
+          "events": 0
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "823c15d5",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 100,
+        "visited_targets": 0,
+        "unvisited_targets": 100
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 4,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.5
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.0,
+              "session_id": "823c15d5",
+              "expected_progress": 0.5,
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "is_completed": false
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "3c973382",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "823c15d5",
+              "target_id": "3c973382",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "6aeaf2c0",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "823c15d5",
+              "target_id": "6aeaf2c0",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "01877932",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "823c15d5",
+              "target_id": "01877932",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 1,
+      "action_attempts": 0,
+      "action_receipts": {
+        "success": 0,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 0,
+      "length_xy": 0,
+      "length_xyz": 0,
+      "vertical_distance": 0,
+      "consumed_mah": 0,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.02600041599725955,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "1905e0ad-legacy",
+    "task_id": "1905e0ad",
+    "scene_id": "35ce64d8",
+    "revision": "legacy",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+    "public_startup_sha256": "3fefe3bfa8e90e3b848f56827564e180d90221aab957231a14021d77b792fd30",
+    "end_state_sha256": "acae60c5aa7b35e1d9a83ac82aa71eb27f9a2496fa45ab6048bd84aab52eaddf",
+    "snapshot_sha256": "0eda66a3a74c2cf98d0b6c70732bdbfab59225476387409ac8fda50d19e05569",
+    "response": {
+      "status": "unsupported",
+      "reason": "unsupported_skill_or_full_task_grammar"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "status": "unsupported",
+          "reason": "unsupported_skill_or_full_task_grammar"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "unsupported",
+          "reason": "unsupported_skill_or_full_task_grammar"
+        },
+        "before": {
+          "world": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 16,
+          "events": 0
+        },
+        "after": {
+          "world": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 16,
+          "events": 0
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "status": "rejected",
+          "reason": "unknown_or_other_task_plan_id"
+        },
+        "before": {
+          "world": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 16,
+          "events": 0
+        },
+        "after": {
+          "world": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 16,
+          "events": 0
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "35ce64d8",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 0,
+        "unvisited_targets": 20
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 6,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.7
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.0,
+              "session_id": "35ce64d8",
+              "expected_progress": 0.7,
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "is_completed": false
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "510c7bc7",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "510c7bc7",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "b1703776",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "b1703776",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "7d84f52a",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "7d84f52a",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "fce5af36",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "fce5af36",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "3599ce6e",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "3599ce6e",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 1,
+      "action_attempts": 0,
+      "action_receipts": {
+        "success": 0,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 0,
+      "length_xy": 0,
+      "length_xyz": 0,
+      "vertical_distance": 0,
+      "consumed_mah": 0,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.01360295799895539,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  },
+  {
+    "trial_id": "1905e0ad-entry_contract_v2",
+    "task_id": "1905e0ad",
+    "scene_id": "35ce64d8",
+    "revision": "entry_contract_v2",
+    "skill": "public_search",
+    "model": null,
+    "status": "verified",
+    "error": null,
+    "network_attempts": [],
+    "model_calls": 0,
+    "initial_state_sha256": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+    "public_startup_sha256": "3fefe3bfa8e90e3b848f56827564e180d90221aab957231a14021d77b792fd30",
+    "end_state_sha256": "7def2438a3cd22cfde368418982c588082f78d491183ca2afaaddaf73355aaaa",
+    "snapshot_sha256": "3c6db4f788ee0d8f39a2e5a034fe34e6757b6a63745ee2f66c45e025648ea2fc",
+    "response": {
+      "status": "unsupported",
+      "reason": "unsupported_skill_or_full_task_grammar"
+    },
+    "controls": [
+      {
+        "operation": "scripted_start",
+        "response": {
+          "status": "unsupported",
+          "reason": "unsupported_skill_or_full_task_grammar"
+        }
+      },
+      {
+        "operation": "repeat_start",
+        "response": {
+          "status": "unsupported",
+          "reason": "unsupported_skill_or_full_task_grammar"
+        },
+        "before": {
+          "world": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 16,
+          "events": 0
+        },
+        "after": {
+          "world": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 16,
+          "events": 0
+        },
+        "no_effect": true
+      },
+      {
+        "operation": "terminal_resume",
+        "response": {
+          "status": "rejected",
+          "reason": "unknown_or_other_task_plan_id"
+        },
+        "before": {
+          "world": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 16,
+          "events": 0
+        },
+        "after": {
+          "world": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2",
+          "frames": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "api_requests": 16,
+          "events": 0
+        },
+        "no_effect": true
+      }
+    ],
+    "public_progress": {
+      "session_id": "35ce64d8",
+      "task_type": "target_assignment",
+      "progress_percentage": 0,
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 0,
+        "unvisited_targets": 20
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "checker": {
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 6,
+      "details": {
+        "result": false,
+        "type": "logic",
+        "logic": "and",
+        "checks": [
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.7
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0.0,
+              "session_id": "35ce64d8",
+              "expected_progress": 0.7,
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "is_completed": false
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "510c7bc7",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "510c7bc7",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "b1703776",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "b1703776",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "7d84f52a",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "7d84f52a",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "fce5af36",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "fce5af36",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          },
+          {
+            "result": false,
+            "type": "check",
+            "endpoint": "/check/target_is_reached",
+            "parameters": {
+              "target_id": "3599ce6e",
+              "since_timestamp": 1802649600.0
+            },
+            "expected": null,
+            "check_response": {
+              "result": false,
+              "value": 0,
+              "session_id": "35ce64d8",
+              "target_id": "3599ce6e",
+              "reached_by": [],
+              "since_timestamp": 1802649600.0
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    "cost": {
+      "api_requests": 1,
+      "action_attempts": 0,
+      "action_receipts": {
+        "success": 0,
+        "partial_success": 0,
+        "error": 0
+      },
+      "uncommitted_actions": 0,
+      "physical_history_events": 0,
+      "length_xy": 0,
+      "length_xyz": 0,
+      "vertical_distance": 0,
+      "consumed_mah": 0,
+      "charged_mah": 0
+    },
+    "elapsed_seconds": 0.013500916000339203,
+    "source_hashes_verified_after": true,
+    "fixture_hashes_verified_after": true,
+    "process_returncode": 0
+  }
+]

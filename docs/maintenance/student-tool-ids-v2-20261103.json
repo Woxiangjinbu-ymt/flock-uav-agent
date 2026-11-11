@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "scope": "W3_followup_same_name_parallel_student_input",
+  "status": "local_input_association_repair_passed",
+  "report": "docs/results/student-tool-ids-v2-20261103/REPORT_CN.md",
+  "final_verification_sha256": "4229a14f8972eaf0792f5a20cc835c0607905fd2dfea712aaeea78b4fb491634",
+  "bundle_manifest_sha256": "e3c8c0a6f56f073014aa1812cb22326ec451f0163f0163201dfb187b0b022795",
+  "old_prompt_compatible": 88,
+  "new_prompt_compatible": 98,
+  "prompt_denominator": 98,
+  "old_template_rejections_resolved": 10,
+  "supervised_development_samples_unchanged": 61,
+  "original_excluded_decisions_unchanged": 37,
+  "current_target_tokens_unchanged": true,
+  "sequence_tokens_before": 736669,
+  "sequence_tokens_after": 749200,
+  "sequence_token_increase_percent": 1.7010353360871644,
+  "code_tests_passed": 265,
+  "synthetic_boundary_cases": 12,
+  "real_wire_reordered_groups": 0,
+  "execution_completion_reordered_groups": 2,
+  "provider_calls": 0,
+  "teacher_training_examples": 0,
+  "weights_downloaded": false,
+  "training_started": false,
+  "old_seals_unchanged": true,
+  "documents_sha256": {
+    "docs/RESEARCH_STATUS_CN.md": "a81fc83c1a5f6a95437262d4c3fb955d3a3f715d1adcd8c090c012a8e70aa9ee",
+    "docs/RESEARCH_ROADMAP_CN.md": "54967986b6db240c66e61976f9034b9d151e19c4343a0aeabedead525cfddd29",
+    "docs/POSTTRAINING_PLAN_CN.md": "36fac125c86400f6484c9b2f2dcf14c3d6d3ce19eb1e20fd8ddb636106b2c840",
+    "docs/EXPERIMENT_EVIDENCE_CN.md": "485ca3e0d06b0064433357a3aae7fb8663b2f773daebe6417701d94b3b5ba3e7",
+    "docs/README.md": "33456c8a21359598a3f4097d00e04c7e7c1d59c5a0b3dc4c3cb6c26185129c5e",
+    "scripts/README.md": "7d2424aba7e17d08a0c73ca6cddc65b468e851184510fd5fbed63a22f3394eb2",
+    "experiments/README.md": "bcd4c1070c3f1b9d49449ce378e884acc26dff3c8d656a483e790380b75b29a1",
+    "docs/STUDENT_TOOL_ID_ADAPTER_CN.md": "65763e0717328ba780126f4f590c4c4eb2227c689f92a9ea0bd22e3513758c2f",
+    "docs/results/student-tool-ids-v2-20261103/REPORT_CN.md": "c5f38b5087a606f878a7bb28a210464d3759d07f1fe9daa5af38833bb91ef503"
+  },
+  "v1_source_files_modified": false,
+  "new_test_used_for_student_development": false,
+  "limits": [
+    "Local format, ID association and decoder only; no student model understanding or actual serving claim",
+    "16k fits61 complete samples; 32k+2048 generation reserve fits98 finite-source prompts; GPU feasibility untested",
+    "Parser checks JSON structure and declared tools, not full business schema or successful tool execution",
+    "Failed/partial search prompts remain diagnostic only"
+  ],
+  "next_actions": [
+    "Use same v2 adapter for future training and inference candidate",
+    "Decide full-history context/output reserve with actual GPU resources or separately version audited compression",
+    "Continue provider driver, real interface and future train provenance/quality/budget gates"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "checked_at": "2026-10-02T14:58:31+0800",
+  "scope": "Preparation and local deterministic harness tests only; no external LLM inference",
+  "extracted_files": 150,
+  "extracted_files_byte_identical_to_zip": true,
+  "critical_upstream_sources_unchanged": {
+    "agent4drone/uav_agent.py": true,
+    "agent4drone/uav_langchain_tools.py": true,
+    "agent4drone/agent_api_service.py": true,
+    "agent4drone/template/system_prompt.py": true,
+    "agent4drone/uav_api_client.py": true,
+    "server/api/server.py": true,
+    "server/controllers/drone_controller.py": true,
+    "server/controllers/session_controller.py": true,
+    "controller/check_ui/agent_checker.py": true
+  },
+  "new_python_syntax": "passed",
+  "tests": {
+    "command": "MULTIUAV_LIVE_TEST=1 controller/.venv/bin/python -m unittest discover -s scripts/tests -v",
+    "passed": 16,
+    "failed": 0,
+    "seconds": 14.317,
+    "fixtures": "Real local server + unchanged upstream agent job service + original evaluator; deterministic test-only actuator replaces LLM",
+    "success_path": {
+      "tasks": 1,
+      "checks_passed": 2,
+      "checks": 2
+    },
+    "timeout_path": {
+      "tasks_planned": 2,
+      "states": [
+        "invalid",
+        "not_run"
+      ],
+      "metrics": null,
+      "all_owned_children_reaped": true
+    }
+  },
+  "gateway_unauthenticated_probe": {
+    "endpoint": "https://myai.bupt.edu.cn/llm-gw/v1/models",
+    "status": 401,
+    "sent_key": false,
+    "model_generation_requests": 0
+  },
+  "preflight": {
+    "checked_at": "2026-10-02T14:55:09+0800",
+    "offline_ready": true,
+    "gateway_verified": false,
+    "blockers": [
+      "Missing BUPT API key in local settings or BUPT_API_KEY environment",
+      "Run preflight --gateway to verify model ID, authentication and tool roundtrip"
+    ],
+    "smoke": {
+      "tasks": 1,
+      "checks": 2
+    },
+    "pilot": {
+      "tasks": 60,
+      "checks": 345
+    },
+    "full": {
+      "tasks": 1500,
+      "checks": 9396
+    },
+    "environments": {
+      "server": {
+        "ok": true,
+        "output": "Using Python 3.11.16 environment at: server/.venv\nChecked 24 packages in 34ms\nAll installed packages are compatible"
+      },
+      "controller": {
+        "ok": true,
+        "output": "Using Python 3.11.16 environment at: controller/.venv\nChecked 11 packages in 23ms\nAll installed packages are compatible"
+      },
+      "agent4drone": {
+        "ok": true,
+        "output": "Using Python 3.11.16 environment at: agent4drone/.venv\nChecked 68 packages in 24ms\nAll installed packages are compatible"
+      }
+    },
+    "configuration": {
+      "selected_provider": "bupt_deepseek_flash",
+      "uav_base_url": "http://127.0.0.1:8000",
+      "uav_api_key": "",
+      "share_blackboard_by_session": true,
+      "toolchain_json_recording": true,
+      "provider_configs": {
+        "bupt_deepseek_flash": {
+          "name": "BUPT deepseek-flash",
+          "type": "openai-compatible",
+          "base_url": "https://myai.bupt.edu.cn/llm-gw/v1",
+          "requires_api_key": true,
+          "api_key": "<redacted>",
+          "default_model": "deepseek-flash",
+          "default_models": [
+            "deepseek-flash"
+          ]
+        }
+      }
+    }
+  },
+  "files": {
+    "scripts/reproduction.py": "ee0d90feb212bba38af712d6fc50191bc7f3f5c6e0c93242ae4d27e772d83baa",
+    "scripts/reproduction_agent.py": "671b664f7803aa80c0fbb1b27b30ae51b6866c91ddbf0a4b54c8d2aca9b46b5d",
+    "scripts/reproduction_gateway.py": "8c1267fb7327a5d0423ef5d8df8bcd43e62a29f4f6fe22dde61b84218c2be8da",
+    "scripts/tests/fake_agent_service.py": "3198d95ba31dc23753ef4d286c0b4dd5d60eedbc41f7e2ed70fabc8b77994283",
+    "scripts/tests/test_reproduction.py": "f5c4b39450d45e14e09800ab289c0f22debdf2a328a7d4bde22f5e1a5b034084"
+  },
+  "plans": {
+    "full.json": "789301fbf6118fbd2cde3f1e65d0fe1b5bcaa660911fc5ab22dc1f9fae20d3d0",
+    "pilot.json": "b174da2dfed96a124e59a013184893594823047b14d292bbed938070424f5f99",
+    "smoke.json": "5536e864038071987681b6cb78d75818a6dbf5d0b8580c221a5ffd214d5ef901"
+  },
+  "remaining": [
+    "Set private gateway API key locally",
+    "Confirm actual gateway model ID and tool roundtrip with preflight --gateway",
+    "Run real Agent4Drone smoke, then pilot before full benchmark"
+  ]
+}

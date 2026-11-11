@@ -1,0 +1,59 @@
+{
+  "schema": "m1-r2-offline-replay",
+  "totals": {
+    "max_summary_chars": 3898,
+    "tasks": 100,
+    "tool_events": 3273,
+    "pending_events": 0,
+    "observer_errors": 0,
+    "checkpoints": 1523,
+    "aggregate_tasks": 11,
+    "changed_summary_tasks": 15,
+    "changed_contact_projection_tasks": 4
+  },
+  "scenes": 5,
+  "positive_cases": [
+    {
+      "session_id": "ad34350a",
+      "task_id": "529c0622",
+      "checkpoints": 24,
+      "all_projections_equal": true,
+      "all_summaries_equal": true,
+      "adds_progress_tool": false
+    },
+    {
+      "session_id": "ad34350a",
+      "task_id": "a53ba7fc",
+      "checkpoints": 11,
+      "all_projections_equal": true,
+      "all_summaries_equal": true,
+      "adds_progress_tool": false
+    },
+    {
+      "session_id": "ef36e27a",
+      "task_id": "ba8b14f3",
+      "checkpoints": 13,
+      "all_projections_equal": true,
+      "all_summaries_equal": true,
+      "adds_progress_tool": false
+    },
+    {
+      "session_id": "823c15d5",
+      "task_id": "ddc3e0b0",
+      "checkpoints": 18,
+      "all_projections_equal": true,
+      "all_summaries_equal": true,
+      "adds_progress_tool": false
+    }
+  ],
+  "raw_receipts_and_order_preserved": true,
+  "evidence_semantics_preserved": true,
+  "displayed_sources_resolve_without_future_or_cross_session_evidence": true,
+  "performance_claim": null,
+  "limitations": [
+    "Fixed old actions, not R2-generated actions or success-rate estimates",
+    "Both replay indexes start empty; cannot certify exact original live inputs",
+    "No aggregate API observation existed in old traces; all new thresholds remain unknown",
+    "Pending interrupted calls remain pending; old 81/100 is unaccepted diagnostic evidence"
+  ]
+}

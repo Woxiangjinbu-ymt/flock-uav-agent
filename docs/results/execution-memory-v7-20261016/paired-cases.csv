@@ -1,0 +1,13 @@
+comparison,case_id,family,repeat,complete,success_outcome,resources_comparable,delta_model_request_attempts,delta_model_calls,delta_tool_calls,delta_input_tokens,delta_output_tokens,delta_total_tokens,delta_charged_tokens_including_uncertain_requests,delta_seconds,delta_repeated_successful_sense_queries,delta_informed_postcompletion_calls,delta_informed_postcompletion_reads,delta_informed_postcompletion_actions,delta_same_response_preplanned_postcompletion_calls,delta_tooltime_postcompletion_calls,delta_successful_repeated_completed_substeps
+v7_vs_v5,clue-horizontal,clue,1,True,tie_success,True,0,0,0,9,35,44,44,0.27895045800141816,0,0,0,0,0,0,0
+v7_vs_v5,clue-vertical,clue,1,True,tie_success,True,0,0,0,-11,-27,-38,-38,-0.09482012499938719,0,0,0,0,0,0,0
+v7_vs_v5,control-complete,control,1,True,tie_success,True,0,0,0,-42,-8,-50,-50,-0.20164124999791966,0,0,0,0,0,0,0
+v7_vs_v5,control-failed-sense,control,1,True,tie_success,True,0,0,0,17,37,54,54,0.10166237499834097,0,0,0,0,0,0,0
+v7_vs_v5,route-blocked,route,1,True,tie_success,True,0,0,0,-606,3,-603,-603,0.15646566699979303,0,0,0,0,0,0,0
+v7_vs_v5,route-interrupted,route,1,True,tie_success,True,0,0,0,-652,-34,-686,-686,-0.47284495799976867,0,0,0,0,0,0,0
+v7_vs_v5,clue-horizontal,clue,2,True,tie_success,True,-2,-2,-2,-9546,-396,-9942,-9942,-3.609235665999222,-1,0,0,0,0,0,0
+v7_vs_v5,clue-vertical,clue,2,True,tie_success,True,0,0,0,-9,-15,-24,-24,0.2408796670006268,0,0,0,0,0,0,0
+v7_vs_v5,control-complete,control,2,True,tie_success,True,0,0,0,-42,-65,-107,-107,0.24171254199791292,0,0,0,0,0,0,0
+v7_vs_v5,control-failed-sense,control,2,True,tie_success,True,0,0,0,6,7,13,13,-0.28853404199799115,0,0,0,0,0,0,0
+v7_vs_v5,route-blocked,route,2,True,tie_success,True,0,0,0,-605,14,-591,-591,0.5471633749984903,0,0,0,0,0,0,0
+v7_vs_v5,route-interrupted,route,2,True,tie_success,True,0,0,0,-605,4,-601,-601,-1.1647559579996596,0,0,0,0,0,0,0

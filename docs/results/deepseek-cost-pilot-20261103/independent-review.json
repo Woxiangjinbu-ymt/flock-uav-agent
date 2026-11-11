@@ -1,0 +1,1892 @@
+{
+  "schema": "deepseek-cost-independent-review-v1",
+  "valid": true,
+  "run": "run-01",
+  "source_hashes": {
+    "run-01/campaign-seal.json": "30cf4f8fdd40cf89eef6545553157d7b45aea6b4c1f456a9fb9eb57d6dbec778",
+    "analysis-01/analysis.json": "919f750b1440eba6a9f095707a79fbb57833b5fdc7079b9c64df3e6ca21162d1",
+    "run-01/manifest.json": "78bee144d7b0bf5d7ebc946eeb1ec3051ac86cce22381a9f86ee09facf47c68b",
+    "run-01/trials/short_chain-control/policy/modelio/model-io-fbbc139caacf48fba670f2642ca3cd50.jsonl": "91914ad453ed315e996d8525df263a15e83c5c81944a68e7b028a96df1caaab8",
+    "run-01/trials/short_chain-control/policy/worldlogs/public-api.jsonl": "d4f3079c8c2dceda2211b8d789fc7bba9d7d7e67f2224b0e63c7962a32f19438",
+    "run-01/trials/short_chain-control/policy/worldlogs/physical-events.jsonl": "ee18ab475ebce523cc72650b4d6b920dca18806035bf8379999ea7f592ad4e2d",
+    "run-01/trials/short_chain-control/evaluation/result.json": "16d1d8e4c0bccdf5ef1009426d6217272d6ad946f9c224b28312f5ff3f0f8f3f",
+    "run-01/trials/short_chain-control/policy/harness.json": "e625a8c73a313a350ff2573d35fcd29b3936d1113742b10f63d033fa800b30f8",
+    "run-01/trials/short_chain-candidate/policy/modelio/model-io-c65e505a30b54037b4f6b8461632b91e.jsonl": "1d25fe72d3a7bc24f151a7f2bae864c751601852f9b8d36bec859e3a552865ef",
+    "run-01/trials/short_chain-candidate/policy/worldlogs/public-api.jsonl": "42c1ca6b222ab2c696faa221f8d7aa917cdfcf9c2a3f3b412adc87a0cdac1870",
+    "run-01/trials/short_chain-candidate/policy/worldlogs/physical-events.jsonl": "8506eb16bd712128e18db6b7726ea4c02d61fd2456ecd865f8e16a617745479e",
+    "run-01/trials/short_chain-candidate/evaluation/result.json": "9a36709320ae984865c5c56a1400b8e125f04b9a3dc032e1dc6d278b48862f4c",
+    "run-01/trials/short_chain-candidate/policy/harness.json": "d98617b65d9a634542d5efe1ace6195808cb0a1a095791c45255ad9f0f0bdeb0",
+    "run-01/trials/navigation-candidate/policy/modelio/model-io-a5c87e64735c4ca7adfd38ee3f9bb124.jsonl": "c1d84339e94de9bc34b97064a009c086da321fb00bcb9499b8cac15651dd80a5",
+    "run-01/trials/navigation-candidate/policy/worldlogs/public-api.jsonl": "3c19f484af0e08f4c39a78d10c55da74eca4194a66621bab79cd8cf7f31d9691",
+    "run-01/trials/navigation-candidate/policy/worldlogs/physical-events.jsonl": "b7cf165c3049207dbe76768ad50fa69f997bbf086a306385fd4de61b8a6ffb46",
+    "run-01/trials/navigation-candidate/evaluation/result.json": "7cbe8d71dcdafea74146f24c3b465e135d0cc94b6e8603365517e04422c87f23",
+    "run-01/trials/navigation-candidate/policy/harness.json": "b3fed12f1f8b7532ad46bc39a1e1dab9f743cc967ec22490702f80902598f0a7",
+    "run-01/trials/navigation-control/policy/modelio/model-io-6dc753838ad941e497996b906de3de71.jsonl": "3f2054a0ed84d72dba6e5e2a47cce5be21281c772411e087aee9d3326ee7a298",
+    "run-01/trials/navigation-control/policy/worldlogs/public-api.jsonl": "45d935e5dbd678b6a136c7b5640d0a0234733d5ee1b8a5a62d09926766641d54",
+    "run-01/trials/navigation-control/policy/worldlogs/physical-events.jsonl": "be7409c36bfa30e1c5fa7cb8d6cfe46b3a4046be10966d92c1c21ecdbc2eed4d",
+    "run-01/trials/navigation-control/evaluation/result.json": "f1119dc19e0243c2e6b3c02d99ef9a2b6de20dfb67cdec671147d4ac65f9e840",
+    "run-01/trials/navigation-control/policy/harness.json": "4f5d0b9162ba032fe98cc3bd1225d4d4d2223eaf8779f978cb92225ca6a21211",
+    "run-01/trials/search-control/policy/modelio/model-io-16ae5f544b0a40c38e731315d0cb499c.jsonl": "e46b382542ec25ef17cc47e38f2a79a7351f8463ba3808ea0730837aea0321bc",
+    "run-01/trials/search-control/policy/worldlogs/public-api.jsonl": "2fb5bad2a2e2915c85f285dd39648d8a296d851849e5e48af51a436782f2bb9b",
+    "run-01/trials/search-control/policy/worldlogs/physical-events.jsonl": "931b23cdfae2fd7b6ea96b871ddf71b4006b9e748ded0c2c405df0e5339dfb14",
+    "run-01/trials/search-control/evaluation/result.json": "25ffd3ae21bd6be59f71e17481a995e4fdce1203d6a2eeb7b35cbcccf1c77211",
+    "run-01/trials/search-control/policy/harness.json": "a623ec9f486359aa0b38a914a5544775adb29285bd0fd30e3787ef2bc4998f85",
+    "run-01/trials/search-candidate/policy/modelio/model-io-91408606521642c2a26b287d537d9be3.jsonl": "1bbabe76c326001b2babc970d10eada93d0f5644a5b248c0f14fd6abf1199b35",
+    "run-01/trials/search-candidate/policy/worldlogs/public-api.jsonl": "a9f6363e056e36ea627097c34114a52931d2884a84a3c23d37020a8a39be72c2",
+    "run-01/trials/search-candidate/policy/worldlogs/physical-events.jsonl": "638cbea45ddcd5a6a40c537e5c147e45c8544a9b4fd2c4f785cb94ef52dbb83f",
+    "run-01/trials/search-candidate/evaluation/result.json": "635814a25aefe125deee8e300f0d0699136c1fbc275e82df4c75dabee3f9e77c",
+    "run-01/trials/search-candidate/policy/harness.json": "17e6be4b2cfc6ca114b3a78b80760fbfd1aaa5988a2045b3062cb675594182dc",
+    "run-01/trials/unknown_takeoff-candidate/policy/modelio/model-io-df032913147649b798f5e97804782f5e.jsonl": "657827857f4f179ad2c3b77b501b27ea80e74c56225733e5f738fdaeceb31be2",
+    "run-01/trials/unknown_takeoff-candidate/policy/worldlogs/public-api.jsonl": "998c99eab71ce409be4a28413c06a5000f698a9377fbcc52b259f7a1dd663503",
+    "run-01/trials/unknown_takeoff-candidate/policy/worldlogs/physical-events.jsonl": "cdac1ac3fa599ceb03c5084668fe59585d1598d8caf7f38799451ca773d50931",
+    "run-01/trials/unknown_takeoff-candidate/evaluation/result.json": "bbd5706caaf2e0b0dd3818a5dae374d55b36dd7d11dc9b4b7ed1a62438d337a8",
+    "run-01/trials/unknown_takeoff-candidate/policy/harness.json": "79d68a8b073043d81dea8b80b33af9c1e649d974d48b595c5359f4d55511eb00",
+    "run-01/trials/unknown_takeoff-candidate/private/online-api-fault.json": "aeba774fbe19024d8a78461d175204776595bf3a87131307989be12027c0bc8c",
+    "run-01/trials/unknown_takeoff-control/policy/modelio/model-io-6509b1c599cb46bf82d22253ef4997b3.jsonl": "a407eb2babdc5d6fabcd19b932e6f2279eccc6593da4eb36dc6f6f033e5c1e71",
+    "run-01/trials/unknown_takeoff-control/policy/worldlogs/public-api.jsonl": "a566bb91e475ef682646712f8c9a8d4165d0fa6e70a43e8abb59c172f36182ac",
+    "run-01/trials/unknown_takeoff-control/policy/worldlogs/physical-events.jsonl": "94ff5708cecd972b1393054837187475ac7053786f810869b35508e02d32585a",
+    "run-01/trials/unknown_takeoff-control/evaluation/result.json": "a1922888bb05e43ec16336f6d70a121c1510346314555599368db9618cc03b99",
+    "run-01/trials/unknown_takeoff-control/policy/harness.json": "9b4c07197a21f6e7a0b7e86e1e0c327f27cdb60b9df41e1be755ad4445a0262c",
+    "run-01/trials/unknown_takeoff-control/private/online-api-fault.json": "b042e868cf3fc4365b292b0f73c0c800d8e5e101af2486a79cb9626c6c4efc72",
+    "run-01/trials/search_complete-control/policy/modelio/model-io-40da2b91ca9440c18454b26732c76ff5.jsonl": "42e6aed63a5c6da056caddbd5dff68af41a55918b6f4b1027ad2bd17368c9f4c",
+    "run-01/trials/search_complete-control/policy/worldlogs/public-api.jsonl": "41851794f9bd0da3b1f976d7f7dd34964a33c3a46af56d12d9660fd2c5a9dbcc",
+    "run-01/trials/search_complete-control/policy/worldlogs/physical-events.jsonl": "06b30fb874d7b0826b1b91cb2a10f117bd2c952411640c1e4e7ec7092d584046",
+    "run-01/trials/search_complete-control/evaluation/result.json": "995b08553dbe052490558d58477e1e992c89323ea50da3844b8feff7c34ea22c",
+    "run-01/trials/search_complete-control/policy/harness.json": "bf73774ad87097d3906b24ffc4f18a1e3c1baaaa999e81d98c4af9c686ee5944",
+    "run-01/trials/search_complete-candidate/policy/modelio/model-io-7e264f6bb2b84861b89a32e597cabdad.jsonl": "6efd471854235df4d2cb2bdbdef59f0f9adca99d1a29ab7acb57595455f88897",
+    "run-01/trials/search_complete-candidate/policy/worldlogs/public-api.jsonl": "7974a429baa9f184e86e4c1354f0e0a2f753193dcfa78c27ccfa8b999e2b0de4",
+    "run-01/trials/search_complete-candidate/policy/worldlogs/physical-events.jsonl": "6992be69bd913bebeddeab7402cf9d19769c740f2352b0e59136f6e33893ca3d",
+    "run-01/trials/search_complete-candidate/evaluation/result.json": "ccb5ed643779558285385e440cc17956d80367ee8a5e24e5a192545cfb341a62",
+    "run-01/trials/search_complete-candidate/policy/harness.json": "386fbdfd2977aca484d9c83b82bcb15f534500413aa31241da2914c5447b29f1"
+  },
+  "primary_findings": [
+    "Original checker control 4/5 versus candidate 5/5; prespecified checker plus explicit action obligations both 4/5. Candidate short_chain omitted hover action/event while its final visible text cited status=hovering after takeoff. The public UAV state really is hovering; the unmet criterion is the preregistered separate post-takeoff hover action/effect evidence, not a claim that the UAV physically failed to hover.",
+    "Candidate search succeeds after the common search skill exits at 66%; two arms have identical normalized skill action sequences. Later model original tools complete search. This is not an observed benefit of the v9 extra-confirmation rule.",
+    "Both search_complete arms read cached progress 90 then 100 on periodic reads; candidate extra_reads is empty. Both execute the same skill actions; candidate asks one additional list_drones and uses more tokens.",
+    "Both unknown_takeoff arms have one exposed post-error model opportunity and recover remaining hover without any takeoff replay. Candidate has two input_json object type errors, including a status query after hover.",
+    "Actual usage totals are directly recomputed from 68 closed HTTP200 responses. Cache hit plus miss equals prompt tokens on all 68; cost accounting remains conservative peak/cache-miss, not supplier invoice.",
+    "Joint configuration, one repeat per known development condition. Byte/token changes and behavior changes are not isolated causes; no claim of stable improvement or unseen generalization."
+  ],
+  "strict_success_counts": {
+    "control": 4,
+    "candidate": 4
+  },
+  "strict_denominator_per_arm": 5,
+  "same_strict_completed_condition_subset": {
+    "conditions": [
+      "navigation",
+      "unknown_takeoff",
+      "search_complete"
+    ],
+    "tokens": {
+      "control": 258618,
+      "candidate": 241668
+    },
+    "candidate_change_fraction": -0.0655406816230889,
+    "scope": "descriptive subset only; all ten slots remain primary denominator"
+  },
+  "actual_response_count": 68,
+  "status_codes": {
+    "200": 68
+  },
+  "models": {
+    "deepseek-flash": 68
+  },
+  "fingerprints": {
+    "bc19ba97cbe016479903222bb1578db6": 68
+  },
+  "total_usage": {
+    "prompt_tokens": 977450,
+    "completion_tokens": 26278,
+    "total_tokens": 1003728,
+    "prompt_cache_hit_tokens": 655872,
+    "prompt_cache_miss_tokens": 321578
+  },
+  "candidate_search_raw_actions": 12,
+  "candidate_search_raw_target_receipts": [
+    {
+      "request_id": 394,
+      "model_tool": "navigate_to_and_sense",
+      "call_id": "call_03_S1qeMpeYtk17rAuzEaMR1176",
+      "status": "success",
+      "message": "Drone completed path with 11 waypoints (total distance: 810.36m, battery: -4.9%/-5mAh, remaining: 82.0%/81mAh) - Reached target(s): Fixed Target 2"
+    },
+    {
+      "request_id": 398,
+      "model_tool": "move_along_path_and_sense",
+      "call_id": "call_00_V1WJahjMJ0gUPvbj31c74831",
+      "status": "partial_success",
+      "message": "Drone partially completed path with 3 of 4 waypoints before stopping at waypoint 4 (Waypoint 4 conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 2') (total distance: 1851.47m, battery: -11.1%/-8mAh, remaining: 73.9%/52mAh) - Reached target(s): Fixed Target 1"
+    },
+    {
+      "request_id": 400,
+      "model_tool": "move_along_path_and_sense",
+      "call_id": "call_02_rLD82XQTY3oNKuNRIKcP0144",
+      "status": "partial_success",
+      "message": "Drone partially completed path with 3 of 4 waypoints before stopping at waypoint 4 (Path to waypoint 4 blocked: Flight path intersects with ObstacleType.POLYGON obstacle 'Polygon Obstacle 1') (total distance: 1474.34m, battery: -8.9%/-6mAh, remaining: 77.9%/50mAh) - Reached target(s): Fixed Target 3"
+    }
+  ],
+  "trials": {
+    "short_chain-control": {
+      "condition": "short_chain",
+      "arm": "control",
+      "checker_passed": true,
+      "strict_obligation_passed": true,
+      "usage": {
+        "prompt_tokens": 73918,
+        "completion_tokens": 632,
+        "total_tokens": 74550,
+        "prompt_cache_hit_tokens": 66304,
+        "prompt_cache_miss_tokens": 7614
+      },
+      "actual_http": 6,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_OKB7NK6nLqXSETd8GjLG8024",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_01_8EWHOgfxy58xo2ySsVUG0869",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 13,
+          "call_id": "call_00_QrwSIzQvi1EZ7wL8hOMW1302",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 21,
+          "call_id": "call_00_vxlhNTqIlgYEHaoj72C83747",
+          "name": "take_off",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 29,
+          "call_id": "call_00_ET_fMtOYIhzwHbzccUDpWeY8318",
+          "name": "hover",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 37,
+          "call_id": "call_00_ET_vOFgIFRT8dwpQ3bfWlfM5368",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        }
+      ],
+      "final_visible_messages": [
+        {
+          "logical_call_id": "model-6",
+          "content": "Done. Drone 4 (id `3d229034`) took off from (660, 734, 0) to 12 m altitude and is now hovering in place at (660, 734, 12). Weather was clear with light wind (6.3 m/s), no obstacles or other drones within its perception radius, and battery remains at 99.4%.\n\n[TASK DONE]"
+        }
+      ],
+      "actions": 2,
+      "public_apis": 9,
+      "takeoff_event_request_ids": [
+        13
+      ],
+      "hover_event_request_ids": [
+        14
+      ],
+      "public_progress": [
+        {
+          "request_id": 7,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 8,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 9,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        }
+      ],
+      "skill_frames": []
+    },
+    "short_chain-candidate": {
+      "condition": "short_chain",
+      "arm": "candidate",
+      "checker_passed": true,
+      "strict_obligation_passed": false,
+      "usage": {
+        "prompt_tokens": 43581,
+        "completion_tokens": 516,
+        "total_tokens": 44097,
+        "prompt_cache_hit_tokens": 35584,
+        "prompt_cache_miss_tokens": 7997
+      },
+      "actual_http": 5,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_ET_qoNIgWemrIv8GWonrqeM9605",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 11,
+          "call_id": "call_00_sgiWidJAE8ZTpEqPq0UX2993",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 11,
+          "call_id": "call_01_z5DzS6Qb5RtdvzGRZfJ79599",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 21,
+          "call_id": "call_00_WtvOzcqgx5aIF26UgG8x0138",
+          "name": "take_off",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 29,
+          "call_id": "call_00_ET_hjzYUXte1k6DSmcwxxCe5992",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        }
+      ],
+      "final_visible_messages": [
+        {
+          "logical_call_id": "model-5",
+          "content": "Drone 4 has completed the maneuver successfully:\n\n- **Drone:** Drone 4 (`3d229034`)\n- **Takeoff:** Success — climbed from 0 m to **12.0 m**\n- **Current status:** `hovering` in place at (660, 734, 12.0), heading 0°, speed 0\n- **Battery:** 99.5% (ample reserve)\n- **Conditions:** Clear weather, ~6.4 m/s wind, no obstacles or other drones within its 50 m perception radius\n\nDrone 4 is now hovering at the requested 12-meter altitude.\n\n[TASK DONE]"
+        }
+      ],
+      "actions": 1,
+      "public_apis": 8,
+      "takeoff_event_request_ids": [
+        13
+      ],
+      "hover_event_request_ids": [],
+      "public_progress": [
+        {
+          "request_id": 7,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 8,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 9,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        }
+      ],
+      "skill_frames": []
+    },
+    "navigation-candidate": {
+      "condition": "navigation",
+      "arm": "candidate",
+      "checker_passed": true,
+      "strict_obligation_passed": true,
+      "usage": {
+        "prompt_tokens": 54389,
+        "completion_tokens": 648,
+        "total_tokens": 55037,
+        "prompt_cache_hit_tokens": 46336,
+        "prompt_cache_miss_tokens": 8053
+      },
+      "actual_http": 6,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_d0u1URLnJRVYF42h18pA3213",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_01_CpmjXzpcBZGBm83vQn5K5118",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 13,
+          "call_id": "call_00_ianoHDLxb0yksz7RShsx4596",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 21,
+          "call_id": "call_00_IjGvzzrV8l57nIn56xvU4032",
+          "name": "take_off",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 29,
+          "call_id": "call_00_ET_jrKgo51VZT0EY5qD0dt06661",
+          "name": "navigate_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 37,
+          "call_id": "call_00_ET_HnzPo6RYnUHQ9ngIZHer8762",
+          "name": "hover",
+          "wire_input_json_type": "str"
+        }
+      ],
+      "final_visible_messages": [],
+      "actions": 3,
+      "public_apis": 13,
+      "takeoff_event_request_ids": [
+        11
+      ],
+      "hover_event_request_ids": [
+        17
+      ],
+      "public_progress": [
+        {
+          "request_id": 5,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 6,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 7,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        }
+      ],
+      "skill_frames": []
+    },
+    "navigation-control": {
+      "condition": "navigation",
+      "arm": "control",
+      "checker_passed": true,
+      "strict_obligation_passed": true,
+      "usage": {
+        "prompt_tokens": 74136,
+        "completion_tokens": 599,
+        "total_tokens": 74735,
+        "prompt_cache_hit_tokens": 66304,
+        "prompt_cache_miss_tokens": 7832
+      },
+      "actual_http": 6,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_ET_O8rE9Ix9dkaNMkRHup333115",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_01_ET_XGjkDSzxU2F9rY0Ky3c23972",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 13,
+          "call_id": "call_00_aQC2HjErAMDXOr6tO9d50200",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 21,
+          "call_id": "call_00_grRxO8BaFv8FYWQWWwhj8302",
+          "name": "take_off",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 29,
+          "call_id": "call_00_ET_diOrEGLGFppOEl9M64QO9778",
+          "name": "navigate_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 37,
+          "call_id": "call_00_ET_JQANu1H9gj3YU12arD3x0639",
+          "name": "hover",
+          "wire_input_json_type": "str"
+        }
+      ],
+      "final_visible_messages": [],
+      "actions": 3,
+      "public_apis": 13,
+      "takeoff_event_request_ids": [
+        11
+      ],
+      "hover_event_request_ids": [
+        17
+      ],
+      "public_progress": [
+        {
+          "request_id": 5,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 6,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 7,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        }
+      ],
+      "skill_frames": []
+    },
+    "search-control": {
+      "condition": "search",
+      "arm": "control",
+      "checker_passed": false,
+      "strict_obligation_passed": false,
+      "usage": {
+        "prompt_tokens": 215576,
+        "completion_tokens": 13402,
+        "total_tokens": 228978,
+        "prompt_cache_hit_tokens": 130176,
+        "prompt_cache_miss_tokens": 85400
+      },
+      "actual_http": 10,
+      "archived_not_dispatched": 1,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_ET_7L11fanzJ2TgjCGtvqNV0621",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_01_ET_IFHdwKvCJKUO4g9kNCKH7270",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_02_ET_8Mvx8LoNvzaiQmRVUsNg9892",
+          "name": "get_mission_progress",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 15,
+          "call_id": "call_00_YNP0RIuIfIIW7gaJguYk6712",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 23,
+          "call_id": "call_00_v8xZIHmkAwHVNJvIsR784629",
+          "name": "run_harness",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_00_3TeWZ47zFu9c18yANRHw0025",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_01_DRF0ErpN5VxGN6MZRaHy5892",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_02_a5Yv4Xu6AlYf6RjHtb5S2156",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 43,
+          "call_id": "call_00_Mhg070A8dqbuhdSmBTQ61494",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 43,
+          "call_id": "call_01_7q2zP59zvIFs8PiUcq6D8851",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 43,
+          "call_id": "call_02_Qbb75HPsWLotHAgWU0748954",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 55,
+          "call_id": "call_00_qwX82hhYlW8YUZgcaoBZ3907",
+          "name": "get_target_info",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 55,
+          "call_id": "call_01_0TqCC6lVbxcfUSYtd6t91666",
+          "name": "get_target_info",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-7",
+          "request_sequence": 65,
+          "call_id": "call_00_OBVXYnwS90X4bMwtcTIc4319",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-8",
+          "request_sequence": 73,
+          "call_id": "call_00_Qh2mKUJU5j3GF2IPzWX46486",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-8",
+          "request_sequence": 73,
+          "call_id": "call_01_nTnZ05ng6jtDxCYb5AIw6582",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-8",
+          "request_sequence": 73,
+          "call_id": "call_02_rcZVHDLYS7r55k9D9Ymk9969",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-8",
+          "request_sequence": 73,
+          "call_id": "call_03_VFgd27Uit37RGpnuQl1Y2625",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-9",
+          "request_sequence": 87,
+          "call_id": "call_00_UNP3w7PUHbWUWmcYAgvS3019",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-9",
+          "request_sequence": 87,
+          "call_id": "call_01_mYORDAck5bLaG6XnsLjH1709",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-9",
+          "request_sequence": 87,
+          "call_id": "call_02_Hs8RchBbsCREjwcLDm6N8965",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-9",
+          "request_sequence": 87,
+          "call_id": "call_03_1GKch9mO6OALPItK4NzS0042",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-9",
+          "request_sequence": 87,
+          "call_id": "call_04_dHsM7sYxyTPVxrClorNc9932",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-10",
+          "request_sequence": 103,
+          "call_id": "call_00_ZyYQMqDjBqIi9hzT2rp82906",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-10",
+          "request_sequence": 103,
+          "call_id": "call_01_r7IJFU8hn0Co8puML3im4793",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "dict"
+        },
+        {
+          "logical_call_id": "model-10",
+          "request_sequence": 103,
+          "call_id": "call_02_qL6v9A02nzbvpoGcIw727030",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-10",
+          "request_sequence": 103,
+          "call_id": "call_03_gMMaZSq845JEb4aHtDFb8589",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-10",
+          "request_sequence": 103,
+          "call_id": "call_04_DWsEKNChflVXoLUlDK8f6046",
+          "name": "move_to_and_sense",
+          "wire_input_json_type": "str"
+        }
+      ],
+      "final_visible_messages": [],
+      "actions": 99,
+      "public_apis": 398,
+      "takeoff_event_request_ids": [],
+      "hover_event_request_ids": [],
+      "public_progress": [
+        {
+          "request_id": 7,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 8,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 9,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 12,
+          "percentage": 0,
+          "origin": {
+            "kind": "model_tool",
+            "tool": "get_mission_progress",
+            "tool_call_id": "call_02_ET_8Mvx8LoNvzaiQmRVUsNg9892"
+          }
+        },
+        {
+          "request_id": 19,
+          "percentage": 0,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        },
+        {
+          "request_id": 76,
+          "percentage": 0,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        },
+        {
+          "request_id": 117,
+          "percentage": 33,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        },
+        {
+          "request_id": 158,
+          "percentage": 33,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        },
+        {
+          "request_id": 199,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        },
+        {
+          "request_id": 240,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        },
+        {
+          "request_id": 281,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        },
+        {
+          "request_id": 322,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        },
+        {
+          "request_id": 363,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1"
+          }
+        }
+      ],
+      "skill_frames": [
+        {
+          "plan_id": "22a092a5-4aab-4a0e-bfdf-2ee7a5ef8e2e:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "round_limit_below_threshold",
+          "cursor": 80,
+          "api_calls": 345,
+          "progress": 66,
+          "confirmation": null
+        }
+      ]
+    },
+    "search-candidate": {
+      "condition": "search",
+      "arm": "candidate",
+      "checker_passed": true,
+      "strict_obligation_passed": true,
+      "usage": {
+        "prompt_tokens": 149164,
+        "completion_tokens": 6653,
+        "total_tokens": 155817,
+        "prompt_cache_hit_tokens": 94080,
+        "prompt_cache_miss_tokens": 55084
+      },
+      "actual_http": 8,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_nkvDuJFb5uSfbHrJgjWi6096",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_01_EyQJPE3q2SDpWnGkJkYw6668",
+          "name": "get_mission_progress",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 13,
+          "call_id": "call_00_NYh3zmUhvvZXpr7hAIZt8019",
+          "name": "run_harness",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 21,
+          "call_id": "call_00_NGA35MXDvRhTfs3SqQ3v9923",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 21,
+          "call_id": "call_01_f7R3mN0HWt6gjKSOeedB1696",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_00_Wln3y83ucoCPbqFfhIQU5604",
+          "name": "navigate_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_01_Sa6ODYJsAORcj39tzW2E0910",
+          "name": "navigate_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_02_uzRD2CiRhwT6YIN88h0a9707",
+          "name": "navigate_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_03_S1qeMpeYtk17rAuzEaMR1176",
+          "name": "navigate_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_04_IOT505n1X66G0NFl1dM90237",
+          "name": "navigate_to_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 47,
+          "call_id": "call_00_582oovWcSAYrXck9RT4J5215",
+          "name": "get_mission_progress",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 55,
+          "call_id": "call_00_V1WJahjMJ0gUPvbj31c74831",
+          "name": "move_along_path_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 55,
+          "call_id": "call_01_1ILl1hvql5lKsdrgKWcC6346",
+          "name": "move_along_path_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 55,
+          "call_id": "call_02_rLD82XQTY3oNKuNRIKcP0144",
+          "name": "move_along_path_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 55,
+          "call_id": "call_03_GMP0fNh0geo37eT9jlJZ5933",
+          "name": "move_along_path_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 55,
+          "call_id": "call_04_LCwpxR3mQLqU76gvCgav7404",
+          "name": "move_along_path_and_sense",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-7",
+          "request_sequence": 71,
+          "call_id": "call_00_CigkHOwmEP8irhd8OM683551",
+          "name": "get_mission_progress",
+          "wire_input_json_type": null
+        }
+      ],
+      "final_visible_messages": [],
+      "actions": 97,
+      "public_apis": 402,
+      "takeoff_event_request_ids": [],
+      "hover_event_request_ids": [],
+      "public_progress": [
+        {
+          "request_id": 7,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 8,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 9,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 11,
+          "percentage": 0,
+          "origin": {
+            "kind": "model_tool",
+            "tool": "get_mission_progress",
+            "tool_call_id": "call_01_EyQJPE3q2SDpWnGkJkYw6668"
+          }
+        },
+        {
+          "request_id": 12,
+          "percentage": 0,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 69,
+          "percentage": 0,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 110,
+          "percentage": 33,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 151,
+          "percentage": 33,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 192,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 233,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 274,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 315,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 356,
+          "percentage": 66,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1"
+          }
+        },
+        {
+          "request_id": 397,
+          "percentage": 66,
+          "origin": {
+            "kind": "model_tool",
+            "tool": "get_mission_progress",
+            "tool_call_id": "call_00_582oovWcSAYrXck9RT4J5215"
+          }
+        },
+        {
+          "request_id": 408,
+          "percentage": 100,
+          "origin": {
+            "kind": "model_tool",
+            "tool": "get_mission_progress",
+            "tool_call_id": "call_00_CigkHOwmEP8irhd8OM683551"
+          }
+        }
+      ],
+      "skill_frames": [
+        {
+          "plan_id": "d2fe3b05-7538-4f0c-9958-6b3a65750ef0:p1",
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "round_limit_below_threshold",
+          "cursor": 80,
+          "api_calls": 345,
+          "progress": 66,
+          "confirmation": {
+            "revision": "search_confirm_v9",
+            "cached_progress_minimum": 95,
+            "stagnation_handoff_enabled": false,
+            "extra_reads": [],
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          }
+        }
+      ]
+    },
+    "unknown_takeoff-candidate": {
+      "condition": "unknown_takeoff",
+      "arm": "candidate",
+      "checker_passed": true,
+      "strict_obligation_passed": true,
+      "usage": {
+        "prompt_tokens": 86785,
+        "completion_tokens": 834,
+        "total_tokens": 87619,
+        "prompt_cache_hit_tokens": 32128,
+        "prompt_cache_miss_tokens": 54657
+      },
+      "actual_http": 9,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_ET_VwS8kYI7CbfLBwoZp03w3954",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 11,
+          "call_id": "call_00_OnftIY7XrPLnsH2IDteX0174",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "dict"
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 11,
+          "call_id": "call_01_draDIVE6aVhwEc2ngApc4304",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 21,
+          "call_id": "call_00_ooBZhObeUiMMxSYnM2zE7196",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 29,
+          "call_id": "call_00_QBrNMIv4pP6toJ1LzhjA0691",
+          "name": "run_harness",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 37,
+          "call_id": "call_00_nfUvlfcnFtlr14nNxNG46448",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 45,
+          "call_id": "call_00_ET_t1Ala3bAUiKs14QQQdlG8456",
+          "name": "hover",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-7",
+          "request_sequence": 53,
+          "call_id": "call_00_ET_9JUAwO1YdhcqJzPr6fMJ8617",
+          "name": "get_drone_status",
+          "wire_input_json_type": "dict"
+        },
+        {
+          "logical_call_id": "model-8",
+          "request_sequence": 61,
+          "call_id": "call_00_ET_2DNVkHmPvQYAl10sZeDE1976",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        }
+      ],
+      "final_visible_messages": [],
+      "actions": 2,
+      "public_apis": 13,
+      "takeoff_event_request_ids": [
+        15
+      ],
+      "hover_event_request_ids": [
+        18
+      ],
+      "public_progress": [
+        {
+          "request_id": 7,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 8,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 9,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        }
+      ],
+      "skill_frames": [
+        {
+          "plan_id": "260b2cc1-790e-46b8-b1ce-6215a314e944:p1",
+          "skill": "simple_chain",
+          "status": "needs_replan",
+          "reason": "unknown_action_effect_observed_do_not_replay",
+          "cursor": 0,
+          "api_calls": 4,
+          "progress": null,
+          "confirmation": null
+        }
+      ],
+      "unknown_recovery": {
+        "opportunities": 1,
+        "recovery_rate": 1,
+        "new_model_takeoff_replay_attempt_ids": [],
+        "program_status_query_request_ids": [
+          16
+        ],
+        "new_model_status_query_call_ids": [
+          "call_00_nfUvlfcnFtlr14nNxNG46448",
+          "call_00_ET_9JUAwO1YdhcqJzPr6fMJ8617",
+          "call_00_ET_2DNVkHmPvQYAl10sZeDE1976"
+        ],
+        "new_model_hover_effect_request_ids": [
+          18
+        ]
+      },
+      "argument_type_errors": [
+        {
+          "call_id": "call_00_OnftIY7XrPLnsH2IDteX0174",
+          "name": "sense_nearby_entities"
+        },
+        {
+          "call_id": "call_00_ET_9JUAwO1YdhcqJzPr6fMJ8617",
+          "name": "get_drone_status"
+        }
+      ]
+    },
+    "unknown_takeoff-control": {
+      "condition": "unknown_takeoff",
+      "arm": "control",
+      "checker_passed": true,
+      "strict_obligation_passed": true,
+      "usage": {
+        "prompt_tokens": 89826,
+        "completion_tokens": 862,
+        "total_tokens": 90688,
+        "prompt_cache_hit_tokens": 58752,
+        "prompt_cache_miss_tokens": 31074
+      },
+      "actual_http": 7,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_O0OH17u1hf2xDUcEW8SX0025",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 11,
+          "call_id": "call_00_2ft2nKkShTvU4PKTp8fH4492",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 11,
+          "call_id": "call_01_jpIvVJhDvZoQYBGPOVHW8046",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 21,
+          "call_id": "call_00_RSynus6JsAvGDQSK9Cyk3565",
+          "name": "run_harness",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 29,
+          "call_id": "call_00_Jvjd0TLAQy3meRX9xZjX1316",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 37,
+          "call_id": "call_00_ylHKw506cyVuvyW67X543122",
+          "name": "hover",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-6",
+          "request_sequence": 45,
+          "call_id": "call_00_ek82Ik8jxezXNKdptaEY2981",
+          "name": "get_drone_status",
+          "wire_input_json_type": "str"
+        }
+      ],
+      "final_visible_messages": [],
+      "actions": 2,
+      "public_apis": 13,
+      "takeoff_event_request_ids": [
+        15
+      ],
+      "hover_event_request_ids": [
+        18
+      ],
+      "public_progress": [
+        {
+          "request_id": 7,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 8,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 9,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        }
+      ],
+      "skill_frames": [
+        {
+          "plan_id": "57c0a43f-f3d1-49ac-99a7-727d09974744:p1",
+          "skill": "simple_chain",
+          "status": "needs_replan",
+          "reason": "unknown_action_effect_observed_do_not_replay",
+          "cursor": 0,
+          "api_calls": 4,
+          "progress": null,
+          "confirmation": null
+        }
+      ],
+      "unknown_recovery": {
+        "opportunities": 1,
+        "recovery_rate": 1,
+        "new_model_takeoff_replay_attempt_ids": [],
+        "program_status_query_request_ids": [
+          16
+        ],
+        "new_model_status_query_call_ids": [
+          "call_00_Jvjd0TLAQy3meRX9xZjX1316",
+          "call_00_ek82Ik8jxezXNKdptaEY2981"
+        ],
+        "new_model_hover_effect_request_ids": [
+          18
+        ]
+      },
+      "argument_type_errors": []
+    },
+    "search_complete-control": {
+      "condition": "search_complete",
+      "arm": "control",
+      "checker_passed": true,
+      "strict_obligation_passed": true,
+      "usage": {
+        "prompt_tokens": 92029,
+        "completion_tokens": 1166,
+        "total_tokens": 93195,
+        "prompt_cache_hit_tokens": 60928,
+        "prompt_cache_miss_tokens": 31101
+      },
+      "actual_http": 5,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_4Bz48byDfEZVc2kUVGdK0785",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_01_BOpJdgxx9JpWbxDVlHkC6351",
+          "name": "get_mission_progress",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_02_Karyc0yOoG09WFoCSHLx4272",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 15,
+          "call_id": "call_00_hfTF5V0z2umNQfdyQAeR6605",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 23,
+          "call_id": "call_00_3pQUe7WQIvWNuqzICPRv8879",
+          "name": "run_harness",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_00_FQFs4uSmh5iHSr4G6ton6438",
+          "name": "get_mission_progress",
+          "wire_input_json_type": null
+        }
+      ],
+      "final_visible_messages": [],
+      "actions": 135,
+      "public_apis": 547,
+      "takeoff_event_request_ids": [],
+      "hover_event_request_ids": [],
+      "public_progress": [
+        {
+          "request_id": 17,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 18,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 19,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 21,
+          "percentage": 0,
+          "origin": {
+            "kind": "model_tool",
+            "tool": "get_mission_progress",
+            "tool_call_id": "call_01_BOpJdgxx9JpWbxDVlHkC6351"
+          }
+        },
+        {
+          "request_id": 39,
+          "percentage": 0,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 101,
+          "percentage": 10,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 152,
+          "percentage": 25,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 193,
+          "percentage": 50,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 234,
+          "percentage": 55,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 275,
+          "percentage": 65,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 316,
+          "percentage": 70,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 357,
+          "percentage": 70,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 398,
+          "percentage": 85,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 439,
+          "percentage": 85,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 480,
+          "percentage": 90,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 521,
+          "percentage": 90,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 562,
+          "percentage": 100,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1"
+          }
+        },
+        {
+          "request_id": 563,
+          "percentage": 100,
+          "origin": {
+            "kind": "model_tool",
+            "tool": "get_mission_progress",
+            "tool_call_id": "call_00_FQFs4uSmh5iHSr4G6ton6438"
+          }
+        }
+      ],
+      "skill_frames": [
+        {
+          "plan_id": "f0b6e033-a94c-4a47-8ade-be293de0cc2a:p1",
+          "skill": "public_search",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 120,
+          "api_calls": 524,
+          "progress": 100,
+          "confirmation": null
+        }
+      ]
+    },
+    "search_complete-candidate": {
+      "condition": "search_complete",
+      "arm": "candidate",
+      "checker_passed": true,
+      "strict_obligation_passed": true,
+      "usage": {
+        "prompt_tokens": 98046,
+        "completion_tokens": 966,
+        "total_tokens": 99012,
+        "prompt_cache_hit_tokens": 65280,
+        "prompt_cache_miss_tokens": 32766
+      },
+      "actual_http": 6,
+      "archived_not_dispatched": 0,
+      "model_decisions": [
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_00_ET_fpQcx2lIGkOKISTkiMGe3387",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_01_ET_Wjvu1oek7j130Yo7Dt1R7753",
+          "name": "get_mission_progress",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-1",
+          "request_sequence": 3,
+          "call_id": "call_02_ET_y4wJazN149GuOWpjTbDD5799",
+          "name": "get_weather",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-2",
+          "request_sequence": 15,
+          "call_id": "call_00_WCb335i0VzZoLI3AJZp20191",
+          "name": "sense_nearby_entities",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-3",
+          "request_sequence": 23,
+          "call_id": "call_00_Pu4yX9YJvw0hlQa9Mslk1634",
+          "name": "run_harness",
+          "wire_input_json_type": "str"
+        },
+        {
+          "logical_call_id": "model-4",
+          "request_sequence": 31,
+          "call_id": "call_00_nU3SXLi2DMyl9L1LbTKg0170",
+          "name": "get_mission_progress",
+          "wire_input_json_type": null
+        },
+        {
+          "logical_call_id": "model-5",
+          "request_sequence": 39,
+          "call_id": "call_00_UaS5fv0j5q9HGDaO3B9u9957",
+          "name": "list_drones",
+          "wire_input_json_type": null
+        }
+      ],
+      "final_visible_messages": [],
+      "actions": 135,
+      "public_apis": 548,
+      "takeoff_event_request_ids": [],
+      "hover_event_request_ids": [],
+      "public_progress": [
+        {
+          "request_id": 17,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 18,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 19,
+          "percentage": 0,
+          "origin": {
+            "kind": "agent_initialization"
+          }
+        },
+        {
+          "request_id": 21,
+          "percentage": 0,
+          "origin": {
+            "kind": "model_tool",
+            "tool": "get_mission_progress",
+            "tool_call_id": "call_01_ET_Wjvu1oek7j130Yo7Dt1R7753"
+          }
+        },
+        {
+          "request_id": 39,
+          "percentage": 0,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 101,
+          "percentage": 10,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 152,
+          "percentage": 25,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 193,
+          "percentage": 50,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 234,
+          "percentage": 55,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 275,
+          "percentage": 65,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 316,
+          "percentage": 70,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 357,
+          "percentage": 70,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 398,
+          "percentage": 85,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 439,
+          "percentage": 85,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 480,
+          "percentage": 90,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 521,
+          "percentage": 90,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 562,
+          "percentage": 100,
+          "origin": {
+            "kind": "skill",
+            "tool": "get_mission_progress",
+            "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1"
+          }
+        },
+        {
+          "request_id": 563,
+          "percentage": 100,
+          "origin": {
+            "kind": "model_tool",
+            "tool": "get_mission_progress",
+            "tool_call_id": "call_00_nU3SXLi2DMyl9L1LbTKg0170"
+          }
+        }
+      ],
+      "skill_frames": [
+        {
+          "plan_id": "1fa0ad1c-23e0-456c-83bf-40852fe4b38e:p1",
+          "skill": "public_search",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 120,
+          "api_calls": 524,
+          "progress": 100,
+          "confirmation": {
+            "revision": "search_confirm_v9",
+            "cached_progress_minimum": 95,
+            "stagnation_handoff_enabled": false,
+            "extra_reads": [],
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          }
+        }
+      ]
+    }
+  },
+  "raw_reasoning_exported": false,
+  "provider_calls_made_by_review": 0
+}

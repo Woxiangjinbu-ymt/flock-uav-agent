@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="700" viewBox="0 0 1680 700" role="img" aria-labelledby="title desc">
+<title id="title">Agent4Drone baseline：论文 Fig. 4 的结构重绘</title><desc id="desc">依据 MultiUAV-Plat §3.3 / Fig. 4（2026，v1）｜概念模块，不代表六个独立 Agent；图中各组件均属上游方法描述。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#566c83"/></marker><marker id="purple" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#9472b9"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif;fill:#1b3047}.small{font-size:17px;fill:#52677d}.body{font-size:20px}.title{font-size:22px;font-weight:650}.edge-label{font-size:16px;fill:#465f76;paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}</style>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="38" y="48" font-size="30" font-weight="700" text-anchor="start">Agent4Drone baseline：论文 Fig. 4 的结构重绘</text>
+<text x="38" y="80" font-size="17" font-weight="400" text-anchor="start" style="fill:#52677d">依据 MultiUAV-Plat §3.3 / Fig. 4（2026，v1）｜概念模块，不代表六个独立 Agent；图中各组件均属上游方法描述。</text>
+<rect x="38" y="120" width="1604" height="510" rx="14" fill="#f8fbff" stroke="#bed0e4" stroke-width="1.6"/>
+<g data-state="U">
+<rect x="66" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="86" y="199" font-size="22" font-weight="650" text-anchor="start">任务输入</text>
+<text x="86" y="225" font-size="17" font-weight="400" text-anchor="start">指令与公开上下文</text>
+</g>
+<g data-state="U">
+<rect x="292" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="312" y="199" font-size="22" font-weight="650" text-anchor="start">观察</text>
+<text x="312" y="225" font-size="17" font-weight="400" text-anchor="start">状态 / 局部感知</text>
+</g>
+<g data-state="U">
+<rect x="518" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="538" y="199" font-size="22" font-weight="650" text-anchor="start">任务理解</text>
+<text x="538" y="225" font-size="17" font-weight="400" text-anchor="start">目标 / 对象 / 约束</text>
+</g>
+<g data-state="U">
+<rect x="744" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="764" y="199" font-size="22" font-weight="650" text-anchor="start">规划</text>
+<text x="764" y="225" font-size="17" font-weight="400" text-anchor="start">子任务 / UAV 分配</text>
+</g>
+<g data-state="U">
+<rect x="970" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="990" y="199" font-size="22" font-weight="650" text-anchor="start">工具链落地</text>
+<text x="990" y="225" font-size="17" font-weight="400" text-anchor="start">有界动作链</text>
+</g>
+<g data-state="U">
+<rect x="1196" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="1216" y="199" font-size="22" font-weight="650" text-anchor="start">执行</text>
+<text x="1216" y="225" font-size="17" font-weight="400" text-anchor="start">动作 / 多机协作</text>
+</g>
+<g data-state="U">
+<rect x="1422" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="1442" y="199" font-size="22" font-weight="650" text-anchor="start">验证</text>
+<text x="1442" y="225" font-size="17" font-weight="400" text-anchor="start">进度 / 完成检查</text>
+</g>
+<path d="M258,221 L292,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M484,221 L518,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M710,221 L744,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M936,221 L970,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M1162,221 L1196,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M1388,221 L1422,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<g data-state="U">
+<rect x="292" y="367" width="650" height="115" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="312" y="401" font-size="22" font-weight="650" text-anchor="start">Memory · 共享黑板与交互记忆</text>
+<text x="312" y="427" font-size="20" font-weight="400" text-anchor="start">局部观测、动作历史、中间结果、验证反馈</text>
+</g>
+<g data-state="U">
+<rect x="1020" y="367" width="594" height="115" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="1040" y="401" font-size="22" font-weight="650" text-anchor="start">Decision Artifacts · 决策产物</text>
+<text x="1040" y="427" font-size="20" font-weight="400" text-anchor="start">子任务、UAV 分配、路线、工具链与停止条件</text>
+</g>
+<path d="M942,425 L1020,425" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path d="M388,367 L388,277" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M614,367 L614,277" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M840,367 L840,277" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M1518,277 L1518,327 L865,327 L865,367" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="1000" y="318" font-size="16" font-weight="400" text-anchor="start" class="edge-label">执行 / 验证反馈 → 更新记忆 → 重规划</text>
+<path d="M1066,367 L1066,277" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<g data-state="U">
+<rect x="292" y="530" width="1322" height="62" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="312" y="564" font-size="22" font-weight="650" text-anchor="start">外部交互边界：合法观测 ↔ 支持的动作 ↔ 多 UAV 环境执行反馈</text>
+</g>
+<path d="M1292,277 L1292,340 L1640,340 L1640,560 L1614,560" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="42" y="671" font-size="18" font-weight="400" text-anchor="start">重绘只统一视觉语言；原论文已经包含短程规划、有界工具链、Memory 和 Verification，不能将这些概念本身视为本项目新增。</text></svg>

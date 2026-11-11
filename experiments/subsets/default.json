@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "default_dataset": "agent4drone-representative-v1",
+  "status": "frozen",
+  "primary_manifest": "representative-v1/main300.json",
+  "primary_manifest_sha256": "9a284f005fcab6cffa59c2deacd7d43e8c9da0b506b40a11510db6d62894f261",
+  "primary_tasks": 300,
+  "primary_checks": 1733,
+  "development_manifest": "representative-v1/dev240.json",
+  "validation_manifest": "representative-v1/validation60.json",
+  "fast_manifest": "representative-v1/fast100.json",
+  "purpose": "Default dataset for task-success module experiments; full 1500-task benchmark for final confirmation",
+  "no_automatic_reselection": true,
+  "baseline_cohort": "deployment-no-scene-replay-v1:first_attempt_no_replay"
+}

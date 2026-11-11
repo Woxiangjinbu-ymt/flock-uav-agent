@@ -1,0 +1,30 @@
+{
+  "command": [
+    "agent4drone/.venv/bin/python",
+    "-m",
+    "pytest",
+    "agent4drone/tests/test_harness_observed_target.py",
+    "-q"
+  ],
+  "pythonpath": "agent4drone:agent4drone/tests",
+  "returncode": 0,
+  "source_sha256_before": {
+    "agent4drone/observed_target_search.py": "f1d66ee7c449991f2556aeadfd79d2464fd1039402d19e9b2a43239753848b51",
+    "agent4drone/harness_core.py": "ae663ef64ba4d35e93e01450bd49790fc082dc455fd3d444bf5ae66fe4a8c3fb",
+    "agent4drone/harness_skills.py": "49c239714b83aa60611254be278ebb67451f152dbe9f9766c798a9729a55170f",
+    "agent4drone/harness_integration.py": "13bed02a04992b76e2512457bbed28c7d6e2c711433593ddf947a6c6b35284d5",
+    "agent4drone/coordinated_search_r2.py": "693093f3ffeba3f5aeaaa3bd747dff5b846f4d8672c02208f90d88366efa4f14",
+    "agent4drone/tests/test_harness_observed_target.py": "167c776850882656064689d150f59d552bb2a8bdfa6f0bff51d2c56ed23a5434"
+  },
+  "source_sha256_after": {
+    "agent4drone/observed_target_search.py": "f1d66ee7c449991f2556aeadfd79d2464fd1039402d19e9b2a43239753848b51",
+    "agent4drone/harness_core.py": "ae663ef64ba4d35e93e01450bd49790fc082dc455fd3d444bf5ae66fe4a8c3fb",
+    "agent4drone/harness_skills.py": "49c239714b83aa60611254be278ebb67451f152dbe9f9766c798a9729a55170f",
+    "agent4drone/harness_integration.py": "13bed02a04992b76e2512457bbed28c7d6e2c711433593ddf947a6c6b35284d5",
+    "agent4drone/coordinated_search_r2.py": "693093f3ffeba3f5aeaaa3bd747dff5b846f4d8672c02208f90d88366efa4f14",
+    "agent4drone/tests/test_harness_observed_target.py": "167c776850882656064689d150f59d552bb2a8bdfa6f0bff51d2c56ed23a5434"
+  },
+  "source_unchanged_during_run": true,
+  "test_scope": "scripted public receipts and deterministic policy only; socket connections forbidden by autouse fixture; no simulator or model",
+  "log_sha256": "643ba90efc818a0d9c4baf331d3a9fc8a79a6ba503dbb5b9cbb8a63dc8033708"
+}

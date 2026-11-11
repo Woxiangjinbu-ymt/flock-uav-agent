@@ -1,0 +1,523 @@
+<title>MultiUAV 小模型后训练路线</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* Layout: one reading column on chart-paper ground; wide tables scroll inside their own frames; the training pipeline is drawn as a flight route with waypoints WP0–WP5 */
+:root{--bg:#F3F5F4;--surface:#FFFFFF;--ink:#16202A;--muted:#566271;--rule:#D5DBDF;--rule-strong:#B6C0C8;--accent:#1B5A9C;--accent-soft:#E2EBF5;--mag:#952B66;--mag-soft:#F5E6EE;--ok:#2C7549;--ok-soft:#E3F1E8;--warn:#8F6310;--warn-soft:#F6EDDB;--bad:#A3362A;--display:"Noto Serif SC","Songti SC","STSong",serif;--body:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0D1215;--surface:#141B20;--ink:#E3E8EC;--muted:#97A3AE;--rule:#28323A;--rule-strong:#3B4751;--accent:#7AAAE0;--accent-soft:#16263A;--mag:#D888B6;--mag-soft:#2D1B26;--ok:#6DBF8F;--ok-soft:#14281D;--warn:#DDB15A;--warn-soft:#2C2412;--bad:#E78B7F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D1215;--surface:#141B20;--ink:#E3E8EC;--muted:#97A3AE;--rule:#28323A;--rule-strong:#3B4751;--accent:#7AAAE0;--accent-soft:#16263A;--mag:#D888B6;--mag-soft:#2D1B26;--ok:#6DBF8F;--ok-soft:#14281D;--warn:#DDB15A;--warn-soft:#2C2412;--bad:#E78B7F;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:44px 80px;display:flex;flex-direction:column;gap:56px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.35;font-weight:700}
+h1{font-size:clamp(1.75rem,4.2vw,2.45rem);letter-spacing:.01em}
+h2{font-size:1.42rem;display:flex;gap:.6em;align-items:baseline}
+h2 .no{font-family:var(--mono);font-size:.78rem;font-weight:500;color:var(--accent);letter-spacing:.06em}
+h3{font-size:1.08rem;font-weight:600}
+p{margin:0;max-width:72ch}
+section{display:flex;flex-direction:column;gap:18px;min-width:0}
+.sub{display:flex;flex-direction:column;gap:12px;min-width:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:6px;max-width:76ch}
+li::marker{color:var(--muted)}
+b,strong{font-weight:700}
+code,.mono{font-family:var(--mono);font-size:.86em}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+header.top{display:flex;flex-direction:column;gap:14px;padding-bottom:28px;border-bottom:1px solid var(--rule-strong)}
+.eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.lede{font-size:1.06rem;color:var(--muted);max-width:66ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.84rem;color:var(--muted)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.7rem;line-height:1;padding:3px 6px;border-radius:3px;border:1px solid var(--rule-strong);color:var(--muted);vertical-align:2px;white-space:nowrap}
+.tag.v{border-color:color-mix(in srgb,var(--ok) 55%,transparent);color:var(--ok)}
+.tag.r{border-color:color-mix(in srgb,var(--warn) 55%,transparent);color:var(--warn)}
+.tag.i{border-style:dashed}
+.toc{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem}
+.toc a{border:0;color:var(--muted)}.toc a:hover{color:var(--accent)}
+.toc span{font-family:var(--mono);color:var(--accent);margin-right:4px;font-size:.78rem}
+.keys{display:flex;flex-direction:column;gap:14px;max-width:80ch;padding:0;list-style:none}
+.keys li{display:grid;grid-template-columns:2.2em 1fr;gap:4px 10px}
+.keys li>span{font-family:var(--mono);font-size:.8rem;color:var(--accent);padding-top:.25em}
+.keys li>div{min-width:0}
+.decide{background:var(--mag-soft);border:1px solid color-mix(in srgb,var(--mag) 40%,transparent);border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.decide h3{color:var(--mag)}
+.decide ol{max-width:none}
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.86rem;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-weight:500;color:var(--muted);font-size:.78rem;letter-spacing:.04em;background:color-mix(in srgb,var(--bg) 60%,var(--surface));white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.n,th.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+td:first-child{font-weight:500}
+.wide table{min-width:860px}
+.cap{font-size:.82rem;color:var(--muted);max-width:none}
+.note{border-left:0;background:var(--accent-soft);border-radius:6px;padding:14px 18px;display:flex;flex-direction:column;gap:8px;font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel h3{font-size:1rem}
+.panel.good h3{color:var(--ok)}.panel.gap h3{color:var(--warn)}
+.route{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;max-width:none}
+.route>li{display:grid;grid-template-columns:64px 1fr;gap:0 16px;position:relative;padding-bottom:26px}
+.route>li::before{content:"";position:absolute;left:31px;top:30px;bottom:0;width:0;border-left:2px dashed var(--rule-strong)}
+.route>li:last-child::before{display:none}
+.route>li:last-child{padding-bottom:0}
+.wp{width:64px;height:30px;border-radius:15px;border:2px solid var(--accent);color:var(--accent);background:var(--surface);font-family:var(--mono);font-size:.78rem;font-weight:500;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.route .body{display:flex;flex-direction:column;gap:8px;min-width:0;padding-top:2px}
+.route .head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.route .head h3{font-size:1.05rem}
+.route .when{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.route ul{font-size:.94rem}
+.chip{display:inline-block;font-size:.74rem;line-height:1.2;padding:3px 8px;border-radius:10px;white-space:nowrap;font-weight:500}
+.chip.hi{background:color-mix(in srgb,var(--bad) 16%,transparent);color:var(--bad)}
+.chip.mid{background:var(--warn-soft);color:var(--warn)}
+.chip.lo{background:var(--ok-soft);color:var(--ok)}
+.contrib{display:flex;flex-direction:column;gap:10px;padding:0;list-style:none;max-width:80ch}
+.contrib li{display:grid;grid-template-columns:2.6em 1fr;gap:10px}
+.contrib li>span{font-family:var(--mono);font-size:.82rem;color:var(--mag);padding-top:.2em;font-weight:500}
+footer{border-top:1px solid var(--rule-strong);padding-top:18px;font-size:.82rem;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+@media (max-width:560px){body{font-size:15px}.wrap{gap:44px;padding-block:28px 60px}.route>li{grid-template-columns:52px 1fr;gap:0 12px}.wp{width:52px;font-size:.72rem}.route>li::before{left:25px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<div class="wrap">
+<header class="top">
+<div class="eyebrow">MultiUAV-Plat · 研究方向调整调研 · 修订版 2 · 2026-10-17</div>
+<h1>MultiUAV 小模型后训练路线</h1>
+<p class="lede">目标：只用一张租来的 GPU（上限 80 GB，最好能压到 40 GB），把多无人机编队指挥能力蒸馏进 Qwen3.5-4B，经多轮强化学习后再下放到 0.8–2B，在笔记本上不量化运行。本文整理可直接套用的范式、单卡算力估算、推荐训练方案，以及现有 harness 工作在新方案中的位置。</p>
+<div class="meta"><span>依据：代码库盘点（agent4drone / server / controller / scripts）＋ 2023–2026.10 文献 ＋ DeepSeek 条款与国内租卡报价（2026-10-17 读取）</span><span>证据标记：<span class="tag v">已核实</span> 读过原文或源码　<span class="tag r">自报</span> 厂商或作者自报，未复现　<span class="tag i">推断</span> 我的估算</span></div>
+<div class="note">
+<p><b>本版根据你对四个问题的回答修订</b></p>
+<ul>
+<li><b>教师</b>：只用 DeepSeek。Opus 5.5 和 GPT-6 Astra 不再参与训练和主对比，第 4 节改写为 DeepSeek 的条款和模型版本。</li>
+<li><b>投稿</b>：不投 CSCWD 2027。harness 工作并入一篇以强化学习为主线的论文（第 8 节）。</li>
+<li><b>算力</b>—</li>
+<li><b>学生规模</b>：补充了约 1B 档的候选模型和证据。结论是 Qwen3.5-0.8B 作为从 4B 蒸馏下来的低延迟档，不作为主模型（第 5 节）。</li>
+</ul>
+</div>
+<nav class="toc" aria-label="目录"><a href="#s1"><span>01</span>结论</a><a href="#s2"><span>02</span>平台适配度</a><a href="#s3"><span>03</span>相关工作</a><a href="#s4"><span>04</span>教师与条款</a><a href="#s5"><span>05</span>学生与端侧</a><a href="#s6"><span>06</span>单卡算力</a><a href="#s7"><span>07</span>训练方案</a><a href="#s8"><span>08</span>harness 工作转化</a><a href="#s9"><span>09</span>实验设计</a><a href="#s10"><span>10</span>风险</a><a href="#s11"><span>11</span>近四周</a></nav>
+</header>
+<section id="s1">
+<h2><span class="no">01</span>结论先行</h2>
+<ol class="keys">
+<li><span>1</span><div><b>方向成立，这个平台很适合做蒸馏加多轮 RL。</b>它同时具备三个条件：检查树是确定性的，可以直接当奖励（1,500 题、9,396 个叶子检查）；有 58 个任务模板和随机场景生成器，能造出与评测集不重叠的训练任务；仿真动作即时返回并支持快照恢复，RL 吞吐只受学生模型推理速度限制。同类公开结果里，1.5–4B 模型在窄领域多轮任务上经 SFT 和 RL 后超过 GPT-4o 级模型并不少见：GiGPO 的 1.5B 在 ALFWorld 上达到 86%，GPT-4o 为 48%；RACE 的 2B 在 ScienceWorld 上从 1.1 提到 58.8。</div></li>
+<li><span>2</span><div><b>Harness 的价值没有被挤掉，在小模型上更大。</b>HAD（2026-10）去掉 harness 后，学生成功率从 63.4% 跌到 40.3%；DroneServer 实测本地 4–8B 模型能调用接口，但完不成任何多步飞行任务。论文主线可以从"harness 让大模型更强"转为"harness 与后训练协同设计，让小模型可用"。你们担心的"harness 增益随模型变强而缩小"，本身就可以做成一项可测量的分析。</div></li>
+<li><span>3</span><div><b>可以直接套用的是一条已被反复验证的流水线，而且能压到单卡上。</b>教师轨迹经拒绝采样做少量 SFT，接一段在线纠错热身，再做多轮 GRPO 系强化学习。信用分配到步级，进度奖励用势函数形式，检查树可以直接给出这个势函数。4B 用 LoRA 训练，训练好的 4B 再当同族白盒教师，把能力蒸馏给 0.8B 和 2B。RACE 是这条流水线上的推理效率模块：成功率和普通 SFT+GRPO 持平，推理 token 少 32–80%，适合放在最后一阶段。</div></li>
+<li><span>4</span><div><b>教师用 DeepSeek，条款明确允许蒸馏。</b>DeepSeek 开放平台服务条款（2026-04-29 生效）§4.2 写明，输出可用于"训练其他模型（如模型蒸馏）"；V4 系列权重为 MIT 许可。要注意一件事：9 月 10 日起，官方 API 上的 <code>deepseek-flash</code> 和 <code>deepseek-v4-pro</code> 都路由到 V4.1-Flash，所以通过 API 已经比不出 Pro 和 Flash 的差别。从现在起，每条轨迹都要记下响应里返回的模型名。</div></li>
+<li><span>5</span><div><b>学生：Qwen3.5-4B 用 LoRA 训练作主力，Qwen3.5-0.8B 作低延迟档，Qwen3.5-2B 作中间档并用于方法开发。</b>约 1B 不适合当主模型。同样训练后，0.6–1B 在长时程、API 密集的任务上比 4B 低 15–30 个点。但从更强的策略在线蒸馏后，分布内任务能追回大半：ActFirst-OPD 在 ALFWorld 上 0.6B 达到 68.6，4B 为 82.6。0.8B 与 4B 同分词器、同模板、同架构，每 token 的 KV 缓存只有 12 KiB。</div></li>
+<li><span>6</span><div><b>一张 A800 80 GB 够用，40 GB 可以做开发档。</b>—<span class="tag i">推断</span>。真正的不确定性在证据上：在几十轮、环境状态持续变化的 agent 任务上，还没有人直接对比过 LoRA RL 和全参 RL。最接近的是 CoPES（Qwen3.5-4B，用检索和 Python 工具解数学题），其中 LoRA 明显落后。所以第一周先在 2B 上做 LoRA 对全参的短对照。</div></li>
+<li><span>7</span><div><b>最大的工程缺口在学生侧上下文，它同时决定单卡吞吐。</b>现有轨迹每题峰值上下文的中位数是 43–48K token，只有约三分之一在 32K 以内；工具参数是字符串里再套 JSON；日志缺 system prompt、tool_call ID 和推理内容，不能直接做 SFT。单卡上每步 RL 的耗时几乎和每回合 token 数成正比，所以压缩上下文是最便宜的提速办法。你们已有的任务进度、证据账本和执行记忆正好可以用来压缩。</div></li>
+</ol>
+<div class="decide">
+<h3>四件事已定，还剩三件</h3>
+<ol>
+<li><b>教师数据用哪个账号生成</b>：§4.2 的权利归 DeepSeek 账号持有人。走学校网关时，账号持有人是网关运营方，权利链不在 DeepSeek 条款覆盖范围内。建议用自己的 DeepSeek 官方 API 账号生成教师数据；或者向网关管理方要一份书面确认，写明输出可用于训练和公开发布。</li>
+<li><b>目标会议与时间线</b>：不再受 10 月 31 日约束。第 7 节的路线约需 10–12 周，按选定会议的截稿日期倒排。</li>
+<li><b>租卡方式</b>—</li>
+</ol>
+</div>
+</section>
+<section id="s2">
+<h2><span class="no">02</span>现有平台对后训练的适配度</h2>
+<p>来自对代码和运行记录的逐项盘点。左侧可以直接复用，右侧是开训前必须补的缺口。</p>
+<div class="grid2">
+<div class="panel good"><h3>已经具备</h3><ul>
+<li><b>奖励函数</b>：检查树由服务端确定性计算，可逐题调用。<code>FullWorld.evaluate()</code>（scripts/harness_full100_world.py:169）返回 passed、checks_passed、checks_expected，二值成功和叶子级部分分都有。</li>
+<li><b>训练任务来源</b>：controller/default_templates.py 有 58 个模板，评测集只用了 50 个；<code>RandomSessionGenerator</code> 可指定无人机、目标、障碍数量和任务族。剩下 8 个模板可以留作新任务类型的泛化测试。</li>
+<li><b>仿真速度</b>：动作即时返回，仿真时间不影响结果。进程内 <code>World</code>（scripts/harness_v2_world.py）带虚拟时钟、种子 RNG 和 pickle 快照恢复，GRPO 同组的多条 rollout 可以从同一初态出发。</li>
+<li><b>资源占用</b>：每个场景约 0.43 GB 内存、1 个 CPU 核。一台多核服务器并行几十个环境没有压力，但租来的单卡实例通常只配 10–16 个 CPU 核，见第 7 节 WP0。</li>
+<li><b>轨迹长度</b>：DeepSeek 每题平均 12.8 次模型调用、22 个工具步，和 RACE、GiGPO 的 30 轮上限同一量级。</li>
+<li><b>评测规范</b>：已有配对 W/L、场景级 bootstrap、冻结子集和 500 秒协议，可以直接沿用。</li>
+</ul></div>
+<div class="panel gap"><h3>需要补齐</h3><ul>
+<li><b>上下文太长</b>：首轮约 8.6–9K token；每题峰值上下文中位数 43K（DeepSeek）和 48K（Qwen），只有 32–37% 在 32K 以内。system prompt 约 2 万字符，工具 schema 又约 2 万字符。</li>
+<li><b>工具接口不利于小模型</b>：30 个工具的参数都是一个 <code>input_json</code> 字符串，等于 JSON 里再套 JSON；观测是 indent=2 的 JSON，平均 6.3K 字符。改成带类型的参数（无人机 ID 枚举、数值范围）后才能做约束解码。</li>
+<li><b>已有轨迹不能直接做 SFT</b>：约 4,960 条 toolchain、约 3,686 条通过，全部来自 DeepSeek 和 Qwen。记录缺 system prompt、tool_call ID、并行调用分组和 reasoning_content，也没有记下响应实际返回的模型名，只记了请求名 <code>deepseek-flash</code>。失败题的最终文本被换成了错误串，超时题没有工具链。</li>
+<li><b>生成器只能从 GUI 驱动</b>：要写无头脚本，把全局 <code>random</code> 改成显式种子；占位符碰撞检查在离线时会静默返回 False。</li>
+<li><b>场景内状态继承</b>：原协议同场景 20 题顺序执行，位置和历史会延续；100 道典型题中有 12 道在初态就满足至少一个叶子检查。RL 要逐题快照重置，部分分按相对初态的增量计算。</li>
+<li><b>没有训练代码</b>：仓库里没有 vLLM、TRL、verl 或 LoRA 相关代码；基准 runner 只接受 DeepSeek 和 Qwen 端点，接本地模型要加一个后端。</li>
+</ul></div>
+</div>
+</section>
+<section id="s3">
+<h2><span class="no">03</span>相关工作版图</h2>
+<div class="sub">
+<h3>3.1 RACE 精读</h3>
+<p><b>When Should Agents Think? Adaptive Reasoning via Cross-Turn Estimation</b>（<a href="https://arxiv.org/abs/2610.12061">arXiv 2610.12061</a>，2026-10-08，ICLR 2027 在审；中国人民大学高瓴人工智能学院与阿里巴巴）。RACE 是 Reasoning Adaptation through Cross-Turn Estimation 的缩写。<span class="tag v">已核实</span></p>
+<ul>
+<li><b>解决的问题</b>：ReAct 式 agent 每轮都先推理再行动，但前面的推理常常还能支撑后面几步。RACE 让模型逐轮决定要不要推理。</li>
+<li><b>信号 LoGiC</b>：在成功轨迹上删掉某一轮推理，看后续动作的平均 token 对数似然下降多少；不超过 0.001 就判定这一轮可以跳过。只打分，不生成。</li>
+<li><b>训练</b>：SFT 用 DeepSeek-V4-Pro 的成功轨迹，可跳过的轮写成空 think，损失只算推理和动作 token；LR 1e-5，有效 batch 32，最长 65,536。RL 为 cover-aware GRPO：每步 16 个任务 × 8 条 rollout，LR 1e-6，clip 0.2，温度 1.0，最多 30 轮；成功轨迹里可跳过轮的推理 token 从损失中掩掉，另加一个让模型立即输出 <code>&lt;/think&gt;</code> 的 closure loss（权重 0.02）。奖励只有任务成功，信用分配是轨迹级。</li>
+<li><b>结果</b>：学生 Qwen3.5-9B，另有 2B、4B 规模实验。和不加 RACE 的 SFT+GRPO 比，四个基准成功率变化为 −1.27、+1.40、−0.17、−0.75，都在统计误差内；推理 token 减少 32–80%。9B 在 ScienceWorld 达到 73.28，教师 DeepSeek-V4-Pro 为 32.11，Claude Opus 4.6 为 59.37。</li>
+<li><b>小模型</b>：2B 在 ScienceWorld 上 1.10 → 20.78（SFT）→ 58.77（RL），WebShop 6.20 → 42.20 → 49.20。AppWorld 只有 147 个训练任务、工具多、参数组合复杂，2B 和 4B 在 RL 后反而退化。</li>
+<li><b>可复用程度</b>：仓库在投稿当天创建，至今 0 commit、没有 README，只能按论文的算法 1、公式、超参和附录提示词复现。</li>
+</ul>
+<div class="note"><p><b>对我们</b>：流水线和超参可以直接作为起点；自适应思考放在最后的效率阶段，因为在笔记本上，少解码就是低延迟。需要改三处。第一，DeepSeek 会返回 reasoning_content，但推理很长：本仓库每次调用平均输出 1.3–1.7K token，要先裁成短理由再给小模型学。第二，多机 JSON 参数长，平均对数似然会稀释无人机 ID、坐标、航点顺序这些关键 token，打分应只看参数值。第三，我们的奖励含部分分，要先定成功阈值，长时程还要补轮级信用分配。另外，AppWorld 上的退化说明，工具多、参数组合复杂的任务族要单独跟踪 RL 效果。</p></div>
+</div>
+<div class="sub">
+<h3>3.2 Agent 蒸馏范式</h3>
+<div class="tbl wide"><table>
+<thead><tr><th>工作</th><th>核心做法</th><th>学生 / 教师</th><th class="n">数据</th><th>关键结果</th></tr></thead>
+<tbody>
+<tr><td>AgentTuning <a href="https://arxiv.org/abs/2310.12823">2310.12823</a></td><td>成功过滤的教师轨迹，混入通用数据（agent 占 0.2）</td><td>Llama-2 7–70B / GPT-4</td><td class="n">1,866</td><td>只用 agent 数据时泛化更差</td></tr>
+<tr><td>Agent Distillation <a href="https://arxiv.org/abs/2505.17612">2505.17612</a></td><td>CodeAct + 检索；first-thought prefix；自洽动作采样，执行过滤后投票</td><td>Qwen2.5 0.5–7B / Qwen2.5-32B</td><td class="n">约 2K</td><td>3B 八任务平均 27.7 → 36.6，追平大一号的 CoT 蒸馏</td></tr>
+<tr><td>APIGen-MT / xLAM-2 <a href="https://arxiv.org/abs/2504.03601">2504.03601</a></td><td>先验证任务蓝图，再模拟用户生成多轮轨迹，只留 reward = 1</td><td>1–70B / GPT-4o + DeepSeek-V3</td><td class="n">5K 公开</td><td>70B τ-bench 56.2，高于 GPT-4o 的 52.9</td></tr>
+<tr><td>TinyAgent <a href="https://arxiv.org/abs/2409.00608">2409.00608</a></td><td>端侧函数调用：DAG 计划、工具检索、4bit 量化</td><td>TinyLlama-1.1B / GPT-4-Turbo</td><td class="n">80K</td><td>80.1%，教师 79.1%；模型 0.68 GB</td></tr>
+<tr><td>AgentGym / AgentEvol <a href="https://arxiv.org/abs/2406.04151">2406.04151</a></td><td>行为克隆后做奖励加权的自我进化</td><td>Llama-2-7B / GPT-4-Turbo</td><td class="n">6.1K</td><td>ALFWorld 88.0，教师 67.5</td></tr>
+<tr><td>Chain-of-Agents / AFM <a href="https://arxiv.org/abs/2508.13167">2508.13167</a></td><td>把多智能体系统蒸馏进单个模型，再做 DAPO</td><td>Qwen2.5 3–32B</td><td class="n">约 63K</td><td>7B GAIA 经 RL 从 34.0 到 40.8</td></tr>
+<tr><td>LEAP <a href="https://arxiv.org/abs/2410.05434">2410.05434</a></td><td>DAgger：持有特权状态的教师逐步纠正学生</td><td>Llama3-8B / GPT-4o</td><td class="n">迭代</td><td>ALFWorld 65.7 → 91.8，超过教师</td></tr>
+<tr><td>ETO / IPR <a href="https://arxiv.org/abs/2403.02502">2403.02502</a> <a href="https://arxiv.org/abs/2406.11176">2406.11176</a></td><td>成功与失败轨迹配对做 DPO；步级蒙特卡洛偏好</td><td>Llama-2-7B / GPT-4</td><td class="n">–</td><td>SciWorld 未见集 53.0 → 65.0；黑盒教师即可</td></tr>
+<tr><td>在线蒸馏 OPD：Qwen3 <a href="https://arxiv.org/abs/2505.09388">2505.09388</a>、Thinking Machines（2025-10）</td><td>学生自己采样，教师逐 token 给反向 KL</td><td>Qwen3 0.6–14B / Qwen3-32B、235B</td><td class="n">–</td><td>8B AIME24：OPD 74.4，RL 67.6，算力 1,800 对 17,920 GPU 时。需要教师 logprob 和同一分词器</td></tr>
+<tr><td>Guava <a href="https://arxiv.org/abs/2606.18363">2606.18363</a></td><td>机械臂 harness 内蒸馏，含 714 条恢复分支</td><td>Qwen3.5-4B / GPT-5.4</td><td class="n">2,268</td><td>22.2% → 87.1%，教师 90.4%</td></tr>
+<tr><td>HAD <a href="https://arxiv.org/abs/2610.02858">2610.02858</a></td><td>只蒸馏教师在 harness 之外的贡献：OPD，加上同一教师有无 harness 信息时的动作偏好</td><td>Qwen3-0.6/1.7B、Gemma-4-E2B</td><td class="n">–</td><td>ALFWorld 未见集 63.4 对 47.0；去掉 harness 降到 40.3</td></tr>
+<tr><td>WebKD / CAFT / ActionOPD <a href="https://arxiv.org/abs/2610.19834">2610.19834</a> <a href="https://arxiv.org/abs/2610.19367">2610.19367</a> <a href="https://arxiv.org/abs/2610.19820">2610.19820</a></td><td>黑盒在线蒸馏：教师从学生失败轨迹的第一个错误处改写；批注加纠正动作；以与教师动作一致作为奖励</td><td>Qwen3.5-4B、Gemma-4-E4B 等</td><td class="n">–</td><td>+3.3 到 +10.7 个百分点</td></tr>
+<tr><td>TPD <a href="https://arxiv.org/abs/2610.10332">2610.10332</a></td><td>动作加紧凑的任务阶段标签，作为联合训练目标</td><td>Qwen3-1.7B / DeepSeek-V4-Pro</td><td class="n">200–808</td><td>200 条时 67.7，只学动作为 48.0</td></tr>
+<tr><td>ProD <a href="https://arxiv.org/abs/2610.19439">2610.19439</a></td><td>惩罚学生 rollout 中的进度停滞</td><td>0.6–8B 共 8 个 / GPT-4.1</td><td class="n">3K/任务</td><td>Qwen3-4B 70.8，教师 71.0；域内平均 0.6B 52.7、1.7B 67.9、4B 78.0</td></tr>
+<tr><td>ActFirst-OPD <a href="https://arxiv.org/abs/2609.36608">2609.36608</a></td><td>改进的在线蒸馏，教师是经 GiGPO 训练的策略</td><td>Qwen3 0.6/1.7/4B / 8B（GiGPO 训练）</td><td class="n">–</td><td>ALFWorld 零样本 0.7 / 17.5 / 63.5 → 68.6 / 77.5 / 82.6，教师 88.3</td></tr>
+</tbody></table></div>
+<p class="cap">2026 年 9–10 月的条目（ActFirst-OPD、HAD、WebKD、CAFT、ActionOPD、TPD、ProD）都是新预印本，数字取自原文，尚无他人复现。</p>
+<h3>对 1–4B 学生最有用的经验</h3>
+<ul>
+<li><b>数据量</b>：1–3K 条成功轨迹已能让 4B 接近教师（Guava、Kang 等）；少于约 500 条时连调用格式都学不稳（FireAct）。每个任务最多留 2–3 条，控制简单题重复（SWE-smith）。</li>
+<li><b>保留短理由，不要只学动作</b>：AgentBank 去掉 CoT 后未见集从 29.5 掉到 22.8。但 ≤3B 学生对长推理吃力，1.5B 学短 CoT 得 34.2、学长 CoT 只有 27.0（<a href="https://arxiv.org/abs/2502.12143">2502.12143</a>）；2026 年也有研究认为这取决于实验设置，需要在我们的任务上实测。</li>
+<li><b>加恢复分支和"不调用"负例</b>：Guava 加恢复分支后从 79.3% 提到 87.1%；Agent-FLAN 用负例压低幻觉调用。</li>
+<li><b>损失只算 assistant 轮</b>，观测部分掩掉；混入 10–20% 通用数据防止遗忘。</li>
+<li><b>纯 SFT 会离线漂移</b>：学生只见过教师走过的状态，自己走偏后不会恢复。所以 SFT 之后要接 RL 或在线纠错蒸馏。</li>
+<li><b>小模型的典型失败是循环</b>：SWE-smith-32B 超过 25% 的轨迹出现重复动作，Claude 不到 4%。需要在 harness 里检测重复，在训练里惩罚停滞。</li>
+</ul>
+</div>
+<div class="sub" id="s3-rl">
+<h3>3.3 多轮 Agent 强化学习</h3>
+<p>在 ALFWorld、WebShop 这类任务上，多轮 RL 能在起点策略上再加几十个点，步级信用分配方法又比普通 GRPO 多 5–15 个点。前提是起点策略已经有一定成功率，并且回合可以重置。起点太弱时只做 RL 会失败：AirVLN-R1 不做 SFT 只有 2.4%，ERA 是 0%。</p>
+<div class="tbl wide"><table>
+<thead><tr><th>方法</th><th>环境（最大轮数）</th><th class="n">规模</th><th>算法与信用分配</th><th>奖励</th><th>报告的提升</th></tr></thead>
+<tbody>
+<tr><td>GiGPO <a href="https://arxiv.org/abs/2505.10978">2505.10978</a></td><td>ALFWorld（50）、WebShop（15）</td><td class="n">1.5B、7B</td><td>无 critic；按相同"锚点状态"把不同轨迹的步骤分组，算步级优势；γ 0.95，KL 0.01，每组 8 条</td><td>成功 10 / 失败 0，无效动作 −0.1</td><td>1.5B ALFWorld：GRPO 72.8 → 86.1–86.7；WebShop 56.8 → 65.0–67.4</td></tr>
+<tr><td>DARS / HiPER <a href="https://arxiv.org/abs/2610.01207">2610.01207</a> <a href="https://arxiv.org/abs/2602.16165">2602.16165</a></td><td>ALFWorld、WebShop</td><td class="n">1.5–8B</td><td>在 GiGPO 上加谓词依赖图的势函数 / 分层优势</td><td>进度 / 结果</td><td>1.5B ALFWorld：86.9 → 96.9 / 86.7 → 95.3</td></tr>
+<tr><td>SPA-RL <a href="https://arxiv.org/abs/2505.20732">2505.20732</a></td><td>ALFWorld（20）、WebShop</td><td class="n">3B</td><td>PPO + 学习出来的进度估计器</td><td>进度 + 可执行性</td><td>ALFWorld：GRPO 70.9 → 79.1</td></tr>
+<tr><td>AgentGym-RL <a href="https://arxiv.org/abs/2509.08755">2509.08755</a></td><td>网页、游戏、SciWorld（≤30）</td><td class="n">3B、7B</td><td>GRPO，KL 1e-3；轮数上限课程 10 → 20 → 30</td><td>结果</td><td>3B：TextCraft 14 → 75，BabyAI 52 → 93</td></tr>
+<tr><td>ERA <a href="https://arxiv.org/abs/2510.12693">2510.12693</a></td><td>EB-ALFRED（30）</td><td class="n">VL-3B</td><td>SFT 后 PPO，轮级 GAE</td><td>成功 +4，每个子目标 +1，无效 −0.5</td><td>稠密奖励对只看成功：46 → 60；比 GPT-4o 高 8.4</td></tr>
+<tr><td>EMPG <a href="https://arxiv.org/abs/2509.09265">2509.09265</a></td><td>ALFWorld、WebShop</td><td class="n">1.5–7B</td><td>按熵调制步级优势</td><td>二值</td><td>1.5B ALFWorld 80.8 → 88.1（在 DAPO 之上）</td></tr>
+<tr><td>Agent-R1 / L0 <a href="https://arxiv.org/abs/2511.14460">2511.14460</a> <a href="https://arxiv.org/abs/2506.23667">2506.23667</a></td><td>QA、ALFWorld、WebShop / notebook QA（≤15）</td><td class="n">3–4B</td><td>PPO/GRPO 加损失与优势掩码 / 步级 REINFORCE++</td><td>EM、格式 / 逐步执行与格式</td><td>4B ALFWorld 81.3（ReAct 7.1）；Qwen3-4B 14.8 → 44.7</td></tr>
+<tr><td>LOOP <a href="https://arxiv.org/abs/2502.01600">2502.01600</a></td><td>AppWorld（40）</td><td class="n">32B LoRA</td><td>留一基线 PPO，无 KL、无 critic</td><td>测试通过比例</td><td>39.2 → 71.3；加组内标准差归一化反而掉 9 个点</td></tr>
+<tr><td>RAGEN / StarPO-S <a href="https://arxiv.org/abs/2504.20073">2504.20073</a></td><td>Sokoban、FrozenLake、WebShop（≤5）</td><td class="n">0.5B、3B</td><td>只保留奖励方差最高的 25% 任务；ε 0.2/0.28；无 KL</td><td>任务奖励，格式 −0.1</td><td>避免 Echo Trap 塌缩；RAGEN-2：0.5B Sokoban 3.3 → 26.2</td></tr>
+<tr><td>Search-R1 <a href="https://arxiv.org/abs/2503.09516">2503.09516</a></td><td>检索问答（4）</td><td class="n">3B、7B</td><td>PPO/GRPO，KL 1e-3，观测 token 掩码</td><td>EM</td><td>掩码让 3B 从 0.262 到 0.303；格式奖励伤害 instruct 模型</td></tr>
+<tr><td>ToolRL / Tool-N1 <a href="https://arxiv.org/abs/2504.13958">2504.13958</a> <a href="https://arxiv.org/abs/2505.00024">2505.00024</a></td><td>单步工具调用</td><td class="n">1.5–14B</td><td>GRPO</td><td>工具名与参数细粒度匹配；N1 发现二值好过部分分</td><td>3B BFCL 33.0 → 53.0，但多轮仍 ≤5.6%</td></tr>
+<tr><td>AT-GRPO <a href="https://arxiv.org/abs/2510.11062">2510.11062</a></td><td>多智能体规划、代码</td><td class="n">1.7B、8B</td><td>按（智能体，轮次）分组</td><td>团队 + 局部</td><td>8B Sokoban 14 → 96；1.7B 一直在 11 左右</td></tr>
+<tr><td>AirVLN-R1 <a href="https://arxiv.org/abs/2601.03707">2601.03707</a></td><td>UAV 视觉语言导航</td><td class="n">7B</td><td>GRPO，步级</td><td>距离 + 航向</td><td>40.2 → 51.8；不做 SFT 只有 2.4</td></tr>
+</tbody></table></div>
+<h3>对我们最关键的横向结论</h3>
+<ul>
+<li><b>SFT 要有，但别太多</b>：OpenWebRL（<a href="https://arxiv.org/abs/2606.02031">2606.02031</a>，4B）发现接上 RL 后，0.4K 条教师轨迹反而好过 1.9K 条。SFT 的目标是让 RL 能起跑。</li>
+<li><b>SFT 和 RL 之间加一段在线蒸馏热身</b>：OPW（<a href="https://arxiv.org/abs/2609.39436">2609.39436</a>，Qwen3-4B）在 60 步 RL 后 ALFWorld 已见集 96.1，SFT 热身为 83.9。教师权重要退火到 0；权重固定的 GRPO+OPD 反而不如普通 GRPO（39.1 对 53.0）。</li>
+<li><b>有奖励塑形时不要做组内标准差归一化</b>：LOOP 因此掉 9 个点；Dark Room（<a href="https://arxiv.org/abs/2607.21273">2607.21273</a>）中"稠密塑形 + 标准差归一化"11 次运行全部塌缩，因为全失败组里的 z-score 会把塑形项抵消。</li>
+<li><b>部分分在 4B 左右证据不一</b>：有的持平，有的二值更好（FinQA-4B 66.3 对 54.0），有的"先稠密后稀疏"最好。λ 必须做消融。</li>
+<li><b>思考会在 RL 中自然变短</b>：RAGEN 每步推理从 307 降到 90 token，不思考的版本表现相当。从 Qwen3-4B-Thinking 起跑 RL，工具调用几乎降到 0（<a href="https://arxiv.org/abs/2510.11701">2510.11701</a>），所以起点选非思考或短思考。</li>
+<li><b>多机要用宏动作</b>：小模型团队在空间协作游戏里用原始底层动作拿不到任何奖励，换成宏动作才行（<a href="https://arxiv.org/abs/2608.01425">2608.01425</a>）。这支持保留 harness 的复合工具和技能。只训练指挥者、冻结执行者可以避免信用归属不清（AgentFlow 规划器 38.5 → 55.7）。</li>
+<li><b>Qwen 的虚假奖励问题</b>：Qwen2.5-Math-7B 用随机奖励也能在 MATH-500 上涨 21.4 分。要跑随机奖励对照，确认提升来自任务。</li>
+<li><b>普通 GRPO 是很强的基线</b>：一项 132 次运行的比较（<a href="https://arxiv.org/abs/2610.19789">2610.19789</a>）中，10 种自蒸馏附加方法只有 2 种稳定超过调好的 GRPO。</li>
+</ul>
+</div>
+<div class="sub">
+<h3>3.4 UAV 与多机器人方向</h3>
+<div class="tbl wide"><table>
+<thead><tr><th>工作</th><th>设置</th><th>模型与训练</th><th>结果</th><th>可借鉴之处</th></tr></thead>
+<tbody>
+<tr><td>MultiUAV-Plat / Agent4Drone <a href="https://arxiv.org/abs/2606.31073">2606.31073</a></td><td>3–30 架，1,500 题，9,396 个隐藏检查</td><td>只做 prompting</td><td>DeepSeek-V4-Pro 70.3%（ReAct 63.6%）</td><td>我们的 harness 底座和奖励来源</td></tr>
+<tr><td>DroneServer <a href="https://arxiv.org/abs/2601.15486">2601.15486</a></td><td>MCP 对接 MAVLink，98 个工具，10 个任务</td><td>11 个 API 模型 + 本地 ≤8B</td><td>8/11 个 API 模型完成 90–100% 飞行任务；本地 4–8B 一个多步任务都完不成</td><td>把 LLM 当不可信指挥者：服务端校验、独立地理围栏、审计日志</td></tr>
+<tr><td>Skill-SLM <a href="https://arxiv.org/abs/2610.10812">2610.10812</a></td><td>UAV 操作任务，另含地面车</td><td>LLM 教师合成数据；SLM 做任务分解和技能编排，技能库由上下文无关文法抽取</td><td>未见任务上明显好于蒸馏基线</td><td>技能库加文法约束。单机、偏一次性编排，不是多机闭环</td></tr>
+<tr><td>PMR <a href="https://arxiv.org/abs/2606.14219">2606.14219</a></td><td>Gazebo/PX4，单机恢复，400 次运行</td><td>任务循环留在本地，远端 agent 按需调用；学到的调用门控 learned-CVI</td><td>困难场景 5% → 95%，远端调用减少 16.7%</td><td>和我们 C2 的交接门控高度相关，论文里必须引用并说明区别</td></tr>
+<tr><td>RoboTalk <a href="https://arxiv.org/abs/2609.23997">2609.23997</a></td><td>多机器人工具调用，含通信</td><td>小 VLM 在 7,950 条合成 leader-follower 轨迹上 SFT</td><td>held-out 77%，未训练约 2%</td><td>最接近的多机数据配方</td></tr>
+<tr><td>SkyAgent（期刊，2026-08）</td><td>2 架，2D</td><td>冻结的 Qwen2.5-1.5B Q4 做规划，底层 PPO</td><td>96.7%</td><td>LLM 本身没有训练</td></tr>
+<tr><td>SLM-A*（IEEE Access 2026）</td><td>3 架，栅格</td><td>QLoRA 微调 6 个小模型，3,000 个 A* 标注场景</td><td>5 项指标中 4 项最好</td><td>规划器标注加几何校验，单步</td></tr>
+<tr><td>FlightGPT <a href="https://arxiv.org/abs/2505.12835">2505.12835</a></td><td>CityNav 视觉语言导航</td><td>Qwen2.5-VL-7B，SFT 后 GRPO，复合奖励</td><td>未见场景成功率 +9.22%</td><td>SFT→GRPO 的复合奖励设计</td></tr>
+<tr><td>Deconfliction <a href="https://arxiv.org/abs/2603.28561">2603.28561</a></td><td>BlueSky 多机冲突消解</td><td>Qwen-Math-7B，LoRA SFT 对比 SFT+GRPO</td><td>SFT 最稳；异构智能体下 GRPO 更弱</td><td>提醒：多机场景的 RL 不一定更好</td></tr>
+</tbody></table></div>
+<p class="cap">AerialVLN、CityNav、OpenFly、UAV-ON、UAV-Flow 等是视觉导航方向，没有工具调用，参考价值低。SMART-LLM、RoCo、COHERENT、EMOS 等多机器人工作都基于 GPT-4 级模型的 prompting。</p>
+</div>
+<div class="sub">
+<h3>3.5 最接近的工作，以及可以占的位置</h3>
+<p>最近两周出现了几篇方向相近的预印本，需要正面区分。HAD 做"harness 感知的蒸馏"，场景是 ALFWorld 等通用基准，依赖白盒教师做 OPD，不用任务奖励。Guava 证明 harness 设计决定小模型能否学会具身任务，场景是单臂操作。Skill-SLM 把小模型用在 UAV 上，做的是单机的一次性任务分解和技能编排。PMR 做单机的选择性云端恢复。目前没有找到把 ≤4B 开源模型训练成多轮、多机协同指挥模型并配程序化检查的工作。</p>
+<ol class="contrib">
+<li><span>G1</span><div><b>多机闭环指挥的小模型</b>：3–30 架、10–40 轮工具调用、部分可观测，配 1,500 题完整评测和配对统计。</div></li>
+<li><span>G2</span><div><b>用 harness 的任务状态做 RL 信用分配</b>：任务义务和证据账本可以给出按无人机拆分的势函数和离散状态锚点。最接近的是 DARS、HiPER、MVPO 在 ALFWorld/WebShop 上的谓词或里程碑势函数，都是单智能体；<a href="https://arxiv.org/abs/2604.02869">2604.02869</a> 报告朴素设计的逐轮稠密奖励最多掉 14 个点。这条贡献的新意要落在多机、逐机义务和部分可观测上，不能只说"用了进度奖励"。</div></li>
+<li><span>G3</span><div><b>把 harness 蒸馏进权重</b>：画出上下文预算与通过率的曲线，说明哪些 harness 能力被模型内化、哪些仍需要外部状态。HAD 的分析提示学生会把可学的反馈留在权重里、把状态交给 harness，我们可以在多机场景验证或推翻。</div></li>
+<li><span>G4</span><div><b>笔记本闭环指标</b>：首 token 时间、每秒 token、缓存命中率、每题能耗、检查通过率，以及量化对各类工具调用错误的影响，直接回应 DroneServer 观察到的本地模型失败。</div></li>
+<li><span>G5</span><div><b>多机场景的逐步云端升级</b>：小模型在本地执行，不确定时把决策权交给云端模型，并对成功率和云端调用率给出校准保证。Hera、TSDS 做的是家务和网页任务，PMR 是单机。</div></li>
+</ol>
+</div>
+</section>
+<section id="s4">
+<h2><span class="no">04</span>教师模型与条款</h2>
+<p>教师只用 DeepSeek。条款原文于 2026-10-17 从 cdn.deepseek.com 和 api-docs.deepseek.com 读取 <span class="tag v">已核实</span>，以下不构成法律意见。</p>
+<div class="tbl wide"><table>
+<thead><tr><th>条目</th><th>原文要点</th><th>对我们的含义</th></tr></thead>
+<tbody>
+<tr><td>开放平台服务条款 §4.2（2026-04-22 发布，04-29 生效）</td><td>输出的权利转让给用户；输入和输出可以用于"个人使用、学术研究、衍生产品开发、训练其他模型（如模型蒸馏）等"</td><td>用 API 轨迹做 SFT、蒸馏和 RL 起点是明确允许的</td></tr>
+<tr><td>使用条款 §4.2、§3.1（2026-03-27 更新）</td><td>同样允许蒸馏，前提是"合法且遵守本条款"；公开发布输出时，须标明内容由 AI 生成</td><td>公开轨迹数据集时注明由 AI 生成，并写明来源模型</td></tr>
+<tr><td>品牌条款 §5.2–5.4</td><td>未经许可不得使用 DeepSeek 标识，不得暗示获得官方认可或推荐</td><td>论文里如实写"教师为 deepseek-flash"即可，不要有背书措辞</td></tr>
+<tr><td>账号条款 §2.2、§2.3、§3.6(4)</td><td>API key 不得共享；账号不可转让或出借；不得转售或再许可服务</td><td>学校网关属于第三方转接，权利链需要另行确认</td></tr>
+<tr><td>权重许可</td><td>V4-Pro、V4-Flash、V4.1-Flash 在 Hugging Face 上均为 MIT</td><td>法律上可以自部署，但 MoE 体量远超单卡，本项目不考虑</td></tr>
+<tr><td>模型路由公告（2026-09-10）</td><td>V4-Flash 已下线，<code>deepseek-flash</code> 临时路由到 V4.1-Flash；9 月 14 日起 <code>deepseek-v4-pro</code> 也路由到 V4.1-Flash，直到 V4.1-Pro 上线</td><td>通过 API 已经做不出"Pro 对 Flash"的对比。本仓库 10 月初 full1500 首次运行的 82.9%，请求名是 <code>deepseek-flash</code>；如果走的是官方 API，实际服务的是 V4.1-Flash</td></tr>
+</tbody></table></div>
+<p class="cap">DeepSeek-R1 发布公告（2025-01-20）曾写明"API outputs can now be used for fine-tuning &amp; distillation"。V4 的几次公告没有重复这句话，现行依据是上表的服务条款 §4.2。</p>
+<div class="note">
+<p><b>建议</b></p>
+<ul>
+<li><b>主教师</b>：当前 API 实际提供的 V4.1-Flash。它在本仓库 harness 下实测最强（首次运行口径 82.9%，托管版 qwen3.8-flash 为 76.7%），每题平均 13.9 次调用，p90 为 25 次。</li>
+<li><b>集中生成，冻结教师</b>：一到两周内生成全部轨迹，每次调用都记录返回的 <code>model</code> 和 <code>system_fingerprint</code>。V4.1-Pro 上线后，最多拿它补一组教师强弱对照，中途不换教师。</li>
+<li><b>用自己的官方账号</b>：经学校网关生成的数据，需要网关方书面确认"可用于训练和公开发布"，否则改用自己的 DeepSeek 账号。网关还可能悄悄改写模型 ID 或回退到别的供应商，这也是要记模型字段的原因。</li>
+<li><b>白盒教师改用训练好的 4B</b>—</li>
+<li><b>Opus 5.5 与 GPT-6 Astra</b>：不再使用。如果审稿人要求闭源参照，只在评测侧补跑，不进训练集。</li>
+<li><b>成本</b>—<span class="tag i">推断</span>。</li>
+</ul>
+</div>
+</section>
+<section id="s5">
+<h2><span class="no">05</span>学生模型与端侧部署</h2>
+<div class="tbl wide"><table>
+<thead><tr><th>模型（发布）</th><th>许可</th><th class="n">上下文</th><th class="n">语言模型参数</th><th class="n">BFCL</th><th class="n">τ² 等</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>Qwen3.5-4B（2026-02）</td><td>Apache-2.0</td><td class="n">262K</td><td class="n">4.21B</td><td class="n">50.3 <span class="tag r">自报</span></td><td class="n">τ² 79.9 <span class="tag r">自报</span></td><td>主力。32 层，其中 8 层全注意力、24 层 Gated DeltaNet，KV 缓存每 token 32 KiB；混合思考，默认开。已有两篇在该检查点上 RL 成功的先例（FrogNano、MT-GRPO）；带 MTP 头，可做投机解码</td></tr>
+<tr><td>Qwen3.5-2B</td><td>Apache-2.0</td><td class="n">262K</td><td class="n">1.88B</td><td class="n">43.6</td><td class="n">τ² 48.8</td><td>中间档和方法开发档。24 层（6 层全注意力），KV 每 token 12 KiB；思考默认关，模型卡提示有思考循环</td></tr>
+<tr><td>Qwen3.5-0.8B（2026-02）</td><td>Apache-2.0</td><td class="n">262K</td><td class="n">0.75B</td><td class="n">25.3 <span class="tag r">自报</span></td><td class="n">τ² 11.6 <span class="tag r">自报</span></td><td>低延迟档首选。与 4B 同分词器、同模板、同架构，KV 每 token 12 KiB。别家测的 τ² Telecom 从 14.3 到 47.7 不等；模型卡提示思考模式容易循环，默认不思考</td></tr>
+<tr><td>MiniCPM5-1B（2026-05）</td><td>Apache-2.0</td><td class="n">131K</td><td class="n">1.08B</td><td class="n">25.2 <span class="tag r">自报</span></td><td class="n">Telecom 79.5 <span class="tag r">自报</span></td><td>稠密 Llama 结构，XML 格式工具调用，公开了 Base 和 SFT 检查点；0.8B 档的异族备选。τ² 分数只见于图表，与它自己的 BFCL 分数不符，暂不采信</td></tr>
+<tr><td>LFM2.5-1.2B（2026-01）</td><td>LFM v1.0，年收入 1,000 万美元以下可商用</td><td class="n">32K</td><td class="n">1.2B</td><td class="n">v3 49.1 / 57.0 <span class="tag r">自报</span></td><td class="n">Telecom 19.6</td><td>Instruct 和 Thinking 分开发布；别家测 BFCL v4 只有 10.6；上下文只有 32K，默认用 Python 风格调用</td></tr>
+<tr><td>Granite-4.0-1B / H-1B（2025-10）</td><td>Apache-2.0</td><td class="n">128K</td><td class="n">1.63B / 1.46B</td><td class="n">v3 54.8 / 50.2 <span class="tag r">自报</span></td><td class="n">–</td><td>名义 1B，实际 1.5–1.6B；H 版是 Mamba2 混合结构；无思考模式</td></tr>
+<tr><td>xLAM-2-1b-fc-r（2025-03）</td><td>CC-BY-NC-4.0，不可商用</td><td class="n">–</td><td class="n">1.54B</td><td class="n">独立榜 30.4，多轮 36.0</td><td class="n">τ-bench 21.8</td><td>独立榜上 ≤1.5B 多轮得分最高（多轮专门训练过）；许可受限，只适合做参照</td></tr>
+<tr><td>MiniCPM5-2B（2026-09）</td><td>Apache-2.0</td><td class="n">128K</td><td class="n">≈2B</td><td class="n">66.6 <span class="tag r">自报</span></td><td class="n">Telecom 97.1 <span class="tag r">自报</span></td><td>稠密 Llama 结构；公开了 50 万条 SFT 和 8 万条 RL agent 数据；2B 档的异族备选</td></tr>
+<tr><td>Granite-4.2-3B（2026-08）</td><td>Apache-2.0</td><td class="n">128K</td><td class="n">≈3B</td><td class="n">52.4 <span class="tag r">自报</span></td><td class="n">τ³ 45.8</td><td>稠密 3B；Granite 4.1/4.2 系列最小就是 3B</td></tr>
+<tr><td>Gemma-4-E2B（2026-03）</td><td>Apache-2.0</td><td class="n">128K</td><td class="n">5.1B 总量</td><td class="n">≈37</td><td class="n">τ² 24.5</td><td>"有效 2.3B"，但算上逐层嵌入和视觉、音频模块共 5.1B，按显存算不是 1B 档</td></tr>
+</tbody></table></div>
+<p class="cap">BFCL 未注明版本的为 v4。自报 = 厂商自测；独立榜 = BFCL V4 官方榜（2026-04-12 更新）。厂商分数跨 harness 不可比，Qwen3.5-4B 的 BFCL v4 在三家报告里分别是 50.3、50.6、56.8。独立榜上原版小模型的多轮分数很低：Qwen3-0.6B 3.6，Qwen3-1.7B 11.0，Llama-3.2-1B 0.0。Qwen3.5 小模型都是带视觉塔的 VLM，没有纯文本检查点，vLLM 用 <code>--language-model-only</code> 只加载语言部分。Qwen 在 Qwen3.5 之后没有发布新的 ≤4B 模型。</p>
+<div class="sub">
+<h3>约 1B 的模型能做到什么程度</h3>
+<p>下面是同一篇论文里同时报告了小号和大号模型、训练方法相同的结果。数字为各论文自报。</p>
+<ul>
+<li><b>在线蒸馏能追回大半，但仅限分布内</b>：ActFirst-OPD 在 ALFWorld 上，0.6B 从 0.7 提到 68.6，4B 从 63.5 提到 82.6，教师 88.3；换到 ScienceWorld，普通 OPD 后三个规模只有 10.0、22.9、29.3。</li>
+<li><b>同样数据 SFT 后差距仍大</b>：xLAM-2 在 τ-bench 上 1B 21.8、3B 38.2、8B 46.7；ProD 域内平均 0.6B 52.7、1.7B 67.9、4B 78.0。</li>
+<li><b>工具多、组合复杂时，小模型训练后可能变差</b>：RACE 的 AppWorld（数字由柱状图读出）上，2B 从 12.1 经 SFT 降到 7.7、RL 后为 9.7；4B 是 40.9 → 52.5 → 40.5。WebShop 和 ScienceWorld 上 2B 与 4B 训练后接近。</li>
+<li><b>RL 未必救得回来</b>：AT-GRPO 中 1.7B 的 Sokoban 一直停在 10–11.5，8B 到了 96–98；GiGPO 的 1.5B 对 7B 是 ALFWorld 86.7 对 90.8，RLVMR 在未见类别上差距拉大到 56.3 对 83.6。</li>
+<li><b>典型失败是循环</b>：HAD 中未训练学生只有 20.4% 的回合没有循环，教师是 64.6%；RAGEN 的 0.5B 出现"Echo Trap"，反复执行同一套计划。</li>
+</ul>
+<div class="note"><p><b>推荐</b>：主力 Qwen3.5-4B，用 LoRA 训练。低延迟档 Qwen3.5-0.8B，由训练好的 4B 同族在线蒸馏得到。Qwen3.5-2B 做中间档和方法开发：它的 KV 缓存和 0.8B 一样大，τ² 却是 48.8 对 11.6。异族对照可选 MiniCPM5-1B（稠密结构，运行时最省心）。0.8B 适合承担短时程重规划、参数填写和技能调用；长时程多机协同能不能交给它，要先在留出模板上实测再下结论。Qwen3.5 是混合注意力结构，训练框架和 llama.cpp 前缀复用的支持都还要在第 1 周跑通，跑不通就换稠密模型（第 6 节）。</p></div>
+</div>
+<div class="grid2">
+<div class="panel"><h3>笔记本上能跑多快</h3><ul>
+<li><b>不量化运行</b>：语言部分的 BF16 权重，0.8B 约 1.5 GB，2B 约 3.8 GB，4B 约 8.4 GB。16 GB 以上内存的 Mac 可以直接跑 4B 的 BF16；8 GB 显存的 RTX 笔记本跑 4B 需要 Q8 或 Q4，跑 0.8B 和 2B 可以不量化。</li>
+<li><b>解码速度</b> <span class="tag i">推断</span>：BF16 解码受内存带宽限制。按 M4 Pro 的 273 GB/s 估算，0.8B、2B、4B 分别约 110、45、20 token/s，带宽约 120 GB/s 的基础款芯片减半。实测参照：llama.cpp 在 Apple M3 的 CPU 后端上，0.8B BF16 解码 35 token/s、预填 1,866 token/s，Q4_K_M 解码 107 token/s；RTX 5090 上 0.8B Q8_0 解码 715 token/s。不量化的 4B 在笔记本上偏慢，这也是要有 0.8B 档的原因。</li>
+<li><b>前缀缓存必须开</b>：不缓存时，4B 在 M4 Pro 上每步要重算约 6 万 token，大约 1.5 分钟。所以学生侧上下文要压缩，而且历史只追加、不改写，缓存才一直有效（第 7 节 WP0）。</li>
+<li><b>量化的代价</b>：4bit 让工具调用整体只掉 1–3%，但工具名幻觉最多放大 2.5 倍；"要不要调用"比"调用哪个"更容易被量化打乱。2B 建议用 Q5 或 Q8，每个量化版本都在 MultiUAV 检查上重测并按错误类型统计。</li>
+</ul></div>
+<div class="panel"><h3>推荐部署栈</h3><ul>
+<li><b>运行时</b>：llama.cpp 的 <code>llama-server</code>（Metal 或 CUDA），加载 GGUF，开 <code>--jinja</code> 使用原生工具模板，开 prompt cache、<code>--cache-reuse</code> 和 slot 保存恢复，让 system prompt 和工具 schema 常驻缓存；混合结构加 <code>--ctx-checkpoints</code>。</li>
+<li><b>保证工具调用合法</b>：llama.cpp 的 lazy grammar 在工具调用开始时才启用文法，JSON Schema 自动转 GBNF。只约束调用和参数，不约束思考部分，因为格式约束会损害推理。前提是把 <code>input_json</code> 字符串改成带类型的参数。mlx-lm 的 server 目前不支持文法约束。</li>
+<li><b>投机解码</b>：llama.cpp 2026-05 合入了 Qwen3.5 的 MTP，报告解码加速约 1.5–2 倍（单 slot）。</li>
+<li><b>LoRA 不影响部署</b>：训练结束后把 LoRA 合并回基座，再转成 GGUF，推理时没有额外开销。</li>
+<li><b>训练 rollout</b>：用 vLLM 或 SGLang，配 xgrammar 和前缀缓存；需要多架无人机并行调用时，在 RTX 或 Linux 机器上也用它们。</li>
+<li><b>安全层</b>：沿用 DroneServer 的做法，把模型当成不可信指挥者，服务端校验命令、独立地理围栏、审计日志。蒸馏会把教师的不安全倾向带给小模型，而且从大到小传递最强。</li>
+</ul></div>
+</div>
+</section>
+<section id="s6">
+<h2><span class="no">06</span>—</h2>
+<p>约束是只租一张卡，上限 A800 或 A100 80 GB，最好能用 A100 40 GB。A800、A100 80 GB 和 A100 40 GB 都是 Ampere 架构，BF16 算力相同，差别只在显存。所以 40 GB 卡慢在能同时跑的回合数少、要在 rollout 和训练之间换入换出，而不是算力不够。本节的显存和时间都是按模型配置文件推算的 <span class="tag i">推断</span>，第 1 周要实测。</p>
+<div class="tbl wide"><table>
+<thead><tr><th>配置</th><th>模型状态</th><th>单卡 80 GB</th><th>单卡 40 GB</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td>4B 全参</td><td>约 67 GB：BF16 权重和梯度、FP32 主权重、Adam 两组状态，每参数约 16 字节</td><td><span class="chip mid">偏紧</span> 要把优化器卸载到 CPU（主机内存约 50 GB），留给 rollout 的显存只剩十几 GB</td><td><span class="chip hi">不可行</span></td><td>不作主线；时间充裕时做一次对照</td></tr>
+<tr><td>4B LoRA（秩 64，全部线性层）</td><td>基座 8.4 GB，适配器连同优化器约 1 GB</td><td><span class="chip lo">可行</span> 训练约 15 GB；rollout 引擎权重 8.4 GB，加上 128 个并发回合的 KV 缓存 30–40 GB</td><td><span class="chip mid">偏紧</span> 必须开 sleep 模式分时；并发回合降到 32–64，或把每回合压到 8K token 以内</td><td>主线</td></tr>
+<tr><td>2B 全参</td><td>约 30 GB</td><td><span class="chip lo">可行</span> 余量充足</td><td><span class="chip mid">偏紧</span> 换 8-bit Adam 后约 19 GB，或把优化器卸载到 CPU</td><td>LoRA 对全参的对照</td></tr>
+<tr><td>2B LoRA</td><td>3.8 GB</td><td><span class="chip lo">可行</span></td><td><span class="chip lo">可行</span></td><td>方法开发与消融</td></tr>
+<tr><td>0.8B 全参</td><td>约 12 GB</td><td><span class="chip lo">可行</span></td><td><span class="chip lo">可行</span></td><td>低延迟档，同卡放 4B 教师做在线蒸馏</td></tr>
+</tbody></table></div>
+<p class="cap">KV 缓存按 config.json 计算：Qwen3.5-4B 只有 8 层全注意力，每 token 32 KiB，Gated DeltaNet 层每条序列另有约 50 MB 的固定状态；0.8B 和 2B 每 token 12 KiB，每条序列约 19 MB。按每回合 18K token、128 个并发回合、平均长度取一半估算。logits 必须分块计算：248K 词表在 18K token 上一次算完要约 9 GB（BF16）。Ampere 不支持 FP8，所以 Unsloth 的 FP8 RL、QeRL 的 NVFP4 这些省显存办法在 A100/A800 上用不了。</p>
+<div class="tbl"><table>
+<thead></thead>
+<tbody>
+
+
+
+
+</tbody></table></div>
+<p class="cap">全部为 <span class="tag i">推断</span>—</p>
+<p><b>整个项目</b>—<span class="tag i">推断</span>。一张卡串行跑大约要三周纯 GPU 时间；同时租两三张单卡并行跑消融，可以压到一周多。</p>
+<div class="grid2">
+<div class="panel"><h3>LoRA 做 RL 的证据</h3><ul>
+<li><b>支持</b>：Thinking Machines 的 LoRA Without Regret（2025-09-29）发现，策略梯度 RL 里 LoRA 秩低到 1 也能和全参持平。最优学习率约为全参的 10 倍，100 步以内的短训练约 15 倍。LoRA 要加在全部层上，尤其是 MLP，只加注意力层明显更差。实验是数学推理，不是多轮 agent。</li>
+<li><b>agent 上的先例</b>：RAGEN 附录中，Sokoban 上 LoRA 秩 64、10 倍学习率，验证成功率与全参相当，显存占用约 23% 对 48%。LOOP 用 32B LoRA（秩 16）把 AppWorld 从 39.2 提到 71.3。2608.01425 在单张 H100 上，对 Qwen3-4B 和 Qwen3.5-2B 做每智能体 LoRA 的多智能体 GRPO。verl-agent 在 2×H100 上跑 7B 的 GiGPO LoRA。</li>
+<li><b>反面</b>：CoPES（<a href="https://arxiv.org/abs/2608.02391">2608.02391</a>）最接近我们的设置，是 Qwen3.5-4B 工具 agent，用 verl 0.8.0。全参 GRPO 16 步时 AIME24 达 44.28（78.6 GPU 时）。LoRA（秩 32，学习率只放大 5 倍）走到 64 步才 41.86（314 GPU 时），同为 16 步时只有 28.14。2512.23165 在 1.5B 数学 RLVR 上测得 LoRA 42.5、全参 44.9、DoRA 46.6，秩 1 稳定落后于 16–32。2601.06677 在单张 A40 上测 ≤1.5B，秩 8 一直失败，要到 256 才行。</li>
+<li><b>SFT 一侧</b>：2609.17848 在 4B 工具调用 SFT 上，LoRA 三个数据集都好过全参（xLAM 88.0 对 80.4）。</li>
+<li><b>怎么用</b>：秩从 64 起步，加在全部线性层，学习率约为全参的 10 倍（全参 1e-6 对应 LoRA 约 1e-5），并预期比全参多走几倍步数。第 1–2 周先在 2B 上跑 LoRA 对全参的短对照。已有的对照只在数学和工具增强推理上，长时程、环境状态持续变化的 agent 任务上还没有，这组结果本身就能写进论文。</li>
+</ul></div>
+<div class="panel"><h3>单卡上必须打开的开关</h3><ul>
+<li><b>rollout 与训练分时共用一张卡</b>：verl 的 agent loop 每步让推理引擎进入 sleep（释放 KV、卸载权重），训练完再唤醒；TRL 用 colocate 模式加 <code>vllm_enable_sleep_mode</code>；Unsloth 的 Standby 让 vLLM 和训练共享同一份权重。</li>
+<li><b>logits 分块</b>：用 verl 的分块融合 log-prob 输出头或 Liger。CoPES 报告 verl 0.8 上 Qwen3.5-4B 用不了融合算子，LoRA 也开不了激活卸载，第 1 周要确认 0.9.x 是否已支持，不支持就自己分块。</li>
+<li><b>其余省显存手段</b>：梯度检查点、序列打包（<code>use_remove_padding</code>）、动态 batch。</li>
+<li><b>训推不一致校正</b>：开截断重要性采样（TIS），TRL 默认已开，verl 有 Rollout Correction 预设。有报告 1.5B LoRA 加 TIS 在 BF16 下约 600 步后塌缩、FP16 下稳定（2510.26788），长跑时把 FP16 作为备选。</li>
+<li><b>全参保留 FP32 主权重</b>：verl FSDP 默认如此。纯 BF16 权重配 1e-6 的学习率，小更新会被舍入吃掉。</li>
+<li><b>QLoRA 只作最后手段</b>：NF4 量化能省显存，但 QeRL 报告它在 3B/7B 上比 QeRL 低 6–8 个点，rollout 也更慢。只在 40 GB 卡放不下 4B 时考虑。</li>
+</ul></div>
+</div>
+<div class="panel"><h3>单卡训练框架</h3><ul>
+<li><b>试点：TRL GRPOTrainer v1.16.0（2026-10-15）</b>。colocate、sleep、<code>environment_factory</code>（有状态环境，带 reset 和 get_reward）都在一个进程里，TIS 默认开启，最简单。Unsloth 有 Qwen3.5-4B 的 GRPO notebook，但多轮环境支持未核实。</li>
+<li><b>主线：verl v0.9.1（2026-09-20）加 verl-agent</b>。有 GiGPO、Rollout Correction、LoRA 和 sleep，单卡 quickstart 设 <code>n_gpus_per_node=1</code>。要锁定 0.9.x，2026 年 LoRA 相关修复还在合入，v0.9.1 刚修好一处端到端问题。</li>
+<li><b>其他</b>：ROLL、AReaL、SkyRL 都支持 LoRA，但单卡多轮先例少。rLLM 的 tinker 后端会把数据传到托管服务，不用。</li>
+</ul></div>
+</section>
+<section id="s7">
+<h2><span class="no">07</span>推荐训练方案</h2>
+<p>整条路线按依赖顺序排列，周数是从定方向起算的估计。每一站都有可独立汇报的产出，后一站失败时可以退回前一站的检查点。</p>
+<ol class="route">
+<li><div class="wp">WP0</div><div class="body"><div class="head"><h3>环境与学生接口</h3><span class="when">第 1–2 周</span></div><ul>
+<li><b>训练任务</b>：无头任务生成器，固定种子，按 3 个任务族 × 5 个难度档生成新场景；与 1,500 题按文本和布局去重；留出 8 个未用模板和部分场景。</li>
+<li><b>逐题重置</b>：进程内 <code>World</code> 加快照恢复和虚拟时钟。基准里没有移动目标，但天气按墙钟 1 Hz 更新，异步 rollout 时要用虚拟时钟，同组 rollout 才可比。</li>
+<li><b>模拟器池</b>：64–128 个无头环境；超时和服务错误从损失中掩掉，不当作策略失败。租来的单卡实例通常只有 10–16 个 CPU 核（例如优云智算的 A800 实例是 16 核、240 GB 内存），优先用进程内 <code>World</code> 降低每个环境的开销；不够时另租一台便宜的纯 CPU 机器跑模拟器，经 HTTP 接入。</li>
+<li><b>学生上下文</b>：固定的短 system prompt 和工具 schema，后面接只追加的紧凑历史，任务状态块（每架无人机状态、剩余义务）附在每轮观测末尾。历史只追加、不改写，笔记本上的前缀缓存一直有效，训练时一个回合就是一条序列。超过约 24K token 时，把较早的轮折叠进状态块，只在折叠那一步让缓存失效一次。目标是每回合 ≤18K token、每轮观测 ≤1K token。滑动窗口（verl-agent 默认保留 2 轮，Agent-R1 认为效果最好）作为对照。SFT 和 RL 用同一格式。</li>
+<li><b>动作空间</b>：参数改为带类型的 schema；保留 <code>navigate_to</code>、覆盖规划、公开搜索这些复合工具和技能，作为学生的宏动作。</li>
+<li><b>轨迹记录器</b>：逐字保存 messages、tools、tool_call ID、并行分组、推理内容和每步 token。</li>
+</ul></div></li>
+<li><div class="wp">WP1</div><div class="body"><div class="head"><h3>教师数据</h3><span class="when">第 2–3 周</span></div><ul>
+<li>DeepSeek（当前 API 实际为 V4.1-Flash）在 harness 内跑新任务，只留通过的轨迹，每题 1–3 条，共 2–3K 条。每次调用记录返回的模型名和 fingerprint，一到两周内集中生成完。</li>
+<li>恢复分支：中途注入路径受阻、起飞失败、电量不足等扰动，记录教师怎样恢复。</li>
+<li>每轮保留简短的可见理由；用 harness 状态生成任务阶段标签，作为辅助训练目标（TPD 的做法）。</li>
+<li>失败轨迹同样保存，后面用于偏好学习，以及给 RL 里"全失败组"补一条成功样本。</li>
+<li>—<span class="tag i">推断</span>。</li>
+</ul></div></li>
+<li><div class="wp">WP2</div><div class="body"><div class="head"><h3>SFT 起步</h3><span class="when">第 3–4 周</span></div><ul>
+<li>先用 0.5–2K 条，目标是学生在训练分布上通过率达到 30–60%，够 RL 起跑即可。</li>
+<li>只算 assistant 轮的损失；batch 32（参照 RACE）；混入 10–20% 通用工具数据。</li>
+<li>4B 用 LoRA：秩 64–128，全部线性层，学习率约 1e-4，即全参 1e-5 的 10 倍。2B 和 0.8B 全参，学习率 1e-5；2B 另训一版 LoRA，给后面的对照用。</li>
+<li>起点用非思考或短思考模式。</li>
+<li>同时完成上下文预算消融：原始历史、执行记忆各版视图、任务状态块。</li>
+<li>算力 <span class="tag i">推断</span>：4B LoRA 在 2K 条、每条约 18K token 的数据上，单张 A800 每个 epoch 约 1–3 小时。</li>
+</ul></div></li>
+<li><div class="wp">WP3</div><div class="body"><div class="head"><h3>在线蒸馏热身</h3><span class="when">第 4–5 周</span></div><ul>
+<li>40–100 步，教师权重退火到 0。</li>
+<li>只做黑盒版：DeepSeek 对学生实际走到的状态重标动作，DAgger 式（<a href="https://arxiv.org/abs/2605.12913">2605.12913</a>—</li>
+<li>原方案的白盒版要自部署 Qwen3.8-27B，单卡放不下，取消。白盒 logit 蒸馏挪到 WP5，由训练好的 4B 当教师。</li>
+<li>这一站是可选的：SFT 后学生的通过率如果已经够 RL 起跑，可以跳过，直接进 WP4。</li>
+</ul></div></li>
+<li><div class="wp">WP4</div><div class="body"><div class="head"><h3>多轮 RL</h3><span class="when">第 5–9 周</span></div><ul>
+<li><b>优势</b>：A = A<sub>回合</sub> + A<sub>步</sub>。回合项用留一基线，不做组内标准差归一化；步级项用 GiGPO 的锚点分组，状态键取"任务 + 每架无人机已完成的子目标 + 飞行阶段 + 粗粒度位置格"，γ 0.95。连续仿真里精确状态很少重复，所以必须离散化，这正是 harness 任务状态派上用场的地方。</li>
+<li><b>奖励</b>：成功记 1、失败记 0，再加每轮塑形 λ·[γΦ(s′) − Φ(s)]，λ 从 0.5 退火到 0.1。Φ 是检查树的软评估：AND 取均值，OR 取最大，NOT 取 1 − x，叶子按无人机拆开，重置时已为真的叶子排除，航点序列用有序谓词（DARS 的做法）。势函数形式的塑形不改变最优策略，刷不出分。</li>
+<li><b>惩罚</b>：每次无效调用 −0.1，连续 3 次无效调用结束本回合；SFT 之后不再加格式奖励；成功项和进度项分开归一化（GDPO）。</li>
+<li><b>超参</b>：每组 8 条，40 GB 卡上最少 4 条；每步 16 个任务，单卡吃紧时降到 8 个。LoRA 学习率约 1e-5、秩 ≥64，全参 1e-6；clip ε 0.2/0.28；KL 0–1e-3；温度 1.0；每轮最多 512 token；开 TIS。丢弃零方差组，全失败组补一条存储的成功轨迹。</li>
+<li><b>小组更依赖稠密信号</b>：组越小，二值奖励越容易整组同分、没有梯度。单卡 L40S 上的一个记忆 agent 在每组 4 条时，二值奖励学不动，换成连续奖励才行（2605.23067）。所以势函数塑形和叶子增量在单卡上更重要，λ 的消融不能省。</li>
+<li><b>课程</b>：只训 SFT 模型通过率在 10–90% 之间的任务，达到 90% 就退役，约 1K 个任务；模型调用上限 10 → 20 → 30；从 1–2 架逐步到整队。</li>
+<li><b>结构</b>：单一中心化指挥策略，与现有 harness 一致，用按无人机拆分的 Φ 做逐机信用。多机分权（按智能体×轮次分组）留作扩展。</li>
+<li><b>开发顺序</b>：奖励、信用分配和课程先在 2B 上调通，再用 4B LoRA 跑主结果。2B 一步约 10 分钟，4B 约 20 分钟。</li>
+<li><b>回退方案</b>：超过约 30 轮后 GRPO 停滞，就换带轮级 critic 的 PPO（ERA：轮级 GAE 对 token 级，48 → 60）。单卡上 critic 要再占一份模型，4B 时 critic 也用 LoRA，或者只在 2B 上做。</li>
+<li><b>必须跑的对照</b>：只用二值奖励、均匀分摊的进度奖励、随机奖励。</li>
+</ul></div></li>
+<li><div class="wp">WP5</div><div class="body"><div class="head"><h3>规模下放、效率与部署</h3><span class="when">第 9–12 周</span></div><ul>
+<li><b>4B → 0.8B / 2B 在线蒸馏</b>：训练好的 4B 当白盒教师，对学生自己生成的 token 给逐 token 反向 KL。两者同分词器，4B 推理约占 9 GB，可以和学生放在同一张卡上。之后可在 0.8B 上再接一小段 RL。</li>
+<li>RACE 式自适应思考，或更简单的 AdaptThink，压缩推理 token。</li>
+<li>量化评测、约束解码、MTP 投机解码；在笔记本上闭环跑 fast100 和 full1500。</li>
+<li>可选：云端升级门控，把决策权分成"技能 → 0.8B → 4B → 云端"几级。</li>
+</ul></div></li>
+</ol>
+<p class="cap">训练框架的选择和单卡上必须打开的开关见第 6 节。</p>
+</section>
+<section id="s8">
+<h2><span class="no">08</span>已有 harness 工作怎样转化</h2>
+<p>已有工作大多不用丢，只是换一个角色：从"给大模型加的外挂"变成学生的状态接口、训练环境、奖励来源和动作抽象。</p>
+<div class="tbl wide"><table>
+<thead><tr><th>已有工作</th><th>当前证据</th><th>在新方案中的角色</th></tr></thead>
+<tbody>
+<tr><td>B1 工具修正（导航结果判断、高度、距离计算、收尾提示）</td><td>同 57 题从 45 题通过提高到 50 题</td><td>环境的一部分，教师和学生共用：教师数据更干净，奖励噪声更小</td></tr>
+<tr><td>任务进度 M1、证据账本 R2/R3、统一 TaskState 义务</td><td>功能成立，单独涨分证据不足</td><td>① 学生上下文里的紧凑状态块；② 辅助预测目标，类似 TPD 的任务阶段标签；③ RL 的进度势函数；④ 步级信用分配的状态锚点</td></tr>
+<tr><td>执行记忆 v1–v7</td><td>多版视图，已有离线验收</td><td>现成的上下文压缩方案族，直接用来做上下文预算与通过率的消融</td></tr>
+<tr><td>Harness 运行时（plan_id、游标、适用性门控）与确定性技能 simple_chain、public_search</td><td>受控测试中 8 对案例模型调用 41 → 23</td><td>分层动作空间：学生输出技能级计划，运行时负责执行，RL 时域变短；门控扩展成"技能 → 学生 → 云端"三级决策权</td></tr>
+<tr><td>协同搜索 R2</td><td>一次实际触发把进度从 88% 推到 96%</td><td>学生可调用的宏动作，降低 RL 的探索难度</td></tr>
+<tr><td>模型调用必要性审计</td><td>1,533 个请求边界的分类</td><td>"哪些轮需要模型、需要思考"的标注来源，可用于 RACE 式自适应思考或升级门控</td></tr>
+<tr><td>B0 失败案例簿</td><td>失败类型与真实案例</td><td>定向生成扰动与恢复数据；作为学生的错误类型评测框架</td></tr>
+<tr><td>实验协议（配对 W/L、场景级 bootstrap、冻结划分、500 秒）</td><td>已在多轮实验中使用</td><td>直接作为蒸馏论文的评测规范。这个方向的多数论文只报单次运行，不报区间</td></tr>
+<tr><td>请求审计与 token、HTTP 计量</td><td>已接入</td><td>端侧延迟、缓存命中与成本指标</td></tr>
+</tbody></table></div>
+<h3>论文主线：一篇，以强化学习为主，harness 作为方法的一部分</h3>
+<p>不投 CSCWD 之后，harness 工作不再单独成文，全部并入这一篇。三项贡献里 C2 是主线，C1 和 C3 支撑它。</p>
+<ol class="contrib">
+<li><span>C1</span><div><b>环境与数据</b>：基于 MultiUAV 的可验证训练环境（程序化任务、检查奖励、紧凑状态接口），以及在 harness 内运行的教师数据引擎（拒绝采样加恢复分支）。</div></li>
+<li><span>C2</span><div><b>方法</b>：用 harness 的任务义务和证据状态做多轮 RL 的信用分配，处理长时程、部分可观测、多机条件下的稀疏奖励。小组 rollout 下稠密信号更关键，这一点和单卡设置直接相关。</div></li>
+<li><span>C3</span><div><b>系统与分析</b>：全部训练在一张 80 GB 卡上完成，并在长时程多机任务上给出 LoRA 对全参的 RL 对照（已有对照只在数学和工具增强推理上）。笔记本上运行的 0.8B/4B 指挥模型与 API 教师在 1,500 题上配对比较，报告端侧延迟和量化影响，并分析 harness 增益怎样随模型规模和训练阶段变化。</div></li>
+</ol>
+</section>
+<section id="s9">
+<h2><span class="no">09</span>实验设计</h2>
+<div class="grid2">
+<div class="panel"><h3>主对比</h3><ul>
+<li>教师 deepseek-flash和托管版 qwen3.8-flash（已测 76.7%，只作 API 参照）在同一 harness 下跑 full1500。</li>
+<li>学生各阶段：未训练、SFT、SFT+RL，4B 一套；0.8B 和 2B 再加"从 4B 在线蒸馏"一档。</li>
+<li>全部按原协议跑 full1500（场景内顺序执行、500 秒），报 Task Pass、Avg Check、超时、token、墙钟；学生另报笔记本上的首 token 时间、每秒 token 和每题能耗。</li>
+<li>训练用逐题重置，评测用原协议，两者的差别要在论文里写明。</li>
+</ul></div>
+<div class="panel"><h3>泛化与鲁棒</h3><ul>
+<li>评测集没用过的 8 个模板：测新任务类型。</li>
+<li>Extreme 档（20–30 架、最多 100 个目标）单独报告。</li>
+<li>指令改写：每题约 3.9 个 content_aliases，测对措辞的敏感度。</li>
+<li>训练集与 1,500 题按文本和场景布局去重，留出的模板和难度档不进训练。</li>
+</ul></div>
+</div>
+<div class="tbl"><table>
+<thead><tr><th>消融维度</th><th>对比项</th><th>回答的问题</th></tr></thead>
+<tbody>
+<tr><td>上下文视图</td><td>原始历史 / 执行记忆 v5–v7 / 任务状态块</td><td>harness 状态能否替代长历史，预算多少够用</td></tr>
+<tr><td>奖励</td><td>二值成功 / 加叶子增量 / 加进度势函数</td><td>部分分和稠密信号是在帮忙，还是被钻了空子</td></tr>
+<tr><td>信用分配</td><td>轨迹级 GRPO / GiGPO / harness 状态锚点</td><td>C2 方法是否成立</td></tr>
+<tr><td>参数高效</td><td>2B 上 LoRA 秩 16 / 64 / 256 对全参，学习率按 10 倍规则</td><td>单卡用 LoRA 做多轮 RL 损失多少，秩要多大</td></tr>
+<tr><td>数据来源</td><td>DeepSeek 轨迹 / 4B 自己拒绝采样的轨迹（专家迭代）/ V4.1-Pro 上线后可补一组</td><td>外部教师到底带来多少，教师强弱的影响</td></tr>
+<tr><td>下放方式</td><td>0.8B 直接 SFT+RL / 从 4B 在线蒸馏 / 蒸馏后再接 RL</td><td>小模型该从教师数据学，还是从训练好的 4B 学</td></tr>
+<tr><td>推理长度</td><td>不推理 / 短理由 / 长推理 / 自适应（RACE）</td><td>小模型该学多少推理，延迟代价多大</td></tr>
+<tr><td>harness × 模型规模</td><td>开关 harness 组件，分别在 API 模型、未训练 4B、训练后 0.8B 和 4B 上测</td><td>harness 增益是否随规模缩小，训练后哪些组件不再需要</td></tr>
+<tr><td>量化</td><td>BF16 / Q8 / Q4</td><td>端侧部署的精度代价，按错误类型统计</td></tr>
+</tbody></table></div>
+<p class="cap">统计沿用场景级配对 bootstrap 和 W/L；除 pass@1 外报告 pass^k，衡量同一题多次运行是否都能成功。单卡预算下，主结果（4B）跑 3 个随机种子；消融放在 2B 上，每组 2 个种子，结论不稳的再补。</p>
+</section>
+<section id="s10">
+<h2><span class="no">10</span>主要风险与对策</h2>
+<div class="tbl wide"><table>
+<thead><tr><th>风险</th><th>程度</th><th>后果</th><th>对策</th></tr></thead>
+<tbody>
+<tr><td>训练与评测泄漏</td><td><span class="chip hi">高</span></td><td>结果无效</td><td>只用新生成的场景训练；与 1,500 题去重；留出模板和难度档</td></tr>
+<tr><td>单卡迭代慢</td><td><span class="chip hi">高</span></td><td>4B 一次 RL 要两天左右，消融排不开</td><td>方法开发和消融放在 2B/0.8B；压缩上下文；同时租几张单卡并行；可抢占实例跑可中断的消融，并且勤存检查点</td></tr>
+<tr><td>LoRA 不及全参</td><td><span class="chip mid">中</span></td><td>4B 主结果偏低</td><td>先在 2B 上对照；秩 ≥64、加在全部线性层、学习率 10 倍；多给步数；差距大时 4B 改用优化器卸载的全参训练</td></tr>
+<tr><td>0.8B 学不会长时程多机协同</td><td><span class="chip mid">中</span></td><td>低延迟档只能覆盖简单任务</td><td>定位为技能调用和短时程重规划；先在留出模板上实测；按任务难度分级交给 0.8B 或 4B</td></tr>
+<tr><td>教师漂移和数据权利链</td><td><span class="chip mid">中</span></td><td>API 路由一变，教师就换了；网关数据的使用权不清</td><td>集中生成，记录返回的模型名和 fingerprint；用自己的官方账号，或拿到网关方书面确认</td></tr>
+<tr><td>租用实例 CPU 核少</td><td><span class="chip mid">中</span></td><td>模拟器跟不上，GPU 空等</td><td>进程内 World；另租纯 CPU 机器跑模拟器池</td></tr>
+<tr><td>上下文过长</td><td><span class="chip mid">中</span></td><td>训练成本高，笔记本延迟高</td><td>harness 状态块、短 system prompt、紧凑观测；按部署时的长度训练</td></tr>
+<tr><td>RL 不稳定（AppWorld 式退化、熵塌缩）</td><td><span class="chip mid">中</span></td><td>算力白花</td><td>先把 SFT 做稳；多种子；按任务族监控；保留 SFT 检查点作为回退</td></tr>
+<tr><td>奖励被钻空子</td><td><span class="chip mid">中</span></td><td>学到错误行为</td><td>部分分按相对初态的增量算；二值成功为主奖励；定期抽查高分轨迹</td></tr>
+<tr><td>小模型循环与重复动作</td><td><span class="chip mid">中</span></td><td>超时失败</td><td>短思考或不思考；停滞惩罚；harness 检测重复并打断</td></tr>
+<tr><td>Qwen3.5 混合结构的工具链支持</td><td><span class="chip mid">中</span></td><td>训练或推理框架踩坑；CoPES 报告 verl 0.8 上 Qwen3.5-4B 用不了融合算子，LoRA 也开不了激活卸载</td><td>第 1 周先跑通 vLLM（<code>--language-model-only</code>）、llama.cpp 和 verl 0.9.x 的 LoRA；准备稠密模型备选（MiniCPM5-1B/2B）</td></tr>
+<tr><td>教师的不安全行为传给学生</td><td><span class="chip lo">低（仿真内）</span></td><td>上实机时有风险</td><td>服务端命令校验和地理围栏保留在部署栈里</td></tr>
+</tbody></table></div>
+</section>
+<section id="s11">
+<h2><span class="no">11</span>近四周行动清单</h2>
+<ol class="route">
+<li><div class="wp">W1</div><div class="body"><div class="head"><h3>搭底座，验证单卡</h3><span class="when">第 1 周</span></div><ul>
+<li>确认教师数据用哪个账号生成；和导师定目标会议，按截稿倒排第 7 节的路线。</li>
+<li>写无头任务生成器和去重脚本；写逐字轨迹记录器，保存 messages、tools、tool_call ID、并行分组、推理内容、每步 token，以及响应返回的模型名和 fingerprint。</li>
+<li>租一张 A800，用 vLLM（<code>--language-model-only</code>）起 Qwen3.5-0.8B、2B、4B，跑通 OpenAI 兼容的工具调用，在 fast100 上测三者的未训练基线。</li>
+<li>实测第 6 节的估算：verl 0.9.x 在 Qwen3.5 上的 LoRA、sleep 和分块 logits 能否用，显存峰值多少，一步 RL 实际要多久。</li>
+</ul></div></li>
+<li><div class="wp">W2</div><div class="body"><div class="head"><h3>学生接口与教师试跑</h3><span class="when">第 2 周</span></div><ul>
+<li>工具参数改为带类型的 schema，观测改成紧凑格式，做一版短 system prompt；历史只追加，状态块附在观测末尾。</li>
+<li>DeepSeek 在 200 个新生成任务上试跑，看通过率、轨迹长度和成本。</li>
+<li>在 40 GB 卡或 4090 上，用 0.8B 在一个简单任务族上跑通最小 GRPO 实验。</li>
+</ul></div></li>
+<li><div class="wp">W3</div><div class="body"><div class="head"><h3>数据与 SFT v0</h3><span class="when">第 3 周</span></div><ul>
+<li>集中生成 2–3K 条成功轨迹，含恢复分支；失败轨迹也保存。</li>
+<li>4B LoRA、2B 全参与 LoRA、0.8B 全参各训一版 SFT，先用 0.5–2K 条，目标通过率 30–60%；在 fast100 和 dev240 上评测，同时做上下文预算消融。</li>
+</ul></div></li>
+<li><div class="wp">W4</div><div class="body"><div class="head"><h3>RL v0 与第一份结果</h3><span class="when">第 4 周</span></div><ul>
+<li>2B 上 LoRA 对全参的短 RL 对照，各跑约 50 步，奖励用通过加叶子增量。</li>
+<li>4B LoRA GRPO 首跑，再接 harness 状态信用分配。</li>
+<li>—</li>
+</ul></div></li>
+</ol>
+</section>
+<footer><p>—</p></footer>
+</div>

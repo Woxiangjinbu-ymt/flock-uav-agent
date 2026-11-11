@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-03",
+  "request": "Clarify hover completion, fix completion and input_json types, retain compact/isolation/archive/recovery, local validation only; no fifth item",
+  "source_sha256": {
+    "agent4drone/agent_profile.py": "51e9b1b258dc46d9eafff7381755e570e047fee165d94f0648f71227d751e431",
+    "agent4drone/hover_completion.py": "83d2108d7e3371d7ac63261353fd66edeff42b7417d9fb24ba52b32744810b8f",
+    "agent4drone/template/system_prompt.py": "973965354152cf3775a2975f6fc8bd114957ade8cca629c8ec5927c877790902",
+    "agent4drone/tests/test_hover_completion.py": "1b86c7969c686efe857850f0bcaeaf9892c0b985760a95a54596ad388c7a0e0e",
+    "agent4drone/tests/test_hover_input_integration.py": "80efd4904567d0074c17d786a33a6314edc214063036e9927c0feada94794b4d",
+    "agent4drone/tests/test_tool_input_contract.py": "848a0ea3716eea307d7fddc1dd846c58b4e5223263444efaef2e5565ae38cca6",
+    "agent4drone/tool_input_contract.py": "9ff3c19e307e8b6b82bea380b4a446d9a68eb826c271dba383d0fc10a94e949b",
+    "agent4drone/uav_agent.py": "4e486dcbc2e582af975f20c372125c4b39417dd978e21a5eaaff66ac2445af4e",
+    "scripts/general_agent.py": "ea2989446c3db5a8683dcae79722448c4217aee70f12e6beb4dca21a9d92dca7",
+    "scripts/general_agent_local.py": "cb4dedfa2849132dc71f2d6c421b8d1515a08c873a46bd13dcdad62f6056a474",
+    "scripts/tests/test_hover_input_contract_validation.py": "a3ab7253594ba0191bb6a06b9592e226483c59b3f2d3cce5846f43c3b8b6b1b1",
+    "scripts/validate_hover_input_contract.py": "b1fc032a17e0cc86dd4821dee963a050365d61fee64501c65b9534e21b58cd0d"
+  },
+  "config_sha256": {
+    "experiments/hover-input-contract-v1/cases-action.json": "94cd6a2699661a9f68c5499aeecffbb69190f47b70793cb2c60407f5ae2c0102",
+    "experiments/hover-input-contract-v1/cases-duration.json": "edbbba2881a4fa6829bce464c4db566b7131da45982f84fd17204dad54474e9b",
+    "experiments/hover-input-contract-v1/cases-legacy.json": "d28e2b5e8b3380774999e3c63eeeb9b008ff68915b924f93e348df4a9c7f893b",
+    "experiments/hover-input-contract-v1/cases-main.json": "7d473b8c60a7f32c7021247402f0fb51f3ee8f213158c1bfbf1ba907f9d4bf23",
+    "experiments/hover-input-contract-v1/legacy-profile.json": "4c9e7c532e687562d4fd8ef1fb223adfb86d44ed6c48944a6380cac3d5e9fef1",
+    "experiments/hover-input-contract-v1/plan.json": "530ede43f78847ba125e60f348fc900d7fc658585b22668e9eb55004755bcef0",
+    "experiments/hover-input-contract-v1/profile.json": "a8af716892bc55c86e88e3947dc83667aee5f69c5190032cc733951c16673b93",
+    "experiments/hover-input-contract-v1/traces/action-complete.json": "caa708436f60c0e3ea2ad9263bf72772db21afa3b61124749f4ef71668c1c218",
+    "experiments/hover-input-contract-v1/traces/action-missing.json": "96237cbe6649197ad491db81f49ab9f7f8017d530ca8ede14e67c3d1ca9bb8bd",
+    "experiments/hover-input-contract-v1/traces/array-recover.json": "96283ffa6d0470338dc7c4f761f88e2637153b56e0f2d28a2f32e386b6d81916",
+    "experiments/hover-input-contract-v1/traces/duration-unverified.json": "c32e864ecf72e7dda9d8da576c4e5a5429297ef9509657e4b1bcf7aaabe7d5ad",
+    "experiments/hover-input-contract-v1/traces/legacy-object-reject.json": "96237cbe6649197ad491db81f49ab9f7f8017d530ca8ede14e67c3d1ca9bb8bd",
+    "experiments/hover-input-contract-v1/traces/malformed-recover.json": "75bbe758aeb416e9fa27e4b951b0c458fc35ae7412a975b561035a26a2e9e86b",
+    "experiments/hover-input-contract-v1/traces/missing-status.json": "ce01077d44e49a66efb6657ddfc71f5376cd729927f66d5297c73441229a2255",
+    "experiments/hover-input-contract-v1/traces/scalar-reject.json": "c52145d3da7ea8bdd3fef98e576bd469fe1dd156955ca26712eccd1e698cbd0c",
+    "experiments/hover-input-contract-v1/traces/skill-object.json": "b0090745a0377cb52a9b3c346e151418ff007eb661fcfb4cae69efd09e4b17ab",
+    "experiments/hover-input-contract-v1/traces/stale-after-land.json": "33bb2bbd8acabd47efadcfa17334609633ee28e76cf2c004fdfca6e3a6466f03",
+    "experiments/hover-input-contract-v1/traces/state-object.json": "96237cbe6649197ad491db81f49ab9f7f8017d530ca8ede14e67c3d1ca9bb8bd",
+    "experiments/hover-input-contract-v1/traces/state-string.json": "9fb7cc65006a550eba7ee43b025667fe72f07719c8a893d812f7524b4d9a0b28",
+    "experiments/hover-input-contract-v1/traces/unknown-raw.json": "96237cbe6649197ad491db81f49ab9f7f8017d530ca8ede14e67c3d1ca9bb8bd",
+    "experiments/hover-input-contract-v1/traces/unknown-skill.json": "b0090745a0377cb52a9b3c346e151418ff007eb661fcfb4cae69efd09e4b17ab",
+    "experiments/hover-input-contract-v1/traces/wrong-actor.json": "e6d86bae801927b9a1cf4281d31e4f50fff39263b76b928bbe1ec46e1be9456e",
+    "experiments/hover-input-contract-v1/traces/wrong-altitude.json": "7fb53269381572ab67bfed1979d2c43b83fca7c4f10c139bfd51fbf9a00503d5"
+  },
+  "documentation_sha256": {
+    "AGENTS.md": "a61e9ee8398880042c3bf085466376f16e79af2413c5f972cbe92eeb96f7e876",
+    "docs/RESEARCH_STATUS_CN.md": "03dd5760e67d29dddf83bbfd45eae3ffa32eba83dbc1cdac824df52945ae7a09",
+    "docs/RESEARCH_ROADMAP_CN.md": "b8683f637cca4a51331fa4a1dbca2e867e66a721b7698850796b0bffb44aa405",
+    "docs/EXPERIMENT_EVIDENCE_CN.md": "c10d977b929cf28c389d9a68f3681307cf16ddb399242486525b6ee9f5de3a57",
+    "docs/README.md": "373d662ce21346bb5696db9b5b6b26e2b4d04ac61660ecf2d2e90a42d6a15036",
+    "docs/HARNESS_METHOD_CN.md": "e3ddfa702fe0b2cf26b305eac4a0ca2498036ba80a6dee4e8ad8702c4f4a3627",
+    "docs/GENERAL_AGENT_SCOPE_CN.md": "0a2606bf2ee191fa51baa3c55862dffd03c5bbc970573782329695c350de363c",
+    "scripts/README.md": "63547c8b3cefb7be9575b882a95d61078fb9aa037b96f45796265c58cc93bfc7",
+    "docs/results/hover-input-contract-20261103/REPORT_CN.md": "5b62ed336c848e2f461799b62e053b1497fa991aa930273daf3d6c9fcaecdedf",
+    "docs/results/hover-input-contract-20261103/PROTOCOL_CN.md": "7faf23b810b5d52d6eb57c43ba562393d4a06c05ea431d8e834cee6ff52ec196",
+    "experiments/hover-input-contract-v1/README.md": "84ec68c829c45a91832b4a46a5f8b0d246432bf828e28f821a88027d16aebe66"
+  },
+  "final_verification_path": "docs/results/hover-input-contract-20261103/final-verification.json",
+  "final_verification_sha256": "74b45c0bcaaab0983e3616acb6afa22b6adf4aa09fb8ba581afbbdf14b5b935b",
+  "independent_audit_sha256": "7b2cba3e36362d34e6ee48f0fe80e2903a799bcdac3c4c7b91d8d52524cae93b",
+  "source_preservation_audit_sha256": "b97546d611b4a92006c2b66d3f9ebeaf80b2de88cd281407224465fe2569bc7a",
+  "attempts": {
+    "local-02": {
+      "executed": 16,
+      "checks": 171,
+      "checks_passed": 169,
+      "passed": false,
+      "sealed_files": 920,
+      "seal_sha256": "5ba3370d6ab66d34afff93e71780c2b15fddacfdec26fc42e8464767bc1067c7",
+      "manifest_sha256": "6b22d8b62ebc2121c67ca0aa8f33aee106183a42102f07c75b070d42c82e4439"
+    },
+    "local-03": {
+      "executed": 16,
+      "checks": 171,
+      "checks_passed": 171,
+      "passed": true,
+      "sealed_files": 920,
+      "seal_sha256": "86bfe376fbf5cce6f94bd08f4763beda84051b1774a6fa1eddd5949530026eca",
+      "manifest_sha256": "9619fed0023aa8c1064d0e0b77d1d627b1d45f2e0be6edb25f0f817ebd420545"
+    }
+  },
+  "provider_calls": 0,
+  "teacher_examples": 0,
+  "fifth_item_started": false,
+  "default_switch": false,
+  "known_limits": [
+    "limited full-match single-UAV English grammar, not general completion verifier",
+    "duration is unverified by current simulator",
+    "raw timeout compatibility is narrowly scoped to current known error string",
+    "object duplicate keys can be collapsed upstream before adapter",
+    "fixed scripts do not demonstrate natural recovery or token improvement",
+    "older real-batch action protocol/scores unchanged"
+  ],
+  "documentation_link_check": {
+    "checked": 276,
+    "missing": []
+  }
+}

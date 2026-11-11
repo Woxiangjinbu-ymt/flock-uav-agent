@@ -1,0 +1,204 @@
+{
+  "date": "2026-11-02",
+  "kind": "roadmap_and_source_recheck",
+  "scope": "Read-only source hash comparison plus roadmap/document updates; no live deployment inspection or new model/simulation/training experiment.",
+  "source_checks": [
+    {
+      "path": "agent4drone/uav_agent.py",
+      "sha256": "d5f210879d1ca9fcf4e4fd1b7f985abcf6c1554def21aa8f3443194d22e0b5cd",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/agent_api_service.py",
+      "sha256": "b65dd5b6c5efb42b5e6dce4c90e35b5fefd7b35b7f865d1a163f36a046166f32",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/main.py",
+      "sha256": "979aa3376b3a7690896f530d182bd68bdbd2b70631f6cc1a51e35a42b01a0d4c",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/harness_core.py",
+      "sha256": "ae663ef64ba4d35e93e01450bd49790fc082dc455fd3d444bf5ae66fe4a8c3fb",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/harness_skills.py",
+      "sha256": "49c239714b83aa60611254be278ebb67451f152dbe9f9766c798a9729a55170f",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/harness_integration.py",
+      "sha256": "13bed02a04992b76e2512457bbed28c7d6e2c711433593ddf947a6c6b35284d5",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/task_progress.py",
+      "sha256": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/task_evidence.py",
+      "sha256": "6851e93c9ee0ccf540867bd7debe266d2dc5084d7ea1778b8be064db4383dd57",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/task_evidence_context.py",
+      "sha256": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v5.py",
+      "sha256": "3edd0e2c4f86e9d4edb68ff8577bf274d7123dcefb9af6ec17bdc444daf238f5",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v7.py",
+      "sha256": "6a5551ca65aa7ad26bbb1705e7681d1e759f463082bd22758c5471664f541684",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/observed_target_search.py",
+      "sha256": "f1d66ee7c449991f2556aeadfd79d2464fd1039402d19e9b2a43239753848b51",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/model_io_archive.py",
+      "sha256": "9b49d4f970e067a3ec821ada8c95306e0bccf016746bbd9686235f8e8d6d8b35",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "agent4drone/toolchain_recorder.py",
+      "sha256": "5bca05757bdea0a55ad703a284bb0622e040ac298421bc902d0c29f0e941ac0e",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/harness_v2_world.py",
+      "sha256": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/harness_full100_world.py",
+      "sha256": "a71a13284f65b86b91d3424e6c29b3675284dc68117f12aa9aea69cc4b10ec47",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/harness_natural_runner.py",
+      "sha256": "586adfa8b612820698199570758e1bac6216cdfe14d5a2a4c643a05b77e2744c",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/harness_natural_local.py",
+      "sha256": "763c986872adcb190874047b4539040fc492173c4bd30dd25a27956ee6859802",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/harness_request_limits.py",
+      "sha256": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/harness_deepseek_adapter.py",
+      "sha256": "bcb6087ce56eef71df9cd932724a2a8ac4124899ac682b1adcea50f4a02c10b3",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/harness_cost_admission.py",
+      "sha256": "aa3d35e03cf50efc0df05c3bbe9f19cfc81249f7de2e3d29cc1aacbb186c7673",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/harness_provider_preflight.py",
+      "sha256": "3aaf2b23a79d1c8e4fc6e28eb9c30cf246faa7335d1130aa87abdfb6c16a8cd7",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "scripts/prepare_harness_natural_agent.py",
+      "sha256": "179834ec820b4cb7efdfc53cae127f07098b32fad0eb3a66cac29af235a2485e",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "controller/random_session_generator.py",
+      "sha256": "57a230d5a82cea608babf43109f1734b1a4ae3da03df177b03a61c1e9342b06a",
+      "matches_20261028_audit": true
+    },
+    {
+      "path": "controller/task_auto_generator.py",
+      "sha256": "02cc2c895e83ad154886fd8d241061f3a593e82fa2db360ff85839c55e4be227",
+      "matches_20261028_audit": true
+    }
+  ],
+  "documents_before": {
+    "AGENTS.md": "e4beb047e1e28e24d40f86bffd5f127139d82e52fc39152a44027dcb9000476b",
+    "docs/RESEARCH_STATUS_CN.md": "e5e232916da6cb6087d42bd6a21a6d2bddffb97b58b2f3f97877aa9fe0c40d8d",
+    "docs/RESEARCH_ROADMAP_CN.md": "cd43511045cb4509f2e9ced61b7aaf5e59f8b6150834b2d5e464c758ae670a4e",
+    "docs/POSTTRAINING_PLAN_CN.md": "ce541a18dacd25e658095f3c87dbbe7f3b358d1874d50eb62f1cf29d64e20247",
+    "docs/PROJECT_GUIDE_CN.md": "f4351ce12059c9f96e98e361db75fced32f9fce87d244d6e16d14635c6a3f6b8",
+    "docs/README.md": "7334a4aafc6b6d35eb520e9abf0db96311b191985921d34dc67b14f8b321f3e1"
+  },
+  "original_evidence": "docs/maintenance/project-status-audit-20261028.json",
+  "experiment_results_changed": false,
+  "provider_calls": 0,
+  "training_started": false,
+  "documents_after": {
+    "AGENTS.md": "89668c144b6942698636d2d454199047417b1212db1eeb7d3ba0a0bb757568b5",
+    "docs/RESEARCH_STATUS_CN.md": "cb86581e09681e357859cb089097f615a970560b47ad30177c94aeba4aebfc05",
+    "docs/RESEARCH_ROADMAP_CN.md": "a0afbf08688a49a261dffd4c302e844ec5b1ed9cda0eef727fbb0d597c89c68b",
+    "docs/POSTTRAINING_PLAN_CN.md": "6d229d3c5c9e4c32eb4046a7baf66796731ed63e8b3c65cd9bf8acf7c28fa5b7",
+    "docs/PROJECT_GUIDE_CN.md": "3dcfcbc0541194da692d7beff425ce17f597bc3d9e5584826934c8ae55193cc6",
+    "docs/README.md": "eb7277e38adc677bfff98ff64ce28d18f3cd8fc7027380c5051ef620859c47cb"
+  },
+  "validation": {
+    "local_links_checked": 83,
+    "markdown_tables_checked": 15,
+    "historical_status_rows_preserved": true,
+    "key_sources_unchanged": 25,
+    "issues": [],
+    "document_changes": [
+      {
+        "path": "AGENTS.md",
+        "old_lines": 24,
+        "new_lines": 27,
+        "added_lines": 5,
+        "removed_lines": 2
+      },
+      {
+        "path": "docs/RESEARCH_STATUS_CN.md",
+        "old_lines": 75,
+        "new_lines": 84,
+        "added_lines": 21,
+        "removed_lines": 12
+      },
+      {
+        "path": "docs/RESEARCH_ROADMAP_CN.md",
+        "old_lines": 70,
+        "new_lines": 113,
+        "added_lines": 91,
+        "removed_lines": 48
+      },
+      {
+        "path": "docs/POSTTRAINING_PLAN_CN.md",
+        "old_lines": 52,
+        "new_lines": 70,
+        "added_lines": 42,
+        "removed_lines": 24
+      },
+      {
+        "path": "docs/PROJECT_GUIDE_CN.md",
+        "old_lines": 54,
+        "new_lines": 73,
+        "added_lines": 36,
+        "removed_lines": 17
+      },
+      {
+        "path": "docs/README.md",
+        "old_lines": 35,
+        "new_lines": 37,
+        "added_lines": 4,
+        "removed_lines": 2
+      }
+    ],
+    "scope_note": "Document structure and referenced-source hashes checked; no runtime tests or experiments run."
+  }
+}

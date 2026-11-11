@@ -1,0 +1,516 @@
+[
+  {
+    "scene": "ef36e27a",
+    "task": "ba8b14f3",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "0d06223f",
+    "target": "Waypoint 1",
+    "actor_id": "41cb9464",
+    "actor": "Drone 4",
+    "binding": "exact",
+    "legal_first_receipt": {
+      "evidence_id": "e5",
+      "tool": "sense_nearby_entities",
+      "id": "0d06223f",
+      "end_sequence": 6
+    },
+    "in_previous_blackboard": true,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "ef36e27a",
+    "task": "ba8b14f3",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "0d06223f",
+    "target": "Waypoint 1",
+    "actor_id": "90e2721a",
+    "actor": "Drone 8",
+    "binding": "exact",
+    "legal_first_receipt": {
+      "evidence_id": "e5",
+      "tool": "sense_nearby_entities",
+      "id": "0d06223f",
+      "end_sequence": 6
+    },
+    "in_previous_blackboard": true,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "3973d0d6",
+    "task": "fb2c7ba3",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "0253d788",
+    "target": "Fixed Target 3",
+    "actor_id": "a3b868a8",
+    "actor": "Drone 4",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "ce97a68d",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "2e441140",
+    "target": "Fixed Target 59",
+    "actor_id": "2dfc9922",
+    "actor": "Drone 14",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "13a30905",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "f249775c",
+    "target": "Fixed Target 75",
+    "actor_id": "20dd2485",
+    "actor": "Drone 26",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "13a30905",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "a33a1290",
+    "target": "Fixed Target 28",
+    "actor_id": "20dd2485",
+    "actor": "Drone 26",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "ddc3e0b0",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "be273f61",
+    "target": "Fixed Target 26",
+    "actor_id": "f77bc481",
+    "actor": "Drone 12",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "ddc3e0b0",
+    "endpoint": "/check/target_in_photo_taken_by_drone",
+    "target_id": "be273f61",
+    "target": "Fixed Target 26",
+    "actor_id": "f77bc481",
+    "actor": "Drone 12",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "c6e28e3b",
+    "endpoint": "/check/target_is_reached",
+    "target_id": "2e441140",
+    "target": "Fixed Target 59",
+    "actor_id": null,
+    "actor": null,
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "c6e28e3b",
+    "endpoint": "/check/target_is_reached",
+    "target_id": "2f2815bd",
+    "target": "Fixed Target 55",
+    "actor_id": null,
+    "actor": null,
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "c6e28e3b",
+    "endpoint": "/check/target_is_reached",
+    "target_id": "9bcc8a71",
+    "target": "Fixed Target 31",
+    "actor_id": null,
+    "actor": null,
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "9e46da10",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "43f76d62",
+    "target": "Fixed Target 97",
+    "actor_id": "884ca74f",
+    "actor": "Drone 16",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "9e46da10",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "3e660fb5",
+    "target": "Fixed Target 19",
+    "actor_id": "2dfc9922",
+    "actor": "Drone 14",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "9e46da10",
+    "endpoint": "/check/target_in_photo_taken_by_drone",
+    "target_id": "43f76d62",
+    "target": "Fixed Target 97",
+    "actor_id": "884ca74f",
+    "actor": "Drone 16",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "9e46da10",
+    "endpoint": "/check/target_in_photo_taken_by_drone",
+    "target_id": "3e660fb5",
+    "target": "Fixed Target 19",
+    "actor_id": "2dfc9922",
+    "actor": "Drone 14",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "5aa74653",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "01877932",
+    "target": "Fixed Target 7",
+    "actor_id": "869a8e16",
+    "actor": "Drone 2",
+    "binding": "exact",
+    "legal_first_receipt": {
+      "evidence_id": "e5",
+      "tool": "sense_nearby_entities",
+      "id": "01877932",
+      "end_sequence": 6
+    },
+    "in_previous_blackboard": true,
+    "exact_target_coordinate_calls": [
+      {
+        "evidence_id": "e23",
+        "tool": "navigate_to_and_sense",
+        "status": "blocked",
+        "args": {
+          "drone_id": "869a8e16",
+          "x": 1252.0,
+          "y": 418.0,
+          "z": 18.0
+        },
+        "arrival_verified": false,
+        "message": "Fallback movement did not verify arrival at the requested coordinate"
+      },
+      {
+        "evidence_id": "e47",
+        "tool": "move_along_path",
+        "status": "blocked",
+        "args": {
+          "allow_partial_move": true,
+          "detail": "summary",
+          "drone_id": "869a8e16",
+          "waypoints": [
+            {
+              "x": 1850,
+              "y": 260
+            },
+            {
+              "x": 1730,
+              "y": 260
+            },
+            {
+              "x": 1600,
+              "y": 260
+            },
+            {
+              "x": 1470,
+              "y": 260
+            },
+            {
+              "x": 1450,
+              "y": 300
+            },
+            {
+              "x": 1252,
+              "y": 300
+            },
+            {
+              "x": 1252,
+              "y": 418
+            }
+          ]
+        },
+        "arrival_verified": null,
+        "message": "Waypoint 1 conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 10'"
+      },
+      {
+        "evidence_id": "e49",
+        "tool": "move_along_path",
+        "status": "partial",
+        "args": {
+          "allow_partial_move": true,
+          "detail": "summary",
+          "drone_id": "869a8e16",
+          "waypoints": [
+            {
+              "x": 2450,
+              "y": 500
+            },
+            {
+              "x": 2100,
+              "y": 500
+            },
+            {
+              "x": 1950,
+              "y": 480
+            },
+            {
+              "x": 1850,
+              "y": 500
+            },
+            {
+              "x": 1470,
+              "y": 500
+            },
+            {
+              "x": 1470,
+              "y": 300
+            },
+            {
+              "x": 1450,
+              "y": 300
+            },
+            {
+              "x": 1252,
+              "y": 300
+            },
+            {
+              "x": 1252,
+              "y": 418
+            }
+          ]
+        },
+        "arrival_verified": null,
+        "message": "Drone partially completed path with 4 of 9 waypoints before stopping at waypoint 5 (Waypoint 5 conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 37') (total distance: 903.31m, battery: -7.6%/-6mAh, remaining: 91.9%/72mAh)"
+      },
+      {
+        "evidence_id": "e53",
+        "tool": "navigate_to",
+        "status": "blocked",
+        "args": {
+          "detail": "summary",
+          "drone_id": "869a8e16",
+          "x": 1252.0,
+          "y": 418.0,
+          "z": 18.0
+        },
+        "arrival_verified": false,
+        "message": "Fallback movement did not verify arrival at the requested coordinate"
+      },
+      {
+        "evidence_id": "e79",
+        "tool": "move_along_path",
+        "status": "blocked",
+        "args": {
+          "allow_partial_move": true,
+          "detail": "summary",
+          "drone_id": "869a8e16",
+          "waypoints": [
+            {
+              "x": 1700,
+              "y": 150
+            },
+            {
+              "x": 1252,
+              "y": 150
+            },
+            {
+              "x": 1252,
+              "y": 418
+            }
+          ]
+        },
+        "arrival_verified": null,
+        "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.POLYGON obstacle 'Polygon Obstacle 47'"
+      },
+      {
+        "evidence_id": "e81",
+        "tool": "move_along_path",
+        "status": "blocked",
+        "args": {
+          "allow_partial_move": true,
+          "detail": "summary",
+          "drone_id": "869a8e16",
+          "waypoints": [
+            {
+              "x": 1615,
+              "y": 487
+            },
+            {
+              "x": 1615,
+              "y": 150
+            },
+            {
+              "x": 1252,
+              "y": 150
+            },
+            {
+              "x": 1252,
+              "y": 418
+            }
+          ]
+        },
+        "arrival_verified": null,
+        "message": "Waypoint 1 conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 23'"
+      },
+      {
+        "evidence_id": "e83",
+        "tool": "move_along_path",
+        "status": "blocked",
+        "args": {
+          "allow_partial_move": true,
+          "detail": "summary",
+          "drone_id": "869a8e16",
+          "waypoints": [
+            {
+              "x": 1900,
+              "y": 487
+            },
+            {
+              "x": 1900,
+              "y": 60
+            },
+            {
+              "x": 1252,
+              "y": 60
+            },
+            {
+              "x": 1252,
+              "y": 418
+            }
+          ]
+        },
+        "arrival_verified": null,
+        "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Circle Obstacle 3'"
+      }
+    ]
+  },
+  {
+    "scene": "823c15d5",
+    "task": "5aa74653",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "0ffb62d8",
+    "target": "Fixed Target 12",
+    "actor_id": "20dd2485",
+    "actor": "Drone 26",
+    "binding": "exact",
+    "legal_first_receipt": {
+      "evidence_id": "e5",
+      "tool": "sense_nearby_entities",
+      "id": "0ffb62d8",
+      "end_sequence": 6
+    },
+    "in_previous_blackboard": true,
+    "exact_target_coordinate_calls": [
+      {
+        "evidence_id": "e24",
+        "tool": "navigate_to_and_sense",
+        "status": "blocked",
+        "args": {
+          "drone_id": "20dd2485",
+          "x": 1551.0,
+          "y": 1243.0,
+          "z": 18.0
+        },
+        "arrival_verified": false,
+        "message": "Fallback movement did not verify arrival at the requested coordinate"
+      },
+      {
+        "evidence_id": "e54",
+        "tool": "navigate_to",
+        "status": "blocked",
+        "args": {
+          "detail": "summary",
+          "drone_id": "20dd2485",
+          "x": 1551.0,
+          "y": 1243.0,
+          "z": 18.0
+        },
+        "arrival_verified": false,
+        "message": "Fallback movement did not verify arrival at the requested coordinate"
+      }
+    ]
+  },
+  {
+    "scene": "823c15d5",
+    "task": "5aa74653",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "15ea6658",
+    "target": "Fixed Target 4",
+    "actor_id": "92e6a7b8",
+    "actor": "Drone 1",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "35ce64d8",
+    "task": "20742d37",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "b1703776",
+    "target": "Fixed Target 10",
+    "actor_id": "5f7a6eec",
+    "actor": "Drone 13",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  },
+  {
+    "scene": "35ce64d8",
+    "task": "20742d37",
+    "endpoint": "/check/target_is_reached_by_drone",
+    "target_id": "7d84f52a",
+    "target": "Fixed Target 11",
+    "actor_id": "6126210f",
+    "actor": "Drone 7",
+    "binding": "unresolved",
+    "legal_first_receipt": null,
+    "in_previous_blackboard": false,
+    "exact_target_coordinate_calls": []
+  }
+]

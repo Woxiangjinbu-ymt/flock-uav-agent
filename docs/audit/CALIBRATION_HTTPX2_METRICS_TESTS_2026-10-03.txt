@@ -1,0 +1,17 @@
+test_async_error_and_non_provider_requests (scripts.tests.test_reproduction_metrics.MetricsTests.test_async_error_and_non_provider_requests) ... ok
+test_empty_roots_and_percentile_distribution (scripts.tests.test_reproduction_metrics.MetricsTests.test_empty_roots_and_percentile_distribution) ... ok
+test_http_retries_usage_and_cancelled_callback_preserve_privacy (scripts.tests.test_reproduction_metrics.MetricsTests.test_http_retries_usage_and_cancelled_callback_preserve_privacy) ... ok
+test_legacy_fallback_is_explicit_and_never_added_to_new_telemetry (scripts.tests.test_reproduction_metrics.MetricsTests.test_legacy_fallback_is_explicit_and_never_added_to_new_telemetry) ... ok
+test_process_tree_and_resource_sampling (scripts.tests.test_reproduction_metrics.MetricsTests.test_process_tree_and_resource_sampling) ... ok
+test_production_default_httpx2_transport_is_observed (scripts.tests.test_reproduction_metrics.MetricsTests.test_production_default_httpx2_transport_is_observed) ... ok
+test_real_langchain_sdk_cancellation_keeps_completed_usage (scripts.tests.test_reproduction_metrics.MetricsTests.test_real_langchain_sdk_cancellation_keeps_completed_usage) ... langchain-openai injected a custom httpx transport to apply `http_socket_options`, which disables httpx's proxy auto-detection (HTTP_PROXY, HTTPS_PROXY, ALL_PROXY set in environment). Set `LANGCHAIN_OPENAI_TCP_KEEPALIVE=0` or pass `http_socket_options=()` to restore default proxy behavior, or supply `openai_proxy` / your own `http_client` / `http_async_client` to take full control.
+Error in Cancellation.on_llm_end callback: RuntimeError('cancel after completed response')
+ok
+test_summary_distinguishes_unknown_zero_and_incomplete_records (scripts.tests.test_reproduction_metrics.MetricsTests.test_summary_distinguishes_unknown_zero_and_incomplete_records) ... ok
+test_usage_merges_cache_metadata_without_double_counting (scripts.tests.test_reproduction_metrics.MetricsTests.test_usage_merges_cache_metadata_without_double_counting) ... ok
+test_usage_recovered_without_end_callback_and_duplicates_not_counted (scripts.tests.test_reproduction_metrics.MetricsTests.test_usage_recovered_without_end_callback_and_duplicates_not_counted) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.491s
+
+OK

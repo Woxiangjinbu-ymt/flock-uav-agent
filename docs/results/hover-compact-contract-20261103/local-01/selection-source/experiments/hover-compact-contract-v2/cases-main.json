@@ -1,0 +1,92 @@
+[
+  {
+    "trial_id": "state-string",
+    "task_id": "c74d7020",
+    "trace_file": "traces/state-string.json"
+  },
+  {
+    "trial_id": "state-object",
+    "task_id": "c74d7020",
+    "trace_file": "traces/state-object.json"
+  },
+  {
+    "trial_id": "missing-status",
+    "task_id": "c74d7020",
+    "trace_file": "traces/missing-status.json"
+  },
+  {
+    "trial_id": "wrong-actor",
+    "task_id": "c74d7020",
+    "trace_file": "traces/wrong-actor.json"
+  },
+  {
+    "trial_id": "wrong-altitude",
+    "task_id": "c74d7020",
+    "trace_file": "traces/wrong-altitude.json"
+  },
+  {
+    "trial_id": "stale-after-land",
+    "task_id": "c74d7020",
+    "trace_file": "traces/stale-after-land.json"
+  },
+  {
+    "trial_id": "unknown-raw",
+    "task_id": "c74d7020",
+    "trace_file": "traces/unknown-raw.json",
+    "api_fault": {
+      "kind": "response_lost",
+      "command": "take_off",
+      "occurrence": 1
+    }
+  },
+  {
+    "trial_id": "unknown-skill",
+    "task_id": "c74d7020",
+    "trace_file": "traces/unknown-skill.json",
+    "api_fault": {
+      "kind": "response_lost",
+      "command": "take_off",
+      "occurrence": 1
+    }
+  },
+  {
+    "trial_id": "skill-object",
+    "task_id": "c74d7020",
+    "trace_file": "traces/skill-object.json"
+  },
+  {
+    "trial_id": "array-recover",
+    "task_id": "c74d7020",
+    "trace_file": "traces/array-recover.json"
+  },
+  {
+    "trial_id": "scalar-reject",
+    "task_id": "c74d7020",
+    "trace_file": "traces/scalar-reject.json"
+  },
+  {
+    "trial_id": "malformed-recover",
+    "task_id": "c74d7020",
+    "trace_file": "traces/malformed-recover.json"
+  },
+  {
+    "trial_id": "parallel-readonly",
+    "task_id": "c74d7020",
+    "trace_file": "traces/parallel-readonly.json"
+  },
+  {
+    "trial_id": "parallel-action",
+    "task_id": "c74d7020",
+    "trace_file": "traces/parallel-action.json"
+  },
+  {
+    "trial_id": "parallel-unknown",
+    "task_id": "c74d7020",
+    "trace_file": "traces/parallel-unknown.json",
+    "api_fault": {
+      "kind": "response_lost",
+      "command": "take_off",
+      "occurrence": 1
+    }
+  }
+]

@@ -1,0 +1,134 @@
+{
+  "schema": "student-tool-id-v2-final-verification",
+  "date": "2026-11-03",
+  "passed": true,
+  "scope": "local_input_association_not_model_capability",
+  "manifest_sha256": "e3c8c0a6f56f073014aa1812cb22326ec451f0163f0163201dfb187b0b022795",
+  "source_files_match_current": 10,
+  "new_test_sources_match_current": 2,
+  "comparison": {
+    "schema": "student-tool-id-comparison-v2",
+    "scope": "development_input_only",
+    "planned_episodes": 22,
+    "wire_requests": 98,
+    "prompt_source_kinds": {
+      "synthetic_sdk_development": 60,
+      "real_provider_development": 38
+    },
+    "sample_source_kinds": {
+      "synthetic_sdk_development": 37,
+      "real_provider_development": 24
+    },
+    "v1_measured_prompts": 88,
+    "v2_measured_prompts": 98,
+    "previously_rejected_resolved": 10,
+    "v2_prompt_rejections": {},
+    "v2_prompt_tokens": {
+      "count": 98,
+      "min": 9957,
+      "max": 30218,
+      "p50": 12167,
+      "p95": 18638
+    },
+    "paired_prompt_token_delta": {
+      "count": 88,
+      "min": 27,
+      "max": 567,
+      "p50": 159,
+      "p95": 391
+    },
+    "full_samples": 61,
+    "encoded_samples": 61,
+    "rejected_samples": 0,
+    "v2_sequence_tokens": {
+      "count": 61,
+      "min": 9988,
+      "max": 14885,
+      "p50": 12266,
+      "p95": 13914
+    },
+    "paired_sequence_token_delta": {
+      "count": 61,
+      "min": 27,
+      "max": 567,
+      "p50": 205,
+      "p95": 428
+    },
+    "paired_sequence_totals": {
+      "v1": 736669,
+      "v2": 749200
+    },
+    "paired_prompt_totals": {
+      "v1": 1049645,
+      "v2": 1065223
+    },
+    "selected_smoke_length": 16384,
+    "diagnostic_output_reserve_tokens": 2048,
+    "synthetic_cases": 12,
+    "synthetic_passed": 12,
+    "unique_same_name_parallel_groups": 6,
+    "observed_reordered_wire_requests": 0,
+    "candidate_lengths": {
+      "4096": {
+        "complete_samples_fit": 0,
+        "prompt_only_fit": 0,
+        "prompt_plus_reserve_fit": 0
+      },
+      "8192": {
+        "complete_samples_fit": 0,
+        "prompt_only_fit": 0,
+        "prompt_plus_reserve_fit": 0
+      },
+      "16384": {
+        "complete_samples_fit": 61,
+        "prompt_only_fit": 92,
+        "prompt_plus_reserve_fit": 89
+      },
+      "32768": {
+        "complete_samples_fit": 61,
+        "prompt_only_fit": 98,
+        "prompt_plus_reserve_fit": 98
+      }
+    },
+    "provider_calls": 0,
+    "teacher_training_samples": 0,
+    "weights_loaded": false,
+    "training_started": false,
+    "limitations": [
+      "Historical failed search requests remain prompt-only, not training targets",
+      "Custom-template representation/decoder validation only; model understanding and serving integration untested"
+    ],
+    "passed": true
+  },
+  "tests": {
+    "tests": 265,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "loading_samples": 61,
+  "loading_batches": 31,
+  "v1_reverification_passed": true,
+  "teacher_training_examples": 0,
+  "provider_calls": 0,
+  "model_weights_loaded": false,
+  "optimizer_steps": 0,
+  "evidence_sha256": {
+    "run-01/manifest.json": "e3c8c0a6f56f073014aa1812cb22326ec451f0163f0163201dfb187b0b022795",
+    "run-01/comparison.json": "fdd81d09b866af821f47996f5f1703c7b70c2c7ef5ba2116646c27feaeeb1d81",
+    "pytest.xml": "6a18215ce7da9b79b3940deaddaab2d27859c3fa94f97ec853eaed0200581aa3",
+    "pytest.log": "d03de75c877d7ddae5fa432c77f46ee181ab5dd764f975ae31f5f5df8c1a0fdb",
+    "loading-smoke.json": "8c07b7f892fa799ebacf9f72cdf5b82c0d1b426127e3eb8e4e5ad01bc6a1a940",
+    "v1-reverification.json": "5a0fc1c82cd53c8f72bfca69b654a5e52fdc072ca4926d9757154dd871f9c72a",
+    "final-review.json": "ac9b8907ee165a71623f34773b244e03ebfe16b4bd295da0252b46432bc0f57e",
+    "test-source-manifest.json": "12da47b8001e7d808332209ed546dd2c493c7431f529b9356d5ab5c2703c6195",
+    "REPORT_CN.md": "c5f38b5087a606f878a7bb28a210464d3759d07f1fe9daa5af38833bb91ef503",
+    "verify_delivery.py": "d16424e814ccff80a643b4a8505f7586027eaad24f8346fc87b294821b17d179"
+  },
+  "limitations": [
+    "Actual wire receipt order was not reversed; reversed coverage is synthetic",
+    "Parser validates structure/association, not complete business JSON Schema or real tool execution",
+    "No student model inference, production serving, training or GPU feasibility conclusion",
+    "All old failures/development split remain unchanged; 32k plus 2048 headroom is a finite-source diagnosis"
+  ]
+}

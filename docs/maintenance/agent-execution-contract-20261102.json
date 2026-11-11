@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-02",
+  "user_request": "先回到9项未完成工作的主线，接下来进入第二项工作：统一任务状态、失败恢复与完整运行链",
+  "scope": "minimal public execution-state, advisory recovery and complete local episode/campaign lifecycle; explicit v2 profile",
+  "implementation": {
+    "agent_configuration": "evidence_harness + observed_target_v7; task_execution_state_v1 opt-in",
+    "no_automatic_retry": true,
+    "mission_completion_not_inferred": true,
+    "v1_and_service_defaults_preserved": true,
+    "normal_known_budget_stop_can_continue_prepared_slots": true,
+    "unknown_usage_or_undrained_stops_campaign": true,
+    "parent_exit_seal_required_before_scoring": true
+  },
+  "evidence": {
+    "formal_batches": 8,
+    "planned_slots": 14,
+    "started_workers": 13,
+    "scorers": 12,
+    "unstarted_slots": [
+      "after_unknown"
+    ],
+    "killed_without_scoring": [
+      "undrained"
+    ],
+    "positive_functional_cases_checker_passed": 6,
+    "expected_negative_cases_checker_failed": 6,
+    "unique_code_tests_passed": 872,
+    "separate_interpreter_test_suites": [
+      818,
+      54
+    ],
+    "new_test_count": 222,
+    "behavior_assertions": 63,
+    "behavior_assertions_are_not_pytest_count": true,
+    "frozen_source_files_per_batch": 90,
+    "sealed_file_entries_across_batches": 1169,
+    "development_workers_separate": 17,
+    "provider_calls": 0
+  },
+  "limitations": [
+    "Scripted model replies in one known development task; no natural model capability, success-rate or efficiency claim.",
+    "Partial-effect recovery has module tests, not a full ASGI recovery slot.",
+    "New v2 provider acceptance and a general online collection entry remain pending.",
+    "Old DeepSeek pilot stop policy and unrun search arm unchanged.",
+    "Teacher conversion, new independent splits, SFT and RL not completed."
+  ],
+  "production_sha256": {
+    "agent4drone/agent_profile.py": "d954ed3adf6f4de3c2d96a295d1a19914a1b4296cd9e310b44c6141cfa3a3543",
+    "agent4drone/harness_integration.py": "574f3b09bd3e7d0c4144462147a7d3ba64bf9a4f8319fa3ffb9cddae6c364f4d",
+    "agent4drone/task_execution_state.py": "55a15f5eee08e7daf206c2ed4165d2d9cfb9e896b2a7a12561849b8fe6884a1f",
+    "scripts/general_agent.py": "c4f1300b2cff40f60761e9d2e61f10e5336df779784ca3bdfac51815bf5b5320",
+    "scripts/general_agent_local.py": "4c4b8e720cec2a72e78133c20fdcc1b1fbc5551e9805387e552c7b79bfb2d719",
+    "scripts/harness_natural_runner.py": "fbb3f53dfbe973e65288257b76404f449f5e8c3c719630da335f781ef242e133",
+    "scripts/episode_termination.py": "25da8fd794a94937f6084bf590355e7f1a2537437fcf41db7ffeb2c266c425b5"
+  },
+  "test_sha256": {
+    "agent4drone/tests/test_task_execution_state.py": "7e2ad669dda9e00e22da96d8ae6b48f5bc834de7f0f13909a762626a6d788968",
+    "scripts/tests/test_episode_termination.py": "a0b45874b298c902be000c3f148e1ad71c3de6b8ffabb254a151960ee41523e1",
+    "scripts/tests/test_agent_workflow_contract.py": "9d73cad29e2ac52d5eb837bde5599b6b1026b5609181606fbb968a16ed729ce8",
+    "scripts/tests/test_execution_state_integration.py": "c0c2fd95b5bf2518b87297b936872a7cc4dbc1beeb2f4d52326fa35271d0ac3f"
+  },
+  "documentation_sha256": {
+    "docs/AGENT_EXECUTION_CONTRACT_CN.md": "dae2b1000766db39f83fe39585cf8eca566b3d707b392ff32425a8036da4b9f4",
+    "docs/RESEARCH_STATUS_CN.md": "9010e1575094a2503c8b7ba4ad456c91916a3475b72c9f80bd727fc58d8d8a6d",
+    "docs/RESEARCH_ROADMAP_CN.md": "42a3dec6a6ee85627b430d7883004c8b6d6826b1a36d00733371895081a3ad83",
+    "docs/EXPERIMENT_EVIDENCE_CN.md": "1162b63f0a1ee29806c2c349fed5650fd378d7ab626031a6616e95f126aa5234",
+    "docs/GENERAL_AGENT_SCOPE_CN.md": "08030e7abcecc546ae9b3e608fa109271fc90af891101447b0f415f805fa21e2",
+    "docs/README.md": "c1ca3f0a8637e8635760913e4f9f5a6c993b39a09a474c02c7a9aaa731dab852",
+    "scripts/README.md": "ef46c59168038b4b3ed7a96347f5fdeec9ab018eda1ec7d1c9364a221af8dcff",
+    "experiments/agent-execution-v1/README.md": "e84282285d175ec7b1ff1c8798345c0a71c258c6c55914374ee68c6b832f46fa"
+  },
+  "artifact_sha256": {
+    "docs/results/agent-execution-contract-20261102/REPORT_CN.md": "eb27accfdfb435f2b8dfff7839f932c6bcfcec69b1f1b26c0b951a2cc6523379",
+    "docs/results/agent-execution-contract-20261102/acceptance.json": "c383bb8768370eacedf4c69a286e18c32ecf2f275ff92a91e949e762896b9a49",
+    "docs/results/agent-execution-contract-20261102/validation.json": "4e43b97dfa9f6cd49cdb34902c7fb5dc480c5a22484608b451c4c9f68e754df3",
+    "docs/results/agent-execution-contract-20261102/development-notes.json": "fae5166d2e51535ea28ec4e96f9dfd7e7d76b9143799d5b9fa251b852f874797",
+    "docs/results/agent-execution-contract-20261102/final-verification.json": "cb8fb5e70f6587e59aff3cd7af44b6d95a5e1b06b2a39f792221703183ac643a",
+    "docs/results/agent-execution-contract-20261102/pytest-integrated.log": "1df400032a81dd2a91c5015e42209e89b67cb1c719df6cd7af100eb7ba3cc9b8",
+    "docs/results/agent-execution-contract-20261102/pytest-integrated.xml": "929055d7fd5bb4767e37f14235656d0ea589d62f37241a01a9b06879849197ea",
+    "docs/results/agent-execution-contract-20261102/pytest-adapter.log": "7b510866c58daf9bb1092914dce181f3d4eea0570400a0e24db19c536481ab08",
+    "docs/results/agent-execution-contract-20261102/pytest-adapter.xml": "22fba4c707d842c97422d67164092ae99f26b9c68951e75dfb8df84ab75f3642",
+    "docs/results/agent-execution-contract-20261102/analysis-source/audit_agent_workflow.py": "efa4ff17001b7b6772a9e93c2475c3088cde347acd10e495d1cf3b3dbe00151b",
+    "docs/results/agent-execution-contract-20261102/analysis-source/analyze_deepseek_behavior_pilot.py": "cc27ccce7d8bf0370ee4529f5d5f8c455a04229c6255ba7051f1ad1d25c7141f"
+  },
+  "configuration_sha256": {
+    "experiments/agent-execution-v1/cases-budget.json": "8a42f7c615466d06735f2c5780272ff747292fe37990a126a649bf9f2ffb2ed1",
+    "experiments/agent-execution-v1/cases-cancel.json": "7515e7d7a1c1ee3586b0d952062d73be6f583d0b339bd0b8ce068e6d317ada65",
+    "experiments/agent-execution-v1/cases-deadline.json": "93b366eae5850615a6b5406c9980ce80719ba51e0beae24db5cf5ba2ca821822",
+    "experiments/agent-execution-v1/cases-main.json": "0c4d49da7c3ec23939cee99eebaadf472357c7b7c513ee2b14ef2f367f8bfc73",
+    "experiments/agent-execution-v1/cases-resume.json": "0cf0f18741af7b19ef630f2f222f00461d2f71e52737ac8e51c78f927a67cfa4",
+    "experiments/agent-execution-v1/cases-timeout.json": "384e3b3cbbf49911f53155655c8c794a9afd8af97f24f1e250a2140648ce2d66",
+    "experiments/agent-execution-v1/cases-undrained.json": "c97ca536f60998ca45313ae18eee705446effa2b45b03e7a2a1b5966b318b9d0",
+    "experiments/agent-execution-v1/cases-unknown.json": "cc8d5c4c418955a7267203134cb0b26a117fd38d69761d3b9e5cca0d7e366b19",
+    "experiments/agent-execution-v1/profile-budget.json": "493f531ac26a61f79ba7e5b0c6fe63d0bbc3a952169107a2c86f706f69c21a0f",
+    "experiments/agent-execution-v1/profile-cancel.json": "0692d1a69163f2d7d5d5e4ba6ccb98690c5082293d4e185ca7a8f9d37db5ee65",
+    "experiments/agent-execution-v1/profile-deadline.json": "cc82a581acfe5a89a2209a367305765e6cd574f6f32fa9a2e7082eb64808a5e1",
+    "experiments/agent-execution-v1/profile-main.json": "0692d1a69163f2d7d5d5e4ba6ccb98690c5082293d4e185ca7a8f9d37db5ee65",
+    "experiments/agent-execution-v1/profile-resume.json": "80e6a488fe6fc044a6c54f27fe81c019132632dd8d1fc746a96f6f6992793416",
+    "experiments/agent-execution-v1/profile-timeout.json": "6b975944c0e9cdebc5bc437b862487faf988e56167ce14dfc06791ab834f9732",
+    "experiments/agent-execution-v1/profile-undrained.json": "ede60b2a4f3b992a68146fc5585af3c729ed4cfea9c6d6e0143ef6934960ca59",
+    "experiments/agent-execution-v1/profile-unknown.json": "0692d1a69163f2d7d5d5e4ba6ccb98690c5082293d4e185ca7a8f9d37db5ee65",
+    "experiments/agent-execution-v1/traces/after_budget.json": "efffbd8cb30de76fbdf43b1ff8187ac9fb6eb9bf3d63cb09f7fb4b41ef034098",
+    "experiments/agent-execution-v1/traces/after_unknown.json": "efffbd8cb30de76fbdf43b1ff8187ac9fb6eb9bf3d63cb09f7fb4b41ef034098",
+    "experiments/agent-execution-v1/traces/cancel.json": "a6ddf189739a08dfc3b2bbda7b92f6d29791e0a6f2c0b8a0a6b0912b9d2a950c",
+    "experiments/agent-execution-v1/traces/deadline.json": "a6ddf189739a08dfc3b2bbda7b92f6d29791e0a6f2c0b8a0a6b0912b9d2a950c",
+    "experiments/agent-execution-v1/traces/invalidated_raw.json": "17776cc5ed4429e5ce31f420facf324cee240282a61fd2227431e271b4895383",
+    "experiments/agent-execution-v1/traces/pause_resume.json": "e2dbecd2bb68308111f53906de8ae98a9e159f7ec0e82573ea483f4dfe680318",
+    "experiments/agent-execution-v1/traces/raw_repair.json": "10aa42b87cec8a4ba7f3495ae93ccd95880f9eb43a8a38a70ef0dacfb51c6d3f",
+    "experiments/agent-execution-v1/traces/terminal_resume.json": "879184b79b2ac2bbb48f9dac2b66e4427e1f9f8f732ec76beff6d24392dc146a",
+    "experiments/agent-execution-v1/traces/timeout.json": "a6ddf189739a08dfc3b2bbda7b92f6d29791e0a6f2c0b8a0a6b0912b9d2a950c",
+    "experiments/agent-execution-v1/traces/token_stop.json": "a6ddf189739a08dfc3b2bbda7b92f6d29791e0a6f2c0b8a0a6b0912b9d2a950c",
+    "experiments/agent-execution-v1/traces/undrained.json": "a6ddf189739a08dfc3b2bbda7b92f6d29791e0a6f2c0b8a0a6b0912b9d2a950c",
+    "experiments/agent-execution-v1/traces/unknown_after_commit.json": "9cf885bfb6aee3b7c1f19c22f4740bb518cb40f47b59cc75e61184ad378a6c2a",
+    "experiments/agent-execution-v1/traces/unknown_usage.json": "749f9d7cccfc78fe170c9e1e86e37657222991a288245faa9d422133551f6996",
+    "experiments/agent-execution-v1/traces/validation_repair.json": "7af3fc0bdd009cd0d860b7ff0d6d1a5f3b836b0fd73500abb173045f3156f31e"
+  },
+  "next_mainline": "Task coverage and independent data splits; retain scoped W1 provider/partial-effect acceptance gaps.",
+  "local_link_check": {
+    "checked": 174,
+    "missing": []
+  }
+}

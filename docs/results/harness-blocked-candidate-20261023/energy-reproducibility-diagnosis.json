@@ -1,0 +1,135 @@
+{
+  "scope": "Historical-v3 energy reproducibility diagnosis, after sealed run, no simulation or model called. No private obstacle/target state used.",
+  "inputs": {
+    "docs/results/harness-flight-state-20261023/run-20261023-01/trials/24ac1838-flight_state_v3/public-api.jsonl": "9673315b48a4d35160837e61c9bd1f0459772d8ae5c15ad28e76a3c615790ff0",
+    "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-flight_state_v3/public-api.jsonl": "7abfa26ac013350fc173f3472e40c844e45659c208c1fa347fcf26f86d5c24f7"
+  },
+  "historical_consumed_mah": 73.51001053084072,
+  "current_consumed_mah": 73.4008679123866,
+  "delta_mah_sum": -0.10914261845410067,
+  "changed_action_count": 6,
+  "changes": [
+    {
+      "request_id": 358,
+      "request": {
+        "method": "POST",
+        "endpoint": "/drones/ec78a027/command/move_to",
+        "params": {
+          "x": 105.0,
+          "y": 875.0,
+          "z": 20.0
+        },
+        "body": null
+      },
+      "historical_seconds": 1.8620835410001746,
+      "current_seconds": 2.0085380419986905,
+      "historical_energy_mah": 0.9849725154541602,
+      "current_energy_mah": 0.956422587469973,
+      "delta_mah": -0.028549927984187207,
+      "same_history_geometry": true
+    },
+    {
+      "request_id": 362,
+      "request": {
+        "method": "POST",
+        "endpoint": "/drones/f762cfb2/command/move_to",
+        "params": {
+          "x": 385.0,
+          "y": 525.0,
+          "z": 20.0
+        },
+        "body": null
+      },
+      "historical_seconds": 1.8813279579990194,
+      "current_seconds": 2.0302148339978885,
+      "historical_energy_mah": 0.99727534874485,
+      "current_energy_mah": 0.9683688168971827,
+      "delta_mah": -0.02890653184766734,
+      "same_history_geometry": true
+    },
+    {
+      "request_id": 366,
+      "request": {
+        "method": "POST",
+        "endpoint": "/drones/f77bc481/command/move_to",
+        "params": {
+          "x": 1295.0,
+          "y": 1365.0,
+          "z": 20.0
+        },
+        "body": null
+      },
+      "historical_seconds": 1.9038333749995218,
+      "current_seconds": 2.0555347919980704,
+      "historical_energy_mah": 0.4165689527999916,
+      "current_energy_mah": 0.4226061840000028,
+      "delta_mah": 0.006037231200011206,
+      "same_history_geometry": true
+    },
+    {
+      "request_id": 375,
+      "request": {
+        "method": "POST",
+        "endpoint": "/drones/067d49a2/command/move_to",
+        "params": {
+          "x": 1645.0,
+          "y": 1575.0,
+          "z": 20.0
+        },
+        "body": null
+      },
+      "historical_seconds": 1.9456221660002484,
+      "current_seconds": 2.1096994589970564,
+      "historical_energy_mah": 0.5948609477258486,
+      "current_energy_mah": 0.5776186014149545,
+      "delta_mah": -0.017242346310894163,
+      "same_history_geometry": true
+    },
+    {
+      "request_id": 379,
+      "request": {
+        "method": "POST",
+        "endpoint": "/drones/13150227/command/move_to",
+        "params": {
+          "x": 105.0,
+          "y": 35.0,
+          "z": 20.0
+        },
+        "body": null
+      },
+      "historical_seconds": 1.9645885409991024,
+      "current_seconds": 2.134031083998707,
+      "historical_energy_mah": 0.6163025372975852,
+      "current_energy_mah": 0.5984386956367871,
+      "delta_mah": -0.01786384166079813,
+      "same_history_geometry": true
+    },
+    {
+      "request_id": 383,
+      "request": {
+        "method": "POST",
+        "endpoint": "/drones/1d2b6769/command/move_to",
+        "params": {
+          "x": 175.0,
+          "y": 105.0,
+          "z": 20.0
+        },
+        "body": null
+      },
+      "historical_seconds": 1.9877241249996587,
+      "current_seconds": 2.1594886249986303,
+      "historical_energy_mah": 0.5277347098465341,
+      "current_energy_mah": 0.5051175079959691,
+      "delta_mah": -0.02261720185056504,
+      "same_history_geometry": true
+    }
+  ],
+  "source_supported_explanation": "FullWorld.request calls advance(elapsed) before API. World.advance applies frozen environment events through int(elapsed). All six changed actions ran before second 2 historically and after second 2 now; battery calculation reads current environment. This supports elapsed-time/environment-boundary explanation; specific weather values were not queried in the public trace and are not invented.",
+  "source_files": [
+    "run-20261023-01/source/scripts/harness_full100_world.py:106",
+    "run-20261023-01/source/scripts/harness_v2_world.py:158",
+    "run-20261023-01/source/server/controllers/drone_controller.py:754",
+    "run-20261023-01/source/server/config/battery_config.py:394"
+  ],
+  "interpretation": "Report actual per-campaign energy; do not claim byte-exact historical cost reproduction or attribute fine-grained energy differences solely to policy changes."
+}

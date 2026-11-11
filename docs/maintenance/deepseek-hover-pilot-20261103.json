@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-03",
+  "request": "User explicitly authorized bounded contemporaneous v4 DeepSeek comparison under unified completion semantics; no fifth item",
+  "scope": "8 real episodes plus 8 local smoke; no paid retries/extensions",
+  "source_sha256": {
+    "scripts/deepseek_hover_pilot.py": "ccc654b212ae8b7d803071225c7b2b7e4565907787c7a82956bbe10d0f5a020d",
+    "scripts/analyze_deepseek_hover_pilot.py": "a7275ce8cbe801f89bfb582c10f7670854ae474ac4dcb58d39cab74388a3a246",
+    "scripts/hover_pilot_evaluation.py": "4b4352c5cd6be00a08daee8f00c5c3a89583686686093257aa99edf8191c2eb3",
+    "scripts/harness_natural_runner.py": "07ac57eb1d77f3bc3d9f875e148be4331acb6059c85145d0de0c679ae1608da4",
+    "scripts/tests/test_deepseek_hover_pilot.py": "5ecc49ace233aed34167487d77b0da86174038074228ec1a3dbcd6d89c4c1481",
+    "scripts/tests/test_deepseek_hover_analysis.py": "846fe19389bb5884930dca8c3de8346d2a764fedda9ce6219e275c4939a90938",
+    "scripts/tests/test_hover_pilot_evaluation.py": "32e73dfdaf00b66c9a50055b1b0c5b1dc15b25ec6814a4373388cce0e767a2b3",
+    "scripts/tests/test_harness_online_hover_variants.py": "f267a1a8cd4faa052cae58941b73c59cd146dd73f4f4ddbb1161e0352efa9415"
+  },
+  "documentation_sha256": {
+    "AGENTS.md": "18203b28f48c01e03c5b07ff3c90d06fb864318a76099adc25d9e9dfaf245dd9",
+    "docs/RESEARCH_STATUS_CN.md": "6447759e217f7fb7def2863677cb8e4ed1e5b34169bf895a80e694e90d48742d",
+    "docs/RESEARCH_ROADMAP_CN.md": "cb80f4d2555e007c3478b90615faf6df1e1b545394101630c3d75f9696dc5327",
+    "docs/EXPERIMENT_EVIDENCE_CN.md": "23938923b32d97a238cf23c220779d4ffc230659351f394771ad5430ddaeff53",
+    "docs/README.md": "da8d300ad69fa7f7a9eb3b763b2eb079771b58f13da22c2c520431272dbdcdb3",
+    "docs/HARNESS_METHOD_CN.md": "7f849a01681c63d305f8c85256c999f1a2a0f37d27fe82d364005172a0a0e6dd",
+    "docs/GENERAL_AGENT_SCOPE_CN.md": "3bce4b12f99ba119807751a0a37372c857ef042bd8fb50994d59224ce45cfc42",
+    "scripts/README.md": "aafbdec3e8e0a115f7c353e29fc7f13263a251bfe1c417295492a795cc5b6fcb",
+    "docs/results/deepseek-hover-pilot-20261103/PROTOCOL_CN.md": "c100fe2ccd2801d0b8c84773d9bb1d28570b49322782d2712b25a19a0ad03eb7",
+    "docs/results/deepseek-hover-pilot-20261103/REPORT_CN.md": "c4d4b20dedc03ad2bc3a7338bc7e45156790b4c6a31d4f2387bf7912c5e3482f"
+  },
+  "final_verification_path": "docs/results/deepseek-hover-pilot-20261103/final-verification.json",
+  "final_verification_sha256": "19406775f6de922df9563d133c4eb085ee2a32dc4fa3127c3513cc16b539e22c",
+  "real_manifest_sha256": "d9acc9d89e20cc5a6237cda9c85876207abc0bb9fc6e94f91c37915c2caed1cf",
+  "real_seal_sha256": "1571aebc5c9aa4270a0984da53e3cd46e5f7caf8f0312ed819f654bea183d376",
+  "source_preservation": {
+    "previous_v4_local_unchanged": 92,
+    "expected_modified": "scripts/harness_natural_runner.py",
+    "previous_real_sealed_files_unchanged": 403
+  },
+  "results": {
+    "truth_supported_control": "3/3",
+    "truth_supported_candidate": "3/3",
+    "public_control": "3/3",
+    "public_candidate": "2/3",
+    "total_tokens_control": 257099,
+    "total_tokens_candidate": 322691,
+    "supported_tokens_control": 191285,
+    "supported_tokens_candidate": 235097,
+    "input_type_errors_control": 1,
+    "input_type_errors_candidate": 0,
+    "parameter_semantic_errors_control": 1,
+    "parameter_semantic_errors_candidate": 0,
+    "recovery_control": "1/1",
+    "recovery_candidate": "1/1",
+    "paid_requests": 53
+  },
+  "selection": "retain correctness fixes as controlled candidate; do not switch defaults or call v4 an efficiency improvement",
+  "next_bounded_candidates": [
+    "compress duplicated native input schema/description rules",
+    "distinguish harmless read-only overlap from unsafe state-changing overlap for position anchors"
+  ],
+  "fifth_item_started": false,
+  "documentation_link_check": {
+    "checked": 283,
+    "missing": []
+  }
+}

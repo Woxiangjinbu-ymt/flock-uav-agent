@@ -1,0 +1,882 @@
+{
+  "method": "public-receipt-endpoint-sensing-footprint-audit",
+  "search_region_source": "public list_drones XY envelope plus frozen 200m margin",
+  "cases": [
+    {
+      "session_id": "ad34350a",
+      "task_id": "529c0622",
+      "checkpoint": {
+        "kind": "first_k8_trigger",
+        "end_sequence": 34
+      },
+      "public_sensing_samples": 12,
+      "skipped_unknown_endpoint_events": [],
+      "covered_area_m2": 66618.4,
+      "covered_fraction_of_soft_fleet_envelope": 0.01792,
+      "last_three_completed_sensing_move_new_area_m2": [
+        7841.4,
+        7841.4,
+        7841.4
+      ],
+      "missing_target_eval_only": [
+        {
+          "target_name": "Polygon Target 7",
+          "minimum_uncovered_gap_m": 189.7
+        },
+        {
+          "target_name": "Circle Target 6",
+          "minimum_uncovered_gap_m": 100.6
+        }
+      ],
+      "sensing_increments": [
+        {
+          "evidence_id": "e6",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e11",
+          "tool": "navigate_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e13",
+          "tool": "move_towards_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e15",
+          "tool": "move_towards_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e17",
+          "tool": "move_towards_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 3887.4
+        },
+        {
+          "evidence_id": "e19",
+          "tool": "move_towards_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e21",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e23",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e27",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e29",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e31",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e33",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        }
+      ]
+    },
+    {
+      "session_id": "823c15d5",
+      "task_id": "ce97a68d",
+      "checkpoint": {
+        "kind": "first_k3_trigger",
+        "end_sequence": 38
+      },
+      "public_sensing_samples": 45,
+      "skipped_unknown_endpoint_events": [],
+      "covered_area_m2": 258957.1,
+      "covered_fraction_of_soft_fleet_envelope": 0.07195,
+      "last_three_completed_sensing_move_new_area_m2": [
+        7841.4,
+        7841.4,
+        7841.4
+      ],
+      "missing_target_eval_only": [
+        {
+          "target_name": "Fixed Target 59",
+          "minimum_uncovered_gap_m": 230.2
+        }
+      ],
+      "sensing_increments": [
+        {
+          "evidence_id": "e5",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e8",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 30,
+          "new_area_m2": 217108.2
+        },
+        {
+          "evidence_id": "e11",
+          "tool": "navigate_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e13",
+          "tool": "move_along_path_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 1445.9
+        },
+        {
+          "evidence_id": "e15",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e17",
+          "tool": "move_along_path_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e19",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e21",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e23",
+          "tool": "move_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e25",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e27",
+          "tool": "move_along_path_and_sense",
+          "status": "partial",
+          "samples": 1,
+          "new_area_m2": 1196.2
+        },
+        {
+          "evidence_id": "e29",
+          "tool": "move_along_path_and_sense",
+          "status": "partial",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e31",
+          "tool": "move_along_path_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e33",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e35",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e37",
+          "tool": "move_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        }
+      ]
+    },
+    {
+      "session_id": "823c15d5",
+      "task_id": "13a30905",
+      "checkpoint": {
+        "kind": "task_end_no_stall_trigger",
+        "end_sequence": 602
+      },
+      "public_sensing_samples": 66,
+      "skipped_unknown_endpoint_events": [],
+      "covered_area_m2": 260767.7,
+      "covered_fraction_of_soft_fleet_envelope": 0.07245,
+      "last_three_completed_sensing_move_new_area_m2": [
+        7841.4,
+        7105.8
+      ],
+      "missing_target_eval_only": [
+        {
+          "target_name": "Fixed Target 75",
+          "minimum_uncovered_gap_m": 144.0
+        }
+      ],
+      "sensing_increments": [
+        {
+          "evidence_id": "e5",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e9",
+          "tool": "move_along_path_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e11",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 30,
+          "new_area_m2": 214455.0
+        },
+        {
+          "evidence_id": "e15",
+          "tool": "get_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e77",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e78",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e79",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e83",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e80",
+          "tool": "move_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7105.8
+        },
+        {
+          "evidence_id": "e81",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e82",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e90",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e87",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e84",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e85",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e88",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e86",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e89",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e92",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e100",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e99",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e94",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e102",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e101",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e113",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e104",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e109",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e114",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e117",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e115",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e116",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e118",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e120",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e255",
+          "tool": "get_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e261",
+          "tool": "get_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e383",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e505",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": -0.0
+        }
+      ]
+    },
+    {
+      "session_id": "823c15d5",
+      "task_id": "c6e28e3b",
+      "checkpoint": {
+        "kind": "task_end_no_stall_trigger",
+        "end_sequence": 56
+      },
+      "public_sensing_samples": 68,
+      "skipped_unknown_endpoint_events": [],
+      "covered_area_m2": 253937.1,
+      "covered_fraction_of_soft_fleet_envelope": 0.07302,
+      "last_three_completed_sensing_move_new_area_m2": [
+        2085.0
+      ],
+      "missing_target_eval_only": [
+        {
+          "target_name": "Fixed Target 59",
+          "minimum_uncovered_gap_m": 315.7
+        },
+        {
+          "target_name": "Fixed Target 55",
+          "minimum_uncovered_gap_m": 100.8
+        }
+      ],
+      "sensing_increments": [
+        {
+          "evidence_id": "e5",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e7",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 30,
+          "new_area_m2": 216135.2
+        },
+        {
+          "evidence_id": "e11",
+          "tool": "navigate_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e15",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 2085.0
+        },
+        {
+          "evidence_id": "e17",
+          "tool": "move_along_path_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e25",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 30,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e27",
+          "tool": "move_along_path_and_sense",
+          "status": "partial",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e29",
+          "tool": "move_along_path_and_sense",
+          "status": "partial",
+          "samples": 1,
+          "new_area_m2": 7333.5
+        },
+        {
+          "evidence_id": "e41",
+          "tool": "get_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e55",
+          "tool": "get_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 4859.2
+        }
+      ]
+    },
+    {
+      "session_id": "823c15d5",
+      "task_id": "9e46da10",
+      "checkpoint": {
+        "kind": "first_k3_trigger",
+        "end_sequence": 50
+      },
+      "public_sensing_samples": 45,
+      "skipped_unknown_endpoint_events": [],
+      "covered_area_m2": 241952.6,
+      "covered_fraction_of_soft_fleet_envelope": 0.06958,
+      "last_three_completed_sensing_move_new_area_m2": [
+        7435.2,
+        5681.6,
+        7841.4
+      ],
+      "missing_target_eval_only": [
+        {
+          "target_name": "Fixed Target 97",
+          "minimum_uncovered_gap_m": 361.2
+        }
+      ],
+      "sensing_increments": [
+        {
+          "evidence_id": "e5",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 2,
+          "new_area_m2": 15682.7
+        },
+        {
+          "evidence_id": "e12",
+          "tool": "move_towards_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e11",
+          "tool": "navigate_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e16",
+          "tool": "move_towards_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e19",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 30,
+          "new_area_m2": 205311.6
+        },
+        {
+          "evidence_id": "e22",
+          "tool": "navigate_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e21",
+          "tool": "navigate_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e26",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e30",
+          "tool": "get_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 0.0
+        },
+        {
+          "evidence_id": "e34",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e38",
+          "tool": "move_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7435.2
+        },
+        {
+          "evidence_id": "e42",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e45",
+          "tool": "move_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e47",
+          "tool": "move_along_path_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 5681.6
+        },
+        {
+          "evidence_id": "e49",
+          "tool": "move_along_path_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        }
+      ]
+    },
+    {
+      "session_id": "35ce64d8",
+      "task_id": "22e1e1c5",
+      "checkpoint": {
+        "kind": "first_k8_trigger",
+        "end_sequence": 30
+      },
+      "public_sensing_samples": 26,
+      "skipped_unknown_endpoint_events": [],
+      "covered_area_m2": 173015.4,
+      "covered_fraction_of_soft_fleet_envelope": 0.15942,
+      "last_three_completed_sensing_move_new_area_m2": [
+        3259.2,
+        7841.4,
+        7825.1
+      ],
+      "missing_target_eval_only": [
+        {
+          "target_name": "Fixed Target 9",
+          "minimum_uncovered_gap_m": 53.0
+        }
+      ],
+      "sensing_increments": [
+        {
+          "evidence_id": "e5",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e9",
+          "tool": "sense_nearby_entities",
+          "status": "observed",
+          "samples": 15,
+          "new_area_m2": 107522.9
+        },
+        {
+          "evidence_id": "e11",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 5230.3
+        },
+        {
+          "evidence_id": "e13",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e15",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 5577.6
+        },
+        {
+          "evidence_id": "e17",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 4393.5
+        },
+        {
+          "evidence_id": "e19",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e21",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e23",
+          "tool": "navigate_to_and_sense",
+          "status": "blocked",
+          "samples": 1,
+          "new_area_m2": -0.0
+        },
+        {
+          "evidence_id": "e25",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 3259.2
+        },
+        {
+          "evidence_id": "e27",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7841.4
+        },
+        {
+          "evidence_id": "e29",
+          "tool": "navigate_to_and_sense",
+          "status": "completed",
+          "samples": 1,
+          "new_area_m2": 7825.1
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Only actual sensing endpoints are counted; no continuous path sensing is inferred",
+    "Unknown movement endpoints are skipped, so coverage may be underestimated",
+    "The fleet envelope is a soft proxy, not a proven target support",
+    "Target-to-footprint gaps use SYSTEM geometry only after coverage is frozen for offline evaluation",
+    "For two tasks without a qualifying trigger, checkpoint is task end and not an intervention opportunity"
+  ]
+}

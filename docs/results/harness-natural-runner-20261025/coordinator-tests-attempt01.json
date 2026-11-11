@@ -1,0 +1,35 @@
+{
+  "attempt": "01",
+  "command": [
+    "./agent4drone/.venv/bin/python",
+    "-m",
+    "pytest",
+    "scripts/tests/test_harness_natural_runner.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 0.4636561870574951,
+  "source_before": {
+    "scripts/validate_harness_natural_runner.py": "2348201a3a130750a2bf6541f07240630cc69da1479997fbb44f8db57783cfdb",
+    "scripts/harness_natural_runner.py": "586adfa8b612820698199570758e1bac6216cdfe14d5a2a4c643a05b77e2744c",
+    "scripts/harness_natural_local.py": "763c986872adcb190874047b4539040fc492173c4bd30dd25a27956ee6859802",
+    "scripts/harness_request_limits.py": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+    "scripts/harness_episode_local.py": "25b83ebb30fa6876932a0d8f93557e44810b9343cb0b213beff34ce88b582760",
+    "scripts/validate_harness_episode.py": "ccd7bd3e14c057bd2e4c8a0ce614cf301b1f0b937986a9feeae22d4c0a24ea4b",
+    "scripts/tests/test_harness_natural_runner.py": "7b1f6005cfb1f2e2f7292f7ed348ac0a277b5579028154d0b24b5480346b61a6"
+  },
+  "source_after": {
+    "scripts/validate_harness_natural_runner.py": "2348201a3a130750a2bf6541f07240630cc69da1479997fbb44f8db57783cfdb",
+    "scripts/harness_natural_runner.py": "586adfa8b612820698199570758e1bac6216cdfe14d5a2a4c643a05b77e2744c",
+    "scripts/harness_natural_local.py": "763c986872adcb190874047b4539040fc492173c4bd30dd25a27956ee6859802",
+    "scripts/harness_request_limits.py": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+    "scripts/harness_episode_local.py": "25b83ebb30fa6876932a0d8f93557e44810b9343cb0b213beff34ce88b582760",
+    "scripts/validate_harness_episode.py": "ccd7bd3e14c057bd2e4c8a0ce614cf301b1f0b937986a9feeae22d4c0a24ea4b",
+    "scripts/tests/test_harness_natural_runner.py": "7b1f6005cfb1f2e2f7292f7ed348ac0a277b5579028154d0b24b5480346b61a6"
+  },
+  "sources_unchanged": true,
+  "scope": "Pure coordinator and in-memory lifecycle tests; no real Agent/model/provider/FullWorld/worker/scorer; fake Popen only; pickle and sockets denied",
+  "log_sha256": "b1e0a560b9c6a6621a52425e940377d23202ca9158c8c76096dc20e03ab3ca7f"
+}

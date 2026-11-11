@@ -1,0 +1,51 @@
+{
+  "status": "proposal_not_launch_ready",
+  "date": "2026-10-16",
+  "arms": [
+    "applicability",
+    "failure"
+  ],
+  "tasks": 100,
+  "checks_per_arm_per_repeat": 605,
+  "executions": 400,
+  "repeats": 2,
+  "model": "deepseek-flash",
+  "temperature": 0.1,
+  "forced_skill_commit": false,
+  "fault_injection": false,
+  "budget": {
+    "task_seconds": 500,
+    "tool_steps": 600,
+    "graph_recursion_limit": 1800,
+    "api_per_plan": 2000,
+    "local_repairs": 16,
+    "search_rounds": 16,
+    "sdk_retries": 0,
+    "empty_response_retries": 0,
+    "local_watchdog_seconds": 630
+  },
+  "time_zero": "after restoration/hash/preflight, before first task-specific public observation or model call",
+  "score_boundary": "end of task or 500 seconds, whichever comes first; immutable snapshot before drain",
+  "policy_changes": "scheduler arm only; identical prompt, skills, compiler, mandatory guards and raw tools",
+  "online_calls_during_planning": 0,
+  "launch_authorized": false,
+  "source_sha256": {
+    "fast100": "26f9be1a785d6f87a4f1fd5fbb4160a8941909f6bd8592a9f082b6bbb0a08381",
+    "eligibility": "fd230d094e6a3fe457525acb7110989ac32ad94cd66f284dd9a36ab9f77c5b69"
+  },
+  "exclusions": [
+    "new mechanism runs",
+    "legacy budget supplement",
+    "validation60",
+    "R2",
+    "every_step"
+  ],
+  "launch_blockers": [
+    "100 canonical full snapshots and preconditions audited",
+    "natural skill selection adapter without bootstrap and prompt additions",
+    "full original checker parity and task lifecycle at strict time boundary",
+    "append-only physical segment/action/energy telemetry without policy changes",
+    "400-entry queue dry run and 0/1 worker/repeat/calibration barriers",
+    "frozen source/config/order/scoring/usage verification and explicit launch decision"
+  ]
+}

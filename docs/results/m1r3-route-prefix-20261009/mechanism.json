@@ -1,0 +1,360 @@
+{
+  "study": "./experiments/m1r3-route-prefix-v2",
+  "route_tasks": {
+    "cf8ee51f": {
+      "control": {
+        "passed": true,
+        "passed_checks": 39,
+        "checks": 39,
+        "route_parse_status": null,
+        "task_evidence_injections": 1,
+        "route_prefixes": [],
+        "failed_visit_gaps": []
+      },
+      "r3": {
+        "passed": true,
+        "passed_checks": 39,
+        "checks": 39,
+        "route_parse_status": "recognized_coordinate_routes",
+        "task_evidence_injections": 15,
+        "route_prefixes": [
+          {
+            "actor": "Drone 4",
+            "ordered_prefix": 12,
+            "total": 12,
+            "next_unconfirmed": null
+          },
+          {
+            "actor": "Drone 9",
+            "ordered_prefix": 12,
+            "total": 12,
+            "next_unconfirmed": null
+          },
+          {
+            "actor": "Drone 7",
+            "ordered_prefix": 12,
+            "total": 12,
+            "next_unconfirmed": null
+          }
+        ],
+        "failed_visit_gaps": []
+      }
+    },
+    "f777f4e3": {
+      "control": {
+        "passed": false,
+        "passed_checks": 19,
+        "checks": 26,
+        "route_parse_status": null,
+        "task_evidence_injections": 1,
+        "route_prefixes": [],
+        "failed_visit_gaps": [
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              126.0,
+              205.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 31.0,
+            "nearest_public_receipt_evidence_id": "e37",
+            "nearest_public_receipt_point": [
+              126.0,
+              236.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": [
+              {
+                "evidence_id": "e21",
+                "message": "Path planning failed after direct movement was blocked: Destination point is inside an obstacle"
+              }
+            ]
+          },
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              844.0,
+              161.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 4.0,
+            "nearest_public_receipt_evidence_id": "e41",
+            "nearest_public_receipt_point": [
+              840.0,
+              161.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              875.0,
+              404.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 21.54,
+            "nearest_public_receipt_evidence_id": "e41",
+            "nearest_public_receipt_point": [
+              855.0,
+              396.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              224.0,
+              669.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 38.0,
+            "nearest_public_receipt_evidence_id": "e41",
+            "nearest_public_receipt_point": [
+              262.0,
+              669.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              880.0,
+              733.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 10.0,
+            "nearest_public_receipt_evidence_id": "e41",
+            "nearest_public_receipt_point": [
+              886.0,
+              741.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "176a4688",
+            "goal": [
+              141.0,
+              228.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 4.0,
+            "nearest_public_receipt_evidence_id": "e26",
+            "nearest_public_receipt_point": [
+              141.0,
+              232.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "176a4688",
+            "goal": [
+              216.0,
+              696.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 30.0,
+            "nearest_public_receipt_evidence_id": "e43",
+            "nearest_public_receipt_point": [
+              216.0,
+              726.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          }
+        ]
+      },
+      "r3": {
+        "passed": false,
+        "passed_checks": 19,
+        "checks": 26,
+        "route_parse_status": "recognized_coordinate_routes",
+        "task_evidence_injections": 11,
+        "route_prefixes": [
+          {
+            "actor": "Drone 7",
+            "ordered_prefix": 1,
+            "total": 12,
+            "next_unconfirmed": [
+              126.0,
+              205.0,
+              26.0
+            ]
+          },
+          {
+            "actor": "Drone 5",
+            "ordered_prefix": 2,
+            "total": 12,
+            "next_unconfirmed": [
+              141.0,
+              228.0,
+              26.0
+            ]
+          }
+        ],
+        "failed_visit_gaps": [
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              126.0,
+              205.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 31.0,
+            "nearest_public_receipt_evidence_id": "e27",
+            "nearest_public_receipt_point": [
+              126.0,
+              236.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": [
+              {
+                "evidence_id": "e19",
+                "message": "Path planning failed after direct movement was blocked: Destination point is inside an obstacle"
+              }
+            ]
+          },
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              844.0,
+              161.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 4.0,
+            "nearest_public_receipt_evidence_id": "e35",
+            "nearest_public_receipt_point": [
+              840.0,
+              161.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": [
+              {
+                "evidence_id": "e31",
+                "message": "Path planning failed after direct movement was blocked: Destination point is inside an obstacle"
+              }
+            ]
+          },
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              875.0,
+              404.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 17.72,
+            "nearest_public_receipt_evidence_id": "e43",
+            "nearest_public_receipt_point": [
+              858.0,
+              399.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              224.0,
+              669.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 34.0,
+            "nearest_public_receipt_evidence_id": "e55",
+            "nearest_public_receipt_point": [
+              258.0,
+              669.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "6126210f",
+            "goal": [
+              880.0,
+              733.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 5.39,
+            "nearest_public_receipt_evidence_id": "e65",
+            "nearest_public_receipt_point": [
+              882.0,
+              738.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "176a4688",
+            "goal": [
+              141.0,
+              228.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 8.0,
+            "nearest_public_receipt_evidence_id": "e28",
+            "nearest_public_receipt_point": [
+              141.0,
+              236.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          },
+          {
+            "actor_id": "176a4688",
+            "goal": [
+              216.0,
+              696.0,
+              26.0
+            ],
+            "checker_tolerance_m": 3.0,
+            "nearest_public_receipt_distance_m": 28.0,
+            "nearest_public_receipt_evidence_id": "e56",
+            "nearest_public_receipt_point": [
+              216.0,
+              724.0,
+              26.0
+            ],
+            "blocked_exact_goal_attempts": []
+          }
+        ]
+      }
+    }
+  },
+  "nonroute_win": {
+    "task_id": "b1ad4f3e",
+    "arms": {
+      "control": {
+        "task_passed": false,
+        "trace_status": "step_limit",
+        "route_parse_status": null,
+        "targets_reached_before": 15,
+        "target_count": 20
+      },
+      "r3": {
+        "task_passed": true,
+        "trace_status": "completed",
+        "route_parse_status": "no_explicit_route",
+        "targets_reached_before": 18,
+        "target_count": 20
+      }
+    },
+    "different_drone_positions_before": 6
+  }
+}

@@ -1,0 +1,1194 @@
+{
+  "schema": "hover-input-source-preservation-audit-v1",
+  "audited_at_utc": "2026-11-03T13:53:53.051925+00:00",
+  "reference_run": "docs/results/deepseek-cost-pilot-20261103/run-01",
+  "scope": "Read-only integrity/source audit; no provider, worker, scorer or new episode execution; writes only this new audit artifact.",
+  "sealed_run_integrity": {
+    "valid": true,
+    "sealed_files": 403,
+    "campaign_seal_sha256": "30cf4f8fdd40cf89eef6545553157d7b45aea6b4c1f456a9fb9eb57d6dbec778",
+    "manifest_sha256": "78bee144d7b0bf5d7ebc946eeb1ec3051ac86cce22381a9f86ee09facf47c68b",
+    "protocol_sha256": "65bfd6184d4703877ead987ee0503704d7420394e458ffdd7ad2243910173ab6",
+    "results_sha256": "ee40379a330e3dd0e5b83282d496fc334d213441f9463af5ebd232bd9489b833",
+    "summary_sha256": "8af09500269ac9bc6522a8d502f73d8c297cc3f1f8cd36f3c62ac77c96bdcb4f",
+    "cost_summary_sha256": "e587ca89e6789b0b61c1b75439b663a36d75aa3268c420c10c8430ecd9904253",
+    "cost_ledger_sha256": "42d6cac292713001c896ec914b27e4454196ce6158eb6fac22cb7978cd86cd52",
+    "cost_ledger_head_sha256": "c3bae55f1cdad507d8a3c2f82cc8fd4ae13ac7e641b0905d86d3cd0c4aae5bb0",
+    "missing_or_changed_sealed_files": [],
+    "unexpected_non_cache_files": [],
+    "frozen_source_count": 102,
+    "before_after_inventory_identical": true
+  },
+  "existing_verifiers": [
+    {
+      "implementation": "frozen source/scripts/deepseek_cost_pilot.py",
+      "entry": "deepseek_cost_pilot.verify(reference_run)",
+      "python_bytecode_disabled": true,
+      "network_attempts": [],
+      "result": {
+        "valid": true,
+        "sealed_files": 403,
+        "planned_trials": 10,
+        "started_trials": 10,
+        "scored_trials": 10,
+        "local_smoke": false,
+        "cost_journal_replayed_without_open": true
+      }
+    },
+    {
+      "implementation": "current scripts/deepseek_cost_pilot.py",
+      "entry": "deepseek_cost_pilot.verify(reference_run)",
+      "python_bytecode_disabled": true,
+      "network_attempts": [],
+      "result": {
+        "valid": true,
+        "sealed_files": 403,
+        "planned_trials": 10,
+        "started_trials": 10,
+        "scored_trials": 10,
+        "local_smoke": false,
+        "cost_journal_replayed_without_open": true
+      }
+    }
+  ],
+  "model_io_archive_summary": {
+    "valid": 10,
+    "complete": 9,
+    "same_as_original_worker_result": 10,
+    "preexisting_incomplete_archives": [
+      "trials/search-control/policy/modelio/model-io-16ae5f544b0a40c38e731315d0cb499c.jsonl"
+    ]
+  },
+  "model_io_archives": [
+    {
+      "path": "trials/navigation-candidate/policy/modelio/model-io-a5c87e64735c4ca7adfd38ee3f9bb124.jsonl",
+      "sha256": "c1d84339e94de9bc34b97064a009c086da321fb00bcb9499b8cac15651dd80a5",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 50,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/navigation-control/policy/modelio/model-io-6dc753838ad941e497996b906de3de71.jsonl",
+      "sha256": "3f2054a0ed84d72dba6e5e2a47cce5be21281c772411e087aee9d3326ee7a298",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 50,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/search-candidate/policy/modelio/model-io-91408606521642c2a26b287d537d9be3.jsonl",
+      "sha256": "1bbabe76c326001b2babc970d10eada93d0f5644a5b248c0f14fd6abf1199b35",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 84,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/search-control/policy/modelio/model-io-16ae5f544b0a40c38e731315d0cb499c.jsonl",
+      "sha256": "e46b382542ec25ef17cc47e38f2a79a7351f8463ba3808ea0730837aea0321bc",
+      "verification": {
+        "valid": true,
+        "complete": false,
+        "record_count": 122,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/search_complete-candidate/policy/modelio/model-io-7e264f6bb2b84861b89a32e597cabdad.jsonl",
+      "sha256": "6efd471854235df4d2cb2bdbdef59f0f9adca99d1a29ab7acb57595455f88897",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 52,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/search_complete-control/policy/modelio/model-io-40da2b91ca9440c18454b26732c76ff5.jsonl",
+      "sha256": "42e6aed63a5c6da056caddbd5dff68af41a55918b6f4b1027ad2bd17368c9f4c",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 44,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/short_chain-candidate/policy/modelio/model-io-c65e505a30b54037b4f6b8461632b91e.jsonl",
+      "sha256": "1d25fe72d3a7bc24f151a7f2bae864c751601852f9b8d36bec859e3a552865ef",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 42,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/short_chain-control/policy/modelio/model-io-fbbc139caacf48fba670f2642ca3cd50.jsonl",
+      "sha256": "91914ad453ed315e996d8525df263a15e83c5c81944a68e7b028a96df1caaab8",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 50,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/unknown_takeoff-candidate/policy/modelio/model-io-df032913147649b798f5e97804782f5e.jsonl",
+      "sha256": "657827857f4f179ad2c3b77b501b27ea80e74c56225733e5f738fdaeceb31be2",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 74,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    },
+    {
+      "path": "trials/unknown_takeoff-control/policy/modelio/model-io-6509b1c599cb46bf82d22253ef4997b3.jsonl",
+      "sha256": "a407eb2babdc5d6fabcd19b932e6f2279eccc6593da4eb36dc6f6f033e5c1e71",
+      "verification": {
+        "valid": true,
+        "complete": true,
+        "record_count": 58,
+        "error_types": []
+      },
+      "matches_original_worker_verification": true
+    }
+  ],
+  "source_comparison_summary": {
+    "frozen_sources": 102,
+    "unchanged_sources": 97,
+    "changed_sources": 5,
+    "missing_current_sources": [],
+    "unexpected_changed_sources": []
+  },
+  "expected_changed_integration_files": [
+    {
+      "path": "agent4drone/agent_profile.py",
+      "frozen_sha256": "be65ff0b012164791330eab512dd8f77f5d219353c7884b9f74decc3168b27c9",
+      "current_sha256": "51e9b1b258dc46d9eafff7381755e570e047fee165d94f0648f71227d751e431",
+      "matches_frozen": false
+    },
+    {
+      "path": "agent4drone/template/system_prompt.py",
+      "frozen_sha256": "8e5fac74ffc98720c3a2dd3b21b0eca21752b3eb1afea6a5ea2f7dcbd7f9563d",
+      "current_sha256": "973965354152cf3775a2975f6fc8bd114957ade8cca629c8ec5927c877790902",
+      "matches_frozen": false
+    },
+    {
+      "path": "agent4drone/uav_agent.py",
+      "frozen_sha256": "2b06a3b561a79dad6cdabaf71ed0f3b5182bb08af16a45c09c3c266ddc10b8b8",
+      "current_sha256": "245bfba88d888149897a2e1162d763356a95465f03d04abbe41982f841182a62",
+      "matches_frozen": false
+    },
+    {
+      "path": "scripts/general_agent.py",
+      "frozen_sha256": "c4f1300b2cff40f60761e9d2e61f10e5336df779784ca3bdfac51815bf5b5320",
+      "current_sha256": "ea2989446c3db5a8683dcae79722448c4217aee70f12e6beb4dca21a9d92dca7",
+      "matches_frozen": false
+    },
+    {
+      "path": "scripts/general_agent_local.py",
+      "frozen_sha256": "6ad71fccb0e0d2bbf37d15a4ed73595d14bac76a593bfcdd5da6ba69c9f26570",
+      "current_sha256": "cb4dedfa2849132dc71f2d6c421b8d1515a08c873a46bd13dcdad62f6056a474",
+      "matches_frozen": false
+    }
+  ],
+  "protected_modules": {
+    "isolation_and_worker_lifecycle": [
+      {
+        "path": "agent4drone/blackboard.py",
+        "sha256": "cbb6efac0f97bf5035fdac41edb3ac509ccf529bc18f8788f9b9a59a3847f9d9",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/command_results.py",
+        "sha256": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/uav_api_client.py",
+        "sha256": "5196331a1f7260f6fe25fecb3bd3be9888aeedcec81608ca11c399543739e420",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/harness_episode_local.py",
+        "sha256": "25b83ebb30fa6876932a0d8f93557e44810b9343cb0b213beff34ce88b582760",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/harness_natural_runner.py",
+        "sha256": "f035ccafd9fb594806ee8cb46b935b4b85c35d5e45ec52343fa79b61e099b1bd",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/harness_v2_world.py",
+        "sha256": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/harness_full100_world.py",
+        "sha256": "a71a13284f65b86b91d3424e6c29b3675284dc68117f12aa9aea69cc4b10ec47",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/validate_harness_episode.py",
+        "sha256": "ccd7bd3e14c057bd2e4c8a0ce614cf301b1f0b937986a9feeae22d4c0a24ea4b",
+        "matches_frozen": true
+      }
+    ],
+    "model_wire_and_archival": [
+      {
+        "path": "agent4drone/model_io_archive.py",
+        "sha256": "9b49d4f970e067a3ec821ada8c95306e0bccf016746bbd9686235f8e8d6d8b35",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/model_request_audit.py",
+        "sha256": "303a0ae805ebd7d6079437b1b041709edf750383735b65f1e5cc0bd6221c315a",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/toolchain_recorder.py",
+        "sha256": "5bca05757bdea0a55ad703a284bb0622e040ac298421bc902d0c29f0e941ac0e",
+        "matches_frozen": true
+      }
+    ],
+    "execution_state_and_recovery": [
+      {
+        "path": "agent4drone/task_execution_state.py",
+        "sha256": "55a15f5eee08e7daf206c2ed4165d2d9cfb9e896b2a7a12561849b8fe6884a1f",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/task_progress.py",
+        "sha256": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/task_evidence_r2.py",
+        "sha256": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/harness_core.py",
+        "sha256": "bea0388d19893e361444194ef6d1c1ce041157ca33ea7d69ac4bd73089c3d02d",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/harness_integration.py",
+        "sha256": "c596ad91f61a6dc07001e4cf468ae13160551f57d1e4152932baf04c5e2076e3",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory.py",
+        "sha256": "6c0765e18d3ec51432399f658eeb31f6e091f2d8e319ee535a5d08493b31f282",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_context.py",
+        "sha256": "ff3718d9c94b1721114197268b38cab607098d679dbf9924799374143b1a69bc",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v2.py",
+        "sha256": "9504d3e0f2cab7f86064b6b2e6690005a710c2eb77f5f1810c95bb377945cbd4",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v2_context.py",
+        "sha256": "f7dd572050d04920bdfdfa755272c5d81d452f3b4ad1b975c3600c2f32292458",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v3.py",
+        "sha256": "a0449a0b3872b7fa2e6952e7d81e61f46ac4ab536b8ec43cdad72f64f8ddb4b2",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v3_context.py",
+        "sha256": "8558d2022b95c2fa6b560964ae54b5d0306567e6a980a0813af0b97a06169eac",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v4.py",
+        "sha256": "4eb4ae0b1f391f3d728cec85a708c82c1a9d29ec801a00d37c740b734ee9dab2",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v4_context.py",
+        "sha256": "87bfdfcddaad608cecdc4b30ead4ff8a26c68527f2b4d81ca2eaa3c60dd09b19",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v5.py",
+        "sha256": "3edd0e2c4f86e9d4edb68ff8577bf274d7123dcefb9af6ec17bdc444daf238f5",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v5_context.py",
+        "sha256": "e6d4136373bbe867192062fe00999e88805cdd2eaed8ab2d38d9ad61c802dd2d",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v6.py",
+        "sha256": "7194cb55d9aec5f6fe37d265c5556f004c2545b9c96c32e033f6675b0031971e",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v6_context.py",
+        "sha256": "c0b0681f19785d5a495384bc4affe9d1eaf5fd3b7e107e5b3c586058be529f38",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v7.py",
+        "sha256": "6a5551ca65aa7ad26bbb1705e7681d1e759f463082bd22758c5471664f541684",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/execution_memory_v7_context.py",
+        "sha256": "48672e00968ba6d5e83e5cfd373f3b1df92d15c5b68e7251d56c5a2c30c55732",
+        "matches_frozen": true
+      }
+    ],
+    "compact_search_and_cost_controls": [
+      {
+        "path": "agent4drone/harness_skills.py",
+        "sha256": "72bf31daa7770eb103bc07ca66d2ee0c25608cbe95b3446869dc0cd721cb635a",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/observed_target_search.py",
+        "sha256": "dc9df2382fef2ac58c8bdf1b7820bcffb9662b0798283156ede720aa6f8ca794",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/search_progress.py",
+        "sha256": "023ff1da273b5ab6f42c57b7ab5f10f29a9b799fd43c5ac52abb14451b56c233",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/harness_request_limits.py",
+        "sha256": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/harness_live_cost.py",
+        "sha256": "2e02695d40c404e7e2fc4e2aab4906e8ebe0287d1609ba752bf1745172efdbd3",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/episode_termination.py",
+        "sha256": "25da8fd794a94937f6084bf590355e7f1a2537437fcf41db7ffeb2c266c425b5",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/harness_deepseek_adapter.py",
+        "sha256": "bcb6087ce56eef71df9cd932724a2a8ac4124899ac682b1adcea50f4a02c10b3",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/deepseek_cost_pilot.py",
+        "sha256": "945641827d31b4fae98b3a783946e87e015694913488f15fa20fe426d5160bed",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/analyze_deepseek_cost_pilot.py",
+        "sha256": "bc4bb51b06fe47cad2d613516f678685df469fa2e13fd749a44ce834f2a11f68",
+        "matches_frozen": true
+      },
+      {
+        "path": "scripts/harness_full100_online.py",
+        "sha256": "2d43bb9440c3fdcfc6741eef79b9ef4483a5080de1906790ec88dc30b168058d",
+        "matches_frozen": true
+      }
+    ],
+    "underlying_tool_parameter_semantics": [
+      {
+        "path": "agent4drone/uav_langchain_tools.py",
+        "sha256": "3809e3a2258a0b55b6e2680a89e42ff8ba668388fe2c2c9d05d1060e5cc9fa74",
+        "matches_frozen": true
+      },
+      {
+        "path": "agent4drone/relative_movement.py",
+        "sha256": "d7791bf79cd1fbe61921f835665a51df385d2be97c32d7c29a8d2b4c85714a4f",
+        "matches_frozen": true
+      }
+    ],
+    "simulator_and_private_evaluator_sources": [
+      {
+        "path": "server/api/__init__.py",
+        "sha256": "e14cd82a39ad17dc8c86185d384df124012dd3df0fb3c9037ff81176993c27ae",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/api/server.py",
+        "sha256": "9e74a981aac858fb4f829eb36fc7c06c8fbdb0c2cf3dc967e09bcda61584d061",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/config/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/config/battery_config.py",
+        "sha256": "422ac9300306226c73f1073b58111b8f1aca4c20301331496a4f315bf194e852",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/config/logging_config.py",
+        "sha256": "dd8990aa32c961570648d36e58d32a96cd9b2f5cd643a0a77921c3893a92c893",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/config/privilege_keys.py",
+        "sha256": "8975bfa63d391877960326ea6192b54620cab40f04fe23ed8d41482b062637de",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/config/util.py",
+        "sha256": "c5ee6c16b30c7d6b7a7f6be5bd080c634750d738d976ced70b6423dc5c3e08e1",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/controllers/__init__.py",
+        "sha256": "0ab269292ce6c5efa4f4fe3578f0a4ee3ba020904ca8527400175440b8314c49",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/controllers/drone_controller.py",
+        "sha256": "aa3c192e7c79f6d90f51b6c549a91e4630ab28da750f70804393ca569b564f11",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/controllers/environment_controller.py",
+        "sha256": "68dda8421bb34ec438ab96afebc87f69e7d570fa698a9de1c6b3719ee01289b5",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/controllers/obstacle_controller.py",
+        "sha256": "ebe68c25e76481a8e9f5b5aa7f1360d163adb722a824000400af5e795e7acd32",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/controllers/session_controller.py",
+        "sha256": "7eb2ec8725bb11019142ae59fe51ca7558d339525c116c67d9005a89bb76fca7",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/controllers/target_controller.py",
+        "sha256": "c26c8c9d6e1048a39506862dcc9931a5ca305916591ef0835d46b21228e1e7c9",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/main.py",
+        "sha256": "240060e31f7a8a01b0afedef9a8652f26b3d969285f6c79026d4eb927ec5b313",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/models/__init__.py",
+        "sha256": "87cdf15b52e536adfc7836378edc7e13feb369e359604df7b530659ce1940e45",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/models/drone.py",
+        "sha256": "ef16fdec4402a705ce736c3cf5467fcb03fd068a799d24d3f809572fd06aed52",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/models/environment.py",
+        "sha256": "22d4f000bb0e997b5fd004fb99f2af80c2a4bd6db6123ff8cfbe4e0328cb48e2",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/models/obstacle.py",
+        "sha256": "e3867c4926c5e78c99ed1bc296112952b7a808a66e7f059e9b7f524993db600d",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/models/session.py",
+        "sha256": "b2ea22ac56096600b6737dad67ce7dc0a1ba300acf77d2638f0da56ec99f257e",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/models/target.py",
+        "sha256": "29ad7c30890072a618d00b2dad08c37f17c5c97e3bf2c02c189837e796631424",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/models/task.py",
+        "sha256": "bcd0432d4ea2c9fb2393a261b957ae1b34c4c81da1d51dfcf58d69627bbb1178",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/requirements.txt",
+        "sha256": "3048d4c5388105b623729ec6618d7349e29cb1251c7ca99e7a589a45fd33685a",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/ui/__init__.py",
+        "sha256": "17c4a8d2365560d13e9c0423ed3e7ebdb7186e3c2b1566acae7cce387bbc9c1a",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/ui/dialog.py",
+        "sha256": "ba91b9c747d853860fbb3e18d2cf7ac45eed9d08e550f7eee96912a3c0c40d6e",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/ui/font_utils.py",
+        "sha256": "ac33783d907153cea3d04301b418e61653d9db8a063388649fcff4614508348f",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/ui/interface.py",
+        "sha256": "34ecf91c304d617e0039626018867acd5b1978b3877ac65834a2add63267ed8f",
+        "matches_frozen": true
+      },
+      {
+        "path": "server/ui/screenshot.py",
+        "sha256": "f818117ea2e271241412f258aa41f881953758b6d887cc8c557c03e74d8b2edd",
+        "matches_frozen": true
+      }
+    ]
+  },
+  "all_frozen_source_comparisons": [
+    {
+      "path": "agent4drone/agent_api_service.py",
+      "frozen_sha256": "b65dd5b6c5efb42b5e6dce4c90e35b5fefd7b35b7f865d1a163f36a046166f32",
+      "current_sha256": "b65dd5b6c5efb42b5e6dce4c90e35b5fefd7b35b7f865d1a163f36a046166f32",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/agent_profile.py",
+      "frozen_sha256": "be65ff0b012164791330eab512dd8f77f5d219353c7884b9f74decc3168b27c9",
+      "current_sha256": "51e9b1b258dc46d9eafff7381755e570e047fee165d94f0648f71227d751e431",
+      "matches_frozen": false
+    },
+    {
+      "path": "agent4drone/blackboard.py",
+      "frozen_sha256": "cbb6efac0f97bf5035fdac41edb3ac509ccf529bc18f8788f9b9a59a3847f9d9",
+      "current_sha256": "cbb6efac0f97bf5035fdac41edb3ac509ccf529bc18f8788f9b9a59a3847f9d9",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/command_results.py",
+      "frozen_sha256": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee",
+      "current_sha256": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/coordinated_search_r2.py",
+      "frozen_sha256": "693093f3ffeba3f5aeaaa3bd747dff5b846f4d8672c02208f90d88366efa4f14",
+      "current_sha256": "693093f3ffeba3f5aeaaa3bd747dff5b846f4d8672c02208f90d88366efa4f14",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/coordinated_search_trigger_r2.py",
+      "frozen_sha256": "c234bf11b06a028ce4f0c2ce31921b13bf31d911de5d6ac6ae66d3c813f7dac0",
+      "current_sha256": "c234bf11b06a028ce4f0c2ce31921b13bf31d911de5d6ac6ae66d3c813f7dac0",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/coordinated_search_worker_r2.py",
+      "frozen_sha256": "2c94a32971f84a1fc37099117fbd7fabd3484d07881f73e41b6cf3d427720913",
+      "current_sha256": "2c94a32971f84a1fc37099117fbd7fabd3484d07881f73e41b6cf3d427720913",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory.py",
+      "frozen_sha256": "6c0765e18d3ec51432399f658eeb31f6e091f2d8e319ee535a5d08493b31f282",
+      "current_sha256": "6c0765e18d3ec51432399f658eeb31f6e091f2d8e319ee535a5d08493b31f282",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_context.py",
+      "frozen_sha256": "ff3718d9c94b1721114197268b38cab607098d679dbf9924799374143b1a69bc",
+      "current_sha256": "ff3718d9c94b1721114197268b38cab607098d679dbf9924799374143b1a69bc",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v2.py",
+      "frozen_sha256": "9504d3e0f2cab7f86064b6b2e6690005a710c2eb77f5f1810c95bb377945cbd4",
+      "current_sha256": "9504d3e0f2cab7f86064b6b2e6690005a710c2eb77f5f1810c95bb377945cbd4",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v2_context.py",
+      "frozen_sha256": "f7dd572050d04920bdfdfa755272c5d81d452f3b4ad1b975c3600c2f32292458",
+      "current_sha256": "f7dd572050d04920bdfdfa755272c5d81d452f3b4ad1b975c3600c2f32292458",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v3.py",
+      "frozen_sha256": "a0449a0b3872b7fa2e6952e7d81e61f46ac4ab536b8ec43cdad72f64f8ddb4b2",
+      "current_sha256": "a0449a0b3872b7fa2e6952e7d81e61f46ac4ab536b8ec43cdad72f64f8ddb4b2",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v3_context.py",
+      "frozen_sha256": "8558d2022b95c2fa6b560964ae54b5d0306567e6a980a0813af0b97a06169eac",
+      "current_sha256": "8558d2022b95c2fa6b560964ae54b5d0306567e6a980a0813af0b97a06169eac",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v4.py",
+      "frozen_sha256": "4eb4ae0b1f391f3d728cec85a708c82c1a9d29ec801a00d37c740b734ee9dab2",
+      "current_sha256": "4eb4ae0b1f391f3d728cec85a708c82c1a9d29ec801a00d37c740b734ee9dab2",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v4_context.py",
+      "frozen_sha256": "87bfdfcddaad608cecdc4b30ead4ff8a26c68527f2b4d81ca2eaa3c60dd09b19",
+      "current_sha256": "87bfdfcddaad608cecdc4b30ead4ff8a26c68527f2b4d81ca2eaa3c60dd09b19",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v5.py",
+      "frozen_sha256": "3edd0e2c4f86e9d4edb68ff8577bf274d7123dcefb9af6ec17bdc444daf238f5",
+      "current_sha256": "3edd0e2c4f86e9d4edb68ff8577bf274d7123dcefb9af6ec17bdc444daf238f5",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v5_context.py",
+      "frozen_sha256": "e6d4136373bbe867192062fe00999e88805cdd2eaed8ab2d38d9ad61c802dd2d",
+      "current_sha256": "e6d4136373bbe867192062fe00999e88805cdd2eaed8ab2d38d9ad61c802dd2d",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v6.py",
+      "frozen_sha256": "7194cb55d9aec5f6fe37d265c5556f004c2545b9c96c32e033f6675b0031971e",
+      "current_sha256": "7194cb55d9aec5f6fe37d265c5556f004c2545b9c96c32e033f6675b0031971e",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v6_context.py",
+      "frozen_sha256": "c0b0681f19785d5a495384bc4affe9d1eaf5fd3b7e107e5b3c586058be529f38",
+      "current_sha256": "c0b0681f19785d5a495384bc4affe9d1eaf5fd3b7e107e5b3c586058be529f38",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v7.py",
+      "frozen_sha256": "6a5551ca65aa7ad26bbb1705e7681d1e759f463082bd22758c5471664f541684",
+      "current_sha256": "6a5551ca65aa7ad26bbb1705e7681d1e759f463082bd22758c5471664f541684",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/execution_memory_v7_context.py",
+      "frozen_sha256": "48672e00968ba6d5e83e5cfd373f3b1df92d15c5b68e7251d56c5a2c30c55732",
+      "current_sha256": "48672e00968ba6d5e83e5cfd373f3b1df92d15c5b68e7251d56c5a2c30c55732",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/harness_core.py",
+      "frozen_sha256": "bea0388d19893e361444194ef6d1c1ce041157ca33ea7d69ac4bd73089c3d02d",
+      "current_sha256": "bea0388d19893e361444194ef6d1c1ce041157ca33ea7d69ac4bd73089c3d02d",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/harness_integration.py",
+      "frozen_sha256": "c596ad91f61a6dc07001e4cf468ae13160551f57d1e4152932baf04c5e2076e3",
+      "current_sha256": "c596ad91f61a6dc07001e4cf468ae13160551f57d1e4152932baf04c5e2076e3",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/harness_skills.py",
+      "frozen_sha256": "72bf31daa7770eb103bc07ca66d2ee0c25608cbe95b3446869dc0cd721cb635a",
+      "current_sha256": "72bf31daa7770eb103bc07ca66d2ee0c25608cbe95b3446869dc0cd721cb635a",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/logging_config.py",
+      "frozen_sha256": "1928555d298a4e70e1909faacbc82ef5c5c87baa228a75d480ab2470007d8a74",
+      "current_sha256": "1928555d298a4e70e1909faacbc82ef5c5c87baa228a75d480ab2470007d8a74",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/main.py",
+      "frozen_sha256": "979aa3376b3a7690896f530d182bd68bdbd2b70631f6cc1a51e35a42b01a0d4c",
+      "current_sha256": "979aa3376b3a7690896f530d182bd68bdbd2b70631f6cc1a51e35a42b01a0d4c",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/model_io_archive.py",
+      "frozen_sha256": "9b49d4f970e067a3ec821ada8c95306e0bccf016746bbd9686235f8e8d6d8b35",
+      "current_sha256": "9b49d4f970e067a3ec821ada8c95306e0bccf016746bbd9686235f8e8d6d8b35",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/model_request_audit.py",
+      "frozen_sha256": "303a0ae805ebd7d6079437b1b041709edf750383735b65f1e5cc0bd6221c315a",
+      "current_sha256": "303a0ae805ebd7d6079437b1b041709edf750383735b65f1e5cc0bd6221c315a",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/observation_worker_r2.py",
+      "frozen_sha256": "ce1cae6e75a44af1ff6bc74574fdf1566af3b668105466b25c2850fea47cc29d",
+      "current_sha256": "ce1cae6e75a44af1ff6bc74574fdf1566af3b668105466b25c2850fea47cc29d",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/observed_target_search.py",
+      "frozen_sha256": "dc9df2382fef2ac58c8bdf1b7820bcffb9662b0798283156ede720aa6f8ca794",
+      "current_sha256": "dc9df2382fef2ac58c8bdf1b7820bcffb9662b0798283156ede720aa6f8ca794",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/path_planning/__init__.py",
+      "frozen_sha256": "6f9ba2293ce2a1391ccbb2535c39c5c9f3fe4317115a095b2f5a8210a8249e4d",
+      "current_sha256": "6f9ba2293ce2a1391ccbb2535c39c5c9f3fe4317115a095b2f5a8210a8249e4d",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/path_planning/coverage_planner.py",
+      "frozen_sha256": "e3ec89e5e22225e4d1dbc70a55c176dc715a134bd7120670019cfa2603021ea6",
+      "current_sha256": "e3ec89e5e22225e4d1dbc70a55c176dc715a134bd7120670019cfa2603021ea6",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/path_planning/path_finder.py",
+      "frozen_sha256": "aaef192bf8668ab7b36469930868695cbcae3f01aafcf7cdbbbfaf72695d373d",
+      "current_sha256": "aaef192bf8668ab7b36469930868695cbcae3f01aafcf7cdbbbfaf72695d373d",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/path_planning/path_finder_original.py",
+      "frozen_sha256": "168d506b087063cfe6c60c33652a16e9420f7b026142f55b0d3c34337c7572d4",
+      "current_sha256": "168d506b087063cfe6c60c33652a16e9420f7b026142f55b0d3c34337c7572d4",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/path_planning/visualizer.py",
+      "frozen_sha256": "435df074ccb54b04ea26a8b58a58914e53947e5ed563b1521ff360c53dda3951",
+      "current_sha256": "435df074ccb54b04ea26a8b58a58914e53947e5ed563b1521ff360c53dda3951",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/relative_movement.py",
+      "frozen_sha256": "d7791bf79cd1fbe61921f835665a51df385d2be97c32d7c29a8d2b4c85714a4f",
+      "current_sha256": "d7791bf79cd1fbe61921f835665a51df385d2be97c32d7c29a8d2b4c85714a4f",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/requirements.txt",
+      "frozen_sha256": "a1b59d7f277b0061edbc368bae85cef2ffb86902a5bffd6cc01c696ab73e138a",
+      "current_sha256": "a1b59d7f277b0061edbc368bae85cef2ffb86902a5bffd6cc01c696ab73e138a",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/search_progress.py",
+      "frozen_sha256": "023ff1da273b5ab6f42c57b7ab5f10f29a9b799fd43c5ac52abb14451b56c233",
+      "current_sha256": "023ff1da273b5ab6f42c57b7ab5f10f29a9b799fd43c5ac52abb14451b56c233",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/task_evidence.py",
+      "frozen_sha256": "6851e93c9ee0ccf540867bd7debe266d2dc5084d7ea1778b8be064db4383dd57",
+      "current_sha256": "6851e93c9ee0ccf540867bd7debe266d2dc5084d7ea1778b8be064db4383dd57",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/task_evidence_context.py",
+      "frozen_sha256": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "current_sha256": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/task_evidence_r2.py",
+      "frozen_sha256": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+      "current_sha256": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/task_evidence_r3.py",
+      "frozen_sha256": "2031abeee2d244ef7f96ca1f8d57e5a65b1747f96425b0979d5b2c981e353905",
+      "current_sha256": "2031abeee2d244ef7f96ca1f8d57e5a65b1747f96425b0979d5b2c981e353905",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/task_execution_state.py",
+      "frozen_sha256": "55a15f5eee08e7daf206c2ed4165d2d9cfb9e896b2a7a12561849b8fe6884a1f",
+      "current_sha256": "55a15f5eee08e7daf206c2ed4165d2d9cfb9e896b2a7a12561849b8fe6884a1f",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/task_progress.py",
+      "frozen_sha256": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+      "current_sha256": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/template/__init__.py",
+      "frozen_sha256": "5d2342e36b7ceae9b6ace372699df9bce34c683b0332ca0163ecc2ee7f814073",
+      "current_sha256": "5d2342e36b7ceae9b6ace372699df9bce34c683b0332ca0163ecc2ee7f814073",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/template/agent_prompt.py",
+      "frozen_sha256": "3d02ee25733d552178c6a0257c3420b338c3d38098fd1d65004dfe83d1ee711e",
+      "current_sha256": "3d02ee25733d552178c6a0257c3420b338c3d38098fd1d65004dfe83d1ee711e",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/template/parsing_error.py",
+      "frozen_sha256": "26c47f636a589fc69c1a967d64805de9e9772089336bf48d786d0f11947f6ff4",
+      "current_sha256": "26c47f636a589fc69c1a967d64805de9e9772089336bf48d786d0f11947f6ff4",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/template/system_prompt.py",
+      "frozen_sha256": "8e5fac74ffc98720c3a2dd3b21b0eca21752b3eb1afea6a5ea2f7dcbd7f9563d",
+      "current_sha256": "973965354152cf3775a2975f6fc8bd114957ade8cca629c8ec5927c877790902",
+      "matches_frozen": false
+    },
+    {
+      "path": "agent4drone/toolchain_recorder.py",
+      "frozen_sha256": "5bca05757bdea0a55ad703a284bb0622e040ac298421bc902d0c29f0e941ac0e",
+      "current_sha256": "5bca05757bdea0a55ad703a284bb0622e040ac298421bc902d0c29f0e941ac0e",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/uav_agent.py",
+      "frozen_sha256": "2b06a3b561a79dad6cdabaf71ed0f3b5182bb08af16a45c09c3c266ddc10b8b8",
+      "current_sha256": "245bfba88d888149897a2e1162d763356a95465f03d04abbe41982f841182a62",
+      "matches_frozen": false
+    },
+    {
+      "path": "agent4drone/uav_api_client.py",
+      "frozen_sha256": "5196331a1f7260f6fe25fecb3bd3be9888aeedcec81608ca11c399543739e420",
+      "current_sha256": "5196331a1f7260f6fe25fecb3bd3be9888aeedcec81608ca11c399543739e420",
+      "matches_frozen": true
+    },
+    {
+      "path": "agent4drone/uav_langchain_tools.py",
+      "frozen_sha256": "3809e3a2258a0b55b6e2680a89e42ff8ba668388fe2c2c9d05d1060e5cc9fa74",
+      "current_sha256": "3809e3a2258a0b55b6e2680a89e42ff8ba668388fe2c2c9d05d1060e5cc9fa74",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/analyze_deepseek_behavior_pilot.py",
+      "frozen_sha256": "cc27ccce7d8bf0370ee4529f5d5f8c455a04229c6255ba7051f1ad1d25c7141f",
+      "current_sha256": "cc27ccce7d8bf0370ee4529f5d5f8c455a04229c6255ba7051f1ad1d25c7141f",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/analyze_deepseek_contract_pilot.py",
+      "frozen_sha256": "958fec80f75113a95296989e625214f704819eabef079f6fdaa4c6c8a95313ea",
+      "current_sha256": "958fec80f75113a95296989e625214f704819eabef079f6fdaa4c6c8a95313ea",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/analyze_deepseek_cost_pilot.py",
+      "frozen_sha256": "bc4bb51b06fe47cad2d613516f678685df469fa2e13fd749a44ce834f2a11f68",
+      "current_sha256": "bc4bb51b06fe47cad2d613516f678685df469fa2e13fd749a44ce834f2a11f68",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/audit_general_agent.py",
+      "frozen_sha256": "64e6de1ff3608a8e5b4c6bb7be26269e4ab2c00203b4313e47c3d37f38a00896",
+      "current_sha256": "64e6de1ff3608a8e5b4c6bb7be26269e4ab2c00203b4313e47c3d37f38a00896",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/deepseek_cost_pilot.py",
+      "frozen_sha256": "945641827d31b4fae98b3a783946e87e015694913488f15fa20fe426d5160bed",
+      "current_sha256": "945641827d31b4fae98b3a783946e87e015694913488f15fa20fe426d5160bed",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/episode_termination.py",
+      "frozen_sha256": "25da8fd794a94937f6084bf590355e7f1a2537437fcf41db7ffeb2c266c425b5",
+      "current_sha256": "25da8fd794a94937f6084bf590355e7f1a2537437fcf41db7ffeb2c266c425b5",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/general_agent.py",
+      "frozen_sha256": "c4f1300b2cff40f60761e9d2e61f10e5336df779784ca3bdfac51815bf5b5320",
+      "current_sha256": "ea2989446c3db5a8683dcae79722448c4217aee70f12e6beb4dca21a9d92dca7",
+      "matches_frozen": false
+    },
+    {
+      "path": "scripts/general_agent_local.py",
+      "frozen_sha256": "6ad71fccb0e0d2bbf37d15a4ed73595d14bac76a593bfcdd5da6ba69c9f26570",
+      "current_sha256": "cb4dedfa2849132dc71f2d6c421b8d1515a08c873a46bd13dcdad62f6056a474",
+      "matches_frozen": false
+    },
+    {
+      "path": "scripts/harness_deepseek_adapter.py",
+      "frozen_sha256": "bcb6087ce56eef71df9cd932724a2a8ac4124899ac682b1adcea50f4a02c10b3",
+      "current_sha256": "bcb6087ce56eef71df9cd932724a2a8ac4124899ac682b1adcea50f4a02c10b3",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/harness_episode_local.py",
+      "frozen_sha256": "25b83ebb30fa6876932a0d8f93557e44810b9343cb0b213beff34ce88b582760",
+      "current_sha256": "25b83ebb30fa6876932a0d8f93557e44810b9343cb0b213beff34ce88b582760",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/harness_full100_online.py",
+      "frozen_sha256": "2d43bb9440c3fdcfc6741eef79b9ef4483a5080de1906790ec88dc30b168058d",
+      "current_sha256": "2d43bb9440c3fdcfc6741eef79b9ef4483a5080de1906790ec88dc30b168058d",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/harness_full100_world.py",
+      "frozen_sha256": "a71a13284f65b86b91d3424e6c29b3675284dc68117f12aa9aea69cc4b10ec47",
+      "current_sha256": "a71a13284f65b86b91d3424e6c29b3675284dc68117f12aa9aea69cc4b10ec47",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/harness_live_cost.py",
+      "frozen_sha256": "2e02695d40c404e7e2fc4e2aab4906e8ebe0287d1609ba752bf1745172efdbd3",
+      "current_sha256": "2e02695d40c404e7e2fc4e2aab4906e8ebe0287d1609ba752bf1745172efdbd3",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/harness_natural_runner.py",
+      "frozen_sha256": "f035ccafd9fb594806ee8cb46b935b4b85c35d5e45ec52343fa79b61e099b1bd",
+      "current_sha256": "f035ccafd9fb594806ee8cb46b935b4b85c35d5e45ec52343fa79b61e099b1bd",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/harness_request_limits.py",
+      "frozen_sha256": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+      "current_sha256": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/harness_v2_online.py",
+      "frozen_sha256": "9662c0f5f213fddc32472fc8069762962730e2febc2f4a493eae25ab99facff2",
+      "current_sha256": "9662c0f5f213fddc32472fc8069762962730e2febc2f4a493eae25ab99facff2",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/harness_v2_world.py",
+      "frozen_sha256": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+      "current_sha256": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/tests/test_deepseek_cost_analysis.py",
+      "frozen_sha256": "05d3ad03a74bacbc442896f28e5ad43ca8d02687aefea9fd55168178cff9c200",
+      "current_sha256": "05d3ad03a74bacbc442896f28e5ad43ca8d02687aefea9fd55168178cff9c200",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/tests/test_deepseek_cost_pilot.py",
+      "frozen_sha256": "d01a1365654888df14277118f8d2532ef8cc71cbe79f1bc7a131c29655ff05ad",
+      "current_sha256": "d01a1365654888df14277118f8d2532ef8cc71cbe79f1bc7a131c29655ff05ad",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/tests/test_harness_online_cost_variants.py",
+      "frozen_sha256": "4e95d619d056c500d2febd8eddd7e20dc220b2e1680805fff5e2788a4fd38132",
+      "current_sha256": "4e95d619d056c500d2febd8eddd7e20dc220b2e1680805fff5e2788a4fd38132",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/validate_harness_episode.py",
+      "frozen_sha256": "ccd7bd3e14c057bd2e4c8a0ce614cf301b1f0b937986a9feeae22d4c0a24ea4b",
+      "current_sha256": "ccd7bd3e14c057bd2e4c8a0ce614cf301b1f0b937986a9feeae22d4c0a24ea4b",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/validate_harness_natural_runner.py",
+      "frozen_sha256": "503e486cabaded3a28bf13c387d7bfa1e8894d43ab01869dc477c391b749a4d6",
+      "current_sha256": "503e486cabaded3a28bf13c387d7bfa1e8894d43ab01869dc477c391b749a4d6",
+      "matches_frozen": true
+    },
+    {
+      "path": "scripts/validate_harness_observed_target.py",
+      "frozen_sha256": "2e59098902f2ab47a37587c24b93379265d901b79eec7aa6c2869fc08c84e40c",
+      "current_sha256": "2e59098902f2ab47a37587c24b93379265d901b79eec7aa6c2869fc08c84e40c",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/api/__init__.py",
+      "frozen_sha256": "e14cd82a39ad17dc8c86185d384df124012dd3df0fb3c9037ff81176993c27ae",
+      "current_sha256": "e14cd82a39ad17dc8c86185d384df124012dd3df0fb3c9037ff81176993c27ae",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/api/server.py",
+      "frozen_sha256": "9e74a981aac858fb4f829eb36fc7c06c8fbdb0c2cf3dc967e09bcda61584d061",
+      "current_sha256": "9e74a981aac858fb4f829eb36fc7c06c8fbdb0c2cf3dc967e09bcda61584d061",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/config/__init__.py",
+      "frozen_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/config/battery_config.py",
+      "frozen_sha256": "422ac9300306226c73f1073b58111b8f1aca4c20301331496a4f315bf194e852",
+      "current_sha256": "422ac9300306226c73f1073b58111b8f1aca4c20301331496a4f315bf194e852",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/config/logging_config.py",
+      "frozen_sha256": "dd8990aa32c961570648d36e58d32a96cd9b2f5cd643a0a77921c3893a92c893",
+      "current_sha256": "dd8990aa32c961570648d36e58d32a96cd9b2f5cd643a0a77921c3893a92c893",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/config/privilege_keys.py",
+      "frozen_sha256": "8975bfa63d391877960326ea6192b54620cab40f04fe23ed8d41482b062637de",
+      "current_sha256": "8975bfa63d391877960326ea6192b54620cab40f04fe23ed8d41482b062637de",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/config/util.py",
+      "frozen_sha256": "c5ee6c16b30c7d6b7a7f6be5bd080c634750d738d976ced70b6423dc5c3e08e1",
+      "current_sha256": "c5ee6c16b30c7d6b7a7f6be5bd080c634750d738d976ced70b6423dc5c3e08e1",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/controllers/__init__.py",
+      "frozen_sha256": "0ab269292ce6c5efa4f4fe3578f0a4ee3ba020904ca8527400175440b8314c49",
+      "current_sha256": "0ab269292ce6c5efa4f4fe3578f0a4ee3ba020904ca8527400175440b8314c49",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/controllers/drone_controller.py",
+      "frozen_sha256": "aa3c192e7c79f6d90f51b6c549a91e4630ab28da750f70804393ca569b564f11",
+      "current_sha256": "aa3c192e7c79f6d90f51b6c549a91e4630ab28da750f70804393ca569b564f11",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/controllers/environment_controller.py",
+      "frozen_sha256": "68dda8421bb34ec438ab96afebc87f69e7d570fa698a9de1c6b3719ee01289b5",
+      "current_sha256": "68dda8421bb34ec438ab96afebc87f69e7d570fa698a9de1c6b3719ee01289b5",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/controllers/obstacle_controller.py",
+      "frozen_sha256": "ebe68c25e76481a8e9f5b5aa7f1360d163adb722a824000400af5e795e7acd32",
+      "current_sha256": "ebe68c25e76481a8e9f5b5aa7f1360d163adb722a824000400af5e795e7acd32",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/controllers/session_controller.py",
+      "frozen_sha256": "7eb2ec8725bb11019142ae59fe51ca7558d339525c116c67d9005a89bb76fca7",
+      "current_sha256": "7eb2ec8725bb11019142ae59fe51ca7558d339525c116c67d9005a89bb76fca7",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/controllers/target_controller.py",
+      "frozen_sha256": "c26c8c9d6e1048a39506862dcc9931a5ca305916591ef0835d46b21228e1e7c9",
+      "current_sha256": "c26c8c9d6e1048a39506862dcc9931a5ca305916591ef0835d46b21228e1e7c9",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/main.py",
+      "frozen_sha256": "240060e31f7a8a01b0afedef9a8652f26b3d969285f6c79026d4eb927ec5b313",
+      "current_sha256": "240060e31f7a8a01b0afedef9a8652f26b3d969285f6c79026d4eb927ec5b313",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/models/__init__.py",
+      "frozen_sha256": "87cdf15b52e536adfc7836378edc7e13feb369e359604df7b530659ce1940e45",
+      "current_sha256": "87cdf15b52e536adfc7836378edc7e13feb369e359604df7b530659ce1940e45",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/models/drone.py",
+      "frozen_sha256": "ef16fdec4402a705ce736c3cf5467fcb03fd068a799d24d3f809572fd06aed52",
+      "current_sha256": "ef16fdec4402a705ce736c3cf5467fcb03fd068a799d24d3f809572fd06aed52",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/models/environment.py",
+      "frozen_sha256": "22d4f000bb0e997b5fd004fb99f2af80c2a4bd6db6123ff8cfbe4e0328cb48e2",
+      "current_sha256": "22d4f000bb0e997b5fd004fb99f2af80c2a4bd6db6123ff8cfbe4e0328cb48e2",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/models/obstacle.py",
+      "frozen_sha256": "e3867c4926c5e78c99ed1bc296112952b7a808a66e7f059e9b7f524993db600d",
+      "current_sha256": "e3867c4926c5e78c99ed1bc296112952b7a808a66e7f059e9b7f524993db600d",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/models/session.py",
+      "frozen_sha256": "b2ea22ac56096600b6737dad67ce7dc0a1ba300acf77d2638f0da56ec99f257e",
+      "current_sha256": "b2ea22ac56096600b6737dad67ce7dc0a1ba300acf77d2638f0da56ec99f257e",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/models/target.py",
+      "frozen_sha256": "29ad7c30890072a618d00b2dad08c37f17c5c97e3bf2c02c189837e796631424",
+      "current_sha256": "29ad7c30890072a618d00b2dad08c37f17c5c97e3bf2c02c189837e796631424",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/models/task.py",
+      "frozen_sha256": "bcd0432d4ea2c9fb2393a261b957ae1b34c4c81da1d51dfcf58d69627bbb1178",
+      "current_sha256": "bcd0432d4ea2c9fb2393a261b957ae1b34c4c81da1d51dfcf58d69627bbb1178",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/requirements.txt",
+      "frozen_sha256": "3048d4c5388105b623729ec6618d7349e29cb1251c7ca99e7a589a45fd33685a",
+      "current_sha256": "3048d4c5388105b623729ec6618d7349e29cb1251c7ca99e7a589a45fd33685a",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/ui/__init__.py",
+      "frozen_sha256": "17c4a8d2365560d13e9c0423ed3e7ebdb7186e3c2b1566acae7cce387bbc9c1a",
+      "current_sha256": "17c4a8d2365560d13e9c0423ed3e7ebdb7186e3c2b1566acae7cce387bbc9c1a",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/ui/dialog.py",
+      "frozen_sha256": "ba91b9c747d853860fbb3e18d2cf7ac45eed9d08e550f7eee96912a3c0c40d6e",
+      "current_sha256": "ba91b9c747d853860fbb3e18d2cf7ac45eed9d08e550f7eee96912a3c0c40d6e",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/ui/font_utils.py",
+      "frozen_sha256": "ac33783d907153cea3d04301b418e61653d9db8a063388649fcff4614508348f",
+      "current_sha256": "ac33783d907153cea3d04301b418e61653d9db8a063388649fcff4614508348f",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/ui/interface.py",
+      "frozen_sha256": "34ecf91c304d617e0039626018867acd5b1978b3877ac65834a2add63267ed8f",
+      "current_sha256": "34ecf91c304d617e0039626018867acd5b1978b3877ac65834a2add63267ed8f",
+      "matches_frozen": true
+    },
+    {
+      "path": "server/ui/screenshot.py",
+      "frozen_sha256": "f818117ea2e271241412f258aa41f881953758b6d887cc8c557c03e74d8b2edd",
+      "current_sha256": "f818117ea2e271241412f258aa41f881953758b6d887cc8c557c03e74d8b2edd",
+      "matches_frozen": true
+    }
+  ],
+  "limitations": [
+    "Hashes establish byte preservation relative to the existing local manifest/seal, not external authenticity or a new behavioral result.",
+    "The five explicit integration files changed intentionally; unchanged-module hashes do not by themselves prove their new call wiring. Local integration/regression evidence is recorded separately.",
+    "New hover/input modules were not present in the old 102-file source snapshot and are outside this preservation comparison.",
+    "The old ten-slot protocol, denominator, original output, private checker and strict-action audit scores are not recomputed under the new hover completion semantics.",
+    "Preserved sealed files do not imply all old model archives were complete: search-control remains valid but incomplete, exactly as originally sealed."
+  ],
+  "network_attempts": []
+}

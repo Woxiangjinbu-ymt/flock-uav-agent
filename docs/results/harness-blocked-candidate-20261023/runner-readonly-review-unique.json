@@ -1,0 +1,71 @@
+{
+  "runner_path": "scripts/validate_harness_blocked_candidate.py",
+  "runner_sha256": "d8d830757d2e61faf69d57aa8011c7255184c80fb89bf0dde4b847e747ea392c",
+  "scope": "additional unique failure signatures and historical cost equality; read-only static analysis and prior public receipts only",
+  "blocking_findings": [],
+  "historical_results": {
+    "24ac1838": {
+      "summary": {
+        "move_attempt_count": 107,
+        "classification": {
+          "success": 90,
+          "endpoint_conflict": 14,
+          "path_conflict": 3,
+          "other_error": 0,
+          "partial": 0,
+          "unknown": 0
+        },
+        "all_move_error_count": 17,
+        "unique_failure_count": 15,
+        "unique_actor_endpoint_conflict_count": 12,
+        "same_actor_endpoint_conflict_repeat_count": 2,
+        "same_actor_endpoint_conflict_repeat_group_count": 2,
+        "same_actor_path_edge_repeat_count": 0,
+        "same_actor_path_endpoint_changed_start_count": 0,
+        "same_endpoint_path_multi_actor_or_start_group_count": 1,
+        "missing_public_start_count": 0,
+        "missing_requested_endpoint_count": 0
+      },
+      "same_diagnostic_comparison": {
+        "baseline_unique_failure_count": 15,
+        "candidate_unique_failure_count": 15,
+        "shared_unique_failure_count": 15,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    },
+    "b1ad4f3e": {
+      "summary": {
+        "move_attempt_count": 93,
+        "classification": {
+          "success": 76,
+          "endpoint_conflict": 16,
+          "path_conflict": 1,
+          "other_error": 0,
+          "partial": 0,
+          "unknown": 0
+        },
+        "all_move_error_count": 17,
+        "unique_failure_count": 16,
+        "unique_actor_endpoint_conflict_count": 15,
+        "same_actor_endpoint_conflict_repeat_count": 1,
+        "same_actor_endpoint_conflict_repeat_group_count": 1,
+        "same_actor_path_edge_repeat_count": 0,
+        "same_actor_path_endpoint_changed_start_count": 0,
+        "same_endpoint_path_multi_actor_or_start_group_count": 0,
+        "missing_public_start_count": 0,
+        "missing_requested_endpoint_count": 0
+      },
+      "same_diagnostic_comparison": {
+        "baseline_unique_failure_count": 16,
+        "candidate_unique_failure_count": 16,
+        "shared_unique_failure_count": 16,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    }
+  },
+  "fixed_campaign_note": "One skill/plan per task; failure comparison intentionally omits per-revision plan IDs. New errors are newly observed signatures, not by themselves performance regression. Missing coordinate events remain separately marked."
+}

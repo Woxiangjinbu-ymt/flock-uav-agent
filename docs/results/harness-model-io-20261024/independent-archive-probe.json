@@ -1,0 +1,96 @@
+{
+  "scope": "pure_object_review_probes_not_pytest_or_campaign",
+  "network": "blocked",
+  "passed": 21,
+  "checks": [
+    {
+      "name": "nonvisible_metadata_and_artifact_excluded",
+      "passed": true
+    },
+    {
+      "name": "observer_keyboard_interrupt_propagates",
+      "passed": true
+    },
+    {
+      "name": "ordinary_observer_exception_is_fail_open",
+      "passed": true
+    },
+    {
+      "name": "close_RuntimeError_never_claims_complete",
+      "passed": true
+    },
+    {
+      "name": "close_RuntimeError_preserves_exception_policy",
+      "passed": true
+    },
+    {
+      "name": "close_KeyboardInterrupt_never_claims_complete",
+      "passed": true
+    },
+    {
+      "name": "close_KeyboardInterrupt_preserves_exception_policy",
+      "passed": true
+    },
+    {
+      "name": "request_rebind_is_rejected",
+      "passed": true
+    },
+    {
+      "name": "quarantined_response_writes_neither_archive",
+      "passed": true
+    },
+    {
+      "name": "request_reuse_marks_both_incomplete",
+      "passed": true
+    },
+    {
+      "name": "late_closed_owner_leaves_both_unchanged",
+      "passed": true
+    },
+    {
+      "name": "headers_and_query_never_archived",
+      "passed": true
+    },
+    {
+      "name": "valid_complete_wire_roundtrip",
+      "passed": true
+    },
+    {
+      "name": "dual_hook_no_preread_False",
+      "passed": true
+    },
+    {
+      "name": "dual_protocol_preserved_False",
+      "passed": true
+    },
+    {
+      "name": "dual_complete_False",
+      "passed": true
+    },
+    {
+      "name": "dual_hook_no_preread_True",
+      "passed": true
+    },
+    {
+      "name": "dual_protocol_preserved_True",
+      "passed": true
+    },
+    {
+      "name": "dual_complete_True",
+      "passed": true
+    },
+    {
+      "name": "partial_first_chunk_preserved",
+      "passed": true
+    },
+    {
+      "name": "early_close_incomplete_without_drain",
+      "passed": true
+    }
+  ],
+  "sources": {
+    "agent4drone/model_io_archive.py": "9b49d4f970e067a3ec821ada8c95306e0bccf016746bbd9686235f8e8d6d8b35",
+    "agent4drone/uav_agent.py": "d5f210879d1ca9fcf4e4fd1b7f985abcf6c1554def21aa8f3443194d22e0b5cd",
+    "agent4drone/model_request_audit.py": "303a0ae805ebd7d6079437b1b041709edf750383735b65f1e5cc0bd6221c315a"
+  }
+}

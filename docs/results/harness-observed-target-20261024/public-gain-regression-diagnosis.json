@@ -1,0 +1,372 @@
+{
+  "method": "Independent post-execution raw evidence classification; no hidden target/map, policy modification, simulator or model. Named geometry recorded only when publicly seen before the error, not reconstructed from error name.",
+  "campaign_seal_sha256": "1fa230264626b3274c0598d60687c530706e1edb7bb0bfb4f674c76305316cb3",
+  "trials": [
+    {
+      "trial_id": "7eba7390-observed_target_v7",
+      "attempt_count": 1,
+      "all_attempts_returned_success": true,
+      "all_attempt_receipts_name_intended_target": true,
+      "all_error_count": 2,
+      "directed_error_count": 0,
+      "errors": [
+        {
+          "request_id": 107,
+          "actor": "1a4f0495",
+          "destination": {
+            "x": 481.0,
+            "y": 315.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 1'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 123,
+          "actor": "d99f1904",
+          "destination": {
+            "x": 481.0,
+            "y": 385.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 1'",
+          "matching_known_named_geometry": []
+        }
+      ]
+    },
+    {
+      "trial_id": "24ac1838-observed_target_v7",
+      "attempt_count": 31,
+      "all_attempts_returned_success": true,
+      "all_attempt_receipts_name_intended_target": true,
+      "all_error_count": 17,
+      "directed_error_count": 0,
+      "errors": [
+        {
+          "request_id": 79,
+          "actor": "13150227",
+          "destination": {
+            "x": 175.0,
+            "y": 105.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Circle Obstacle 18'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 91,
+          "actor": "1e74cdea",
+          "destination": {
+            "x": 1225.0,
+            "y": 805.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with ellipse obstacle 'Ellipse Obstacle 1'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 121,
+          "actor": "3ca2bbad",
+          "destination": {
+            "x": 175.0,
+            "y": 105.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Circle Obstacle 18'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 134,
+          "actor": "4e22b83f",
+          "destination": {
+            "x": 1645.0,
+            "y": 245.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 47'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 256,
+          "actor": "13150227",
+          "destination": {
+            "x": 105.0,
+            "y": 105.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 18'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 289,
+          "actor": "436f6476",
+          "destination": {
+            "x": 1575.0,
+            "y": 735.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 11'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 293,
+          "actor": "4e22b83f",
+          "destination": {
+            "x": 1715.0,
+            "y": 175.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 47'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 305,
+          "actor": "6264d2dc",
+          "destination": {
+            "x": 875.0,
+            "y": 455.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 14'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 388,
+          "actor": "20dd2485",
+          "destination": {
+            "x": 1575.0,
+            "y": 315.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 20'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 425,
+          "actor": "6264d2dc",
+          "destination": {
+            "x": 875.0,
+            "y": 385.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 14'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 449,
+          "actor": "a1a9de39",
+          "destination": {
+            "x": 665.0,
+            "y": 315.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 569,
+          "actor": "a1a9de39",
+          "destination": {
+            "x": 595.0,
+            "y": 315.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 582,
+          "actor": "b407b91f",
+          "destination": {
+            "x": 315.0,
+            "y": 665.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 35'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 632,
+          "actor": "2d37b969",
+          "destination": {
+            "x": 1995.0,
+            "y": 1435.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 8'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 652,
+          "actor": "4e22b83f",
+          "destination": {
+            "x": 1715.0,
+            "y": 245.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 47'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 673,
+          "actor": "869a8e16",
+          "destination": {
+            "x": 1715.0,
+            "y": 1155.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 685,
+          "actor": "92e6a7b8",
+          "destination": {
+            "x": 1645.0,
+            "y": 1085.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+          "matching_known_named_geometry": []
+        }
+      ]
+    },
+    {
+      "trial_id": "b1ad4f3e-observed_target_v7",
+      "attempt_count": 6,
+      "all_attempts_returned_success": true,
+      "all_attempt_receipts_name_intended_target": true,
+      "all_error_count": 9,
+      "directed_error_count": 0,
+      "errors": [
+        {
+          "request_id": 43,
+          "actor": "04315908",
+          "destination": {
+            "x": 525.0,
+            "y": 245.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 5'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 55,
+          "actor": "272fa7be",
+          "destination": {
+            "x": 105.0,
+            "y": 175.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 5'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 67,
+          "actor": "5f7a6eec",
+          "destination": {
+            "x": 175.0,
+            "y": 315.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.POINT obstacle 'Point Obstacle 2'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 79,
+          "actor": "6126210f",
+          "destination": {
+            "x": 875.0,
+            "y": 385.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 290,
+          "actor": "b6654aad",
+          "destination": {
+            "x": 875.0,
+            "y": 455.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 302,
+          "actor": "d4d95e8a",
+          "destination": {
+            "x": 945.0,
+            "y": 455.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 311,
+          "actor": "01e3ece4",
+          "destination": {
+            "x": 945.0,
+            "y": 385.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 372,
+          "actor": "01e3ece4",
+          "destination": {
+            "x": 945.0,
+            "y": 525.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Circle Obstacle 3'",
+          "matching_known_named_geometry": []
+        },
+        {
+          "request_id": 393,
+          "actor": "5f7a6eec",
+          "destination": {
+            "x": 875.0,
+            "y": 665.0,
+            "z": 20.0
+          },
+          "is_directed_attempt": false,
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+          "matching_known_named_geometry": []
+        }
+      ]
+    }
+  ]
+}

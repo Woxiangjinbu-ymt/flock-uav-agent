@@ -1,0 +1,134 @@
+{
+  "checked_at": "2026-10-07T00:19:27.980423+08:00",
+  "run_accepted": false,
+  "frozen_full_verify_not_run_reason": "registry is interrupted, not completed_and_verified; full_scene_verify below reproduces failure",
+  "terminal_suite_seal": {
+    "matches": true,
+    "files": 1155
+  },
+  "scene_seals": {
+    "ad34350a": {
+      "sealed_files": 192,
+      "changed": [],
+      "added": [],
+      "completed_at": "2026-10-06T22:31:54+0800"
+    },
+    "ef36e27a": {
+      "sealed_files": 192,
+      "changed": [
+        "metrics/reproduction-metrics.jsonl"
+      ],
+      "added": [],
+      "completed_at": "2026-10-06T22:06:51+0800",
+      "append_only_difference": {
+        "path": "metrics/reproduction-metrics.jsonl",
+        "sealed_prefix_lines": 1257,
+        "sealed_prefix_bytes": 301794,
+        "sealed_prefix_sha256": "5a181780e75bf1b27a2aa77a0b2979018ffd805aad65c9eba25c9d083ad987e9",
+        "appended_bytes": 199,
+        "appended_sha256": "0f331cdabad9692c18bd0a54e579f6738747829a66b6f69375bd3acc2477e52f",
+        "appended_records": [
+          {
+            "schema_version": 1,
+            "event": "resource_sample",
+            "timestamp": 1791299597.64566,
+            "pids": [],
+            "rss_kib": 0,
+            "cpu_seconds_observed": 34.08999999999996,
+            "cpu_percent": 0.0,
+            "root_pids": [
+              77651,
+              77657
+            ]
+          }
+        ]
+      }
+    },
+    "3973d0d6": {
+      "sealed_files": 192,
+      "changed": [],
+      "added": [],
+      "completed_at": "2026-10-06T22:29:27+0800"
+    },
+    "823c15d5": {
+      "sealed_files": 196,
+      "changed": [],
+      "added": [],
+      "completed_at": "2026-10-07T00:06:04+0800"
+    },
+    "35ce64d8": {
+      "sealed_files": 192,
+      "changed": [],
+      "added": [],
+      "completed_at": "2026-10-06T23:14:55+0800"
+    }
+  },
+  "archived_component_validation": {
+    "method_identity": true,
+    "archive_identity": true,
+    "method_audit": {
+      "traces": 100,
+      "mode": "evidence",
+      "observer_errors": 0
+    },
+    "scenes": {
+      "ad34350a": {
+        "full_scene_verify": {
+          "passed": true,
+          "tasks": 20
+        },
+        "saved_scoring_and_barriers": {
+          "passed": true,
+          "tasks": 20
+        }
+      },
+      "ef36e27a": {
+        "full_scene_verify": {
+          "passed": false,
+          "error": "Scene evidence was modified: ef36e27a/metrics/reproduction-metrics.jsonl",
+          "type": "ValueError"
+        },
+        "saved_scoring_and_barriers": {
+          "passed": true,
+          "tasks": 20
+        }
+      },
+      "3973d0d6": {
+        "full_scene_verify": {
+          "passed": true,
+          "tasks": 20
+        },
+        "saved_scoring_and_barriers": {
+          "passed": true,
+          "tasks": 20
+        }
+      },
+      "823c15d5": {
+        "full_scene_verify": {
+          "passed": true,
+          "tasks": 20
+        },
+        "saved_scoring_and_barriers": {
+          "passed": true,
+          "tasks": 20
+        }
+      },
+      "35ce64d8": {
+        "full_scene_verify": {
+          "passed": true,
+          "tasks": 20
+        },
+        "saved_scoring_and_barriers": {
+          "passed": true,
+          "tasks": 20
+        }
+      }
+    },
+    "network_connections_allowed": false
+  },
+  "model_calls_during_analysis": 0,
+  "original_artifacts_modified": false,
+  "guard_source_sha256": "e984fb9672df39dd750c13acf1b1632d3a26ba5fce6643f354f6b94f1fd41f05",
+  "guard_policy_sha256": "a4d7ae628d6b471fceeaeac34ef23a9c8f00ae6100fd006f92f5c1c1c1b509d8",
+  "stop_trigger_exists": false
+}

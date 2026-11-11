@@ -1,0 +1,80 @@
+{
+  "scope": "Four sealed real DeepSeek development batches (run-01 only); thinking enabled, reasoning_effort high, as recorded in each run manifest. Development tasks only; not train-split teacher data.",
+  "provider_calls": 0,
+  "batches": {
+    "deepseek-behavior-pilot-20261102": {
+      "archives": 5,
+      "assistant_history_messages": 148,
+      "completion_tokens": 18229,
+      "history_messages_with_reasoning": 114,
+      "prompt_tokens": 489213,
+      "reasoning_tokens": 13726,
+      "requests": 38,
+      "responses_with_usage": 37,
+      "responses_with_zero_reasoning": 10,
+      "reasoning_tokens_median": 16,
+      "reasoning_tokens_max": 4778,
+      "served_models": {
+        "deepseek-flash": 37
+      }
+    },
+    "deepseek-contract-pilot-20261103": {
+      "archives": 8,
+      "assistant_history_messages": 214,
+      "completion_tokens": 24867,
+      "history_messages_with_reasoning": 162,
+      "prompt_tokens": 809057,
+      "reasoning_tokens": 18558,
+      "requests": 58,
+      "responses_with_usage": 56,
+      "responses_with_zero_reasoning": 17,
+      "reasoning_tokens_median": 37,
+      "reasoning_tokens_max": 6049,
+      "served_models": {
+        "deepseek-flash": 56
+      }
+    },
+    "deepseek-cost-pilot-20261103": {
+      "archives": 10,
+      "assistant_history_messages": 220,
+      "completion_tokens": 26278,
+      "history_messages_with_reasoning": 172,
+      "prompt_tokens": 977450,
+      "reasoning_tokens": 18827,
+      "requests": 69,
+      "responses_with_usage": 68,
+      "responses_with_zero_reasoning": 21,
+      "reasoning_tokens_median": 40,
+      "reasoning_tokens_max": 8069,
+      "served_models": {
+        "deepseek-flash": 68
+      }
+    },
+    "deepseek-hover-pilot-20261103": {
+      "archives": 8,
+      "assistant_history_messages": 151,
+      "completion_tokens": 6300,
+      "history_messages_with_reasoning": 114,
+      "prompt_tokens": 573490,
+      "reasoning_tokens": 2208,
+      "requests": 53,
+      "responses_with_usage": 53,
+      "responses_with_zero_reasoning": 21,
+      "reasoning_tokens_median": 20,
+      "reasoning_tokens_max": 225,
+      "served_models": {
+        "deepseek-flash": 53
+      }
+    }
+  },
+  "total": {
+    "responses_with_usage": 214,
+    "prompt_tokens": 2849210,
+    "completion_tokens": 75674,
+    "reasoning_tokens": 53319,
+    "responses_with_zero_reasoning": 69,
+    "reasoning_share_of_completion": 0.7046,
+    "reasoning_share_of_all_tokens": 0.0182,
+    "zero_reasoning_share": 0.3224
+  }
+}

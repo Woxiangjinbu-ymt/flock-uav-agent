@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-03",
+  "passed": true,
+  "candidate_profile": "general-agent-v5-local",
+  "runtime_source_edits_after_dispatch": false,
+  "all_current_runtime_and_selection_sources_match_frozen": true,
+  "frozen_runtime_sources": 93,
+  "local_episodes_planned": 20,
+  "local_episodes_executed": 20,
+  "fresh_workers": 20,
+  "independent_scorers": 20,
+  "local_checks": 224,
+  "local_sealed_files": 1152,
+  "parallel_slots_independently_audited": 4,
+  "unique_parallel_call_links": 8,
+  "pytest": {
+    "main_passed": 1511,
+    "supplementary_audit_passed": 31,
+    "unique_total_passed": 1542,
+    "unique_test_files": 32,
+    "main_warnings": 3
+  },
+  "historical_candidate_requests_projected": 26,
+  "historical_control_requests_unchanged_reference": 27,
+  "historical_ledgers_compared": 8,
+  "current_v1_assessments_identical_to_frozen": true,
+  "v2_only_changed_historical_verdict": "state_hover-candidate",
+  "historical_scores_rewritten": false,
+  "historical_sealed_files_unchanged": [
+    347,
+    403
+  ],
+  "native_tool_bytes": {
+    "v4": 37431,
+    "v5": 23078,
+    "change_percent": -38.34522187491651
+  },
+  "historical_canonical_request_bytes": {
+    "request_bytes_v1": 1363172,
+    "request_bytes_v2": 987342,
+    "native_bytes_v1": 973206,
+    "native_bytes_v2": 600028,
+    "request_bytes_change_percent": -27.570255257590382,
+    "native_bytes_change_percent": -38.34522187491651
+  },
+  "supplementary_auditor_added_after_freeze": true,
+  "audit_note": "Additional standalone read-only audit closes frozen validation helper call-ID/API binding coverage gap; all 4 actual cases pass. No policy/source/result rewrite or rerun.",
+  "provider_calls": 0,
+  "actual_new_provider_tokens": null,
+  "actual_token_or_cost_benefit_verified": false,
+  "application_defaults_changed": false,
+  "teacher_examples": 0,
+  "fifth_item_started": false,
+  "artifact_sha256": {
+    "PROTOCOL_CN.md": "ade3f87bde8595347e1d3f3917468bb8ee46e794930d83b900c54a29e8740aac",
+    "REPORT_CN.md": "71ab8982a0e80966e975b2109ab47a3ed98d0ec80fa1919be87bb573e39ff8f2",
+    "counterfactual-01.json": "57464849accc623cbac1d2d86798c1d2c9a61bb3ea8f0330b94af9920a83acd8",
+    "parallel-independent-audit.json": "2b9f87491f596236cd53e74cdb0b17ab1503e1bc132a5bbbead18df47fd5b57f",
+    "source-preservation.json": "0783ef1fac882b4b210ac8e6fb0448fef2e023c58b55fcfff82995d995be1e8c",
+    "regression-01.log": "5768432a594a2cec70bd628a112622afa967983d66352a8218c9b0d512859f23",
+    "regression-manifest.json": "c1a99d3dd1b40ca75e636e4f80475841f8145a27c871750df13626fdeee9e564",
+    "parallel-audit-tests.log": "c8aa6ed2d3306e6a63065e39365e81c4cd0fc6a930f1a0fa48a60aafb8562381",
+    "local-01/comparison-manifest.json": "f5985621ac5c24a2da841cc5b03ba90140f97ecbbb193c44d6652413238f50d9",
+    "local-01/campaign-seal.json": "d3ee2321b91bf6f68c67bf6d659c6e0bfe78699ce0b3661a964b069220274958",
+    "local-01/validation.json": "c7739ea1dac05c5d2cecd5b5aea129918cdc09bd18ff1599ee06a2e17162d1e0"
+  },
+  "documentation_link_check": {
+    "checked": 291,
+    "missing": []
+  }
+}

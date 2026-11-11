@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "status": "stopped",
+  "reason": "invalid_worker",
+  "profile_sha256": "9f54698fdcbcd4e7d8c3fe1cc70ce23c4e6432a0c143a8e57234b98463f1d99a",
+  "scope": "known development fixtures + synthetic model replies; not natural-model results",
+  "provider_calls": 0,
+  "online_ready": false,
+  "planned_trials": 1,
+  "worker_count": 1,
+  "scorer_count": 0,
+  "unstarted_trials": [],
+  "trials": [
+    {
+      "trial_id": "undrained",
+      "termination": {
+        "schema_version": 1,
+        "category": "infrastructure_error",
+        "reason": "invalid_worker",
+        "stop_reason": null,
+        "score_eligible": false,
+        "batch_action": "stop",
+        "archive_training_eligible": false,
+        "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+        "task_success": "not_evaluated",
+        "cost_context": "unresolved",
+        "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+        "requires_parent_exit_seal": true
+      },
+      "run": {
+        "status": "incomplete",
+        "agent_returned_normally": null
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "not_scored",
+        "passed": null
+      }
+    }
+  ]
+}

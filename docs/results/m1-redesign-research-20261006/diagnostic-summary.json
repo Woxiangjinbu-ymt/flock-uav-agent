@@ -1,0 +1,45 @@
+{
+  "tasks": 100,
+  "failed_tasks": 22,
+  "failed_checks": 70,
+  "all_task_families": {
+    "other": 43,
+    "marathon": 7,
+    "named_target_other": 30,
+    "triangle_formation": 3,
+    "area_coverage": 3,
+    "coordinate_patrol": 2,
+    "target_sweep": 5,
+    "global_progress": 7
+  },
+  "failed_task_families": {
+    "marathon": 6,
+    "triangle_formation": 3,
+    "area_coverage": 1,
+    "named_target_other": 6,
+    "global_progress": 3,
+    "target_sweep": 2,
+    "coordinate_patrol": 1
+  },
+  "failed_endpoints": {
+    "/check/drone_has_visited_position": 29,
+    "/check/drone_position": 3,
+    "/check/drone_on_ground": 1,
+    "/check/target_is_reached_by_drone": 14,
+    "/check/target_in_photo_taken_by_drone": 3,
+    "/check/target_is_reached": 3,
+    "/check/task_progress": 3,
+    "/check/drone_has_moved_directed_distance": 14
+  },
+  "unresolved_references": 20,
+  "unresolved_target_references": 16,
+  "unresolved_target_tasks": 10,
+  "unresolved_with_structured_tool_entity": 0,
+  "unresolved_with_previous_blackboard_entity": 0,
+  "unresolved_with_final_blackboard_entity": 0,
+  "failed_target_checks": 20,
+  "failed_target_check_binding": {
+    "exact": 4,
+    "unresolved": 16
+  }
+}

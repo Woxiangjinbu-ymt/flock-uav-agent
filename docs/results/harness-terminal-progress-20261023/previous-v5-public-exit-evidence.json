@@ -1,0 +1,117 @@
+{
+  "source_public_api": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+  "source_sha256": "8d4b199ce48950f252794264666e036632bd5823c4a49e0ec7a25c9899cf30e4",
+  "last_skill_progress": {
+    "request_id": 772,
+    "public_progress": {
+      "task_type": "target_assignment",
+      "progress_percentage": 95,
+      "is_completed": false,
+      "status_message": "Task to be Done",
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 19,
+        "unvisited_targets": 1
+      },
+      "target_reach_summary": {
+        "total_reaches": 56,
+        "drones_with_reaches": 12,
+        "unique_targets_reached": 19
+      },
+      "area_coverage_summary": {
+        "total_targets_tracked": 19,
+        "average_coverage": 95.0,
+        "fully_covered_targets": 19
+      }
+    }
+  },
+  "late_reached_receipts": [
+    {
+      "request_id": 769,
+      "names": [
+        "Fixed Target 15"
+      ],
+      "first_public_name_mentions": [
+        "Fixed Target 15"
+      ],
+      "distinct_public_reached_names_so_far": 19
+    },
+    {
+      "request_id": 774,
+      "names": [
+        "Fixed Target 1",
+        "Fixed Target 2",
+        "Fixed Target 9",
+        "Fixed Target 14"
+      ],
+      "first_public_name_mentions": [],
+      "distinct_public_reached_names_so_far": 19
+    },
+    {
+      "request_id": 800,
+      "names": [
+        "Fixed Target 7",
+        "Fixed Target 20"
+      ],
+      "first_public_name_mentions": [
+        "Fixed Target 20"
+      ],
+      "distinct_public_reached_names_so_far": 20
+    },
+    {
+      "request_id": 807,
+      "names": [
+        "Fixed Target 3"
+      ],
+      "first_public_name_mentions": [],
+      "distinct_public_reached_names_so_far": 20
+    }
+  ],
+  "distinct_name_first_reached_receipt": {
+    "Fixed Target 13": 61,
+    "Fixed Target 3": 85,
+    "Fixed Target 1": 110,
+    "Fixed Target 5": 122,
+    "Fixed Target 7": 159,
+    "Fixed Target 12": 175,
+    "Fixed Target 10": 183,
+    "Fixed Target 11": 183,
+    "Fixed Target 6": 204,
+    "Fixed Target 14": 237,
+    "Fixed Target 17": 364,
+    "Fixed Target 9": 388,
+    "Fixed Target 2": 421,
+    "Fixed Target 16": 421,
+    "Fixed Target 4": 466,
+    "Fixed Target 19": 466,
+    "Fixed Target 8": 499,
+    "Fixed Target 18": 532,
+    "Fixed Target 15": 769,
+    "Fixed Target 20": 800
+  },
+  "final_public_progress": {
+    "request_id": 834,
+    "public_progress": {
+      "task_type": "target_assignment",
+      "progress_percentage": 100,
+      "is_completed": true,
+      "status_message": "Task Finished",
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 20,
+        "unvisited_targets": 0
+      },
+      "target_reach_summary": {
+        "total_reaches": 63,
+        "drones_with_reaches": 12,
+        "unique_targets_reached": 20
+      },
+      "area_coverage_summary": {
+        "total_targets_tracked": 20,
+        "average_coverage": 100.0,
+        "fully_covered_targets": 20
+      }
+    }
+  },
+  "inference_limit": "#800 first reports Fixed Target20, bringing distinct public reached names to20; this supports a completion-time inference but no aggregate was read at#800. #834 directly confirms20/20. No private truth was used."
+}

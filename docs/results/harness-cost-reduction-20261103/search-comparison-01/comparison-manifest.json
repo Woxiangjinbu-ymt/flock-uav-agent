@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "scope": "development_scripted_sdk_asgi_search_comparison",
+  "planned_slots": 16,
+  "tasks": [
+    "7eba7390",
+    "24ac1838",
+    "b1ad4f3e",
+    "b1eb0270",
+    "898cfdca",
+    "784d71f8",
+    "1905e0ad",
+    "fdd21809"
+  ],
+  "provider_calls_authorized": 0,
+  "decision_source": "fixed explicit scripted tool choices, not natural model behavior",
+  "input_layout": "full_v1",
+  "bundles": [
+    {
+      "name": "original-v7",
+      "revision": "observed_target_v7",
+      "manifest_sha256": "f997a5d1d4d5b01a67f5c08a2cbd67ae88c2977cc4edb16303ab40b231d68cba",
+      "trial_ids": [
+        "7eba7390",
+        "24ac1838",
+        "b1ad4f3e",
+        "b1eb0270",
+        "898cfdca",
+        "784d71f8",
+        "1905e0ad"
+      ],
+      "task_ids": [
+        "7eba7390",
+        "24ac1838",
+        "b1ad4f3e",
+        "b1eb0270",
+        "898cfdca",
+        "784d71f8",
+        "1905e0ad"
+      ]
+    },
+    {
+      "name": "original-v8",
+      "revision": "search_progress_v8",
+      "manifest_sha256": "101d7c82959912d0d862543d38e7a6c2b63ca67fcc08068ecc53596bb8f90b23",
+      "trial_ids": [
+        "7eba7390",
+        "24ac1838",
+        "b1ad4f3e",
+        "b1eb0270",
+        "898cfdca",
+        "784d71f8",
+        "1905e0ad"
+      ],
+      "task_ids": [
+        "7eba7390",
+        "24ac1838",
+        "b1ad4f3e",
+        "b1eb0270",
+        "898cfdca",
+        "784d71f8",
+        "1905e0ad"
+      ]
+    },
+    {
+      "name": "current-v7",
+      "revision": "observed_target_v7",
+      "manifest_sha256": "4be2488ca46f6819e51c5a2acc14c9b8036fcdd6db2fbbb90b7cf11b0269b0c9",
+      "trial_ids": [
+        "fdd21809"
+      ],
+      "task_ids": [
+        "fdd21809"
+      ]
+    },
+    {
+      "name": "current-v8",
+      "revision": "search_progress_v8",
+      "manifest_sha256": "f964b0cf9349dac2970e3aeb72488a1000d54215fdaa60ac4a194a80ae2c643b",
+      "trial_ids": [
+        "fdd21809"
+      ],
+      "task_ids": [
+        "fdd21809"
+      ]
+    }
+  ],
+  "selection_sources": {
+    "scripts/validate_search_progress.py": "ffbc79b330d65fc2b5eea2810f3596d1959327863baaa5dc62eedfcbdc1f4924",
+    "docs/results/harness-cost-reduction-20261103/PROTOCOL_CN.md": "c3a91a3a58ed504fd7eea5b433969cd1dced24647f01c8734771fcc4b5b01aeb",
+    "experiments/search-progress-v8/cases-current.json": "3d3757ea67d27919220b33a4eb305e75ec18ae9ac86eff4e58019fc6e33e7b4d",
+    "experiments/search-progress-v8/cases-original.json": "e53dc1fc06eab020587b6e2999b6d242140b70ffc61527e51e4fcd4ea1e09fc6",
+    "experiments/search-progress-v8/profile-v7.json": "36ecf13e37f5d0a5fdab9d77126806f0d7ddd1d1a771b411208bde06fba362f1",
+    "experiments/search-progress-v8/profile-v8.json": "34cf0f62daf2711a95f1c1b7ec91407cecec55e96b771ccf5f315143a0feedff",
+    "experiments/search-progress-v8/trace-public_search.json": "bde298db8922c89446868f1fc426eb551bab87dec773b0a5e883ba23e169793a",
+    "experiments/search-progress-v8/trace-simple_chain.json": "b20b12368dee0bdf4ba53cafabc28d6ff6e89870075fb0c771f5c5bb8ba19457"
+  },
+  "source_inventory_sha256": "a91ecefb15a9e8a5c7a801a6b087c127c7704d533bb4d9b7918d1e5397e03a8a"
+}

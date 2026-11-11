@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "kind": "pure_shared_agent_episode_guard_before_after",
+  "script_sha256": "8134195284c4830fe581dfce9e265d22a202f246d526acd45d3ef67af60c45f4",
+  "source_hashes": {
+    "baseline": {
+      "agent4drone/uav_agent.py": "f7de3ac0536cd9e877e7e0a94e4cfdf74600129d9056ab4edfbf16071d6b5910",
+      "agent4drone/agent_api_service.py": "6ab96ab9c1ceae42b187c48289883fe382f4c8627a520835c56c185f0fe06087"
+    },
+    "candidate": {
+      "agent4drone/uav_agent.py": "d9837f5095cd1313006df0e003697c27fb992bb63d64f8e4c770cf1e2f84d310",
+      "agent4drone/agent_api_service.py": "b65dd5b6c5efb42b5e6dce4c90e35b5fefd7b35b7f865d1a163f36a046166f32"
+    },
+    "shared": {
+      "agent4drone/harness_core.py": "ae663ef64ba4d35e93e01450bd49790fc082dc455fd3d444bf5ae66fe4a8c3fb",
+      "agent4drone/harness_integration.py": "13bed02a04992b76e2512457bbed28c7d6e2c711433593ddf947a6c6b35284d5",
+      "scripts/harness_v2_world.py": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+      "scripts/harness_full100_world.py": "a71a13284f65b86b91d3424e6c29b3675284dc68117f12aa9aea69cc4b10ec47"
+    }
+  },
+  "method": "Unmodified AST method bodies and real HarnessRuntime; no full Agent constructor or service/server import. Only endpoint decorators and external I/O/provider collaborators are replaced.",
+  "baseline": {
+    "label": "baseline",
+    "extracted_methods": [
+      "_current_session_id",
+      "reset_task_evidence",
+      "refresh_session_context",
+      "get_session_summary",
+      "_record_toolchain_if_enabled",
+      "execute"
+    ],
+    "schedule": "A reaches fake backend; B attempts; inspect; release A; wait A/B return; resubmit B",
+    "thread_errors": [],
+    "B_attempt_kept_A_state_exactly": false,
+    "B_backend_entered_during_A": true,
+    "A_job_status": "completed",
+    "A_success": true,
+    "A_payload_harness_task_id": "episode-B",
+    "B_job_status": "completed",
+    "B_error": null,
+    "B_result": {
+      "success": false,
+      "output": "Error executing command: harness task already closed"
+    },
+    "runtimes_after_first_pair": {
+      "episode-A": {
+        "closed": false
+      },
+      "episode-B": {
+        "closed": true
+      }
+    },
+    "initial_backend_entries": [
+      "episode-A",
+      "episode-B"
+    ],
+    "B_runtime_closed_before_backend_return": [
+      true
+    ],
+    "B_resubmitted_after_A": {
+      "status": "completed",
+      "success": true,
+      "task_id": "episode-B",
+      "closed": true
+    },
+    "busy_boundaries": {}
+  },
+  "candidate": {
+    "label": "candidate",
+    "extracted_methods": [
+      "_current_session_id",
+      "reset_task_evidence",
+      "_clear_task_evidence",
+      "refresh_session_context",
+      "_refresh_session_context",
+      "get_session_summary",
+      "_get_session_summary",
+      "_record_toolchain_if_enabled",
+      "_exclusive_episode",
+      "execute",
+      "_execute_command"
+    ],
+    "schedule": "A reaches fake backend; B attempts; inspect; release A; wait A/B return; resubmit B",
+    "thread_errors": [],
+    "B_attempt_kept_A_state_exactly": true,
+    "B_backend_entered_during_A": false,
+    "A_job_status": "completed",
+    "A_success": true,
+    "A_payload_harness_task_id": "episode-A",
+    "B_job_status": "failed",
+    "B_error": "agent_busy: cannot execute while this agent has an active operation; wait for it to return before retrying or resetting the shared world",
+    "B_result": null,
+    "runtimes_after_first_pair": {
+      "episode-A": {
+        "closed": true
+      }
+    },
+    "initial_backend_entries": [
+      "episode-A"
+    ],
+    "B_runtime_closed_before_backend_return": [],
+    "B_resubmitted_after_A": {
+      "status": "completed",
+      "success": true,
+      "task_id": "episode-B",
+      "closed": true
+    },
+    "busy_boundaries": {
+      "reset_task_evidence": {
+        "rejected": true,
+        "code": "agent_busy",
+        "no_effects": true
+      },
+      "get_session_summary": {
+        "rejected": true,
+        "code": "agent_busy",
+        "no_effects": true
+      },
+      "refresh_session_context": {
+        "rejected": true,
+        "code": "agent_busy",
+        "no_effects": true
+      },
+      "service_execute_command": {
+        "status_code": 409,
+        "code": "agent_busy",
+        "no_effects": true
+      },
+      "service_get_session_summary": {
+        "status_code": 409,
+        "code": "agent_busy",
+        "no_effects": true
+      }
+    }
+  },
+  "cancellation": {
+    "cancelled_status_retained": true,
+    "A_still_active_when_B_refused": true,
+    "B_failed_busy": true,
+    "busy_no_effects": true,
+    "A_closed_after_actual_return": true,
+    "B_after_return_success": true
+  },
+  "finalization": {
+    "A_runtime_closed_while_finalizer_still_active": true,
+    "B_still_rejected": true,
+    "no_effects": true,
+    "A_returned_own_harness": true
+  },
+  "exceptions": [
+    {
+      "exception": "RuntimeError",
+      "escaped": null,
+      "lease_released": true,
+      "first_result_success": false,
+      "aborted_runtime_closed": true,
+      "subsequent_execution_success": true,
+      "subsequent_harness_task_id": "after-abort"
+    },
+    {
+      "exception": "ProbeAbort",
+      "escaped": "ProbeAbort",
+      "lease_released": true,
+      "first_result_success": null,
+      "aborted_runtime_closed": true,
+      "subsequent_execution_success": true,
+      "subsequent_harness_task_id": "after-abort"
+    }
+  ],
+  "failed_cleanup": [
+    {
+      "failed_component": "harness",
+      "original_exception_preserved": true,
+      "cleanup_failure_flag": true,
+      "lease_released": true,
+      "recorder_cleanup_attempted": true,
+      "harness_cleanup_attempted": true,
+      "protected_operations": {
+        "execute": {
+          "refused": true,
+          "code": "agent_busy",
+          "requires_fresh_instance": true,
+          "no_effects": true
+        },
+        "reset_task_evidence": {
+          "refused": true,
+          "code": "agent_busy",
+          "requires_fresh_instance": true,
+          "no_effects": true
+        },
+        "get_session_summary": {
+          "refused": true,
+          "code": "agent_busy",
+          "requires_fresh_instance": true,
+          "no_effects": true
+        },
+        "refresh_session_context": {
+          "refused": true,
+          "code": "agent_busy",
+          "requires_fresh_instance": true,
+          "no_effects": true
+        }
+      }
+    },
+    {
+      "failed_component": "recorder",
+      "original_exception_preserved": true,
+      "cleanup_failure_flag": true,
+      "lease_released": true,
+      "recorder_cleanup_attempted": true,
+      "harness_cleanup_attempted": true,
+      "protected_operations": {
+        "execute": {
+          "refused": true,
+          "code": "agent_busy",
+          "requires_fresh_instance": true,
+          "no_effects": true
+        },
+        "reset_task_evidence": {
+          "refused": true,
+          "code": "agent_busy",
+          "requires_fresh_instance": true,
+          "no_effects": true
+        },
+        "get_session_summary": {
+          "refused": true,
+          "code": "agent_busy",
+          "requires_fresh_instance": true,
+          "no_effects": true
+        },
+        "refresh_session_context": {
+          "refused": true,
+          "code": "agent_busy",
+          "requires_fresh_instance": true,
+          "no_effects": true
+        }
+      }
+    }
+  ],
+  "reset": {
+    "internal_visible_marker_reset": {
+      "session_id": "same-public-scene",
+      "board_cleared": true,
+      "session_cache_removed": true,
+      "one_public_metadata_read": true
+    },
+    "idle_public_memory_reset": {
+      "board_cleared": true,
+      "session_cache_removed": true,
+      "no_world_or_public_api": true
+    }
+  },
+  "cancelled_before_dispatch": {
+    "status_retained": true,
+    "completed_at_set_after_worker_return": true,
+    "no_execution_or_shared_state_effects": true
+  },
+  "original_bodies_ast_equal_except_name_docstring": {
+    "execute": true,
+    "reset_task_evidence": true,
+    "get_session_summary": true,
+    "refresh_session_context": true,
+    "_record_toolchain_if_enabled": true
+  },
+  "checks": {
+    "baseline_reproduced_cross_episode_archive": true,
+    "baseline_left_A_open": true,
+    "baseline_B_closed_prematurely": true,
+    "baseline_B_failed_real_runtime_guard": true,
+    "candidate_B_busy_failed_no_result": true,
+    "candidate_B_never_entered_backend": true,
+    "candidate_B_zero_shared_state_effects": true,
+    "candidate_A_owns_archive": true,
+    "candidate_only_A_runtime_created_and_closed": true,
+    "candidate_B_can_run_after_A_returns": true,
+    "busy_reset_task_evidence": true,
+    "busy_get_session_summary": true,
+    "busy_refresh_session_context": true,
+    "busy_service_execute_command": true,
+    "busy_service_get_session_summary": true,
+    "cancellation_cancelled_status_retained": true,
+    "cancellation_A_still_active_when_B_refused": true,
+    "cancellation_B_failed_busy": true,
+    "cancellation_busy_no_effects": true,
+    "cancellation_A_closed_after_actual_return": true,
+    "cancellation_B_after_return_success": true,
+    "finalization_A_runtime_closed_while_finalizer_still_active": true,
+    "finalization_B_still_rejected": true,
+    "finalization_no_effects": true,
+    "finalization_A_returned_own_harness": true,
+    "RuntimeError_lease_released": true,
+    "RuntimeError_next_command_succeeds": true,
+    "ProbeAbort_lease_released": true,
+    "ProbeAbort_next_command_succeeds": true,
+    "ordinary_exception_closed_runtime": true,
+    "BaseException_propagates": true,
+    "BaseException_cleanup_closed_runtime": true,
+    "BaseException_did_not_fabricate_command_result": true,
+    "internal_visible_marker_reset_board_cleared": true,
+    "internal_visible_marker_reset_session_cache_removed": true,
+    "internal_visible_marker_reset_one_public_metadata_read": true,
+    "idle_public_memory_reset_board_cleared": true,
+    "idle_public_memory_reset_session_cache_removed": true,
+    "idle_public_memory_reset_no_world_or_public_api": true,
+    "failed_harness_cleanup_original_exception_preserved": true,
+    "failed_harness_cleanup_cleanup_failure_flag": true,
+    "failed_harness_cleanup_lease_released": true,
+    "failed_harness_cleanup_recorder_cleanup_attempted": true,
+    "failed_harness_cleanup_harness_cleanup_attempted": true,
+    "failed_harness_cleanup_execute_refuses_without_effects": true,
+    "failed_harness_cleanup_reset_task_evidence_refuses_without_effects": true,
+    "failed_harness_cleanup_get_session_summary_refuses_without_effects": true,
+    "failed_harness_cleanup_refresh_session_context_refuses_without_effects": true,
+    "failed_recorder_cleanup_original_exception_preserved": true,
+    "failed_recorder_cleanup_cleanup_failure_flag": true,
+    "failed_recorder_cleanup_lease_released": true,
+    "failed_recorder_cleanup_recorder_cleanup_attempted": true,
+    "failed_recorder_cleanup_harness_cleanup_attempted": true,
+    "failed_recorder_cleanup_execute_refuses_without_effects": true,
+    "failed_recorder_cleanup_reset_task_evidence_refuses_without_effects": true,
+    "failed_recorder_cleanup_get_session_summary_refuses_without_effects": true,
+    "failed_recorder_cleanup_refresh_session_context_refuses_without_effects": true,
+    "cancelled_before_dispatch_status_retained": true,
+    "cancelled_before_dispatch_completed_at_set_after_worker_return": true,
+    "cancelled_before_dispatch_no_execution_or_shared_state_effects": true,
+    "original_body_unchanged_execute": true,
+    "original_body_unchanged_reset_task_evidence": true,
+    "original_body_unchanged_get_session_summary": true,
+    "original_body_unchanged_refresh_session_context": true,
+    "original_body_unchanged__record_toolchain_if_enabled": true,
+    "source_hashes_unchanged": true
+  },
+  "check_count": 66,
+  "failed_checks": [],
+  "model_calls": 0,
+  "simulator_calls": 0,
+  "network_calls": 0,
+  "limitations": [
+    "Memory clearing does not restore the simulator, world, RNG, score, or already-dispatched remote actions.",
+    "No transport or provider tested; ordinary failure/cancellation use controlled backend errors.",
+    "BaseException cleanup closes the runtime and stops the recorder, but does not synthesize a successfully archived command result. Cleanup failure rejects future use of that instance.",
+    "Same-instance gate is not a global shared-world or multi-process mutex; source and regression tests must cover other entry points."
+  ]
+}

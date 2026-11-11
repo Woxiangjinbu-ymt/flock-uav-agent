@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "planned_episodes": 16,
+  "provider_calls_authorized": 0,
+  "source_study": "experiments/task-coverage-v1-study",
+  "source_manifest_sha256": "6386876e9e6172655abb899c836b4199909e438846b83be515a5f75aadb48bae",
+  "task_id": "c74d7020",
+  "groups": [
+    {
+      "name": "main",
+      "cases": "cases-main.json",
+      "profile": "profile.json",
+      "derived_command": null
+    },
+    {
+      "name": "action",
+      "cases": "cases-action.json",
+      "profile": "profile.json",
+      "derived_command": "Command drone Drone 4 to take off to an altitude of 12 meters and then execute a hover command."
+    },
+    {
+      "name": "duration",
+      "cases": "cases-duration.json",
+      "profile": "profile.json",
+      "derived_command": "Command drone Drone 4 to take off to an altitude of 12 meters and hover in place for 5 seconds."
+    },
+    {
+      "name": "legacy",
+      "cases": "cases-legacy.json",
+      "profile": "legacy-profile.json",
+      "derived_command": null
+    }
+  ],
+  "expected_claim": {
+    "state-string": true,
+    "state-object": true,
+    "missing-status": false,
+    "wrong-actor": false,
+    "wrong-altitude": false,
+    "stale-after-land": false,
+    "unknown-raw": true,
+    "unknown-skill": true,
+    "skill-object": true,
+    "array-recover": true,
+    "scalar-reject": false,
+    "malformed-recover": true,
+    "action-missing": false,
+    "action-complete": true,
+    "duration-unverified": false,
+    "legacy-object-reject": null
+  },
+  "expected_original_checker": {
+    "state-string": true,
+    "state-object": true,
+    "missing-status": true,
+    "wrong-actor": true,
+    "wrong-altitude": false,
+    "stale-after-land": false,
+    "unknown-raw": true,
+    "unknown-skill": true,
+    "skill-object": true,
+    "array-recover": true,
+    "scalar-reject": false,
+    "malformed-recover": true,
+    "action-missing": true,
+    "action-complete": true,
+    "duration-unverified": true,
+    "legacy-object-reject": false
+  },
+  "expected_actions": {
+    "state-string": 1,
+    "state-object": 1,
+    "missing-status": 1,
+    "wrong-actor": 1,
+    "wrong-altitude": 1,
+    "stale-after-land": 2,
+    "unknown-raw": 1,
+    "unknown-skill": 1,
+    "skill-object": 2,
+    "array-recover": 1,
+    "scalar-reject": 0,
+    "malformed-recover": 1,
+    "action-missing": 1,
+    "action-complete": 2,
+    "duration-unverified": 2,
+    "legacy-object-reject": 0
+  },
+  "decision_source": "fixed public scripts; no autonomous model behavior",
+  "checker_scope": "original altitude/airborne checker retained as auxiliary for derived instructions, not action/duration evaluator",
+  "fixed_scope": "16 development local episodes; no retries or result-dependent additions"
+}

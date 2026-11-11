@@ -1,0 +1,2908 @@
+{
+  "schema": "blocked-candidate-independent-public-audit-v1",
+  "date": "2026-10-23",
+  "run": "docs/results/harness-blocked-candidate-20261023/run-20261023-01",
+  "method": "Read-only post-run parsing of skill public-api rows and public evidence retained in harness frames/events. No simulator, model, hidden checker, private world snapshot, or geometry reconstruction used.",
+  "input_sha256": {
+    "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-flight_state_v3/public-api.jsonl": "7abfa26ac013350fc173f3472e40c844e45659c208c1fa347fcf26f86d5c24f7",
+    "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl": "a65836f459d4d75983fccce71e133ef234ea9f1040cc7e1ae049fd0a175bcf38",
+    "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/harness.json": "fb34e8d01e05150d6304d150f937a95130cd6f8bf35782cf497329b929c7da8b",
+    "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-flight_state_v3/public-api.jsonl": "5d25eb55dd76cdf08da3a517af5fbd26674ea193abe8c9f2d22087916e00d86e",
+    "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl": "7658855de97f4b057a8cce791058e01e6c79cbb38a02914b5aa4a3a134e72e7f",
+    "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/harness.json": "b550583503ccba331f9ba5854f5b6675443fe70be851fbbd31e12c9a57b4b958"
+  },
+  "definitions": {
+    "mask_check": "For every final blocked_endpoints row, link evidence_ref to its public_call_start and link command_id to exactly one public move receipt. Confirm actor, XYZ, args, error message, unchanged before/after public XYZ, and absence of a later same-actor same-XYZ move request in this recorded run.",
+    "new_unique_failure": "Difference from same-task flight_state_v3 failure-signature set: endpoint=(kind,actor,XYZ); path=(kind,actor,public start XYZ,endpoint XYZ). These are distinct recorded signatures, not statistically independent samples.",
+    "cross_actor_endpoint_event": "Count each endpoint-conflict request once if at least one earlier endpoint-conflict request in this same task/run has the exact same requested XYZ and a different actor. Prior events are explicitly linked; same-actor repetitions and all path conflicts are excluded.",
+    "cross_actor_endpoint_group": "One exact XYZ with endpoint-conflict receipts from at least two actors in the same task/run. Event count and group count are reported separately.",
+    "geometry_visibility": "A name-match search in earlier skill nearby obstacle records only; absence means no such public record was found, not that geometry does not exist. Names are not converted to obstacle IDs or shapes."
+  },
+  "mask_audits": {
+    "24ac1838": {
+      "frame_plan_id": "24ac1838-blocked_candidate_v4:p1",
+      "harness_source": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/harness.json",
+      "entries_checked": 14,
+      "all_checks_passed": true,
+      "entries": [
+        {
+          "actor": "1e74cdea",
+          "candidate_index": 419,
+          "destination_xyz": [
+            1225.0,
+            805.0,
+            20.0
+          ],
+          "evidence_ref": "e119",
+          "harness_event_sequence": 191,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 91,
+            "request_id": 91
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with ellipse obstacle 'Ellipse Obstacle 1'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 90,
+              "request_id": 90
+            },
+            "position": {
+              "x": 1349.0,
+              "y": 849.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 92,
+              "request_id": 92
+            },
+            "position": {
+              "x": 1349.0,
+              "y": 849.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "20dd2485",
+          "candidate_index": 482,
+          "destination_xyz": [
+            1435.0,
+            175.0,
+            20.0
+          ],
+          "evidence_ref": "e131",
+          "harness_event_sequence": 211,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 97,
+            "request_id": 97
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 36'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 96,
+              "request_id": 96
+            },
+            "position": {
+              "x": 1509.0,
+              "y": 135.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 98,
+              "request_id": 98
+            },
+            "position": {
+              "x": 1509.0,
+              "y": 135.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "4e22b83f",
+          "candidate_index": 555,
+          "destination_xyz": [
+            1645.0,
+            245.0,
+            20.0
+          ],
+          "evidence_ref": "e205",
+          "harness_event_sequence": 334,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 134,
+            "request_id": 134
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 47'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 133,
+              "request_id": 133
+            },
+            "position": {
+              "x": 1587.0,
+              "y": 169.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 135,
+              "request_id": 135
+            },
+            "position": {
+              "x": 1587.0,
+              "y": 169.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "6264d2dc",
+          "candidate_index": 294,
+          "destination_xyz": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "evidence_ref": "e241",
+          "harness_event_sequence": 394,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 152,
+            "request_id": 152
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 14'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 151,
+              "request_id": 151
+            },
+            "position": {
+              "x": 935.0,
+              "y": 541.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 153,
+              "request_id": 153
+            },
+            "position": {
+              "x": 935.0,
+              "y": 541.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "f762cfb2",
+          "candidate_index": 103,
+          "destination_xyz": [
+            315.0,
+            525.0,
+            20.0
+          ],
+          "evidence_ref": "e411",
+          "harness_event_sequence": 677,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 237,
+            "request_id": 237
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 24'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 236,
+              "request_id": 236
+            },
+            "position": {
+              "x": 335.0,
+              "y": 413.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 238,
+              "request_id": 238
+            },
+            "position": {
+              "x": 335.0,
+              "y": 413.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "13150227",
+          "candidate_index": 25,
+          "destination_xyz": [
+            105.0,
+            105.0,
+            20.0
+          ],
+          "evidence_ref": "e449",
+          "harness_event_sequence": 742,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 256,
+            "request_id": 256
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 18'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 255,
+              "request_id": 255
+            },
+            "position": {
+              "x": 26.0,
+              "y": 96.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 257,
+              "request_id": 257
+            },
+            "position": {
+              "x": 26.0,
+              "y": 96.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "436f6476",
+          "candidate_index": 538,
+          "destination_xyz": [
+            1575.0,
+            735.0,
+            20.0
+          ],
+          "evidence_ref": "e515",
+          "harness_event_sequence": 857,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 289,
+            "request_id": 289
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 11'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 288,
+              "request_id": 288
+            },
+            "position": {
+              "x": 1505.0,
+              "y": 875.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 290,
+              "request_id": 290
+            },
+            "position": {
+              "x": 1505.0,
+              "y": 875.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "4e22b83f",
+          "candidate_index": 578,
+          "destination_xyz": [
+            1715.0,
+            175.0,
+            20.0
+          ],
+          "evidence_ref": "e523",
+          "harness_event_sequence": 871,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 293,
+            "request_id": 293
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 47'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 292,
+              "request_id": 292
+            },
+            "position": {
+              "x": 1587.0,
+              "y": 169.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 294,
+              "request_id": 294
+            },
+            "position": {
+              "x": 1587.0,
+              "y": 169.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "869a8e16",
+          "candidate_index": 592,
+          "destination_xyz": [
+            1715.0,
+            1155.0,
+            20.0
+          ],
+          "evidence_ref": "e563",
+          "harness_event_sequence": 941,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 313,
+            "request_id": 313
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 312,
+              "request_id": 312
+            },
+            "position": {
+              "x": 1785.0,
+              "y": 1225.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 314,
+              "request_id": 314
+            },
+            "position": {
+              "x": 1785.0,
+              "y": 1225.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "884ca74f",
+          "candidate_index": 220,
+          "destination_xyz": [
+            665.0,
+            315.0,
+            20.0
+          ],
+          "evidence_ref": "e811",
+          "harness_event_sequence": 1373,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 437,
+            "request_id": 437
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 436,
+              "request_id": 436
+            },
+            "position": {
+              "x": 595.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 438,
+              "request_id": 438
+            },
+            "position": {
+              "x": 595.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "436f6476",
+          "candidate_index": 567,
+          "destination_xyz": [
+            1645.0,
+            1085.0,
+            20.0
+          ],
+          "evidence_ref": "e993",
+          "harness_event_sequence": 1690,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 528,
+            "request_id": 528
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 527,
+              "request_id": 527
+            },
+            "position": {
+              "x": 1575.0,
+              "y": 1015.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 529,
+              "request_id": 529
+            },
+            "position": {
+              "x": 1575.0,
+              "y": 1015.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "8ffc1bba",
+          "candidate_index": 416,
+          "destination_xyz": [
+            1225.0,
+            595.0,
+            20.0
+          ],
+          "evidence_ref": "e1059",
+          "harness_event_sequence": 1805,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 561,
+            "request_id": 561
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 19'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 560,
+              "request_id": 560
+            },
+            "position": {
+              "x": 1295.0,
+              "y": 455.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 562,
+              "request_id": 562
+            },
+            "position": {
+              "x": 1295.0,
+              "y": 455.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "92e6a7b8",
+          "candidate_index": 592,
+          "destination_xyz": [
+            1715.0,
+            1155.0,
+            20.0
+          ],
+          "evidence_ref": "e1067",
+          "harness_event_sequence": 1819,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 565,
+            "request_id": 565
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 564,
+              "request_id": 564
+            },
+            "position": {
+              "x": 1505.0,
+              "y": 1225.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 566,
+              "request_id": 566
+            },
+            "position": {
+              "x": 1505.0,
+              "y": 1225.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "20dd2485",
+          "candidate_index": 600,
+          "destination_xyz": [
+            1785.0,
+            35.0,
+            20.0
+          ],
+          "evidence_ref": "e1193",
+          "harness_event_sequence": 2038,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 628,
+            "request_id": 628
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 9'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 627,
+              "request_id": 627
+            },
+            "position": {
+              "x": 1645.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 629,
+              "request_id": 629
+            },
+            "position": {
+              "x": 1645.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        }
+      ]
+    },
+    "b1ad4f3e": {
+      "frame_plan_id": "b1ad4f3e-blocked_candidate_v4:p1",
+      "harness_source": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/harness.json",
+      "entries_checked": 15,
+      "all_checks_passed": true,
+      "entries": [
+        {
+          "actor": "04315908",
+          "candidate_index": 94,
+          "destination_xyz": [
+            525.0,
+            245.0,
+            20.0
+          ],
+          "evidence_ref": "e53",
+          "harness_event_sequence": 86,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 43,
+            "request_id": 43
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 5'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 42,
+              "request_id": 42
+            },
+            "position": {
+              "x": 428.0,
+              "y": 200.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 44,
+              "request_id": 44
+            },
+            "position": {
+              "x": 428.0,
+              "y": 200.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "272fa7be",
+          "candidate_index": 15,
+          "destination_xyz": [
+            105.0,
+            175.0,
+            20.0
+          ],
+          "evidence_ref": "e77",
+          "harness_event_sequence": 126,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 55,
+            "request_id": 55
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 5'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 54,
+              "request_id": 54
+            },
+            "position": {
+              "x": 37.0,
+              "y": 78.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 56,
+              "request_id": 56
+            },
+            "position": {
+              "x": 37.0,
+              "y": 78.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "6126210f",
+          "candidate_index": 161,
+          "destination_xyz": [
+            875.0,
+            385.0,
+            20.0
+          ],
+          "evidence_ref": "e125",
+          "harness_event_sequence": 206,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 79,
+            "request_id": 79
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 78,
+              "request_id": 78
+            },
+            "position": {
+              "x": 927.0,
+              "y": 267.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 80,
+              "request_id": 80
+            },
+            "position": {
+              "x": 927.0,
+              "y": 267.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "2a266de6",
+          "candidate_index": 35,
+          "destination_xyz": [
+            175.0,
+            665.0,
+            20.0
+          ],
+          "evidence_ref": "e251",
+          "harness_event_sequence": 419,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 142,
+            "request_id": 142
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 141,
+              "request_id": 141
+            },
+            "position": {
+              "x": 245.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 143,
+              "request_id": 143
+            },
+            "position": {
+              "x": 245.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "60892444",
+          "candidate_index": 35,
+          "destination_xyz": [
+            175.0,
+            665.0,
+            20.0
+          ],
+          "evidence_ref": "e269",
+          "harness_event_sequence": 450,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 151,
+            "request_id": 151
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 150,
+              "request_id": 150
+            },
+            "position": {
+              "x": 105.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 152,
+              "request_id": 152
+            },
+            "position": {
+              "x": 105.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "01e3ece4",
+          "candidate_index": 161,
+          "destination_xyz": [
+            875.0,
+            385.0,
+            20.0
+          ],
+          "evidence_ref": "e343",
+          "harness_event_sequence": 579,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 188,
+            "request_id": 188
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 187,
+              "request_id": 187
+            },
+            "position": {
+              "x": 665.0,
+              "y": 175.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 189,
+              "request_id": 189
+            },
+            "position": {
+              "x": 665.0,
+              "y": 175.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "b6654aad",
+          "candidate_index": 161,
+          "destination_xyz": [
+            875.0,
+            385.0,
+            20.0
+          ],
+          "evidence_ref": "e425",
+          "harness_event_sequence": 722,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 229,
+            "request_id": 229
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 228,
+              "request_id": 228
+            },
+            "position": {
+              "x": 805.0,
+              "y": 245.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 230,
+              "request_id": 230
+            },
+            "position": {
+              "x": 805.0,
+              "y": 245.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "d4d95e8a",
+          "candidate_index": 162,
+          "destination_xyz": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "evidence_ref": "e571",
+          "harness_event_sequence": 977,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 302,
+            "request_id": 302
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 301,
+              "request_id": 301
+            },
+            "position": {
+              "x": 665.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 303,
+              "request_id": 303
+            },
+            "position": {
+              "x": 665.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "01e3ece4",
+          "candidate_index": 162,
+          "destination_xyz": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "evidence_ref": "e589",
+          "harness_event_sequence": 1008,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 311,
+            "request_id": 311
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 310,
+              "request_id": 310
+            },
+            "position": {
+              "x": 805.0,
+              "y": 385.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 312,
+              "request_id": 312
+            },
+            "position": {
+              "x": 805.0,
+              "y": 385.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "b6654aad",
+          "candidate_index": 162,
+          "destination_xyz": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "evidence_ref": "e671",
+          "harness_event_sequence": 1151,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 352,
+            "request_id": 352
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 351,
+              "request_id": 351
+            },
+            "position": {
+              "x": 875.0,
+              "y": 315.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 353,
+              "request_id": 353
+            },
+            "position": {
+              "x": 875.0,
+              "y": 315.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "d4d95e8a",
+          "candidate_index": 175,
+          "destination_xyz": [
+            945.0,
+            455.0,
+            20.0
+          ],
+          "evidence_ref": "e695",
+          "harness_event_sequence": 1193,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 364,
+            "request_id": 364
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 363,
+              "request_id": 363
+            },
+            "position": {
+              "x": 665.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 365,
+              "request_id": 365
+            },
+            "position": {
+              "x": 665.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "b6654aad",
+          "candidate_index": 174,
+          "destination_xyz": [
+            945.0,
+            385.0,
+            20.0
+          ],
+          "evidence_ref": "e793",
+          "harness_event_sequence": 1364,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 413,
+            "request_id": 413
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 412,
+              "request_id": 412
+            },
+            "position": {
+              "x": 875.0,
+              "y": 315.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 414,
+              "request_id": 414
+            },
+            "position": {
+              "x": 875.0,
+              "y": 315.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "d32ef0d8",
+          "candidate_index": 166,
+          "destination_xyz": [
+            875.0,
+            735.0,
+            20.0
+          ],
+          "evidence_ref": "e809",
+          "harness_event_sequence": 1392,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 421,
+            "request_id": 421
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 420,
+              "request_id": 420
+            },
+            "position": {
+              "x": 385.0,
+              "y": 805.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 422,
+              "request_id": 422
+            },
+            "position": {
+              "x": 385.0,
+              "y": 805.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "e444398a",
+          "candidate_index": 162,
+          "destination_xyz": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "evidence_ref": "e825",
+          "harness_event_sequence": 1420,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 429,
+            "request_id": 429
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 428,
+              "request_id": 428
+            },
+            "position": {
+              "x": 665.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 430,
+              "request_id": 430
+            },
+            "position": {
+              "x": 665.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        },
+        {
+          "actor": "e444398a",
+          "candidate_index": 174,
+          "destination_xyz": [
+            945.0,
+            385.0,
+            20.0
+          ],
+          "evidence_ref": "e949",
+          "harness_event_sequence": 1636,
+          "action_source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 491,
+            "request_id": 491
+          },
+          "receipt_message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 490,
+              "request_id": 490
+            },
+            "position": {
+              "x": 665.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "public_state_after": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 492,
+              "request_id": 492
+            },
+            "position": {
+              "x": 665.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "xyz_unchanged": true,
+          "later_same_actor_same_xyz_move_requests": []
+        }
+      ]
+    }
+  },
+  "replacement_evidence": [
+    {
+      "task_id": "24ac1838",
+      "actor": "4e22b83f",
+      "masked_endpoint_xyz": [
+        1715.0,
+        175.0,
+        20.0
+      ],
+      "mask_source": {
+        "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+        "line": 293,
+        "request_id": 293
+      },
+      "mask_evidence_ref": "e523",
+      "candidate_index": 578,
+      "mask_present_in_prior_plan_update_sequence": 1698,
+      "first_global_action_divergence": true,
+      "first_global_action_divergence_index": 130,
+      "paired_request": {
+        "flight_state_v3": {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-flight_state_v3/public-api.jsonl",
+            "line": 532,
+            "request_id": 532
+          },
+          "action": {
+            "method": "POST",
+            "endpoint": "/drones/4e22b83f/command/move_to",
+            "params": {
+              "x": 1715.0,
+              "y": 175.0,
+              "z": 20.0
+            },
+            "body": null
+          },
+          "receipt": {
+            "command_id": "bffbb58f",
+            "drone_id": "4e22b83f",
+            "command": "move_to",
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 47'",
+            "timestamp": 1802649603.019368
+          },
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-flight_state_v3/public-api.jsonl",
+              "line": 531,
+              "request_id": 531
+            },
+            "position": {
+              "x": 1575.0,
+              "y": 245.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        },
+        "blocked_candidate_v4": {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 532,
+            "request_id": 532
+          },
+          "action": {
+            "method": "POST",
+            "endpoint": "/drones/4e22b83f/command/move_to",
+            "params": {
+              "x": 1645.0,
+              "y": 315.0,
+              "z": 20.0
+            },
+            "body": null
+          },
+          "receipt": {
+            "command_id": "bffbb58f",
+            "drone_id": "4e22b83f",
+            "command": "move_to",
+            "status": "success",
+            "message": "Drone moved to position (1645.0, 315.0, 20.0), heading: 45.0° (battery: -0.8%/-1mAh, remaining: 98.1%/66mAh) - Reached target(s): Fixed Target 62",
+            "timestamp": 1802649602.8707252
+          },
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 531,
+              "request_id": 531
+            },
+            "position": {
+              "x": 1575.0,
+              "y": 245.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        }
+      }
+    },
+    {
+      "task_id": "24ac1838",
+      "actor": "869a8e16",
+      "masked_endpoint_xyz": [
+        1715.0,
+        1155.0,
+        20.0
+      ],
+      "mask_source": {
+        "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+        "line": 313,
+        "request_id": 313
+      },
+      "mask_evidence_ref": "e563",
+      "candidate_index": 592,
+      "mask_present_in_prior_plan_update_sequence": 1771,
+      "first_global_action_divergence": false,
+      "first_global_action_divergence_index": 130,
+      "paired_request": {
+        "flight_state_v3": {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-flight_state_v3/public-api.jsonl",
+            "line": 553,
+            "request_id": 553
+          },
+          "action": {
+            "method": "POST",
+            "endpoint": "/drones/869a8e16/command/move_to",
+            "params": {
+              "x": 1715.0,
+              "y": 1155.0,
+              "z": 20.0
+            },
+            "body": null
+          },
+          "receipt": {
+            "command_id": "5158b0cc",
+            "drone_id": "869a8e16",
+            "command": "move_to",
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+            "timestamp": 1802649603.1453
+          },
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-flight_state_v3/public-api.jsonl",
+              "line": 552,
+              "request_id": 552
+            },
+            "position": {
+              "x": 1715.0,
+              "y": 1295.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        },
+        "blocked_candidate_v4": {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 553,
+            "request_id": 553
+          },
+          "action": {
+            "method": "POST",
+            "endpoint": "/drones/869a8e16/command/move_to",
+            "params": {
+              "x": 1925.0,
+              "y": 1365.0,
+              "z": 20.0
+            },
+            "body": null
+          },
+          "receipt": {
+            "command_id": "5158b0cc",
+            "drone_id": "869a8e16",
+            "command": "move_to",
+            "status": "success",
+            "message": "Drone moved to position (1925.0, 1365.0, 20.0), heading: 71.6° (battery: -1.8%/-1mAh, remaining: 96.1%/75mAh) - Reached target(s): Fixed Target 75",
+            "timestamp": 1802649602.9808972
+          },
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 552,
+              "request_id": 552
+            },
+            "position": {
+              "x": 1715.0,
+              "y": 1295.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        }
+      }
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "actor": "01e3ece4",
+      "masked_endpoint_xyz": [
+        875.0,
+        455.0,
+        20.0
+      ],
+      "mask_source": {
+        "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+        "line": 311,
+        "request_id": 311
+      },
+      "mask_evidence_ref": "e589",
+      "candidate_index": 162,
+      "mask_present_in_prior_plan_update_sequence": 1431,
+      "first_global_action_divergence": true,
+      "first_global_action_divergence_index": 106,
+      "paired_request": {
+        "flight_state_v3": {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-flight_state_v3/public-api.jsonl",
+            "line": 434,
+            "request_id": 434
+          },
+          "action": {
+            "method": "POST",
+            "endpoint": "/drones/01e3ece4/command/move_to",
+            "params": {
+              "x": 875.0,
+              "y": 455.0,
+              "z": 20.0
+            },
+            "body": null
+          },
+          "receipt": {
+            "command_id": "c1de3a85",
+            "drone_id": "01e3ece4",
+            "command": "move_to",
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "timestamp": 1802649601.2661903
+          },
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-flight_state_v3/public-api.jsonl",
+              "line": 433,
+              "request_id": 433
+            },
+            "position": {
+              "x": 805.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        },
+        "blocked_candidate_v4": {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 434,
+            "request_id": 434
+          },
+          "action": {
+            "method": "POST",
+            "endpoint": "/drones/01e3ece4/command/move_to",
+            "params": {
+              "x": 875.0,
+              "y": 595.0,
+              "z": 20.0
+            },
+            "body": null
+          },
+          "receipt": {
+            "command_id": "c1de3a85",
+            "drone_id": "01e3ece4",
+            "command": "move_to",
+            "status": "success",
+            "message": "Drone moved to position (875.0, 595.0, 20.0), heading: 45.0° (battery: -0.7%/-0mAh, remaining: 94.3%/66mAh)",
+            "timestamp": 1802649601.1237614
+          },
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 433,
+              "request_id": 433
+            },
+            "position": {
+              "x": 805.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        }
+      }
+    }
+  ],
+  "new_unique_failures": {
+    "24ac1838": {
+      "baseline_unique_signatures": 15,
+      "candidate_unique_signatures": 17,
+      "new_unique_signature_count": 2,
+      "new_failure_events": [
+        {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 565,
+            "request_id": 565
+          },
+          "signature": {
+            "kind": "endpoint_conflict",
+            "actor": "92e6a7b8",
+            "endpoint_xyz": [
+              1715.0,
+              1155.0,
+              20.0
+            ]
+          },
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 564,
+              "request_id": 564
+            },
+            "position": {
+              "x": 1505.0,
+              "y": 1225.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "named_obstacle_in_message": "Polygon Obstacle 7",
+          "prior_public_nearby_name_matches": []
+        },
+        {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 628,
+            "request_id": 628
+          },
+          "signature": {
+            "kind": "endpoint_conflict",
+            "actor": "20dd2485",
+            "endpoint_xyz": [
+              1785.0,
+              35.0,
+              20.0
+            ]
+          },
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 9'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 627,
+              "request_id": 627
+            },
+            "position": {
+              "x": 1645.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "named_obstacle_in_message": "Circle Obstacle 9",
+          "prior_public_nearby_name_matches": []
+        }
+      ]
+    },
+    "b1ad4f3e": {
+      "baseline_unique_signatures": 16,
+      "candidate_unique_signatures": 17,
+      "new_unique_signature_count": 2,
+      "new_failure_events": [
+        {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 475,
+            "request_id": 475
+          },
+          "signature": {
+            "kind": "path_conflict",
+            "actor": "b6654aad",
+            "endpoint_xyz": [
+              945.0,
+              525.0,
+              20.0
+            ],
+            "public_start_xyz": [
+              875.0,
+              315.0,
+              20.0
+            ]
+          },
+          "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 474,
+              "request_id": 474
+            },
+            "position": {
+              "x": 875.0,
+              "y": 315.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "named_obstacle_in_message": "Circle Obstacle 3",
+          "prior_public_nearby_name_matches": []
+        },
+        {
+          "source": {
+            "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 491,
+            "request_id": 491
+          },
+          "signature": {
+            "kind": "endpoint_conflict",
+            "actor": "e444398a",
+            "endpoint_xyz": [
+              945.0,
+              385.0,
+              20.0
+            ]
+          },
+          "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+          "public_state_before": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 490,
+              "request_id": 490
+            },
+            "position": {
+              "x": 665.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          },
+          "named_obstacle_in_message": "Circle Obstacle 3",
+          "prior_public_nearby_name_matches": []
+        }
+      ]
+    }
+  },
+  "cross_actor_endpoint_reuse": {
+    "24ac1838": {
+      "event_count": 1,
+      "group_count": 1,
+      "events": [
+        {
+          "failure": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 565,
+              "request_id": 565
+            },
+            "signature": {
+              "kind": "endpoint_conflict",
+              "actor": "92e6a7b8",
+              "endpoint_xyz": [
+                1715.0,
+                1155.0,
+                20.0
+              ]
+            },
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+            "public_state_before": {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+                "line": 564,
+                "request_id": 564
+              },
+              "position": {
+                "x": 1505.0,
+                "y": 1225.0,
+                "z": 20.0
+              },
+              "status": "hovering"
+            },
+            "named_obstacle_in_message": "Polygon Obstacle 7",
+            "prior_public_nearby_name_matches": []
+          },
+          "prior_other_actor_same_xyz_failures": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+                "line": 313,
+                "request_id": 313
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "869a8e16",
+                "endpoint_xyz": [
+                  1715.0,
+                  1155.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+                  "line": 312,
+                  "request_id": 312
+                },
+                "position": {
+                  "x": 1785.0,
+                  "y": 1225.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "endpoint_xyz": [
+            1715.0,
+            1155.0,
+            20.0
+          ],
+          "actors": [
+            "869a8e16",
+            "92e6a7b8"
+          ],
+          "all_endpoint_failure_events": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+                "line": 313,
+                "request_id": 313
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "869a8e16",
+                "endpoint_xyz": [
+                  1715.0,
+                  1155.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+                  "line": 312,
+                  "request_id": 312
+                },
+                "position": {
+                  "x": 1785.0,
+                  "y": 1225.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+                "line": 565,
+                "request_id": 565
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "92e6a7b8",
+                "endpoint_xyz": [
+                  1715.0,
+                  1155.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+                  "line": 564,
+                  "request_id": 564
+                },
+                "position": {
+                  "x": 1505.0,
+                  "y": 1225.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              },
+              "named_obstacle_in_message": "Polygon Obstacle 7",
+              "prior_public_nearby_name_matches": []
+            }
+          ]
+        }
+      ]
+    },
+    "b1ad4f3e": {
+      "event_count": 7,
+      "group_count": 4,
+      "events": [
+        {
+          "failure": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 151,
+              "request_id": 151
+            },
+            "signature": {
+              "kind": "endpoint_conflict",
+              "actor": "60892444",
+              "endpoint_xyz": [
+                175.0,
+                665.0,
+                20.0
+              ]
+            },
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+            "public_state_before": {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 150,
+                "request_id": 150
+              },
+              "position": {
+                "x": 105.0,
+                "y": 525.0,
+                "z": 20.0
+              },
+              "status": "hovering"
+            }
+          },
+          "prior_other_actor_same_xyz_failures": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 142,
+                "request_id": 142
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "2a266de6",
+                "endpoint_xyz": [
+                  175.0,
+                  665.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 141,
+                  "request_id": 141
+                },
+                "position": {
+                  "x": 245.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "failure": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 188,
+              "request_id": 188
+            },
+            "signature": {
+              "kind": "endpoint_conflict",
+              "actor": "01e3ece4",
+              "endpoint_xyz": [
+                875.0,
+                385.0,
+                20.0
+              ]
+            },
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "public_state_before": {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 187,
+                "request_id": 187
+              },
+              "position": {
+                "x": 665.0,
+                "y": 175.0,
+                "z": 20.0
+              },
+              "status": "hovering"
+            }
+          },
+          "prior_other_actor_same_xyz_failures": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 79,
+                "request_id": 79
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "6126210f",
+                "endpoint_xyz": [
+                  875.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 78,
+                  "request_id": 78
+                },
+                "position": {
+                  "x": 927.0,
+                  "y": 267.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "failure": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 229,
+              "request_id": 229
+            },
+            "signature": {
+              "kind": "endpoint_conflict",
+              "actor": "b6654aad",
+              "endpoint_xyz": [
+                875.0,
+                385.0,
+                20.0
+              ]
+            },
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "public_state_before": {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 228,
+                "request_id": 228
+              },
+              "position": {
+                "x": 805.0,
+                "y": 245.0,
+                "z": 20.0
+              },
+              "status": "hovering"
+            }
+          },
+          "prior_other_actor_same_xyz_failures": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 79,
+                "request_id": 79
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "6126210f",
+                "endpoint_xyz": [
+                  875.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 78,
+                  "request_id": 78
+                },
+                "position": {
+                  "x": 927.0,
+                  "y": 267.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 188,
+                "request_id": 188
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "01e3ece4",
+                "endpoint_xyz": [
+                  875.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 187,
+                  "request_id": 187
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 175.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "failure": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 311,
+              "request_id": 311
+            },
+            "signature": {
+              "kind": "endpoint_conflict",
+              "actor": "01e3ece4",
+              "endpoint_xyz": [
+                875.0,
+                455.0,
+                20.0
+              ]
+            },
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "public_state_before": {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 310,
+                "request_id": 310
+              },
+              "position": {
+                "x": 805.0,
+                "y": 385.0,
+                "z": 20.0
+              },
+              "status": "hovering"
+            }
+          },
+          "prior_other_actor_same_xyz_failures": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 302,
+                "request_id": 302
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "d4d95e8a",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 301,
+                  "request_id": 301
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "failure": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 352,
+              "request_id": 352
+            },
+            "signature": {
+              "kind": "endpoint_conflict",
+              "actor": "b6654aad",
+              "endpoint_xyz": [
+                875.0,
+                455.0,
+                20.0
+              ]
+            },
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "public_state_before": {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 351,
+                "request_id": 351
+              },
+              "position": {
+                "x": 875.0,
+                "y": 315.0,
+                "z": 20.0
+              },
+              "status": "hovering"
+            }
+          },
+          "prior_other_actor_same_xyz_failures": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 302,
+                "request_id": 302
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "d4d95e8a",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 301,
+                  "request_id": 301
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 311,
+                "request_id": 311
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "01e3ece4",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 310,
+                  "request_id": 310
+                },
+                "position": {
+                  "x": 805.0,
+                  "y": 385.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "failure": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 429,
+              "request_id": 429
+            },
+            "signature": {
+              "kind": "endpoint_conflict",
+              "actor": "e444398a",
+              "endpoint_xyz": [
+                875.0,
+                455.0,
+                20.0
+              ]
+            },
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "public_state_before": {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 428,
+                "request_id": 428
+              },
+              "position": {
+                "x": 665.0,
+                "y": 35.0,
+                "z": 20.0
+              },
+              "status": "hovering"
+            }
+          },
+          "prior_other_actor_same_xyz_failures": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 302,
+                "request_id": 302
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "d4d95e8a",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 301,
+                  "request_id": 301
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 311,
+                "request_id": 311
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "01e3ece4",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 310,
+                  "request_id": 310
+                },
+                "position": {
+                  "x": 805.0,
+                  "y": 385.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 352,
+                "request_id": 352
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "b6654aad",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 351,
+                  "request_id": 351
+                },
+                "position": {
+                  "x": 875.0,
+                  "y": 315.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "failure": {
+            "source": {
+              "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 491,
+              "request_id": 491
+            },
+            "signature": {
+              "kind": "endpoint_conflict",
+              "actor": "e444398a",
+              "endpoint_xyz": [
+                945.0,
+                385.0,
+                20.0
+              ]
+            },
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "public_state_before": {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 490,
+                "request_id": 490
+              },
+              "position": {
+                "x": 665.0,
+                "y": 35.0,
+                "z": 20.0
+              },
+              "status": "hovering"
+            },
+            "named_obstacle_in_message": "Circle Obstacle 3",
+            "prior_public_nearby_name_matches": []
+          },
+          "prior_other_actor_same_xyz_failures": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 413,
+                "request_id": 413
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "b6654aad",
+                "endpoint_xyz": [
+                  945.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 412,
+                  "request_id": 412
+                },
+                "position": {
+                  "x": 875.0,
+                  "y": 315.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "endpoint_xyz": [
+            875.0,
+            385.0,
+            20.0
+          ],
+          "actors": [
+            "01e3ece4",
+            "6126210f",
+            "b6654aad"
+          ],
+          "all_endpoint_failure_events": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 79,
+                "request_id": 79
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "6126210f",
+                "endpoint_xyz": [
+                  875.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 78,
+                  "request_id": 78
+                },
+                "position": {
+                  "x": 927.0,
+                  "y": 267.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 188,
+                "request_id": 188
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "01e3ece4",
+                "endpoint_xyz": [
+                  875.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 187,
+                  "request_id": 187
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 175.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 229,
+                "request_id": 229
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "b6654aad",
+                "endpoint_xyz": [
+                  875.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 228,
+                  "request_id": 228
+                },
+                "position": {
+                  "x": 805.0,
+                  "y": 245.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "endpoint_xyz": [
+            175.0,
+            665.0,
+            20.0
+          ],
+          "actors": [
+            "2a266de6",
+            "60892444"
+          ],
+          "all_endpoint_failure_events": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 142,
+                "request_id": 142
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "2a266de6",
+                "endpoint_xyz": [
+                  175.0,
+                  665.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 141,
+                  "request_id": 141
+                },
+                "position": {
+                  "x": 245.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 151,
+                "request_id": 151
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "60892444",
+                "endpoint_xyz": [
+                  175.0,
+                  665.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 150,
+                  "request_id": 150
+                },
+                "position": {
+                  "x": 105.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "endpoint_xyz": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "actors": [
+            "01e3ece4",
+            "b6654aad",
+            "d4d95e8a",
+            "e444398a"
+          ],
+          "all_endpoint_failure_events": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 302,
+                "request_id": 302
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "d4d95e8a",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 301,
+                  "request_id": 301
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 311,
+                "request_id": 311
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "01e3ece4",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 310,
+                  "request_id": 310
+                },
+                "position": {
+                  "x": 805.0,
+                  "y": 385.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 352,
+                "request_id": 352
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "b6654aad",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 351,
+                  "request_id": 351
+                },
+                "position": {
+                  "x": 875.0,
+                  "y": 315.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 429,
+                "request_id": 429
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "e444398a",
+                "endpoint_xyz": [
+                  875.0,
+                  455.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 428,
+                  "request_id": 428
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 35.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "endpoint_xyz": [
+            945.0,
+            385.0,
+            20.0
+          ],
+          "actors": [
+            "b6654aad",
+            "e444398a"
+          ],
+          "all_endpoint_failure_events": [
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 413,
+                "request_id": 413
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "b6654aad",
+                "endpoint_xyz": [
+                  945.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 412,
+                  "request_id": 412
+                },
+                "position": {
+                  "x": 875.0,
+                  "y": 315.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            },
+            {
+              "source": {
+                "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                "line": 491,
+                "request_id": 491
+              },
+              "signature": {
+                "kind": "endpoint_conflict",
+                "actor": "e444398a",
+                "endpoint_xyz": [
+                  945.0,
+                  385.0,
+                  20.0
+                ]
+              },
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "public_state_before": {
+                "source": {
+                  "path": "docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+                  "line": 490,
+                  "request_id": 490
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 35.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              },
+              "named_obstacle_in_message": "Circle Obstacle 3",
+              "prior_public_nearby_name_matches": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Fixed recorded executions, not a new experiment or counterfactual success estimate.",
+    "Whole-task success and total obstacle errors remain separate from absence of same-actor repeated endpoint requests.",
+    "The second 24ac replacement follows an earlier trajectory divergence: its prior mask and absence of the old endpoint are verified, but logs alone do not isolate the contribution of all changed coverage scores to the alternative selected.",
+    "Negative point evidence is scoped to the tested plan/epoch and fixed altitude; transfer across actors or dynamic obstacle changes needs a separate contract."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "pure_shared_agent_episode_overlap_counterexample",
+  "source_hashes": {
+    "agent4drone/uav_agent.py": "f7de3ac0536cd9e877e7e0a94e4cfdf74600129d9056ab4edfbf16071d6b5910",
+    "agent4drone/agent_api_service.py": "6ab96ab9c1ceae42b187c48289883fe382f4c8627a520835c56c185f0fe06087",
+    "agent4drone/harness_core.py": "ae663ef64ba4d35e93e01450bd49790fc082dc455fd3d444bf5ae66fe4a8c3fb",
+    "agent4drone/harness_integration.py": "13bed02a04992b76e2512457bbed28c7d6e2c711433593ddf947a6c6b35284d5",
+    "scripts/harness_v2_world.py": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+    "scripts/harness_full100_world.py": "a71a13284f65b86b91d3424e6c29b3675284dc68117f12aa9aea69cc4b10ec47"
+  },
+  "checks": {
+    "both_service_jobs_entered_shared_agent": true,
+    "A_payload_contains_B_harness": true,
+    "A_own_harness_left_open": true,
+    "B_harness_closed_before_B_backend_return": true,
+    "B_rejected_by_real_closed_runtime_guard": true,
+    "sources_unchanged": true
+  },
+  "reproduced": true,
+  "A_returned_harness_task_id": "episode-B",
+  "B_result_success": false,
+  "B_error": "Error executing command: harness task already closed",
+  "backend_records": [
+    {
+      "episode": "B",
+      "runtime_closed_before_B_return": true
+    }
+  ],
+  "model_calls": 0,
+  "simulator_calls": 0,
+  "network_calls": 0,
+  "scope": "Real service dispatch and unmodified execute/finalization AST bodies, actual HarnessRuntime, fake backend barriers; no live service traffic or full Agent constructor."
+}

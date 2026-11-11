@@ -1,0 +1,35 @@
+{
+  "slots": 116,
+  "backend": "transformers",
+  "scorer_counts": {
+    "Qwen3.5-2B/on": {
+      "scored": 29,
+      "success": 1
+    },
+    "Qwen3.5-2B/off": {
+      "scored": 29,
+      "success": 0
+    },
+    "Qwen3-4B/on": {
+      "scored": 29,
+      "success": 0
+    },
+    "Qwen3-4B/off": {
+      "scored": 29,
+      "success": 0
+    }
+  },
+  "t37": {
+    "Qwen3-4B": {
+      "seven_round_seconds": 105.80931458001336,
+      "twelve_round_seconds": 157.0633299313486,
+      "p95_full_seconds": 69.15379885211587
+    },
+    "Qwen3.5-2B": {
+      "seven_round_seconds": 51.57830077658097,
+      "twelve_round_seconds": 111.93841077138978,
+      "p95_full_seconds": 68.4120207130909
+    }
+  },
+  "report_sha256": "f894209acf3a0942cda5e84a8aea6a48214d1b7b61328ed588c6fa74c403b8b4"
+}

@@ -1,0 +1,748 @@
+{
+  "task_id": "9c0b52a0",
+  "scheduler": "every_step",
+  "response": {
+    "plan_id": "9c0b52a0:p1",
+    "skill": "public_search",
+    "status": "completed",
+    "reason": "skill_public_stop_condition",
+    "cursor": 0,
+    "state": {
+      "progress_percent": 100,
+      "attempts": 0,
+      "outcomes": {},
+      "new_public_obstacles": 0,
+      "public_stop_condition": "session_progress_strictly_above_95"
+    },
+    "actor_bindings": {},
+    "api_calls": 1,
+    "evidence_refs": [
+      "e1"
+    ],
+    "remaining_s": 499.99837783399926,
+    "mission_completion": "not_evaluated",
+    "next_control": "use original tools to resolve remaining task obligations"
+  },
+  "bootstrap_public_calls": [
+    {
+      "endpoint": "/drones"
+    },
+    {
+      "endpoint": "/drones/492c9b8c/nearby",
+      "receipt_sha256": "d9bf5397962528f72f0be19e10550cd41213c957be195c01e65a2dd1bbe1f4de"
+    },
+    {
+      "endpoint": "/drones/1a4f0495/nearby",
+      "receipt_sha256": "ca4c01ff384b28ef1bdec92dec3ec5f5aaf85e0b46e25d353be1580716ad2ab5"
+    },
+    {
+      "endpoint": "/drones/d99f1904/nearby",
+      "receipt_sha256": "d9bf5397962528f72f0be19e10550cd41213c957be195c01e65a2dd1bbe1f4de"
+    },
+    {
+      "endpoint": "/drones/a3b868a8/nearby",
+      "receipt_sha256": "08fa2333340e354699203c66f3eeb381c24cd7a9d5e6e92a822e61e17736afd6"
+    },
+    {
+      "endpoint": "/drones/5ed7d6ab/nearby",
+      "receipt_sha256": "d9bf5397962528f72f0be19e10550cd41213c957be195c01e65a2dd1bbe1f4de"
+    }
+  ],
+  "public_calls": [
+    {
+      "tool": "get_mission_progress",
+      "args": {},
+      "action": false
+    }
+  ],
+  "harness": {
+    "schema": "minimal-harness-v1",
+    "scheduler": "every_step",
+    "fixed_k": 4,
+    "task_id": "9c0b52a0",
+    "scene_id": "3973d0d6",
+    "scene_epoch": 0,
+    "frames": [
+      {
+        "plan_id": "9c0b52a0:p1",
+        "task_id": "9c0b52a0",
+        "scene_id": "3973d0d6",
+        "scene_epoch": 0,
+        "skill": "public_search",
+        "source_obligations": [
+          {
+            "source_span": [
+              0,
+              125
+            ],
+            "text": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%."
+          }
+        ],
+        "steps": [
+          {
+            "tool": "public_search_attempt",
+            "repeat": "bounded_by_rounds_and_budget"
+          }
+        ],
+        "continue_guards": [
+          "same_task_and_scene_epoch",
+          "public_actor_binding",
+          "verified_effect",
+          "deadline"
+        ],
+        "invalidators": [
+          "related_external_action",
+          "unexpected_effect",
+          "unhandled_failure",
+          "budget_exhausted"
+        ],
+        "local_repair_scope": "replace blocked candidate; disable failed takeoff actor; never rewrite task threshold",
+        "stop_condition": "public session progress > 95, not whole-task proof",
+        "deadline": 19159.524845375,
+        "api_budget": 2000,
+        "repair_budget": 16,
+        "plan_version": 1,
+        "origin": "explicit_model_tool_commit",
+        "actor_bindings": {},
+        "evidence_refs": [
+          "e1"
+        ],
+        "cursor": 0,
+        "state": {
+          "progress_percent": 100,
+          "attempts": 0,
+          "outcomes": {},
+          "new_public_obstacles": 0,
+          "public_stop_condition": "session_progress_strictly_above_95"
+        },
+        "status": "completed",
+        "reason": "skill_public_stop_condition",
+        "api_calls": 1,
+        "repairs": 0,
+        "units": 0
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "task_id": "9c0b52a0",
+        "kind": "task_start",
+        "monotonic_s": 18659.524849416,
+        "scene_id": "3973d0d6",
+        "scene_epoch": 0,
+        "deadline": 19159.524845375,
+        "scheduler": "every_step",
+        "fixed_k": 4,
+        "scope": "in_process_resume_only"
+      },
+      {
+        "sequence": 2,
+        "task_id": "9c0b52a0",
+        "kind": "plan_commit",
+        "monotonic_s": 18659.524891416,
+        "frame": {
+          "plan_id": "9c0b52a0:p1",
+          "task_id": "9c0b52a0",
+          "scene_id": "3973d0d6",
+          "scene_epoch": 0,
+          "skill": "public_search",
+          "source_obligations": [
+            {
+              "source_span": [
+                0,
+                125
+              ],
+              "text": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%."
+            }
+          ],
+          "steps": [
+            {
+              "tool": "public_search_attempt",
+              "repeat": "bounded_by_rounds_and_budget"
+            }
+          ],
+          "continue_guards": [
+            "same_task_and_scene_epoch",
+            "public_actor_binding",
+            "verified_effect",
+            "deadline"
+          ],
+          "invalidators": [
+            "related_external_action",
+            "unexpected_effect",
+            "unhandled_failure",
+            "budget_exhausted"
+          ],
+          "local_repair_scope": "replace blocked candidate; disable failed takeoff actor; never rewrite task threshold",
+          "stop_condition": "public session progress > 95, not whole-task proof",
+          "deadline": 19159.524845375,
+          "api_budget": 2000,
+          "repair_budget": 16,
+          "plan_version": 1,
+          "origin": "explicit_model_tool_commit",
+          "actor_bindings": {},
+          "evidence_refs": [],
+          "cursor": 0,
+          "state": {},
+          "status": "ready",
+          "reason": "committed",
+          "api_calls": 0,
+          "repairs": 0,
+          "units": 0
+        }
+      },
+      {
+        "sequence": 3,
+        "task_id": "9c0b52a0",
+        "kind": "skill_enter",
+        "monotonic_s": 18659.524907916,
+        "plan_id": "9c0b52a0:p1",
+        "cursor": 0
+      },
+      {
+        "sequence": 4,
+        "task_id": "9c0b52a0",
+        "kind": "gate",
+        "monotonic_s": 18659.524919875,
+        "plan_id": "9c0b52a0:p1",
+        "plan_version": 1,
+        "decision": "OBSERVE",
+        "reason": "resolve_public_dependency",
+        "cursor": 0,
+        "actors": {},
+        "evidence_refs": [],
+        "evidence_version": 0,
+        "external_version": 0,
+        "remaining_s": 499.99992708399805,
+        "next_call": {
+          "tool": "get_mission_progress",
+          "args": {},
+          "action": false
+        }
+      },
+      {
+        "sequence": 5,
+        "task_id": "9c0b52a0",
+        "kind": "public_call_start",
+        "monotonic_s": 18659.524936833,
+        "plan_id": "9c0b52a0:p1",
+        "call_id": "harness:9c0b52a0:p1:1",
+        "evidence_id": "e1",
+        "call": {
+          "tool": "get_mission_progress",
+          "args": {},
+          "action": false
+        }
+      },
+      {
+        "sequence": 6,
+        "task_id": "9c0b52a0",
+        "kind": "public_call_end",
+        "monotonic_s": 18659.526397833,
+        "plan_id": "9c0b52a0:p1",
+        "call_id": "harness:9c0b52a0:p1:1",
+        "evidence_id": "e1",
+        "receipt_sha256": "12c9b3e5cc86b27d8798575e29845d41e8ab458c7b30d6180048e417b5bcc72c"
+      },
+      {
+        "sequence": 7,
+        "task_id": "9c0b52a0",
+        "kind": "gate",
+        "monotonic_s": 18659.526408208,
+        "plan_id": "9c0b52a0:p1",
+        "plan_version": 1,
+        "decision": "STOP",
+        "reason": "skill_public_stop_condition",
+        "cursor": 0,
+        "actors": {},
+        "evidence_refs": [
+          "e1"
+        ],
+        "evidence_version": 2,
+        "external_version": 0,
+        "remaining_s": 499.99843854199935
+      },
+      {
+        "sequence": 8,
+        "task_id": "9c0b52a0",
+        "kind": "plan_update",
+        "monotonic_s": 18659.5264445,
+        "frame": {
+          "plan_id": "9c0b52a0:p1",
+          "task_id": "9c0b52a0",
+          "scene_id": "3973d0d6",
+          "scene_epoch": 0,
+          "skill": "public_search",
+          "source_obligations": [
+            {
+              "source_span": [
+                0,
+                125
+              ],
+              "text": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%."
+            }
+          ],
+          "steps": [
+            {
+              "tool": "public_search_attempt",
+              "repeat": "bounded_by_rounds_and_budget"
+            }
+          ],
+          "continue_guards": [
+            "same_task_and_scene_epoch",
+            "public_actor_binding",
+            "verified_effect",
+            "deadline"
+          ],
+          "invalidators": [
+            "related_external_action",
+            "unexpected_effect",
+            "unhandled_failure",
+            "budget_exhausted"
+          ],
+          "local_repair_scope": "replace blocked candidate; disable failed takeoff actor; never rewrite task threshold",
+          "stop_condition": "public session progress > 95, not whole-task proof",
+          "deadline": 19159.524845375,
+          "api_budget": 2000,
+          "repair_budget": 16,
+          "plan_version": 1,
+          "origin": "explicit_model_tool_commit",
+          "actor_bindings": {},
+          "evidence_refs": [
+            "e1"
+          ],
+          "cursor": 0,
+          "state": {
+            "progress_percent": 100,
+            "attempts": 0,
+            "outcomes": {},
+            "new_public_obstacles": 0,
+            "public_stop_condition": "session_progress_strictly_above_95"
+          },
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "api_calls": 1,
+          "repairs": 0,
+          "units": 0
+        }
+      },
+      {
+        "sequence": 9,
+        "task_id": "9c0b52a0",
+        "kind": "skill_exit",
+        "monotonic_s": 18659.526462833,
+        "plan_id": "9c0b52a0:p1",
+        "status": "completed",
+        "reason": "skill_public_stop_condition"
+      },
+      {
+        "sequence": 10,
+        "task_id": "9c0b52a0",
+        "kind": "task_end",
+        "monotonic_s": 18659.526495541,
+        "reason": "offline_validation_end",
+        "plans": [
+          {
+            "plan_id": "9c0b52a0:p1",
+            "task_id": "9c0b52a0",
+            "scene_id": "3973d0d6",
+            "scene_epoch": 0,
+            "skill": "public_search",
+            "source_obligations": [
+              {
+                "source_span": [
+                  0,
+                  125
+                ],
+                "text": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%."
+              }
+            ],
+            "steps": [
+              {
+                "tool": "public_search_attempt",
+                "repeat": "bounded_by_rounds_and_budget"
+              }
+            ],
+            "continue_guards": [
+              "same_task_and_scene_epoch",
+              "public_actor_binding",
+              "verified_effect",
+              "deadline"
+            ],
+            "invalidators": [
+              "related_external_action",
+              "unexpected_effect",
+              "unhandled_failure",
+              "budget_exhausted"
+            ],
+            "local_repair_scope": "replace blocked candidate; disable failed takeoff actor; never rewrite task threshold",
+            "stop_condition": "public session progress > 95, not whole-task proof",
+            "deadline": 19159.524845375,
+            "api_budget": 2000,
+            "repair_budget": 16,
+            "plan_version": 1,
+            "origin": "explicit_model_tool_commit",
+            "actor_bindings": {},
+            "evidence_refs": [
+              "e1"
+            ],
+            "cursor": 0,
+            "state": {
+              "progress_percent": 100,
+              "attempts": 0,
+              "outcomes": {},
+              "new_public_obstacles": 0,
+              "public_stop_condition": "session_progress_strictly_above_95"
+            },
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "api_calls": 1,
+            "repairs": 0,
+            "units": 0
+          }
+        ]
+      }
+    ]
+  },
+  "ledger": {
+    "schema_version": 1,
+    "command_id": "9c0b52a0",
+    "command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+    "clauses": [
+      {
+        "id": "clause-1",
+        "start": 0,
+        "end": 125,
+        "text": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+        "entity_names": [],
+        "binding_state": "unresolved",
+        "requirement_status": "not_evaluated"
+      }
+    ],
+    "entity_bindings": {},
+    "entities": {
+      "target:11485ece": {
+        "id": "11485ece",
+        "kind": "target",
+        "name": "Fixed Target 1",
+        "origin": "inherited",
+        "facts": {
+          "position": {
+            "value": [
+              626.0,
+              345.0,
+              0.0
+            ],
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "command_id": null
+          },
+          "radius": {
+            "value": 5.0,
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "command_id": null
+          },
+          "type": {
+            "value": "fixed",
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "command_id": null
+          },
+          "is_reached": {
+            "value": true,
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "scope": "session_history_not_current_position_or_current_task",
+            "command_id": null
+          },
+          "reached_by": {
+            "value": [
+              "a3b868a8",
+              "492c9b8c",
+              "1a4f0495",
+              "d99f1904",
+              "5ed7d6ab"
+            ],
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "scope": "session_history_not_current_position_or_current_task",
+            "command_id": null
+          }
+        }
+      },
+      "target:549f9012": {
+        "id": "549f9012",
+        "kind": "target",
+        "name": "Fixed Target 2",
+        "origin": "inherited",
+        "facts": {
+          "position": {
+            "value": [
+              524.0,
+              712.0,
+              0.0
+            ],
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "command_id": null
+          },
+          "radius": {
+            "value": 10.0,
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "command_id": null
+          },
+          "type": {
+            "value": "fixed",
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "command_id": null
+          },
+          "is_reached": {
+            "value": true,
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "scope": "session_history_not_current_position_or_current_task",
+            "command_id": null
+          },
+          "reached_by": {
+            "value": [
+              "a3b868a8",
+              "492c9b8c",
+              "1a4f0495",
+              "d99f1904",
+              "5ed7d6ab"
+            ],
+            "evidence_id": "inherited",
+            "validity": "inherited",
+            "scope": "session_history_not_current_position_or_current_task",
+            "command_id": null
+          }
+        }
+      }
+    },
+    "events": [
+      {
+        "evidence_id": "e1",
+        "tool_call_id": "harness:9c0b52a0:p1:1",
+        "tool_name": "get_mission_progress",
+        "args": {},
+        "start_sequence": 1,
+        "end_sequence": 2,
+        "status": "observed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "session_id": "3973d0d6",
+          "task_type": "target_assignment",
+          "progress_percentage": 100,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 3,
+            "unvisited_targets": 0
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "entity_ids": [],
+        "scope": "observation",
+        "source_clause_ids": []
+      }
+    ],
+    "observer_errors": [],
+    "mission_completion": "not_evaluated",
+    "limits": [
+      "known_targets_not_global_total",
+      "photo_subject_not_inferred",
+      "clauses_are_source_spans_not_a_complete_task_interpretation"
+    ],
+    "revision": "m1-r2",
+    "task_evidence": {
+      "session_id": "3973d0d6",
+      "epoch": 0,
+      "requirements": [],
+      "summary": "{\"aggregate_omitted\":0,\"aggregate_requirements\":[{\"freshness\":\"observed\",\"id\":\"progress-1\",\"next_step\":\"Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.\",\"observation\":{\"command_id\":\"9c0b52a0\",\"details\":{\"total_targets\":3,\"unvisited_targets\":0,\"visited_targets\":3},\"end_sequence\":2,\"evidence_id\":\"e1\",\"progress_percentage\":100,\"scope\":\"public_session_aggregate_not_full_task_verdict\",\"session_id\":\"3973d0d6\",\"source_endpoint\":\"/sessions/current\",\"start_sequence\":1,\"task_type\":\"target_assignment\",\"tool_call_id\":\"harness:9c0b52a0:p1:1\"},\"operator\":\">\",\"scope\":\"session_task_progress\",\"source_span\":[91,124],\"threshold_percent\":95.0,\"threshold_state\":\"observed_threshold_met\"}],\"items\":[],\"mission_completion\":\"not_evaluated\",\"omitted\":0,\"original_task_controls\":true,\"schema\":\"m1-r2\"}",
+      "model_requests": [],
+      "injections": [],
+      "aggregate_requirements": [
+        {
+          "id": "progress-1",
+          "scope": "session_task_progress",
+          "source_span": [
+            91,
+            124
+          ],
+          "threshold_percent": 95.0,
+          "operator": ">",
+          "observation": {
+            "session_id": "3973d0d6",
+            "task_type": "target_assignment",
+            "progress_percentage": 100,
+            "details": {
+              "total_targets": 3,
+              "visited_targets": 3,
+              "unvisited_targets": 0
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict",
+            "evidence_id": "e1",
+            "tool_call_id": "harness:9c0b52a0:p1:1",
+            "command_id": "9c0b52a0",
+            "start_sequence": 1,
+            "end_sequence": 2
+          },
+          "freshness": "observed",
+          "threshold_state": "observed_threshold_met",
+          "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply."
+        }
+      ],
+      "progress_observations": [
+        {
+          "session_id": "3973d0d6",
+          "task_type": "target_assignment",
+          "progress_percentage": 100,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 3,
+            "unvisited_targets": 0
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "evidence_id": "e1",
+          "tool_call_id": "harness:9c0b52a0:p1:1",
+          "command_id": "9c0b52a0",
+          "start_sequence": 1,
+          "end_sequence": 2
+        }
+      ]
+    }
+  },
+  "final_public_states": [
+    {
+      "id": "492c9b8c",
+      "position": {
+        "x": 200.0,
+        "y": 50.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 167.90524292298792,
+      "battery_level": 100.0
+    },
+    {
+      "id": "1a4f0495",
+      "position": {
+        "x": 626.0,
+        "y": 345.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 109.59078548792007,
+      "battery_level": 100.0
+    },
+    {
+      "id": "d99f1904",
+      "position": {
+        "x": 420.0,
+        "y": 511.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 308.862744050738,
+      "battery_level": 100.0
+    },
+    {
+      "id": "a3b868a8",
+      "position": {
+        "x": 524.0,
+        "y": 712.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 344.4678373198371,
+      "battery_level": 100.0
+    },
+    {
+      "id": "5ed7d6ab",
+      "position": {
+        "x": 519.0,
+        "y": 505.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 347.79428536716665,
+      "battery_level": 100.0
+    }
+  ],
+  "posthoc_original_check": {
+    "result": true,
+    "task": {
+      "id": "9c0b52a0",
+      "name": "Target Assignment Task Completion 1",
+      "content": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+      "content_aliases": [
+        "Launch the required drones and assign them to all targets within the task radius until session progress passes 95%.",
+        "Assign all targets to the available drones and continue until overall task progress exceeds 95%.",
+        "Dispatch necessary drones to cover every target and keep working until session task progress is above 95%."
+      ],
+      "description": "Assign targets and reach 95% session task progress",
+      "creator": "Victor Zhang",
+      "originated_from": "Task Template Target Assignment Task Completion created by Built-in template",
+      "difficulty": "hard",
+      "related_apis": [
+        {
+          "endpoint": "/drones/{id}/command/take_off",
+          "parameters": {
+            "id": "5ed7d6ab",
+            "altitude": 13.0
+          }
+        }
+      ],
+      "execution_check_apis": {
+        "logic": "and",
+        "checks": [
+          {
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 0.95
+            }
+          }
+        ]
+      },
+      "commands": [
+        "take_off",
+        "move_to"
+      ],
+      "is_done": false,
+      "is_passed": true,
+      "created_at": 1775667012.030862,
+      "last_updated": 1792048851.4319518
+    },
+    "details": {
+      "result": true,
+      "type": "logic",
+      "logic": "and",
+      "checks": [
+        {
+          "result": true,
+          "type": "check",
+          "endpoint": "/check/task_progress",
+          "parameters": {
+            "expected_progress": 0.95
+          },
+          "expected": null,
+          "check_response": {
+            "result": true,
+            "value": 1.0,
+            "session_id": "3973d0d6",
+            "expected_progress": 0.95,
+            "task_type": "target_assignment",
+            "progress_percentage": 100,
+            "is_completed": true
+          }
+        }
+      ]
+    }
+  }
+}

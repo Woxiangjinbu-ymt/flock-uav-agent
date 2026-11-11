@@ -1,0 +1,150 @@
+{
+  "rule": "scene x static skill observed/old; observed floor 1.25; unseen 2.0; token ratios not upper clipped",
+  "strata": [
+    {
+      "scene_id": "ad34350a",
+      "eligibility": "simple_chain",
+      "observed_n": 2,
+      "actual_tokens": 128256,
+      "old_tokens": 112849,
+      "raw_token_ratio": 1.1365275722425543,
+      "token_multiplier": 1.25,
+      "time_multiplier": 1.25
+    },
+    {
+      "scene_id": "ad34350a",
+      "eligibility": "unsupported",
+      "observed_n": 6,
+      "actual_tokens": 12740973,
+      "old_tokens": 2561774,
+      "raw_token_ratio": 4.9734961007489344,
+      "token_multiplier": 4.9734961007489344,
+      "time_multiplier": 2.050876271203924
+    },
+    {
+      "scene_id": "ef36e27a",
+      "eligibility": "simple_chain",
+      "observed_n": 0,
+      "actual_tokens": 0,
+      "old_tokens": 0,
+      "raw_token_ratio": null,
+      "token_multiplier": 2.0,
+      "time_multiplier": 2.0
+    },
+    {
+      "scene_id": "ef36e27a",
+      "eligibility": "unsupported",
+      "observed_n": 8,
+      "actual_tokens": 7641836,
+      "old_tokens": 4406112,
+      "raw_token_ratio": 1.7343717091167905,
+      "token_multiplier": 1.7343717091167905,
+      "time_multiplier": 1.4736768178640245
+    },
+    {
+      "scene_id": "3973d0d6",
+      "eligibility": "simple_chain",
+      "observed_n": 0,
+      "actual_tokens": 0,
+      "old_tokens": 0,
+      "raw_token_ratio": null,
+      "token_multiplier": 2.0,
+      "time_multiplier": 2.0
+    },
+    {
+      "scene_id": "3973d0d6",
+      "eligibility": "unsupported",
+      "observed_n": 6,
+      "actual_tokens": 2371439,
+      "old_tokens": 1680173,
+      "raw_token_ratio": 1.4114254901132204,
+      "token_multiplier": 1.4114254901132204,
+      "time_multiplier": 1.25
+    },
+    {
+      "scene_id": "3973d0d6",
+      "eligibility": "public_search",
+      "observed_n": 2,
+      "actual_tokens": 5275260,
+      "old_tokens": 98205,
+      "raw_token_ratio": 53.7168168626852,
+      "token_multiplier": 53.7168168626852,
+      "time_multiplier": 19.430950905504044
+    },
+    {
+      "scene_id": "823c15d5",
+      "eligibility": "simple_chain",
+      "observed_n": 0,
+      "actual_tokens": 0,
+      "old_tokens": 0,
+      "raw_token_ratio": null,
+      "token_multiplier": 2.0,
+      "time_multiplier": 2.0
+    },
+    {
+      "scene_id": "823c15d5",
+      "eligibility": "unsupported",
+      "observed_n": 8,
+      "actual_tokens": 26757862,
+      "old_tokens": 11692948,
+      "raw_token_ratio": 2.288376036564945,
+      "token_multiplier": 2.288376036564945,
+      "time_multiplier": 1.6978521759668725
+    },
+    {
+      "scene_id": "823c15d5",
+      "eligibility": "public_search",
+      "observed_n": 0,
+      "actual_tokens": 0,
+      "old_tokens": 0,
+      "raw_token_ratio": null,
+      "token_multiplier": 2.0,
+      "time_multiplier": 2.0
+    },
+    {
+      "scene_id": "35ce64d8",
+      "eligibility": "simple_chain",
+      "observed_n": 2,
+      "actual_tokens": 114934,
+      "old_tokens": 101638,
+      "raw_token_ratio": 1.130817214034121,
+      "token_multiplier": 1.25,
+      "time_multiplier": 1.25
+    },
+    {
+      "scene_id": "35ce64d8",
+      "eligibility": "unsupported",
+      "observed_n": 6,
+      "actual_tokens": 21069021,
+      "old_tokens": 3956444,
+      "raw_token_ratio": 5.325241808047833,
+      "token_multiplier": 5.325241808047833,
+      "time_multiplier": 2.6234064157431893
+    },
+    {
+      "scene_id": "35ce64d8",
+      "eligibility": "public_search",
+      "observed_n": 0,
+      "actual_tokens": 0,
+      "old_tokens": 0,
+      "raw_token_ratio": null,
+      "token_multiplier": 2.0,
+      "time_multiplier": 2.0
+    }
+  ],
+  "remaining_executions": 360,
+  "remaining_tokens": 1454856392,
+  "total_tokens_including_calibration": 1530955973,
+  "token_soft_stop": 1000000000,
+  "remaining_schedule_hours_slot_capped": 12.771928935259846,
+  "remaining_schedule_hours_uncapped_planning": 14.826386320403628,
+  "remaining_worker_load_seconds": {
+    "r1-w0": 20236.627303069676,
+    "r1-w1": 19570.698205769626,
+    "r2-w0": 25742.316863865763,
+    "r2-w1": 22213.686295112962
+  },
+  "stress_hours_500": 25.0,
+  "stress_hours_630": 31.5,
+  "note": "Planning extrapolation only, not a confidence interval or launch authorization. Time multiplier uses processing wall vs old ready; capped slots are not a completion guarantee."
+}

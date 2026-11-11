@@ -1,0 +1,2125 @@
+{
+  "attempt": "20261002-163926-pilot-8dd5f749",
+  "checked_at": "2026-10-02T18:01:48.644648+08:00",
+  "summary": {
+    "valid_complete_run": true,
+    "planned_tasks": 60,
+    "planned_checks": 345,
+    "scored_tasks": 60,
+    "scored_checks": 345,
+    "agent_timed_out_tasks": 1,
+    "timed_out_but_passed_tasks": 0,
+    "missing_or_invalid_tasks": 0,
+    "metrics": {
+      "passed_tasks": 55,
+      "task_pass": 0.9166666666666666,
+      "avg_check": 0.9751904496469712,
+      "global_check": 0.9217391304347826,
+      "total_failed": 0.0
+    }
+  },
+  "scenes": [
+    {
+      "id": "fb8971ec",
+      "name": "Area Assignment and Patrol Easy 1",
+      "passed_tasks": 19,
+      "tasks": 20,
+      "passed_checks": 86,
+      "checks": 87
+    },
+    {
+      "id": "5aabad33",
+      "name": "Area Search Easy 1",
+      "passed_tasks": 20,
+      "tasks": 20,
+      "passed_checks": 104,
+      "checks": 104
+    },
+    {
+      "id": "7f1a1456",
+      "name": "Target Assignment Easy 1",
+      "passed_tasks": 16,
+      "tasks": 20,
+      "passed_checks": 128,
+      "checks": 154
+    }
+  ],
+  "task_difficulties": {
+    "easy": 8,
+    "medium": 25,
+    "hard": 27
+  },
+  "verification": {
+    "summary_independently_recomputed": true,
+    "check_trees_replayed_from_saved_API_responses": 60,
+    "leaf_results_matched": 345,
+    "per_task_artifacts_checked": 420,
+    "all_worker_and_world_barriers_valid": true,
+    "agent_commands_started_after_cutoff": [],
+    "current_source_equal_run_snapshot": true,
+    "plan_and_benchmark_hashes_match": true,
+    "all_original_attempt_files_preserved": true
+  },
+  "runtime": {
+    "total_seconds": 3950.0,
+    "started_at": "2026-10-02T16:39:26+0800",
+    "finished_at": "2026-10-02T17:45:16+0800",
+    "median_job_seconds": 33.7973205,
+    "mean_job_seconds_including_cleanup": 58.02945365
+  },
+  "resources": {
+    "provider_completed_call_log_usage": {
+      "llm_calls": 729,
+      "prompt_tokens": 19813539,
+      "completion_tokens": 736767,
+      "total_tokens": 20550306
+    },
+    "provider_HTTP_status_counts": {
+      "200 OK": 729
+    },
+    "attempt_disk_bytes": 89890670,
+    "cache_hit_miss_breakdown_available": false,
+    "usage_scope": "Sum of logged completed provider responses, including timeout job and its in-flight response after action cutoff; not a billing statement."
+  },
+  "timeout_proofs": [
+    {
+      "task_id": "8e94af74",
+      "window": {
+        "lease": "4d537a0aee404349bf3cb67bd6148da7",
+        "opened_at": 1790933775.361391,
+        "cutoff_at": 1790934275.361391
+      },
+      "barrier": {
+        "lease": "4d537a0aee404349bf3cb67bd6148da7",
+        "quiescent": true,
+        "inflight_at_close": 0,
+        "inflight": 0,
+        "accepted_requests": 34,
+        "rejected_requests": 0,
+        "cutoff_at": 1790934275.361391,
+        "closed_at": 1790934275.393992,
+        "frozen_at": 1790934275.394101,
+        "simulation_paused": true
+      },
+      "worker_finished_at": "2026-10-02 17:44:39.653761",
+      "cleanup_after_cutoff_seconds": 4.292369842529297,
+      "trace_usage": {
+        "completion_tokens": 0,
+        "llm_calls": 0,
+        "prompt_tokens": 0,
+        "total_tokens": 0
+      },
+      "log_recovered_usage": {
+        "llm_calls": 18,
+        "prompt_tokens": 1454377,
+        "completion_tokens": 118417,
+        "total_tokens": 1572794
+      }
+    }
+  ],
+  "obstacle_conflicts": [
+    {
+      "task_id": "8f262d83",
+      "point": {
+        "x": 89.0,
+        "y": 547.0,
+        "z": 24.0
+      },
+      "obstacle": "Polygon Obstacle 4",
+      "obstacle_id": "a0972222",
+      "obstacle_height": 0.0,
+      "inside_by_upstream_model": true,
+      "distance_to_boundary": 24.030000000000005,
+      "check_tolerance": 3.0,
+      "entire_xy_tolerance_disk_inside": true
+    },
+    {
+      "task_id": "8f262d83",
+      "point": {
+        "x": 200.0,
+        "y": 593.0,
+        "z": 24.0
+      },
+      "obstacle": "Polygon Obstacle 4",
+      "obstacle_id": "a0972222",
+      "obstacle_height": 0.0,
+      "inside_by_upstream_model": true,
+      "distance_to_boundary": 16.969999999999995,
+      "check_tolerance": 3.0,
+      "entire_xy_tolerance_disk_inside": true
+    },
+    {
+      "task_id": "309500c5",
+      "point": {
+        "x": 171.0,
+        "y": 527.0,
+        "z": 23.0
+      },
+      "obstacle": "Polygon Obstacle 4",
+      "obstacle_id": "a0972222",
+      "obstacle_height": 0.0,
+      "inside_by_upstream_model": true,
+      "distance_to_boundary": 40.25,
+      "check_tolerance": 3.0,
+      "entire_xy_tolerance_disk_inside": true
+    }
+  ],
+  "failures": [
+    {
+      "session_id": "fb8971ec",
+      "task_id": "82077301",
+      "name": "Line Formation - 2 Drones 1",
+      "task_difficulty": "medium",
+      "task_pass": false,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 26.872446,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 122200,
+        "completion_tokens": 5536,
+        "total_tokens": 127736
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T165034034400_fb8971ec_943a434c-2d7a-4067-ad3e-61f0c91dad0e_completed.json",
+      "instruction": "Drones Drone 3 and Drone 5 form a line formation: both take off to 17 meters. Drone 3 positions at (454, 416, 17) and Drone 5 flys to (545, 609, 17) first, and then move to 19 meters at most to Drone 3. Both maintain formation for monitoring.",
+      "failed_checks": [
+        {
+          "type": "leaf",
+          "endpoint": "/check/two_drones_distance",
+          "parameters": {
+            "drone_1_id": "a1f8089f",
+            "drone_2_id": "530b5dfa",
+            "max_distance": 19.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 19.012,
+            "drone_1_id": "a1f8089f",
+            "drone_2_id": "530b5dfa",
+            "max_distance": 19.0,
+            "min_distance": 0.0
+          },
+          "depth": 1
+        }
+      ]
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "858bde51",
+      "name": "Fleet Target Sweep (3 Drones) 1",
+      "task_difficulty": "hard",
+      "task_pass": false,
+      "agent_timeout": false,
+      "passed_checks": 11,
+      "total_checks": 12,
+      "job_seconds_including_cleanup": 416.271762,
+      "recorded_llm_usage": {
+        "llm_calls": 38,
+        "prompt_tokens": 2804987,
+        "completion_tokens": 90778,
+        "total_tokens": 2895765
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T172732870066_7f1a1456_725d361d-7da8-414d-b1e8-39259d8b1b9d_completed.json",
+      "instruction": "Three-drone target sweep: Drone 5, Drone 4, and Drone 3 take off together to 18 meters altitude. Drone 5 flies to target Fixed Target 1, Drone 4 flies to target Fixed Target 3, and Drone 3 flies to target Fixed Target 2. After reaching the targets, all three drones move west for 65m, then south for 55m, then north for 71m together. Each drone must complete the specified directional movements (west 65m, south 55m, north 71m) regardless of starting position - if obstacles block the path, drones should adjust position as needed to complete the full directed distance in each heading.",
+      "failed_checks": [
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_moved_directed_distance",
+          "parameters": {
+            "drone_id": "5f4b5161",
+            "min_distance": 65.0,
+            "heading": 270,
+            "tolerance": 5.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0.0,
+            "drone_id": "5f4b5161",
+            "min_distance": 65.0,
+            "heading": 270.0,
+            "tolerance": 5.0,
+            "movement_count": 6,
+            "average_distance_per_move": 0.0
+          },
+          "depth": 1
+        }
+      ]
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "8f262d83",
+      "name": "Dual Flight Marathon Navigation",
+      "task_difficulty": "hard",
+      "task_pass": false,
+      "agent_timeout": false,
+      "passed_checks": 24,
+      "total_checks": 26,
+      "job_seconds_including_cleanup": 117.455012,
+      "recorded_llm_usage": {
+        "llm_calls": 20,
+        "prompt_tokens": 936076,
+        "completion_tokens": 27116,
+        "total_tokens": 963192
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T173120738017_7f1a1456_802f9901-8ae3-407d-a503-e085f8d5a519_completed.json",
+      "instruction": "Drones Drone 5 and Drone 1 perform a dual marathon flight at 24 meters. Drone 5 route: fly to and start at (54, 62, 24), then waypoints (118, 158, 24), (822, 260, 24), (165, 345, 24), (833, 383, 24), (89, 547, 24), (920, 546, 24), (124, 682, 24), (863, 723, 24), (347, 815, 24), (762, 941, 24), then end (959, 886, 24) and land. Drone 1 route: fly to and start at  (945, 110, 24), then waypoints (856, 157, 24), (218, 161, 24), (901, 269, 24), (193, 448, 24), (943, 538, 24), (200, 593, 24), (768, 715, 24), (181, 734, 24), (825, 773, 24), (332, 864, 24), then end (115, 938, 24) and land.",
+      "failed_checks": [
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "5f4b5161",
+            "x": 89.0,
+            "y": 547.0,
+            "z": 24.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "5f4b5161",
+            "target_position": {
+              "x": 89.0,
+              "y": 547.0,
+              "z": 24.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "0a5ff79b",
+            "x": 200.0,
+            "y": 593.0,
+            "z": 24.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "0a5ff79b",
+            "target_position": {
+              "x": 200.0,
+              "y": 593.0,
+              "z": 24.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        }
+      ]
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "309500c5",
+      "name": "Dual Flight Marathon Navigation",
+      "task_difficulty": "hard",
+      "task_pass": false,
+      "agent_timeout": false,
+      "passed_checks": 25,
+      "total_checks": 26,
+      "job_seconds_including_cleanup": 112.866762,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 207627,
+        "completion_tokens": 26973,
+        "total_tokens": 234600
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T173507118020_7f1a1456_356b66d1-290f-40b6-b1fe-6471e91009c4_completed.json",
+      "instruction": "Drones Drone 1 and Drone 2 perform a dual marathon flight at 23 meters. Drone 1 route: fly to and start at (53, 83, 23), then waypoints (183, 202, 23), (935, 203, 23), (240, 358, 23), (847, 389, 23), (171, 527, 23), (845, 571, 23), (170, 692, 23), (761, 757, 23), (293, 762, 23), (652, 835, 23), then end (909, 928, 23) and land. Drone 2 route: fly to and start at  (893, 96, 23), then waypoints (892, 160, 23), (86, 251, 23), (876, 274, 23), (119, 395, 23), (860, 480, 23), (217, 639, 23), (880, 651, 23), (169, 704, 23), (798, 803, 23), (376, 949, 23), then end (119, 918, 23) and land.",
+      "failed_checks": [
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "0a5ff79b",
+            "x": 171.0,
+            "y": 527.0,
+            "z": 23.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "0a5ff79b",
+            "target_position": {
+              "x": 171.0,
+              "y": 527.0,
+              "z": 23.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        }
+      ]
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "8e94af74",
+      "name": "Extreme Flight Marathon Navigation",
+      "task_difficulty": "hard",
+      "task_pass": false,
+      "agent_timeout": true,
+      "passed_checks": 1,
+      "total_checks": 23,
+      "job_seconds_including_cleanup": 504.291258,
+      "recorded_llm_usage": {
+        "llm_calls": 18,
+        "prompt_tokens": 1454377,
+        "completion_tokens": 118417,
+        "total_tokens": 1572794
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T174439648243_7f1a1456_20415372-a850-4ed3-816c-e92ee9f794f6_exception.json",
+      "instruction": "Drone 3 performs an extreme marathon flight. Take off to 27 meters, fly to start point (118, 72, 27), then zigzag across the full map through 20 intermediate waypoints: (99, 195, 27), (924, 165, 27), (200, 260, 27), (797, 286, 27), (127, 388, 27), (933, 496, 27), (237, 554, 27), (815, 650, 27), (105, 710, 27), (940, 761, 27), (233, 894, 27), (792, 932, 27), (496, 835, 27), (938, 543, 27), (55, 623, 27), (910, 380, 27), (107, 315, 27), (821, 80, 27), (312, 948, 27), (642, 537, 27). Avoid obstacles Polygon Obstacle 1, Polygon Obstacle 4, and Circle Obstacle 2. Finally, fly to end point (889, 910, 27) and land.",
+      "failed_checks": [
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 99.0,
+            "y": 195.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 99.0,
+              "y": 195.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 924.0,
+            "y": 165.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 924.0,
+              "y": 165.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 200.0,
+            "y": 260.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 200.0,
+              "y": 260.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 797.0,
+            "y": 286.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 797.0,
+              "y": 286.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 127.0,
+            "y": 388.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 127.0,
+              "y": 388.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 933.0,
+            "y": 496.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 933.0,
+              "y": 496.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 237.0,
+            "y": 554.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 237.0,
+              "y": 554.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 815.0,
+            "y": 650.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 815.0,
+              "y": 650.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 105.0,
+            "y": 710.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 105.0,
+              "y": 710.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 940.0,
+            "y": 761.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 940.0,
+              "y": 761.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 233.0,
+            "y": 894.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 233.0,
+              "y": 894.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 792.0,
+            "y": 932.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 792.0,
+              "y": 932.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 496.0,
+            "y": 835.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 496.0,
+              "y": 835.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 938.0,
+            "y": 543.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 938.0,
+              "y": 543.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 55.0,
+            "y": 623.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 55.0,
+              "y": 623.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 910.0,
+            "y": 380.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 910.0,
+              "y": 380.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 107.0,
+            "y": 315.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 107.0,
+              "y": 315.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 821.0,
+            "y": 80.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 821.0,
+              "y": 80.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 312.0,
+            "y": 948.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 312.0,
+              "y": 948.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_has_visited_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 642.0,
+            "y": 537.0,
+            "z": 27.0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 0,
+            "drone_id": "da04d07a",
+            "target_position": {
+              "x": 642.0,
+              "y": 537.0,
+              "z": 27.0
+            },
+            "tolerance": 3.0,
+            "closest_distance": null,
+            "first_visit_time": null,
+            "last_visit_time": null
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_position",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "x": 889.0,
+            "y": 910.0,
+            "z": 0,
+            "tolerance": 3.0
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 1138.721,
+            "drone_id": "da04d07a",
+            "current_position": {
+              "x": 118.0,
+              "y": 72.0,
+              "z": 27.0
+            },
+            "expected_position": {
+              "x": 889.0,
+              "y": 910.0,
+              "z": 0.0
+            },
+            "tolerance": 3.0
+          },
+          "depth": 1
+        },
+        {
+          "type": "leaf",
+          "endpoint": "/check/drone_on_ground",
+          "parameters": {
+            "drone_id": "da04d07a",
+            "tolerance": 0.5
+          },
+          "expect": true,
+          "actual": false,
+          "result": false,
+          "response": {
+            "result": false,
+            "value": 27.0,
+            "drone_id": "da04d07a",
+            "status": "hovering",
+            "tolerance": 0.5
+          },
+          "depth": 1
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "session_id": "fb8971ec",
+      "task_id": "c74d7020",
+      "name": "Basic Takeoff 1",
+      "task_difficulty": "easy",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 4.650133,
+      "recorded_llm_usage": {
+        "llm_calls": 5,
+        "prompt_tokens": 46968,
+        "completion_tokens": 497,
+        "total_tokens": 47465
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T163937507950_fb8971ec_bd72b19f-e693-4852-a9d2-f6a57fbb9134_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "d0ca7e20",
+      "name": "Simple Altitude Change 1",
+      "task_difficulty": "easy",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 6.884046,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 67663,
+        "completion_tokens": 682,
+        "total_tokens": 68345
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T163949968197_fb8971ec_6422fd39-34fa-4f63-be5e-8fc9156bce83_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "f24faf33",
+      "name": "Quick Checkpoint Visit 1",
+      "task_difficulty": "easy",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 1,
+      "total_checks": 1,
+      "job_seconds_including_cleanup": 7.960141,
+      "recorded_llm_usage": {
+        "llm_calls": 6,
+        "prompt_tokens": 58606,
+        "completion_tokens": 937,
+        "total_tokens": 59543
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164006232308_fb8971ec_43801f88-309d-4046-aa47-4c975574ef24_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "51a93646",
+      "name": "Extended Distance Flight Test 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 5,
+      "total_checks": 5,
+      "job_seconds_including_cleanup": 84.166257,
+      "recorded_llm_usage": {
+        "llm_calls": 23,
+        "prompt_tokens": 587775,
+        "completion_tokens": 17011,
+        "total_tokens": 604786
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164137615501_fb8971ec_0d07d424-e4ec-492e-a00d-67e27c78ba50_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "8a550b93",
+      "name": "Multi-Target Reach Verification 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 38.793402,
+      "recorded_llm_usage": {
+        "llm_calls": 11,
+        "prompt_tokens": 196574,
+        "completion_tokens": 7482,
+        "total_tokens": 204056
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164222570976_fb8971ec_0bc5dec3-08e8-474d-860c-2574fa99f489_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "eeea2dfe",
+      "name": "Multi-Target Reach Verification 2",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 114.405611,
+      "recorded_llm_usage": {
+        "llm_calls": 27,
+        "prompt_tokens": 950201,
+        "completion_tokens": 22940,
+        "total_tokens": 973141
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164423449894_fb8971ec_a187e81e-af1f-421c-b7f6-8461c98a7fe4_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "7190619b",
+      "name": "Complex Obstacle Course Navigation 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 6,
+      "total_checks": 6,
+      "job_seconds_including_cleanup": 29.330626,
+      "recorded_llm_usage": {
+        "llm_calls": 12,
+        "prompt_tokens": 259539,
+        "completion_tokens": 5853,
+        "total_tokens": 265392
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164458843365_fb8971ec_13e12c6e-9a3d-4a04-9b95-95b819fdb7a0_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "ace2f05a",
+      "name": "Complex Obstacle Course Navigation 2",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 6,
+      "total_checks": 6,
+      "job_seconds_including_cleanup": 37.312083,
+      "recorded_llm_usage": {
+        "llm_calls": 14,
+        "prompt_tokens": 281904,
+        "completion_tokens": 7100,
+        "total_tokens": 289004
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164542108009_fb8971ec_1a39f735-38e5-4807-85ea-fca88228d4a3_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "f780589a",
+      "name": "Complex Obstacle Course Navigation 3",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 6,
+      "total_checks": 6,
+      "job_seconds_including_cleanup": 39.358522,
+      "recorded_llm_usage": {
+        "llm_calls": 12,
+        "prompt_tokens": 250635,
+        "completion_tokens": 7843,
+        "total_tokens": 258478
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164629473761_fb8971ec_baa81aba-deea-4c19-b267-f542ba591e77_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "0bb6f04b",
+      "name": "Flight Marathon Navigation 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 13,
+      "total_checks": 13,
+      "job_seconds_including_cleanup": 67.89263,
+      "recorded_llm_usage": {
+        "llm_calls": 21,
+        "prompt_tokens": 790793,
+        "completion_tokens": 13351,
+        "total_tokens": 804144
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164743320283_fb8971ec_b597dacc-5d90-44dc-9735-8ef268c4cf7b_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "c44a0d8a",
+      "name": "Extended Hover Observation 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 11.937062,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 91152,
+        "completion_tokens": 1687,
+        "total_tokens": 92839
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164802759662_fb8971ec_e3bd239f-36bd-44b8-ac67-d8f4ac290f69_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "7ce76af0",
+      "name": "Multiple Target Inspection 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 19.017321,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 146577,
+        "completion_tokens": 3639,
+        "total_tokens": 150216
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164830130533_fb8971ec_a550e42d-5814-4e62-9b10-7f68efce4a6b_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "bcaf22cf",
+      "name": "Sequential Multi-Target Visit 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 52.38926,
+      "recorded_llm_usage": {
+        "llm_calls": 11,
+        "prompt_tokens": 245720,
+        "completion_tokens": 11438,
+        "total_tokens": 257158
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164928821622_fb8971ec_d8b4686c-0b5d-4f5b-9533-270995f6758d_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "0c07d7db",
+      "name": "Target Area Complete Coverage and Photography Mission 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 21.567386,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 115360,
+        "completion_tokens": 4428,
+        "total_tokens": 119788
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T164958380288_fb8971ec_ff8161be-17f6-47fd-ae09-f30a69957588_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "82077301",
+      "name": "Line Formation - 2 Drones 1",
+      "task_difficulty": "medium",
+      "task_pass": false,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 26.872446,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 122200,
+        "completion_tokens": 5536,
+        "total_tokens": 127736
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T165034034400_fb8971ec_943a434c-2d7a-4067-ad3e-61f0c91dad0e_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "51a76de4",
+      "name": "Multi-Target Survey Mission 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 17.695705,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 108519,
+        "completion_tokens": 3309,
+        "total_tokens": 111828
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T165100200427_fb8971ec_023cb2af-2c9b-46c2-8515-6c4f11c756e2_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "618cddae",
+      "name": "Multi-Target Survey Mission 2",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 13.419407,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 100421,
+        "completion_tokens": 2732,
+        "total_tokens": 103153
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T165121211651_fb8971ec_a93a6b33-2a86-4a2b-9196-703c8b5566c7_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "afa92e74",
+      "name": "Multiple Target Inspection - Advanced 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 12,
+      "total_checks": 12,
+      "job_seconds_including_cleanup": 33.929341,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 188111,
+        "completion_tokens": 7943,
+        "total_tokens": 196054
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T165201974272_fb8971ec_acb04d04-f97f-40d9-a8e4-f9d36c7f9214_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "6012c8ca",
+      "name": "Complete Area Coverage Search",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 9.819932,
+      "recorded_llm_usage": {
+        "llm_calls": 6,
+        "prompt_tokens": 73463,
+        "completion_tokens": 1248,
+        "total_tokens": 74711
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T165218252552_fb8971ec_2886d1b4-335e-4736-85bd-867f0dbecbf7_completed.json"
+    },
+    {
+      "session_id": "fb8971ec",
+      "task_id": "368b8113",
+      "name": "Dual Drone Area Coverage Search",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 5,
+      "total_checks": 5,
+      "job_seconds_including_cleanup": 14.493967,
+      "recorded_llm_usage": {
+        "llm_calls": 6,
+        "prompt_tokens": 82267,
+        "completion_tokens": 2787,
+        "total_tokens": 85054
+      },
+      "trace": "fb8971ec/agent-traces/toolchains/20261002T165238271368_fb8971ec_e548ab3f-0239-4f71-a800-2343f6f3ac24_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "7804b2d4",
+      "name": "Simple Altitude Change 1",
+      "task_difficulty": "easy",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 7.130126,
+      "recorded_llm_usage": {
+        "llm_calls": 6,
+        "prompt_tokens": 57717,
+        "completion_tokens": 673,
+        "total_tokens": 58390
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T165253679428_5aabad33_824ac024-2fd1-43bf-9393-c79bcc00eefb_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "f2360d0f",
+      "name": "Simple Rotation Test 1",
+      "task_difficulty": "easy",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 8.028287,
+      "recorded_llm_usage": {
+        "llm_calls": 6,
+        "prompt_tokens": 58261,
+        "completion_tokens": 821,
+        "total_tokens": 59082
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T165309747928_5aabad33_a461aeca-3d49-4853-b957-3591cdf76a5c_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "6c3f98ce",
+      "name": "Quick Checkpoint Visit 1",
+      "task_difficulty": "easy",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 1,
+      "total_checks": 1,
+      "job_seconds_including_cleanup": 8.724441,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 70598,
+        "completion_tokens": 1098,
+        "total_tokens": 71696
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T165325632934_5aabad33_c945275e-f578-44a6-bfdc-a7b134e7ec39_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "8317e8c5",
+      "name": "Fly Several Waypoints 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 5,
+      "total_checks": 5,
+      "job_seconds_including_cleanup": 37.881793,
+      "recorded_llm_usage": {
+        "llm_calls": 17,
+        "prompt_tokens": 260063,
+        "completion_tokens": 6925,
+        "total_tokens": 266988
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T165410024443_5aabad33_495c7671-3d10-4d9b-a31d-612c0dcb156b_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "dbf92bf0",
+      "name": "Multi-Target Reach Verification 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 144.894526,
+      "recorded_llm_usage": {
+        "llm_calls": 23,
+        "prompt_tokens": 999892,
+        "completion_tokens": 30702,
+        "total_tokens": 1030594
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T165642345311_5aabad33_112b7901-892b-4815-aabc-2b11f0182b99_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "7aa5bc18",
+      "name": "Obstacle Avoidance Navigation 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 42.673309,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 165676,
+        "completion_tokens": 9453,
+        "total_tokens": 175129
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T165730804685_5aabad33_0f8bc57f-047c-48eb-9ad6-4a7e266fea35_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "9c6d2867",
+      "name": "Complex Obstacle Course Navigation 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 6,
+      "total_checks": 6,
+      "job_seconds_including_cleanup": 67.54062,
+      "recorded_llm_usage": {
+        "llm_calls": 12,
+        "prompt_tokens": 300830,
+        "completion_tokens": 14427,
+        "total_tokens": 315257
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T165846087256_5aabad33_31c4a651-6c8d-4238-8855-c7f9a9fc2afc_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "e19f8be3",
+      "name": "Complex Obstacle Course Navigation 2",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 6,
+      "total_checks": 6,
+      "job_seconds_including_cleanup": 43.557879,
+      "recorded_llm_usage": {
+        "llm_calls": 14,
+        "prompt_tokens": 300883,
+        "completion_tokens": 8654,
+        "total_tokens": 309537
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T165937653649_5aabad33_25e2dea6-5d71-4d74-9728-9af9813557b4_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "679af165",
+      "name": "Flight Marathon Navigation 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 13,
+      "total_checks": 13,
+      "job_seconds_including_cleanup": 147.62493,
+      "recorded_llm_usage": {
+        "llm_calls": 25,
+        "prompt_tokens": 1009837,
+        "completion_tokens": 31475,
+        "total_tokens": 1041312
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170212179084_5aabad33_5681f911-b43c-439b-8e41-5c8ed8665512_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "9204fbea",
+      "name": "Target Inspection 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 11.608039,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 82826,
+        "completion_tokens": 1796,
+        "total_tokens": 84622
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170231838029_5aabad33_78ab47b6-6934-4343-8f2d-b88d51b8965e_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "f1fb82ff",
+      "name": "Target Area Complete Coverage and Photography Mission 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 40.446399,
+      "recorded_llm_usage": {
+        "llm_calls": 17,
+        "prompt_tokens": 358002,
+        "completion_tokens": 6776,
+        "total_tokens": 364778
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170321018592_5aabad33_63571604-8bf0-457f-9214-067eeacc4d77_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "ac132c21",
+      "name": "Multi-Waypoint Delivery Route 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 26.129323,
+      "recorded_llm_usage": {
+        "llm_calls": 13,
+        "prompt_tokens": 220073,
+        "completion_tokens": 4664,
+        "total_tokens": 224737
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170357240598_5aabad33_36fb3d32-9cf6-47b5-99d1-4a8839ceb0b6_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "dd1b2a10",
+      "name": "Communication Relay with Messages 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 12.097373,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 84445,
+        "completion_tokens": 1971,
+        "total_tokens": 86416
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170418729039_5aabad33_a918f239-2331-4139-96e2-08d1e51e5af0_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "327c10ae",
+      "name": "Communication Relay with Messages 2",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 11.219266,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 100795,
+        "completion_tokens": 1853,
+        "total_tokens": 102648
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170438331645_5aabad33_71c556bd-9c58-40b3-b413-b90eb7d2eea3_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "0b8a76b6",
+      "name": "Line Formation - 2 Drones 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 39.172262,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 145269,
+        "completion_tokens": 8744,
+        "total_tokens": 154013
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170526772038_5aabad33_1985f280-38b2-40ad-9803-bb122540d5dd_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "f45c2ca0",
+      "name": "Multi-Target Survey Mission 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 45.285069,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 171756,
+        "completion_tokens": 9861,
+        "total_tokens": 181617
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170618449139_5aabad33_380b70c3-292d-4022-8db1-6b59a0d81aed_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "fa22e107",
+      "name": "Multi-Target Survey Mission 2",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 13.66716,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 98371,
+        "completion_tokens": 2408,
+        "total_tokens": 100779
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170642375834_5aabad33_1c8dbd9d-202c-46d8-81ef-ad2a4a819ddd_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "46119630",
+      "name": "Complete Area Coverage Search",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 18.094257,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 110013,
+        "completion_tokens": 3024,
+        "total_tokens": 113037
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170707297170_5aabad33_46b8b636-5a4b-41cf-b5a9-656d123a77ff_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "90a5d6da",
+      "name": "Fleet Coordinated Takeoff and Formation (3 Drones)",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 12,
+      "total_checks": 12,
+      "job_seconds_including_cleanup": 26.3296,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 181807,
+        "completion_tokens": 5490,
+        "total_tokens": 187297
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170741072586_5aabad33_d2f35935-53c3-4022-ad02-efb92c73f0e3_completed.json"
+    },
+    {
+      "session_id": "5aabad33",
+      "task_id": "0cfbbd09",
+      "name": "Dual Flight Marathon Navigation",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 26,
+      "total_checks": 26,
+      "job_seconds_including_cleanup": 100.26689,
+      "recorded_llm_usage": {
+        "llm_calls": 24,
+        "prompt_tokens": 658336,
+        "completion_tokens": 21829,
+        "total_tokens": 680165
+      },
+      "trace": "5aabad33/agent-traces/toolchains/20261002T170930580696_5aabad33_f34e1dc6-d19c-42f0-a212-d33d6609d657_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "213cfacb",
+      "name": "Simple Rotation Test 1",
+      "task_difficulty": "easy",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 6.007942,
+      "recorded_llm_usage": {
+        "llm_calls": 6,
+        "prompt_tokens": 57219,
+        "completion_tokens": 531,
+        "total_tokens": 57750
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T170949274148_7f1a1456_5ef1ebad-fce4-49d4-a9a0-69e1cd163ae3_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "fa51b329",
+      "name": "Fly Several Waypoints 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 5,
+      "total_checks": 5,
+      "job_seconds_including_cleanup": 48.271378,
+      "recorded_llm_usage": {
+        "llm_calls": 16,
+        "prompt_tokens": 237111,
+        "completion_tokens": 9496,
+        "total_tokens": 246607
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171046718388_7f1a1456_0fdf3dbf-41c6-4b3d-ac16-719a044aa70a_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "c007cf48",
+      "name": "Obstacle Avoidance Navigation 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 131.472765,
+      "recorded_llm_usage": {
+        "llm_calls": 18,
+        "prompt_tokens": 475712,
+        "completion_tokens": 27316,
+        "total_tokens": 503028
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171305220676_7f1a1456_42729a94-46cb-4352-9de9-4578b320b13c_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "170c5173",
+      "name": "Search Task with Photo 1",
+      "task_difficulty": "easy",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 9.877756,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 81810,
+        "completion_tokens": 1178,
+        "total_tokens": 82988
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171324131758_7f1a1456_537ac9ba-2348-48e5-b8a8-324d59a573c6_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "064ff360",
+      "name": "Extended Hover Observation 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 57.186009,
+      "recorded_llm_usage": {
+        "llm_calls": 14,
+        "prompt_tokens": 242865,
+        "completion_tokens": 11634,
+        "total_tokens": 254499
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171426601265_7f1a1456_78b9bc07-73ce-4a5a-9459-71de861dafa5_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "b123758a",
+      "name": "Photo Documentation Mission 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 15.530643,
+      "recorded_llm_usage": {
+        "llm_calls": 10,
+        "prompt_tokens": 122131,
+        "completion_tokens": 2543,
+        "total_tokens": 124674
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171450268477_7f1a1456_6c18fcec-5a23-4c20-9489-9380f94c4397_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "225c1292",
+      "name": "Sequential Multi-Target Visit 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 110.829261,
+      "recorded_llm_usage": {
+        "llm_calls": 31,
+        "prompt_tokens": 1174921,
+        "completion_tokens": 21766,
+        "total_tokens": 1196687
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171650809807_7f1a1456_346c3199-a3d4-4ed7-912a-4835862afece_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "eb525ce3",
+      "name": "Delivery to Specific Location 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 29.195209,
+      "recorded_llm_usage": {
+        "llm_calls": 12,
+        "prompt_tokens": 191083,
+        "completion_tokens": 5726,
+        "total_tokens": 196809
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171729625561_7f1a1456_e0243650-26b9-478e-ac78-a73a0c4696e5_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "a5a30d4f",
+      "name": "Multi-Waypoint Delivery Route 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 31.44565,
+      "recorded_llm_usage": {
+        "llm_calls": 14,
+        "prompt_tokens": 265212,
+        "completion_tokens": 6261,
+        "total_tokens": 271473
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171807103675_7f1a1456_6ea5faca-f9dd-4235-92de-4c2758e2a463_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "5550f3a1",
+      "name": "Line Formation - 2 Drones 1",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 3,
+      "total_checks": 3,
+      "job_seconds_including_cleanup": 52.748197,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 130186,
+        "completion_tokens": 11860,
+        "total_tokens": 142046
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T171908652878_7f1a1456_d67d657e-d8a4-4d0c-802d-059c4edbd6d9_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "59238045",
+      "name": "Coordinated Search Sweep - 3 Drones 1",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 70.202845,
+      "recorded_llm_usage": {
+        "llm_calls": 11,
+        "prompt_tokens": 245319,
+        "completion_tokens": 15565,
+        "total_tokens": 260884
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T172026436200_7f1a1456_7a4563df-262e-47f1-823c-eea497375cee_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "858bde51",
+      "name": "Fleet Target Sweep (3 Drones) 1",
+      "task_difficulty": "hard",
+      "task_pass": false,
+      "agent_timeout": false,
+      "passed_checks": 11,
+      "total_checks": 12,
+      "job_seconds_including_cleanup": 416.271762,
+      "recorded_llm_usage": {
+        "llm_calls": 38,
+        "prompt_tokens": 2804987,
+        "completion_tokens": 90778,
+        "total_tokens": 2895765
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T172732870066_7f1a1456_725d361d-7da8-414d-b1e8-39259d8b1b9d_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "0883d483",
+      "name": "Target Assignment 50% Progress With 3 Targets",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 4,
+      "total_checks": 4,
+      "job_seconds_including_cleanup": 92.167745,
+      "recorded_llm_usage": {
+        "llm_calls": 11,
+        "prompt_tokens": 324675,
+        "completion_tokens": 20351,
+        "total_tokens": 345026
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T172914987339_7f1a1456_b1655c9d-236f-4c65-a099-87c3b8841094_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "8f262d83",
+      "name": "Dual Flight Marathon Navigation",
+      "task_difficulty": "hard",
+      "task_pass": false,
+      "agent_timeout": false,
+      "passed_checks": 24,
+      "total_checks": 26,
+      "job_seconds_including_cleanup": 117.455012,
+      "recorded_llm_usage": {
+        "llm_calls": 20,
+        "prompt_tokens": 936076,
+        "completion_tokens": 27116,
+        "total_tokens": 963192
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T173120738017_7f1a1456_802f9901-8ae3-407d-a503-e085f8d5a519_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "8c9da3d6",
+      "name": "Flight Marathon Navigation",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 13,
+      "total_checks": 13,
+      "job_seconds_including_cleanup": 97.111417,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 251981,
+        "completion_tokens": 22469,
+        "total_tokens": 274450
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T173305921354_7f1a1456_a0ac2c91-0b15-4c0b-b71d-e572816c1c34_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "309500c5",
+      "name": "Dual Flight Marathon Navigation",
+      "task_difficulty": "hard",
+      "task_pass": false,
+      "agent_timeout": false,
+      "passed_checks": 25,
+      "total_checks": 26,
+      "job_seconds_including_cleanup": 112.866762,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 207627,
+        "completion_tokens": 26973,
+        "total_tokens": 234600
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T173507118020_7f1a1456_356b66d1-290f-40b6-b1fe-6471e91009c4_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "98447d67",
+      "name": "Target Inspection",
+      "task_difficulty": "medium",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 2,
+      "total_checks": 2,
+      "job_seconds_including_cleanup": 13.216627,
+      "recorded_llm_usage": {
+        "llm_calls": 7,
+        "prompt_tokens": 91390,
+        "completion_tokens": 2030,
+        "total_tokens": 93420
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T173528041980_7f1a1456_5faeaf48-da6d-40b9-8e02-5ce04efb69c8_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "ecab0ffd",
+      "name": "Dual Drone Area Coverage Search",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 5,
+      "total_checks": 5,
+      "job_seconds_including_cleanup": 33.6653,
+      "recorded_llm_usage": {
+        "llm_calls": 9,
+        "prompt_tokens": 168752,
+        "completion_tokens": 7443,
+        "total_tokens": 176195
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T173608757476_7f1a1456_82edc50c-edd7-4399-821d-b31a45ff5387_completed.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "8e94af74",
+      "name": "Extreme Flight Marathon Navigation",
+      "task_difficulty": "hard",
+      "task_pass": false,
+      "agent_timeout": true,
+      "passed_checks": 1,
+      "total_checks": 23,
+      "job_seconds_including_cleanup": 504.291258,
+      "recorded_llm_usage": {
+        "llm_calls": 18,
+        "prompt_tokens": 1454377,
+        "completion_tokens": 118417,
+        "total_tokens": 1572794
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T174439648243_7f1a1456_20415372-a850-4ed3-816c-e92ee9f794f6_exception.json"
+    },
+    {
+      "session_id": "7f1a1456",
+      "task_id": "19ba4487",
+      "name": "Two Find Two Support",
+      "task_difficulty": "hard",
+      "task_pass": true,
+      "agent_timeout": false,
+      "passed_checks": 8,
+      "total_checks": 8,
+      "job_seconds_including_cleanup": 27.686854,
+      "recorded_llm_usage": {
+        "llm_calls": 8,
+        "prompt_tokens": 150207,
+        "completion_tokens": 6227,
+        "total_tokens": 156434
+      },
+      "trace": "7f1a1456/agent-traces/toolchains/20261002T174512644430_7f1a1456_9a71b0ee-85e7-4d2a-8e6f-0daecc19ae51_completed.json"
+    }
+  ],
+  "full_linear_extrapolation_not_forecast": {
+    "task_multiplier": 25,
+    "hours": 27.430555555555557,
+    "logged_total_tokens": 513757650,
+    "warning": "Pilot consists of three Easy 1 scenarios. Full has a different difficulty distribution; these are scale estimates, not an upper bound or promised runtime/cost."
+  },
+  "recommended_next_step": "Run the unchanged original Agent4Drone method on full under protocol v3 and current official deepseek-flash backend; report model/version and known benchmark conflicts separately. Do not delete failures, repair navigation or increase budgets in the primary baseline."
+}

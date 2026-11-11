@@ -1,0 +1,36 @@
+{
+  "report_time": "2026-10-05T09:06:27.663774+08:00",
+  "target_time": "2026-10-05T09:00:00+08:00",
+  "complete": false,
+  "blocking_reason": "Alibaba Cloud Model Studio returned HTTP 400 Arrearage at 2026-10-05 04:35:50 +08:00; account restoration required. No API retries made after blocker.",
+  "summary": {
+    "valid_complete_run": false,
+    "planned_tasks": 1500,
+    "planned_checks": 9396,
+    "scored_tasks": 1396,
+    "scored_checks": 8425,
+    "agent_timed_out_tasks": 202,
+    "timed_out_but_passed_tasks": 19,
+    "missing_or_invalid_tasks": 104,
+    "metrics": null
+  },
+  "completed_scenes": 64,
+  "remaining_scenes": [
+    "3ec31656",
+    "ccbe2537",
+    "cc14d231",
+    "9d4d90ca",
+    "79b207ff",
+    "823c15d5",
+    "ec1f47f4",
+    "5de86ceb",
+    "d23eb117",
+    "dcae50c1",
+    "1a9c1abc"
+  ],
+  "whole_scene_replay_tasks": 220,
+  "runner_active": false,
+  "preserve_all_completed_scenes_and_generations": true,
+  "blocker_evidence": "experiments/recovery/qwen38-blocked-20261005-043550-arrearage",
+  "final_results_published": false
+}

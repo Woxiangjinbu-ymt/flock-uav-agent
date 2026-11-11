@@ -1,0 +1,40 @@
+{
+  "inputs/start.json": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/trials/7eba7390-terminal_progress_v6/start.json",
+    "sha256": "c7d3c207eebc808456efe02715b0f70b9b75bedf3f7a59e0c23aeee4b0bf2062"
+  },
+  "inputs/harness.json": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/trials/7eba7390-terminal_progress_v6/harness.json",
+    "sha256": "921fd680b806c85c47092c63e14f66a6bfe380a198cf4afa2bfe8e248031221e"
+  },
+  "inputs/board-final.json": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/trials/7eba7390-terminal_progress_v6/board-final.json",
+    "sha256": "c6a7aa9de9504e1c843e87361f631c651d3c0bb82795562ca634ebd712d4c08a"
+  },
+  "inputs/public-task-api.jsonl": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/trials/7eba7390-terminal_progress_v6/public-api.jsonl",
+    "source_sha256": "5f0dd2c9c9454ace0c5820d6942c10899543fb43f2814744dbb1c92d5292fa4b",
+    "filter": "phase=task and origin.kind=skill; excludes preparation/evaluator/scoring",
+    "rows": 345
+  },
+  "source/agent4drone/coordinated_search_r2.py": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/source/agent4drone/coordinated_search_r2.py",
+    "sha256": "693093f3ffeba3f5aeaaa3bd747dff5b846f4d8672c02208f90d88366efa4f14"
+  },
+  "source/agent4drone/path_planning/path_finder.py": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/source/agent4drone/path_planning/path_finder.py",
+    "sha256": "aaef192bf8668ab7b36469930868695cbcae3f01aafcf7cdbbbfaf72695d373d"
+  },
+  "source/agent4drone/blackboard.py": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/source/agent4drone/blackboard.py",
+    "sha256": "cbb6efac0f97bf5035fdac41edb3ac509ccf529bc18f8788f9b9a59a3847f9d9"
+  },
+  "source/agent4drone/harness_skills.py": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/source/agent4drone/harness_skills.py",
+    "sha256": "6fa7161382f64eea46ce39e01e889c95a4b29900ecf795f9b94e0050163db844"
+  },
+  "source/agent4drone/task_evidence_r2.py": {
+    "source": "./docs/results/harness-terminal-progress-20261023/run-20261023-01/source/agent4drone/task_evidence_r2.py",
+    "sha256": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9"
+  }
+}

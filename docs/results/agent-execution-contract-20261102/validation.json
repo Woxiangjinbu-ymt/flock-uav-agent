@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "valid": true,
+  "provider_calls": 0,
+  "acceptance_sha256": "c383bb8768370eacedf4c69a286e18c32ecf2f275ff92a91e949e762896b9a49",
+  "auditor": {
+    "path": "scripts/audit_agent_workflow.py",
+    "sha256": "efa4ff17001b7b6772a9e93c2475c3088cde347acd10e495d1cf3b3dbe00151b"
+  },
+  "standard_library_only_parser_dependency": {
+    "path": "scripts/analyze_deepseek_behavior_pilot.py",
+    "sha256": "cc27ccce7d8bf0370ee4529f5d5f8c455a04229c6255ba7051f1ad1d25c7141f"
+  },
+  "independent_boundary_test_file": {
+    "path": "scripts/tests/test_agent_workflow_contract.py",
+    "sha256": "9d73cad29e2ac52d5eb837bde5599b6b1026b5609181606fbb968a16ed729ce8"
+  },
+  "sealed_runs": [
+    {
+      "run": "main-run-01",
+      "campaign_seal_sha256": "c964ba18e7b325dd53cabd17e03a0ca53fabe1be60dbbc0a960d7076e8b6f19e",
+      "manifest_sha256": "7698a31d6144b412b0b79eb523996bb8df659d915d83ce173ef032afdb3d6436",
+      "all_file_hashes_unchanged_after_audit_and_negative_probe": true
+    },
+    {
+      "run": "resume-run-01",
+      "campaign_seal_sha256": "dd2714b2a21563af2c928b47286ccb14140ed6ad4013b8976c9461f1ee55c390",
+      "manifest_sha256": "1669a93bb6eaacc04109c548597cecd60a88a27ae1d50c4acea0dd736de3e84e",
+      "all_file_hashes_unchanged_after_audit_and_negative_probe": true
+    },
+    {
+      "run": "budget-run-01",
+      "campaign_seal_sha256": "e77718b2c9f16b69ed06a54fcb7b4a9fd4bd721372e73b518b04cb552393e489",
+      "manifest_sha256": "bb8987b97976a5de7add92870017b143c97949f538a3aa03014690fcbeabad4d",
+      "all_file_hashes_unchanged_after_audit_and_negative_probe": true
+    },
+    {
+      "run": "unknown-run-01",
+      "campaign_seal_sha256": "fc4064968d9fb882b84afa15db7304cdf55aa0d677d37a05c1aad94824f57106",
+      "manifest_sha256": "62472e9cb9c648e368054f92e82997066fd30e47128573e0bccda4c01661b3b1",
+      "all_file_hashes_unchanged_after_audit_and_negative_probe": true
+    },
+    {
+      "run": "cancel-run-01",
+      "campaign_seal_sha256": "0d039bc567e7af7df55f3729efba01fdc79b3f9d3a2ebaf8117c96898cdd52f1",
+      "manifest_sha256": "fd9f09b5122716e0e7174218521a89f87b9b34dc4ea5e1a68ed1b1e56a0d12ef",
+      "all_file_hashes_unchanged_after_audit_and_negative_probe": true
+    },
+    {
+      "run": "timeout-run-01",
+      "campaign_seal_sha256": "58ea6bb2de08abda1c00ecc3478ccfbe0ee94305c3c0e29b42a4ffdff7c9d5ec",
+      "manifest_sha256": "d24502d71c855d94e1179ab7e580ec7442bd4a8f010c9832aa350f4a4d7b5020",
+      "all_file_hashes_unchanged_after_audit_and_negative_probe": true
+    },
+    {
+      "run": "undrained-run-01",
+      "campaign_seal_sha256": "c61ce1472a6e9bf3eefec985c549b38147468a4a9a2def2ce22f02774b608bb2",
+      "manifest_sha256": "ddb2deeb270cc738a60de47055859cc87c69285fbc922c8387b1fd5b7026ef16",
+      "all_file_hashes_unchanged_after_audit_and_negative_probe": true
+    },
+    {
+      "run": "deadline-run-01",
+      "campaign_seal_sha256": "4f353a07115295f219fc593674718a81b0777c8d18f6c469d9ecb8c0e80eaee5",
+      "manifest_sha256": "91f75f06734d14ea1cb1ce9153cea789dee47722f3dba0dfaa0643c15939875a",
+      "all_file_hashes_unchanged_after_audit_and_negative_probe": true
+    }
+  ],
+  "counts": {
+    "batches": 8,
+    "planned_slots": 14,
+    "executed_workers": 13,
+    "independent_scorers": 12,
+    "unstarted_slots": 1,
+    "executed_case_contracts": 13,
+    "case_assertions": 63,
+    "case_assertions_passed": 63
+  },
+  "count_semantics": "case_assertions counts explicit evidence predicates in acceptance.json, not pytest tests or natural-model samples",
+  "negative_probe": {
+    "scope": "disposable copy of final main-run-01 only",
+    "changed_file": "trials/raw_repair/evaluation/result.json",
+    "change": "appended one whitespace byte without resealing",
+    "rejected": true,
+    "error": "ValueError: Hash mismatch: trials/raw_repair/evaluation/result.json",
+    "behavior_metrics_withheld": true
+  },
+  "limitations": [
+    "real Agent/SDK/local ASGI with scripted Mock responses; no live provider",
+    "one known development task/scene; no natural ability or generalization claim",
+    "partial-effect ASGI recovery not included in this case matrix; module/lower-level checks are separate",
+    "after_unknown is unstarted, undrained is executed unsealed and unscored; neither becomes a failed scored task"
+  ]
+}

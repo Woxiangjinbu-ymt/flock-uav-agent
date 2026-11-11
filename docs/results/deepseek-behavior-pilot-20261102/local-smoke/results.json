@@ -1,0 +1,1826 @@
+[
+  {
+    "trial_id": "c00d8b78-baseline",
+    "arm": "baseline",
+    "task_id": "c00d8b78",
+    "processes": [
+      {
+        "event": "exit",
+        "mode": "worker",
+        "trial_id": "c00d8b78-baseline",
+        "pid": 24146,
+        "started_ns": 1793629442353291000,
+        "ended_ns": 1793629443647672000,
+        "elapsed_seconds": 1.2943908750021365,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "event": "exit",
+        "mode": "score",
+        "trial_id": "c00d8b78-baseline",
+        "pid": 24174,
+        "started_ns": 1793629443666678000,
+        "ended_ns": 1793629444149793000,
+        "elapsed_seconds": 0.4831190000040806,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "worker": {
+      "schema_version": 1,
+      "status": "completed",
+      "trial_id": "c00d8b78-baseline",
+      "task_id": "c00d8b78",
+      "pid": 24146,
+      "instance_nonce": "e388701fefb74edd83c829b1a400103c",
+      "initial": {
+        "original_state_sha256": "e5d545feea0b4251a465918036eda1d4fee9c5f717074d1698e36074a947f461",
+        "public_startup_sha256": "f8b693c3b74e117b2230dd912209a309658f76c1dfd04eaa1a2a33425bf92bd0",
+        "original_checker_tree_sha256": "0beb370a445d1d52aea79686b7e2ce848d94a6a5449d4a9464fe5d105499aa70",
+        "derived_state_sha256": "47726ca76bb54be19578d3bed43edc90f43515cf21efe22301c4d1addd03d37a"
+      },
+      "entry": {
+        "command_id": "95d0ed7f-02c3-4fc3-8538-8bb038a62d62",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "frames": 0,
+        "ledger_events": 0,
+        "ledger_model_requests": 0
+      },
+      "runtime": {
+        "task_seconds": 500,
+        "drain_seconds": 5.0,
+        "request_limits": {
+          "max_http_attempts": 12,
+          "max_total_tokens": 200000,
+          "max_output_tokens": 8192,
+          "per_request_timeout_seconds": 60.0
+        }
+      },
+      "budget_reference": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "elapsed": 0.16952362499432638,
+      "clock": "time.monotonic",
+      "timer_enabled": true,
+      "lifecycle": {
+        "requested_at": null,
+        "effective_at": null,
+        "cancelled": false,
+        "semantics": "freeze after acquiring world lock; in-flight actions are not retroactively cancelled"
+      },
+      "limits": {
+        "stop_reason": null,
+        "closed": true,
+        "admitted_http_attempts": 2,
+        "delegated_http_attempts": 2,
+        "known_total_tokens": 52,
+        "unknown_usage_attempts": 0,
+        "unknown_usage_attempt_ids": [],
+        "threads_still_alive": [],
+        "needs_process_termination": false,
+        "reusable": false,
+        "token_limit_scope": "measured_post_response_stop_not_hard_supplier_cost_cap",
+        "attempts": [
+          {
+            "attempt_id": 1,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "637b4b6cfc599322a08001f9c57894627e435b346784a142a95bacda3e564ef8",
+            "request_body_length": 40087,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.002307208997081034
+          },
+          {
+            "attempt_id": 2,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "b6728603da82485b613af92a7bb1c607507ffd3dfb5f4f6308110c5f7a2e3a9d",
+            "request_body_length": 41699,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.00226479100092547
+          }
+        ]
+      },
+      "drained": true,
+      "agent": {
+        "success": true,
+        "error_type": null,
+        "archive_info": {
+          "archive_id": "20868ab02a2d45269d478676defb04bc",
+          "episode_id": "20868ab02a2d45269d478676defb04bc",
+          "command_id": "95d0ed7f-02c3-4fc3-8538-8bb038a62d62",
+          "path": "./docs/results/deepseek-behavior-pilot-20261102/local-smoke/trials/c00d8b78-baseline/policy/modelio/model-io-20868ab02a2d45269d478676defb04bc.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 16,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 16,
+          "error_types": []
+        },
+        "harness_closed": true,
+        "harness_enabled": false
+      },
+      "isolation": {
+        "archive_unchanged_after_drain": true,
+        "world_unchanged_after_drain": true,
+        "late_action_rejected": true,
+        "canary_absent": true,
+        "checker_definitions_absent": true
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "actions": [],
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "1287ee0858697c1d0379a558d2e54d3e3c057fdfcb318ab6a639ff22bf6a851a",
+        "state_sha256": "eb9a26c6c0103dadef525cd6a056bd31c9cb9e56da24e60e46be3855f49329af",
+        "score_seconds": 0.1554455000004964
+      },
+      "online_arm": {
+        "arm": "baseline",
+        "task_progress_mode": "off",
+        "harness_revision": "none",
+        "harness_enabled": false,
+        "model": "deepseek-flash"
+      },
+      "files": {
+        "private/static-obstacles.json": "35b0d64f11910fbffc8644a68ed58f0734ff10e14734f44e5a27847343b80ed6",
+        "private/score-world.pkl": "1287ee0858697c1d0379a558d2e54d3e3c057fdfcb318ab6a639ff22bf6a851a",
+        "private/score-boundary.json": "cc49cd5877b26555bfac57373ba77cf84aea7d01a0e966be5d9ca9ab7dae0878",
+        "private/preparation-public-api.jsonl": "9ca458019ab768b0c0f7098b2614cf719218b31f447b14b6c341176c67fb2a64",
+        "private/lifecycle.json": "8a6cb7e4ceed83c8e72910c73d1f6d1253e853910a2673203dbf8b91a1efded9",
+        "private/request-limits.json": "63c2307e023db0ac68e739d4a3e64bfff4d09456d8593cdc3add19fda0c159b4",
+        "policy/execution-diagnostics.json": "126b0b07dc1918edaf15b5d966a7f40089c818545dce15e2521cc8faa7385f89",
+        "policy/harness.json": "0bf619751b96fb3299186a4ba17060b2d435196c357fb385be59a26b4bd284d5",
+        "policy/task-state.json": "c2eab5836dee4b3b1d3b6a26aca97ec41d63f9401065044363e7a25bab58097f",
+        "policy/agent-result.json": "c2369444d8832687aa24efd34c05f9fd9c864c9c552ed51e922b37c41ab40464",
+        "policy/agent-logs/agent4drone_deepseek_behavior_pilot_20261102_222402_24146.log": "7b3d87897b9ef727c87545c5ae4d5353b56e82efe965a79c00cafc887e6a0372",
+        "policy/worldlogs/public-api.jsonl": "dcd16b24ec1c8e7d0430801c8b677487eb25bdbc7e5069f9e8a60e8b890b5560",
+        "policy/modelio/model-io-20868ab02a2d45269d478676defb04bc.jsonl": "dabff242bb47d0d824c135896b3a249e7c16b130cf9ecd5c5a23631fcc35e3c3",
+        "policy/toolchain/20261102T222403420720_3973d0d6_95d0ed7f-02c3-4fc3-8538-8bb038a62d62_completed.json": "bf712e352cebf509552a113d9f4a55217007d94d1c522a88b2cc388bbec22e8f",
+        "policy/toolchain/20261102T222403420720_3973d0d6_95d0ed7f-02c3-4fc3-8538-8bb038a62d62_completed_request_history.jsonl": "e82b18a68f5bef6926fd502fa5c37bbe4db81818f6d0f2a525c74e31e43a7ac8"
+      }
+    },
+    "score": {
+      "trial_id": "c00d8b78-baseline",
+      "pid": 24174,
+      "worker_pid": 24146,
+      "checker": {
+        "passed": false,
+        "checks_passed": 0,
+        "checks_expected": 2,
+        "details": {
+          "result": false,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "492c9b8c",
+                "expected_heading": 96.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0.0,
+                "drone_id": "492c9b8c",
+                "expected_heading": 96.0,
+                "heading_delta": 96.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "492c9b8c",
+                "expected_altitude": 15.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0.0,
+                "drone_id": "492c9b8c",
+                "expected_altitude": 15.0,
+                "difference": -15.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "worker_result_sha256": "2a4d5f099eb7f2906017afe6217930fd07c93c196e711ed2e7292cb6902c8752",
+      "snapshot_sha256": "1287ee0858697c1d0379a558d2e54d3e3c057fdfcb318ab6a639ff22bf6a851a",
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    "result": {
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "Drone Drone 1 takes off to 15 meters altitude, then rotates to face heading 96 degrees and hovers.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "Local protocol stop. [TASK DONE]",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    }
+  },
+  {
+    "trial_id": "c00d8b78-integrated",
+    "arm": "integrated",
+    "task_id": "c00d8b78",
+    "processes": [
+      {
+        "event": "exit",
+        "mode": "worker",
+        "trial_id": "c00d8b78-integrated",
+        "pid": 24177,
+        "started_ns": 1793629444167196000,
+        "ended_ns": 1793629445513872000,
+        "elapsed_seconds": 1.3466860419939621,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "event": "exit",
+        "mode": "score",
+        "trial_id": "c00d8b78-integrated",
+        "pid": 24196,
+        "started_ns": 1793629445543918000,
+        "ended_ns": 1793629446025933000,
+        "elapsed_seconds": 0.482020041999931,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "worker": {
+      "schema_version": 1,
+      "status": "completed",
+      "trial_id": "c00d8b78-integrated",
+      "task_id": "c00d8b78",
+      "pid": 24177,
+      "instance_nonce": "29c5944fbc0c4d1281f9dce7aeae2a86",
+      "initial": {
+        "original_state_sha256": "e5d545feea0b4251a465918036eda1d4fee9c5f717074d1698e36074a947f461",
+        "public_startup_sha256": "f8b693c3b74e117b2230dd912209a309658f76c1dfd04eaa1a2a33425bf92bd0",
+        "original_checker_tree_sha256": "0beb370a445d1d52aea79686b7e2ce848d94a6a5449d4a9464fe5d105499aa70",
+        "derived_state_sha256": "47726ca76bb54be19578d3bed43edc90f43515cf21efe22301c4d1addd03d37a"
+      },
+      "entry": {
+        "command_id": "aa8ae029-1d98-470d-a32d-c51fc5391416",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "frames": 0,
+        "ledger_events": 0,
+        "ledger_model_requests": 0
+      },
+      "runtime": {
+        "task_seconds": 500,
+        "drain_seconds": 5.0,
+        "request_limits": {
+          "max_http_attempts": 12,
+          "max_total_tokens": 200000,
+          "max_output_tokens": 8192,
+          "per_request_timeout_seconds": 60.0
+        }
+      },
+      "budget_reference": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "elapsed": 0.2174826669943286,
+      "clock": "time.monotonic",
+      "timer_enabled": true,
+      "lifecycle": {
+        "requested_at": null,
+        "effective_at": null,
+        "cancelled": false,
+        "semantics": "freeze after acquiring world lock; in-flight actions are not retroactively cancelled"
+      },
+      "limits": {
+        "stop_reason": null,
+        "closed": true,
+        "admitted_http_attempts": 3,
+        "delegated_http_attempts": 3,
+        "known_total_tokens": 78,
+        "unknown_usage_attempts": 0,
+        "unknown_usage_attempt_ids": [],
+        "threads_still_alive": [],
+        "needs_process_termination": false,
+        "reusable": false,
+        "token_limit_scope": "measured_post_response_stop_not_hard_supplier_cost_cap",
+        "attempts": [
+          {
+            "attempt_id": 1,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "f7e1e984a9f150bf07778d32b4f0f16c9a18ce5f6f261cb253376d0f225f17dd",
+            "request_body_length": 46087,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.0029669579962501302
+          },
+          {
+            "attempt_id": 2,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "fe52d1e6d7f66ad98ef5bb2bacebeb4ce104aecc66bb6c3f31f7010d35fe323d",
+            "request_body_length": 47699,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.0025108749978244305
+          },
+          {
+            "attempt_id": 3,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "9f30e01ba351a025ec9c63bc4fd7a0737bf6ad5213a44a15fd73f1838cc70f8b",
+            "request_body_length": 49545,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.0025650829993537627
+          }
+        ]
+      },
+      "drained": true,
+      "agent": {
+        "success": true,
+        "error_type": null,
+        "archive_info": {
+          "archive_id": "0c27977529654721b689a0c4124e122b",
+          "episode_id": "0c27977529654721b689a0c4124e122b",
+          "command_id": "aa8ae029-1d98-470d-a32d-c51fc5391416",
+          "path": "./docs/results/deepseek-behavior-pilot-20261102/local-smoke/trials/c00d8b78-integrated/policy/modelio/model-io-0c27977529654721b689a0c4124e122b.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 24,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 24,
+          "error_types": []
+        },
+        "harness_closed": true,
+        "harness_enabled": true
+      },
+      "isolation": {
+        "archive_unchanged_after_drain": true,
+        "world_unchanged_after_drain": true,
+        "late_action_rejected": true,
+        "canary_absent": true,
+        "checker_definitions_absent": true
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 15.0,
+        "vertical_distance": 15.0,
+        "consumed_mah": 0.5304000000000002,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "request_id": 13,
+          "tool": "take_off",
+          "endpoint": "/drones/492c9b8c/command/take_off",
+          "params": {
+            "altitude": 15.0
+          },
+          "body": null,
+          "committed": true,
+          "status": "success"
+        },
+        {
+          "request_id": 16,
+          "tool": "rotate",
+          "endpoint": "/drones/492c9b8c/command/rotate",
+          "params": {
+            "heading": 96.0
+          },
+          "body": null,
+          "committed": true,
+          "status": "success"
+        },
+        {
+          "request_id": 19,
+          "tool": "hover",
+          "endpoint": "/drones/492c9b8c/command/hover",
+          "params": {},
+          "body": null,
+          "committed": true,
+          "status": "success"
+        }
+      ],
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "2f0f297a508ea8e989b194d2d83a24b52076c5ddd1021ddc2dc58bca6bafa57d",
+        "state_sha256": "0aa02801a2d9e87ead7df73108584fe38c2d73f088a2a98d24d78a91fa3ee4fa",
+        "score_seconds": 0.19194516699644737
+      },
+      "online_arm": {
+        "arm": "integrated",
+        "task_progress_mode": "evidence_harness",
+        "harness_revision": "observed_target_v7",
+        "harness_enabled": true,
+        "model": "deepseek-flash"
+      },
+      "files": {
+        "private/static-obstacles.json": "35b0d64f11910fbffc8644a68ed58f0734ff10e14734f44e5a27847343b80ed6",
+        "private/score-world.pkl": "2f0f297a508ea8e989b194d2d83a24b52076c5ddd1021ddc2dc58bca6bafa57d",
+        "private/score-boundary.json": "181360fe0a54d80b0f0ad8754826f66dea2395a0e6df264274e3b9128e112f20",
+        "private/preparation-public-api.jsonl": "9ca458019ab768b0c0f7098b2614cf719218b31f447b14b6c341176c67fb2a64",
+        "private/lifecycle.json": "8a6cb7e4ceed83c8e72910c73d1f6d1253e853910a2673203dbf8b91a1efded9",
+        "private/request-limits.json": "277fa94d62085c1271d822a8a04fa01a10e84c285d14629a8612582f7babe7cb",
+        "policy/execution-diagnostics.json": "4d324e717ef81b11ce408e90e1add9d654a2b3ad733fb5bda1746dabb7771c80",
+        "policy/harness.json": "0ecceda080aec7a554339c152af263e825d197d36181a4c528c6443f12e146c1",
+        "policy/task-state.json": "1350dcaadc38a7702ecb37bb7f375a5ce1e0c697fe0567556cd41313215bd21f",
+        "policy/agent-result.json": "9a657105df2bda3d95196e1323a870cf89def6c7582cc739d6d489832e3e71ac",
+        "policy/agent-logs/agent4drone_deepseek_behavior_pilot_20261102_222404_24177.log": "2ed98032be6bb1bfba15ec7194396479fdbc2beff689eba1956e887404f863f1",
+        "policy/worldlogs/physical-events.jsonl": "8a59cab794a3ddf55be8623da7d24482413196e7da9e5363d6b29acb0a71e10b",
+        "policy/worldlogs/public-api.jsonl": "c003b3399a3561cc9b25c268e93f3ecbb6d5103ac5188dc20f0fd0036ac992be",
+        "policy/modelio/model-io-0c27977529654721b689a0c4124e122b.jsonl": "1f1c953b7b89ee209f170e7f4cc8f4f526eab786e39626e7b3b6cdb50a859c7e",
+        "policy/toolchain/20261102T222405272101_3973d0d6_aa8ae029-1d98-470d-a32d-c51fc5391416_completed_request_history.jsonl": "5da431b0965a2992c9f655d56065f45bfdfab2a0fc048663f72d2a2c88e0c82f",
+        "policy/toolchain/20261102T222405272101_3973d0d6_aa8ae029-1d98-470d-a32d-c51fc5391416_completed.json": "eddb4fad5c68ef77f2d2aee3092c834fd64abbfb56dcf1cb7c6177e422a02ec5"
+      }
+    },
+    "score": {
+      "trial_id": "c00d8b78-integrated",
+      "pid": 24196,
+      "worker_pid": 24177,
+      "checker": {
+        "passed": true,
+        "checks_passed": 2,
+        "checks_expected": 2,
+        "details": {
+          "result": true,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "492c9b8c",
+                "expected_heading": 96.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 96.0,
+                "drone_id": "492c9b8c",
+                "expected_heading": 96.0,
+                "heading_delta": 0.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "492c9b8c",
+                "expected_altitude": 15.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 15.0,
+                "drone_id": "492c9b8c",
+                "expected_altitude": 15.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "worker_result_sha256": "3877f7adea9effb58575386fb2ea410e5c41d139ddf6dba2c440e501caa7b726",
+      "snapshot_sha256": "2f0f297a508ea8e989b194d2d83a24b52076c5ddd1021ddc2dc58bca6bafa57d",
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    "result": {
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "Drone Drone 1 takes off to 15 meters altitude, then rotates to face heading 96 degrees and hovers.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "Local protocol stop. [TASK DONE]",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": true,
+        "artifact": "evaluation/result.json"
+      }
+    }
+  },
+  {
+    "trial_id": "b4714028-integrated",
+    "arm": "integrated",
+    "task_id": "b4714028",
+    "processes": [
+      {
+        "event": "exit",
+        "mode": "worker",
+        "trial_id": "b4714028-integrated",
+        "pid": 24203,
+        "started_ns": 1793629446044006000,
+        "ended_ns": 1793629447336646000,
+        "elapsed_seconds": 1.2926503339986084,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "event": "exit",
+        "mode": "score",
+        "trial_id": "b4714028-integrated",
+        "pid": 24212,
+        "started_ns": 1793629447357517000,
+        "ended_ns": 1793629447842333000,
+        "elapsed_seconds": 0.4848199170010048,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "worker": {
+      "schema_version": 1,
+      "status": "completed",
+      "trial_id": "b4714028-integrated",
+      "task_id": "b4714028",
+      "pid": 24203,
+      "instance_nonce": "ecfeba824b3049cb847e8269f809410d",
+      "initial": {
+        "original_state_sha256": "e5d545feea0b4251a465918036eda1d4fee9c5f717074d1698e36074a947f461",
+        "public_startup_sha256": "f8b693c3b74e117b2230dd912209a309658f76c1dfd04eaa1a2a33425bf92bd0",
+        "original_checker_tree_sha256": "b44e9daf59745d25003b8d68616855e4975f709cb8435e97ef503d93f16a18c5",
+        "derived_state_sha256": "bd5074cfdba729caaaf22a53d35d051194346cb3aacb4be0e5ee3034c51fbd40"
+      },
+      "entry": {
+        "command_id": "8ab2db6b-f325-4e2f-bb36-0f6a485f61f4",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "frames": 0,
+        "ledger_events": 0,
+        "ledger_model_requests": 0
+      },
+      "runtime": {
+        "task_seconds": 500,
+        "drain_seconds": 5.0,
+        "request_limits": {
+          "max_http_attempts": 12,
+          "max_total_tokens": 200000,
+          "max_output_tokens": 8192,
+          "per_request_timeout_seconds": 60.0
+        }
+      },
+      "budget_reference": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "elapsed": 0.17079741699853912,
+      "clock": "time.monotonic",
+      "timer_enabled": true,
+      "lifecycle": {
+        "requested_at": null,
+        "effective_at": null,
+        "cancelled": false,
+        "semantics": "freeze after acquiring world lock; in-flight actions are not retroactively cancelled"
+      },
+      "limits": {
+        "stop_reason": null,
+        "closed": true,
+        "admitted_http_attempts": 2,
+        "delegated_http_attempts": 2,
+        "known_total_tokens": 52,
+        "unknown_usage_attempts": 0,
+        "unknown_usage_attempt_ids": [],
+        "threads_still_alive": [],
+        "needs_process_termination": false,
+        "reusable": false,
+        "token_limit_scope": "measured_post_response_stop_not_hard_supplier_cost_cap",
+        "attempts": [
+          {
+            "attempt_id": 1,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "170b6c59321fd18409db3d79e40cffc8d4b5154b4dcd955aa25c9984d531caa4",
+            "request_body_length": 46085,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.0029884999967180192
+          },
+          {
+            "attempt_id": 2,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "f1e17598738fdedaf6faca2e1b5504bc0acaa05783fc5835a72165b052f90571",
+            "request_body_length": 47697,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.002493416002835147
+          }
+        ]
+      },
+      "drained": true,
+      "agent": {
+        "success": true,
+        "error_type": null,
+        "archive_info": {
+          "archive_id": "d745a38b012449c298c84c7c888a4fcd",
+          "episode_id": "d745a38b012449c298c84c7c888a4fcd",
+          "command_id": "8ab2db6b-f325-4e2f-bb36-0f6a485f61f4",
+          "path": "./docs/results/deepseek-behavior-pilot-20261102/local-smoke/trials/b4714028-integrated/policy/modelio/model-io-d745a38b012449c298c84c7c888a4fcd.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 16,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 16,
+          "error_types": []
+        },
+        "harness_closed": true,
+        "harness_enabled": true
+      },
+      "isolation": {
+        "archive_unchanged_after_drain": true,
+        "world_unchanged_after_drain": true,
+        "late_action_rejected": true,
+        "canary_absent": true,
+        "checker_definitions_absent": true
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "actions": [],
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "01d7ccb819b1679c74ee2547555a72749ed7cfbad0181c748e597049ef859a56",
+        "state_sha256": "82876a221ccd30aa5f2cd6d5b4ee82287d08b3a206b9175d472e69aba319262f",
+        "score_seconds": 0.15593833399907453
+      },
+      "online_arm": {
+        "arm": "integrated",
+        "task_progress_mode": "evidence_harness",
+        "harness_revision": "observed_target_v7",
+        "harness_enabled": true,
+        "model": "deepseek-flash"
+      },
+      "files": {
+        "private/static-obstacles.json": "35b0d64f11910fbffc8644a68ed58f0734ff10e14734f44e5a27847343b80ed6",
+        "private/score-world.pkl": "01d7ccb819b1679c74ee2547555a72749ed7cfbad0181c748e597049ef859a56",
+        "private/score-boundary.json": "2ac41bb5c7022e6d44c5de81093af167b9d3217d7e1f06d4de64e8013adcca0d",
+        "private/preparation-public-api.jsonl": "9ca458019ab768b0c0f7098b2614cf719218b31f447b14b6c341176c67fb2a64",
+        "private/lifecycle.json": "8a6cb7e4ceed83c8e72910c73d1f6d1253e853910a2673203dbf8b91a1efded9",
+        "private/request-limits.json": "caee3fc83d2adfaf4b04efa7cbbbf68bbf51faa9941c6f874199493c0083905b",
+        "policy/execution-diagnostics.json": "126b0b07dc1918edaf15b5d966a7f40089c818545dce15e2521cc8faa7385f89",
+        "policy/harness.json": "9d53d428d38c55ab491c52cf556bcff11e6fadd722ac0bfb722198b8445c781c",
+        "policy/task-state.json": "644c20fd5c325a9cec81a36bedac015aca79f93f80f73fd64c3a21c065210ef4",
+        "policy/agent-result.json": "bb5e18555938a09417ddfbf9e6ae3f269c2f4d428d8da8962bd115dd75fa1a50",
+        "policy/agent-logs/agent4drone_deepseek_behavior_pilot_20261102_222406_24203.log": "9059c228138e23913b42f8abb7326daf62542133b24625791d716065f13a4943",
+        "policy/worldlogs/public-api.jsonl": "c41547040639ae9d9c36fdaaadafeef7ebc74103900e6f13816bf180daa1159e",
+        "policy/modelio/model-io-d745a38b012449c298c84c7c888a4fcd.jsonl": "7bcb55e7e6e54d7c13a688ee7913ce1e61c0263f14a590280fd8dd2dc68a14f5",
+        "policy/toolchain/20261102T222407107653_3973d0d6_8ab2db6b-f325-4e2f-bb36-0f6a485f61f4_completed.json": "4e940aa857178eef1f56766db50f72822a1e6006f3326a6af62ee371eac3b040",
+        "policy/toolchain/20261102T222407107653_3973d0d6_8ab2db6b-f325-4e2f-bb36-0f6a485f61f4_completed_request_history.jsonl": "d7dfde6f50b5ae1f6a8cb9f61825fe3888e088be50e57aa26fb573a1bc249495"
+      }
+    },
+    "score": {
+      "trial_id": "b4714028-integrated",
+      "pid": 24212,
+      "worker_pid": 24203,
+      "checker": {
+        "passed": false,
+        "checks_passed": 0,
+        "checks_expected": 1,
+        "details": {
+          "result": false,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "d99f1904",
+                "x": 544.0,
+                "y": 393.0,
+                "z": 15.0,
+                "tolerance": 3.0,
+                "since_timestamp": 1802649600.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0,
+                "drone_id": "d99f1904",
+                "target_position": {
+                  "x": 544.0,
+                  "y": 393.0,
+                  "z": 15.0
+                },
+                "tolerance": 3.0,
+                "closest_distance": null,
+                "first_visit_time": null,
+                "last_visit_time": null
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "worker_result_sha256": "710971475472c269bf08658ed4e61b669500686fc41b2db3c9e1ceff010928db",
+      "snapshot_sha256": "01d7ccb819b1679c74ee2547555a72749ed7cfbad0181c748e597049ef859a56",
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    "result": {
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "Drone Drone 3 takes off to 15 meters, flies to checkpoint at (544, 393, 15), and hovers briefly.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "Local protocol stop. [TASK DONE]",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    }
+  },
+  {
+    "trial_id": "b4714028-baseline",
+    "arm": "baseline",
+    "task_id": "b4714028",
+    "processes": [
+      {
+        "event": "exit",
+        "mode": "worker",
+        "trial_id": "b4714028-baseline",
+        "pid": 24220,
+        "started_ns": 1793629447861487000,
+        "ended_ns": 1793629449159293000,
+        "elapsed_seconds": 1.2978172910006833,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "event": "exit",
+        "mode": "score",
+        "trial_id": "b4714028-baseline",
+        "pid": 24230,
+        "started_ns": 1793629449183375000,
+        "ended_ns": 1793629449664443000,
+        "elapsed_seconds": 0.48107216700009303,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "worker": {
+      "schema_version": 1,
+      "status": "completed",
+      "trial_id": "b4714028-baseline",
+      "task_id": "b4714028",
+      "pid": 24220,
+      "instance_nonce": "408041e94b9c462fac91eff01419ef6b",
+      "initial": {
+        "original_state_sha256": "e5d545feea0b4251a465918036eda1d4fee9c5f717074d1698e36074a947f461",
+        "public_startup_sha256": "f8b693c3b74e117b2230dd912209a309658f76c1dfd04eaa1a2a33425bf92bd0",
+        "original_checker_tree_sha256": "b44e9daf59745d25003b8d68616855e4975f709cb8435e97ef503d93f16a18c5",
+        "derived_state_sha256": "bd5074cfdba729caaaf22a53d35d051194346cb3aacb4be0e5ee3034c51fbd40"
+      },
+      "entry": {
+        "command_id": "e0cf4238-c52d-499d-b33f-886b0ad777bc",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "frames": 0,
+        "ledger_events": 0,
+        "ledger_model_requests": 0
+      },
+      "runtime": {
+        "task_seconds": 500,
+        "drain_seconds": 5.0,
+        "request_limits": {
+          "max_http_attempts": 12,
+          "max_total_tokens": 200000,
+          "max_output_tokens": 8192,
+          "per_request_timeout_seconds": 60.0
+        }
+      },
+      "budget_reference": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "elapsed": 0.1688018339991686,
+      "clock": "time.monotonic",
+      "timer_enabled": true,
+      "lifecycle": {
+        "requested_at": null,
+        "effective_at": null,
+        "cancelled": false,
+        "semantics": "freeze after acquiring world lock; in-flight actions are not retroactively cancelled"
+      },
+      "limits": {
+        "stop_reason": null,
+        "closed": true,
+        "admitted_http_attempts": 2,
+        "delegated_http_attempts": 2,
+        "known_total_tokens": 52,
+        "unknown_usage_attempts": 0,
+        "unknown_usage_attempt_ids": [],
+        "threads_still_alive": [],
+        "needs_process_termination": false,
+        "reusable": false,
+        "token_limit_scope": "measured_post_response_stop_not_hard_supplier_cost_cap",
+        "attempts": [
+          {
+            "attempt_id": 1,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "4f740433e3ed38c601fa81a8b6bd1cef4c3b6f2a3071d3260d88b389e0dbfb98",
+            "request_body_length": 40085,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.0031419579972862266
+          },
+          {
+            "attempt_id": 2,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "75149dcd160aec061af83bd95d8b9cd41d1fa7ce5d6683c8c261988b176508a1",
+            "request_body_length": 41697,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.003209041999070905
+          }
+        ]
+      },
+      "drained": true,
+      "agent": {
+        "success": true,
+        "error_type": null,
+        "archive_info": {
+          "archive_id": "0d9d8df661e64f25be318c370fefbd78",
+          "episode_id": "0d9d8df661e64f25be318c370fefbd78",
+          "command_id": "e0cf4238-c52d-499d-b33f-886b0ad777bc",
+          "path": "./docs/results/deepseek-behavior-pilot-20261102/local-smoke/trials/b4714028-baseline/policy/modelio/model-io-0d9d8df661e64f25be318c370fefbd78.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 16,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 16,
+          "error_types": []
+        },
+        "harness_closed": true,
+        "harness_enabled": false
+      },
+      "isolation": {
+        "archive_unchanged_after_drain": true,
+        "world_unchanged_after_drain": true,
+        "late_action_rejected": true,
+        "canary_absent": true,
+        "checker_definitions_absent": true
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "actions": [],
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "ad5dba6be30818b2c58c248efb0bf07cc3c6dfbc8f72a2e5c7d50352966619dc",
+        "state_sha256": "7a042aa4af2471488ded042ab7a9217e45764f1b4bcf7968be3bd0b2166d366e",
+        "score_seconds": 0.1555264589987928
+      },
+      "online_arm": {
+        "arm": "baseline",
+        "task_progress_mode": "off",
+        "harness_revision": "none",
+        "harness_enabled": false,
+        "model": "deepseek-flash"
+      },
+      "files": {
+        "private/static-obstacles.json": "35b0d64f11910fbffc8644a68ed58f0734ff10e14734f44e5a27847343b80ed6",
+        "private/score-world.pkl": "ad5dba6be30818b2c58c248efb0bf07cc3c6dfbc8f72a2e5c7d50352966619dc",
+        "private/score-boundary.json": "c30276e8d8002ebe7bfc036860952595c2c3e0f23eaf7cf0ab47fd139b142c8c",
+        "private/preparation-public-api.jsonl": "9ca458019ab768b0c0f7098b2614cf719218b31f447b14b6c341176c67fb2a64",
+        "private/lifecycle.json": "8a6cb7e4ceed83c8e72910c73d1f6d1253e853910a2673203dbf8b91a1efded9",
+        "private/request-limits.json": "e86801a1ff4e8855bdb5e1eeb66bee625133afe2d0432b5c593252635a6722c6",
+        "policy/execution-diagnostics.json": "126b0b07dc1918edaf15b5d966a7f40089c818545dce15e2521cc8faa7385f89",
+        "policy/harness.json": "0bf619751b96fb3299186a4ba17060b2d435196c357fb385be59a26b4bd284d5",
+        "policy/task-state.json": "d360705866a0fcee1beb177296fe95dba6d15c73059e2aee8b1e26da92aec34b",
+        "policy/agent-result.json": "ad7f210c8d097ce97d3a184c8ee06fd7a2a0654b89a8dca40ebece7334bf2c0f",
+        "policy/agent-logs/agent4drone_deepseek_behavior_pilot_20261102_222408_24220.log": "482e7353a7f5d678ff6b4ee0c4aa86e07c8a61dbd742e92043a912ad4c1fff58",
+        "policy/worldlogs/public-api.jsonl": "7e126ce599576abf817abca141684e22f90d1e142fc839539db1252a686ae5c3",
+        "policy/modelio/model-io-0d9d8df661e64f25be318c370fefbd78.jsonl": "e7e55706008df39eea6f82d4d483df54331fa36beeeb4effe0ab3577e628ab43",
+        "policy/toolchain/20261102T222408922381_3973d0d6_e0cf4238-c52d-499d-b33f-886b0ad777bc_completed.json": "00eac901da95909493b362b15ef69f75218b99c62c5fe2a71144f229018d4868",
+        "policy/toolchain/20261102T222408922381_3973d0d6_e0cf4238-c52d-499d-b33f-886b0ad777bc_completed_request_history.jsonl": "ba3bd75c4b1a5ff307c5dec3bce5da4bca904ea259e3eae41bffcc2a75ab74be"
+      }
+    },
+    "score": {
+      "trial_id": "b4714028-baseline",
+      "pid": 24230,
+      "worker_pid": 24220,
+      "checker": {
+        "passed": false,
+        "checks_passed": 0,
+        "checks_expected": 1,
+        "details": {
+          "result": false,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/drone_has_visited_position",
+              "parameters": {
+                "drone_id": "d99f1904",
+                "x": 544.0,
+                "y": 393.0,
+                "z": 15.0,
+                "tolerance": 3.0,
+                "since_timestamp": 1802649600.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0,
+                "drone_id": "d99f1904",
+                "target_position": {
+                  "x": 544.0,
+                  "y": 393.0,
+                  "z": 15.0
+                },
+                "tolerance": 3.0,
+                "closest_distance": null,
+                "first_visit_time": null,
+                "last_visit_time": null
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "worker_result_sha256": "65a10fcb8e29018341697bd6248e33ee7e8346ad0d09bf61189ce312fbbf3280",
+      "snapshot_sha256": "ad5dba6be30818b2c58c248efb0bf07cc3c6dfbc8f72a2e5c7d50352966619dc",
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    "result": {
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "Drone Drone 3 takes off to 15 meters, flies to checkpoint at (544, 393, 15), and hovers briefly.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "Local protocol stop. [TASK DONE]",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    }
+  },
+  {
+    "trial_id": "7eba7390-baseline",
+    "arm": "baseline",
+    "task_id": "7eba7390",
+    "processes": [
+      {
+        "event": "exit",
+        "mode": "worker",
+        "trial_id": "7eba7390-baseline",
+        "pid": 24231,
+        "started_ns": 1793629449684910000,
+        "ended_ns": 1793629450964356000,
+        "elapsed_seconds": 1.279455791998771,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "event": "exit",
+        "mode": "score",
+        "trial_id": "7eba7390-baseline",
+        "pid": 24246,
+        "started_ns": 1793629450984691000,
+        "ended_ns": 1793629451470054000,
+        "elapsed_seconds": 0.48536758300178917,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "worker": {
+      "schema_version": 1,
+      "status": "completed",
+      "trial_id": "7eba7390-baseline",
+      "task_id": "7eba7390",
+      "pid": 24231,
+      "instance_nonce": "bd2bdba2d869424d93558c3c4f02c0e0",
+      "initial": {
+        "original_state_sha256": "e5d545feea0b4251a465918036eda1d4fee9c5f717074d1698e36074a947f461",
+        "public_startup_sha256": "f8b693c3b74e117b2230dd912209a309658f76c1dfd04eaa1a2a33425bf92bd0",
+        "original_checker_tree_sha256": "526c9e6101dab87bed6ef354a2692cd40e7ec8f124870fba2c7375b4bed41eee",
+        "derived_state_sha256": "fed14bf8693303e6de711e3cc91de9a276c337a2d15f717ec69bed28d52f74a6"
+      },
+      "entry": {
+        "command_id": "fb459783-30b3-4822-9959-1892d23eb859",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "frames": 0,
+        "ledger_events": 0,
+        "ledger_model_requests": 0
+      },
+      "runtime": {
+        "task_seconds": 500,
+        "drain_seconds": 5.0,
+        "request_limits": {
+          "max_http_attempts": 12,
+          "max_total_tokens": 200000,
+          "max_output_tokens": 8192,
+          "per_request_timeout_seconds": 60.0
+        }
+      },
+      "budget_reference": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "elapsed": 0.16762545899837278,
+      "clock": "time.monotonic",
+      "timer_enabled": true,
+      "lifecycle": {
+        "requested_at": null,
+        "effective_at": null,
+        "cancelled": false,
+        "semantics": "freeze after acquiring world lock; in-flight actions are not retroactively cancelled"
+      },
+      "limits": {
+        "stop_reason": null,
+        "closed": true,
+        "admitted_http_attempts": 2,
+        "delegated_http_attempts": 2,
+        "known_total_tokens": 52,
+        "unknown_usage_attempts": 0,
+        "unknown_usage_attempt_ids": [],
+        "threads_still_alive": [],
+        "needs_process_termination": false,
+        "reusable": false,
+        "token_limit_scope": "measured_post_response_stop_not_hard_supplier_cost_cap",
+        "attempts": [
+          {
+            "attempt_id": 1,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "733d3d08069eb2eaff6302b27811dc0e71e2b6d8570f5773d94f38f17262193f",
+            "request_body_length": 40114,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.003442832996370271
+          },
+          {
+            "attempt_id": 2,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "3f6eb61bf4e916a32727b785097b0a3adb31675dd4fc51ea5107dfb82652b915",
+            "request_body_length": 41726,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.0027318330030539073
+          }
+        ]
+      },
+      "drained": true,
+      "agent": {
+        "success": true,
+        "error_type": null,
+        "archive_info": {
+          "archive_id": "f2890bde92234fb78193ee63203eabf4",
+          "episode_id": "f2890bde92234fb78193ee63203eabf4",
+          "command_id": "fb459783-30b3-4822-9959-1892d23eb859",
+          "path": "./docs/results/deepseek-behavior-pilot-20261102/local-smoke/trials/7eba7390-baseline/policy/modelio/model-io-f2890bde92234fb78193ee63203eabf4.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 16,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 16,
+          "error_types": []
+        },
+        "harness_closed": true,
+        "harness_enabled": false
+      },
+      "isolation": {
+        "archive_unchanged_after_drain": true,
+        "world_unchanged_after_drain": true,
+        "late_action_rejected": true,
+        "canary_absent": true,
+        "checker_definitions_absent": true
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "actions": [],
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "256531afe81d9753f0d1a5aafd30b9b3d0d17e4bbf06470920dbbc2f1a98603e",
+        "state_sha256": "fdeb00c1de19c2db73b070c290bbbbf7a1b7d8517551bd7883b4360b1d7bff86",
+        "score_seconds": 0.15465587499784306
+      },
+      "online_arm": {
+        "arm": "baseline",
+        "task_progress_mode": "off",
+        "harness_revision": "none",
+        "harness_enabled": false,
+        "model": "deepseek-flash"
+      },
+      "files": {
+        "private/static-obstacles.json": "35b0d64f11910fbffc8644a68ed58f0734ff10e14734f44e5a27847343b80ed6",
+        "private/score-world.pkl": "256531afe81d9753f0d1a5aafd30b9b3d0d17e4bbf06470920dbbc2f1a98603e",
+        "private/score-boundary.json": "0f44b50b1bf56211a710c6b5f84885b78cccf3992b96a8b1c5bdf66ca81a853c",
+        "private/preparation-public-api.jsonl": "9ca458019ab768b0c0f7098b2614cf719218b31f447b14b6c341176c67fb2a64",
+        "private/lifecycle.json": "8a6cb7e4ceed83c8e72910c73d1f6d1253e853910a2673203dbf8b91a1efded9",
+        "private/request-limits.json": "451a8ae166d2bc38cbb2e8682decd3d19d3a4190c9202edf98df5497e7f23476",
+        "policy/execution-diagnostics.json": "126b0b07dc1918edaf15b5d966a7f40089c818545dce15e2521cc8faa7385f89",
+        "policy/harness.json": "0bf619751b96fb3299186a4ba17060b2d435196c357fb385be59a26b4bd284d5",
+        "policy/task-state.json": "f7b57208f742260a956b4596ed9e731b2e536d589fffb9733c2b08ebe15613fc",
+        "policy/agent-result.json": "5a620066196155bbbfe67fefc684bb9ac912455a3aa5242e2d9ddb5485be9eeb",
+        "policy/agent-logs/agent4drone_deepseek_behavior_pilot_20261102_222410_24231.log": "e49fc8466cd8080025e3f3c5346be46b5681f05d9c3b938c5933b6dd211b1419",
+        "policy/worldlogs/public-api.jsonl": "faeb79e4f01069d77714f2c9bc9eb6513cb869484f81b9fc2fe9d37c4b1839ea",
+        "policy/modelio/model-io-f2890bde92234fb78193ee63203eabf4.jsonl": "60d873bf9d37b22038b1c3ac3b22166aa00ad6f0715774d2b8ea530092fd3cb0",
+        "policy/toolchain/20261102T222410742573_3973d0d6_fb459783-30b3-4822-9959-1892d23eb859_completed_request_history.jsonl": "ee2dc355c220d031b523130fd6f637f221295b75e4caa8f6b2293ff34aa0dfd3",
+        "policy/toolchain/20261102T222410742573_3973d0d6_fb459783-30b3-4822-9959-1892d23eb859_completed.json": "6f3dd16936e2374c22f158e97164793fbc7d4e7e6b76640a2a7fcfbbfe66b5a7"
+      }
+    },
+    "score": {
+      "trial_id": "7eba7390-baseline",
+      "pid": 24246,
+      "worker_pid": 24231,
+      "checker": {
+        "passed": false,
+        "checks_passed": 0,
+        "checks_expected": 1,
+        "details": {
+          "result": false,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/task_progress",
+              "parameters": {
+                "expected_progress": 0.95
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0.0,
+                "session_id": "3973d0d6",
+                "expected_progress": 0.95,
+                "task_type": "target_assignment",
+                "progress_percentage": 0,
+                "is_completed": false
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "worker_result_sha256": "2163395f14e0a38da2565475dc9ad8c21a4dee37ca6467c0c66b3262a1e08ffe",
+      "snapshot_sha256": "256531afe81d9753f0d1a5aafd30b9b3d0d17e4bbf06470920dbbc2f1a98603e",
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    "result": {
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "Local protocol stop. [TASK DONE]",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    }
+  },
+  {
+    "trial_id": "7eba7390-integrated",
+    "arm": "integrated",
+    "task_id": "7eba7390",
+    "processes": [
+      {
+        "event": "exit",
+        "mode": "worker",
+        "trial_id": "7eba7390-integrated",
+        "pid": 24247,
+        "started_ns": 1793629451491425000,
+        "ended_ns": 1793629452770425000,
+        "elapsed_seconds": 1.2790093340008752,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "event": "exit",
+        "mode": "score",
+        "trial_id": "7eba7390-integrated",
+        "pid": 24256,
+        "started_ns": 1793629452794705000,
+        "ended_ns": 1793629453276650000,
+        "elapsed_seconds": 0.4819488330031163,
+        "returncode": 0,
+        "exited": true,
+        "kill_reason": null,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "worker": {
+      "schema_version": 1,
+      "status": "completed",
+      "trial_id": "7eba7390-integrated",
+      "task_id": "7eba7390",
+      "pid": 24247,
+      "instance_nonce": "50ee65df0c954c2ab3c53aa2532ab91a",
+      "initial": {
+        "original_state_sha256": "e5d545feea0b4251a465918036eda1d4fee9c5f717074d1698e36074a947f461",
+        "public_startup_sha256": "f8b693c3b74e117b2230dd912209a309658f76c1dfd04eaa1a2a33425bf92bd0",
+        "original_checker_tree_sha256": "526c9e6101dab87bed6ef354a2692cd40e7ec8f124870fba2c7375b4bed41eee",
+        "derived_state_sha256": "fed14bf8693303e6de711e3cc91de9a276c337a2d15f717ec69bed28d52f74a6"
+      },
+      "entry": {
+        "command_id": "6f9d6676-1aed-4315-9bdd-824f1e20aba0",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "frames": 0,
+        "ledger_events": 0,
+        "ledger_model_requests": 0
+      },
+      "runtime": {
+        "task_seconds": 500,
+        "drain_seconds": 5.0,
+        "request_limits": {
+          "max_http_attempts": 12,
+          "max_total_tokens": 200000,
+          "max_output_tokens": 8192,
+          "per_request_timeout_seconds": 60.0
+        }
+      },
+      "budget_reference": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "elapsed": 0.172672375003458,
+      "clock": "time.monotonic",
+      "timer_enabled": true,
+      "lifecycle": {
+        "requested_at": null,
+        "effective_at": null,
+        "cancelled": false,
+        "semantics": "freeze after acquiring world lock; in-flight actions are not retroactively cancelled"
+      },
+      "limits": {
+        "stop_reason": null,
+        "closed": true,
+        "admitted_http_attempts": 2,
+        "delegated_http_attempts": 2,
+        "known_total_tokens": 52,
+        "unknown_usage_attempts": 0,
+        "unknown_usage_attempt_ids": [],
+        "threads_still_alive": [],
+        "needs_process_termination": false,
+        "reusable": false,
+        "token_limit_scope": "measured_post_response_stop_not_hard_supplier_cost_cap",
+        "attempts": [
+          {
+            "attempt_id": 1,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "958bd3e41f9cd2f939c24bc502889703f90549ecac6e491ef8b3b621f49d6b38",
+            "request_body_length": 47373,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.003985291004937608
+          },
+          {
+            "attempt_id": 2,
+            "delegated": true,
+            "delivered_to_sdk": true,
+            "request_body_sha256": "068815e9daaae3c742e752525fc6b7c35ec0c3a9b8f6c4a72303cd407d1e841c",
+            "request_body_length": 48985,
+            "max_output_tokens": 8192,
+            "admitted_timeout_seconds": 60.0,
+            "usage": {
+              "prompt_tokens": 17,
+              "completion_tokens": 9,
+              "total_tokens": 26
+            },
+            "usage_status": "known",
+            "outcome": "response",
+            "status_code": 200,
+            "wait_wall_seconds": 0.00315874999796506
+          }
+        ]
+      },
+      "drained": true,
+      "agent": {
+        "success": true,
+        "error_type": null,
+        "archive_info": {
+          "archive_id": "c46a0e0402ba49a8aeecc298c56a21c1",
+          "episode_id": "c46a0e0402ba49a8aeecc298c56a21c1",
+          "command_id": "6f9d6676-1aed-4315-9bdd-824f1e20aba0",
+          "path": "./docs/results/deepseek-behavior-pilot-20261102/local-smoke/trials/7eba7390-integrated/policy/modelio/model-io-c46a0e0402ba49a8aeecc298c56a21c1.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 16,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 16,
+          "error_types": []
+        },
+        "harness_closed": true,
+        "harness_enabled": true
+      },
+      "isolation": {
+        "archive_unchanged_after_drain": true,
+        "world_unchanged_after_drain": true,
+        "late_action_rejected": true,
+        "canary_absent": true,
+        "checker_definitions_absent": true
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "actions": [],
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "fd3e3a76dbf6ea308bf4ae490737fe84bb4d905b8a4cbaeb97d5df76ad93e7e3",
+        "state_sha256": "13fb61ddc77be3ca1d57b8c95580fd318076c793bc88e3475a61057688af31fd",
+        "score_seconds": 0.15763329200126464
+      },
+      "online_arm": {
+        "arm": "integrated",
+        "task_progress_mode": "evidence_harness",
+        "harness_revision": "observed_target_v7",
+        "harness_enabled": true,
+        "model": "deepseek-flash"
+      },
+      "files": {
+        "private/static-obstacles.json": "35b0d64f11910fbffc8644a68ed58f0734ff10e14734f44e5a27847343b80ed6",
+        "private/score-world.pkl": "fd3e3a76dbf6ea308bf4ae490737fe84bb4d905b8a4cbaeb97d5df76ad93e7e3",
+        "private/score-boundary.json": "3a7b3d2cd9f980a02338753857b60043f6a74e1cb28ff230221c3018d4b6902f",
+        "private/preparation-public-api.jsonl": "9ca458019ab768b0c0f7098b2614cf719218b31f447b14b6c341176c67fb2a64",
+        "private/lifecycle.json": "8a6cb7e4ceed83c8e72910c73d1f6d1253e853910a2673203dbf8b91a1efded9",
+        "private/request-limits.json": "444608358be50a295649c02984c86cafaf40081c75f7fac0a9d742d50d001c1d",
+        "policy/execution-diagnostics.json": "126b0b07dc1918edaf15b5d966a7f40089c818545dce15e2521cc8faa7385f89",
+        "policy/harness.json": "d898dec53c3628e5e43b8655a07783d46cf04e77c342aec74ff2c9d1ebeaf6f9",
+        "policy/task-state.json": "038a32b149acfcd119d016bcbdcd17600fd3113561cb29ee77c12d9034647b1f",
+        "policy/agent-result.json": "6a22a14094fe5c08c4802b1ba4a139378687bba4ecc0eed2520190cd331ae4c7",
+        "policy/agent-logs/agent4drone_deepseek_behavior_pilot_20261102_222412_24247.log": "430f107dae32479dbc5178226277f2762024822b444da35ab13aff3134b90ce3",
+        "policy/worldlogs/public-api.jsonl": "96c2ca6701c01a92e9f601b3ea6f66993ea5ec406fc5691eb0de742a431e33f3",
+        "policy/modelio/model-io-c46a0e0402ba49a8aeecc298c56a21c1.jsonl": "ba5db8e2a13d929362e68f6879050516a076667bec572706f06b948ced0beb9b",
+        "policy/toolchain/20261102T222412548346_3973d0d6_6f9d6676-1aed-4315-9bdd-824f1e20aba0_completed_request_history.jsonl": "e824626d0439cf82695661ad4a8229305407947af555782cad9be4b2c70a14e4",
+        "policy/toolchain/20261102T222412548346_3973d0d6_6f9d6676-1aed-4315-9bdd-824f1e20aba0_completed.json": "35ce30de50c96b30ed5a9add3b25a5e596b9543226fba89971f4f776516a54c3"
+      }
+    },
+    "score": {
+      "trial_id": "7eba7390-integrated",
+      "pid": 24256,
+      "worker_pid": 24247,
+      "checker": {
+        "passed": false,
+        "checks_passed": 0,
+        "checks_expected": 1,
+        "details": {
+          "result": false,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/task_progress",
+              "parameters": {
+                "expected_progress": 0.95
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0.0,
+                "session_id": "3973d0d6",
+                "expected_progress": 0.95,
+                "task_type": "target_assignment",
+                "progress_percentage": 0,
+                "is_completed": false
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "worker_result_sha256": "664d45562084bb894b60fa79981d5f64acc285fd6bba4ff4dbe16cd2ecd25fb4",
+      "snapshot_sha256": "fd3e3a76dbf6ea308bf4ae490737fe84bb4d905b8a4cbaeb97d5df76ad93e7e3",
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    "result": {
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "Local protocol stop. [TASK DONE]",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [
+          {
+            "id": "progress-1",
+            "scope": "session_task_progress",
+            "source_span": [
+              91,
+              124
+            ],
+            "threshold_percent": 95.0,
+            "operator": ">",
+            "observation": null,
+            "freshness": "unknown",
+            "threshold_state": "unknown",
+            "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply."
+          }
+        ],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    }
+  }
+]

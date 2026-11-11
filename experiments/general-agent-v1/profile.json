@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "profile_id": "general-agent-v1-local",
+  "scope": "local_mock_only",
+  "online_authorized_executions": 0,
+  "deadline_binding": "world_started_plus_runtime_task_seconds",
+  "implementation_budget": {
+    "max_iterations": 600,
+    "recursion_limit": 1800,
+    "deadline_seconds": 500,
+    "api_calls_per_plan": 2000,
+    "repair_budget": 16,
+    "search_rounds": 16
+  },
+  "model": {
+    "provider": "openai-compatible",
+    "name": "local-scripted-sdk"
+  },
+  "agent": {
+    "task_progress_mode": "evidence_harness",
+    "execution_memory": "evidence_r2",
+    "share_blackboard_by_session": false,
+    "toolchain_json_recording": true,
+    "model_io_archive": true
+  },
+  "harness": {
+    "revision": "observed_target_v7",
+    "scheduler": "applicability",
+    "fixed_k": 4,
+    "static_obstacles": true
+  },
+  "runtime": {
+    "task_seconds": 500,
+    "drain_seconds": 0.5,
+    "request_limits": {
+      "max_http_attempts": 8,
+      "max_total_tokens": 1000,
+      "max_output_tokens": 256,
+      "per_request_timeout_seconds": 5.0
+    }
+  },
+  "execution": {
+    "worker": "fresh_process",
+    "transport": "mock",
+    "watchdog_seconds": 30
+  },
+  "evaluation": {
+    "scorer": "isolated_process",
+    "result_semantics": "run_agent_check_separate_v1"
+  },
+  "provider_plan": {
+    "status": "not_integrated_not_executed",
+    "thinking_mode": "enabled",
+    "reasoning_effort": "high"
+  }
+}

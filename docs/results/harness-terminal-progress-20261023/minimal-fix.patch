@@ -1,0 +1,148 @@
+--- /tmp/harness-terminal-progress-v6-before-20261023/agent4drone/harness_core.py
++++ agent4drone/harness_core.py
+@@ -87,7 +87,7 @@
+     deadline checks also occur between the individual API calls in that unit.
+     """
+     POLICIES = {"applicability", "every_step", "fixed", "failure"}
+-    REVISIONS = {"legacy", "entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5"}
++    REVISIONS = {"legacy", "entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"}
+ 
+     def __init__(self, *, task_id, command, scene_id, scene_epoch, ledger, invoke,
+                  skill_factory, scope, started, scheduler="applicability", fixed_k=4,
+@@ -123,7 +123,7 @@
+                       scope="in_process_resume_only")
+         if self.revision != "legacy":
+             self.log.emit("harness_revision", revision=self.revision)
+-        if self.revision == "shared_endpoint_v5":
++        if self.revision in {"shared_endpoint_v5", "terminal_progress_v6"}:
+             self.log.emit("shared_endpoint_contract", static_obstacle_contract=static_obstacle_contract,
+                           scope="same_plan_scene_epoch_exact_xyz_no_obstacle_writers")
+ 
+@@ -181,7 +181,7 @@
+                 "mission_completion": "not_evaluated",
+                 "next_control": "resume with this plan_id" if frame.status == "paused" else
+                                 "use original tools to resolve remaining task obligations"}
+-        if self.revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5"}:
++        if self.revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"}:
+             resumable = frame.status in {"ready", "paused"}
+             result.update(resumable=resumable,
+                           next_control=("resume with this plan_id, or cancel to abandon the plan" if resumable else
+@@ -219,7 +219,7 @@
+                 # do not silently restart a partially executed action sequence.
+                 existing = next((f for f in self.frames.values() if f.skill == skill), None)
+                 if existing is not None:
+-                    if self.revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5"}:
++                    if self.revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"}:
+                         reason = ("skill_already_committed_resume_existing_plan"
+                                   if existing.status in {"ready", "paused"} else
+                                   "skill_already_committed_not_resumable")
+@@ -245,7 +245,7 @@
+                 if action != "resume":
+                     return {"status": "rejected", "reason": "unknown_control_action"}
+                 if frame.status not in {"ready", "paused"}:
+-                    if self.revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5"}:
++                    if self.revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"}:
+                         return self._reject_plan_control(frame, action, "plan_not_resumable")
+                     return self._response(frame)
+             return self._drive(frame)
+--- /tmp/harness-terminal-progress-v6-before-20261023/agent4drone/harness_skills.py
++++ agent4drone/harness_skills.py
+@@ -194,7 +194,7 @@
+ 
+ 
+ def public_search(frame, board, *, revision="legacy", static_obstacle_contract=False):
+-    shared = revision == "shared_endpoint_v5"
++    shared = revision in {"shared_endpoint_v5", "terminal_progress_v6"}
+     if shared and static_obstacle_contract is not True:
+         raise SkillExit("shared_endpoint_requires_static_obstacle_contract")
+     observed_geometry = {}
+@@ -210,7 +210,7 @@
+         frame.state["public_stop_condition"] = "session_progress_strictly_above_95"
+         return
+     obstacles = board.full()["obstacles"]
+-    observe_entry = not obstacles and revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5"}
++    observe_entry = not obstacles and revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"}
+     if not obstacles and not observe_entry:
+         raise SkillExit("empty_public_obstacle_blackboard")
+     drones = yield PublicCall("list_drones")
+@@ -285,7 +285,7 @@
+                 policy.disable(actor)
+                 continue
+             needs_takeoff = actor not in airborne
+-            if revision in {"flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5"}:
++            if revision in {"flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"}:
+                 # Public command legality is determined by the latest status,
+                 # not altitude or a cached successful takeoff. In particular,
+                 # imported scenarios can expose idle actors above ground.
+@@ -306,7 +306,7 @@
+                 if (tuple(state["position"][k] for k in ("x", "y")) != policy.xy[actor]
+                         or abs(state["position"]["z"] - 20.0) > 1e-6):
+                     raise SkillExit("search_takeoff_effect_mismatch")
+-                if revision in {"flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5"} and state.get("status") not in ("hovering", "flying", "moving"):
++                if revision in {"flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"} and state.get("status") not in ("hovering", "flying", "moving"):
+                     raise SkillExit("search_takeoff_state_mismatch")
+                 airborne.add(actor)
+             if shared:
+@@ -317,7 +317,7 @@
+             # Capture the action ref now: subsequent state/perception reads have
+             # their own refs and must not be cited as the collision receipt.
+             endpoint_failure = None
+-            if revision in {"blocked_candidate_v4", "shared_endpoint_v5"} and _endpoint_conflict(frame.state["last_action"], actor):
++            if revision in {"blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"} and _endpoint_conflict(frame.state["last_action"], actor):
+                 endpoint_failure = {"actor": actor, "candidate_index": index,
+                                     "destination": [*destination, 20.0],
+                                     "evidence_ref": frame.evidence_refs[-1],
+@@ -363,6 +363,30 @@
+                 yield Checkpoint("blocked_candidate_handled" if outcome == "blocked" else "search_attempt_complete",
+                                  failed=outcome == "blocked")
+         if not made_attempt and progress <= 95:
++            if revision == "terminal_progress_v6":
++                # Exhausting candidates can occur between periodic progress
++                # reads. Confirm once, through the same runtime budget/guards;
++                # a missing read is never evidence that the task is complete.
++                check = {"trigger": "no_public_candidate", "cached_progress_percent": progress,
++                         "status": "awaiting_public_read"}
++                frame.state["terminal_progress_check"] = check
++                receipt = yield PublicCall("get_mission_progress")
++                check.update(status="unavailable", evidence_ref=frame.evidence_refs[-1])
++                if (not isinstance(receipt, dict) or receipt.get("error")
++                        or receipt.get("harness_transport_error")
++                        or receipt.get("status") not in (None, "success")
++                        or (receipt.get("success") is not None and receipt["success"] is not True)
++                        or (receipt.get("partial_success") is not None and receipt["partial_success"] is not False)
++                        or receipt.get("session_id") != str(frame.scene_id)
++                        or receipt.get("source_endpoint") != "/sessions/current"
++                        or receipt.get("scope") != "public_session_aggregate_not_full_task_verdict"):
++                    raise SkillExit("public_progress_unavailable")
++                progress = _check_progress(receipt)
++                frame.state["progress_percent"] = progress
++                check.update(status="confirmed", progress_percent=progress)
++                if progress > 95:
++                    frame.state["public_stop_condition"] = "session_progress_strictly_above_95"
++                    return
+             raise SkillExit("no_public_candidate")
+     if attempts % PROGRESS_EVERY:
+         progress = _check_progress((yield PublicCall("get_mission_progress")))
+--- /tmp/harness-terminal-progress-v6-before-20261023/agent4drone/harness_integration.py
++++ agent4drone/harness_integration.py
+@@ -179,14 +179,18 @@
+             return json.dumps({"status": "rejected", "reason": str(exc)})
+         return json.dumps(runtime.control(**value), ensure_ascii=False)
+ 
+-    if runtime.revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5"}:
++    if runtime.revision in {"entry_contract_v2", "flight_state_v3", "blocked_candidate_v4", "shared_endpoint_v5", "terminal_progress_v6"}:
+         # Keep the legacy system prompt and tool description byte-for-byte
+         # unchanged; expose the opt-in contract on this tool instance only.
+         run_harness.description += "\n" + ENTRY_CONTRACT_RULES
+-    if runtime.revision == "shared_endpoint_v5":
++    if runtime.revision in {"shared_endpoint_v5", "terminal_progress_v6"}:
+         run_harness.description += ("\nShared endpoint v5 requires the operator's static-obstacle "
+                                     "contract. Only exact XYZ endpoint conflicts are shared within "
+                                     "this plan; observed geometry changes stop the plan.")
++    if runtime.revision == "terminal_progress_v6":
++        run_harness.description += ("\nTerminal progress v6 checks public session progress once before "
++                                    "exiting for no available candidate, within the existing budget. "
++                                    "A failed or unavailable read does not confirm completion.")
+     agent._harness = runtime
+     agent.client._harness_deadline = runtime.deadline
+     agent.tools = [*agent.tools, run_harness]

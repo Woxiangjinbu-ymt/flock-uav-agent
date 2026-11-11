@@ -1,0 +1,260 @@
+{
+  "attempt": "experiments/runs/20261002-204338-calibration-a277df07",
+  "read_only_verification": {
+    "archive_identity": true,
+    "sealed_scenes": 8,
+    "original_checker_replayed_tasks": 160,
+    "matches_saved_results_and_summary": true,
+    "protected_files_unchanged": true,
+    "protected_file_sha256": {
+      "manifest.json": "6289e72776a6f17d49a173034b2bd1cf5d7d9a66c89883d525ae9bd926f08d0b",
+      "summary.json": "ff383ee2d1688e9ad76184ebf0ce8dda8c8e0c213fc0e035f937b9e7034d47d9",
+      "results.json": "42f631b2252c0099cd12e0cd9c425809cb0cb02045362b0f971ffd6566a2ddde",
+      "performance.json": "eb417c2f8963e8af47f2d30f2672685bc8aece8156b81d08076efb0d265968f9",
+      "identity.json": "dff46de39be4f5f81ffd39fce4ee3ae916de2f140a1e79dc408a2b90842bc796",
+      "7f1a1456/complete.json": "a84bd1882fed88c7562769ea6a7bb045d2ffa888e745823e245ac463de4bcbd9",
+      "cc05a425/complete.json": "50398e4e0cd1ce0b473add77979385468ac6ab16bc26c62f56bfb4b4f9bea2a2",
+      "5aabad33/complete.json": "1640ae007a3875c34565a50d234bcafc7cc6b6924f1c44040e2f207936810b84",
+      "6a30689f/complete.json": "a29806645038d957608efaf8e99041f842dc995bba7c5f1b1f4607568f1ecf54",
+      "228ef1f0/complete.json": "392c09d006bfc53a8be1acbb22f3e8a0f536f09d8087805b43a30c1015e4ca5a",
+      "29ec452f/complete.json": "7ff739abfedacf5b5e41491d9594f889a386c2efea5387e163d1194c25cafa4b",
+      "fb8971ec/complete.json": "53d3be008b2fc14a20a04fd45e18bfe11fc89630f4ae9894af8651f37da71761",
+      "ae503ad1/complete.json": "1233f6d2a42406d2d2ff48ab50a4635c2f9faa50af5450c50d5a9283945978b4"
+    }
+  },
+  "summary": {
+    "valid_complete_run": true,
+    "planned_tasks": 160,
+    "planned_checks": 995,
+    "scored_tasks": 160,
+    "scored_checks": 995,
+    "agent_timed_out_tasks": 2,
+    "timed_out_but_passed_tasks": 0,
+    "missing_or_invalid_tasks": 0,
+    "metrics": {
+      "passed_tasks": 146,
+      "task_pass": 0.9125,
+      "avg_check": 0.9797075320512821,
+      "global_check": 0.9718592964824121,
+      "total_failed": 0.0
+    }
+  },
+  "scene_difficulty": {
+    "Easy": {
+      "tasks": 60,
+      "passed": 57,
+      "pass_rate": 0.95,
+      "checks": 345,
+      "passed_checks": 340
+    },
+    "Extreme": {
+      "tasks": 40,
+      "passed": 32,
+      "pass_rate": 0.8,
+      "checks": 275,
+      "passed_checks": 257
+    },
+    "Hard": {
+      "tasks": 20,
+      "passed": 17,
+      "pass_rate": 0.85,
+      "checks": 88,
+      "passed_checks": 83
+    },
+    "Moderate": {
+      "tasks": 20,
+      "passed": 20,
+      "pass_rate": 1.0,
+      "checks": 134,
+      "passed_checks": 134
+    },
+    "Intermediate": {
+      "tasks": 20,
+      "passed": 20,
+      "pass_rate": 1.0,
+      "checks": 153,
+      "passed_checks": 153
+    }
+  },
+  "task_difficulty": {
+    "easy": {
+      "tasks": 23,
+      "passed": 23,
+      "pass_rate": 1.0,
+      "checks": 46,
+      "passed_checks": 46
+    },
+    "medium": {
+      "tasks": 67,
+      "passed": 62,
+      "pass_rate": 0.9253731343283582,
+      "checks": 215,
+      "passed_checks": 210
+    },
+    "hard": {
+      "tasks": 70,
+      "passed": 61,
+      "pass_rate": 0.8714285714285714,
+      "checks": 734,
+      "passed_checks": 711
+    }
+  },
+  "family": {
+    "area_assignment_and_patrol": {
+      "tasks": 60,
+      "passed": 52,
+      "pass_rate": 0.8666666666666667,
+      "checks": 296,
+      "passed_checks": 286
+    },
+    "area_search": {
+      "tasks": 60,
+      "passed": 56,
+      "pass_rate": 0.9333333333333333,
+      "checks": 392,
+      "passed_checks": 378
+    },
+    "target_assignment": {
+      "tasks": 40,
+      "passed": 38,
+      "pass_rate": 0.95,
+      "checks": 307,
+      "passed_checks": 303
+    }
+  },
+  "scenes": [
+    {
+      "id": "fb8971ec",
+      "name": "Area Assignment and Patrol Easy 1",
+      "level": "Easy",
+      "start_offset_seconds": 0.0,
+      "duration_seconds": 1097.0,
+      "passed": 19,
+      "tasks": 20
+    },
+    {
+      "id": "228ef1f0",
+      "name": "Area Assignment and Patrol Extreme 1",
+      "level": "Extreme",
+      "start_offset_seconds": 0.0,
+      "duration_seconds": 3223.0,
+      "passed": 16,
+      "tasks": 20
+    },
+    {
+      "id": "cc05a425",
+      "name": "Area Assignment and Patrol Hard 1",
+      "level": "Hard",
+      "start_offset_seconds": 0.0,
+      "duration_seconds": 1806.0,
+      "passed": 17,
+      "tasks": 20
+    },
+    {
+      "id": "5aabad33",
+      "name": "Area Search Easy 1",
+      "level": "Easy",
+      "start_offset_seconds": 0.0,
+      "duration_seconds": 958.0,
+      "passed": 20,
+      "tasks": 20
+    },
+    {
+      "id": "29ec452f",
+      "name": "Area Search Extreme 1",
+      "level": "Extreme",
+      "start_offset_seconds": 958.0,
+      "duration_seconds": 3950.0,
+      "passed": 16,
+      "tasks": 20
+    },
+    {
+      "id": "6a30689f",
+      "name": "Area Search Moderate 1",
+      "level": "Moderate",
+      "start_offset_seconds": 1097.0,
+      "duration_seconds": 1261.0,
+      "passed": 20,
+      "tasks": 20
+    },
+    {
+      "id": "7f1a1456",
+      "name": "Target Assignment Easy 1",
+      "level": "Easy",
+      "start_offset_seconds": 1806.0,
+      "duration_seconds": 1853.0,
+      "passed": 18,
+      "tasks": 20
+    },
+    {
+      "id": "ae503ad1",
+      "name": "Target Assignment Intermediate 1",
+      "level": "Intermediate",
+      "start_offset_seconds": 2358.0,
+      "duration_seconds": 1984.0,
+      "passed": 20,
+      "tasks": 20
+    }
+  ],
+  "performance": {
+    "wall_seconds": 4910.409436124999,
+    "summed_scene_seconds": 16132.0,
+    "overlap_factor_not_paired_serial_speedup": 3.2852657624270143,
+    "worker_utilization_proxy": 0.8213164406067536,
+    "tasks_per_minute": 1.9550304561926195,
+    "longest_scene_seconds": 3950.0,
+    "llm": {
+      "started_calls": 2139,
+      "completed_calls": 2139,
+      "failed_calls": 0,
+      "unfinished_calls": 0,
+      "latency": {
+        "count": 2139,
+        "mean_seconds": 6.878511554047167,
+        "p50_seconds": 2.728197749998799,
+        "p95_seconds": 25.545541566899193,
+        "max_seconds": 117.80408791700029
+      },
+      "usage": {
+        "prompt_tokens": 113974077,
+        "completion_tokens": 3149223,
+        "total_tokens": 117123300,
+        "cache_hit_tokens": 107070848,
+        "cache_miss_tokens": 6903229,
+        "calls_with_usage": 2139,
+        "calls_with_cache_usage": 2139
+      },
+      "http_usage_without_success_callback": 0
+    },
+    "fleet_resources": {
+      "samples": 4711,
+      "peak_sampled_tree_rss_kib": 1252192,
+      "peak_sampled_tree_cpu_percent": 102.8877776568156,
+      "cpu_seconds_observed": 440.9500000000003,
+      "errors": 1
+    },
+    "http_telemetry_valid": false,
+    "http_statuses_observed_in_agent_logs": {
+      "200": 2139
+    },
+    "retry_log_lines": 0
+  },
+  "current_source_drift_from_completed_run": [
+    "scripts/reproduction_metrics.py",
+    "scripts/tests/test_reproduction_metrics.py"
+  ],
+  "paper_table4": {
+    "tasks": 1500,
+    "model": "DeepSeekV4Flash",
+    "task_pass": 0.696,
+    "avg_check": 0.834,
+    "global_check": 0.8076,
+    "total_failed": 0.068
+  },
+  "limitations": [
+    "Calibration is a structured subset, not a representative random sample of full benchmark.",
+    "Current official model alias is not the paper historical model.",
+    "Overlap factor is not a paired measured serial speedup.",
+    "Original HTTP instrumentation missed production httpx2 client; status counts are recovered from logs only."
+  ]
+}

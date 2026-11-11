@@ -1,0 +1,59 @@
+{
+  "artifacts": {
+    "backend_lock": {
+      "path": "inputs/backend_lock-71972cd48006681d6fc328cc146ce8874faa989215c6e180d55862621c903bd9.lock",
+      "sha256": "71972cd48006681d6fc328cc146ce8874faa989215c6e180d55862621c903bd9"
+    },
+    "linux_cpu": {
+      "path": "inputs/linux_cpu-f3aeaf540e8dd76dade084ec9874467b131c9f609a96fa59cf0540605755810a.json",
+      "sha256": "f3aeaf540e8dd76dade084ec9874467b131c9f609a96fa59cf0540605755810a"
+    },
+    "measurement_archive": {
+      "path": "transformers/measurements.json",
+      "sha256": "4f1fd1f2a94652ff8bf37b3539326c8484597edc536baa24bb253b5911bcddb8"
+    },
+    "metadata_Qwen3-4B": {
+      "path": "transformers/metadata-Qwen3-4B.json",
+      "sha256": "d47bca6e1d8c92c75880525a81c2c5897aac7fe56ea5777a38ac5b206025a097"
+    },
+    "metadata_Qwen3.5-2B": {
+      "path": "transformers/metadata-Qwen3.5-2B.json",
+      "sha256": "dd66656efa15b02487733fea7d26456dacb7d55c45d344ae76f1e20d58bd2d6b"
+    },
+    "session_cpu": {
+      "path": "inputs/session_cpu-75eca359c8eab672792882d6bcfc210126c952fb9e3b618e4f59af1906a200bb.json",
+      "sha256": "75eca359c8eab672792882d6bcfc210126c952fb9e3b618e4f59af1906a200bb"
+    },
+    "verdict": {
+      "path": "transformers/verdict.json",
+      "sha256": "0f7deb3d225e326d5e85500bf7ec43f8fe22fc5d63496c0ba840e370b8054362"
+    }
+  },
+  "backend": "transformers",
+  "campaign_sha256": "ba8b8e2d10bdc54af7c5ff97c6919f5b2727a50de7e68db80efb9c7f67f5d2d6",
+  "host": {
+    "batch_size": 1,
+    "bf16": true,
+    "card": "A100 40GB",
+    "cards": 1,
+    "node": "PRDMEx",
+    "system": "Linux"
+  },
+  "interpreters": {
+    "backend": "/uav/flockcue-20261110/flockcue-a100/operations/venv-inference/bin/python",
+    "student": "/uav/flockcue-20261110/flockcue-a100/operations/venv-inference/bin/python"
+  },
+  "lease": {
+    "id": "stage0-a100-week",
+    "prior_stage_seconds": 0,
+    "shutdown_seconds": 60,
+    "stage_started_unix": 1794312068
+  },
+  "schema": "paired-t37-admission-v1",
+  "versions": {
+    "cuda": "12.8",
+    "tokenizers": "0.23.3",
+    "torch": "2.8.0+cu128",
+    "transformers": "5.22.2"
+  }
+}

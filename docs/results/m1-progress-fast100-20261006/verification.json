@@ -1,0 +1,61 @@
+{
+  "frozen_verify": {
+    "m0": {
+      "argv": [
+        "./experiments/runs/20261006-152635-m1-fast100-m0-723f8ec6/runtime/controller/.venv/bin/python",
+        "-B",
+        "./experiments/runs/20261006-152635-m1-fast100-m0-723f8ec6/runtime/scripts/m1_progress_pilot.py",
+        "verify",
+        "./experiments/runs/20261006-152635-m1-fast100-m0-723f8ec6"
+      ],
+      "exit_code": 0,
+      "result": {
+        "valid_complete_run": true,
+        "planned_tasks": 100,
+        "planned_checks": 605,
+        "scored_tasks": 100,
+        "scored_checks": 605,
+        "agent_timed_out_tasks": 6,
+        "timed_out_but_passed_tasks": 1,
+        "missing_or_invalid_tasks": 0,
+        "metrics": {
+          "passed_tasks": 80,
+          "task_pass": 0.8,
+          "avg_check": 0.8894051003344481,
+          "global_check": 0.9190082644628099,
+          "total_failed": 0.07
+        }
+      },
+      "checked_at": "2026-10-06T20:35:06.517028+08:00"
+    },
+    "m1": {
+      "argv": [
+        "./experiments/runs/20261006-175621-m1-fast100-m1-2d243789/runtime/controller/.venv/bin/python",
+        "-B",
+        "./experiments/runs/20261006-175621-m1-fast100-m1-2d243789/runtime/scripts/m1_progress_pilot.py",
+        "verify",
+        "./experiments/runs/20261006-175621-m1-fast100-m1-2d243789"
+      ],
+      "exit_code": 0,
+      "result": {
+        "valid_complete_run": true,
+        "planned_tasks": 100,
+        "planned_checks": 605,
+        "scored_tasks": 100,
+        "scored_checks": 605,
+        "agent_timed_out_tasks": 7,
+        "timed_out_but_passed_tasks": 0,
+        "missing_or_invalid_tasks": 0,
+        "metrics": {
+          "passed_tasks": 78,
+          "task_pass": 0.78,
+          "avg_check": 0.8748645484949833,
+          "global_check": 0.8842975206611571,
+          "total_failed": 0.07
+        }
+      },
+      "checked_at": "2026-10-06T20:35:08.020633+08:00"
+    }
+  },
+  "paired_ledger_assertions": "100_unique_original_tasks_605_checks_full_pairing_and_provider_usage_totals_reconciled"
+}

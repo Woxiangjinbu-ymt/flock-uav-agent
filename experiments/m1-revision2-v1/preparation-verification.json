@@ -1,0 +1,41 @@
+{
+  "study_sha256": "53e91fb76758945f5ab809d769a5ed2d9a783313e81daef76da18c5cf43e1d8d",
+  "method_commit": "69dd34c067ec97b746db5180684594c546a35172",
+  "method_tag": "m1-evidence-r2",
+  "launch_regression_tests_passed": 94,
+  "frozen_runtime_tests_passed": 84,
+  "method_sources_match_tested_worktree": true,
+  "historical_m0_fixed": 80,
+  "old_m1r_terminal_files_unchanged": 1155,
+  "paid_model_calls_during_preparation": 0,
+  "guard_source_sha256": "2b89d8b21c9e87fca74c384450c2d23c3a644bb392e74104440a9854592c07c9",
+  "policy": {
+    "minimum_scored_pairs": 40,
+    "minimum_success_deficit": 5,
+    "poll_seconds": 5,
+    "comparison": "same scored task IDs; no missing-score imputation",
+    "completed_100": "verify, no retroactive stop"
+  },
+  "source_changes": {
+    "scripts/reproduction_metrics.py": {
+      "historical_sha256": "2b399000588eed5c46c1608798eaafe5abea2aad2f89e62043906030e7e7d263",
+      "current_sha256": "ed66d423b8467595c6bd915a8471886cceb710e4f795f5e801f9db700f093cff",
+      "purpose": "resource seal fix or offline runtime test only"
+    },
+    "scripts/reproduction_parallel.py": {
+      "historical_sha256": "b7366e5e64d51303a4267efc8502ea2a1de22ad6ffc00cdf3d0f1022dba29dc8",
+      "current_sha256": "778fc0f395dc7c7aff43a5c7a1df5ed421f3a245bea760facb972bcedf726552",
+      "purpose": "resource seal fix or offline runtime test only"
+    },
+    "scripts/tests/test_reproduction_metrics.py": {
+      "historical_sha256": "e6ec18b392b67c37e3facede050390a37d85befc5de68874b28ef9b54dae3cc3",
+      "current_sha256": "30ec80aeb922f4432614c9f64e2bb1b533af451f622bab9ff747d8d2b30e652e",
+      "purpose": "resource seal fix or offline runtime test only"
+    },
+    "scripts/tests/test_m1_revision_runtime.py": {
+      "historical_sha256": null,
+      "current_sha256": "437b80d57df073380ceb1e2ae7c506905e98865658677cdd60dc1702051cfe0e",
+      "purpose": "resource seal fix or offline runtime test only"
+    }
+  }
+}

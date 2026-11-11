@@ -1,0 +1,25 @@
+{
+  "schema": "m1-r1-offline-replay",
+  "totals": {
+    "completed_receipts": 3390,
+    "tasks": 100,
+    "tool_events": 3390,
+    "pending_events": 0,
+    "observer_errors": 0,
+    "references": 87
+  },
+  "scenes": 5,
+  "max_view_chars": 3900,
+  "previously_diagnosed_prior_name_refs": 7,
+  "prior_refs_with_path_hint": 5,
+  "no_future_or_other_session_evidence": true,
+  "raw_receipts_and_order_preserved": true,
+  "displayed_report_paths_resolve_to_original_receipts": true,
+  "performance_claim": null,
+  "limitations": [
+    "Replay holds old actions fixed; no success-rate or cache-hit estimate",
+    "Pending interrupted tool events remain pending; no fabricated result",
+    "No hidden world snapshot or checker supplied to method",
+    "Initial index uses only earlier legal receipts, not final old ledger entities"
+  ]
+}

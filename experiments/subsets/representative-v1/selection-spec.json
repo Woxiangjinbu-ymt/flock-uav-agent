@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "status": "frozen",
+  "purpose": "Development and regression subset for task-success improvements with time/token cost tracking",
+  "primary_metric": "original_benchmark_task_pass_rate",
+  "runs": {
+    "deepseek": "experiments/runs/20261003-143255-full-5c501118",
+    "qwen": "experiments/runs/20261004-142512-full-aca112a7"
+  },
+  "unit": "whole_original_scene_with_all_20_tasks_in_original_order",
+  "target_sizes": {
+    "main": 300,
+    "development": 240,
+    "locked_validation": 60,
+    "fast_regression_nested_in_development": 100
+  },
+  "main_stratification": {
+    "families": [
+      "area_assignment_and_patrol",
+      "area_search",
+      "target_assignment"
+    ],
+    "scene_difficulties": [
+      "Easy",
+      "Intermediate",
+      "Moderate",
+      "Hard",
+      "Extreme"
+    ],
+    "scenes_per_family_difficulty_cell": 1,
+    "fallback": "Document uncovered mechanisms before relaxing quotas; never silently change the selection protocol"
+  },
+  "selection_priorities": [
+    "Coverage of evidence-backed failure mechanisms from both first-attempt deployment baseline cohorts",
+    "Partial near misses with one failed check, kept separate from zero-of-one tasks",
+    "Zero-passed-check failures, separating single-check completion tasks from multi-check failures",
+    "Both-model failures and directional model disagreements",
+    "Paper difficulties: target assignment, multi-drone coordination, sequential targets, patrol/search completion, photo and progress validation",
+    "Both-model successful controls for regression detection",
+    "Diversity of templates, endpoints, drone counts, obstacles and task lengths",
+    "Lower observed iteration cost among candidates with comparable coverage"
+  ],
+  "required_audit_tags": [
+    "family",
+    "scene_difficulty",
+    "task_difficulty",
+    "original_ordinal",
+    "generator_category",
+    "template",
+    "failed_check_endpoints",
+    "paired_outcome",
+    "deepseek_failure_bucket",
+    "qwen_failure_bucket",
+    "mechanism_evidence",
+    "timeout",
+    "observed_token_usage",
+    "elapsed_time_definition",
+    "specification_conflict",
+    "geometric_conflict",
+    "selection_reason"
+  ],
+  "split_rules": {
+    "whole_scene_disjoint_development_and_validation": true,
+    "validation_scenes_per_family": 1,
+    "validation_labels_used_for_initial_selection": true,
+    "validation_not_claimed_as_unseen_or_independent_test": true,
+    "fast_scenes": 5,
+    "fast_covers_all_three_families": true,
+    "freeze_before_method_tuning": true,
+    "no_silent_reselection_after_method_results": true
+  },
+  "scoring_rules": {
+    "keep_original_tasks_checks_and_order": true,
+    "retain_conflict_tasks_if_in_selected_scene_and_report_separately": true,
+    "all_tasks_in_selected_scenes_in_primary_denominator": true,
+    "hidden_checks_and_offline_failure_tags_unavailable_to_agent": true,
+    "subset_score_not_estimator_of_full_benchmark_score": true
+  },
+  "execution_authorized_by_this_request": "offline analysis, selection and export only; no paid model runs or changes to active full experiments",
+  "deliverables": [
+    "README_CN.md with selection rationale, limitations and replay protocol",
+    "Frozen main/development/validation/fast manifests with ordered task IDs",
+    "Original selected scene JSON files and checksums",
+    "Task and scene CSVs with both-model baselines and evidence links",
+    "Coverage and missing-mechanism report",
+    "Observed baseline time/token estimates for each split",
+    "Selection script/configuration and artifact checksums"
+  ],
+  "completion_gate_history": {
+    "valid_complete_run": true,
+    "scenes": 75,
+    "tasks": 1500,
+    "checks": 9396,
+    "missing_or_invalid_tasks": 0,
+    "use_selected_sealed_generation_only": true,
+    "verify_consumed_evidence_hashes_and_original_checker_replay": true
+  },
+  "selection_basis": {
+    "protocol": "deployment-no-scene-replay-v1",
+    "cohort": "first_attempt_no_replay",
+    "report": "docs/results/baseline-deployment-20261005/REPORT_CN.md",
+    "accounting_complete": true,
+    "qwen_original_valid_complete_run": false,
+    "change_reason": "User requested finalization as the default experiment dataset after the existing two-model deployment accounting report was finalized; retain observed failures separately from infrastructure failures."
+  },
+  "eligibility": "Within each family/difficulty cell, minimize the number of first-attempt unscored model-task rows before selecting for coverage. All selected scenes have 20 observed checker outcomes for both models.",
+  "selection_algorithm": {
+    "script": "experiments/analysis/build_representative_subset.py",
+    "seed": 20261005,
+    "details": "selection-audit.json",
+    "frozen_manifest": "main300.json",
+    "no_automatic_reselection": true
+  },
+  "baseline_update_policy": "Historical first-attempt baseline is immutable. Any new baseline or recovered results use separately named reports and never replace selected IDs, task order, checks or this baseline."
+}

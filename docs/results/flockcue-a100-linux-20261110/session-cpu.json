@@ -1,0 +1,1420 @@
+{
+  "normal": {
+    "session_id": "04cd6269",
+    "scene_sha256": "216cc29058511615ddf465f604f732c283f11a6669924110bf0cbc38269a1888",
+    "configuration": {
+      "baseline": {
+        "baseline": "general-agent-v5-local",
+        "profile_sha256": "fcf6b641c8c12cbe9610d6fd3a72b5f039ad7eeeafeda29f94c021b2c446b9f7",
+        "source_files": 93,
+        "provider_calls": 0
+      },
+      "system": "Linux",
+      "machine": "x86_64",
+      "python_version": "3.11.16",
+      "source_map_sha256": "5c91c2cd43226ceba760f1152f91d4bb8762e40ab3766b3a9cc3474fee193b6b"
+    },
+    "worker_pid": 5109,
+    "scorer_pid": 9617,
+    "initial_world_sha256": "eb079ec9c4cab4fcd60f25eda38cda66336c0a0b5377b7ea1e380fd2159ac839",
+    "initial_board_sha256": "d3e35f484a8354995efeeaf6229023cb6414b3c17a1c7ff22bc2e1f7edee7dd0",
+    "initial_positions": {
+      "b4a1b8f9": {
+        "x": 79.0,
+        "y": 560.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "ba1ef764": {
+        "x": 92.0,
+        "y": 87.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "969d84bb": {
+        "x": 266.0,
+        "y": 157.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "0dd3527c": {
+        "x": 584.0,
+        "y": 274.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "34c894fb": {
+        "x": 143.0,
+        "y": 357.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      }
+    },
+    "planned": 20,
+    "scored": 20,
+    "raw_passed": 1,
+    "deployment_passed": 1,
+    "checker_leaves": 79,
+    "transitions_with_displaced_xy": 18,
+    "verified_transitions": 19,
+    "with_nonempty_blackboard": 19,
+    "drone_position_and_history_changes": 20,
+    "tasks": [
+      {
+        "task_id": "a05a871a",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": true,
+        "checker_leaf_results": [
+          true,
+          true
+        ],
+        "agent_success": true,
+        "deployment_passed": true,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "528d6d24",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "a377d715",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f4ff5428",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f70fd1c5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "a92537e4",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "af8b4784",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "cbaf43db",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f4ebd7cf",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "235684e3",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c56d8515",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c86bcdc5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "e6b22f8c",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "0cb39a4a",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "9a59bf38",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c8b934b1",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f085d6c5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "dfb72cbb",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "d72edf40",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "4c8040f9",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      }
+    ]
+  },
+  "restart": {
+    "session_id": "04cd6269",
+    "scene_sha256": "216cc29058511615ddf465f604f732c283f11a6669924110bf0cbc38269a1888",
+    "configuration": {
+      "baseline": {
+        "baseline": "general-agent-v5-local",
+        "profile_sha256": "fcf6b641c8c12cbe9610d6fd3a72b5f039ad7eeeafeda29f94c021b2c446b9f7",
+        "source_files": 93,
+        "provider_calls": 0
+      },
+      "system": "Linux",
+      "machine": "x86_64",
+      "python_version": "3.11.16",
+      "source_map_sha256": "5c91c2cd43226ceba760f1152f91d4bb8762e40ab3766b3a9cc3474fee193b6b"
+    },
+    "worker_pid": 5107,
+    "scorer_pid": 9618,
+    "initial_world_sha256": "eb079ec9c4cab4fcd60f25eda38cda66336c0a0b5377b7ea1e380fd2159ac839",
+    "initial_board_sha256": "d3e35f484a8354995efeeaf6229023cb6414b3c17a1c7ff22bc2e1f7edee7dd0",
+    "initial_positions": {
+      "b4a1b8f9": {
+        "x": 79.0,
+        "y": 560.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "ba1ef764": {
+        "x": 92.0,
+        "y": 87.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "969d84bb": {
+        "x": 266.0,
+        "y": 157.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "0dd3527c": {
+        "x": 584.0,
+        "y": 274.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "34c894fb": {
+        "x": 143.0,
+        "y": 357.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      }
+    },
+    "planned": 20,
+    "scored": 20,
+    "raw_passed": 1,
+    "deployment_passed": 1,
+    "checker_leaves": 79,
+    "transitions_with_displaced_xy": 18,
+    "verified_transitions": 19,
+    "with_nonempty_blackboard": 19,
+    "drone_position_and_history_changes": 20,
+    "tasks": [
+      {
+        "task_id": "a05a871a",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": true,
+        "checker_leaf_results": [
+          true,
+          true
+        ],
+        "agent_success": true,
+        "deployment_passed": true,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "528d6d24",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "a377d715",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f4ff5428",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f70fd1c5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "a92537e4",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "af8b4784",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "cbaf43db",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f4ebd7cf",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "235684e3",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c56d8515",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c86bcdc5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "e6b22f8c",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "0cb39a4a",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "9a59bf38",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c8b934b1",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f085d6c5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "dfb72cbb",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "d72edf40",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "4c8040f9",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      }
+    ]
+  },
+  "interrupted": {
+    "session_id": "04cd6269",
+    "scene_sha256": "216cc29058511615ddf465f604f732c283f11a6669924110bf0cbc38269a1888",
+    "configuration": {
+      "baseline": {
+        "baseline": "general-agent-v5-local",
+        "profile_sha256": "fcf6b641c8c12cbe9610d6fd3a72b5f039ad7eeeafeda29f94c021b2c446b9f7",
+        "source_files": 93,
+        "provider_calls": 0
+      },
+      "system": "Linux",
+      "machine": "x86_64",
+      "python_version": "3.11.16",
+      "source_map_sha256": "5c91c2cd43226ceba760f1152f91d4bb8762e40ab3766b3a9cc3474fee193b6b"
+    },
+    "worker_pid": 5110,
+    "scorer_pid": 5649,
+    "initial_world_sha256": "eb079ec9c4cab4fcd60f25eda38cda66336c0a0b5377b7ea1e380fd2159ac839",
+    "initial_board_sha256": "d3e35f484a8354995efeeaf6229023cb6414b3c17a1c7ff22bc2e1f7edee7dd0",
+    "initial_positions": {
+      "b4a1b8f9": {
+        "x": 79.0,
+        "y": 560.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "ba1ef764": {
+        "x": 92.0,
+        "y": 87.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "969d84bb": {
+        "x": 266.0,
+        "y": 157.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "0dd3527c": {
+        "x": 584.0,
+        "y": 274.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "34c894fb": {
+        "x": 143.0,
+        "y": 357.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      }
+    },
+    "planned": 20,
+    "scored": 1,
+    "raw_passed": 1,
+    "deployment_passed": 1,
+    "checker_leaves": 2,
+    "transitions_with_displaced_xy": 0,
+    "verified_transitions": 1,
+    "with_nonempty_blackboard": 1,
+    "drone_position_and_history_changes": 1,
+    "tasks": [
+      {
+        "task_id": "a05a871a",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": true,
+        "checker_leaf_results": [
+          true,
+          true
+        ],
+        "agent_success": true,
+        "deployment_passed": true,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "528d6d24",
+        "status": "invalid",
+        "reason": "provider_503",
+        "checker_passed": null,
+        "checker_leaf_results": null,
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 0,
+        "model_requests": 1
+      },
+      {
+        "task_id": "a377d715",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "f4ff5428",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "f70fd1c5",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "a92537e4",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "af8b4784",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "cbaf43db",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "f4ebd7cf",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "235684e3",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "c56d8515",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "c86bcdc5",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "e6b22f8c",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "0cb39a4a",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "9a59bf38",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "c8b934b1",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "f085d6c5",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "dfb72cbb",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "d72edf40",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      },
+      {
+        "task_id": "4c8040f9",
+        "status": "unstarted",
+        "reason": "upstream_service_failure",
+        "checker_passed": null,
+        "agent_success": null,
+        "deployment_passed": false
+      }
+    ]
+  },
+  "timeout": {
+    "session_id": "04cd6269",
+    "scene_sha256": "216cc29058511615ddf465f604f732c283f11a6669924110bf0cbc38269a1888",
+    "configuration": {
+      "baseline": {
+        "baseline": "general-agent-v5-local",
+        "profile_sha256": "fcf6b641c8c12cbe9610d6fd3a72b5f039ad7eeeafeda29f94c021b2c446b9f7",
+        "source_files": 93,
+        "provider_calls": 0
+      },
+      "system": "Linux",
+      "machine": "x86_64",
+      "python_version": "3.11.16",
+      "source_map_sha256": "5c91c2cd43226ceba760f1152f91d4bb8762e40ab3766b3a9cc3474fee193b6b"
+    },
+    "worker_pid": 5108,
+    "scorer_pid": 9616,
+    "initial_world_sha256": "eb079ec9c4cab4fcd60f25eda38cda66336c0a0b5377b7ea1e380fd2159ac839",
+    "initial_board_sha256": "d3e35f484a8354995efeeaf6229023cb6414b3c17a1c7ff22bc2e1f7edee7dd0",
+    "initial_positions": {
+      "b4a1b8f9": {
+        "x": 79.0,
+        "y": 560.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "ba1ef764": {
+        "x": 92.0,
+        "y": 87.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "969d84bb": {
+        "x": 266.0,
+        "y": 157.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "0dd3527c": {
+        "x": 584.0,
+        "y": 274.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      },
+      "34c894fb": {
+        "x": 143.0,
+        "y": 357.0,
+        "z": 0.0,
+        "battery_level": 100.0,
+        "status": "idle",
+        "history_count": 0
+      }
+    },
+    "planned": 20,
+    "scored": 20,
+    "raw_passed": 1,
+    "deployment_passed": 1,
+    "checker_leaves": 79,
+    "transitions_with_displaced_xy": 17,
+    "verified_transitions": 19,
+    "with_nonempty_blackboard": 19,
+    "drone_position_and_history_changes": 19,
+    "tasks": [
+      {
+        "task_id": "a05a871a",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": true,
+        "checker_leaf_results": [
+          true,
+          true
+        ],
+        "agent_success": true,
+        "deployment_passed": true,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "528d6d24",
+        "status": "completed",
+        "reason": "deadline",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 0,
+        "model_requests": 2
+      },
+      {
+        "task_id": "a377d715",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f4ff5428",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f70fd1c5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "a92537e4",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "af8b4784",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "cbaf43db",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f4ebd7cf",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "235684e3",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c56d8515",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c86bcdc5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "e6b22f8c",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "0cb39a4a",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "9a59bf38",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false
+        ],
+        "agent_success": true,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "c8b934b1",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "f085d6c5",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "dfb72cbb",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "d72edf40",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      },
+      {
+        "task_id": "4c8040f9",
+        "status": "completed",
+        "reason": "agent_finished",
+        "checker_passed": false,
+        "checker_leaf_results": [
+          false
+        ],
+        "agent_success": false,
+        "deployment_passed": false,
+        "physical_events": 2,
+        "model_requests": 5
+      }
+    ]
+  }
+}

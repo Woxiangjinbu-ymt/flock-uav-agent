@@ -1,0 +1,395 @@
+{
+  "schema": "agent-sample-independent-audit-v1",
+  "auditor_version": "independent-agent-sample-audit-v1",
+  "passed": true,
+  "checks": [
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "passed": true,
+      "files": 217
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "trial_id": "raw_repair",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "trial_id": "unknown_after_commit",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "trial_id": "terminal_resume",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "trial_id": "validation_repair",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/agent-execution-contract-20261102/resume-run-01",
+      "passed": true,
+      "files": 158
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/resume-run-01",
+      "trial_id": "pause_resume",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/resume-run-01",
+      "trial_id": "invalidated_raw",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/agent-execution-contract-20261102/budget-run-01",
+      "passed": true,
+      "files": 157
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/budget-run-01",
+      "trial_id": "token_stop",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/budget-run-01",
+      "trial_id": "after_budget",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/agent-execution-contract-20261102/unknown-run-01",
+      "passed": true,
+      "files": 129
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/unknown-run-01",
+      "trial_id": "unknown_usage",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/unknown-run-01",
+      "trial_id": "after_unknown",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/agent-execution-contract-20261102/cancel-run-01",
+      "passed": true,
+      "files": 129
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/cancel-run-01",
+      "trial_id": "cancel",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/agent-execution-contract-20261102/timeout-run-01",
+      "passed": true,
+      "files": 129
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/timeout-run-01",
+      "trial_id": "timeout",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/agent-execution-contract-20261102/undrained-run-01",
+      "passed": true,
+      "files": 121
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/undrained-run-01",
+      "trial_id": "undrained",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/agent-execution-contract-20261102/deadline-run-01",
+      "passed": true,
+      "files": 129
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/agent-execution-contract-20261102/deadline-run-01",
+      "trial_id": "deadline",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/task-coverage-splits-20261103/entry-smoke-run-01",
+      "passed": true,
+      "files": 158
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/task-coverage-splits-20261103/entry-smoke-run-01",
+      "trial_id": "raw",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/task-coverage-splits-20261103/entry-smoke-run-01",
+      "trial_id": "skill",
+      "passed": true
+    },
+    {
+      "check": "source_seal_and_inventory",
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "passed": true,
+      "files": 241
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "c00d8b78-baseline",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "c00d8b78-integrated",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "b4714028-integrated",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "b4714028-baseline",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "7eba7390-baseline",
+      "passed": true
+    },
+    {
+      "check": "episode_inventory_wire_labels",
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "7eba7390-integrated",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "development evidence only; no Teacher approval",
+    "no model/tokenizer/provider execution",
+    "private scoring metadata is audited, never converted into labels"
+  ],
+  "counts": {
+    "planned_episodes": 22,
+    "eligible_episodes": 12,
+    "excluded_episodes": 8,
+    "unrun_episodes": 2,
+    "logical_decisions": 98,
+    "exported_samples": 61,
+    "excluded_decisions": 37
+  },
+  "episodes": [
+    {
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "trial_id": "raw_repair",
+      "status": "eligible",
+      "logical_decisions": 7,
+      "exported_samples": 6,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "trial_id": "unknown_after_commit",
+      "status": "eligible",
+      "logical_decisions": 6,
+      "exported_samples": 5,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "trial_id": "terminal_resume",
+      "status": "eligible",
+      "logical_decisions": 4,
+      "exported_samples": 3,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "trial_id": "validation_repair",
+      "status": "eligible",
+      "logical_decisions": 7,
+      "exported_samples": 6,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/resume-run-01",
+      "trial_id": "pause_resume",
+      "status": "eligible",
+      "logical_decisions": 6,
+      "exported_samples": 5,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/resume-run-01",
+      "trial_id": "invalidated_raw",
+      "status": "eligible",
+      "logical_decisions": 6,
+      "exported_samples": 5,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/budget-run-01",
+      "trial_id": "token_stop",
+      "status": "excluded",
+      "logical_decisions": 3,
+      "exported_samples": 0,
+      "independent_exclusion": "abnormal_episode"
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/budget-run-01",
+      "trial_id": "after_budget",
+      "status": "excluded",
+      "logical_decisions": 1,
+      "exported_samples": 0,
+      "independent_exclusion": "checker_not_passed"
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/unknown-run-01",
+      "trial_id": "unknown_usage",
+      "status": "excluded",
+      "logical_decisions": 1,
+      "exported_samples": 0,
+      "independent_exclusion": "unknown_usage"
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/unknown-run-01",
+      "trial_id": "after_unknown",
+      "status": "unrun",
+      "logical_decisions": 0,
+      "exported_samples": 0,
+      "independent_exclusion": "planned_not_run"
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/cancel-run-01",
+      "trial_id": "cancel",
+      "status": "excluded",
+      "logical_decisions": 3,
+      "exported_samples": 0,
+      "independent_exclusion": "abnormal_episode"
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/timeout-run-01",
+      "trial_id": "timeout",
+      "status": "excluded",
+      "logical_decisions": 3,
+      "exported_samples": 0,
+      "independent_exclusion": "abnormal_episode"
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/undrained-run-01",
+      "trial_id": "undrained",
+      "status": "excluded",
+      "logical_decisions": 3,
+      "exported_samples": 0,
+      "independent_exclusion": "FileNotFoundError"
+    },
+    {
+      "run": "docs/results/agent-execution-contract-20261102/deadline-run-01",
+      "trial_id": "deadline",
+      "status": "excluded",
+      "logical_decisions": 3,
+      "exported_samples": 0,
+      "independent_exclusion": "abnormal_episode"
+    },
+    {
+      "run": "docs/results/task-coverage-splits-20261103/entry-smoke-run-01",
+      "trial_id": "raw",
+      "status": "eligible",
+      "logical_decisions": 4,
+      "exported_samples": 4,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/task-coverage-splits-20261103/entry-smoke-run-01",
+      "trial_id": "skill",
+      "status": "eligible",
+      "logical_decisions": 3,
+      "exported_samples": 3,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "c00d8b78-baseline",
+      "status": "eligible",
+      "logical_decisions": 7,
+      "exported_samples": 7,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "c00d8b78-integrated",
+      "status": "eligible",
+      "logical_decisions": 4,
+      "exported_samples": 4,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "b4714028-integrated",
+      "status": "eligible",
+      "logical_decisions": 8,
+      "exported_samples": 7,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "b4714028-baseline",
+      "status": "eligible",
+      "logical_decisions": 6,
+      "exported_samples": 6,
+      "independent_exclusion": null
+    },
+    {
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "7eba7390-baseline",
+      "status": "excluded",
+      "logical_decisions": 13,
+      "exported_samples": 0,
+      "independent_exclusion": "abnormal_episode"
+    },
+    {
+      "run": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "trial_id": "7eba7390-integrated",
+      "status": "unrun",
+      "logical_decisions": 0,
+      "exported_samples": 0,
+      "independent_exclusion": "planned_not_run"
+    }
+  ],
+  "reasoning_removal_records": 94,
+  "true_teacher_samples": 0,
+  "manifest_sha256": "9377805432cdcd1041305d2e2e7d689f91686388867acb42da8c1a12bbabf2be",
+  "source_plan_sha256": "a2e317a1261dcf0a86d5b3460219cee58104233b9d9a4874a3c669bd9eb9a689"
+}

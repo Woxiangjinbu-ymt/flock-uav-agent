@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "protocol_sha256": "27f0977e199bcf49ff0975073a6acf6e0dfc40a7ca0cb6e722a0624de5a36fc6",
+  "seed_start": 2026100901,
+  "seed_stop_exclusive": 2026100913,
+  "accepted_required": 2,
+  "candidates": [
+    {
+      "seed": 2026100901,
+      "status": "accepted",
+      "scene_id": "50f133e6",
+      "task_id": "258f0943",
+      "sha256": "fd72747bdb558afb11c27a6b78b05a7dba7cee3ccd74f010ad9873c7de48c578",
+      "routes": [
+        {
+          "route_attempt": 1,
+          "horizontal_distance_m": 2634.2,
+          "estimated_battery_percent": 15.08
+        },
+        {
+          "route_attempt": 1,
+          "horizontal_distance_m": 2972.43,
+          "estimated_battery_percent": 16.95
+        }
+      ],
+      "drone_ids": [
+        "0a614e65",
+        "c48eab16"
+      ]
+    },
+    {
+      "seed": 2026100902,
+      "status": "accepted",
+      "scene_id": "9d63875d",
+      "task_id": "428733dc",
+      "sha256": "03a77257ad163189cd10a89670b4e206f9068d9620da50b886afd7f2a6bb52cd",
+      "routes": [
+        {
+          "route_attempt": 1,
+          "horizontal_distance_m": 2777.54,
+          "estimated_battery_percent": 16.63
+        },
+        {
+          "route_attempt": 1,
+          "horizontal_distance_m": 2751.39,
+          "estimated_battery_percent": 16.48
+        }
+      ],
+      "drone_ids": [
+        "184c20a1",
+        "f4ce4fbe"
+      ]
+    }
+  ],
+  "accepted": [
+    {
+      "seed": 2026100901,
+      "status": "accepted",
+      "scene_id": "50f133e6",
+      "task_id": "258f0943",
+      "sha256": "fd72747bdb558afb11c27a6b78b05a7dba7cee3ccd74f010ad9873c7de48c578",
+      "routes": [
+        {
+          "route_attempt": 1,
+          "horizontal_distance_m": 2634.2,
+          "estimated_battery_percent": 15.08
+        },
+        {
+          "route_attempt": 1,
+          "horizontal_distance_m": 2972.43,
+          "estimated_battery_percent": 16.95
+        }
+      ],
+      "drone_ids": [
+        "0a614e65",
+        "c48eab16"
+      ]
+    },
+    {
+      "seed": 2026100902,
+      "status": "accepted",
+      "scene_id": "9d63875d",
+      "task_id": "428733dc",
+      "sha256": "03a77257ad163189cd10a89670b4e206f9068d9620da50b886afd7f2a6bb52cd",
+      "routes": [
+        {
+          "route_attempt": 1,
+          "horizontal_distance_m": 2777.54,
+          "estimated_battery_percent": 16.63
+        },
+        {
+          "route_attempt": 1,
+          "horizontal_distance_m": 2751.39,
+          "estimated_battery_percent": 16.48
+        }
+      ],
+      "drone_ids": [
+        "184c20a1",
+        "f4ce4fbe"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "controller/random_session_generator.py": "57a230d5a82cea608babf43109f1734b1a4ae3da03df177b03a61c1e9342b06a",
+    "server/controllers/obstacle_controller.py": "ebe68c25e76481a8e9f5b5aa7f1360d163adb722a824000400af5e795e7acd32",
+    "server/config/battery_config.py": "422ac9300306226c73f1073b58111b8f1aca4c20301331496a4f315bf194e852",
+    "server/models/session.py": "b2ea22ac56096600b6737dad67ce7dc0a1ba300acf77d2638f0da56ec99f257e"
+  }
+}

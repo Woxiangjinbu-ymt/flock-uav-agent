@@ -1,0 +1,103 @@
+{
+  "status": "estimate_not_spend_authorization",
+  "source": "docs/results/minimal-harness-online-20261015/comparison.json",
+  "source_sha256": "90ea977f71bbe568582e659d7735571e4c89fc7f652fd44c4c71d88e16c548eb",
+  "v1_observed_200": {
+    "usage": {
+      "prompt_tokens": 207908562,
+      "completion_tokens": 4856975,
+      "total_tokens": 212765537,
+      "cache_hit_tokens": 196410858,
+      "cache_miss_tokens": 11497704
+    },
+    "arms": {
+      "applicability": {
+        "n": 100,
+        "usage": {
+          "prompt_tokens": 102328470,
+          "completion_tokens": 2456763,
+          "total_tokens": 104785233,
+          "cache_hit_tokens": 96495095,
+          "cache_miss_tokens": 5833375
+        },
+        "tokens_median": 453653.5,
+        "tokens_p90_nearest_rank": 2798526,
+        "tokens_p95_nearest_rank": 3706871,
+        "tokens_max": 8868451
+      },
+      "failure": {
+        "n": 100,
+        "usage": {
+          "prompt_tokens": 105580092,
+          "completion_tokens": 2400212,
+          "total_tokens": 107980304,
+          "cache_hit_tokens": 99915763,
+          "cache_miss_tokens": 5664329
+        },
+        "tokens_median": 367418.5,
+        "tokens_p90_nearest_rank": 2849226,
+        "tokens_p95_nearest_rank": 3924708,
+        "tokens_max": 10193334
+      }
+    }
+  },
+  "full400_unadjusted": {
+    "usage": {
+      "prompt_tokens": 415817124,
+      "completion_tokens": 9713950,
+      "total_tokens": 425531074,
+      "cache_hit_tokens": 392821716,
+      "cache_miss_tokens": 22995408
+    },
+    "logical_calls": 5560,
+    "sum_ready_seconds": 55110.76637792587,
+    "ideal_two_worker_hours": 7.65427310804526,
+    "proposed_schedule_replay_hours": 8.002379899952146,
+    "worker_load_seconds": {
+      "r1-w0": 13151.099369049072,
+      "r1-w1": 14404.283819913864,
+      "r2-w0": 14404.283819913864,
+      "r2-w1": 13151.099369049072
+    }
+  },
+  "planning_scenarios": {
+    "token_multiplier_vs_v1": [
+      1.25,
+      2.0
+    ],
+    "tokens": [
+      531913842,
+      851062148
+    ],
+    "online_hours": [
+      12,
+      20
+    ],
+    "offline_preparation_workdays": [
+      1,
+      2
+    ],
+    "basis": "Reset removes inherited completion; higher loop limits and service variance; assumptions, not confidence bounds"
+  },
+  "proposed_token_soft_stop": 1000000000,
+  "calibration_first20_pairs": {
+    "executions": 40,
+    "v1_replayed_tokens": 24610143,
+    "tokens_scenario": [
+      30762679,
+      49220286
+    ],
+    "v1_replayed_two_worker_hours": 0.8783832484483719,
+    "not_extra_experiments": true
+  },
+  "stress_workload_hours": {
+    "400_at_500_seconds_two_workers": 27.77777777777778,
+    "400_at_630_seconds_two_workers": 35.0,
+    "note": "Task slot workload only; not a calendar guarantee; overhead and interruptions excluded"
+  },
+  "v2_mechanism_cost_not_extrapolated": {
+    "executions": 96,
+    "tokens": 7293646,
+    "wall_seconds": 1493.2765820026398
+  }
+}

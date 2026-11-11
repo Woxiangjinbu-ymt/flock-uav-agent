@@ -1,0 +1,679 @@
+{
+  "features": {
+    "bucket:deepseek:near_miss": {
+      "full_tasks": 89,
+      "subset_tasks": 16
+    },
+    "bucket:deepseek:other_partial": {
+      "full_tasks": 76,
+      "subset_tasks": 18
+    },
+    "bucket:deepseek:zero_multi": {
+      "full_tasks": 19,
+      "subset_tasks": 5
+    },
+    "bucket:deepseek:zero_single": {
+      "full_tasks": 19,
+      "subset_tasks": 7
+    },
+    "bucket:qwen:near_miss": {
+      "full_tasks": 96,
+      "subset_tasks": 25
+    },
+    "bucket:qwen:other_partial": {
+      "full_tasks": 139,
+      "subset_tasks": 27
+    },
+    "bucket:qwen:zero_multi": {
+      "full_tasks": 38,
+      "subset_tasks": 14
+    },
+    "bucket:qwen:zero_single": {
+      "full_tasks": 20,
+      "subset_tasks": 8
+    },
+    "category:Basic Operations": {
+      "full_tasks": 146,
+      "subset_tasks": 34
+    },
+    "category:Communication": {
+      "full_tasks": 32,
+      "subset_tasks": 8
+    },
+    "category:Delivery": {
+      "full_tasks": 73,
+      "subset_tasks": 16
+    },
+    "category:Multi-Drone Coordination": {
+      "full_tasks": 514,
+      "subset_tasks": 99
+    },
+    "category:Navigation": {
+      "full_tasks": 339,
+      "subset_tasks": 71
+    },
+    "category:Search": {
+      "full_tasks": 396,
+      "subset_tasks": 72
+    },
+    "conflict:geometric_check_conflict": {
+      "full_tasks": 63,
+      "subset_tasks": 12
+    },
+    "conflict:takeoff_instruction_check_conflict": {
+      "full_tasks": 2,
+      "subset_tasks": 0
+    },
+    "control:Basic Operations": {
+      "full_tasks": 141,
+      "subset_tasks": 33
+    },
+    "control:Communication": {
+      "full_tasks": 30,
+      "subset_tasks": 7
+    },
+    "control:Delivery": {
+      "full_tasks": 72,
+      "subset_tasks": 16
+    },
+    "control:Multi-Drone Coordination": {
+      "full_tasks": 280,
+      "subset_tasks": 52
+    },
+    "control:Navigation": {
+      "full_tasks": 243,
+      "subset_tasks": 54
+    },
+    "control:Search": {
+      "full_tasks": 313,
+      "subset_tasks": 48
+    },
+    "failure_category:Basic Operations": {
+      "full_tasks": 5,
+      "subset_tasks": 1
+    },
+    "failure_category:Communication": {
+      "full_tasks": 2,
+      "subset_tasks": 1
+    },
+    "failure_category:Delivery": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "failure_category:Multi-Drone Coordination": {
+      "full_tasks": 194,
+      "subset_tasks": 43
+    },
+    "failure_category:Navigation": {
+      "full_tasks": 86,
+      "subset_tasks": 17
+    },
+    "failure_category:Search": {
+      "full_tasks": 73,
+      "subset_tasks": 24
+    },
+    "failure_endpoint:/check/drone_altitude": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "failure_endpoint:/check/drone_at_home": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "failure_endpoint:/check/drone_has_landed": {
+      "full_tasks": 2,
+      "subset_tasks": 0
+    },
+    "failure_endpoint:/check/drone_has_moved_directed_distance": {
+      "full_tasks": 57,
+      "subset_tasks": 9
+    },
+    "failure_endpoint:/check/drone_has_moved_distance": {
+      "full_tasks": 3,
+      "subset_tasks": 1
+    },
+    "failure_endpoint:/check/drone_has_sent_message": {
+      "full_tasks": 2,
+      "subset_tasks": 1
+    },
+    "failure_endpoint:/check/drone_has_taken_off": {
+      "full_tasks": 2,
+      "subset_tasks": 0
+    },
+    "failure_endpoint:/check/drone_has_taken_photo": {
+      "full_tasks": 7,
+      "subset_tasks": 4
+    },
+    "failure_endpoint:/check/drone_has_visited_position": {
+      "full_tasks": 115,
+      "subset_tasks": 22
+    },
+    "failure_endpoint:/check/drone_hovering": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "failure_endpoint:/check/drone_on_ground": {
+      "full_tasks": 42,
+      "subset_tasks": 7
+    },
+    "failure_endpoint:/check/drone_position": {
+      "full_tasks": 45,
+      "subset_tasks": 6
+    },
+    "failure_endpoint:/check/target_in_photo_taken_by_drone": {
+      "full_tasks": 69,
+      "subset_tasks": 16
+    },
+    "failure_endpoint:/check/target_is_fully_searched": {
+      "full_tasks": 8,
+      "subset_tasks": 5
+    },
+    "failure_endpoint:/check/target_is_reached": {
+      "full_tasks": 35,
+      "subset_tasks": 10
+    },
+    "failure_endpoint:/check/target_is_reached_by_drone": {
+      "full_tasks": 120,
+      "subset_tasks": 29
+    },
+    "failure_endpoint:/check/target_searched_area_percentage": {
+      "full_tasks": 9,
+      "subset_tasks": 4
+    },
+    "failure_endpoint:/check/task_progress": {
+      "full_tasks": 25,
+      "subset_tasks": 8
+    },
+    "failure_endpoint:/check/two_drones_distance": {
+      "full_tasks": 21,
+      "subset_tasks": 3
+    },
+    "failure_template:Any Drone Area Coverage Search": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "failure_template:Area Search Task Completion": {
+      "full_tasks": 10,
+      "subset_tasks": 2
+    },
+    "failure_template:Communication Relay with Messages": {
+      "full_tasks": 2,
+      "subset_tasks": 1
+    },
+    "failure_template:Complete Area Coverage Search": {
+      "full_tasks": 4,
+      "subset_tasks": 3
+    },
+    "failure_template:Complete Flight Cycle Verification": {
+      "full_tasks": 4,
+      "subset_tasks": 0
+    },
+    "failure_template:Complex Obstacle Course Navigation": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "failure_template:Coordinated Search Sweep - 3 Drones": {
+      "full_tasks": 8,
+      "subset_tasks": 3
+    },
+    "failure_template:Dual Drone Area Coverage Search": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "failure_template:Dual Drone Patrol": {
+      "full_tasks": 14,
+      "subset_tasks": 4
+    },
+    "failure_template:Dual Flight Marathon Navigation": {
+      "full_tasks": 17,
+      "subset_tasks": 1
+    },
+    "failure_template:Extended Distance Flight Test": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "failure_template:Extreme Flight Marathon Navigation": {
+      "full_tasks": 17,
+      "subset_tasks": 1
+    },
+    "failure_template:Fleet Coordinated Takeoff and Formation (3 Drones)": {
+      "full_tasks": 5,
+      "subset_tasks": 1
+    },
+    "failure_template:Fleet Coordinated Takeoff and Formation (4 Drones)": {
+      "full_tasks": 10,
+      "subset_tasks": 3
+    },
+    "failure_template:Fleet Coordinated Takeoff and Formation (5 Drones)": {
+      "full_tasks": 8,
+      "subset_tasks": 2
+    },
+    "failure_template:Fleet Target Sweep (3 Drones)": {
+      "full_tasks": 14,
+      "subset_tasks": 3
+    },
+    "failure_template:Fleet Target Sweep (4 Drones)": {
+      "full_tasks": 14,
+      "subset_tasks": 3
+    },
+    "failure_template:Fleet Target Sweep (5 Drones)": {
+      "full_tasks": 22,
+      "subset_tasks": 1
+    },
+    "failure_template:Flight Marathon Navigation": {
+      "full_tasks": 16,
+      "subset_tasks": 4
+    },
+    "failure_template:Fly Several Waypoints": {
+      "full_tasks": 4,
+      "subset_tasks": 0
+    },
+    "failure_template:Line Formation - 2 Drones": {
+      "full_tasks": 21,
+      "subset_tasks": 3
+    },
+    "failure_template:Multi-Target Reach Verification": {
+      "full_tasks": 13,
+      "subset_tasks": 6
+    },
+    "failure_template:Multi-Target Survey Mission": {
+      "full_tasks": 12,
+      "subset_tasks": 2
+    },
+    "failure_template:Multi-Waypoint Delivery Route": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "failure_template:Multiple Target Inspection": {
+      "full_tasks": 21,
+      "subset_tasks": 7
+    },
+    "failure_template:Multiple Target Inspection - Advanced": {
+      "full_tasks": 26,
+      "subset_tasks": 5
+    },
+    "failure_template:Obstacle Avoidance Navigation": {
+      "full_tasks": 4,
+      "subset_tasks": 2
+    },
+    "failure_template:Patrol Mission - Quadrangle": {
+      "full_tasks": 8,
+      "subset_tasks": 1
+    },
+    "failure_template:Perimeter Search - 4 Drones": {
+      "full_tasks": 3,
+      "subset_tasks": 2
+    },
+    "failure_template:Quick Checkpoint Visit": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "failure_template:Sequential Multi-Target Visit": {
+      "full_tasks": 24,
+      "subset_tasks": 8
+    },
+    "failure_template:Simple Altitude Change": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "failure_template:Target Area Complete Coverage and Photography Mission": {
+      "full_tasks": 2,
+      "subset_tasks": 1
+    },
+    "failure_template:Target Assignment 50% Progress With 3 Targets": {
+      "full_tasks": 7,
+      "subset_tasks": 1
+    },
+    "failure_template:Target Assignment 70% Progress With 5 Targets": {
+      "full_tasks": 3,
+      "subset_tasks": 1
+    },
+    "failure_template:Target Assignment Task Completion": {
+      "full_tasks": 14,
+      "subset_tasks": 6
+    },
+    "failure_template:Target Inspection": {
+      "full_tasks": 10,
+      "subset_tasks": 2
+    },
+    "failure_template:Triangle Formation - 3 Drones": {
+      "full_tasks": 13,
+      "subset_tasks": 3
+    },
+    "failure_template:Triple Flight Marathon Navigation": {
+      "full_tasks": 4,
+      "subset_tasks": 2
+    },
+    "pair:both_fail": {
+      "full_tasks": 135,
+      "subset_tasks": 34
+    },
+    "pair:both_pass": {
+      "full_tasks": 1079,
+      "subset_tasks": 210
+    },
+    "pair:deepseek_only": {
+      "full_tasks": 142,
+      "subset_tasks": 38
+    },
+    "pair:qwen_only": {
+      "full_tasks": 47,
+      "subset_tasks": 12
+    },
+    "reviewed:coverage_below_required_threshold": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "reviewed:directed_segment_vs_net_displacement": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "reviewed:early_exit_without_action": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "reviewed:final_distance_vs_movement": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "reviewed:missing_final_landing_after_long_route": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "reviewed:observed_targets_vs_global_progress": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "reviewed:photo_action_vs_target_in_frame": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "reviewed:target_binding_and_coverage_handle": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "reviewed:undiscovered_target_not_nonexistent": {
+      "full_tasks": 1,
+      "subset_tasks": 1
+    },
+    "reviewed:visited_targets_vs_completion_threshold": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "runtime:terminal_provider_error": {
+      "full_tasks": 37,
+      "subset_tasks": 6
+    },
+    "runtime:unscored_execution_stop": {
+      "full_tasks": 73,
+      "subset_tasks": 0
+    },
+    "runtime:worker_not_confirmed": {
+      "full_tasks": 13,
+      "subset_tasks": 1
+    },
+    "signal:agent_success_flag_but_checks_fail": {
+      "full_tasks": 204,
+      "subset_tasks": 47
+    },
+    "signal:failed_target_absent_from_blackboard": {
+      "full_tasks": 137,
+      "subset_tasks": 40
+    },
+    "signal:navigation_false_at_zero_distance": {
+      "full_tasks": 142,
+      "subset_tasks": 39
+    },
+    "signal:repeated_local_sensing": {
+      "full_tasks": 192,
+      "subset_tasks": 52
+    },
+    "signal:timeout_with_progress": {
+      "full_tasks": 185,
+      "subset_tasks": 41
+    },
+    "signal:timeout_zero_checks": {
+      "full_tasks": 53,
+      "subset_tasks": 16
+    },
+    "template:Any Drone Area Coverage Search": {
+      "full_tasks": 7,
+      "subset_tasks": 1
+    },
+    "template:Any Drone Two-Target Area Coverage Search": {
+      "full_tasks": 18,
+      "subset_tasks": 5
+    },
+    "template:Area Search Task Completion": {
+      "full_tasks": 25,
+      "subset_tasks": 6
+    },
+    "template:Basic Takeoff": {
+      "full_tasks": 21,
+      "subset_tasks": 6
+    },
+    "template:Communication Relay with Messages": {
+      "full_tasks": 32,
+      "subset_tasks": 8
+    },
+    "template:Complete Area Coverage Search": {
+      "full_tasks": 67,
+      "subset_tasks": 9
+    },
+    "template:Complete Flight Cycle Verification": {
+      "full_tasks": 33,
+      "subset_tasks": 5
+    },
+    "template:Complex Obstacle Course Navigation": {
+      "full_tasks": 38,
+      "subset_tasks": 7
+    },
+    "template:Coordinated Search Sweep - 3 Drones": {
+      "full_tasks": 24,
+      "subset_tasks": 8
+    },
+    "template:Cross Target Swap After Discovery": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    },
+    "template:Delivery to Specific Location": {
+      "full_tasks": 36,
+      "subset_tasks": 10
+    },
+    "template:Dual Drone Area Coverage Search": {
+      "full_tasks": 28,
+      "subset_tasks": 4
+    },
+    "template:Dual Drone Patrol": {
+      "full_tasks": 30,
+      "subset_tasks": 4
+    },
+    "template:Dual Flight Marathon Navigation": {
+      "full_tasks": 29,
+      "subset_tasks": 3
+    },
+    "template:Extended Distance Flight Test": {
+      "full_tasks": 32,
+      "subset_tasks": 10
+    },
+    "template:Extended Hover Observation": {
+      "full_tasks": 30,
+      "subset_tasks": 6
+    },
+    "template:Extreme Flight Marathon Navigation": {
+      "full_tasks": 18,
+      "subset_tasks": 1
+    },
+    "template:Fleet Coordinated Takeoff and Formation (3 Drones)": {
+      "full_tasks": 39,
+      "subset_tasks": 6
+    },
+    "template:Fleet Coordinated Takeoff and Formation (4 Drones)": {
+      "full_tasks": 31,
+      "subset_tasks": 5
+    },
+    "template:Fleet Coordinated Takeoff and Formation (5 Drones)": {
+      "full_tasks": 25,
+      "subset_tasks": 4
+    },
+    "template:Fleet Target Sweep (3 Drones)": {
+      "full_tasks": 37,
+      "subset_tasks": 6
+    },
+    "template:Fleet Target Sweep (4 Drones)": {
+      "full_tasks": 31,
+      "subset_tasks": 6
+    },
+    "template:Fleet Target Sweep (5 Drones)": {
+      "full_tasks": 32,
+      "subset_tasks": 3
+    },
+    "template:Flight Marathon Navigation": {
+      "full_tasks": 44,
+      "subset_tasks": 12
+    },
+    "template:Fly Several Waypoints": {
+      "full_tasks": 37,
+      "subset_tasks": 6
+    },
+    "template:Line Formation - 2 Drones": {
+      "full_tasks": 48,
+      "subset_tasks": 6
+    },
+    "template:Multi-Target Reach Verification": {
+      "full_tasks": 33,
+      "subset_tasks": 10
+    },
+    "template:Multi-Target Survey Mission": {
+      "full_tasks": 39,
+      "subset_tasks": 6
+    },
+    "template:Multi-Waypoint Delivery Route": {
+      "full_tasks": 37,
+      "subset_tasks": 6
+    },
+    "template:Multiple Target Inspection": {
+      "full_tasks": 40,
+      "subset_tasks": 8
+    },
+    "template:Multiple Target Inspection - Advanced": {
+      "full_tasks": 44,
+      "subset_tasks": 10
+    },
+    "template:Obstacle Avoidance Navigation": {
+      "full_tasks": 32,
+      "subset_tasks": 6
+    },
+    "template:Patrol Mission - Quadrangle": {
+      "full_tasks": 38,
+      "subset_tasks": 5
+    },
+    "template:Perimeter Search - 4 Drones": {
+      "full_tasks": 24,
+      "subset_tasks": 8
+    },
+    "template:Photo Documentation Mission": {
+      "full_tasks": 26,
+      "subset_tasks": 3
+    },
+    "template:Quick Checkpoint Visit": {
+      "full_tasks": 30,
+      "subset_tasks": 8
+    },
+    "template:Randomized Loiter with Photo": {
+      "full_tasks": 27,
+      "subset_tasks": 4
+    },
+    "template:Search Task with Photo": {
+      "full_tasks": 30,
+      "subset_tasks": 7
+    },
+    "template:Sequential Multi-Target Visit": {
+      "full_tasks": 49,
+      "subset_tasks": 11
+    },
+    "template:Simple Altitude Change": {
+      "full_tasks": 38,
+      "subset_tasks": 11
+    },
+    "template:Simple Rotation Test": {
+      "full_tasks": 27,
+      "subset_tasks": 8
+    },
+    "template:Target Area Complete Coverage and Photography Mission": {
+      "full_tasks": 27,
+      "subset_tasks": 3
+    },
+    "template:Target Assignment 50% Progress With 3 Targets": {
+      "full_tasks": 24,
+      "subset_tasks": 5
+    },
+    "template:Target Assignment 70% Progress With 5 Targets": {
+      "full_tasks": 11,
+      "subset_tasks": 2
+    },
+    "template:Target Assignment Task Completion": {
+      "full_tasks": 23,
+      "subset_tasks": 8
+    },
+    "template:Target Inspection": {
+      "full_tasks": 43,
+      "subset_tasks": 6
+    },
+    "template:Triangle Formation - 3 Drones": {
+      "full_tasks": 50,
+      "subset_tasks": 12
+    },
+    "template:Triple Drone Area Coverage Search": {
+      "full_tasks": 6,
+      "subset_tasks": 3
+    },
+    "template:Triple Flight Marathon Navigation": {
+      "full_tasks": 8,
+      "subset_tasks": 3
+    },
+    "template:Two Find Two Support": {
+      "full_tasks": 1,
+      "subset_tasks": 0
+    }
+  },
+  "missing_features": [
+    "conflict:takeoff_instruction_check_conflict",
+    "failure_category:Delivery",
+    "failure_endpoint:/check/drone_at_home",
+    "failure_endpoint:/check/drone_has_landed",
+    "failure_endpoint:/check/drone_has_taken_off",
+    "failure_template:Any Drone Area Coverage Search",
+    "failure_template:Complete Flight Cycle Verification",
+    "failure_template:Complex Obstacle Course Navigation",
+    "failure_template:Extended Distance Flight Test",
+    "failure_template:Fly Several Waypoints",
+    "failure_template:Multi-Waypoint Delivery Route",
+    "failure_template:Quick Checkpoint Visit",
+    "reviewed:photo_action_vs_target_in_frame",
+    "reviewed:visited_targets_vs_completion_threshold",
+    "runtime:unscored_execution_stop",
+    "template:Cross Target Swap After Discovery",
+    "template:Two Find Two Support"
+  ],
+  "full_template_count": 50,
+  "subset_template_count": 48,
+  "generator_categories": {
+    "Basic Operations": 34,
+    "Navigation": 71,
+    "Search": 72,
+    "Multi-Drone Coordination": 99,
+    "Delivery": 16,
+    "Communication": 8
+  },
+  "task_difficulties": {
+    "easy": 49,
+    "medium": 112,
+    "hard": 139
+  },
+  "conflict_task_count": 12,
+  "near_miss_either_model_tasks": 33,
+  "zero_multi_either_model_tasks": 17,
+  "zero_single_either_model_tasks": 9,
+  "infrastructure_affected_either_model_tasks": 6
+}

@@ -1,0 +1,6563 @@
+{
+  "schema": "harness-method-validation-v1",
+  "passed": true,
+  "planned_cases": 12,
+  "planned_trials": 36,
+  "retained_trials": 36,
+  "completed_workers": 36,
+  "model_calls": 0,
+  "checks": [
+    {
+      "case_id": "normal-simple-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-simple-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "normal-search-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:first_return_is_first_failed_checkpoint",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:first_return_is_first_failed_checkpoint",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:unknown_not_replayed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "guarded_macro:unknown_fault_actually_triggered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:unknown_not_replayed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "applicability:unknown_fault_actually_triggered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:unknown_not_replayed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "name": "failure:unknown_fault_actually_triggered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:unknown_not_replayed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "guarded_macro:unknown_fault_actually_triggered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:unknown_not_replayed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "applicability:unknown_fault_actually_triggered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:unknown_not_replayed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "name": "failure:unknown_fault_actually_triggered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "guarded_macro:dependency_event_triggered_and_no_second_action",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "applicability:dependency_event_triggered_and_no_second_action",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "name": "failure:dependency_event_triggered_and_no_second_action",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:first_return_is_first_failed_checkpoint",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "repair-budget-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "guarded_macro:dependency_event_triggered_and_no_second_action",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "applicability:dependency_event_triggered_and_no_second_action",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "name": "failure:dependency_event_triggered_and_no_second_action",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "api-budget-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:entry_rejection_has_zero_actions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:entry_rejection_has_zero_actions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:entry_rejection_has_zero_actions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "all_three_planned_arms_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "all_three_workers_completed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:entry_rejection_has_zero_actions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "guarded_macro:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:entry_rejection_has_zero_actions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "applicability:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:declared_terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:declared_fixture_score",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:declared_local_failure_opportunities",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:no_model_or_network",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:only_public_agent_role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:all_tool_receipts_closed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:action_sequence_is_public_call_subsequence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:checkpoint_counts_are_observed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:entry_rejection_has_zero_actions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:no_action_after_mandatory_exit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:equals_macro:initial_state_sha256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:equals_macro:calls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:equals_macro:public_api",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:equals_macro:checkpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:equals_macro:terminal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:equals_macro:frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:equals_macro:final_semantic_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:equals_macro:checker",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:raw_final_state_binding",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:only_failure_scheduling_adds_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:pauses_at_exact_failed_checkpoint_boundaries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:first_return_bound_to_first_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:first_return_is_terminal_without_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "name": "failure:obstacle_geometry_remains_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_sources_unchanged",
+      "passed": true
+    },
+    {
+      "name": "independent_worker_pids",
+      "passed": true
+    },
+    {
+      "name": "serial_join",
+      "passed": true
+    }
+  ],
+  "pairs": [
+    {
+      "case_id": "normal-simple-01",
+      "category": "normal",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 10,
+          "actions": 3,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 10,
+            "after_action": 3
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 2,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 10,
+          "actions": 3,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 10,
+            "after_action": 3
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 2,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 10,
+          "actions": 3,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 10,
+            "after_action": 3
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 2,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "normal-search-01",
+      "category": "normal",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 49,
+          "actions": 13,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 49,
+            "after_action": 13
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 9,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 49,
+          "actions": 13,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 49,
+            "after_action": 13
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 9,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 49,
+          "actions": 13,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 49,
+            "after_action": 13
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 9,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "category": "locally_repairable",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 90,
+          "actions": 23,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 90,
+            "after_action": 23
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 19,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 1,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 90,
+          "actions": 23,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 90,
+            "after_action": 23
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 19,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 1,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 90,
+          "actions": 23,
+          "first_return": {
+            "status": "paused",
+            "reason": "failure_checkpoint",
+            "after_public_call": 8,
+            "after_action": 2
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 19,
+            "scheduling_pause_returns": 1,
+            "scripted_resumes": 1,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 1,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "category": "locally_repairable",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 53,
+          "actions": 13,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 53,
+            "after_action": 13
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 10,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 1,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 53,
+          "actions": 13,
+          "first_return": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "after_public_call": 53,
+            "after_action": 13
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 10,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 1,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "completed",
+            "reason": "skill_public_stop_condition"
+          },
+          "fixture_score": true,
+          "public_calls": 53,
+          "actions": 13,
+          "first_return": {
+            "status": "paused",
+            "reason": "failure_checkpoint",
+            "after_public_call": 4,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 10,
+            "scheduling_pause_returns": 1,
+            "scripted_resumes": 1,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 1,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "category": "must_exit",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay"
+          },
+          "fixture_score": false,
+          "public_calls": 4,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay",
+            "after_public_call": 4,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 1
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay"
+          },
+          "fixture_score": false,
+          "public_calls": 4,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay",
+            "after_public_call": 4,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 1
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay"
+          },
+          "fixture_score": false,
+          "public_calls": 4,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay",
+            "after_public_call": 4,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 1
+          }
+        }
+      }
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "category": "must_exit",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay"
+          },
+          "fixture_score": false,
+          "public_calls": 4,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay",
+            "after_public_call": 4,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 1
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay"
+          },
+          "fixture_score": false,
+          "public_calls": 4,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay",
+            "after_public_call": 4,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 1
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay"
+          },
+          "fixture_score": false,
+          "public_calls": 4,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "unknown_action_effect_observed_do_not_replay",
+            "after_public_call": 4,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 1
+          }
+        }
+      }
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "category": "must_exit",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "actor_state_changed_between_units"
+          },
+          "fixture_score": false,
+          "public_calls": 5,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "actor_state_changed_between_units",
+            "after_public_call": 5,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 1,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "actor_state_changed_between_units"
+          },
+          "fixture_score": false,
+          "public_calls": 5,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "actor_state_changed_between_units",
+            "after_public_call": 5,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 1,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "actor_state_changed_between_units"
+          },
+          "fixture_score": false,
+          "public_calls": 5,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "actor_state_changed_between_units",
+            "after_public_call": 5,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 1,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "repair-budget-01",
+      "category": "must_exit",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted"
+          },
+          "fixture_score": false,
+          "public_calls": 6,
+          "actions": 2,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted",
+            "after_public_call": 6,
+            "after_action": 2
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 1,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 2,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted"
+          },
+          "fixture_score": false,
+          "public_calls": 6,
+          "actions": 2,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted",
+            "after_public_call": 6,
+            "after_action": 2
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 1,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 2,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted"
+          },
+          "fixture_score": false,
+          "public_calls": 6,
+          "actions": 2,
+          "first_return": {
+            "status": "paused",
+            "reason": "failure_checkpoint",
+            "after_public_call": 4,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 1,
+            "all_checkpoints": 1,
+            "scheduling_pause_returns": 1,
+            "scripted_resumes": 1,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 2,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "category": "must_exit",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "scene_scope_changed"
+          },
+          "fixture_score": false,
+          "public_calls": 3,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "scene_scope_changed",
+            "after_public_call": 3,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "scene_scope_changed"
+          },
+          "fixture_score": false,
+          "public_calls": 3,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "scene_scope_changed",
+            "after_public_call": 3,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "scene_scope_changed"
+          },
+          "fixture_score": false,
+          "public_calls": 3,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "scene_scope_changed",
+            "after_public_call": 3,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "api-budget-01",
+      "category": "must_exit",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "api_budget_exhausted"
+          },
+          "fixture_score": false,
+          "public_calls": 3,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "api_budget_exhausted",
+            "after_public_call": 3,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "api_budget_exhausted"
+          },
+          "fixture_score": false,
+          "public_calls": 3,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "api_budget_exhausted",
+            "after_public_call": 3,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "api_budget_exhausted"
+          },
+          "fixture_score": false,
+          "public_calls": 3,
+          "actions": 1,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "api_budget_exhausted",
+            "after_public_call": 3,
+            "after_action": 1
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "category": "entry_rejected",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "unsupported",
+            "reason": "unsupported_skill_or_full_task_grammar"
+          },
+          "fixture_score": false,
+          "public_calls": 0,
+          "actions": 0,
+          "first_return": {
+            "status": "unsupported",
+            "reason": "unsupported_skill_or_full_task_grammar",
+            "after_public_call": 0,
+            "after_action": 0
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "unsupported",
+            "reason": "unsupported_skill_or_full_task_grammar"
+          },
+          "fixture_score": false,
+          "public_calls": 0,
+          "actions": 0,
+          "first_return": {
+            "status": "unsupported",
+            "reason": "unsupported_skill_or_full_task_grammar",
+            "after_public_call": 0,
+            "after_action": 0
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "unsupported",
+            "reason": "unsupported_skill_or_full_task_grammar"
+          },
+          "fixture_score": false,
+          "public_calls": 0,
+          "actions": 0,
+          "first_return": {
+            "status": "unsupported",
+            "reason": "unsupported_skill_or_full_task_grammar",
+            "after_public_call": 0,
+            "after_action": 0
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 0,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "category": "entry_rejected",
+      "passed": true,
+      "arms": {
+        "guarded_macro": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "shared_endpoint_requires_static_obstacle_contract"
+          },
+          "fixture_score": false,
+          "public_calls": 0,
+          "actions": 0,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "shared_endpoint_requires_static_obstacle_contract",
+            "after_public_call": 0,
+            "after_action": 0
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "applicability": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "shared_endpoint_requires_static_obstacle_contract"
+          },
+          "fixture_score": false,
+          "public_calls": 0,
+          "actions": 0,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "shared_endpoint_requires_static_obstacle_contract",
+            "after_public_call": 0,
+            "after_action": 0
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        },
+        "failure": {
+          "terminal": {
+            "status": "needs_replan",
+            "reason": "shared_endpoint_requires_static_obstacle_contract"
+          },
+          "fixture_score": false,
+          "public_calls": 0,
+          "actions": 0,
+          "first_return": {
+            "status": "needs_replan",
+            "reason": "shared_endpoint_requires_static_obstacle_contract",
+            "after_public_call": 0,
+            "after_action": 0
+          },
+          "opportunities": {
+            "local_failure_checkpoints": 0,
+            "all_checkpoints": 0,
+            "scheduling_pause_returns": 0,
+            "scripted_resumes": 0,
+            "mandatory_exit": 1,
+            "known_failed_action_receipts": 0,
+            "unknown_action_receipts": 0
+          }
+        }
+      }
+    }
+  ],
+  "workers": [
+    {
+      "case_id": "normal-simple-01",
+      "arm": "guarded_macro",
+      "result": "trials/normal-simple-01/guarded_macro.json",
+      "pid": 17258,
+      "returncode": 0,
+      "started_ns": 13281518240666,
+      "joined_ns": 13282342425208
+    },
+    {
+      "case_id": "normal-simple-01",
+      "arm": "applicability",
+      "result": "trials/normal-simple-01/applicability.json",
+      "pid": 17267,
+      "returncode": 0,
+      "started_ns": 13282342501500,
+      "joined_ns": 13283108618250
+    },
+    {
+      "case_id": "normal-simple-01",
+      "arm": "failure",
+      "result": "trials/normal-simple-01/failure.json",
+      "pid": 17298,
+      "returncode": 0,
+      "started_ns": 13283108710458,
+      "joined_ns": 13283838014500
+    },
+    {
+      "case_id": "normal-search-01",
+      "arm": "guarded_macro",
+      "result": "trials/normal-search-01/guarded_macro.json",
+      "pid": 17300,
+      "returncode": 0,
+      "started_ns": 13283842033208,
+      "joined_ns": 13284832627000
+    },
+    {
+      "case_id": "normal-search-01",
+      "arm": "applicability",
+      "result": "trials/normal-search-01/applicability.json",
+      "pid": 17307,
+      "returncode": 0,
+      "started_ns": 13284832725041,
+      "joined_ns": 13285654426916
+    },
+    {
+      "case_id": "normal-search-01",
+      "arm": "failure",
+      "result": "trials/normal-search-01/failure.json",
+      "pid": 17312,
+      "returncode": 0,
+      "started_ns": 13285654520583,
+      "joined_ns": 13286532918833
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "arm": "guarded_macro",
+      "result": "trials/static-blocked-candidate-01/guarded_macro.json",
+      "pid": 17320,
+      "returncode": 0,
+      "started_ns": 13286539552833,
+      "joined_ns": 13287471763750
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "arm": "applicability",
+      "result": "trials/static-blocked-candidate-01/applicability.json",
+      "pid": 17327,
+      "returncode": 0,
+      "started_ns": 13287471844250,
+      "joined_ns": 13288399395416
+    },
+    {
+      "case_id": "static-blocked-candidate-01",
+      "arm": "failure",
+      "result": "trials/static-blocked-candidate-01/failure.json",
+      "pid": 17334,
+      "returncode": 0,
+      "started_ns": 13288399487416,
+      "joined_ns": 13289378151833
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "arm": "guarded_macro",
+      "result": "trials/takeoff-capability-repair-01/guarded_macro.json",
+      "pid": 17341,
+      "returncode": 0,
+      "started_ns": 13289390360916,
+      "joined_ns": 13290272860375
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "arm": "applicability",
+      "result": "trials/takeoff-capability-repair-01/applicability.json",
+      "pid": 17344,
+      "returncode": 0,
+      "started_ns": 13290272950458,
+      "joined_ns": 13291154471291
+    },
+    {
+      "case_id": "takeoff-capability-repair-01",
+      "arm": "failure",
+      "result": "trials/takeoff-capability-repair-01/failure.json",
+      "pid": 17349,
+      "returncode": 0,
+      "started_ns": 13291154606583,
+      "joined_ns": 13292089915250
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "arm": "guarded_macro",
+      "result": "trials/unknown-applied-01/guarded_macro.json",
+      "pid": 17356,
+      "returncode": 0,
+      "started_ns": 13292097991291,
+      "joined_ns": 13292869962666
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "arm": "applicability",
+      "result": "trials/unknown-applied-01/applicability.json",
+      "pid": 17357,
+      "returncode": 0,
+      "started_ns": 13292870079041,
+      "joined_ns": 13293647254458
+    },
+    {
+      "case_id": "unknown-applied-01",
+      "arm": "failure",
+      "result": "trials/unknown-applied-01/failure.json",
+      "pid": 17364,
+      "returncode": 0,
+      "started_ns": 13293647380208,
+      "joined_ns": 13294414109500
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "arm": "guarded_macro",
+      "result": "trials/unknown-not-applied-01/guarded_macro.json",
+      "pid": 17365,
+      "returncode": 0,
+      "started_ns": 13294416750375,
+      "joined_ns": 13295191454708
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "arm": "applicability",
+      "result": "trials/unknown-not-applied-01/applicability.json",
+      "pid": 17373,
+      "returncode": 0,
+      "started_ns": 13295191564083,
+      "joined_ns": 13295964109958
+    },
+    {
+      "case_id": "unknown-not-applied-01",
+      "arm": "failure",
+      "result": "trials/unknown-not-applied-01/failure.json",
+      "pid": 17375,
+      "returncode": 0,
+      "started_ns": 13295964231750,
+      "joined_ns": 13296725510958
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "arm": "guarded_macro",
+      "result": "trials/actor-dependency-change-01/guarded_macro.json",
+      "pid": 17382,
+      "returncode": 0,
+      "started_ns": 13296727693708,
+      "joined_ns": 13297497921875
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "arm": "applicability",
+      "result": "trials/actor-dependency-change-01/applicability.json",
+      "pid": 17383,
+      "returncode": 0,
+      "started_ns": 13297498035916,
+      "joined_ns": 13298275537458
+    },
+    {
+      "case_id": "actor-dependency-change-01",
+      "arm": "failure",
+      "result": "trials/actor-dependency-change-01/failure.json",
+      "pid": 17390,
+      "returncode": 0,
+      "started_ns": 13298275623750,
+      "joined_ns": 13299038124583
+    },
+    {
+      "case_id": "repair-budget-01",
+      "arm": "guarded_macro",
+      "result": "trials/repair-budget-01/guarded_macro.json",
+      "pid": 17391,
+      "returncode": 0,
+      "started_ns": 13299040420166,
+      "joined_ns": 13299803401458
+    },
+    {
+      "case_id": "repair-budget-01",
+      "arm": "applicability",
+      "result": "trials/repair-budget-01/applicability.json",
+      "pid": 17402,
+      "returncode": 0,
+      "started_ns": 13299803503708,
+      "joined_ns": 13300580800375
+    },
+    {
+      "case_id": "repair-budget-01",
+      "arm": "failure",
+      "result": "trials/repair-budget-01/failure.json",
+      "pid": 17403,
+      "returncode": 0,
+      "started_ns": 13300580908375,
+      "joined_ns": 13301359470291
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "arm": "guarded_macro",
+      "result": "trials/scene-epoch-change-01/guarded_macro.json",
+      "pid": 17410,
+      "returncode": 0,
+      "started_ns": 13301362839541,
+      "joined_ns": 13302086750250
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "arm": "applicability",
+      "result": "trials/scene-epoch-change-01/applicability.json",
+      "pid": 17411,
+      "returncode": 0,
+      "started_ns": 13302086858666,
+      "joined_ns": 13302858875291
+    },
+    {
+      "case_id": "scene-epoch-change-01",
+      "arm": "failure",
+      "result": "trials/scene-epoch-change-01/failure.json",
+      "pid": 17418,
+      "returncode": 0,
+      "started_ns": 13302858978375,
+      "joined_ns": 13303628057583
+    },
+    {
+      "case_id": "api-budget-01",
+      "arm": "guarded_macro",
+      "result": "trials/api-budget-01/guarded_macro.json",
+      "pid": 17421,
+      "returncode": 0,
+      "started_ns": 13303630750500,
+      "joined_ns": 13304397878416
+    },
+    {
+      "case_id": "api-budget-01",
+      "arm": "applicability",
+      "result": "trials/api-budget-01/applicability.json",
+      "pid": 17428,
+      "returncode": 0,
+      "started_ns": 13304397972583,
+      "joined_ns": 13305121901791
+    },
+    {
+      "case_id": "api-budget-01",
+      "arm": "failure",
+      "result": "trials/api-budget-01/failure.json",
+      "pid": 17429,
+      "returncode": 0,
+      "started_ns": 13305121976000,
+      "joined_ns": 13305843587625
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "arm": "guarded_macro",
+      "result": "trials/extra-obligation-01/guarded_macro.json",
+      "pid": 17436,
+      "returncode": 0,
+      "started_ns": 13305845564416,
+      "joined_ns": 13306563940041
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "arm": "applicability",
+      "result": "trials/extra-obligation-01/applicability.json",
+      "pid": 17437,
+      "returncode": 0,
+      "started_ns": 13306564054125,
+      "joined_ns": 13307281726208
+    },
+    {
+      "case_id": "extra-obligation-01",
+      "arm": "failure",
+      "result": "trials/extra-obligation-01/failure.json",
+      "pid": 17444,
+      "returncode": 0,
+      "started_ns": 13307281808416,
+      "joined_ns": 13308002057666
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "arm": "guarded_macro",
+      "result": "trials/missing-static-contract-01/guarded_macro.json",
+      "pid": 17445,
+      "returncode": 0,
+      "started_ns": 13308004127083,
+      "joined_ns": 13308771544333
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "arm": "applicability",
+      "result": "trials/missing-static-contract-01/applicability.json",
+      "pid": 17452,
+      "returncode": 0,
+      "started_ns": 13308771651875,
+      "joined_ns": 13309538385541
+    },
+    {
+      "case_id": "missing-static-contract-01",
+      "arm": "failure",
+      "result": "trials/missing-static-contract-01/failure.json",
+      "pid": 17453,
+      "returncode": 0,
+      "started_ns": 13309538493625,
+      "joined_ns": 13310303637666
+    }
+  ],
+  "limitations": [
+    "Shared production skills/guards are held fixed; this is not a novel-algorithm proof.",
+    "All skill choices and resumes are scripted; pause returns are opportunities, not measured model calls or tokens.",
+    "Static simulator time and immediate scripted resumes exclude latency and changing-world effects.",
+    "Only declared fixtures and guards are tested; no proof for arbitrary generators, concurrency, cancellation or deadlines.",
+    "No model behavior, generalization, sample efficiency, Teacher or training claim.",
+    "Current v7 static-obstacle contract is respected by physical failure fixtures; actor/epoch mutations are declared exit tests."
+  ]
+}

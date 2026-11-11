@@ -1,0 +1,8 @@
+[
+  {"tool": "list_drones", "arguments": {}},
+  {"tool": "take_off", "arguments": {"input_json": {"drone_id": "$drone:Drone 1", "altitude": 20}}},
+  {"tool": "move_along_path", "arguments": {"input_json": {"drone_id": "$drone:Drone 1", "waypoints": [{"x": 200, "y": 100, "z": 20}, {"x": 400, "y": 100, "z": 20}], "allow_partial_move": true, "detail": "full"}}},
+  {"tool": "get_drone_status", "arguments": {"input_json": {"drone_id": "$drone:Drone 1"}}},
+  {"tool": "navigate_to", "arguments": {"input_json": {"drone_id": "$drone:Drone 1", "x": "$partial_remaining:Drone 1:x", "y": "$partial_remaining:Drone 1:y", "z": "$partial_remaining:Drone 1:z", "detail": "full"}}},
+  {"final": "[TASK DONE] Local scripted fixture ended; independent scoring determines task completion."}
+]

@@ -1,0 +1,20 @@
+{
+  "scope": "Actual installed SDK + synthetic MockTransport; socket connect/DNS blocked; zero provider/model/simulator trials",
+  "command": [
+    "./agent4drone/.venv/bin/python",
+    "-m",
+    "pytest",
+    "scripts/tests/test_harness_deepseek_adapter.py",
+    "-q"
+  ],
+  "returncode": 0,
+  "started_unix": 1792936305.6756952,
+  "ended_unix": 1792936306.5575418,
+  "sources_sha256": {
+    "scripts/harness_deepseek_adapter.py": "4eeca51721a30c715f1ff6c4f8b234c5a25eb417722a9e2120a24321fb761ba6",
+    "scripts/tests/test_harness_deepseek_adapter.py": "ee77e6858ea544c71da2a4fe931d53c57d4532ad13d37bc26345622be1ee1ba2"
+  },
+  "sources_unchanged": true,
+  "log_sha256": "43840c5e58acf26ac4641dfbe4a4b122186d6668ed540588b78029c30726ee84",
+  "wire_evidence_sha256": "2630debb81138b4d62031f3953c8675091066633160acd3c8264fcb24c3a3a57"
+}

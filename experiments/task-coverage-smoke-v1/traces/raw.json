@@ -1,0 +1,26 @@
+[
+  {
+    "tool": "list_drones",
+    "arguments": {}
+  },
+  {
+    "tool": "take_off",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 4",
+        "altitude": 12
+      }
+    }
+  },
+  {
+    "tool": "hover",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 4"
+      }
+    }
+  },
+  {
+    "final": "Local scripted actions finished; independent score is not visible. [TASK DONE]"
+  }
+]

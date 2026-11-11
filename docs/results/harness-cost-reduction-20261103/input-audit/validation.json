@@ -1,0 +1,24 @@
+{
+  "scope": "local_input_layout_implementation_and_counterfactual_wire_bytes_not_model_ability",
+  "source_files": {
+    "agent4drone/template/system_prompt.py": "8e5fac74ffc98720c3a2dd3b21b0eca21752b3eb1afea6a5ea2f7dcbd7f9563d",
+    "agent4drone/uav_agent.py": "2b06a3b561a79dad6cdabaf71ed0f3b5182bb08af16a45c09c3c266ddc10b8b8",
+    "agent4drone/harness_integration.py": "55aa2c9750f760ee25ee8fc1b7491878e46d6c6c4178e69c16d9576a1496d2e0",
+    "agent4drone/tests/test_input_layout.py": "8c6d9a408409032264c70ed2fa98500ced6d9126cdd2fb35ab9aa0a9a874953e",
+    "scripts/audit_harness_input_layout.py": "0a2840339e0d9648775d099155cc51e32cdcdfd7fdea7787db93b6231fa51644",
+    "scripts/tests/test_harness_input_layout_audit.py": "8324bd9fd21fbfc22cd3a32957285a05a2887c568a485b73d972594700b93674"
+  },
+  "tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 agent4drone/.venv/bin/python -m pytest agent4drone/tests/test_input_layout.py scripts/tests/test_harness_input_layout_audit.py agent4drone/tests/test_uav_langchain_tools.py agent4drone/tests/test_task_execution_state.py agent4drone/tests/test_agent_episode_isolation.py -q",
+    "passed": 173,
+    "specialized_subset": 30,
+    "warning": "existing starlette anyio alias deprecation"
+  },
+  "historical_actual_requests_audited": 56,
+  "archived_non_dispatches_excluded": 2,
+  "original_manifest_and_campaign_seal_unchanged": true,
+  "audit_sha256": "4497dea9969dac4515ce45d331b67581f4b6972743eded36d9e0637545daf6bb",
+  "report_sha256": "3985018b41969ad8d46ad60bc2619f2f0e2cdaa72ea355dcf0ae00961bb47a2e",
+  "provider_calls": 0,
+  "tokenizer_calls": 0
+}

@@ -1,0 +1,5355 @@
+{
+  "schema_version": 1,
+  "passed": false,
+  "planned_episodes": 16,
+  "reported_episodes": 16,
+  "provider_calls": 0,
+  "fresh_workers": 16,
+  "independent_scorers": 16,
+  "evidence_scope": "fixed local scripts and ASGI; no real-model/token/generalization result",
+  "checker_scope": "original altitude/airborne checker retained as auxiliary for derived instructions, not action/duration evaluator",
+  "checks": [
+    {
+      "check": "main:all_prepared_slots_scored",
+      "passed": true
+    },
+    {
+      "check": "main:complete_campaign",
+      "passed": true
+    },
+    {
+      "check": "state-string:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "state-string:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "state-string:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "state-string:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "state-string:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "state-string:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "state-string:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "state-string:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "state-string:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "state-string:legacy_string_representation_retained",
+      "passed": true
+    },
+    {
+      "check": "state-object:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "state-object:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "state-object:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "state-object:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "state-object:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "state-object:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "state-object:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "state-object:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "state-object:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "state-object:original_object_arguments_retained",
+      "passed": true
+    },
+    {
+      "check": "missing-status:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "missing-status:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "missing-status:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "missing-status:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "missing-status:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "missing-status:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "missing-status:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "missing-status:rejected_claim_keeps_original_but_not_public_done_marker",
+      "passed": true
+    },
+    {
+      "check": "missing-status:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "missing-status:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:rejected_claim_keeps_original_but_not_public_done_marker",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:rejected_claim_keeps_original_but_not_public_done_marker",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:rejected_claim_keeps_original_but_not_public_done_marker",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:completion_claim_matches_predeclared_expectation",
+      "passed": false
+    },
+    {
+      "check": "unknown-raw:completion_value_not_guessed",
+      "passed": false
+    },
+    {
+      "check": "unknown-raw:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:unknown_not_rewritten_or_replayed",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:status_confirmation_after_real_takeoff_effect",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:unknown_not_rewritten_or_replayed",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:status_confirmation_after_real_takeoff_effect",
+      "passed": true
+    },
+    {
+      "check": "skill-object:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "skill-object:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "skill-object:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "skill-object:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "skill-object:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "skill-object:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "skill-object:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "skill-object:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "skill-object:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "skill-object:original_object_arguments_retained",
+      "passed": true
+    },
+    {
+      "check": "array-recover:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "array-recover:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "array-recover:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "array-recover:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "array-recover:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "array-recover:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "array-recover:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "array-recover:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "array-recover:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "array-recover:invalid_input_receipt_and_no_extra_backend_call",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:rejected_claim_keeps_original_but_not_public_done_marker",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:invalid_input_receipt_and_no_extra_backend_call",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:invalid_input_receipt_and_no_extra_backend_call",
+      "passed": true
+    },
+    {
+      "check": "action:all_prepared_slots_scored",
+      "passed": true
+    },
+    {
+      "check": "action:complete_campaign",
+      "passed": true
+    },
+    {
+      "check": "action-missing:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "action-missing:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "action-missing:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "action-missing:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "action-missing:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "action-missing:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "action-missing:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "action-missing:rejected_claim_keeps_original_but_not_public_done_marker",
+      "passed": true
+    },
+    {
+      "check": "action-missing:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "action-missing:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "action-complete:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "action-complete:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "action-complete:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "action-complete:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "action-complete:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "action-complete:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "action-complete:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "action-complete:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "action-complete:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "duration:all_prepared_slots_scored",
+      "passed": true
+    },
+    {
+      "check": "duration:complete_campaign",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:completion_claim_matches_predeclared_expectation",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:completion_value_not_guessed",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:result_completion_consistent",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:rejected_claim_keeps_original_but_not_public_done_marker",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "legacy:all_prepared_slots_scored",
+      "passed": true
+    },
+    {
+      "check": "legacy:complete_campaign",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:worker_and_independent_score",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:normal_run_is_distinct_from_completion",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:isolation_archive_and_no_network",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:original_auxiliary_checker",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:legacy_contract_not_silently_enabled",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:all_original_graph_messages_and_receipts_preserved",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:expected_physical_action_count",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:invalid_input_receipt_and_no_extra_backend_call",
+      "passed": true
+    },
+    {
+      "check": "fixed_sixteen_full_denominator",
+      "passed": true
+    },
+    {
+      "check": "sixteen_fresh_workers_and_scorers",
+      "passed": true
+    },
+    {
+      "check": "string_and_object_have_same_actions_initial_and_goal",
+      "passed": true
+    }
+  ],
+  "trials": [
+    {
+      "trial_id": "state-string",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "verified",
+        "task_completed": true,
+        "completion_claim_accepted": true,
+        "reasons": [
+          "public_hover_goal_and_required_action_evidence_verified"
+        ],
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 6,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "e8f74ffbcdf5418264d982d408d308647a6d4bce530b59d129c967bcc0e98c27",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "8394b4a514ea77205a1aa5da9fa6301925a9f92e8a03391bcd712a0b2a60c593",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "40f9a2e833b208335e33b335c48b8dcba88a8d426059794093a355551c0ded0c",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "9d818efe62b686ced8701892e765e3756ae6940a5591012b0493d955bd4b76b7",
+            "request_bytes": 50854,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "9e34c69ce9756036c0ded68e199f07fc23e2a5b9eb88a6d860208b3ceaaf32a9",
+            "request_bytes": 51670,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 201540,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 0,
+        "original_object_calls": [],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "state-object",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "verified",
+        "task_completed": true,
+        "completion_claim_accepted": true,
+        "reasons": [
+          "public_hover_goal_and_required_action_evidence_verified"
+        ],
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 6,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "02ab781b5a2916d17e49ba9261f7bdfe33beb6a1f9f4611720868e594992a5dc",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "f8d6aea0c453402163b05e3c0666568016da4861b9fa9332e7936bd5a378319c",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "6ac00a8b67e870dc0f9c02d63bb1e5be69bc8dc18be77fe012e51bd9ca9cc517",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "62e57b67c0630ad96515c3d36ced5086a24a3ff47bf8f0cd03dca980ac2f2c6a",
+            "request_bytes": 50837,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "0893ec5090b7956fa5d468f0c3b13dbbbad08d5f8c170f305adc8915015d1f0e",
+            "request_bytes": 51640,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 201493,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "missing-status",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "unverified",
+        "task_completed": null,
+        "completion_claim_accepted": false,
+        "reasons": [
+          "fresh_actor_status_required"
+        ],
+        "evidence_refs": [],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 5,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "226b0f1e095172d04bd78b610697408b5998350b0954988a667a73ea8f5280c1",
+        "logical_decisions": 3,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "2c653fa66bc104052b23caaf18cd5def5c2f9c7b40288cf6678d9adf2c8e5e6e",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "65c342813c7f208c1304c5c298d71b86223614881a76d5fd1ef7448973f9b0a7",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "be4c98d24d4e3b278493d85b3686b157a11fcc53c0e4938b24e1baf64bd183ee",
+            "request_bytes": 50838,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 149854,
+        "tools_canonical_bytes": 112293,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 1,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "wrong-actor",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "unverified",
+        "task_completed": null,
+        "completion_claim_accepted": false,
+        "reasons": [
+          "fresh_actor_status_required"
+        ],
+        "evidence_refs": [],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 6,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "c10a16c4870811298c002e95d5c7962f54c99cf9c523b165e2c7590665065e08",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "a08a43ef98567df8043857051a05a5d1188f1637f84e3074a4ff852d2779cb5a",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "5904614af7e85cb81f2efea33a759eb48f741a873d2bb54897752e81c4fdc310",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "e7f4d6985ea145a3a244b3b07f5c0cde8ccb39803b6643f878a08a09ffd79097",
+            "request_bytes": 50837,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "319285ad30f6a19665a69986917cba3205e9a304c1d5bbe307bbef4a297e4012",
+            "request_bytes": 51640,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 201493,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "wrong-altitude",
+      "group": "main",
+      "original_checker_passed": false,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "unverified",
+        "task_completed": null,
+        "completion_claim_accepted": false,
+        "reasons": [
+          "requested_altitude_not_confirmed"
+        ],
+        "evidence_refs": [
+          "e5"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 6,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 18.0,
+        "vertical_distance": 18.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 18
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "b270d02488dc02dd97ccf54fe651df9999021d335f90c4f6b3fcb1b9c8ee9959",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "64a68db25788cac40fd87cc3e3ea46213e3d423acf0407d35988a5ab86b5eded",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "85119205c55498274d69f3ad34f3728cf514d918dc11b9fc337efe2c8334e695",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "09053ba410fccef716c2e4bb38a8abe1e25f51e5d7155ff084cc0666db7c8d04",
+            "request_bytes": 50838,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "ed46450779379a64a25d072e62f89f972450b45cdc723857dc895526c9c2fa5a",
+            "request_bytes": 51642,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 201496,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "stale-after-land",
+      "group": "main",
+      "original_checker_passed": false,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "unverified",
+        "task_completed": null,
+        "completion_claim_accepted": false,
+        "reasons": [
+          "status_stale_after_or_overlapping_actor_action"
+        ],
+        "evidence_refs": [
+          "e5"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 7,
+        "action_attempts": 2,
+        "action_receipts": {
+          "success": 2,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 2,
+        "length_xy": 0.0,
+        "length_xyz": 24.0,
+        "vertical_distance": 24.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        },
+        {
+          "endpoint": "/drones/3d229034/command/land",
+          "params": null,
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "6ba3a3ccb7010719aac5f01620e9c390baca9452ca53c5c446d6ba18ff739054",
+        "logical_decisions": 5,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "d4cf345dd026ebf594f87cf3dad9ad3eacddfdcb64e09b093fb81f2accbd05b7",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "689ca07415d2ce09a0006000869eb859aaf6dab35324131153c25298119f10af",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "3706371c9bcbe01ce08378abfb12c8ba378dddd56bff6f5588afd35372f933c3",
+            "request_bytes": 50838,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "8d255665b16e394711e8103b27b6b6ac0e81c73f61b6b3ebe23408d60aacfa85",
+            "request_bytes": 51642,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-5",
+            "request_sha256": "f7410a637b2149da0ccc707e42dfc46188a7e73345cd6998d6c371411dbb469a",
+            "request_bytes": 52155,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 253651,
+        "tools_canonical_bytes": 187155,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 3,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          },
+          {
+            "id": "script-3",
+            "name": "land"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "unknown-raw",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "unverified",
+        "task_completed": null,
+        "completion_claim_accepted": false,
+        "reasons": [
+          "takeoff_attempt_not_ordered_matching_public_evidence"
+        ],
+        "evidence_refs": [
+          "e5"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 6,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "ad40b47d9bc0d20f7f251d9ef7969400c8e13f62801c073657ab680b219a6a7d",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "dbad871f518a1c8aa74fcdf2cd83878d64649fcb5e7b5b63b5dcbbdb0913b950",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "ee75ef14f10c3c5f03d37e5887885fe14c9142b962d057338971843237a54f7c",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "94be2bdb5348e9bbd2aa44058cb6edd0d70dd728ceaf55409cc4c9407765e04e",
+            "request_bytes": 50903,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "4d1da7187afbd1e0da303b2e9c221b268beb1329dcb684c8d584e1ddbd6ccea7",
+            "request_bytes": 51915,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 11149,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 201834,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 1,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "unknown-skill",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "verified",
+        "task_completed": true,
+        "completion_claim_accepted": true,
+        "reasons": [
+          "public_hover_goal_and_required_action_evidence_verified"
+        ],
+        "evidence_refs": [
+          "e5",
+          "e7",
+          "e11"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 9,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12.0
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "908a66159d157203a66b63ebb7e0edb376a7d07f974501f563eb1f671d1a0f6d",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "99c8b4cf335588eafc71a51722a2c23ef620f98c6fe72083151df05f0f5a044b",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "7f9b0b84e7fb2364aab4a375d3aafaa6a0c9bed129a0536f7e98c029723fdc9e",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "214584e530dccd6f8ead892b9677311ed4243819d52a3731ad8ecc38c16325ff",
+            "request_bytes": 52665,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 11521,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "002dc783d78363d1cc904bbcec7410d97420d4ac25173691c21c59cf72f78397",
+            "request_bytes": 53391,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 11445,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 205072,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "run_harness"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 1,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "skill-object",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "verified",
+        "task_completed": true,
+        "completion_claim_accepted": true,
+        "reasons": [
+          "public_hover_goal_and_required_action_evidence_verified"
+        ],
+        "evidence_refs": [
+          "e5",
+          "e7",
+          "e17"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 12,
+        "action_attempts": 2,
+        "action_receipts": {
+          "success": 2,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 2,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.4841999999999871,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12.0
+          },
+          "body": null,
+          "committed": true
+        },
+        {
+          "endpoint": "/drones/3d229034/command/hover",
+          "params": {},
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "4f67342055642b75fe30d3875c0cfe305f039b8c454ae9b244634f7efd96bfe3",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "c3d74a24a8242882c07d42da24aad62342a5bdf7d82e8ef601f91f2fd2705ca8",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "717dcf93a810eb880a1a2c83fae22f052f4d5e7bc2ff6f8ebf96497fe5c4b558",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "eb3b8a92a220182b55f15e716dde05b1b21800a6f2907aa13701694e1cd074c1",
+            "request_bytes": 52322,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10945,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "665fe4c8882649198bf6e98bbb4116860cf56562008aaf0959de766b36f0ee1f",
+            "request_bytes": 53126,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10945,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 204464,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "run_harness"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "array-recover",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "verified",
+        "task_completed": true,
+        "completion_claim_accepted": true,
+        "reasons": [
+          "public_hover_goal_and_required_action_evidence_verified"
+        ],
+        "evidence_refs": [
+          "e1",
+          "e5",
+          "e7"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 6,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "08000a2d74e7cbcdf8832fbd8671b84e00e6c2acf256d68b1ef0c20347e930be",
+        "logical_decisions": 5,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "b980555a9c4950e1a13f55fec3786fca8ce4065d0989c671ee3956fdb3414e1b",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "548589c4fb23d45244beebcca945f8e597fbb8f8ea1551786c4cce1b8f1fa03e",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "cbeb19a1c7cb91cfb0a278c8b4b32c5aea5562183a901fd44e587174965813c2",
+            "request_bytes": 50986,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "6b46b68342086f8b223ec1cea9d02ce456a659e9bce5a80eaa1725d995a75768",
+            "request_bytes": 51535,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-5",
+            "request_sha256": "a2ca1da0a7fbed03c1a7ca72f94744a60ff38acb382166c2f829a4550d53ce65",
+            "request_bytes": 52339,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 253876,
+        "tools_canonical_bytes": 187155,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-2",
+            "name": "take_off"
+          },
+          {
+            "id": "script-3",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 1,
+        "tool_error_call_ids": [
+          "script-1"
+        ]
+      },
+      "unknown_action_count": 1,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "scalar-reject",
+      "group": "main",
+      "original_checker_passed": false,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "unverified",
+        "task_completed": null,
+        "completion_claim_accepted": false,
+        "reasons": [
+          "hovering_airborne_stationary_state_not_confirmed"
+        ],
+        "evidence_refs": [
+          "e5"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 5,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "actions": [],
+      "wire": {
+        "archive_sha256": "c47c7ab182be7abdbc92764270b7c4680e08742b62d849bf4c5260e3c0a58148",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "761585c66d67ebb8e08d09beff53ba247105b73bbddd58a0057f8cde83c4af4a",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "6fb80605270f09eea8e8e9cf8e50eb0f2cfb342f0092f3473b597ed2cc409264",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "3cfdf0c1a967550d1455b7efba77bf15adc34870f3690e39c7980e5356202157",
+            "request_bytes": 50986,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "02151ac5d41ad81395777cb8244b8e3161e703d97f9c40e0fa3382061c7f88eb",
+            "request_bytes": 51785,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 201787,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 1,
+        "original_object_calls": [
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 1,
+        "tool_error_call_ids": [
+          "script-1"
+        ]
+      },
+      "unknown_action_count": 1,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "malformed-recover",
+      "group": "main",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "state_goal",
+        "contract": {
+          "kind": "state_goal",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "verified",
+        "task_completed": true,
+        "completion_claim_accepted": true,
+        "reasons": [
+          "public_hover_goal_and_required_action_evidence_verified"
+        ],
+        "evidence_refs": [
+          "e1",
+          "e5",
+          "e7"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 6,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "425cc033501375cf5ef93a033e87420ba3f894e382a49feffbf84e9b71b6f72b",
+        "logical_decisions": 5,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "44cc204d6c14d01fe904cea3acd47148e0380bb55727b8d6c2f8a2f71cbd415c",
+            "request_bytes": 48727,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "13be9a360c1fd80758ef9166b176145b8fbb83b0dbf2aa6d91896397fd9fb00a",
+            "request_bytes": 50289,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10693,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "0b628c1c4daa729cf9a15b49ea5ac22fde09f867a1fbebc45475ec25ec1749de",
+            "request_bytes": 51053,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "aa0991d9a06def1f1df3a07307f586d97422432a5806498d8e87f9cef4d4f1e4",
+            "request_bytes": 51618,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-5",
+            "request_sha256": "b93a512ef2b734423d12269abc0fd5ea05c8728dba274116b074964db68bb315",
+            "request_bytes": 52434,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10961,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 254121,
+        "tools_canonical_bytes": 187155,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 0,
+        "original_object_calls": [],
+        "tool_error_count": 1,
+        "tool_error_call_ids": [
+          "script-1"
+        ]
+      },
+      "unknown_action_count": 1,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "action-missing",
+      "group": "action",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "action_required",
+        "contract": {
+          "kind": "action_required",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": true,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "unverified",
+        "task_completed": null,
+        "completion_claim_accepted": false,
+        "reasons": [
+          "explicit_hover_action_receipt_required"
+        ],
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 6,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.403499999999994,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "1635bc497abe16bc4afb85ffb504de1a6fcd1ab507653f61159112ca242f4358",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "76b91e295d83b08152b94b2aba83cc4ab99928aa8cac67fb7bdfffbcabfe71c7",
+            "request_bytes": 48739,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "36bb80ab79f96dd09897d4c46d864bcd7e741a86e3d1bd6b4ae28fd3b307c2d9",
+            "request_bytes": 50301,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "4b18f9e864ecb5c819d645e473cc348d6af7d90eac972c9bd7f22e2d7a612456",
+            "request_bytes": 50850,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "7cbe0239ef6a464e084c9a0df0310356499bc89ba5ded06e3e07c7608bb0dba7",
+            "request_bytes": 51654,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 201544,
+        "tools_canonical_bytes": 149724,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "action-complete",
+      "group": "action",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "action_required",
+        "contract": {
+          "kind": "action_required",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": true,
+          "duration_seconds": null,
+          "interpretation_complete": true
+        },
+        "status": "verified",
+        "task_completed": true,
+        "completion_claim_accepted": true,
+        "reasons": [
+          "public_hover_goal_and_required_action_evidence_verified"
+        ],
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7"
+        ],
+        "actor_id": "3d229034",
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 7,
+        "action_attempts": 2,
+        "action_receipts": {
+          "success": 2,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 2,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.4841999999999871,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        },
+        {
+          "endpoint": "/drones/3d229034/command/hover",
+          "params": {},
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "e07d88f23ecbde8bbf30fe56f6566708537ff095276427ce795b8ed32277ecf5",
+        "logical_decisions": 5,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "7233350e5cc7d1d13f1461af9adfda70a52c3d38d906464c19127ebb3fda7658",
+            "request_bytes": 48739,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "756f9333f9812c0d05130034fa9ccd078d38e78e1f8b8831668907b04ebae473",
+            "request_bytes": 50301,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "68b46d0ed6da4320279f6184e3a561d09af3d21e741f8e8a2f12845cd464ebff",
+            "request_bytes": 50850,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "8da1e2f8854f34cd9594c74476000e3196ed8602baccc143cec8aa62f95451d2",
+            "request_bytes": 51359,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-5",
+            "request_sha256": "b7c399aebd556d8a87e118d2df35f7c7b61a116bc6e5d4a822cfdffd88f539a0",
+            "request_bytes": 52163,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10691,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 253412,
+        "tools_canonical_bytes": 187155,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 3,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "hover"
+          },
+          {
+            "id": "script-3",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "duration-unverified",
+      "group": "duration",
+      "original_checker_passed": true,
+      "completion_assessment": {
+        "schema": "hover-completion-v1",
+        "kind": "duration_unverified",
+        "contract": {
+          "kind": "duration_unverified",
+          "actor_name": "Drone 4",
+          "target_altitude": 12.0,
+          "takeoff_required": true,
+          "explicit_hover_required": false,
+          "duration_seconds": 5.0,
+          "interpretation_complete": true
+        },
+        "status": "unverified",
+        "task_completed": null,
+        "completion_claim_accepted": false,
+        "reasons": [
+          "elapsed_hover_duration_not_verified_by_current_public_api"
+        ],
+        "evidence_refs": [],
+        "actor_id": null,
+        "position_tolerance_meters": 1e-06,
+        "speed_tolerance": 1e-06,
+        "historical_action_effects_rewritten": false,
+        "scope": "supported_command_public_evidence_only_not_general_task_or_elapsed_time_verification",
+        "completion_marker_present": true,
+        "run_returned_normally": true
+      },
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 7,
+        "action_attempts": 2,
+        "action_receipts": {
+          "success": 2,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 2,
+        "length_xy": 0.0,
+        "length_xyz": 12.0,
+        "vertical_distance": 12.0,
+        "consumed_mah": 0.4841999999999871,
+        "charged_mah": 0
+      },
+      "actions": [
+        {
+          "endpoint": "/drones/3d229034/command/take_off",
+          "params": {
+            "altitude": 12
+          },
+          "body": null,
+          "committed": true
+        },
+        {
+          "endpoint": "/drones/3d229034/command/hover",
+          "params": {
+            "duration": 5
+          },
+          "body": null,
+          "committed": true
+        }
+      ],
+      "wire": {
+        "archive_sha256": "fa4b0e1ec57615224f0f71ea31743318036c2aeea22134dd3e45dbcd1cdaa02c",
+        "logical_decisions": 5,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "6b4737884ec0868c2c841de9af94e790956b2d3cb40bf4502163a0a43a6b4091",
+            "request_bytes": 48233,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10185,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "9b9bb6f0ca12ea6c1ff2ace27ca46e5921f771f49ec69987c9f01dcfedef5ffd",
+            "request_bytes": 49795,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10185,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "f29b1cadb6050836a00f276da74cf4928125411d6b48532e4e8c6f36088bf168",
+            "request_bytes": 50343,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10185,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "7161c5a29781e0be48e0a2a6908d3bf779a47bd6a7c7e11aa3eb11bd6c733045",
+            "request_bytes": 50868,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10185,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-5",
+            "request_sha256": "8caf9b50d43c539c69b4f66add3a9f6ac0ef87fe60723c67f2a3d19303cda810",
+            "request_bytes": 51671,
+            "tools_canonical_bytes": 37431,
+            "tools_canonical_sha256": "820a0b707bdb024508d55b176f62276a5e1471a790865b428c640b978ed03e9b",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "bb3b4e36eb7483c225c96318981befab80bbe5f9149808efc1b46b88eb7f1fec",
+            "schemas_except_harness_description_sha256": "8beb37467624a4f4be02db1af101fda4204d7f011e0b5a6c413a68a7e92a29ba",
+            "harness_description_sha256": "2a299e14579bcd38395e715f769eb7a7263ef37bec015fc3f7d6c0670bf31de8",
+            "system_content_bytes": 10185,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 250910,
+        "tools_canonical_bytes": 187155,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 3,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "hover"
+          },
+          {
+            "id": "script-3",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 0,
+        "tool_error_call_ids": []
+      },
+      "unknown_action_count": 0,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    },
+    {
+      "trial_id": "legacy-object-reject",
+      "group": "legacy",
+      "original_checker_passed": false,
+      "completion_assessment": null,
+      "run_returned_normally": true,
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "actions": [],
+      "wire": {
+        "archive_sha256": "df978f476ad8997b6447053333289e52ba4b5542a77743ff598b0cc18657e3f5",
+        "logical_decisions": 4,
+        "requests": [
+          {
+            "logical_call_id": "model-1",
+            "request_sha256": "c18002c33d0822cc556b3c533d68424b1f130f5f0b4c9e45d1a29699e49c4f30",
+            "request_bytes": 32667,
+            "tools_canonical_bytes": 22044,
+            "tools_canonical_sha256": "538b663fe2f513fcebd739e79f8d9d2783708297aba1db33148383ad2e6e77e8",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "42b76ef63b071cac16453870b419d090fa6ee4dbed6da28aface18d01730f2ae",
+            "schemas_except_harness_description_sha256": "81dfb8374b3ddc79358177ed216bb52c3a9f26ee80f56674743e10ee28829199",
+            "harness_description_sha256": "791a46c481327e0286236e61b6fd5a8906ad68e9fa5fc87ee7bc079420058fc3",
+            "system_content_bytes": 9994,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-2",
+            "request_sha256": "9207f0d4ec1f6a4c1c8617ae7593985ce931178422fe883eaa6035f147331fb5",
+            "request_bytes": 34229,
+            "tools_canonical_bytes": 22044,
+            "tools_canonical_sha256": "538b663fe2f513fcebd739e79f8d9d2783708297aba1db33148383ad2e6e77e8",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "42b76ef63b071cac16453870b419d090fa6ee4dbed6da28aface18d01730f2ae",
+            "schemas_except_harness_description_sha256": "81dfb8374b3ddc79358177ed216bb52c3a9f26ee80f56674743e10ee28829199",
+            "harness_description_sha256": "791a46c481327e0286236e61b6fd5a8906ad68e9fa5fc87ee7bc079420058fc3",
+            "system_content_bytes": 9994,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-3",
+            "request_sha256": "4a069b831b99fddb213c7189838552398d35bb5c11d5d48a89408a194caf93b3",
+            "request_bytes": 34969,
+            "tools_canonical_bytes": 22044,
+            "tools_canonical_sha256": "538b663fe2f513fcebd739e79f8d9d2783708297aba1db33148383ad2e6e77e8",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "42b76ef63b071cac16453870b419d090fa6ee4dbed6da28aface18d01730f2ae",
+            "schemas_except_harness_description_sha256": "81dfb8374b3ddc79358177ed216bb52c3a9f26ee80f56674743e10ee28829199",
+            "harness_description_sha256": "791a46c481327e0286236e61b6fd5a8906ad68e9fa5fc87ee7bc079420058fc3",
+            "system_content_bytes": 10262,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          },
+          {
+            "logical_call_id": "model-4",
+            "request_sha256": "05dbb42c62528d1dad99be2d2785dba155c4cebd3b2e097b04bb6dfe74064557",
+            "request_bytes": 35695,
+            "tools_canonical_bytes": 22044,
+            "tools_canonical_sha256": "538b663fe2f513fcebd739e79f8d9d2783708297aba1db33148383ad2e6e77e8",
+            "tool_names": [
+              "list_drones",
+              "get_drone_status",
+              "get_weather",
+              "sense_nearby_entities",
+              "get_nearby_entities",
+              "update_blackboard_notes",
+              "get_target_info",
+              "get_obstacle_info",
+              "generate_coverage_path",
+              "take_off",
+              "land",
+              "move_to",
+              "move_to_and_sense",
+              "navigate_to",
+              "navigate_to_and_sense",
+              "move_within_distance",
+              "move_along_path",
+              "move_along_path_and_sense",
+              "move_towards",
+              "move_towards_and_sense",
+              "change_altitude",
+              "hover",
+              "rotate",
+              "return_home",
+              "set_home",
+              "calibrate",
+              "take_photo",
+              "send_message",
+              "broadcast",
+              "charge",
+              "run_harness"
+            ],
+            "tool_parameters_sha256": "42b76ef63b071cac16453870b419d090fa6ee4dbed6da28aface18d01730f2ae",
+            "schemas_except_harness_description_sha256": "81dfb8374b3ddc79358177ed216bb52c3a9f26ee80f56674743e10ee28829199",
+            "harness_description_sha256": "791a46c481327e0286236e61b6fd5a8906ad68e9fa5fc87ee7bc079420058fc3",
+            "system_content_bytes": 10534,
+            "original_graph_messages_preserved": true,
+            "history_receipt_links_verified": true,
+            "recovery_projection_present": true
+          }
+        ],
+        "wire_bytes": 137560,
+        "tools_canonical_bytes": 88176,
+        "all_original_graph_messages_preserved": true
+      },
+      "input_audit": {
+        "original_object_call_count": 2,
+        "original_object_calls": [
+          {
+            "id": "script-1",
+            "name": "take_off"
+          },
+          {
+            "id": "script-2",
+            "name": "get_drone_status"
+          }
+        ],
+        "tool_error_count": 2,
+        "tool_error_call_ids": [
+          "script-1",
+          "script-2"
+        ]
+      },
+      "unknown_action_count": 1,
+      "initial": {
+        "original_state_sha256": "8e068a9b0ce6a7f5646f7bcb402ccc350469cb00e42d588f7e916eb10eefb4b3",
+        "public_startup_sha256": "c6d4825bfbf2fdeb9f5ce54ac7b625ad64e709e3ca674d2b35509011bad02e72",
+        "original_checker_tree_sha256": "4d4fa723a9a704b74bae94a9ca1865a3194d8aa319eb88a6d061cc11d0f18df2",
+        "derived_state_sha256": "7dd87454343c50b73286a8b632a188f2d022e41e8ce2899923e13919a1e78aeb"
+      }
+    }
+  ],
+  "known_development_only": true,
+  "teacher_examples": 0
+}

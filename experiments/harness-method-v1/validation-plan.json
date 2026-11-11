@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "plan_id": "harness-method-validation-v1",
+  "status": "local_validation_and_review_only",
+  "online_authorized_executions": 0,
+  "teacher_collection": false,
+  "training": false,
+  "reference_local_profile": "experiments/agent-execution-v1/profile-main.json",
+  "development_study": "experiments/task-coverage-v1-study",
+  "development_study_manifest_sha256": "6386876e9e6172655abb899c836b4199909e438846b83be515a5f75aadb48bae",
+  "natural_task_ids": ["528d6d24", "fb68238f", "d8a9fc1d", "6c3f98ce", "0883d483", "fed7d291", "592bbf82", "ba7cf7aa", "8b784ef3", "fdd21809", "c74d7020", "bcaf22cf", "afa92e74", "6012c8ca", "368b8113", "0c07d7db", "51a76de4", "f6b47310"],
+  "natural_repetitions": 2,
+  "model_identity": null,
+  "paid_batch_budget": null,
+  "candidate": {
+    "task_progress_mode": "evidence_harness",
+    "execution_memory": "evidence_r2",
+    "harness_revision": "observed_target_v7",
+    "execution_contract": "task_execution_state_v1",
+    "scheduler": "applicability",
+    "static_obstacles": true,
+    "cross_episode_memory": false
+  },
+  "mechanism_arms": ["failure", "applicability"],
+  "guarded_macro": "semantic_reference_not_an_additional_product_arm",
+  "formal_mechanism_scenarios": null,
+  "independent_evaluation_scenarios": null,
+  "fault_categories": ["normal", "local_repair", "repair_exhausted", "partial_effect", "unknown_applied", "unknown_unapplied", "dependency_changed", "terminal_resume", "transferable_endpoint", "nontransferable_failure"],
+  "primary_metric": "independently_verified_whole_task_success",
+  "secondary_metrics": ["model_calls", "input_tokens", "output_tokens", "wall_seconds", "public_api_calls", "physical_action_attempts", "action_errors", "duplicate_applied_effects", "invalid_continuations", "recovery_opportunities", "remaining_obligations_completed"],
+  "zero_opportunity_rate": null,
+  "system_comparison_kind": "package_not_single_mechanism_ablation"
+}

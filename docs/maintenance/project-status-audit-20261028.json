@@ -1,0 +1,303 @@
+{
+  "date": "2026-10-28",
+  "scope": "Working-tree source and local original reports; not a new performance experiment or live deployment/config inspection.",
+  "git_head": "77563fb5827629da4dcecc2bb69c828db3907df9",
+  "git_working_tree_dirty": true,
+  "source_files": {
+    "agent4drone/uav_agent.py": {
+      "sha256": "d5f210879d1ca9fcf4e4fd1b7f985abcf6c1554def21aa8f3443194d22e0b5cd",
+      "bytes": 84243
+    },
+    "agent4drone/agent_api_service.py": {
+      "sha256": "b65dd5b6c5efb42b5e6dce4c90e35b5fefd7b35b7f865d1a163f36a046166f32",
+      "bytes": 13463
+    },
+    "agent4drone/main.py": {
+      "sha256": "979aa3376b3a7690896f530d182bd68bdbd2b70631f6cc1a51e35a42b01a0d4c",
+      "bytes": 52119
+    },
+    "agent4drone/harness_core.py": {
+      "sha256": "ae663ef64ba4d35e93e01450bd49790fc082dc455fd3d444bf5ae66fe4a8c3fb",
+      "bytes": 20577
+    },
+    "agent4drone/harness_skills.py": {
+      "sha256": "49c239714b83aa60611254be278ebb67451f152dbe9f9766c798a9729a55170f",
+      "bytes": 26404
+    },
+    "agent4drone/harness_integration.py": {
+      "sha256": "13bed02a04992b76e2512457bbed28c7d6e2c711433593ddf947a6c6b35284d5",
+      "bytes": 12295
+    },
+    "agent4drone/task_progress.py": {
+      "sha256": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+      "bytes": 23891
+    },
+    "agent4drone/task_evidence.py": {
+      "sha256": "6851e93c9ee0ccf540867bd7debe266d2dc5084d7ea1778b8be064db4383dd57",
+      "bytes": 18685
+    },
+    "agent4drone/task_evidence_context.py": {
+      "sha256": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "bytes": 6958
+    },
+    "agent4drone/execution_memory_v5.py": {
+      "sha256": "3edd0e2c4f86e9d4edb68ff8577bf274d7123dcefb9af6ec17bdc444daf238f5",
+      "bytes": 13911
+    },
+    "agent4drone/execution_memory_v7.py": {
+      "sha256": "6a5551ca65aa7ad26bbb1705e7681d1e759f463082bd22758c5471664f541684",
+      "bytes": 1653
+    },
+    "agent4drone/observed_target_search.py": {
+      "sha256": "f1d66ee7c449991f2556aeadfd79d2464fd1039402d19e9b2a43239753848b51",
+      "bytes": 8016
+    },
+    "agent4drone/model_io_archive.py": {
+      "sha256": "9b49d4f970e067a3ec821ada8c95306e0bccf016746bbd9686235f8e8d6d8b35",
+      "bytes": 32339
+    },
+    "agent4drone/toolchain_recorder.py": {
+      "sha256": "5bca05757bdea0a55ad703a284bb0622e040ac298421bc902d0c29f0e941ac0e",
+      "bytes": 6356
+    },
+    "scripts/harness_v2_world.py": {
+      "sha256": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+      "bytes": 8540
+    },
+    "scripts/harness_full100_world.py": {
+      "sha256": "a71a13284f65b86b91d3424e6c29b3675284dc68117f12aa9aea69cc4b10ec47",
+      "bytes": 10368
+    },
+    "scripts/harness_natural_runner.py": {
+      "sha256": "586adfa8b612820698199570758e1bac6216cdfe14d5a2a4c643a05b77e2744c",
+      "bytes": 17959
+    },
+    "scripts/harness_natural_local.py": {
+      "sha256": "763c986872adcb190874047b4539040fc492173c4bd30dd25a27956ee6859802",
+      "bytes": 6126
+    },
+    "scripts/harness_request_limits.py": {
+      "sha256": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+      "bytes": 15458
+    },
+    "scripts/harness_deepseek_adapter.py": {
+      "sha256": "bcb6087ce56eef71df9cd932724a2a8ac4124899ac682b1adcea50f4a02c10b3",
+      "bytes": 10048
+    },
+    "scripts/harness_cost_admission.py": {
+      "sha256": "aa3d35e03cf50efc0df05c3bbe9f19cfc81249f7de2e3d29cc1aacbb186c7673",
+      "bytes": 13046
+    },
+    "scripts/harness_provider_preflight.py": {
+      "sha256": "3aaf2b23a79d1c8e4fc6e28eb9c30cf246faa7335d1130aa87abdfb6c16a8cd7",
+      "bytes": 16832
+    },
+    "scripts/prepare_harness_natural_agent.py": {
+      "sha256": "179834ec820b4cb7efdfc53cae127f07098b32fad0eb3a66cac29af235a2485e",
+      "bytes": 14020
+    },
+    "controller/random_session_generator.py": {
+      "sha256": "57a230d5a82cea608babf43109f1734b1a4ae3da03df177b03a61c1e9342b06a",
+      "bytes": 60018
+    },
+    "controller/task_auto_generator.py": {
+      "sha256": "02cc2c895e83ad154886fd8d241061f3a593e82fa2db360ff85839c55e4be227",
+      "bytes": 7282
+    }
+  },
+  "evidence_files": {
+    "docs/results/minimal-harness-online-20261015/FINAL_ANALYSIS_CN.md": {
+      "sha256": "c81adfc1b9fffd372574496fdecd9335b5a96dac62463a781f670538eb7d3204",
+      "bytes": 18618
+    },
+    "docs/results/minimal-harness-v2-mechanism-20261016/FINAL_ANALYSIS_CN.md": {
+      "sha256": "125c2a77637c8a5837dcac3b26cda9487055a6d285006c8e94180da43e2511e4",
+      "bytes": 19080
+    },
+    "docs/results/minimal-harness-full100-calibration-20261016/FINAL_ANALYSIS_CN.md": {
+      "sha256": "7a6aba209108f507f09885dfb39ce197dfc915b54026c127376d58135c2a8357",
+      "bytes": 16726
+    },
+    "docs/results/execution-memory-v6-20261016/REPORT_CN.md": {
+      "sha256": "1b676c1308f83c9891284d8ff5167246c39479e0486b246a0eed4cb258c7cd29",
+      "bytes": 3162
+    },
+    "docs/results/execution-memory-v7-20261016/REPORT_CN.md": {
+      "sha256": "77a945201f4e3b839bc7bc843a714648833526b0ccf261614acc4c8b2fc681a3",
+      "bytes": 4011
+    },
+    "docs/results/execution-memory-v7-cross-task-20261023/REPORT_CN.md": {
+      "sha256": "8957b2f6f7a7433471689e98b52d5290da97ec7de1bbb8671d7cfe8c45fd8f47",
+      "bytes": 13516
+    },
+    "docs/results/harness-shared-endpoint-20261023/REPORT_CN.md": {
+      "sha256": "639bed7a5f07a2bb84d3b631e9ef125b6562692b6c067b8cce2b784515631016",
+      "bytes": 15027
+    },
+    "docs/results/harness-terminal-progress-20261023/REPORT_CN.md": {
+      "sha256": "95e19868decdabb74571614e770a7b82e5ffe2bc373b6968c724ace9ab7a9876",
+      "bytes": 13879
+    },
+    "docs/results/harness-observed-target-20261024/REPORT_CN.md": {
+      "sha256": "5d0064d484bcbb69660a40e26037c4dfd39f50e4b319260a3d1e68a5c2175209",
+      "bytes": 9887
+    },
+    "docs/results/harness-observed-target-20261024/run-20261024-01/summary.json": {
+      "sha256": "ce07f6a37f6b306143180dc4630d2f0a3b54ac9c57ea63d9ef34a068337a9497",
+      "bytes": 128725
+    },
+    "docs/results/harness-episode-contract-20261024/REPORT_CN.md": {
+      "sha256": "756a85599d00230061f1aab6add3553d81bc3f5a63e6befbf608ae5d8bad994d",
+      "bytes": 8217
+    },
+    "docs/results/harness-model-io-20261024/REPORT_CN.md": {
+      "sha256": "2d191c9f9ae2381bcce1fbebaf5bc6495691ea73205b90b3d60e5778b5deb90d",
+      "bytes": 7949
+    },
+    "docs/results/harness-full-episode-20261025/run-20261025-02/summary.json": {
+      "sha256": "d2fe6ac2cef6e6035c6fb928bd23065857bd70f04e79d5bbe0e0f0f934789a9c",
+      "bytes": 5648
+    },
+    "docs/results/harness-natural-runner-20261025/revalidation-summary.json": {
+      "sha256": "a0aa6be00d53fc268f106c2b0abb9d37aaf1d60f2b012215702335316161c698",
+      "bytes": 21156
+    },
+    "docs/results/harness-natural-runner-20261025/REPORT_CN.md": {
+      "sha256": "ba28ed12905f7342ef4670facfba8d6530ff71f43b6dffac4f07b46493307d7b",
+      "bytes": 8305
+    },
+    "docs/results/harness-provider-preflight-20261025/REPORT_CN.md": {
+      "sha256": "cec3c80d3501dc8bde57f255ec3b7d244177d3243785006cd3d299a877f8b793",
+      "bytes": 8057
+    },
+    "docs/results/harness-natural-agent-preparation-20261025/CHECKPOINT_EVIDENCE_CN.md": {
+      "sha256": "ed6d1cae5960283b4db7e2780b70878fb0bd1f4a04810d728078b01123f058ec",
+      "bytes": 4437
+    },
+    "experiments/subsets/representative-v1/README_CN.md": {
+      "sha256": "d429d177dfd3de3112405e10580edfc1ac562d2e049733328d290d24303e425c",
+      "bytes": 10811
+    },
+    "experiments/subsets/representative-v1/selection-spec.json": {
+      "sha256": "4fc31d765bc81e9b2ce2a8861445c2065fef4cf69118e8cb1fe590e2eb79dd12",
+      "bytes": 5032
+    },
+    "experiments/harness-natural-agent-plan-v1/manifest.json": {
+      "sha256": "d4c2219d18b33c286844df36115ec473e595f6af5b7b8a74775b9cc1d6d5cb9c",
+      "bytes": 1995
+    },
+    "experiments/harness-provider-preflight-v2/manifest.json": {
+      "sha256": "f6ecc97a1b444efc5ded4b9aae92c1a7827e291594201512b17d173b72c22c3e",
+      "bytes": 799
+    },
+    "experiments/harness-provider-preflight-v2/proposal.json": {
+      "sha256": "426ff5c42d3527795e1dc015b0dfd492d4f3afe10602989fab9949b81e6a22e6",
+      "bytes": 428
+    },
+    "docs/maintenance/cleanup-20261028.json": {
+      "sha256": "09282fe56ce0460b115080a87d9fb1b19071338c84fd039ecc6d5519106b6815",
+      "bytes": 10808
+    }
+  },
+  "search_scope": {
+    "maintained_python_files": 306,
+    "trainer_symbol_regex": "\\b(SFTTrainer|GRPOTrainer|PPOTrainer|TrainingArguments|from\\s+peft|from\\s+trl)\\b",
+    "trainer_symbol_hits": [],
+    "artifact_filename_files_checked": 69231,
+    "excluded_directories": [
+      ".cache",
+      ".git",
+      ".pytest_cache",
+      ".runtimes",
+      ".venv",
+      "__pycache__",
+      "node_modules"
+    ],
+    "common_weight_artifacts": [],
+    "limitations": "No repository-external/cloud inspection; uncommon artifact names may not match. No existing historical logs were certified as a Teacher dataset."
+  },
+  "runtime_evidence_integrity": {
+    "baseline": "../MultiUAV-Plat-cleanup-20261028/protected-hashes.json",
+    "files_checked": 3701,
+    "changed": []
+  },
+  "corrections": [
+    "task_progress_mode defaults to off only when explicit argument and environment are absent; enabled Harness revision defaults to legacy",
+    "one central Agent controlling multiple UAVs is not per-UAV autonomous multi-agent negotiation",
+    "historical v2 uses real provider with fixture-selected initial skill; natural calibration had zero recoverable paused opportunities",
+    "new natural runner hardcodes local synthetic provider and evidence_harness/observed_target_v7; no joint memory_v7 online result",
+    "new-process restore is not a reusable same-process training reset; SFT can use whole episodes",
+    "frozen v1 readiness gate text is historical; later local runner implementation must be recognized",
+    "legacy development splits are not new unseen post-training test splits"
+  ],
+  "new_model_calls": 0,
+  "new_simulator_trials": 0,
+  "training_started": false,
+  "test_policy": "No new pytest runs needed for document-only changes; prior cleanup 420 tests are historical evidence, not rerun this audit.",
+  "validation": {
+    "status_rows": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14"
+    ],
+    "work_packages": [
+      "W0",
+      "W1",
+      "W2",
+      "W3",
+      "W4",
+      "W5",
+      "W6",
+      "W7",
+      "W8"
+    ],
+    "current_document_links": "passed",
+    "markdown_table_column_counts": "passed",
+    "natural_preparation_verify": {
+      "command": "agent4drone/.venv/bin/python scripts/prepare_harness_natural_agent.py verify",
+      "exit_code": 0,
+      "status": "local_preparation_only",
+      "authorized_executions": 0,
+      "provider_calls": 0,
+      "online_ready": false
+    },
+    "review": "Read-only parallel review of Harness and environment/data boundaries; wording on recoverable paused, fixture-selected labels, World restore and SFT/RL order corrected."
+  },
+  "updated_documents": {
+    "docs/RESEARCH_STATUS_CN.md": {
+      "sha256": "e5e232916da6cb6087d42bd6a21a6d2bddffb97b58b2f3f97877aa9fe0c40d8d",
+      "lines": 75
+    },
+    "docs/RESEARCH_ROADMAP_CN.md": {
+      "sha256": "cd43511045cb4509f2e9ced61b7aaf5e59f8b6150834b2d5e464c758ae670a4e",
+      "lines": 70
+    },
+    "docs/PROJECT_GUIDE_CN.md": {
+      "sha256": "f4351ce12059c9f96e98e361db75fced32f9fce87d244d6e16d14635c6a3f6b8",
+      "lines": 54
+    },
+    "docs/POSTTRAINING_PLAN_CN.md": {
+      "sha256": "ce541a18dacd25e658095f3c87dbbe7f3b358d1874d50eb62f1cf29d64e20247",
+      "lines": 52
+    },
+    "docs/EXPERIMENT_EVIDENCE_CN.md": {
+      "sha256": "66b8d1a1279dd7cd027a97c538ac7996b895ee840dcccb98b6b293d1a57e4cc5",
+      "lines": 46
+    },
+    "docs/README.md": {
+      "sha256": "ca4458ff7c82deb4db68f9f0bc687f880df15fe421403ed129eb90fef94d3d0d",
+      "lines": 32
+    }
+  }
+}

@@ -1,0 +1,1218 @@
+[
+  {
+    "session_id": "ef36e27a",
+    "task_id": "69b0a271",
+    "passed": true,
+    "command": "Take off necessary drones and search the assigned area targets with systematic coverage patterns until the session task progress exceeds 95%.",
+    "observations": [
+      {
+        "command_id": "150e2661-a0c7-4246-83ee-9aa8b5c178fd",
+        "details": {
+          "total_targets": 9
+        },
+        "end_sequence": 6,
+        "evidence_id": "e3",
+        "progress_percentage": 91,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "ef36e27a",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 3,
+        "task_type": "area_search",
+        "tool_call_id": "call_02_vbbHkVwCNZzwgUOjOhnM2909"
+      },
+      {
+        "command_id": "150e2661-a0c7-4246-83ee-9aa8b5c178fd",
+        "details": {
+          "total_targets": 9
+        },
+        "end_sequence": 39,
+        "evidence_id": "e37",
+        "progress_percentage": 92,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "ef36e27a",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 37,
+        "task_type": "area_search",
+        "tool_call_id": "call_00_TN6PDgQH4nAQ04OB7Px26989"
+      },
+      {
+        "command_id": "150e2661-a0c7-4246-83ee-9aa8b5c178fd",
+        "details": {
+          "total_targets": 9
+        },
+        "end_sequence": 48,
+        "evidence_id": "e47",
+        "progress_percentage": 93,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "ef36e27a",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 47,
+        "task_type": "area_search",
+        "tool_call_id": "call_00_27uPlz6mqQZVfKqTYfjt8439"
+      },
+      {
+        "command_id": "150e2661-a0c7-4246-83ee-9aa8b5c178fd",
+        "details": {
+          "total_targets": 9
+        },
+        "end_sequence": 91,
+        "evidence_id": "e89",
+        "progress_percentage": 96,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "ef36e27a",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 89,
+        "task_type": "area_search",
+        "tool_call_id": "call_00_W9lYouH3tOp6qBIL0AKx7320"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "observed",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "150e2661-a0c7-4246-83ee-9aa8b5c178fd",
+          "details": {
+            "total_targets": 9
+          },
+          "end_sequence": 91,
+          "evidence_id": "e89",
+          "progress_percentage": 96,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "ef36e27a",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 89,
+          "task_type": "area_search",
+          "tool_call_id": "call_00_W9lYouH3tOp6qBIL0AKx7320"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          107,
+          140
+        ],
+        "threshold_percent": 95.0,
+        "threshold_state": "observed_threshold_met"
+      }
+    ],
+    "states_with_duplicates": {
+      "observed/observed_threshold_met": 2,
+      "unknown/unknown": 1,
+      "observed/observed_threshold_not_met": 3,
+      "stale_after_action_or_overlap/unknown": 3
+    }
+  },
+  {
+    "session_id": "3973d0d6",
+    "task_id": "9c0b52a0",
+    "passed": true,
+    "command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+    "observations": [
+      {
+        "command_id": "3f52c532-4b89-4711-8d71-74eba7bbde9d",
+        "details": {
+          "total_targets": 3,
+          "unvisited_targets": 0,
+          "visited_targets": 3
+        },
+        "end_sequence": 6,
+        "evidence_id": "e3",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "3973d0d6",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 3,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_02_9ECBa4U0hSOrWb4mzNW99886"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "observed",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "3f52c532-4b89-4711-8d71-74eba7bbde9d",
+          "details": {
+            "total_targets": 3,
+            "unvisited_targets": 0,
+            "visited_targets": 3
+          },
+          "end_sequence": 6,
+          "evidence_id": "e3",
+          "progress_percentage": 100,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "3973d0d6",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 3,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_02_9ECBa4U0hSOrWb4mzNW99886"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          91,
+          124
+        ],
+        "threshold_percent": 95.0,
+        "threshold_state": "observed_threshold_met"
+      }
+    ],
+    "states_with_duplicates": {
+      "observed/observed_threshold_met": 2,
+      "unknown/unknown": 1
+    }
+  },
+  {
+    "session_id": "3973d0d6",
+    "task_id": "14fd1139",
+    "passed": true,
+    "command": "Take off necessary drones and assign them to reach required targets Fixed Target 3, Fixed Target 2, and Fixed Target 1; if those targets alone do not exceed 50% session task progress, continue reaching additional assigned targets until progress exceeds 50%.",
+    "observations": [
+      {
+        "command_id": "ff01ad4b-0ceb-432b-9717-458c8908a357",
+        "details": {
+          "total_targets": 3,
+          "unvisited_targets": 0,
+          "visited_targets": 3
+        },
+        "end_sequence": 6,
+        "evidence_id": "e2",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "3973d0d6",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 2,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_01_T2wlyTL11U1L8vtt0uTl5170"
+      },
+      {
+        "command_id": "ff01ad4b-0ceb-432b-9717-458c8908a357",
+        "details": {
+          "total_targets": 3,
+          "unvisited_targets": 0,
+          "visited_targets": 3
+        },
+        "end_sequence": 32,
+        "evidence_id": "e31",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "3973d0d6",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 31,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_rE3ZR7UtJEOZSi2tyIvk7630"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "observed",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "ff01ad4b-0ceb-432b-9717-458c8908a357",
+          "details": {
+            "total_targets": 3,
+            "unvisited_targets": 0,
+            "visited_targets": 3
+          },
+          "end_sequence": 32,
+          "evidence_id": "e31",
+          "progress_percentage": 100,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "3973d0d6",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 31,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_rE3ZR7UtJEOZSi2tyIvk7630"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          236,
+          256
+        ],
+        "threshold_percent": 50.0,
+        "threshold_state": "observed_threshold_met"
+      }
+    ],
+    "states_with_duplicates": {
+      "observed/observed_threshold_met": 4,
+      "unknown/unknown": 1,
+      "stale_after_action_or_overlap/unknown": 2
+    }
+  },
+  {
+    "session_id": "3973d0d6",
+    "task_id": "7eba7390",
+    "passed": true,
+    "command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+    "observations": [
+      {
+        "command_id": "2f540569-cd6a-4bd8-80fb-36e2fe214480",
+        "details": {
+          "total_targets": 3,
+          "unvisited_targets": 0,
+          "visited_targets": 3
+        },
+        "end_sequence": 6,
+        "evidence_id": "e3",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "3973d0d6",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 3,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_02_QO9cep9gBCz2g6RMVuK34446"
+      },
+      {
+        "command_id": "2f540569-cd6a-4bd8-80fb-36e2fe214480",
+        "details": {
+          "total_targets": 3,
+          "unvisited_targets": 0,
+          "visited_targets": 3
+        },
+        "end_sequence": 12,
+        "evidence_id": "e9",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "3973d0d6",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 9,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_VCwJIMJJCyYRHRDSa0Uc7498"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "observed",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "2f540569-cd6a-4bd8-80fb-36e2fe214480",
+          "details": {
+            "total_targets": 3,
+            "unvisited_targets": 0,
+            "visited_targets": 3
+          },
+          "end_sequence": 12,
+          "evidence_id": "e9",
+          "progress_percentage": 100,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "3973d0d6",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 9,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_VCwJIMJJCyYRHRDSa0Uc7498"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          91,
+          124
+        ],
+        "threshold_percent": 95.0,
+        "threshold_state": "observed_threshold_met"
+      }
+    ],
+    "states_with_duplicates": {
+      "observed/observed_threshold_met": 3,
+      "unknown/unknown": 1
+    }
+  },
+  {
+    "session_id": "823c15d5",
+    "task_id": "5e743d21",
+    "passed": false,
+    "command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+    "observations": [
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 36,
+          "visited_targets": 64
+        },
+        "end_sequence": 5,
+        "evidence_id": "e2",
+        "progress_percentage": 64,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 2,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_01_Q29sSF3Uu0YeYCVY66lp2561"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 33,
+          "visited_targets": 67
+        },
+        "end_sequence": 134,
+        "evidence_id": "e133",
+        "progress_percentage": 67,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 133,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_8TZT3M4gl9p8fnIeEOxY2843"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 33,
+          "visited_targets": 67
+        },
+        "end_sequence": 144,
+        "evidence_id": "e143",
+        "progress_percentage": 67,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 143,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_7MxxfciFXH3g9lo4mm0y5381"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 29,
+          "visited_targets": 71
+        },
+        "end_sequence": 176,
+        "evidence_id": "e175",
+        "progress_percentage": 71,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 175,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_SVWI1gNIVe2Rai6tu3Vd8646"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 29,
+          "visited_targets": 71
+        },
+        "end_sequence": 208,
+        "evidence_id": "e207",
+        "progress_percentage": 71,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 207,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_fC29K9bbShVdysAOms5C3655"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 28,
+          "visited_targets": 72
+        },
+        "end_sequence": 244,
+        "evidence_id": "e243",
+        "progress_percentage": 72,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 243,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_VqyLXAz3AtcCPiMeaitP1356"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 27,
+          "visited_targets": 73
+        },
+        "end_sequence": 262,
+        "evidence_id": "e261",
+        "progress_percentage": 73,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 261,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_hHlQIGnor3L2ls90dQeo6399"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 23,
+          "visited_targets": 77
+        },
+        "end_sequence": 354,
+        "evidence_id": "e353",
+        "progress_percentage": 77,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 353,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_Kwk0ETH7xt28jeg1t9hV1806"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 20,
+          "visited_targets": 80
+        },
+        "end_sequence": 416,
+        "evidence_id": "e415",
+        "progress_percentage": 80,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 415,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_XABlRSdbUtFZj6igVvHp8305"
+      },
+      {
+        "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 19,
+          "visited_targets": 81
+        },
+        "end_sequence": 448,
+        "evidence_id": "e447",
+        "progress_percentage": 81,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 447,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_kEBZGMq3jvfbO5QWcF6R9817"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "stale_after_action_or_overlap",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "40dc10e5-ea38-421f-8dcc-81b9b852f7f8",
+          "details": {
+            "total_targets": 100,
+            "unvisited_targets": 19,
+            "visited_targets": 81
+          },
+          "end_sequence": 448,
+          "evidence_id": "e447",
+          "progress_percentage": 81,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "823c15d5",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 447,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_kEBZGMq3jvfbO5QWcF6R9817"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          91,
+          124
+        ],
+        "threshold_percent": 95.0,
+        "threshold_state": "unknown"
+      }
+    ],
+    "states_with_duplicates": {
+      "stale_after_action_or_overlap/unknown": 9,
+      "unknown/unknown": 1,
+      "observed/observed_threshold_not_met": 10
+    }
+  },
+  {
+    "session_id": "823c15d5",
+    "task_id": "24ac1838",
+    "passed": false,
+    "command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+    "observations": [
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 19,
+          "visited_targets": 81
+        },
+        "end_sequence": 5,
+        "evidence_id": "e2",
+        "progress_percentage": 81,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 2,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_01_RUbUFN50CdTNhvHWhX7A2432"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 19,
+          "visited_targets": 81
+        },
+        "end_sequence": 18,
+        "evidence_id": "e17",
+        "progress_percentage": 81,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 17,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_oUTXFa67iPjXGjMDNrJE9265"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 18,
+          "visited_targets": 82
+        },
+        "end_sequence": 22,
+        "evidence_id": "e21",
+        "progress_percentage": 82,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 21,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_gj7wxJQ4bw7oq4TAVGu15624"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 18,
+          "visited_targets": 82
+        },
+        "end_sequence": 142,
+        "evidence_id": "e141",
+        "progress_percentage": 82,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 141,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_gNSYC0ZCCqOlwVUq7ucg2981"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 16,
+          "visited_targets": 84
+        },
+        "end_sequence": 286,
+        "evidence_id": "e285",
+        "progress_percentage": 84,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 285,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_dB7LHg5kt8g3nJRJSA4M4689"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 15,
+          "visited_targets": 85
+        },
+        "end_sequence": 319,
+        "evidence_id": "e317",
+        "progress_percentage": 85,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 317,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_QhhQfYhJDAdynPHFdA153407"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 15,
+          "visited_targets": 85
+        },
+        "end_sequence": 382,
+        "evidence_id": "e381",
+        "progress_percentage": 85,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 381,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_vb23EUNO36TwpPeOywsA5811"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 15,
+          "visited_targets": 85
+        },
+        "end_sequence": 444,
+        "evidence_id": "e443",
+        "progress_percentage": 85,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 443,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_u2UNQa5Vh0uEZLDKjehm4806"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 12,
+          "visited_targets": 88
+        },
+        "end_sequence": 514,
+        "evidence_id": "e513",
+        "progress_percentage": 88,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 513,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_HlzBeA2xBdWDtLv52kM41663"
+      },
+      {
+        "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 12,
+          "visited_targets": 88
+        },
+        "end_sequence": 576,
+        "evidence_id": "e575",
+        "progress_percentage": 88,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 575,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_PtJtZPuKllJPVRh6z9CK3627"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "stale_after_action_or_overlap",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "b2a97b9c-62ae-4074-b46f-513f83d9d0bc",
+          "details": {
+            "total_targets": 100,
+            "unvisited_targets": 12,
+            "visited_targets": 88
+          },
+          "end_sequence": 576,
+          "evidence_id": "e575",
+          "progress_percentage": 88,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "823c15d5",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 575,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_PtJtZPuKllJPVRh6z9CK3627"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          91,
+          124
+        ],
+        "threshold_percent": 95.0,
+        "threshold_state": "unknown"
+      }
+    ],
+    "states_with_duplicates": {
+      "stale_after_action_or_overlap/unknown": 11,
+      "unknown/unknown": 1,
+      "observed/observed_threshold_not_met": 10
+    }
+  },
+  {
+    "session_id": "823c15d5",
+    "task_id": "784d71f8",
+    "passed": true,
+    "command": "Take off necessary drones and assign them to reach required targets Fixed Target 80, Fixed Target 93, and Fixed Target 7; if those targets alone do not exceed 50% session task progress, continue reaching additional assigned targets until progress exceeds 50%.",
+    "observations": [
+      {
+        "command_id": "0c26ead6-4fd7-43a8-8acc-3a2f60f23bcf",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 11,
+          "visited_targets": 89
+        },
+        "end_sequence": 6,
+        "evidence_id": "e3",
+        "progress_percentage": 89,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 3,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_02_0t4POQHpY6csreYZ5Qog9474"
+      },
+      {
+        "command_id": "0c26ead6-4fd7-43a8-8acc-3a2f60f23bcf",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 11,
+          "visited_targets": 89
+        },
+        "end_sequence": 22,
+        "evidence_id": "e21",
+        "progress_percentage": 89,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 21,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_dWcotAdHbCIaeth2hRtW2123"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "observed",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "0c26ead6-4fd7-43a8-8acc-3a2f60f23bcf",
+          "details": {
+            "total_targets": 100,
+            "unvisited_targets": 11,
+            "visited_targets": 89
+          },
+          "end_sequence": 22,
+          "evidence_id": "e21",
+          "progress_percentage": 89,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "823c15d5",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 21,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_dWcotAdHbCIaeth2hRtW2123"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          238,
+          258
+        ],
+        "threshold_percent": 50.0,
+        "threshold_state": "observed_threshold_met"
+      }
+    ],
+    "states_with_duplicates": {
+      "observed/observed_threshold_met": 3,
+      "unknown/unknown": 1,
+      "stale_after_action_or_overlap/unknown": 2
+    }
+  },
+  {
+    "session_id": "823c15d5",
+    "task_id": "7cdefb56",
+    "passed": false,
+    "command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+    "observations": [
+      {
+        "command_id": "8440ef5a-906a-4c6f-99b6-ed897690f7ac",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 11,
+          "visited_targets": 89
+        },
+        "end_sequence": 6,
+        "evidence_id": "e3",
+        "progress_percentage": 89,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 3,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_02_9TZ9pqSUNAyZxIIvSCTY1152"
+      },
+      {
+        "command_id": "8440ef5a-906a-4c6f-99b6-ed897690f7ac",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 11,
+          "visited_targets": 89
+        },
+        "end_sequence": 58,
+        "evidence_id": "e57",
+        "progress_percentage": 89,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 57,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_7wh4mcyo7HllacKbOHSf6572"
+      },
+      {
+        "command_id": "8440ef5a-906a-4c6f-99b6-ed897690f7ac",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 10,
+          "visited_targets": 90
+        },
+        "end_sequence": 168,
+        "evidence_id": "e167",
+        "progress_percentage": 90,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 167,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_EWIg0B5tuotnbICneYRA4990"
+      },
+      {
+        "command_id": "8440ef5a-906a-4c6f-99b6-ed897690f7ac",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 9,
+          "visited_targets": 91
+        },
+        "end_sequence": 324,
+        "evidence_id": "e323",
+        "progress_percentage": 91,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 323,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_rMWGt2HeODQK8enm5B6m4892"
+      },
+      {
+        "command_id": "8440ef5a-906a-4c6f-99b6-ed897690f7ac",
+        "details": {
+          "total_targets": 100,
+          "unvisited_targets": 7,
+          "visited_targets": 93
+        },
+        "end_sequence": 386,
+        "evidence_id": "e385",
+        "progress_percentage": 93,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "823c15d5",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 385,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_WFrXXPtVultjTDFWjmh11792"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "stale_after_action_or_overlap",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "8440ef5a-906a-4c6f-99b6-ed897690f7ac",
+          "details": {
+            "total_targets": 100,
+            "unvisited_targets": 7,
+            "visited_targets": 93
+          },
+          "end_sequence": 386,
+          "evidence_id": "e385",
+          "progress_percentage": 93,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "823c15d5",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 385,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_WFrXXPtVultjTDFWjmh11792"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          91,
+          124
+        ],
+        "threshold_percent": 95.0,
+        "threshold_state": "unknown"
+      }
+    ],
+    "states_with_duplicates": {
+      "stale_after_action_or_overlap/unknown": 5,
+      "unknown/unknown": 1,
+      "observed/observed_threshold_not_met": 5
+    }
+  },
+  {
+    "session_id": "35ce64d8",
+    "task_id": "b1ad4f3e",
+    "passed": true,
+    "command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+    "observations": [
+      {
+        "command_id": "6bd938f0-cb64-4eae-b0e7-3b0b97dc7305",
+        "details": {
+          "total_targets": 20,
+          "unvisited_targets": 3,
+          "visited_targets": 17
+        },
+        "end_sequence": 7,
+        "evidence_id": "e2",
+        "progress_percentage": 85,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "35ce64d8",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 2,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_01_0VIjEOLlTWMb6VXF9MBs4432"
+      },
+      {
+        "command_id": "6bd938f0-cb64-4eae-b0e7-3b0b97dc7305",
+        "details": {
+          "total_targets": 20,
+          "unvisited_targets": 2,
+          "visited_targets": 18
+        },
+        "end_sequence": 101,
+        "evidence_id": "e100",
+        "progress_percentage": 90,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "35ce64d8",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 100,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_03_baYEfupIX4okNj1tygSR2586"
+      },
+      {
+        "command_id": "6bd938f0-cb64-4eae-b0e7-3b0b97dc7305",
+        "details": {
+          "total_targets": 20,
+          "unvisited_targets": 0,
+          "visited_targets": 20
+        },
+        "end_sequence": 146,
+        "evidence_id": "e145",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "35ce64d8",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 145,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_ZiSMyqLDNHHpEajyuTLQ6614"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "observed",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "6bd938f0-cb64-4eae-b0e7-3b0b97dc7305",
+          "details": {
+            "total_targets": 20,
+            "unvisited_targets": 0,
+            "visited_targets": 20
+          },
+          "end_sequence": 146,
+          "evidence_id": "e145",
+          "progress_percentage": 100,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "35ce64d8",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 145,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_ZiSMyqLDNHHpEajyuTLQ6614"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          91,
+          124
+        ],
+        "threshold_percent": 95.0,
+        "threshold_state": "observed_threshold_met"
+      }
+    ],
+    "states_with_duplicates": {
+      "observed/observed_threshold_met": 2,
+      "unknown/unknown": 1,
+      "observed/observed_threshold_not_met": 1,
+      "stale_after_action_or_overlap/unknown": 2
+    }
+  },
+  {
+    "session_id": "35ce64d8",
+    "task_id": "2ca9bc1c",
+    "passed": true,
+    "command": "Take off necessary drones and assign them to reach required targets Fixed Target 4, Fixed Target 6, and Fixed Target 20; if those targets alone do not exceed 50% session task progress, continue reaching additional assigned targets until progress exceeds 50%.",
+    "observations": [
+      {
+        "command_id": "e90ca5b7-dd24-48c5-a06e-d3df0e892a16",
+        "details": {
+          "total_targets": 20,
+          "unvisited_targets": 0,
+          "visited_targets": 20
+        },
+        "end_sequence": 6,
+        "evidence_id": "e2",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "35ce64d8",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 2,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_01_KVtGnPdSNcTXqW9JECow7191"
+      },
+      {
+        "command_id": "e90ca5b7-dd24-48c5-a06e-d3df0e892a16",
+        "details": {
+          "total_targets": 20,
+          "unvisited_targets": 0,
+          "visited_targets": 20
+        },
+        "end_sequence": 22,
+        "evidence_id": "e21",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "35ce64d8",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 21,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_XMvY12Spk8oAdXPyqw5k5922"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "observed",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "e90ca5b7-dd24-48c5-a06e-d3df0e892a16",
+          "details": {
+            "total_targets": 20,
+            "unvisited_targets": 0,
+            "visited_targets": 20
+          },
+          "end_sequence": 22,
+          "evidence_id": "e21",
+          "progress_percentage": 100,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "35ce64d8",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 21,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_XMvY12Spk8oAdXPyqw5k5922"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          237,
+          257
+        ],
+        "threshold_percent": 50.0,
+        "threshold_state": "observed_threshold_met"
+      }
+    ],
+    "states_with_duplicates": {
+      "observed/observed_threshold_met": 3,
+      "unknown/unknown": 1,
+      "stale_after_action_or_overlap/unknown": 2
+    }
+  },
+  {
+    "session_id": "35ce64d8",
+    "task_id": "1905e0ad",
+    "passed": true,
+    "command": "Take off necessary drones and assign them to reach required targets Fixed Target 8, Fixed Target 10, Fixed Target 11, Fixed Target 6, and Fixed Target 3; if those targets alone do not exceed 70% session task progress, continue reaching additional assigned targets until progress exceeds 70%.",
+    "observations": [
+      {
+        "command_id": "e3ea08da-2d80-4cab-81d1-10981f73a970",
+        "details": {
+          "total_targets": 20,
+          "unvisited_targets": 0,
+          "visited_targets": 20
+        },
+        "end_sequence": 6,
+        "evidence_id": "e3",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "35ce64d8",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 3,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_02_bJmdQmVDMO2GxPX1Fy6c2050"
+      },
+      {
+        "command_id": "e3ea08da-2d80-4cab-81d1-10981f73a970",
+        "details": {
+          "total_targets": 20,
+          "unvisited_targets": 0,
+          "visited_targets": 20
+        },
+        "end_sequence": 30,
+        "evidence_id": "e29",
+        "progress_percentage": 100,
+        "scope": "public_session_aggregate_not_full_task_verdict",
+        "session_id": "35ce64d8",
+        "source_endpoint": "/sessions/current",
+        "start_sequence": 29,
+        "task_type": "target_assignment",
+        "tool_call_id": "call_00_3xI7ctPjREA6teEZCfQd3956"
+      }
+    ],
+    "final_requirements": [
+      {
+        "freshness": "observed",
+        "id": "progress-1",
+        "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply.",
+        "observation": {
+          "command_id": "e3ea08da-2d80-4cab-81d1-10981f73a970",
+          "details": {
+            "total_targets": 20,
+            "unvisited_targets": 0,
+            "visited_targets": 20
+          },
+          "end_sequence": 30,
+          "evidence_id": "e29",
+          "progress_percentage": 100,
+          "scope": "public_session_aggregate_not_full_task_verdict",
+          "session_id": "35ce64d8",
+          "source_endpoint": "/sessions/current",
+          "start_sequence": 29,
+          "task_type": "target_assignment",
+          "tool_call_id": "call_00_3xI7ctPjREA6teEZCfQd3956"
+        },
+        "operator": ">",
+        "scope": "session_task_progress",
+        "source_span": [
+          270,
+          290
+        ],
+        "threshold_percent": 70.0,
+        "threshold_state": "observed_threshold_met"
+      }
+    ],
+    "states_with_duplicates": {
+      "observed/observed_threshold_met": 4,
+      "unknown/unknown": 1,
+      "stale_after_action_or_overlap/unknown": 2
+    }
+  }
+]

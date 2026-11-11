@@ -1,0 +1,144 @@
+{
+  "schema": "harness-partial-recovery-local-v1",
+  "passed": false,
+  "provider_calls": 0,
+  "teacher_examples": 0,
+  "scene_split": "development",
+  "tasks": 1,
+  "planned_episodes": 2,
+  "checks": [
+    {
+      "check": "fixed_two_predeclared_slots",
+      "passed": false
+    },
+    {
+      "check": "partial-positive:one_real_partial_api",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:faithful_point_partition",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:actual_partial_effect_only_A",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:public_state_keeps_partial",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:wire_partial_advice",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:public_receipt_and_status_resolve_only_B",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:explicit_public_status_at_A",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:already_applied_A_not_replayed",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:takeoff_once",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:recovery_targets_only_remaining_B",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:actual_recovery_from_A_to_B",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:independent_expected_score",
+      "passed": true
+    },
+    {
+      "check": "partial-positive:normal_drained_isolated",
+      "passed": true
+    },
+    {
+      "check": "same_independently_restored_initial_state",
+      "passed": false
+    },
+    {
+      "check": "distinct_worker_and_scorer_processes",
+      "passed": false
+    }
+  ],
+  "episodes": [
+    {
+      "trial_id": "partial-positive",
+      "model": "local-scripted-sdk",
+      "provider_calls": 0,
+      "archive_sha256": "27fe7eca9674050e6e5d439a04d49147a0894de874b3377b99a387c61f11c987",
+      "partial_request_id": 8,
+      "partial_receipt": {
+        "command_id": "335ced10",
+        "drone_id": "partial-drone-1",
+        "command": "move_along_path",
+        "status": "partial_success",
+        "message": "Drone partially completed path with 1 of 2 waypoints before stopping at waypoint 2 (Path to waypoint 2 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Static path obstruction') (total distance: 100.00m, battery: -0.5%/-5mAh, remaining: 99.0%/990mAh)",
+        "successful_points_count": 1,
+        "successful_points": [
+          [
+            200.0,
+            100.0,
+            20.0
+          ]
+        ],
+        "unsuccessful_points_count": 1,
+        "unsuccessful_points": [
+          [
+            400.0,
+            100.0,
+            20.0
+          ]
+        ],
+        "timestamp": 1802649600.124802
+      },
+      "applied": {
+        "successful_points_count": 1,
+        "successful_points": [
+          [
+            200.0,
+            100.0,
+            20.0
+          ]
+        ]
+      },
+      "remaining": {
+        "unsuccessful_points_count": 1,
+        "unsuccessful_points": [
+          [
+            400.0,
+            100.0,
+            20.0
+          ]
+        ]
+      },
+      "public_remaining_point": {
+        "x": 400.0,
+        "y": 100.0,
+        "z": 20.0
+      },
+      "model_http_requests": 6,
+      "initial_state_sha256": "c3e661b46242d087141fdf378c279db4dadf78085c981ab5f60a82ff428307eb",
+      "worker_pid": 15914,
+      "scorer_pid": 15927,
+      "checker_passed": true,
+      "checks_passed": 4,
+      "checks_expected": 4,
+      "positive_movement_events_after_partial": 6,
+      "script_helper_scope": "fixture_only_public_receipt_and_status_no_production_recovery_algorithm"
+    }
+  ],
+  "scope": "real Agent SDK ASGI with scripted decisions; contract validation, not natural recovery capability",
+  "preparation_network_attempts": []
+}

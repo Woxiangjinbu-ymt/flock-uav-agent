@@ -1,0 +1,40 @@
+{
+  "status": "accepted_with_documented_limitations",
+  "accepted_at_utc": "2026-10-16T04:07:25.486619+00:00",
+  "scope": "24 cases x 2 arms x 2 repeats; 96 executions only",
+  "completed_executions": 96,
+  "sealed_evidence_files": 1247,
+  "paired_initial_states_verified": 48,
+  "frozen_files_verified": 266,
+  "original_manifest_sha256": "ba9b05bac13f33dfea28b95a294079faead03faa598229712edce8f263e00197",
+  "queue_repair_manifest_sha256": "2a1add13573418441e56c5dc597408abd5b0ffe3824b134db07bd1c942dfdc16",
+  "all_registered_trial_and_coordinator_pids_exited_at_inspection": true,
+  "total_tokens": 7293646,
+  "campaign_wall_seconds": 1493.2765820026398,
+  "task_success": {
+    "applicability": 48,
+    "failure": 47
+  },
+  "limitations": [
+    "initial skill committed by fixture; no autonomous selection validation",
+    "single controlled development study; two repeats not independent scenarios",
+    "first three r1 pairs ran with one worker; preserved in primary denominator",
+    "one delayed empty model response accounts for sole task failure",
+    "skill-ordinal fault exposure differs after raw-tool takeover",
+    "applicability saves model calls but uses more physical action attempts overall"
+  ],
+  "full100_started": false,
+  "reruns": 0,
+  "report": "./docs/results/minimal-harness-v2-mechanism-20261016/FINAL_ANALYSIS_CN.md",
+  "derived_file_sha256": {
+    "FINAL_ANALYSIS_CN.md": "125c2a77637c8a5837dcac3b26cda9487055a6d285006c8e94180da43e2511e4",
+    "TRAJECTORY_INDEX_CN.md": "32704ee691544b2058f44637fd964666f0f3b57a5fbab19e8675be44eaaa9618",
+    "audit.log": "9fece7ef360484f38a4a31c2bebc1a2f9926fe0a3c5636f50602eb73b28fd329",
+    "audit_mechanism.py": "b61d5a09fb77ec2e9fe9c8e293185765352c9b24116eee765b0fa1557497fd05",
+    "comparison.json": "77fb61f7e16f91b4b1068e5c3230177eed2128d7775537fb436a045d3ed82fd1",
+    "seal_verification.json": "e287ec756e3ec53889eb2bdb00c73f2a31e68e0a246b7ffb9e2f9d86192a8a74",
+    "trajectory_audit.json": "9aa82b3bca238da55360760efd7747f325c27a90c66f790c310fc99e7ee4e67f"
+  },
+  "heartbeat_automation_id": "v2",
+  "followup_disposition": "delete after acceptance; retain conversation"
+}

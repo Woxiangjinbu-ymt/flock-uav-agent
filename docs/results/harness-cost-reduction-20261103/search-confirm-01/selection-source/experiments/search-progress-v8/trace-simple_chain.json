@@ -1,0 +1,18 @@
+[
+  {
+    "tool": "list_drones",
+    "arguments": {}
+  },
+  {
+    "tool": "run_harness",
+    "arguments": {
+      "input_json": {
+        "action": "start",
+        "skill": "simple_chain"
+      }
+    }
+  },
+  {
+    "final": "[TASK DONE] Scripted fixture ended; independent scoring determines task completion."
+  }
+]

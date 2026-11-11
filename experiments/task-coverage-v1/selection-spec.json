@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "dataset_id": "task-coverage-v1-development18",
+  "split": "development",
+  "planned_tasks": 18,
+  "source_population_policy": "all_original_1500_are_known_development_never_unseen_test",
+  "selection": "first_eligible_by_archive_member_lexicographic_then_original_task_ordinal",
+  "criteria": [
+    "original fleet 1..5 retained unchanged",
+    "explicit template slot",
+    "distinct named actors match slot",
+    "named actors exist in original scene",
+    "static target scope",
+    "F2 quick checkpoint requires original fleet 3"
+  ],
+  "not_used_for_selection": [
+    "historical task success",
+    "passed checks",
+    "model error",
+    "tokens",
+    "cost",
+    "runtime"
+  ],
+  "slots": [
+    {
+      "task_family": "F1",
+      "template_id": "basic_takeoff",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F1",
+      "template_id": "simple_rotation",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F1",
+      "template_id": "complete_flight_cycle",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F2",
+      "template_id": "quick_checkpoint",
+      "named_actors": 1,
+      "fleet_size": 3
+    },
+    {
+      "task_family": "F2",
+      "template_id": "fly_several_waypoints",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F2",
+      "template_id": "obstacle_avoidance_path",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F3",
+      "template_id": "target_inspection",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F3",
+      "template_id": "multi_target_sequential",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F3",
+      "template_id": "multiple_target_inspection_advanced",
+      "named_actors": 3,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F4",
+      "template_id": "area_coverage_search",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F4",
+      "template_id": "dual_drone_area_coverage_search",
+      "named_actors": 2,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F4",
+      "template_id": "target_area_full_coverage",
+      "named_actors": 1,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F5",
+      "template_id": "multi_target_survey",
+      "named_actors": 2,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F5",
+      "template_id": "fleet_coordination_takeoff_and_formation_4drones",
+      "named_actors": 4,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F5",
+      "template_id": "fleet_coordination_target_sweep_5drones",
+      "named_actors": 5,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F6",
+      "template_id": "target_assignment",
+      "named_actors": null,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F6",
+      "template_id": "target_assignment_progress_50_three_targets",
+      "named_actors": null,
+      "fleet_size": null
+    },
+    {
+      "task_family": "F6",
+      "template_id": "area_search_task_completion",
+      "named_actors": null,
+      "fleet_size": null
+    }
+  ],
+  "online_authorized_executions": 0,
+  "post_materialization_replacement": false
+}

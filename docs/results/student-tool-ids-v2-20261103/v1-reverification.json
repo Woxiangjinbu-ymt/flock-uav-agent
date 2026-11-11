@@ -1,0 +1,72 @@
+{
+  "schema": "w3-final-verification-v1",
+  "date": "2026-11-03",
+  "passed": true,
+  "scope": "development_sample_conversion_and_student_input_only",
+  "conversion_manifest_sha256": "9377805432cdcd1041305d2e2e7d689f91686388867acb42da8c1a12bbabf2be",
+  "student_manifest_sha256": "5d548f56ccee87024f20af14720dbda2bbe426f7aaac7c4ceea5ef23f768ab6f",
+  "conversion_counts": {
+    "eligible_episodes": 12,
+    "excluded_decisions": 37,
+    "excluded_episodes": 8,
+    "exported_samples": 61,
+    "logical_decisions": 98,
+    "planned_episodes": 22,
+    "unrun_episodes": 2
+  },
+  "source_runs_reverified": 10,
+  "source_snapshot_files_match_current": 17,
+  "w2_split_manifest_unchanged": true,
+  "encoded_samples": 61,
+  "loading_batches": 31,
+  "sequence_tokens": {
+    "count": 61,
+    "min": 9961,
+    "max": 14595,
+    "p50": 12043,
+    "p95": 13509
+  },
+  "context_requests": {
+    "logical_calls": 98,
+    "http_request_records": 98,
+    "measured_requests": 88,
+    "unmeasurable_requests": 10
+  },
+  "tests": {
+    "pytest-core.xml": {
+      "tests": 150,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "6828e58d9440647b72556d6ede0192860e0d5e844b7c655ba0515413fdcfd8ac"
+    },
+    "pytest-student.xml": {
+      "tests": 53,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "d7d86579583b18798c72aefe8fd6b18540f9b0f6ae473be6873ec2399332ee40"
+    }
+  },
+  "total_tests_passed": 203,
+  "artifact_sha256": {
+    "sample-audit.json": "38fb4ec97673950a5d3fb4393211a7a918ff618a7a599c4fcfb0ba6f9472fd26",
+    "loading-smoke.json": "16daa6c5594e24caf6f8b58c7dd80ba60b93f553b93ce43d3096911b4fbff501",
+    "context-diagnostic.json": "5f4aa88952c915fe1d026103a1de0f4ea3b9108220bd0ed3bf23431e9d3ac197",
+    "source-manifest.json": "db6ffee387ad6d28e512ec0f17f8796e6876e3711ab541845d22960181623e14",
+    "conversion-reproducibility.json": "80e6752066ca4f3c6e16d6c365d0a1ccd2a5b91f59fc1ba65f798b7897c2428d",
+    "production-gates.json": "5ebda640ad329f0bb0f261d72d8f6e6065c8e5661d189c9ace20b05dddf98b6b",
+    "final-review.json": "178c91faae593477eecc3eb30765bd9bf5cf3a5967988f9bd7eb8c5df87d374e",
+    "REPORT_CN.md": "f3894a78a5398d028b6ff8f49352004584dd2c8c17a63470806b46d2547ab321",
+    "verify_delivery.py": "11306ea9b85c8794e5ccb08189736fdf7fb10531f2bae728aef41691dc68f872"
+  },
+  "provider_calls": 0,
+  "teacher_training_examples": 0,
+  "model_weights_loaded": false,
+  "optimizer_steps": 0,
+  "limitations": [
+    "16k fit applies to 61 retained development sequences; 10 historical requests are template-incompatible",
+    "No framework/GPU training, quality optimality or student capability evaluation",
+    "Production training export/loading disabled; future collection provenance not implemented"
+  ]
+}

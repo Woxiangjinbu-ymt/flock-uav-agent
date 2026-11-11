@@ -1,0 +1,33 @@
+--- previous-sealed-test
++++ current-test
+@@ -261,6 +261,12 @@
+             assert any(tool["function"]["name"] == "get_drone_status" for tool in payload["tools"])
+             assert AUTH_CANARY in transport.requests[0].headers["authorization"]
+             assert URL_CANARY in str(transport.requests[0].url)
++            declared_calls = json.loads(transport.response_bodies[0])["choices"][0]["message"]["tool_calls"]
++            assert [(call["id"], call["function"]["name"],
++                     json.loads(json.loads(call["function"]["arguments"])["input_json"]))
++                    for call in declared_calls] == [
++                        ("call_甲", "get_drone_status", {"drone_id": "d1"}),
++                        ("call_乙", "get_drone_status", {"drone_id": "d2"})]
+             next_messages = json.loads(body_bytes[1])["messages"]
+             assert {message["tool_call_id"] for message in next_messages if message["role"] == "tool"} == {"call_甲", "call_乙"}
+             assert any(message.get("reasoning_content") == "先分别读取，保留证据链。" for message in next_messages)
+@@ -294,6 +300,17 @@
+             assert_no_nonpolicy_data(records)
+             assert Path(info["path"]).stat().st_mode & 0o777 == 0o600
+             assert not agent.toolchain_json_recording
++    ordered_surroundings = []
++    for observation in observations:
++        calls = observation.pop("public_calls")
++        positions = [index for index, (name, _) in enumerate(calls) if name == "get_drone_status"]
++        assert len(positions) == 2 and positions[1] == positions[0] + 1
++        batch = calls[positions[0]:positions[1] + 1]
++        # Only these independent reads from one response may finish in either order.
++        for drone in ("d1", "d2"):
++            assert batch.count(("get_drone_status", {"drone_id": drone})) == 1
++        ordered_surroundings.append((calls[:positions[0]], calls[positions[1] + 1:]))
++    assert ordered_surroundings[0] == ordered_surroundings[1]
+     assert observations[0] == observations[1]
+ 
+ 

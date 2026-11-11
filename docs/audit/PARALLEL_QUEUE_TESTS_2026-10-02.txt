@@ -1,0 +1,108 @@
+test_queue_refills_two_workers_until_four_scenes_complete (scripts.tests.test_reproduction_parallel.LiveParallelHarnessTests.test_queue_refills_two_workers_until_four_scenes_complete) ... Attempt: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/multiuav-parallel-test-zfxqpymt/20261002-203321-pilot-2a9efacd
+Protocol: agent4drone-v3-gui500-timeout-scoring; task timeout: 2 seconds
+Executor: scene-parallel-v1; workers=2; pending scenes=4
+fb8971ec/c74d7020 submitted
+fb8971ec/c74d7020: agent_timeout=False, passed=False, checks=0/2
+fb8971ec/d0ca7e20 submitted
+fb8971ec/d0ca7e20: agent_timeout=False, passed=False, checks=0/2
+90e931b1/3ecb74d0 submitted
+90e931b1/3ecb74d0: agent_timeout=False, passed=False, checks=0/2
+90e931b1/2f4c400a submitted
+90e931b1/2f4c400a: agent_timeout=False, passed=False, checks=0/2
+04cd6269/a05a871a submitted
+04cd6269/a05a871a: agent_timeout=False, passed=False, checks=0/2
+04cd6269/528d6d24 submitted
+04cd6269/528d6d24: agent_timeout=False, passed=False, checks=1/4
+14289fc5/976986b4 submitted
+14289fc5/976986b4: agent_timeout=False, passed=False, checks=1/4
+14289fc5/4a88a863 submitted
+14289fc5/4a88a863: agent_timeout=False, passed=False, checks=0/2
+ok
+test_four_workers_execute_four_isolated_scenes_concurrently (scripts.tests.test_reproduction_parallel.LiveParallelHarnessTests.test_four_workers_execute_four_isolated_scenes_concurrently) ... {
+  "valid_complete_run": true,
+  "planned_tasks": 8,
+  "planned_checks": 20,
+  "scored_tasks": 8,
+  "scored_checks": 20,
+  "agent_timed_out_tasks": 0,
+  "timed_out_but_passed_tasks": 0,
+  "missing_or_invalid_tasks": 0,
+  "metrics": {
+    "passed_tasks": 0,
+    "task_pass": 0.0,
+    "avg_check": 0.0625,
+    "global_check": 0.1,
+    "total_failed": 0.75
+  }
+}
+Attempt: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/multiuav-parallel-test-gexugnv_/20261002-203331-pilot-3ea8d427
+Protocol: agent4drone-v3-gui500-timeout-scoring; task timeout: 20 seconds
+Executor: scene-parallel-v1; workers=4; pending scenes=4
+fb8971ec/c74d7020 submitted
+90e931b1/3ecb74d0 submitted
+04cd6269/a05a871a submitted
+14289fc5/976986b4 submitted
+04cd6269/a05a871a: agent_timeout=False, passed=False, checks=0/2
+fb8971ec/c74d7020: agent_timeout=False, passed=False, checks=0/2
+14289fc5/976986b4: agent_timeout=False, passed=False, checks=1/4
+90e931b1/3ecb74d0: agent_timeout=False, passed=False, checks=0/2
+04cd6269/528d6d24 submitted
+14289fc5/4a88a863 submitted
+fb8971ec/d0ca7e20 submitted
+90e931b1/2f4c400a submitted
+fb8971ec/d0ca7e20: agent_timeout=False, passed=False, checks=0/2
+04cd6269/528d6d24: agent_timeout=False, passed=False, checks=1/4
+14289fc5/4a88a863: agent_timeout=False, passed=False, checks=0/2
+90e931b1/2f4c400a: agent_timeout=False, passed=False, checks=0/2
+ok
+test_saved_summary_rejects_modified_frozen_configuration (scripts.tests.test_reproduction_parallel.LiveParallelHarnessTests.test_saved_summary_rejects_modified_frozen_configuration) ... {
+  "valid_complete_run": true,
+  "planned_tasks": 8,
+  "planned_checks": 20,
+  "scored_tasks": 8,
+  "scored_checks": 20,
+  "agent_timed_out_tasks": 0,
+  "timed_out_but_passed_tasks": 0,
+  "missing_or_invalid_tasks": 0,
+  "metrics": {
+    "passed_tasks": 0,
+    "task_pass": 0.0,
+    "avg_check": 0.0625,
+    "global_check": 0.1,
+    "total_failed": 0.75
+  }
+}
+Attempt: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/multiuav-parallel-test-eyqmidt9/20261002-203341-pilot-68ce899a
+Protocol: agent4drone-v3-gui500-timeout-scoring; task timeout: 2 seconds
+Executor: scene-parallel-v1; workers=2; pending scenes=2
+fb8971ec/c74d7020 submitted
+fb8971ec/c74d7020: agent_timeout=False, passed=False, checks=0/2
+fb8971ec/d0ca7e20 submitted
+fb8971ec/d0ca7e20: agent_timeout=False, passed=False, checks=0/2
+5aabad33/7804b2d4 submitted
+5aabad33/7804b2d4: agent_timeout=False, passed=False, checks=0/2
+5aabad33/f2360d0f submitted
+5aabad33/f2360d0f: agent_timeout=False, passed=False, checks=0/2
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 26.120s
+
+OK
+{
+  "valid_complete_run": true,
+  "planned_tasks": 4,
+  "planned_checks": 8,
+  "scored_tasks": 4,
+  "scored_checks": 8,
+  "agent_timed_out_tasks": 0,
+  "timed_out_but_passed_tasks": 0,
+  "missing_or_invalid_tasks": 0,
+  "metrics": {
+    "passed_tasks": 0,
+    "task_pass": 0.0,
+    "avg_check": 0.0,
+    "global_check": 0.0,
+    "total_failed": 1.0
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "sealed_inputs": {
+    "checked": 874,
+    "mismatches": []
+  },
+  "sealed_artifacts": {
+    "checked": 9,
+    "mismatches": []
+  },
+  "revision_inputs": {
+    "checked": 103,
+    "mismatches": []
+  },
+  "revision_sources": {
+    "checked": 9,
+    "mismatches": []
+  },
+  "tests": {
+    "command": "MPLBACKEND=Agg agent4drone/.venv/bin/python -m pytest -q agent4drone/tests",
+    "total": 398,
+    "new_revision_tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "warnings": 3,
+    "seconds": "18.936"
+  },
+  "frozen_m1_tag_commit": "3161fc88c7d4c9646e2190eaa22816fedc02f380",
+  "original_observer_source_unchanged": true,
+  "acceptance": "offline_passed_not_online_performance",
+  "paid_model_calls": 0,
+  "working_tree_not_new_online_method_freeze": true,
+  "summary": {
+    "schema": "m1-r1-offline-replay",
+    "totals": {
+      "completed_receipts": 3390,
+      "tasks": 100,
+      "tool_events": 3390,
+      "pending_events": 0,
+      "observer_errors": 0,
+      "references": 87
+    },
+    "scenes": 5,
+    "max_view_chars": 3900,
+    "previously_diagnosed_prior_name_refs": 7,
+    "prior_refs_with_path_hint": 5,
+    "no_future_or_other_session_evidence": true,
+    "raw_receipts_and_order_preserved": true,
+    "displayed_report_paths_resolve_to_original_receipts": true,
+    "performance_claim": null,
+    "limitations": [
+      "Replay holds old actions fixed; no success-rate or cache-hit estimate",
+      "Pending interrupted tool events remain pending; no fabricated result",
+      "No hidden world snapshot or checker supplied to method",
+      "Initial index uses only earlier legal receipts, not final old ledger entities"
+    ]
+  }
+}

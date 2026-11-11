@@ -1,0 +1,254 @@
+--- before/agent4drone/uav_agent.py
++++ after/agent4drone/uav_agent.py
+@@ -7,8 +7,10 @@
+ import argparse
+ import json
+ import os
++import threading
+ import time
+ import uuid
++from contextlib import contextmanager
+ from datetime import datetime
+ from pathlib import Path
+ from types import SimpleNamespace
+@@ -29,6 +31,13 @@
+ 
+ 
+ logger = get_logger(__name__)
++_EPISODE_GATE_INITIALIZATION = threading.Lock()
++
++
++class AgentBusyError(RuntimeError):
++    """An operation was refused before touching an active agent command."""
++
++    code = "agent_busy"
+ 
+ 
+ def patch_openai_compatible_reasoning_content() -> None:
+@@ -342,6 +351,7 @@
+             raise ValueError("Unsupported task_progress_mode; use off, shadow, summary, evidence[_shadow|_prompt], evidence_r2[_hints|_shadow|_worker|_search], evidence_harness, evidence_memory[_v2|_v3|_v4][_harness], or evidence_r3[_shadow]")
+         self._task_progress = None
+         self._task_progress_middleware = None
++        self._episode_lock = threading.Lock()
+         self._model_request_audit_enabled = self.task_progress_mode.startswith("evidence") or os.environ.get("UAV_MODEL_REQUEST_AUDIT") == "1"
+         self._model_wire_requests = []
+         self._model_wire_errors = []
+@@ -569,13 +579,24 @@
+             decreased = bool(previous and isinstance(previous[2], (int, float)) and
+                              isinstance(marker[2], (int, float)) and marker[2] < previous[2])
+             if previous and (marker[:2] != previous[:2] or decreased):
+-                self.reset_task_evidence(str(session_id))
++                # Command preparation already owns the episode gate. This
++                # internal observed-reset path must not reacquire that gate.
++                self._clear_task_evidence(str(session_id))
+             markers[str(session_id)] = marker
+             self._evidence_session_markers = markers
+         return str(session_id) if session_id else None
+ 
+     def reset_task_evidence(self, session_id: Optional[str] = None) -> None:
+-        """Invalidate scene memory after an explicit same-ID world reload/reset."""
++        """Clear idle-agent memory after world reset; never reset the world.
++
++        A cancellation request alone does not make the agent idle. The caller
++        must wait for execute() to return before restoring a shared world and
++        clearing evidence. Busy resets have no memory/client side effects.
++        """
++        with self._exclusive_episode("reset_task_evidence"):
++            self._clear_task_evidence(session_id)
++
++    def _clear_task_evidence(self, session_id: Optional[str] = None) -> None:
+         boards = getattr(self, "_session_blackboards", {})
+         for sid, board in list(boards.items()):
+             if session_id is None or sid == session_id:
+@@ -741,6 +762,10 @@
+ 
+     def refresh_session_context(self) -> None:
+         """Refresh session context information."""
++        with self._exclusive_episode("refresh_session_context"):
++            self._refresh_session_context()
++
++    def _refresh_session_context(self) -> None:
+         try:
+             session = self.client.get_current_session()
+             self.session_context = {
+@@ -756,6 +781,12 @@
+ 
+     def get_session_summary(self) -> str:
+         """Get a summary of the current session."""
++        # This method shares the client recorder/deadline with execute(). Even
++        # read-only requests must not enter another command's API archive.
++        with self._exclusive_episode("get_session_summary"):
++            return self._get_session_summary()
++
++    def _get_session_summary(self) -> str:
+         try:
+             session = self.client.get_current_session()
+             progress = self.client.get_task_progress()
+@@ -1190,7 +1221,59 @@
+             config=config,
+         )
+ 
++    @contextmanager
++    def _exclusive_episode(self, operation: str):
++        # Older test adapters use __new__; initialize their instance gate under
++        # a lock too, rather than racing two different lazily created locks.
++        with _EPISODE_GATE_INITIALIZATION:
++            gate = getattr(self, "_episode_lock", None)
++            if gate is None:
++                gate = self._episode_lock = threading.Lock()
++        if not gate.acquire(blocking=False):
++            raise AgentBusyError(
++                f"agent_busy: cannot {operation} while this agent has an active operation; "
++                "wait for it to return before retrying or resetting the shared world")
++        try:
++            if getattr(self, "_episode_cleanup_failed", False):
++                raise AgentBusyError(
++                    "agent_busy: previous aborted-command cleanup failed; create a fresh agent instance")
++            yield
++        finally:
++            # Keep ownership through exception/cancellation handling and file
++            # export. A job status flag is not proof its execution has drained.
++            gate.release()
++
+     def execute(
++        self,
++        command: str,
++        callbacks: Optional[List[Any]] = None,
++        step_callback: Optional[Any] = None,
++    ) -> Dict[str, Any]:
++        """Run one command exclusively; a busy attempt performs no execution."""
++        with self._exclusive_episode("execute"):
++            try:
++                return self._execute_command(command, callbacks, step_callback)
++            except BaseException:
++                # The legacy body handles Exception and exports its result.
++                # BaseException (e.g. async cancellation) can bypass that path:
++                # invalidate the old runtime and stop recording before reuse,
++                # without inventing a successfully persisted command result.
++                harness = getattr(self, "_harness", None)
++                cleanup = []
++                if harness is not None:
++                    cleanup.append(lambda: harness.close("execute_aborted"))
++                stop = getattr(getattr(self, "client", None), "stop_api_call_recording", None)
++                if callable(stop):
++                    cleanup.append(stop)
++                for finish in cleanup:
++                    try:
++                        finish()
++                    except BaseException as exc:
++                        self._episode_cleanup_failed = True
++                        logger.error("Aborted command cleanup failed: %s", type(exc).__name__)
++                raise
++
++    def _execute_command(
+         self,
+         command: str,
+         callbacks: Optional[List[Any]] = None,
+--- before/agent4drone/agent_api_service.py
++++ after/agent4drone/agent_api_service.py
+@@ -15,7 +15,7 @@
+ from langchain_core.callbacks import BaseCallbackHandler
+ 
+ # Import your existing project modules
+-from uav_agent import UAVControlAgent, bool_setting, load_llm_settings
++from uav_agent import AgentBusyError, UAVControlAgent, bool_setting, load_llm_settings
+ from logging_config import get_logger
+ 
+ logger = get_logger("agent_api_service")
+@@ -257,6 +257,7 @@
+ 
+     if job.status == JobStatus.CANCELLED:
+         logger.info(f"Job {job_id} cancelled before start.")
++        job.completed_at = datetime.now()
+         return
+ 
+     job.status = JobStatus.RUNNING
+@@ -284,7 +285,14 @@
+     except JobCancelledException:
+         logger.info(f"Job {job_id} execution stopped by user cancellation.")
+         # Status is already updated to CANCELLED by the endpoint
+-        
++    except AgentBusyError as e:
++        # Submission does not reserve an agent. A competing background job is
++        # explicitly failed without execution or automatic retries; a cancelled
++        # job remains cancelled. The owner keeps its lease until execute returns.
++        if job.status != JobStatus.CANCELLED:
++            job.error = str(e)
++            job.status = JobStatus.FAILED
++        logger.info("Job %s could not acquire the agent: %s", job_id, e)
+     except Exception as e:
+         logger.error(f"Job {job_id} failed: {e}", exc_info=True)
+         job.error = str(e)
+@@ -348,7 +356,10 @@
+     if not agent_instance:
+         raise HTTPException(status_code=503, detail="Agent not initialized")
+     
+-    return command_response_from_result(agent_instance.execute(request.command))
++    try:
++        return command_response_from_result(agent_instance.execute(request.command))
++    except AgentBusyError as exc:
++        raise HTTPException(status_code=409, detail={"code": exc.code, "message": str(exc)}) from exc
+ 
+ @app.get("/agent/session", response_model=SessionSummaryResponse)
+ async def get_session_summary():
+@@ -357,6 +368,8 @@
+     try:
+         summary = agent_instance.get_session_summary()
+         return SessionSummaryResponse(summary=summary)
++    except AgentBusyError as exc:
++        raise HTTPException(status_code=409, detail={"code": exc.code, "message": str(exc)}) from exc
+     except Exception as e:
+         raise HTTPException(status_code=500, detail=str(e))
+ 
+--- before/agent4drone/README_SERVICE.md
++++ after/agent4drone/README_SERVICE.md
+@@ -29,6 +29,35 @@
+ ---
+ 
+ ## 🛠 API Reference
++
++### Command isolation and reset
++
++One `UAVControlAgent` instance admits one active operation. Concurrent or
++reentrant `execute`, `reset_task_evidence`, `refresh_session_context`, and
++`get_session_summary` calls are rejected before changing command state or making
++API calls. Direct Python callers receive `AgentBusyError`. The synchronous
++command and session-summary endpoints return HTTP 409 with `detail.code` set to
++`agent_busy`.
++
++Async submission does not reserve execution. If its background worker finds the
++agent busy, that job becomes `failed` with an `agent_busy` error, without execution
++or automatic retries. A job already marked `cancelled` keeps that status.
++
++Cancellation is a request to stop: the active operation remains reserved until
++execution and result recording exit. `cancelled` alone does not mean it is safe
++to reload the shared world. For a submitted job, `completed_at` is set when its
++worker finishes, including a cancellation detected before execution. Already
++committed external actions are not rolled back by cancelling the agent.
++
++An escaping `BaseException` closes the old Harness and stops its API recorder;
++it does not create a completed result archive. If cleanup itself fails, discard
++that agent instance: subsequent protected operations are refused. Ordinary
++sequential execution and explicit evidence reset otherwise keep their behavior.
++
++`reset_task_evidence` clears memory only. The caller must separately coordinate
++world restoration and wait for all users of that world to stop. This per-instance
++guard does not provide a global simulator lock, multiple-agent isolation, or a
++complete training-environment reset. See the [episode contract validation](../docs/results/harness-episode-contract-20261024/REPORT_CN.md).
+ 
+ ### 1. Asynchronous Execution (Recommended)
+ Since agent commands can take 1-3 minutes to process, use the async "Job" pattern to avoid timeouts.
+--- before/agent4drone/README_API.md
++++ after/agent4drone/README_API.md
+@@ -29,6 +29,11 @@
+ ---
+ 
+ ## 🛠 API Reference
++
++Concurrent commands, cancellation completion, and evidence reset follow the
++[command isolation contract](README_SERVICE.md#command-isolation-and-reset).
++Busy synchronous calls return HTTP 409; an async job that cannot acquire the
++shared agent fails explicitly without automatic retries.
+ 
+ ### 1. Asynchronous Execution (Recommended)
+ Since agent commands can take 1-3 minutes to process, use the async "Job" pattern to avoid timeouts.

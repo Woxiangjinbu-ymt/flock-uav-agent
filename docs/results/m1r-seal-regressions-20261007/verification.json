@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-07",
+  "scope": "seal fix and offline regression diagnosis only",
+  "paid_model_calls": 0,
+  "benchmark_attempts_started_or_resumed": 0,
+  "original_run_promoted_to_accepted": false,
+  "tests": [
+    {
+      "command": "agent4drone/.venv/bin/python -B -m pytest -q -p no:cacheprovider scripts/tests/test_reproduction_metrics.py",
+      "passed": 13,
+      "failed": 0,
+      "elapsed_seconds": 0.59,
+      "evidence": "observed tool result in this work turn"
+    },
+    {
+      "command": "MULTIUAV_LIVE_TEST=1 controller/.venv/bin/python -B -m unittest scripts.tests.test_reproduction_parallel.LiveParallelHarnessTests.test_parallel_scenes_preserve_order_and_own_blackboards scripts.tests.test_reproduction_parallel.LiveParallelHarnessTests.test_resume_rejects_modified_completed_evidence_without_starting_children",
+      "passed": 2,
+      "failed": 0,
+      "elapsed_seconds": 12.174,
+      "local_http_and_fake_agent_only": true,
+      "evidence": "observed tool result in this work turn",
+      "preliminary_attempt": "The same integration selection initially failed in the agent virtualenv because tksheet was absent. It was rerun in the existing controller virtualenv and passed; no dependency was installed."
+    },
+    {
+      "command": "python3 -B -m unittest discover -s docs/results/m1r-seal-regressions-20261007 -p test_relative_hint_probe.py -v",
+      "passed": 4,
+      "failed": 0,
+      "scope": "offline candidate only, not installed in agent"
+    }
+  ],
+  "probes": {
+    "original_attempt_and_reports": "audit.py passed: 1155 terminal-sealed files unchanged; previous report artifacts 9/8/8 verified; 1206 input hashes",
+    "relative_receipts": "e51/e53 recovered into two provenance-bound search segments; no hidden map is an input to parser; no navigation or model replay",
+    "sequential_task": "8 saved M1-R traces through current task contain no FT55/31 entity-name observation or positive contact receipt",
+    "aggregate_metadata": "frozen server serializer reconstructs 80%, 16/20 before and after; after-history cumulative reach-count difference 124 to 123 is preserved in aggregate-feedback-replay.json",
+    "tool_registration": "frozen client preserves metadata, but neither get_session_info nor get_task_progress is in the 30 registered tools; HTTP is stubbed",
+    "probe_logging": "Two new logs created by early frozen-module imports were moved into this report's probe-logs directory. Subsequent imports redirect LOG_DIR here before client import. No pre-existing attempt file was modified; final complete attempt file set and hashes were checked."
+  },
+  "not_verified": [
+    "Success-rate recovery for any of the three cases",
+    "Navigation/obstacle feasibility of a new hint-driven policy",
+    "Model behavior after adding aggregate obligations or public progress observations",
+    "A newly frozen paid experiment using the updated resource writer"
+  ]
+}

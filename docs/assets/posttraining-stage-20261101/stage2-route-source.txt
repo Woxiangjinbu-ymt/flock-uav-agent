@@ -1,0 +1,360 @@
+# 阶段二研究路线规划：面向多无人机协作任务的小模型后训练
+
+**Research Stage II — Harness-guided Small Language Model Post-training**
+
+版本：2026-11-01  
+研究方向：LLM Agent × Multi-UAV Collaborative Task Planning × Post-training  
+目标：建立从 Teacher 轨迹生成、数据质量控制、Student SFT 到条件成熟后的 Agentic RL 的完整研究闭环。
+
+---
+
+## 1. 阶段二研究定位
+
+### 1.1 研究背景
+
+第一阶段已经围绕 MultiUAV-Plat 和 Agent4Drone，构建了面向多无人机协作任务的 Agent Harness。
+
+当前 Harness 已经具备可选的证据记录、显式计划与技能状态机、有界修复、原工具接管、回合隔离、模型 I/O 归档和独立评分等能力，并取得了部分受控实验的机制证据。
+
+但第一阶段主要优化的是 Agent 的运行时执行机制，并没有直接改变底层 LLM 的决策能力。
+
+在当前架构中，模型仍需要承担：
+- 自然语言任务理解与约束提取；
+- 多无人机任务规划和任务分配；
+- 技能选择与工具调用；
+- 执行异常判断和恢复决策；
+- 根据环境反馈进行动态重规划。
+
+当底层模型参数量较小、任务链较长、工具参数较复杂时，仅依赖 Harness 的外部控制机制可能不足以保证稳定执行。
+
+因此，第二阶段将研究重点从纯运行时机制扩展到模型能力本身，通过 Teacher-guided Trajectory Construction 和 Post-training，将强模型的多无人机任务决策能力迁移至约 2B 参数量的 Student。
+
+### 1.2 核心研究问题
+
+本阶段围绕以下问题展开：
+
+**如何利用具有执行验证能力的 Agent Harness，构建高质量的多无人机协作任务轨迹，并通过小模型后训练，使有限参数量的 LLM Agent 获得可靠的任务规划、工具调用、协作执行和动态恢复能力？**
+
+进一步拆分为四个问题：
+
+1. **Data Construction：** 如何从真实 Agent–Environment 交互中获取高质量 Teacher 轨迹，并利用执行证据识别、筛选和标注有效决策？
+2. **Capability Transfer：** 如何通过 SFT，将强 Teacher 的任务理解、规划、工具调用和协作能力迁移至约 2B Student？
+3. **Policy Optimization：** 如何利用多无人机仿真环境的交互反馈，通过 Agentic RL 进一步改善 Student 的长程任务执行能力？
+4. **Harness–Model Collaboration：** Harness 提供的状态、执行约束、验证和恢复机制，与经过后训练的 Student 如何协同？哪些能力能够被模型内化，哪些能力仍然需要由外部 Harness 提供？
+
+### 1.3 总体研究思路
+
+本阶段采用以下技术路线：
+
+```text
+MultiUAV Environment
+        +
+Agent Harness
+        |
+        v
+Teacher Agent Execution
+        |
+        v
+Trajectory Collection
+        |
+        v
+Execution-aware Verification
+        |
+        v
+High-quality Teacher Dataset
+        |
+        v
+       SFT
+        |
+        v
+    ~2B Student
+        |
+        v
+  Harness Integration
+        |
+        v
+   Baseline Evaluation
+        |
+        v
+  Agentic RL (Optional)
+        |
+        v
+ Final Unified Evaluation
+```
+
+需要明确：知识蒸馏是整体能力迁移思路，SFT 是当前优先采用的具体实现方式，不将二者机械拆分为两个独立训练阶段。
+
+Harness 在这条路线中具有双重作用：
+
+- 在线阶段：组织模型决策、工具执行、状态管理和任务验证。
+- 离线阶段：提供 Teacher 轨迹采集、数据质量控制、训练样本构建及 Student 评测基础设施。
+
+---
+
+## 2. 总体技术架构
+
+第二阶段沿用第一阶段的集中式 Agent 组织方式，不立即改变为分布式多 Agent 架构。
+
+### 2.1 Teacher–Student 架构
+
+**Teacher：**
+
+采用 DeepSeek 系列强模型，通过 API 完成多无人机任务执行，承担高质量决策轨迹生成的职责。
+
+已有选型依据是 DeepSeek V4 系列及此前调研的 API 使用情况。实际实施前需要重新核对可用模型、返回的实际 model ID、API 路由和服务条款，不应仅凭请求模型名称认定教师版本。
+
+Teacher 主要负责：
+
+- 任务理解与分解；
+- 多 UAV 任务分配；
+- 技能和工具选择；
+- 多轮任务执行；
+- 处理异常反馈；
+- 失败恢复和重规划。
+
+**Student：**
+
+目标约 2B 参数量，基于开源模型进行后训练。
+
+Student 不直接承担底层飞行控制，而是作为多无人机系统的高层任务决策模型，通过现有 UAV APIs、复合工具和 Harness 技能执行任务。
+
+重点训练能力：
+
+- 任务指令解析；
+- 任务规划与子任务分解；
+- 工具调用与参数生成；
+- 多无人机协作决策；
+- 执行状态理解；
+- 异常恢复；
+- 决策时机与停止判断。
+
+具体基座尚未冻结，需要结合工具调用能力、模型结构、训练框架兼容性、许可和单卡资源进行实际测试。
+
+### 2.2 Harness 与模型的职责边界
+
+| 职责 | Harness | Student |
+|---|---|---|
+| 任务状态维护 | 负责 | 读取和理解 |
+| 执行证据记录 | 负责 | 根据证据决策 |
+| 任务理解 | 提供上下文 | 负责 |
+| 任务规划 | 提供约束和接口 | 负责 |
+| 工具调用 | 提供执行边界和校验 | 负责选择与参数生成 |
+| 低层动作执行 | 通过 API 执行 | 不直接控制飞控 |
+| 任务验证 | 负责执行反馈与独立评分 | 学习判断与决策 |
+| 失败恢复 | 提供可执行机制 | 学习何时以及如何恢复 |
+
+这一职责划分十分重要。
+
+不能让 Student 学习 Harness 内部所有确定性动作，也不能把 Harness 已经完成的工作直接标记为模型的决策能力。
+
+训练样本必须保留真实的模型决策边界。
+
+---
+
+## 3. 第一阶段成果向后训练阶段的转化
+
+第一阶段的 Harness 并不是后训练阶段的外围工程，而是整个训练流程的重要基础设施。
+
+| 第一阶段成果 | 第二阶段中的作用 |
+|---|---|
+| Task Evidence / Task Progress | 构建任务状态上下文、辅助标签和进度评估 |
+| DecisionFrame / HarnessRuntime | 提供计划状态、执行游标和决策边界 |
+| Applicability / Failure Gate | 构建技能继续、退出及接管相关训练样本 |
+| Execution Memory | 构建紧凑上下文，研究状态信息压缩 |
+| Search Skill / 协作修复 | 提供复合动作和宏技能，降低小模型探索难度 |
+| B0 失败案例簿 | 定向生成失败和恢复训练任务 |
+| Model I/O Archive | 提供实际请求、响应、工具调用及关联信息 |
+| Episode Isolation | 保证不同训练与评测回合之间的状态隔离 |
+| Independent Scorer | 提供独立任务成功标签及质量评价 |
+
+尤其需要重视 Model I/O Archive 和 Independent Scorer。
+
+目前已经能够关联逻辑请求、实际 HTTP 尝试、模型消息和 tool ID，并通过独立评分使用隐藏检查及最终环境状态。
+
+这为后续构建可靠的数据集提供了基础。
+
+但是：
+
+- 已有 JSONL 不等于已经获得合格 Teacher 数据。
+- Harness 内部确定性执行的动作不能直接作为 Student 的 assistant 标签。
+- 隐藏检查结果只能用于隔离的离线评价或合法的训练奖励，不能泄漏到模型可见输入。
+- 部分归档、异常请求和缺失模型响应必须单独标记，不能默认作为成功示范。
+
+---
+
+## 4. WP1：Teacher Trajectory Construction
+
+### 4.1 研究目标
+
+建立面向多无人机协作任务的高质量 Teacher 轨迹构建流程。
+
+核心不是单纯使用 DeepSeek API 批量生成对话，而是：
+
+**利用 Harness 的执行反馈与独立任务评价，对 Teacher 产生的真实交互轨迹进行验证、筛选和结构化处理。**
+
+建议将其定位为：
+
+Execution-aware Trajectory Construction。
+
+### 4.2 Teacher 轨迹生成
+
+Teacher 在冻结的多无人机任务环境中执行任务。
+
+每个 Episode 记录：
+
+1. 原始任务指令；
+2. 初始环境状态及公开上下文；
+3. Teacher 的模型输入；
+4. Teacher 的实际模型输出；
+5. reasoning_content（如果接口实际提供）；
+6. Tool Call 名称和参数；
+7. Tool Call ID 与返回结果；
+8. 每轮任务状态变化；
+9. Harness 执行和接管事件；
+10. 最终环境状态及独立评分。
+
+特别需要完整保留多轮 Tool Calling 的消息顺序、调用 ID、并行调用关系及 assistant/tool 消息结构。
+
+不能将整个多轮交互简单压平为一段文本。
+
+### 4.3 数据类型设计
+
+建议构建以下几类轨迹：
+
+| 类型 | 来源 | 用途 |
+|---|---|---|
+| Successful Trajectory | Teacher 成功完成任务 | SFT 主数据 |
+| Recovery Trajectory | 注入异常后成功恢复 | 学习失败处理 |
+| Partial-success Trajectory | 任务部分完成 | 分析与辅助训练 |
+| Failure Trajectory | Teacher 执行失败 | 失败分析、后续偏好或 RL 参考 |
+| Tool-use Trajectory | 正确工具选择及参数生成 | 工具调用能力 |
+| Handoff Trajectory | 技能退出、接管与重规划 | 学习决策权交接 |
+
+其中 Successful 和 Recovery Trajectory 是初期 SFT 的重点。
+
+Failure Trajectory 不应直接混入正向 SFT 数据。可以保存用于后续失败分析、纠错数据构建及偏好学习探索。
+
+### 4.4 Execution-aware Verification
+
+这是本阶段值得重点研究的数据构建机制。
+
+建议建立多级验证：
+
+**Level 1：结构完整性**
+
+- 消息结构是否合法；
+- Tool Call 是否完整；
+- 参数是否符合 Schema；
+- 调用与返回能否正确关联；
+- 是否存在截断和缺失。
+
+**Level 2：执行正确性**
+
+- 工具是否真正执行；
+- 是否出现无效参数；
+- 是否存在重复调用；
+- 动作是否产生预期效果；
+- 是否存在状态不明的动作。
+
+**Level 3：任务完成度**
+
+- 独立 Scorer 是否判定成功；
+- 完成了哪些任务检查；
+- 是否存在未完成义务；
+- 是否存在虚假成功或隐藏状态泄漏。
+
+**Level 4：轨迹质量**
+
+- 是否存在无效循环；
+- 是否存在不必要的模型调用；
+- 是否出现多余的重规划；
+- 是否具有可复用的恢复决策；
+- 是否符合公开信息约束。
+
+数据最终不应只有 pass/fail，还要保存筛选理由、异常类型和质量标签。
+
+### 4.5 数据集构建和验收
+
+初期不预设必须生成数千条轨迹。
+
+建议先完成一个小规模数据集试点，检查数据质量、分布和训练可用性，再决定扩大规模。
+
+数据统计至少包括：
+
+- Episode 数量；
+- 成功、失败和部分成功比例；
+- 平均交互轮数；
+- 平均输入和输出 Token；
+- Tool Call 分布；
+- 不同任务族的覆盖率；
+- 恢复轨迹占比；
+- 重复轨迹比例；
+- 截断和不完整样本比例。
+
+**WP1 交付物：**
+
+- Teacher Trajectory Recorder；
+- Episode → Training Sample 转换器；
+- 数据过滤和质量验证程序；
+- 版本化 Teacher Dataset；
+- 数据集统计报告；
+- 独立的训练、开发和测试划分。
+
+---
+
+## 5. WP2：Student SFT
+
+### 5.1 研究目标
+
+通过监督微调，让约 2B Student 获得完成多无人机协作任务所需的基础 Agent 能力。
+
+SFT 是后续 Agentic RL 的策略初始化阶段。
+
+它的目标不是让模型记忆固定任务答案，而是使模型掌握多轮环境交互中的任务决策和工具使用能力。
+
+### 5.2 训练任务设计
+
+建议将 SFT 样本划分为以下训练目标：
+
+| 训练目标 | 输入 | 输出 |
+|---|---|---|
+| Task Understanding | 自然语言任务 | 结构化任务理解 |
+| Task Planning | 任务约束和 UAV 状态 | 子任务规划 |
+| Tool Calling | 当前状态与任务目标 | 合法 Tool Call |
+| Collaboration | 多 UAV 执行信息 | 协作和分配决策 |
+| State-aware Decision | 当前状态与历史反馈 | 下一步行动 |
+| Failure Recovery | 异常反馈和执行证据 | 恢复或重规划决策 |
+| Completion Judgment | 任务进度与证据 | 继续、结束或补充执行 |
+| Handoff Decision | 计划状态与退出原因 | Resume、Cancel 或接管决策 |
+
+其中，前五类构成基础能力，后三类重点体现第一阶段 Harness 机制与模型训练的结合。
+
+### 5.3 SFT 数据格式与 Loss Mask
+
+采用标准多轮 Chat Template，完整保留工具调用结构。
+
+基本原则：
+
+- System Prompt 和工具定义作为上下文；
+- User Observation 作为模型输入；
+- Assistant 的有效决策和工具调用作为监督目标；
+- Tool Response 作为后续上下文；
+- 不对环境 Observation、Tool Response 计算 assistant loss；
+- 只对真实模型生成且经过审核的 assistant 决策计算损失；
+- 确定性 Harness 内部动作不自动变成模型监督标签。
+
+对于 reasoning_content：
+
+保留短而有意义的可见决策依据，避免将强 Teacher 的冗长推理直接灌输给小模型。
+
+可以通过实验比较：
+
+- 不包含显式推理；
+- 短推理 + Action；
+- 完整 Teacher 推理 + Action。
+
+重点分析小模型能否从简洁的决策依据中学习有效行为。
+
+### 5.4 训练策略
+
+初期采用参数高效微调作为候选实现

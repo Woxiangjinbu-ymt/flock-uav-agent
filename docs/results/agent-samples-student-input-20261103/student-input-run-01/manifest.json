@@ -1,0 +1,42 @@
+{
+  "schema": "student-input-bundle-v1",
+  "adapter": "qwen3-current-assistant-no-thinking-v1",
+  "purpose": "development_input_smoke",
+  "training_eligible": false,
+  "model_candidate_only": true,
+  "model_weights_loaded": false,
+  "source_samples": "./docs/results/agent-samples-student-input-20261103/conversion-run-01/samples.jsonl",
+  "source_samples_sha256": "97f2990226f2a67138e9690cb50c705e6cbf560d19c9aeefc823df27296aa6b4",
+  "source_converter_manifest_sha256": "9377805432cdcd1041305d2e2e7d689f91686388867acb42da8c1a12bbabf2be",
+  "tokenizer_bundle": "./training/tokenizers/qwen3-1.7b-input-v1",
+  "tokenizer_manifest_sha256": "ec876e64316fdb66a771cb6e19eafd76268ee4af3a308b294616ac82288a10e8",
+  "tokenizer_repo_id": "Qwen/Qwen3-1.7B",
+  "tokenizer_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "runtime_versions": {
+    "transformers": "4.57.3",
+    "tokenizers": "0.22.1",
+    "huggingface_hub": "0.36.0",
+    "jinja2": "3.1.6"
+  },
+  "python": "3.11.16",
+  "dependency_lock_sha256": "a8be6697f6f851fb5f441a25b75db37ce8acf560cb4777cedd22a755fa6ca5d7",
+  "script_sha256": "c7694f96d11ec6c562eb253f2752952fd4bda75cfff9e29295932b83a0d71e33",
+  "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "selected_smoke_length": 16384,
+  "input_samples": 61,
+  "encoded_samples": 61,
+  "rejected_samples": 0,
+  "pad_token_id": 151643,
+  "eos_token_id": 151645,
+  "files": {
+    "encoded.jsonl": "e766e894ceff90d719f04f1597abb0c5264e397f49c676d1283d47cc4c1d733f",
+    "rejections.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "length-report.json": "ed6c56ed953820aa6dd9323d29b82b62c2d2dc7e976dcc4b766ad15678673e06",
+    "source/scripts/student_input.py": "c7694f96d11ec6c562eb253f2752952fd4bda75cfff9e29295932b83a0d71e33",
+    "source/training/requirements-input.in": "4b87a606478ac360682c3ffd3e124a1cb5b1428c283d3bb14d2933c27be903db",
+    "source/training/requirements-input.lock": "a8be6697f6f851fb5f441a25b75db37ce8acf560cb4777cedd22a755fa6ca5d7",
+    "source/training/README_INPUT_CN.md": "93ef2ba7f8b0c3d8a91677f16b3dff09b374da4fc11c4796af69b80002bb65f9",
+    "source/converter-manifest.json": "9377805432cdcd1041305d2e2e7d689f91686388867acb42da8c1a12bbabf2be",
+    "source/tokenizer-manifest.json": "ec876e64316fdb66a771cb6e19eafd76268ee4af3a308b294616ac82288a10e8"
+  }
+}

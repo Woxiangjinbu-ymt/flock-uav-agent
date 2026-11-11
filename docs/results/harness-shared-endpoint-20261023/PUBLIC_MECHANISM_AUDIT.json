@@ -1,0 +1,3032 @@
+{
+  "schema": "shared-endpoint-independent-public-mechanism-audit-v1",
+  "run": "docs/results/harness-shared-endpoint-20261023/run-20261023-01",
+  "method": "Read sealed public-api.jsonl and harness.json; summary checker boolean is result-only. No simulator/model replay. All consumed files verified against campaign seal. Post-state confirmation was additionally linked to its harness call-end digest and verified before first mask publication.",
+  "definitions": {
+    "endpoint": "strict supported full message + error move_to with consistent explicit actor; mask additionally source ref and unchanged public post XYZ",
+    "failure_signature": "endpoint: kind+actor+exactXYZ; path: kind+actor+exactXYZ+public startXYZ; other adds message; comparison omits plan only for same-task paired trials",
+    "scope_limit": "All actual search moves request z=20. No claim of executed cross-altitude policy, geometry inference, or dynamic map safety."
+  },
+  "tasks": {
+    "7eba7390": {
+      "shared_masks_checked": 0,
+      "all_mask_checks_passed": true,
+      "mask_checks": [],
+      "all_search_moves_z20": true,
+      "first_action_divergence": null,
+      "actions_identical": true,
+      "failure_classification": {
+        "baseline": {
+          "success": 80
+        },
+        "candidate": {
+          "success": 80
+        }
+      },
+      "new_failure_signatures": [],
+      "outcome": {
+        "baseline": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "3973d0d6",
+            "task_type": "target_assignment",
+            "progress_percentage": 33,
+            "details": {
+              "total_targets": 3,
+              "visited_targets": 1,
+              "unvisited_targets": 2
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "7eba7390-blocked_candidate_v4:p1",
+              "status": "needs_replan",
+              "reason": "round_limit_below_threshold",
+              "cursor": 80,
+              "cached_progress": 33,
+              "repairs": 0,
+              "repair_budget": 16
+            }
+          ]
+        },
+        "candidate": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "3973d0d6",
+            "task_type": "target_assignment",
+            "progress_percentage": 33,
+            "details": {
+              "total_targets": 3,
+              "visited_targets": 1,
+              "unvisited_targets": 2
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "7eba7390-shared_endpoint_v5:p1",
+              "status": "needs_replan",
+              "reason": "round_limit_below_threshold",
+              "cursor": 80,
+              "cached_progress": 33,
+              "repairs": 0,
+              "repair_budget": 16
+            }
+          ]
+        }
+      }
+    },
+    "24ac1838": {
+      "shared_masks_checked": 14,
+      "all_mask_checks_passed": true,
+      "mask_checks": [
+        {
+          "source_actor": "1e74cdea",
+          "candidate_index": 419,
+          "destination_xyz": [
+            1225.0,
+            805.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e119",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 91,
+              "request_id": 91
+            },
+            "actor": "1e74cdea",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/1e74cdea/command/move_to",
+            "params": {
+              "x": 1225.0,
+              "y": 805.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with ellipse obstacle 'Ellipse Obstacle 1'",
+            "command_id": "68dd0adf",
+            "relative_seconds": 0.613740124998003,
+            "ended_seconds": 0.6177926249984012,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 90,
+              "request_id": 90
+            },
+            "xyz": [
+              1349.0,
+              849.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 92,
+              "request_id": 92
+            },
+            "xyz": [
+              1349.0,
+              849.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 192,
+            "call_end": 193,
+            "first_mask_publication": 200,
+            "post_state_call_start": 195,
+            "post_state_call_end": 196
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "20dd2485",
+          "candidate_index": 482,
+          "destination_xyz": [
+            1435.0,
+            175.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e131",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 97,
+              "request_id": 97
+            },
+            "actor": "20dd2485",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/20dd2485/command/move_to",
+            "params": {
+              "x": 1435.0,
+              "y": 175.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 36'",
+            "command_id": "a14cac67",
+            "relative_seconds": 0.6386594579998928,
+            "ended_seconds": 0.6423188749977271,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 96,
+              "request_id": 96
+            },
+            "xyz": [
+              1509.0,
+              135.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 98,
+              "request_id": 98
+            },
+            "xyz": [
+              1509.0,
+              135.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 212,
+            "call_end": 213,
+            "first_mask_publication": 220,
+            "post_state_call_start": 215,
+            "post_state_call_end": 216
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "4e22b83f",
+          "candidate_index": 555,
+          "destination_xyz": [
+            1645.0,
+            245.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e205",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 134,
+              "request_id": 134
+            },
+            "actor": "4e22b83f",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/4e22b83f/command/move_to",
+            "params": {
+              "x": 1645.0,
+              "y": 245.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 47'",
+            "command_id": "c7847721",
+            "relative_seconds": 0.8101029159988684,
+            "ended_seconds": 0.8139537499992002,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 133,
+              "request_id": 133
+            },
+            "xyz": [
+              1587.0,
+              169.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 135,
+              "request_id": 135
+            },
+            "xyz": [
+              1587.0,
+              169.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 335,
+            "call_end": 336,
+            "first_mask_publication": 343,
+            "post_state_call_start": 338,
+            "post_state_call_end": 339
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "6264d2dc",
+          "candidate_index": 294,
+          "destination_xyz": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e241",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 152,
+              "request_id": 152
+            },
+            "actor": "6264d2dc",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/6264d2dc/command/move_to",
+            "params": {
+              "x": 875.0,
+              "y": 455.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 14'",
+            "command_id": "9a25cf1a",
+            "relative_seconds": 0.8946132079981908,
+            "ended_seconds": 0.8982314999993832,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 151,
+              "request_id": 151
+            },
+            "xyz": [
+              935.0,
+              541.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 153,
+              "request_id": 153
+            },
+            "xyz": [
+              935.0,
+              541.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 395,
+            "call_end": 396,
+            "first_mask_publication": 403,
+            "post_state_call_start": 398,
+            "post_state_call_end": 399
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "f762cfb2",
+          "candidate_index": 103,
+          "destination_xyz": [
+            315.0,
+            525.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e411",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 237,
+              "request_id": 237
+            },
+            "actor": "f762cfb2",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/f762cfb2/command/move_to",
+            "params": {
+              "x": 315.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 24'",
+            "command_id": "4217d149",
+            "relative_seconds": 1.3069203329978336,
+            "ended_seconds": 1.3106094159993518,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 236,
+              "request_id": 236
+            },
+            "xyz": [
+              335.0,
+              413.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 238,
+              "request_id": 238
+            },
+            "xyz": [
+              335.0,
+              413.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 678,
+            "call_end": 679,
+            "first_mask_publication": 686,
+            "post_state_call_start": 681,
+            "post_state_call_end": 682
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "13150227",
+          "candidate_index": 25,
+          "destination_xyz": [
+            105.0,
+            105.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e449",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 256,
+              "request_id": 256
+            },
+            "actor": "13150227",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/13150227/command/move_to",
+            "params": {
+              "x": 105.0,
+              "y": 105.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 18'",
+            "command_id": "00d6820f",
+            "relative_seconds": 1.3939252079981088,
+            "ended_seconds": 1.397684625000693,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 255,
+              "request_id": 255
+            },
+            "xyz": [
+              26.0,
+              96.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 257,
+              "request_id": 257
+            },
+            "xyz": [
+              26.0,
+              96.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 743,
+            "call_end": 744,
+            "first_mask_publication": 751,
+            "post_state_call_start": 746,
+            "post_state_call_end": 747
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "436f6476",
+          "candidate_index": 538,
+          "destination_xyz": [
+            1575.0,
+            735.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e515",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 289,
+              "request_id": 289
+            },
+            "actor": "436f6476",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/436f6476/command/move_to",
+            "params": {
+              "x": 1575.0,
+              "y": 735.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 11'",
+            "command_id": "76635fff",
+            "relative_seconds": 1.5621241250009916,
+            "ended_seconds": 1.566093458000978,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 288,
+              "request_id": 288
+            },
+            "xyz": [
+              1505.0,
+              875.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 290,
+              "request_id": 290
+            },
+            "xyz": [
+              1505.0,
+              875.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 858,
+            "call_end": 859,
+            "first_mask_publication": 866,
+            "post_state_call_start": 861,
+            "post_state_call_end": 862
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "4e22b83f",
+          "candidate_index": 578,
+          "destination_xyz": [
+            1715.0,
+            175.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e523",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 293,
+              "request_id": 293
+            },
+            "actor": "4e22b83f",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/4e22b83f/command/move_to",
+            "params": {
+              "x": 1715.0,
+              "y": 175.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 47'",
+            "command_id": "5724e73c",
+            "relative_seconds": 1.5814520409985562,
+            "ended_seconds": 1.5859474999997474,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 292,
+              "request_id": 292
+            },
+            "xyz": [
+              1587.0,
+              169.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 294,
+              "request_id": 294
+            },
+            "xyz": [
+              1587.0,
+              169.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 872,
+            "call_end": 873,
+            "first_mask_publication": 880,
+            "post_state_call_start": 875,
+            "post_state_call_end": 876
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "869a8e16",
+          "candidate_index": 592,
+          "destination_xyz": [
+            1715.0,
+            1155.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e563",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 313,
+              "request_id": 313
+            },
+            "actor": "869a8e16",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/869a8e16/command/move_to",
+            "params": {
+              "x": 1715.0,
+              "y": 1155.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+            "command_id": "c73e2cef",
+            "relative_seconds": 1.696678874999634,
+            "ended_seconds": 1.7012662079978327,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 312,
+              "request_id": 312
+            },
+            "xyz": [
+              1785.0,
+              1225.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 314,
+              "request_id": 314
+            },
+            "xyz": [
+              1785.0,
+              1225.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 942,
+            "call_end": 943,
+            "first_mask_publication": 950,
+            "post_state_call_start": 945,
+            "post_state_call_end": 946
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "884ca74f",
+          "candidate_index": 220,
+          "destination_xyz": [
+            665.0,
+            315.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e811",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 437,
+              "request_id": 437
+            },
+            "actor": "884ca74f",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/884ca74f/command/move_to",
+            "params": {
+              "x": 665.0,
+              "y": 315.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 4'",
+            "command_id": "2e9b2ada",
+            "relative_seconds": 2.4207019159985066,
+            "ended_seconds": 2.4246997909976926,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 436,
+              "request_id": 436
+            },
+            "xyz": [
+              595.0,
+              35.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 438,
+              "request_id": 438
+            },
+            "xyz": [
+              595.0,
+              35.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 1374,
+            "call_end": 1375,
+            "first_mask_publication": 1382,
+            "post_state_call_start": 1377,
+            "post_state_call_end": 1378
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "436f6476",
+          "candidate_index": 567,
+          "destination_xyz": [
+            1645.0,
+            1085.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e993",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 528,
+              "request_id": 528
+            },
+            "actor": "436f6476",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/436f6476/command/move_to",
+            "params": {
+              "x": 1645.0,
+              "y": 1085.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+            "command_id": "e67b36a3",
+            "relative_seconds": 2.9786610410010326,
+            "ended_seconds": 2.9831802080007037,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 527,
+              "request_id": 527
+            },
+            "xyz": [
+              1575.0,
+              1015.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 529,
+              "request_id": 529
+            },
+            "xyz": [
+              1575.0,
+              1015.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 1691,
+            "call_end": 1692,
+            "first_mask_publication": 1699,
+            "post_state_call_start": 1694,
+            "post_state_call_end": 1695
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "8ffc1bba",
+          "candidate_index": 416,
+          "destination_xyz": [
+            1225.0,
+            595.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e1059",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 561,
+              "request_id": 561
+            },
+            "actor": "8ffc1bba",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/8ffc1bba/command/move_to",
+            "params": {
+              "x": 1225.0,
+              "y": 595.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 19'",
+            "command_id": "e41bd1a5",
+            "relative_seconds": 3.187133999999787,
+            "ended_seconds": 3.1912954159997753,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 560,
+              "request_id": 560
+            },
+            "xyz": [
+              1295.0,
+              455.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 562,
+              "request_id": 562
+            },
+            "xyz": [
+              1295.0,
+              455.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 1806,
+            "call_end": 1807,
+            "first_mask_publication": 1814,
+            "post_state_call_start": 1809,
+            "post_state_call_end": 1810
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "20dd2485",
+          "candidate_index": 600,
+          "destination_xyz": [
+            1785.0,
+            35.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e1193",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 628,
+              "request_id": 628
+            },
+            "actor": "20dd2485",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/20dd2485/command/move_to",
+            "params": {
+              "x": 1785.0,
+              "y": 35.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 9'",
+            "command_id": "bd4e1ff3",
+            "relative_seconds": 3.5895243329978257,
+            "ended_seconds": 3.5934369579990744,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 627,
+              "request_id": 627
+            },
+            "xyz": [
+              1645.0,
+              35.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 629,
+              "request_id": 629
+            },
+            "xyz": [
+              1645.0,
+              35.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 2039,
+            "call_end": 2040,
+            "first_mask_publication": 2047,
+            "post_state_call_start": 2042,
+            "post_state_call_end": 2043
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "318da56a",
+          "candidate_index": 304,
+          "destination_xyz": [
+            875.0,
+            1155.0,
+            20.0
+          ],
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e1217",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 640,
+              "request_id": 640
+            },
+            "actor": "318da56a",
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/318da56a/command/move_to",
+            "params": {
+              "x": 875.0,
+              "y": 1155.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 7'",
+            "command_id": "bf2f07ce",
+            "relative_seconds": 3.663746499998524,
+            "ended_seconds": 3.6678712499997346,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 639,
+              "request_id": 639
+            },
+            "xyz": [
+              945.0,
+              1225.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 641,
+              "request_id": 641
+            },
+            "xyz": [
+              945.0,
+              1225.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 2081,
+            "call_end": 2082,
+            "first_mask_publication": 2090,
+            "post_state_call_start": 2084,
+            "post_state_call_end": 2085
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        }
+      ],
+      "all_search_moves_z20": true,
+      "first_action_divergence": {
+        "action_index": 138,
+        "common_actions": 137,
+        "baseline": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+            "line": 565,
+            "request_id": 565
+          },
+          "actor": "92e6a7b8",
+          "plan_id": "24ac1838-blocked_candidate_v4:p1",
+          "method": "POST",
+          "endpoint": "/drones/92e6a7b8/command/move_to",
+          "params": {
+            "x": 1715.0,
+            "y": 1155.0,
+            "z": 20.0
+          },
+          "status": "error",
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+          "command_id": "e9559226",
+          "relative_seconds": 3.0668286250001984,
+          "ended_seconds": 3.070826584000315,
+          "committed": true,
+          "public_state_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+              "line": 564,
+              "request_id": 564
+            },
+            "position": {
+              "x": 1505.0,
+              "y": 1225.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        },
+        "candidate": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+            "line": 565,
+            "request_id": 565
+          },
+          "actor": "92e6a7b8",
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "method": "POST",
+          "endpoint": "/drones/92e6a7b8/command/move_to",
+          "params": {
+            "x": 1505.0,
+            "y": 1295.0,
+            "z": 20.0
+          },
+          "status": "success",
+          "message": "Drone moved to position (1505.0, 1295.0, 20.0), heading: 0.0° (battery: -0.6%/-0mAh, remaining: 96.3%/81mAh)",
+          "command_id": "e9559226",
+          "relative_seconds": 3.2073733750003157,
+          "ended_seconds": 3.2154960000007122,
+          "committed": true,
+          "public_state_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+              "line": 564,
+              "request_id": 564
+            },
+            "position": {
+              "x": 1505.0,
+              "y": 1225.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        },
+        "prior_shared_mask_ref": "e563",
+        "prior_shared_mask_source_actor": "869a8e16",
+        "prior_shared_mask_source_request": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+          "line": 313,
+          "request_id": 313
+        },
+        "mask_published_before_candidate_call": true,
+        "same_public_start": true,
+        "cross_actor": true
+      },
+      "actions_identical": false,
+      "failure_classification": {
+        "baseline": {
+          "success": 106,
+          "path_conflict": 3,
+          "endpoint_conflict": 14
+        },
+        "candidate": {
+          "success": 109,
+          "path_conflict": 3,
+          "endpoint_conflict": 14
+        }
+      },
+      "new_failure_signatures": [
+        {
+          "signature": [
+            "endpoint_conflict",
+            "318da56a",
+            [
+              875.0,
+              1155.0,
+              20.0
+            ]
+          ],
+          "events": [
+            {
+              "source": {
+                "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+                "line": 640,
+                "request_id": 640
+              },
+              "actor": "318da56a",
+              "plan_id": "24ac1838-shared_endpoint_v5:p1",
+              "method": "POST",
+              "endpoint": "/drones/318da56a/command/move_to",
+              "params": {
+                "x": 875.0,
+                "y": 1155.0,
+                "z": 20.0
+              },
+              "status": "error",
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 7'",
+              "command_id": "bf2f07ce",
+              "relative_seconds": 3.663746499998524,
+              "ended_seconds": 3.6678712499997346,
+              "committed": true,
+              "public_state_before": {
+                "source": {
+                  "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+                  "line": 639,
+                  "request_id": 639
+                },
+                "position": {
+                  "x": 945.0,
+                  "y": 1225.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "baseline": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "823c15d5",
+            "task_type": "target_assignment",
+            "progress_percentage": 38,
+            "details": {
+              "total_targets": 100,
+              "visited_targets": 38,
+              "unvisited_targets": 62
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "24ac1838-blocked_candidate_v4:p1",
+              "status": "needs_replan",
+              "reason": "local_repair_budget_exhausted",
+              "cursor": 123,
+              "cached_progress": 38,
+              "repairs": 17,
+              "repair_budget": 16
+            }
+          ]
+        },
+        "candidate": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "823c15d5",
+            "task_type": "target_assignment",
+            "progress_percentage": 38,
+            "details": {
+              "total_targets": 100,
+              "visited_targets": 38,
+              "unvisited_targets": 62
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "24ac1838-shared_endpoint_v5:p1",
+              "status": "needs_replan",
+              "reason": "local_repair_budget_exhausted",
+              "cursor": 126,
+              "cached_progress": 38,
+              "repairs": 17,
+              "repair_budget": 16
+            }
+          ]
+        }
+      }
+    },
+    "b1ad4f3e": {
+      "shared_masks_checked": 7,
+      "all_mask_checks_passed": true,
+      "mask_checks": [
+        {
+          "source_actor": "04315908",
+          "candidate_index": 94,
+          "destination_xyz": [
+            525.0,
+            245.0,
+            20.0
+          ],
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "evidence_ref": "e53",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 43,
+              "request_id": 43
+            },
+            "actor": "04315908",
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/04315908/command/move_to",
+            "params": {
+              "x": 525.0,
+              "y": 245.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 5'",
+            "command_id": "8c90732f",
+            "relative_seconds": 0.09998091700254008,
+            "ended_seconds": 0.102636583000276,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 42,
+              "request_id": 42
+            },
+            "xyz": [
+              428.0,
+              200.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 44,
+              "request_id": 44
+            },
+            "xyz": [
+              428.0,
+              200.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 87,
+            "call_end": 88,
+            "first_mask_publication": 95,
+            "post_state_call_start": 90,
+            "post_state_call_end": 91
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "272fa7be",
+          "candidate_index": 15,
+          "destination_xyz": [
+            105.0,
+            175.0,
+            20.0
+          ],
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "evidence_ref": "e77",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 55,
+              "request_id": 55
+            },
+            "actor": "272fa7be",
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/272fa7be/command/move_to",
+            "params": {
+              "x": 105.0,
+              "y": 175.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 5'",
+            "command_id": "5861b567",
+            "relative_seconds": 0.13166637500034994,
+            "ended_seconds": 0.13402141700134962,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 54,
+              "request_id": 54
+            },
+            "xyz": [
+              37.0,
+              78.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 56,
+              "request_id": 56
+            },
+            "xyz": [
+              37.0,
+              78.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 127,
+            "call_end": 128,
+            "first_mask_publication": 135,
+            "post_state_call_start": 130,
+            "post_state_call_end": 131
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "6126210f",
+          "candidate_index": 161,
+          "destination_xyz": [
+            875.0,
+            385.0,
+            20.0
+          ],
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "evidence_ref": "e125",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 79,
+              "request_id": 79
+            },
+            "actor": "6126210f",
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/6126210f/command/move_to",
+            "params": {
+              "x": 875.0,
+              "y": 385.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "command_id": "34f250e7",
+            "relative_seconds": 0.1934966250009893,
+            "ended_seconds": 0.1957631670011324,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 78,
+              "request_id": 78
+            },
+            "xyz": [
+              927.0,
+              267.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 80,
+              "request_id": 80
+            },
+            "xyz": [
+              927.0,
+              267.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 207,
+            "call_end": 208,
+            "first_mask_publication": 215,
+            "post_state_call_start": 210,
+            "post_state_call_end": 211
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "2a266de6",
+          "candidate_index": 35,
+          "destination_xyz": [
+            175.0,
+            665.0,
+            20.0
+          ],
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "evidence_ref": "e251",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 142,
+              "request_id": 142
+            },
+            "actor": "2a266de6",
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/2a266de6/command/move_to",
+            "params": {
+              "x": 175.0,
+              "y": 665.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+            "command_id": "bc769d4e",
+            "relative_seconds": 0.3697525419993326,
+            "ended_seconds": 0.3730777080018015,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 141,
+              "request_id": 141
+            },
+            "xyz": [
+              245.0,
+              525.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 143,
+              "request_id": 143
+            },
+            "xyz": [
+              245.0,
+              525.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 420,
+            "call_end": 421,
+            "first_mask_publication": 431,
+            "post_state_call_start": 423,
+            "post_state_call_end": 424
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "b6654aad",
+          "candidate_index": 162,
+          "destination_xyz": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "evidence_ref": "e547",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 290,
+              "request_id": 290
+            },
+            "actor": "b6654aad",
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/b6654aad/command/move_to",
+            "params": {
+              "x": 875.0,
+              "y": 455.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "command_id": "3d7ff02a",
+            "relative_seconds": 0.8234478330014099,
+            "ended_seconds": 0.825511541999731,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 289,
+              "request_id": 289
+            },
+            "xyz": [
+              875.0,
+              315.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 291,
+              "request_id": 291
+            },
+            "xyz": [
+              875.0,
+              315.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 936,
+            "call_end": 937,
+            "first_mask_publication": 944,
+            "post_state_call_start": 939,
+            "post_state_call_end": 940
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "d4d95e8a",
+          "candidate_index": 175,
+          "destination_xyz": [
+            945.0,
+            455.0,
+            20.0
+          ],
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "evidence_ref": "e571",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 302,
+              "request_id": 302
+            },
+            "actor": "d4d95e8a",
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/d4d95e8a/command/move_to",
+            "params": {
+              "x": 945.0,
+              "y": 455.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "command_id": "bca58fc3",
+            "relative_seconds": 0.858779083002446,
+            "ended_seconds": 0.8609281669996562,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 301,
+              "request_id": 301
+            },
+            "xyz": [
+              665.0,
+              525.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 303,
+              "request_id": 303
+            },
+            "xyz": [
+              665.0,
+              525.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 978,
+            "call_end": 979,
+            "first_mask_publication": 986,
+            "post_state_call_start": 981,
+            "post_state_call_end": 982
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        },
+        {
+          "source_actor": "b6654aad",
+          "candidate_index": 174,
+          "destination_xyz": [
+            945.0,
+            385.0,
+            20.0
+          ],
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "evidence_ref": "e671",
+          "source_move": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 352,
+              "request_id": 352
+            },
+            "actor": "b6654aad",
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "method": "POST",
+            "endpoint": "/drones/b6654aad/command/move_to",
+            "params": {
+              "x": 945.0,
+              "y": 385.0,
+              "z": 20.0
+            },
+            "status": "error",
+            "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+            "command_id": "abdeb5e0",
+            "relative_seconds": 1.0121714170018095,
+            "ended_seconds": 1.014592375002394,
+            "committed": true
+          },
+          "public_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 351,
+              "request_id": 351
+            },
+            "xyz": [
+              875.0,
+              315.0,
+              20.0
+            ]
+          },
+          "public_after": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 353,
+              "request_id": 353
+            },
+            "xyz": [
+              875.0,
+              315.0,
+              20.0
+            ]
+          },
+          "harness_sequences": {
+            "call_start": 1152,
+            "call_end": 1153,
+            "first_mask_publication": 1160,
+            "post_state_call_start": 1155,
+            "post_state_call_end": 1156
+          },
+          "checks": {
+            "same_plan": true,
+            "same_actor": true,
+            "strict_endpoint": true,
+            "exact_source_call": true,
+            "exact_xyz": true,
+            "raw_receipt_fields_match": true,
+            "harness_receipt_digest": true,
+            "public_xyz_unchanged": true,
+            "ordered_receipt_before_publication": true,
+            "ordered_public_before_move_after": true,
+            "post_read_same_plan": true,
+            "no_intervening_actor_action": true,
+            "no_later_any_actor_exact_xyz_move": true,
+            "confirmed_before_mask_publication": true,
+            "post_public_state_matches_harness_digest": true
+          },
+          "later_exact_xyz_move_requests": []
+        }
+      ],
+      "all_search_moves_z20": true,
+      "first_action_divergence": {
+        "action_index": 37,
+        "common_actions": 36,
+        "baseline": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+            "line": 151,
+            "request_id": 151
+          },
+          "actor": "60892444",
+          "plan_id": "b1ad4f3e-blocked_candidate_v4:p1",
+          "method": "POST",
+          "endpoint": "/drones/60892444/command/move_to",
+          "params": {
+            "x": 175.0,
+            "y": 665.0,
+            "z": 20.0
+          },
+          "status": "error",
+          "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+          "command_id": "2e9aab47",
+          "relative_seconds": 0.34840799999801675,
+          "ended_seconds": 0.35052195800017216,
+          "committed": true,
+          "public_state_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+              "line": 150,
+              "request_id": 150
+            },
+            "position": {
+              "x": 105.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        },
+        "candidate": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+            "line": 151,
+            "request_id": 151
+          },
+          "actor": "60892444",
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "method": "POST",
+          "endpoint": "/drones/60892444/command/move_to",
+          "params": {
+            "x": 175.0,
+            "y": 595.0,
+            "z": 20.0
+          },
+          "status": "success",
+          "message": "Drone moved to position (175.0, 595.0, 20.0), heading: 45.0° (battery: -0.7%/-0mAh, remaining: 98.4%/60mAh)",
+          "command_id": "2e9aab47",
+          "relative_seconds": 0.3965118750020338,
+          "ended_seconds": 0.4006362079999235,
+          "committed": true,
+          "public_state_before": {
+            "source": {
+              "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+              "line": 150,
+              "request_id": 150
+            },
+            "position": {
+              "x": 105.0,
+              "y": 525.0,
+              "z": 20.0
+            },
+            "status": "hovering"
+          }
+        },
+        "prior_shared_mask_ref": "e251",
+        "prior_shared_mask_source_actor": "2a266de6",
+        "prior_shared_mask_source_request": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 142,
+          "request_id": 142
+        },
+        "mask_published_before_candidate_call": true,
+        "same_public_start": true,
+        "cross_actor": true
+      },
+      "actions_identical": false,
+      "failure_classification": {
+        "baseline": {
+          "success": 88,
+          "endpoint_conflict": 15,
+          "path_conflict": 2
+        },
+        "candidate": {
+          "success": 166,
+          "endpoint_conflict": 7,
+          "path_conflict": 3
+        }
+      },
+      "new_failure_signatures": [
+        {
+          "signature": [
+            "path_conflict",
+            "63e09994",
+            [
+              945.0,
+              525.0,
+              20.0
+            ],
+            [
+              665.0,
+              35.0,
+              20.0
+            ]
+          ],
+          "events": [
+            {
+              "source": {
+                "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+                "line": 405,
+                "request_id": 405
+              },
+              "actor": "63e09994",
+              "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+              "method": "POST",
+              "endpoint": "/drones/63e09994/command/move_to",
+              "params": {
+                "x": 945.0,
+                "y": 525.0,
+                "z": 20.0
+              },
+              "status": "error",
+              "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Circle Obstacle 3'",
+              "command_id": "5f4dcfb1",
+              "relative_seconds": 1.176257250001072,
+              "ended_seconds": 1.178713749999588,
+              "committed": true,
+              "public_state_before": {
+                "source": {
+                  "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+                  "line": 404,
+                  "request_id": 404
+                },
+                "position": {
+                  "x": 665.0,
+                  "y": 35.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        },
+        {
+          "signature": [
+            "path_conflict",
+            "b6654aad",
+            [
+              1015.0,
+              525.0,
+              20.0
+            ],
+            [
+              875.0,
+              315.0,
+              20.0
+            ]
+          ],
+          "events": [
+            {
+              "source": {
+                "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+                "line": 413,
+                "request_id": 413
+              },
+              "actor": "b6654aad",
+              "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+              "method": "POST",
+              "endpoint": "/drones/b6654aad/command/move_to",
+              "params": {
+                "x": 1015.0,
+                "y": 525.0,
+                "z": 20.0
+              },
+              "status": "error",
+              "message": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.CIRCLE obstacle 'Circle Obstacle 3'",
+              "command_id": "1b625813",
+              "relative_seconds": 1.2013997079993715,
+              "ended_seconds": 1.2039568330001202,
+              "committed": true,
+              "public_state_before": {
+                "source": {
+                  "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+                  "line": 412,
+                  "request_id": 412
+                },
+                "position": {
+                  "x": 875.0,
+                  "y": 315.0,
+                  "z": 20.0
+                },
+                "status": "hovering"
+              }
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "baseline": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "35ce64d8",
+            "task_type": "target_assignment",
+            "progress_percentage": 80,
+            "details": {
+              "total_targets": 20,
+              "visited_targets": 16,
+              "unvisited_targets": 4
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "b1ad4f3e-blocked_candidate_v4:p1",
+              "status": "needs_replan",
+              "reason": "local_repair_budget_exhausted",
+              "cursor": 105,
+              "cached_progress": 80,
+              "repairs": 17,
+              "repair_budget": 16
+            }
+          ]
+        },
+        "candidate": {
+          "checker_passed_result_only": true,
+          "final_public_progress": {
+            "session_id": "35ce64d8",
+            "task_type": "target_assignment",
+            "progress_percentage": 100,
+            "details": {
+              "total_targets": 20,
+              "visited_targets": 20,
+              "unvisited_targets": 0
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+              "status": "needs_replan",
+              "reason": "no_public_candidate",
+              "cursor": 176,
+              "cached_progress": 95,
+              "repairs": 10,
+              "repair_budget": 16
+            }
+          ]
+        }
+      }
+    },
+    "b1eb0270": {
+      "shared_masks_checked": 0,
+      "all_mask_checks_passed": true,
+      "mask_checks": [],
+      "all_search_moves_z20": true,
+      "first_action_divergence": null,
+      "actions_identical": true,
+      "failure_classification": {
+        "baseline": {},
+        "candidate": {}
+      },
+      "new_failure_signatures": [],
+      "outcome": {
+        "baseline": {
+          "checker_passed_result_only": true,
+          "final_public_progress": {
+            "session_id": "ad34350a",
+            "task_type": "area_assignment_and_patrol",
+            "progress_percentage": 0,
+            "details": {
+              "total_targets": 20
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "b1eb0270-blocked_candidate_v4:p1",
+              "status": "completed",
+              "reason": "skill_public_stop_condition",
+              "cursor": 3,
+              "cached_progress": null,
+              "repairs": 0,
+              "repair_budget": 16
+            }
+          ]
+        },
+        "candidate": {
+          "checker_passed_result_only": true,
+          "final_public_progress": {
+            "session_id": "ad34350a",
+            "task_type": "area_assignment_and_patrol",
+            "progress_percentage": 0,
+            "details": {
+              "total_targets": 20
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "b1eb0270-shared_endpoint_v5:p1",
+              "status": "completed",
+              "reason": "skill_public_stop_condition",
+              "cursor": 3,
+              "cached_progress": null,
+              "repairs": 0,
+              "repair_budget": 16
+            }
+          ]
+        }
+      }
+    },
+    "898cfdca": {
+      "shared_masks_checked": 0,
+      "all_mask_checks_passed": true,
+      "mask_checks": [],
+      "all_search_moves_z20": true,
+      "first_action_divergence": null,
+      "actions_identical": true,
+      "failure_classification": {
+        "baseline": {},
+        "candidate": {}
+      },
+      "new_failure_signatures": [],
+      "outcome": {
+        "baseline": {
+          "checker_passed_result_only": true,
+          "final_public_progress": {
+            "session_id": "35ce64d8",
+            "task_type": "target_assignment",
+            "progress_percentage": 0,
+            "details": {
+              "total_targets": 20,
+              "visited_targets": 0,
+              "unvisited_targets": 20
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "898cfdca-blocked_candidate_v4:p1",
+              "status": "completed",
+              "reason": "skill_public_stop_condition",
+              "cursor": 3,
+              "cached_progress": null,
+              "repairs": 0,
+              "repair_budget": 16
+            }
+          ]
+        },
+        "candidate": {
+          "checker_passed_result_only": true,
+          "final_public_progress": {
+            "session_id": "35ce64d8",
+            "task_type": "target_assignment",
+            "progress_percentage": 0,
+            "details": {
+              "total_targets": 20,
+              "visited_targets": 0,
+              "unvisited_targets": 20
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": [
+            {
+              "plan_id": "898cfdca-shared_endpoint_v5:p1",
+              "status": "completed",
+              "reason": "skill_public_stop_condition",
+              "cursor": 3,
+              "cached_progress": null,
+              "repairs": 0,
+              "repair_budget": 16
+            }
+          ]
+        }
+      }
+    },
+    "784d71f8": {
+      "shared_masks_checked": 0,
+      "all_mask_checks_passed": true,
+      "mask_checks": [],
+      "all_search_moves_z20": true,
+      "first_action_divergence": null,
+      "actions_identical": true,
+      "failure_classification": {
+        "baseline": {},
+        "candidate": {}
+      },
+      "new_failure_signatures": [],
+      "outcome": {
+        "baseline": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "823c15d5",
+            "task_type": "target_assignment",
+            "progress_percentage": 0,
+            "details": {
+              "total_targets": 100,
+              "visited_targets": 0,
+              "unvisited_targets": 100
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": []
+        },
+        "candidate": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "823c15d5",
+            "task_type": "target_assignment",
+            "progress_percentage": 0,
+            "details": {
+              "total_targets": 100,
+              "visited_targets": 0,
+              "unvisited_targets": 100
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": []
+        }
+      }
+    },
+    "1905e0ad": {
+      "shared_masks_checked": 0,
+      "all_mask_checks_passed": true,
+      "mask_checks": [],
+      "all_search_moves_z20": true,
+      "first_action_divergence": null,
+      "actions_identical": true,
+      "failure_classification": {
+        "baseline": {},
+        "candidate": {}
+      },
+      "new_failure_signatures": [],
+      "outcome": {
+        "baseline": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "35ce64d8",
+            "task_type": "target_assignment",
+            "progress_percentage": 0,
+            "details": {
+              "total_targets": 20,
+              "visited_targets": 0,
+              "unvisited_targets": 20
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": []
+        },
+        "candidate": {
+          "checker_passed_result_only": false,
+          "final_public_progress": {
+            "session_id": "35ce64d8",
+            "task_type": "target_assignment",
+            "progress_percentage": 0,
+            "details": {
+              "total_targets": 20,
+              "visited_targets": 0,
+              "unvisited_targets": 20
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "frames": []
+        }
+      }
+    }
+  },
+  "issues": [],
+  "b1ad_terminal_progress": {
+    "last_skill_progress": {
+      "source": {
+        "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+        "line": 772,
+        "request_id": 772
+      },
+      "public_payload": {
+        "task_type": "target_assignment",
+        "progress_percentage": 95,
+        "is_completed": false,
+        "status_message": "Task to be Done",
+        "details": {
+          "total_targets": 20,
+          "visited_targets": 19,
+          "unvisited_targets": 1
+        },
+        "target_reach_summary": {
+          "total_reaches": 56,
+          "drones_with_reaches": 12,
+          "unique_targets_reached": 19
+        },
+        "area_coverage_summary": {
+          "total_targets_tracked": 19,
+          "average_coverage": 95.0,
+          "fully_covered_targets": 19
+        }
+      }
+    },
+    "moves_after_last_skill_progress": [
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 774,
+          "request_id": 774
+        },
+        "actor": "176a4688",
+        "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+        "method": "POST",
+        "endpoint": "/drones/176a4688/command/move_to",
+        "params": {
+          "x": 105.0,
+          "y": 315.0,
+          "z": 20.0
+        },
+        "status": "success",
+        "message": "Drone moved to position (105.0, 315.0, 20.0), heading: 225.0° (battery: -3.9%/-3mAh, remaining: 76.9%/54mAh) - Reached target(s): Fixed Target 1, Fixed Target 2, Fixed Target 9, Fixed Target 14",
+        "command_id": "0853df7a",
+        "relative_seconds": 2.3785800830009975,
+        "ended_seconds": 2.3816193330021633,
+        "committed": true,
+        "public_state_before": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+            "line": 773,
+            "request_id": 773
+          },
+          "position": {
+            "x": 525.0,
+            "y": 735.0,
+            "z": 20.0
+          },
+          "status": "hovering"
+        }
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 779,
+          "request_id": 779
+        },
+        "actor": "2a266de6",
+        "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+        "method": "POST",
+        "endpoint": "/drones/2a266de6/command/move_to",
+        "params": {
+          "x": 35.0,
+          "y": 315.0,
+          "z": 20.0
+        },
+        "status": "success",
+        "message": "Drone moved to position (35.0, 315.0, 20.0), heading: 236.3° (battery: -1.7%/-2mAh, remaining: 85.7%/81mAh)",
+        "command_id": "33909d0b",
+        "relative_seconds": 2.393983500001923,
+        "ended_seconds": 2.397114082999906,
+        "committed": true,
+        "public_state_before": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+            "line": 778,
+            "request_id": 778
+          },
+          "position": {
+            "x": 245.0,
+            "y": 455.0,
+            "z": 20.0
+          },
+          "status": "hovering"
+        }
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 783,
+          "request_id": 783
+        },
+        "actor": "5f7a6eec",
+        "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+        "method": "POST",
+        "endpoint": "/drones/5f7a6eec/command/move_to",
+        "params": {
+          "x": 385.0,
+          "y": 35.0,
+          "z": 20.0
+        },
+        "status": "success",
+        "message": "Drone moved to position (385.0, 35.0, 20.0), heading: 270.0° (battery: -1.4%/-1mAh, remaining: 87.2%/78mAh)",
+        "command_id": "4f6ff223",
+        "relative_seconds": 2.4078248330006318,
+        "ended_seconds": 2.4109775830002036,
+        "committed": true,
+        "public_state_before": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+            "line": 782,
+            "request_id": 782
+          },
+          "position": {
+            "x": 595.0,
+            "y": 35.0,
+            "z": 20.0
+          },
+          "status": "hovering"
+        }
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 787,
+          "request_id": 787
+        },
+        "actor": "60892444",
+        "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+        "method": "POST",
+        "endpoint": "/drones/60892444/command/move_to",
+        "params": {
+          "x": 35.0,
+          "y": 35.0,
+          "z": 20.0
+        },
+        "status": "success",
+        "message": "Drone moved to position (35.0, 35.0, 20.0), heading: 180.0° (battery: -4.1%/-2mAh, remaining: 76.3%/46mAh)",
+        "command_id": "efaca96e",
+        "relative_seconds": 2.421654583002237,
+        "ended_seconds": 2.4246865829991293,
+        "committed": true,
+        "public_state_before": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+            "line": 786,
+            "request_id": 786
+          },
+          "position": {
+            "x": 35.0,
+            "y": 665.0,
+            "z": 20.0
+          },
+          "status": "hovering"
+        }
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 800,
+          "request_id": 800
+        },
+        "actor": "04315908",
+        "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+        "method": "POST",
+        "endpoint": "/drones/04315908/command/move_to",
+        "params": {
+          "x": 315.0,
+          "y": 105.0,
+          "z": 20.0
+        },
+        "status": "success",
+        "message": "Drone moved to position (315.0, 105.0, 20.0), heading: 135.0° (battery: -2.7%/-2mAh, remaining: 84.3%/57mAh) - Reached target(s): Fixed Target 7, Fixed Target 20",
+        "command_id": "0b43418f",
+        "relative_seconds": 2.453353208002227,
+        "ended_seconds": 2.4565351250021195,
+        "committed": true,
+        "public_state_before": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+            "line": 799,
+            "request_id": 799
+          },
+          "position": {
+            "x": 35.0,
+            "y": 385.0,
+            "z": 20.0
+          },
+          "status": "hovering"
+        }
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 807,
+          "request_id": 807
+        },
+        "actor": "5f7a6eec",
+        "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+        "method": "POST",
+        "endpoint": "/drones/5f7a6eec/command/move_to",
+        "params": {
+          "x": 385.0,
+          "y": 175.0,
+          "z": 20.0
+        },
+        "status": "success",
+        "message": "Drone moved to position (385.0, 175.0, 20.0), heading: 0.0° (battery: -1.0%/-1mAh, remaining: 86.3%/77mAh) - Reached target(s): Fixed Target 3",
+        "command_id": "695ac26f",
+        "relative_seconds": 2.472977625002386,
+        "ended_seconds": 2.4758559580004658,
+        "committed": true,
+        "public_state_before": {
+          "source": {
+            "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+            "line": 806,
+            "request_id": 806
+          },
+          "position": {
+            "x": 385.0,
+            "y": 35.0,
+            "z": 20.0
+          },
+          "status": "hovering"
+        }
+      }
+    ],
+    "first_named_target_receipts": [
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 61,
+          "request_id": 61
+        },
+        "first_named_targets": [
+          "Fixed Target 13"
+        ],
+        "unique_names_so_far": 1
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 85,
+          "request_id": 85
+        },
+        "first_named_targets": [
+          "Fixed Target 3"
+        ],
+        "unique_names_so_far": 2
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 110,
+          "request_id": 110
+        },
+        "first_named_targets": [
+          "Fixed Target 1"
+        ],
+        "unique_names_so_far": 3
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 122,
+          "request_id": 122
+        },
+        "first_named_targets": [
+          "Fixed Target 5"
+        ],
+        "unique_names_so_far": 4
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 159,
+          "request_id": 159
+        },
+        "first_named_targets": [
+          "Fixed Target 7"
+        ],
+        "unique_names_so_far": 5
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 175,
+          "request_id": 175
+        },
+        "first_named_targets": [
+          "Fixed Target 12"
+        ],
+        "unique_names_so_far": 6
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 183,
+          "request_id": 183
+        },
+        "first_named_targets": [
+          "Fixed Target 10",
+          "Fixed Target 11"
+        ],
+        "unique_names_so_far": 8
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 204,
+          "request_id": 204
+        },
+        "first_named_targets": [
+          "Fixed Target 6"
+        ],
+        "unique_names_so_far": 9
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 237,
+          "request_id": 237
+        },
+        "first_named_targets": [
+          "Fixed Target 14"
+        ],
+        "unique_names_so_far": 10
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 364,
+          "request_id": 364
+        },
+        "first_named_targets": [
+          "Fixed Target 17"
+        ],
+        "unique_names_so_far": 11
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 388,
+          "request_id": 388
+        },
+        "first_named_targets": [
+          "Fixed Target 9"
+        ],
+        "unique_names_so_far": 12
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 421,
+          "request_id": 421
+        },
+        "first_named_targets": [
+          "Fixed Target 2",
+          "Fixed Target 16"
+        ],
+        "unique_names_so_far": 14
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 466,
+          "request_id": 466
+        },
+        "first_named_targets": [
+          "Fixed Target 4",
+          "Fixed Target 19"
+        ],
+        "unique_names_so_far": 16
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 499,
+          "request_id": 499
+        },
+        "first_named_targets": [
+          "Fixed Target 8"
+        ],
+        "unique_names_so_far": 17
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 532,
+          "request_id": 532
+        },
+        "first_named_targets": [
+          "Fixed Target 18"
+        ],
+        "unique_names_so_far": 18
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 769,
+          "request_id": 769
+        },
+        "first_named_targets": [
+          "Fixed Target 15"
+        ],
+        "unique_names_so_far": 19
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 800,
+          "request_id": 800
+        },
+        "first_named_targets": [
+          "Fixed Target 20"
+        ],
+        "unique_names_so_far": 20
+      }
+    ],
+    "fixed_target_20_prior_public_observations": [
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 161,
+          "request_id": 161
+        },
+        "target_id": "87e28d07",
+        "name": "Fixed Target 20",
+        "is_reached": false,
+        "reached_by": []
+      },
+      {
+        "source": {
+          "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+          "line": 272,
+          "request_id": 272
+        },
+        "target_id": "87e28d07",
+        "name": "Fixed Target 20",
+        "is_reached": false,
+        "reached_by": []
+      }
+    ],
+    "final_evaluator_public_progress": {
+      "source": {
+        "file": "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+        "line": 834,
+        "request_id": 834
+      },
+      "public_payload": {
+        "task_type": "target_assignment",
+        "progress_percentage": 100,
+        "is_completed": true,
+        "status_message": "Task Finished",
+        "details": {
+          "total_targets": 20,
+          "visited_targets": 20,
+          "unvisited_targets": 0
+        },
+        "target_reach_summary": {
+          "total_reaches": 63,
+          "drones_with_reaches": 12,
+          "unique_targets_reached": 20
+        },
+        "area_coverage_summary": {
+          "total_targets_tracked": 20,
+          "average_coverage": 100.0,
+          "fully_covered_targets": 20
+        }
+      }
+    },
+    "inference": "Request 800 first reports Fixed Target 20 and is the twentieth distinct target name in successful move receipts; #772 publicly reports 19/20 and #834 publicly reports 20/20. This supports arrival/completion by #800, but no synchronized progress=100 read occurred at #800. Skill cached 95 and exited no_public_candidate before final refresh; original checker result remains true."
+  },
+  "total_masks_checked": 21,
+  "input_sha256": {
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/summary.json": "d0c8dcaa798ec7b0ae02d27cb33ad6eb58d18d08c987ed67c0a4d42ee24485b8",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/7eba7390-blocked_candidate_v4/public-api.jsonl": "f3bd5677d0c4e2befa6b0b1aebaf7dd8416e2baec9ec445ecda5411af9a66753",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/7eba7390-blocked_candidate_v4/harness.json": "a4b7c817abf87c9dff0e731b2351cdd947ef2ed0d696700dcb865ecab525c504",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/7eba7390-shared_endpoint_v5/public-api.jsonl": "5c63186644dca6223e0a9ac39c5caee2716f49a3664ba77289f23d06fb6d16e2",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/7eba7390-shared_endpoint_v5/harness.json": "526f17338bfd1f877cac6c9dfb217c0f3ef3d45e48f2f817aba8772d8704f1bd",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl": "688b9ec81af5d498d832c871b8b8a2ab3232a3ce246d4a4324d3059729469a11",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/harness.json": "96adefab3df5197faecac47c50d9218f4216aeac67e9d03382421791a9eef769",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/public-api.jsonl": "4d318c2aa81a932208febf6d9459a8cb90c8c436a4f6c97554a92160a8a568d5",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/24ac1838-shared_endpoint_v5/harness.json": "a193408c6b90a523128f9e548206db8087c4dfda5e7828c07f3388821bd21d10",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl": "d2d4c747e008a986573fe99bcba5bd50011983de8ac93bbd07a29b4d24656ba7",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/harness.json": "a1cc58c4aaee8b41a69bfd999badc0269c0352671b4db1e67e41d3db0c01e462",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl": "8d4b199ce48950f252794264666e036632bd5823c4a49e0ec7a25c9899cf30e4",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/harness.json": "12d13666141b300c237300625344e0dcb8ca2985be3bb16e5ec370e287a1d1ed",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1eb0270-blocked_candidate_v4/public-api.jsonl": "6a780de80784a6e59995b087c85f69ea0c8009e36e1e4551d0b0d04384d1b485",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1eb0270-blocked_candidate_v4/harness.json": "9e99939323395f8efa1270f0375d163e0a4162fd5086dd46121d5ae5ddc3c5af",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1eb0270-shared_endpoint_v5/public-api.jsonl": "237088ab74227ddfc5aa9e8c377f3123fbcb0f1f7e4298834afccaf0b223739c",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/b1eb0270-shared_endpoint_v5/harness.json": "6f0d89a5b1da9d51234518091f13eec560953a55e53ee70fdd9eb084a054f762",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/898cfdca-blocked_candidate_v4/public-api.jsonl": "68154ab0004d1e63aca0eca8dbe1d969ca6c91284176e2693a3975ef9a6012e8",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/898cfdca-blocked_candidate_v4/harness.json": "579cc12a06517244b84eb1b026bff61b092fe44f1c904b791e7086074c79ed46",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/898cfdca-shared_endpoint_v5/public-api.jsonl": "6bf9f474a5051925397ab79b71a992a5f1446e60d4801feb7b7b0e42383dcc1c",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/898cfdca-shared_endpoint_v5/harness.json": "48d079c5bec70eacd71079c80860e838ea8bfa7d83a1f11d6e19717f03a2c78e",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/784d71f8-blocked_candidate_v4/public-api.jsonl": "a6636b9de03416d40ae2e6f72681a45cb4492e472e19c100ecc13ffa1d4dd2f8",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/784d71f8-blocked_candidate_v4/harness.json": "1600ea4b990cd25a6fcc0500eb3e5bae64661eba92fb1f64f94580bd37b0f00c",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/784d71f8-shared_endpoint_v5/public-api.jsonl": "5004f792d9263566ed85acc6695d658b7f9213ac1577cbc4ad58b3b9712b51d8",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/784d71f8-shared_endpoint_v5/harness.json": "22836941513fc22fd7d2cf333815d41e841379a48569eccffab69fc02fb34053",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/1905e0ad-blocked_candidate_v4/public-api.jsonl": "b92cc5e3ec81c7a0030b69d246ed4bebe72c865463c5d98fb405d13885834c35",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/1905e0ad-blocked_candidate_v4/harness.json": "bdd4ab31ef7adf99a352d91cc81bb418af31daf0fdcd8296bdb0cab493dbde46",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/1905e0ad-shared_endpoint_v5/public-api.jsonl": "718a6df6078db3e319ba21959f27a778fe5467c793b41e4a5b0bc02667d70a2e",
+    "docs/results/harness-shared-endpoint-20261023/run-20261023-01/trials/1905e0ad-shared_endpoint_v5/harness.json": "882b311e716fc39321f07cbf7aa916d3c9652ae45b27702af7f6a4548b2ffebb"
+  },
+  "limitations": [
+    "No replay, counterfactual trajectory, model selection or generalization test.",
+    "Raw logs and code support first divergence caused by shared exact endpoint exclusion; later success/cost trajectories contain downstream changes and are not independent mask effects.",
+    "No hidden geometry, target locations or checker conditions were used for policy explanations. Checker pass values copied only as final outcomes.",
+    "No evidence of cross-plan reuse in these single-plan trials; unit tests and implementation establish rejection/isolation behavior.",
+    "Public failure messages name obstacles but do not provide geometry or reliable IDs."
+  ],
+  "campaign_seal_sha256": "837ba84f7ffb788a17ebafb680ce90267f4cf64a1df9e9c113d46a91039544de",
+  "audit_script_sha256": "ceb6662f706bc799947ed838256889b84b67d66ca46755fd0d6f1176c41d3026"
+}

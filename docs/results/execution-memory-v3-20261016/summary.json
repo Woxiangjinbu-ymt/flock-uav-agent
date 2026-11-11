@@ -1,0 +1,1362 @@
+{
+  "scope": "Six artificial controlled recovery cases; not fast100 or full-agent end-to-end performance",
+  "study": "./experiments/execution-memory-mvp-v3",
+  "scheduled_trials": 12,
+  "completed_trials": 12,
+  "started_without_result": 0,
+  "unstarted_trials": 0,
+  "missing_outcomes_are_not_filled_with_zero": true,
+  "by_repeat": {
+    "1": {
+      "pairs": {
+        "scheduled_pairs": 6,
+        "complete_pairs": 6,
+        "incomplete_pairs": 0,
+        "v3_wins": 0,
+        "v3_losses": 0,
+        "ties_both_success": 6,
+        "ties_both_failure": 0,
+        "net_successes": 0,
+        "same_prefix_all_observed_pairs": true,
+        "same_initial_world_all_observed_pairs": true,
+        "same_raw_first_messages_all_observed_pairs": true,
+        "all_pair_integrity_observable": true
+      },
+      "arms": {
+        "v2": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 20,
+            "mean": 3.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 20,
+            "mean": 3.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 15,
+            "mean": 2.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 50780,
+            "mean": 8463.333333333334,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2730,
+            "mean": 455,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 53510,
+            "mean": 8918.333333333334,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 53510,
+            "mean": 8918.333333333334,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 25.55348541500007,
+            "mean": 4.258914235833345,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 1,
+            "mean": 0.16666666666666666,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        },
+        "v3": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 17,
+            "mean": 2.8333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 17,
+            "mean": 2.8333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 11,
+            "mean": 1.8333333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 37870,
+            "mean": 6311.666666666667,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2030,
+            "mean": 338.3333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 39900,
+            "mean": 6650,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 39900,
+            "mean": 6650,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 20.89876812300008,
+            "mean": 3.4831280205000135,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        }
+      },
+      "both_normally_finished_only": {
+        "case_ids": [
+          "clue-horizontal",
+          "clue-vertical",
+          "control-complete",
+          "control-failed-sense",
+          "route-blocked",
+          "route-interrupted"
+        ],
+        "arms": {
+          "v2": {
+            "completed_trials": 6,
+            "checker_successes": 6,
+            "success_rate": 1.0,
+            "statuses": {
+              "model_finished": 6
+            },
+            "model_request_attempts": {
+              "sum": 20,
+              "mean": 3.3333333333333335,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "model_calls": {
+              "sum": 20,
+              "mean": 3.3333333333333335,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "tool_calls": {
+              "sum": 15,
+              "mean": 2.5,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "input_tokens": {
+              "sum": 50780,
+              "mean": 8463.333333333334,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "output_tokens": {
+              "sum": 2730,
+              "mean": 455,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "total_tokens": {
+              "sum": 53510,
+              "mean": 8918.333333333334,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "charged_tokens_including_uncertain_requests": {
+              "sum": 53510,
+              "mean": 8918.333333333334,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "seconds": {
+              "sum": 25.55348541500007,
+              "mean": 4.258914235833345,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "repeated_successful_sense_queries": {
+              "sum": 1,
+              "mean": 0.16666666666666666,
+              "known_trials": 6,
+              "missing_trials": 0
+            }
+          },
+          "v3": {
+            "completed_trials": 6,
+            "checker_successes": 6,
+            "success_rate": 1.0,
+            "statuses": {
+              "model_finished": 6
+            },
+            "model_request_attempts": {
+              "sum": 17,
+              "mean": 2.8333333333333335,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "model_calls": {
+              "sum": 17,
+              "mean": 2.8333333333333335,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "tool_calls": {
+              "sum": 11,
+              "mean": 1.8333333333333333,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "input_tokens": {
+              "sum": 37870,
+              "mean": 6311.666666666667,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "output_tokens": {
+              "sum": 2030,
+              "mean": 338.3333333333333,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "total_tokens": {
+              "sum": 39900,
+              "mean": 6650,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "charged_tokens_including_uncertain_requests": {
+              "sum": 39900,
+              "mean": 6650,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "seconds": {
+              "sum": 20.89876812300008,
+              "mean": 3.4831280205000135,
+              "known_trials": 6,
+              "missing_trials": 0
+            },
+            "repeated_successful_sense_queries": {
+              "sum": 0,
+              "mean": 0,
+              "known_trials": 6,
+              "missing_trials": 0
+            }
+          }
+        }
+      },
+      "budget_limited_pairs": [],
+      "families": {
+        "clue": {
+          "scheduled_pairs": 2,
+          "complete_pairs": 2,
+          "incomplete_pairs": 0,
+          "v3_wins": 0,
+          "v3_losses": 0,
+          "ties_both_success": 2,
+          "ties_both_failure": 0,
+          "net_successes": 0,
+          "same_prefix_all_observed_pairs": true,
+          "same_initial_world_all_observed_pairs": true,
+          "same_raw_first_messages_all_observed_pairs": true,
+          "all_pair_integrity_observable": true
+        },
+        "route": {
+          "scheduled_pairs": 2,
+          "complete_pairs": 2,
+          "incomplete_pairs": 0,
+          "v3_wins": 0,
+          "v3_losses": 0,
+          "ties_both_success": 2,
+          "ties_both_failure": 0,
+          "net_successes": 0,
+          "same_prefix_all_observed_pairs": true,
+          "same_initial_world_all_observed_pairs": true,
+          "same_raw_first_messages_all_observed_pairs": true,
+          "all_pair_integrity_observable": true
+        },
+        "control": {
+          "scheduled_pairs": 2,
+          "complete_pairs": 2,
+          "incomplete_pairs": 0,
+          "v3_wins": 0,
+          "v3_losses": 0,
+          "ties_both_success": 2,
+          "ties_both_failure": 0,
+          "net_successes": 0,
+          "same_prefix_all_observed_pairs": true,
+          "same_initial_world_all_observed_pairs": true,
+          "same_raw_first_messages_all_observed_pairs": true,
+          "all_pair_integrity_observable": true
+        }
+      }
+    }
+  },
+  "overall_pairs": {
+    "scheduled_pairs": 6,
+    "complete_pairs": 6,
+    "incomplete_pairs": 0,
+    "v3_wins": 0,
+    "v3_losses": 0,
+    "ties_both_success": 6,
+    "ties_both_failure": 0,
+    "net_successes": 0,
+    "same_prefix_all_observed_pairs": true,
+    "same_initial_world_all_observed_pairs": true,
+    "same_raw_first_messages_all_observed_pairs": true,
+    "all_pair_integrity_observable": true
+  },
+  "overall_arms": {
+    "v2": {
+      "completed_trials": 6,
+      "checker_successes": 6,
+      "success_rate": 1.0,
+      "statuses": {
+        "model_finished": 6
+      },
+      "model_request_attempts": {
+        "sum": 20,
+        "mean": 3.3333333333333335,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "model_calls": {
+        "sum": 20,
+        "mean": 3.3333333333333335,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "tool_calls": {
+        "sum": 15,
+        "mean": 2.5,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "input_tokens": {
+        "sum": 50780,
+        "mean": 8463.333333333334,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "output_tokens": {
+        "sum": 2730,
+        "mean": 455,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "total_tokens": {
+        "sum": 53510,
+        "mean": 8918.333333333334,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "charged_tokens_including_uncertain_requests": {
+        "sum": 53510,
+        "mean": 8918.333333333334,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "seconds": {
+        "sum": 25.55348541500007,
+        "mean": 4.258914235833345,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "repeated_successful_sense_queries": {
+        "sum": 1,
+        "mean": 0.16666666666666666,
+        "known_trials": 6,
+        "missing_trials": 0
+      }
+    },
+    "v3": {
+      "completed_trials": 6,
+      "checker_successes": 6,
+      "success_rate": 1.0,
+      "statuses": {
+        "model_finished": 6
+      },
+      "model_request_attempts": {
+        "sum": 17,
+        "mean": 2.8333333333333335,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "model_calls": {
+        "sum": 17,
+        "mean": 2.8333333333333335,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "tool_calls": {
+        "sum": 11,
+        "mean": 1.8333333333333333,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "input_tokens": {
+        "sum": 37870,
+        "mean": 6311.666666666667,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "output_tokens": {
+        "sum": 2030,
+        "mean": 338.3333333333333,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "total_tokens": {
+        "sum": 39900,
+        "mean": 6650,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "charged_tokens_including_uncertain_requests": {
+        "sum": 39900,
+        "mean": 6650,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "seconds": {
+        "sum": 20.89876812300008,
+        "mean": 3.4831280205000135,
+        "known_trials": 6,
+        "missing_trials": 0
+      },
+      "repeated_successful_sense_queries": {
+        "sum": 0,
+        "mean": 0,
+        "known_trials": 6,
+        "missing_trials": 0
+      }
+    }
+  },
+  "resource_totals_include_budget_stops_and_are_descriptive_only": true,
+  "budget": {
+    "model_calls": 6,
+    "tool_calls": 12,
+    "seconds": 90,
+    "total_tokens": 60000,
+    "max_output_tokens": 768,
+    "projection_chars": 3900,
+    "campaign_tokens": 300000
+  },
+  "global_budget": {
+    "charged_tokens": 93410,
+    "recomputed_charge": 93410,
+    "cap": 300000,
+    "within_cap": true,
+    "accounting_matches": true,
+    "unsettled_requests": 0
+  },
+  "current_integrity_passed": true,
+  "limitations": [
+    "Small hand-built cases and shared fixed public prefixes; no generalization claim.",
+    "Fresh v2 and v3 share raw evidence, factual projections and read points; only the conditional query declaration contract changes.",
+    "Repeated sensing metric concerns equal actor/position in this static simulator only.",
+    "Seconds include provider response time; neither paired outcome nor a small time difference establishes significance.",
+    "Success is the declared public-task checker; method summaries never decide scoring.",
+    "Current hashes do not establish that on-disk sources never changed during execution.",
+    "V2 and v3 use the same wire admission accounting; earlier studies are historical and are not pooled into this comparison.",
+    "These six cases were already used during development; this is neither held-out validation nor a population success-rate estimate."
+  ],
+  "memory_revision": "v3",
+  "baseline_arm": "v2",
+  "candidate_arm": "v3",
+  "primary_comparison": "Fresh memory v2 baseline versus fresh memory v3 candidate in this frozen study only",
+  "historical_results_reused_as_trials": false,
+  "same_fixture_bytes_as_parent_v2": true,
+  "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+  "protocol_change_from_v2": "Fresh baseline v2 and candidate v3 use identical v2 facts, tools, read points, wire admission accounting and budgets. V3 alone adds an eligible-query decision declaration contract. Both arms are audited without enforcing declarations or changing tool calls. Earlier results are historical only.",
+  "decision_audit": {
+    "baseline_arm": "v2",
+    "candidate_arm": "v3",
+    "arms": {
+      "v2": {
+        "responses_observed": 20,
+        "eligible_responses": 3,
+        "contract_active_responses": 0,
+        "eligible_responses_without_sensing": 2,
+        "applicable_query_calls": 1,
+        "applicable_queries_with_declaration": 0,
+        "applicable_queries_missing_declaration": 1,
+        "applicable_queries_invalid_declaration": 0,
+        "declarations": 0,
+        "unknown_reference_declarations": 0,
+        "claimed_change_without_reference": 0,
+        "refresh_with_none": 0,
+        "refresh_with_uncertain": 0,
+        "reuse_but_query_requested": 0,
+        "audit_errors": 0
+      },
+      "v3": {
+        "responses_observed": 17,
+        "eligible_responses": 2,
+        "contract_active_responses": 2,
+        "eligible_responses_without_sensing": 2,
+        "applicable_query_calls": 0,
+        "applicable_queries_with_declaration": 0,
+        "applicable_queries_missing_declaration": 0,
+        "applicable_queries_invalid_declaration": 0,
+        "declarations": 2,
+        "unknown_reference_declarations": 0,
+        "claimed_change_without_reference": 0,
+        "refresh_with_none": 0,
+        "refresh_with_uncertain": 0,
+        "reuse_but_query_requested": 0,
+        "audit_errors": 0
+      }
+    },
+    "initial_fact_checks": [
+      {
+        "case_id": "clue-horizontal",
+        "same_facts_except_contract": true,
+        "candidate_initial_contract_present": true,
+        "baseline_initial_contract_present": false
+      },
+      {
+        "case_id": "clue-vertical",
+        "same_facts_except_contract": true,
+        "candidate_initial_contract_present": true,
+        "baseline_initial_contract_present": false
+      },
+      {
+        "case_id": "control-complete",
+        "same_facts_except_contract": true,
+        "candidate_initial_contract_present": false,
+        "baseline_initial_contract_present": false
+      },
+      {
+        "case_id": "control-failed-sense",
+        "same_facts_except_contract": true,
+        "candidate_initial_contract_present": false,
+        "baseline_initial_contract_present": false
+      },
+      {
+        "case_id": "route-blocked",
+        "same_facts_except_contract": true,
+        "candidate_initial_contract_present": false,
+        "baseline_initial_contract_present": false
+      },
+      {
+        "case_id": "route-interrupted",
+        "same_facts_except_contract": true,
+        "candidate_initial_contract_present": false,
+        "baseline_initial_contract_present": false
+      }
+    ],
+    "trials": [
+      {
+        "case_id": "clue-horizontal",
+        "repeat": 1,
+        "arm": "v2",
+        "label": "clue-horizontal-r1-v2",
+        "counts": {
+          "responses_observed": 2,
+          "eligible_responses": 1,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 1,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": true,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": [
+              "drone-2"
+            ]
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "clue-horizontal",
+        "repeat": 1,
+        "arm": "v3",
+        "label": "clue-horizontal-r1-v3",
+        "counts": {
+          "responses_observed": 2,
+          "eligible_responses": 1,
+          "contract_active_responses": 1,
+          "eligible_responses_without_sensing": 1,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 1,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "valid",
+            "contract_eligible": true,
+            "contract_active": true,
+            "declarations": [
+              {
+                "actor": "drone-2",
+                "decision": "change_viewpoint",
+                "reason": "position_changed",
+                "evidence": [
+                  "e15"
+                ],
+                "summary": "Drone 2 is at (200,0,20) but the witnessed segment endpoint is a historical contact, not the target center, so a different feasible point along the path is needed.",
+                "references": [
+                  {
+                    "supplied": "e15",
+                    "resolved": "controlled-task/e15",
+                    "known_before_model": true
+                  }
+                ],
+                "grounding": "references_exist_meaning_not_verified",
+                "reason_truth": "not_verified_model_statement"
+              }
+            ],
+            "sensing_calls": [],
+            "eligible_actors_without_query": [
+              "drone-2"
+            ]
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "clue-vertical",
+        "repeat": 1,
+        "arm": "v3",
+        "label": "clue-vertical-r1-v3",
+        "counts": {
+          "responses_observed": 2,
+          "eligible_responses": 1,
+          "contract_active_responses": 1,
+          "eligible_responses_without_sensing": 1,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 1,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "valid",
+            "contract_eligible": true,
+            "contract_active": true,
+            "declarations": [
+              {
+                "actor": "drone-2",
+                "decision": "change_viewpoint",
+                "reason": "position_changed",
+                "evidence": [
+                  "e15"
+                ],
+                "summary": "Drone 2 is at (0,200,20) where the witnessed segment from drone-1 ends, but no target was sensed there; a different feasible point along the witnessed path is needed to search for Fixed Target 1.",
+                "references": [
+                  {
+                    "supplied": "e15",
+                    "resolved": "controlled-task/e15",
+                    "known_before_model": true
+                  }
+                ],
+                "grounding": "references_exist_meaning_not_verified",
+                "reason_truth": "not_verified_model_statement"
+              }
+            ],
+            "sensing_calls": [],
+            "eligible_actors_without_query": [
+              "drone-2"
+            ]
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "clue-vertical",
+        "repeat": 1,
+        "arm": "v2",
+        "label": "clue-vertical-r1-v2",
+        "counts": {
+          "responses_observed": 5,
+          "eligible_responses": 2,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 1,
+          "applicable_query_calls": 1,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 1,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": true,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [
+              {
+                "tool_call_id": "call_00_madadqmUV8TcaZLoMKdL5903",
+                "call_ordinal": 0,
+                "tool": "get_nearby_entities",
+                "actor": "drone-2",
+                "contract_applies": true,
+                "declaration_status": "missing",
+                "actor_sensing_call_count": 1,
+                "declaration_binding": "not_declared",
+                "decision": null,
+                "reason": null,
+                "movement_requested_before_query": false,
+                "decision_call_relation": "not_declared",
+                "execution_policy": "allowed_unchanged"
+              }
+            ],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": true,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": [
+              "drone-2"
+            ]
+          },
+          {
+            "ordinal": 3,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [
+              {
+                "tool_call_id": "call_00_tLk0VMo9BopWnMc4gV5z0803",
+                "call_ordinal": 0,
+                "tool": "get_nearby_entities",
+                "actor": "drone-2",
+                "contract_applies": false,
+                "declaration_status": "missing",
+                "actor_sensing_call_count": 1,
+                "declaration_binding": "not_declared",
+                "decision": null,
+                "reason": null,
+                "movement_requested_before_query": false,
+                "decision_call_relation": "not_declared",
+                "execution_policy": "allowed_unchanged"
+              }
+            ],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 4,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 5,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "route-interrupted",
+        "repeat": 1,
+        "arm": "v2",
+        "label": "route-interrupted-r1-v2",
+        "counts": {
+          "responses_observed": 4,
+          "eligible_responses": 0,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 0,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 3,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 4,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "route-interrupted",
+        "repeat": 1,
+        "arm": "v3",
+        "label": "route-interrupted-r1-v3",
+        "counts": {
+          "responses_observed": 4,
+          "eligible_responses": 0,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 0,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 3,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 4,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "route-blocked",
+        "repeat": 1,
+        "arm": "v3",
+        "label": "route-blocked-r1-v3",
+        "counts": {
+          "responses_observed": 4,
+          "eligible_responses": 0,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 0,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 3,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 4,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "route-blocked",
+        "repeat": 1,
+        "arm": "v2",
+        "label": "route-blocked-r1-v2",
+        "counts": {
+          "responses_observed": 4,
+          "eligible_responses": 0,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 0,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 3,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 4,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "control-complete",
+        "repeat": 1,
+        "arm": "v2",
+        "label": "control-complete-r1-v2",
+        "counts": {
+          "responses_observed": 2,
+          "eligible_responses": 0,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 0,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "control-complete",
+        "repeat": 1,
+        "arm": "v3",
+        "label": "control-complete-r1-v3",
+        "counts": {
+          "responses_observed": 2,
+          "eligible_responses": 0,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 0,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "control-failed-sense",
+        "repeat": 1,
+        "arm": "v3",
+        "label": "control-failed-sense-r1-v3",
+        "counts": {
+          "responses_observed": 3,
+          "eligible_responses": 0,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 0,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [
+              {
+                "tool_call_id": "call_00_YSTiZwDAjtTNKjC27gRc3221",
+                "call_ordinal": 0,
+                "tool": "get_nearby_entities",
+                "actor": "drone-1",
+                "contract_applies": false,
+                "declaration_status": "missing",
+                "actor_sensing_call_count": 1,
+                "declaration_binding": "not_declared",
+                "decision": null,
+                "reason": null,
+                "movement_requested_before_query": false,
+                "decision_call_relation": "not_declared",
+                "execution_policy": "allowed_unchanged"
+              }
+            ],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 3,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      },
+      {
+        "case_id": "control-failed-sense",
+        "repeat": 1,
+        "arm": "v2",
+        "label": "control-failed-sense-r1-v2",
+        "counts": {
+          "responses_observed": 3,
+          "eligible_responses": 0,
+          "contract_active_responses": 0,
+          "eligible_responses_without_sensing": 0,
+          "applicable_query_calls": 0,
+          "applicable_queries_with_declaration": 0,
+          "applicable_queries_missing_declaration": 0,
+          "applicable_queries_invalid_declaration": 0,
+          "declarations": 0,
+          "unknown_reference_declarations": 0,
+          "claimed_change_without_reference": 0,
+          "refresh_with_none": 0,
+          "refresh_with_uncertain": 0,
+          "reuse_but_query_requested": 0,
+          "audit_errors": 0
+        },
+        "responses": [
+          {
+            "ordinal": 1,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [
+              {
+                "tool_call_id": "call_00_M495AOPAIdLoeaUirzwU7068",
+                "call_ordinal": 0,
+                "tool": "get_nearby_entities",
+                "actor": "drone-1",
+                "contract_applies": false,
+                "declaration_status": "missing",
+                "actor_sensing_call_count": 1,
+                "declaration_binding": "not_declared",
+                "decision": null,
+                "reason": null,
+                "movement_requested_before_query": false,
+                "decision_call_relation": "not_declared",
+                "execution_policy": "allowed_unchanged"
+              }
+            ],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 2,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          },
+          {
+            "ordinal": 3,
+            "parse_status": "missing",
+            "contract_eligible": false,
+            "contract_active": false,
+            "declarations": [],
+            "sensing_calls": [],
+            "eligible_actors_without_query": []
+          }
+        ],
+        "integrity_passed": true,
+        "issues": []
+      }
+    ],
+    "integrity_passed": true,
+    "issues": [],
+    "meaning": "Declarations are model statements, not verified causes. Known citations prove event existence only. No declaration, malformed declaration, or audit outcome blocks tools.",
+    "no_query_is_not_automatically_reuse_or_success": true
+  }
+}

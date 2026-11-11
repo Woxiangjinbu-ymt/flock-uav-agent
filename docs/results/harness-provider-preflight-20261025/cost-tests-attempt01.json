@@ -1,0 +1,25 @@
+{
+  "attempt": "01",
+  "command": [
+    "./agent4drone/.venv/bin/python",
+    "-m",
+    "pytest",
+    "scripts/tests/test_harness_cost_admission.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 0.3847651481628418,
+  "source_before": {
+    "scripts/harness_cost_admission.py": "aa3d35e03cf50efc0df05c3bbe9f19cfc81249f7de2e3d29cc1aacbb186c7673",
+    "scripts/tests/test_harness_cost_admission.py": "5fcd4c3c59e5c9d9f2d7c24652246f20dfec6cdf18a78fae9deafbff5f408350"
+  },
+  "source_after": {
+    "scripts/harness_cost_admission.py": "aa3d35e03cf50efc0df05c3bbe9f19cfc81249f7de2e3d29cc1aacbb186c7673",
+    "scripts/tests/test_harness_cost_admission.py": "5fcd4c3c59e5c9d9f2d7c24652246f20dfec6cdf18a78fae9deafbff5f408350"
+  },
+  "sources_unchanged": true,
+  "scope": "Pure Decimal state-machine tests; all prices/budgets synthetic; zero provider/API/model/Agent/simulator/worker executions; no real authorization",
+  "log_sha256": "c9396e7ab3d46e5d7575ed69630d1b306ed11539ca7fc938d0b17239eaa10900"
+}

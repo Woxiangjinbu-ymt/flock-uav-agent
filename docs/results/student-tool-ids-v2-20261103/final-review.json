@@ -1,0 +1,338 @@
+{
+  "schema": "student-tool-ids-v2-independent-final-review-v1",
+  "passed": true,
+  "method": "Original wire bytes, independent call-order canonicalization and JSON wrapper parsing; direct pinned tokenizer/template. No v2 encoder used for expected tokens,labels or sidecars.",
+  "checks": [
+    {
+      "check": "exact_bundle_seal",
+      "passed": true,
+      "bundle": "run-01",
+      "manifest_sha256": "e3c8c0a6f56f073014aa1812cb22326ec451f0163f0163201dfb187b0b022795",
+      "files": 19
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "scripts/validate_student_tool_ids.py"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "scripts/student_input_v2.py"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "scripts/student_parallel_corpus.py"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "scripts/student_input.py"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "scripts/convert_agent_samples.py"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "scripts/student_sample_loader.py"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "training/templates/qwen3-tool-ids-v2.jinja"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "training/requirements-input.lock"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "docs/STUDENT_TOOL_ID_ADAPTER_CN.md"
+    },
+    {
+      "check": "frozen_source_current",
+      "passed": true,
+      "file": "experiments/student-tool-ids-v2/plan.json"
+    },
+    {
+      "check": "exact_bundle_seal",
+      "passed": true,
+      "bundle": "conversion-run-01",
+      "manifest_sha256": "9377805432cdcd1041305d2e2e7d689f91686388867acb42da8c1a12bbabf2be",
+      "files": 9
+    },
+    {
+      "check": "exact_bundle_seal",
+      "passed": true,
+      "bundle": "student-input-run-01",
+      "manifest_sha256": "5d548f56ccee87024f20af14720dbda2bbe426f7aaac7c4ceea5ef23f768ab6f",
+      "files": 11
+    },
+    {
+      "check": "old_conversion_independent_raw_audit",
+      "passed": true,
+      "counts": {
+        "planned_episodes": 22,
+        "eligible_episodes": 12,
+        "excluded_episodes": 8,
+        "unrun_episodes": 2,
+        "logical_decisions": 98,
+        "exported_samples": 61,
+        "excluded_decisions": 37
+      }
+    },
+    {
+      "check": "pinned_tokenizer_template",
+      "passed": true,
+      "template_sha256": "87d1773ee83162a14d50d9aa913ab86793ec1e890f810fd65cb0810894e0367a"
+    },
+    {
+      "check": "98_raw_prompts_independent_canonical_mapping_and_rendered_JSON",
+      "passed": true,
+      "source_kinds": {
+        "synthetic_sdk_development": 60,
+        "real_provider_development": 38
+      }
+    },
+    {
+      "check": "wire_order_distinct_from_execution_completion",
+      "passed": true,
+      "unique_parallel_groups": 10,
+      "unique_same_name_groups": 6,
+      "same_name_requests": 10,
+      "wire_reordered_groups": 0,
+      "completion_reordered_groups": 2
+    },
+    {
+      "check": "prompt_distribution",
+      "passed": true,
+      "prompt_tokens": {
+        "count": 98,
+        "min": 9957,
+        "max": 30218,
+        "p50": 12167,
+        "p95": 18638
+      }
+    },
+    {
+      "check": "61_current_targets_token_prefixes_masks_EOS_and_sidecars",
+      "passed": true,
+      "source_kinds": {
+        "synthetic_sdk_development": 37,
+        "real_provider_development": 24
+      },
+      "supervised_tokens": 2849,
+      "v2_encoder_used": false
+    },
+    {
+      "check": "sequence_stats_and_increase",
+      "passed": true,
+      "total_v1": 736669,
+      "total_v2": 749200,
+      "increase": 12531,
+      "increase_percent": 1.7010353360871708
+    },
+    {
+      "check": "headroom_all_denominators",
+      "passed": true,
+      "cap": 4096,
+      "complete_samples_fit": 0,
+      "prompt_only_fit": 0,
+      "prompt_plus_reserve_fit": 0
+    },
+    {
+      "check": "headroom_all_denominators",
+      "passed": true,
+      "cap": 8192,
+      "complete_samples_fit": 0,
+      "prompt_only_fit": 0,
+      "prompt_plus_reserve_fit": 0
+    },
+    {
+      "check": "headroom_all_denominators",
+      "passed": true,
+      "cap": 16384,
+      "complete_samples_fit": 61,
+      "prompt_only_fit": 92,
+      "prompt_plus_reserve_fit": 89
+    },
+    {
+      "check": "headroom_all_denominators",
+      "passed": true,
+      "cap": 32768,
+      "complete_samples_fit": 61,
+      "prompt_only_fit": 98,
+      "prompt_plus_reserve_fit": 98
+    },
+    {
+      "check": "long_failed_search_prompts_not_labels",
+      "passed": true
+    },
+    {
+      "check": "12_inert_cases_independently_revalidated",
+      "passed": true,
+      "positive": 4,
+      "negative": 8
+    },
+    {
+      "check": "original_loader_61_rows31_batches",
+      "passed": true,
+      "batches": 31
+    },
+    {
+      "check": "265_unique_tests_no_failure_error_skip",
+      "passed": true
+    },
+    {
+      "check": "raw_old_and_new_artifacts_unchanged",
+      "passed": true
+    },
+    {
+      "check": "no_network_provider_model_training_tools",
+      "passed": true
+    },
+    {
+      "check": "report_numbers_and_boundaries_consistent",
+      "passed": true,
+      "correction": "Execution completion order differs in two groups; all actual wire receipt groups remain ordered."
+    }
+  ],
+  "denominators": {
+    "planned_episodes": 22,
+    "wire_prompts": 98,
+    "v1_measured_prompts": 88,
+    "v2_measured_prompts": 98,
+    "previous_rejections_resolved": 10,
+    "original_samples": 61,
+    "excluded_decisions_unchanged": 37,
+    "synthetic_positive": 4,
+    "synthetic_negative": 8,
+    "tests": 265,
+    "teacher_training_samples": 0
+  },
+  "source_kinds": {
+    "wire_prompts": {
+      "synthetic_sdk_development": 60,
+      "real_provider_development": 38
+    },
+    "complete_samples": {
+      "synthetic_sdk_development": 37,
+      "real_provider_development": 24
+    }
+  },
+  "lengths": {
+    "prompt_tokens": {
+      "count": 98,
+      "min": 9957,
+      "max": 30218,
+      "p50": 12167,
+      "p95": 18638
+    },
+    "sequence_tokens": {
+      "count": 61,
+      "min": 9988,
+      "max": 14885,
+      "p50": 12266,
+      "p95": 13914
+    },
+    "total_v1": 736669,
+    "total_v2": 749200,
+    "increase_percent": 1.7010353360871708,
+    "candidate_lengths": {
+      "4096": {
+        "complete_samples_fit": 0,
+        "prompt_only_fit": 0,
+        "prompt_plus_reserve_fit": 0
+      },
+      "8192": {
+        "complete_samples_fit": 0,
+        "prompt_only_fit": 0,
+        "prompt_plus_reserve_fit": 0
+      },
+      "16384": {
+        "complete_samples_fit": 61,
+        "prompt_only_fit": 92,
+        "prompt_plus_reserve_fit": 89
+      },
+      "32768": {
+        "complete_samples_fit": 61,
+        "prompt_only_fit": 98,
+        "prompt_plus_reserve_fit": 98
+      }
+    }
+  },
+  "parallel_evidence": {
+    "unique_parallel_groups": 10,
+    "unique_same_name_groups": 6,
+    "same_name_request_count": 10,
+    "wire_reordered_groups": 0,
+    "execution_completion_reordered_groups": 2,
+    "execution_completion_details": [
+      {
+        "trial_id": "b4714028-integrated",
+        "call_ids": [
+          "call_00_AIaZeo5ENyy9QaRg988X2751",
+          "call_01_UaGH9vPQyDpUmsYcnNzY5252",
+          "call_02_EDRgHpTN2Uv728R2kwba2276"
+        ],
+        "completion_ids": [
+          "call_02_EDRgHpTN2Uv728R2kwba2276",
+          "call_00_AIaZeo5ENyy9QaRg988X2751",
+          "call_01_UaGH9vPQyDpUmsYcnNzY5252"
+        ]
+      },
+      {
+        "trial_id": "7eba7390-baseline",
+        "call_ids": [
+          "call_00_TnR2Ow2L1aIScoqesXbc3823",
+          "call_01_WYL0TtcmDEEgiVyRjDuT3987",
+          "call_02_FtZLjGrqcFg3BtdwuFN48845",
+          "call_03_ZkDEkmxZ3aL8M9ee8S1J7188",
+          "call_04_vnrewLr9uUYSBugsCShc6353"
+        ],
+        "completion_ids": [
+          "call_01_WYL0TtcmDEEgiVyRjDuT3987",
+          "call_02_FtZLjGrqcFg3BtdwuFN48845",
+          "call_03_ZkDEkmxZ3aL8M9ee8S1J7188",
+          "call_04_vnrewLr9uUYSBugsCShc6353",
+          "call_00_TnR2Ow2L1aIScoqesXbc3823"
+        ]
+      }
+    ]
+  },
+  "source_sha256": {
+    "scripts/validate_student_tool_ids.py": "b60b1c7be9f673e156d2b1596f08f0d7c160d346d5c3337e5edd7620bad1da65",
+    "scripts/student_input_v2.py": "315c374f2f4814d98b7f98e769d108954ac6f4b02b4b153144b64af44d14053d",
+    "scripts/student_parallel_corpus.py": "0b074c602d110fd22f5afa0a4dd460df0d4405da8481c25b4f7eacad86a235ad",
+    "scripts/student_input.py": "c7694f96d11ec6c562eb253f2752952fd4bda75cfff9e29295932b83a0d71e33",
+    "scripts/convert_agent_samples.py": "26f2cfc214258d68029999c587b54aacb9f1eb27aba07fdc7bacadde8d6387a4",
+    "scripts/student_sample_loader.py": "74cec24ea58174be8d1dbf1ee20a9032637be3edcd0706cbfb6955330d613fa4",
+    "training/templates/qwen3-tool-ids-v2.jinja": "87d1773ee83162a14d50d9aa913ab86793ec1e890f810fd65cb0810894e0367a",
+    "training/requirements-input.lock": "a8be6697f6f851fb5f441a25b75db37ce8acf560cb4777cedd22a755fa6ca5d7",
+    "docs/STUDENT_TOOL_ID_ADAPTER_CN.md": "65763e0717328ba780126f4f590c4c4eb2227c689f92a9ea0bd22e3513758c2f",
+    "experiments/student-tool-ids-v2/plan.json": "5e620b8983dbee2ae1e70fc28f2baa7cf25ca5833769fe7b29dd1de7b76201c0"
+  },
+  "artifact_sha256": {
+    "run-01/manifest.json": "e3c8c0a6f56f073014aa1812cb22326ec451f0163f0163201dfb187b0b022795",
+    "loading-smoke.json": "8c07b7f892fa799ebacf9f72cdf5b82c0d1b426127e3eb8e4e5ad01bc6a1a940",
+    "v1-reverification.json": "5a0fc1c82cd53c8f72bfca69b654a5e52fdc072ca4926d9757154dd871f9c72a",
+    "pytest.xml": "6a18215ce7da9b79b3940deaddaab2d27859c3fa94f97ec853eaed0200581aa3",
+    "REPORT_CN.md": "c5f38b5087a606f878a7bb28a210464d3759d07f1fe9daa5af38833bb91ef503"
+  },
+  "limits": [
+    "Format,canonical linkage,exact token labels and padding only; no model inference,network,tool execution,training or serving integration.",
+    "Actual wire receipt reorder count is zero; reverse-order support is established only through synthetic cases.",
+    "Tool name/JSON shape/linkage validation does not establish tool JSON Schema/business argument validity or executable semantics.",
+    "61 samples remain exposed development data:37 scripted and24 real-run. Teacher count stays0.98 prompts include failed/partial requests and one denied serialization.",
+    "16k fits61 complete examples and92/98 prompts,or89/98 with2048 reserve.32k fits this98-request corpus with2048 reserve; not a future-task guarantee.",
+    "Only outer linkage IDs are canonicalized; business strings retain original content.",
+    "Custom-template compatibility does not demonstrate model understanding or task-success improvement."
+  ],
+  "report_review": "Completion-order count corrected from one to two groups; no remaining material numerical or scope discrepancy."
+}

@@ -1,0 +1,5027 @@
+{
+  "method": "Independent static checks and raw public log recomputation; no runner imports, simulation, or model calls.",
+  "audit_script_sha256": "35458cff1e17365c342245a910d7515b3d2f7a0997b26a77eb0f5355f215d647",
+  "campaign_seal_sha256": "f95fc5a8d83b084c34fabe5c34bcb3d6894349e87cdaec09612d99c92a385db6",
+  "checks_passed": 357,
+  "checks_failed": 2,
+  "invariant_failures": 0,
+  "reproducibility_differences": [
+    {
+      "name": "24ac1838-shared_endpoint_v5/historical_cost_exact",
+      "passed": false,
+      "detail": {
+        "consumed_mah": {
+          "historical": 89.85383876141562,
+          "current": 89.85579610750584
+        }
+      },
+      "category": "reproducibility_diagnostic"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/historical_cost_exact",
+      "passed": false,
+      "detail": {
+        "consumed_mah": {
+          "historical": 171.6356798984034,
+          "current": 171.58594848833144
+        }
+      },
+      "category": "reproducibility_diagnostic"
+    }
+  ],
+  "checks": [
+    {
+      "name": "campaign_seal",
+      "passed": true,
+      "detail": {
+        "count": 329,
+        "mismatches": []
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "frozen_source",
+      "passed": true,
+      "detail": {
+        "count": 76,
+        "mismatches": []
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "live_source_same_as_freeze",
+      "passed": true,
+      "detail": {
+        "count": 76,
+        "mismatches": []
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "selected_inputs",
+      "passed": true,
+      "detail": {
+        "count": 19,
+        "mismatches": []
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "original_full_manifest",
+      "passed": true,
+      "detail": {
+        "count": 410,
+        "mismatches": []
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "old_campaign_unchanged",
+      "passed": true,
+      "detail": {
+        "count": 315,
+        "mismatches": []
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "protocol_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "fixed_budgets",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "fourteen_fixed_alternating_trials",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "fourteen_verified",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 9
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/historical_reproduction",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-shared_endpoint_v5/historical_cost_exact",
+      "passed": true,
+      "detail": {},
+      "category": "reproducibility_diagnostic"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 9
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390-terminal_progress_v6/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 13
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-terminal_progress_v6/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 13
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/historical_reproduction",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838-shared_endpoint_v5/historical_cost_exact",
+      "passed": false,
+      "detail": {
+        "consumed_mah": {
+          "historical": 89.85383876141562,
+          "current": 89.85579610750584
+        }
+      },
+      "category": "reproducibility_diagnostic"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 18
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/historical_reproduction",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-shared_endpoint_v5/historical_cost_exact",
+      "passed": false,
+      "detail": {
+        "consumed_mah": {
+          "historical": 171.6356798984034,
+          "current": 171.58594848833144
+        }
+      },
+      "category": "reproducibility_diagnostic"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 19
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/fresh_terminal_read_confirmed",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/completed_search_has_public_evidence",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e-terminal_progress_v6/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 0
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-terminal_progress_v6/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 0
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/historical_reproduction",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270-shared_endpoint_v5/historical_cost_exact",
+      "passed": true,
+      "detail": {},
+      "category": "reproducibility_diagnostic"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 0
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/historical_reproduction",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-shared_endpoint_v5/historical_cost_exact",
+      "passed": true,
+      "detail": {},
+      "category": "reproducibility_diagnostic"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 0
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/terminal_explicit_reject",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca-terminal_progress_v6/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 0
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-terminal_progress_v6/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 0
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/historical_reproduction",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8-shared_endpoint_v5/historical_cost_exact",
+      "passed": true,
+      "detail": {},
+      "category": "reproducibility_diagnostic"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 0
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/historical_reproduction",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-shared_endpoint_v5/historical_cost_exact",
+      "passed": true,
+      "detail": {},
+      "category": "reproducibility_diagnostic"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/raw_progress_call_count",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/raw_progress_and_evidence_hashes",
+      "passed": true,
+      "detail": {
+        "read_count": 0
+      },
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/initial_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/public_hash",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/command",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/empty_board",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/no_model_network",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/same_scheduler_budget",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/terminal_control",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/isolated_original_checker",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/no_checker_to_skill",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/static_contract",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/raw_task_allowlist",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/independent_final_geometry_digest",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/single_static_scope",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/raw_api_and_action_cost",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/raw_energy",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/raw_physical_path",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/raw_blocked_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/no_idle_move_regression",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad-terminal_progress_v6/raw_qualified_shared_metrics",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "fourteen_distinct_processes",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390/same_initial_obstacle_geometry",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390/saved_first_divergence",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390/saved_unique_failure_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "7eba7390/saved_public_read_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838/same_initial_obstacle_geometry",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838/saved_first_divergence",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838/saved_unique_failure_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "24ac1838/saved_public_read_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e/same_initial_obstacle_geometry",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e/saved_first_divergence",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e/saved_unique_failure_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1ad4f3e/saved_public_read_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270/same_initial_obstacle_geometry",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270/saved_first_divergence",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270/saved_unique_failure_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "b1eb0270/saved_public_read_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca/same_initial_obstacle_geometry",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca/saved_first_divergence",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca/saved_unique_failure_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "898cfdca/saved_public_read_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8/same_initial_obstacle_geometry",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8/saved_first_divergence",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8/saved_unique_failure_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "784d71f8/saved_public_read_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad/same_initial_obstacle_geometry",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad/saved_first_divergence",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad/saved_unique_failure_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    },
+    {
+      "name": "1905e0ad/saved_public_read_delta",
+      "passed": true,
+      "detail": null,
+      "category": "invariant"
+    }
+  ],
+  "trials": [
+    {
+      "trial_id": "7eba7390-shared_endpoint_v5",
+      "checker_passed": false,
+      "checks": [
+        0,
+        1
+      ],
+      "progress": {
+        "session_id": "3973d0d6",
+        "task_type": "target_assignment",
+        "progress_percentage": 33,
+        "details": {
+          "total_targets": 3,
+          "visited_targets": 1,
+          "unvisited_targets": 2
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "round_limit_below_threshold",
+      "plan_counters": [
+        {
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "round_limit_below_threshold",
+          "cursor": 80,
+          "units": 80,
+          "api_calls": 345,
+          "api_budget": 2000,
+          "repairs": 0,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 346,
+        "action_attempts": 85,
+        "action_receipts": {
+          "success": 85,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 85,
+        "length_xy": 9782.38782015026,
+        "length_xyz": 9882.38782015026,
+        "vertical_distance": 100.0,
+        "consumed_mah": 55.04257576935267,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 345,
+        "skill_progress_count": 9,
+        "skill_progress_reads": [
+          {
+            "request_id": 7,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e1",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 0,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 85
+          },
+          {
+            "request_id": 64,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e115",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 0,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 70
+          },
+          {
+            "request_id": 105,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e197",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 0,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 60
+          },
+          {
+            "request_id": 146,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e279",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 0,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 50
+          },
+          {
+            "request_id": 187,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e361",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 40
+          },
+          {
+            "request_id": 228,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e443",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 30
+          },
+          {
+            "request_id": 269,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e525",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 20
+          },
+          {
+            "request_id": 310,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e607",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 10
+          },
+          {
+            "request_id": 351,
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "evidence_ref": "e689",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 0
+          }
+        ],
+        "last_skill_progress": {
+          "request_id": 351,
+          "plan_id": "7eba7390-shared_endpoint_v5:p1",
+          "evidence_ref": "e689",
+          "percent": 33,
+          "normalized_receipt": {
+            "session_id": "3973d0d6",
+            "task_type": "target_assignment",
+            "progress_percentage": 33,
+            "details": {
+              "total_targets": 3,
+              "visited_targets": 1,
+              "unvisited_targets": 2
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "raw_and_evidence_valid": true,
+          "actions_after": 0
+        },
+        "terminal_frames": [
+          {
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "status": "needs_replan",
+            "reason": "round_limit_below_threshold",
+            "api_calls": 345,
+            "cursor": 80,
+            "repairs": 0,
+            "cached_percent": 33,
+            "terminal_record": null,
+            "terminal_raw_evidence": null
+          }
+        ]
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "7eba7390-terminal_progress_v6",
+      "checker_passed": false,
+      "checks": [
+        0,
+        1
+      ],
+      "progress": {
+        "session_id": "3973d0d6",
+        "task_type": "target_assignment",
+        "progress_percentage": 33,
+        "details": {
+          "total_targets": 3,
+          "visited_targets": 1,
+          "unvisited_targets": 2
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "round_limit_below_threshold",
+      "plan_counters": [
+        {
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "round_limit_below_threshold",
+          "cursor": 80,
+          "units": 80,
+          "api_calls": 345,
+          "api_budget": 2000,
+          "repairs": 0,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 346,
+        "action_attempts": 85,
+        "action_receipts": {
+          "success": 85,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 85,
+        "length_xy": 9782.38782015026,
+        "length_xyz": 9882.38782015026,
+        "vertical_distance": 100.0,
+        "consumed_mah": 55.04257576935267,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 345,
+        "skill_progress_count": 9,
+        "skill_progress_reads": [
+          {
+            "request_id": 7,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e1",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 0,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 85
+          },
+          {
+            "request_id": 64,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e115",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 0,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 70
+          },
+          {
+            "request_id": 105,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e197",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 0,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 60
+          },
+          {
+            "request_id": 146,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e279",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 0,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 50
+          },
+          {
+            "request_id": 187,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e361",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 40
+          },
+          {
+            "request_id": 228,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e443",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 30
+          },
+          {
+            "request_id": 269,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e525",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 20
+          },
+          {
+            "request_id": 310,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e607",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 10
+          },
+          {
+            "request_id": 351,
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "evidence_ref": "e689",
+            "percent": 33,
+            "normalized_receipt": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 0
+          }
+        ],
+        "last_skill_progress": {
+          "request_id": 351,
+          "plan_id": "7eba7390-terminal_progress_v6:p1",
+          "evidence_ref": "e689",
+          "percent": 33,
+          "normalized_receipt": {
+            "session_id": "3973d0d6",
+            "task_type": "target_assignment",
+            "progress_percentage": 33,
+            "details": {
+              "total_targets": 3,
+              "visited_targets": 1,
+              "unvisited_targets": 2
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "raw_and_evidence_valid": true,
+          "actions_after": 0
+        },
+        "terminal_frames": [
+          {
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "status": "needs_replan",
+            "reason": "round_limit_below_threshold",
+            "api_calls": 345,
+            "cursor": 80,
+            "repairs": 0,
+            "cached_percent": 33,
+            "terminal_record": null,
+            "terminal_raw_evidence": null
+          }
+        ]
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "24ac1838-terminal_progress_v6",
+      "checker_passed": false,
+      "checks": [
+        0,
+        1
+      ],
+      "progress": {
+        "session_id": "823c15d5",
+        "task_type": "target_assignment",
+        "progress_percentage": 38,
+        "details": {
+          "total_targets": 100,
+          "visited_targets": 38,
+          "unvisited_targets": 62
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "local_repair_budget_exhausted",
+      "plan_counters": [
+        {
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "local_repair_budget_exhausted",
+          "cursor": 126,
+          "units": 125,
+          "api_calls": 611,
+          "api_budget": 2000,
+          "repairs": 17,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 612,
+        "action_attempts": 156,
+        "action_receipts": {
+          "success": 139,
+          "partial_success": 0,
+          "error": 17
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 139,
+        "length_xy": 12424.064933503458,
+        "length_xyz": 13041.06493350346,
+        "vertical_distance": 617.0,
+        "consumed_mah": 89.7858213511838,
+        "charged_mah": 0
+      },
+      "all_move_errors": 17,
+      "unique_failures": 17,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 611,
+        "skill_progress_count": 13,
+        "skill_progress_reads": [
+          {
+            "request_id": 32,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e1",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 0,
+                "unvisited_targets": 100
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 156
+          },
+          {
+            "request_id": 124,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e185",
+            "percent": 2,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 2,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 2,
+                "unvisited_targets": 98
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 136
+          },
+          {
+            "request_id": 185,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e307",
+            "percent": 5,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 5,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 5,
+                "unvisited_targets": 95
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 116
+          },
+          {
+            "request_id": 246,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e429",
+            "percent": 6,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 6,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 6,
+                "unvisited_targets": 94
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 96
+          },
+          {
+            "request_id": 287,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e511",
+            "percent": 8,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 8,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 8,
+                "unvisited_targets": 92
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 86
+          },
+          {
+            "request_id": 328,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e593",
+            "percent": 10,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 10,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 10,
+                "unvisited_targets": 90
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 76
+          },
+          {
+            "request_id": 369,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e675",
+            "percent": 14,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 14,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 14,
+                "unvisited_targets": 86
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 66
+          },
+          {
+            "request_id": 411,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e759",
+            "percent": 17,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 17,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 17,
+                "unvisited_targets": 83
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 56
+          },
+          {
+            "request_id": 452,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e841",
+            "percent": 23,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 23,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 23,
+                "unvisited_targets": 77
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 46
+          },
+          {
+            "request_id": 493,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e923",
+            "percent": 26,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 26,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 26,
+                "unvisited_targets": 74
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 36
+          },
+          {
+            "request_id": 535,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e1007",
+            "percent": 34,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 34,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 34,
+                "unvisited_targets": 66
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 26
+          },
+          {
+            "request_id": 576,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e1089",
+            "percent": 36,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 36,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 36,
+                "unvisited_targets": 64
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 16
+          },
+          {
+            "request_id": 617,
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "evidence_ref": "e1171",
+            "percent": 38,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 38,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 38,
+                "unvisited_targets": 62
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 6
+          }
+        ],
+        "last_skill_progress": {
+          "request_id": 617,
+          "plan_id": "24ac1838-terminal_progress_v6:p1",
+          "evidence_ref": "e1171",
+          "percent": 38,
+          "normalized_receipt": {
+            "session_id": "823c15d5",
+            "task_type": "target_assignment",
+            "progress_percentage": 38,
+            "details": {
+              "total_targets": 100,
+              "visited_targets": 38,
+              "unvisited_targets": 62
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "raw_and_evidence_valid": true,
+          "actions_after": 6
+        },
+        "terminal_frames": [
+          {
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted",
+            "api_calls": 611,
+            "cursor": 126,
+            "repairs": 17,
+            "cached_percent": 38,
+            "terminal_record": null,
+            "terminal_raw_evidence": null
+          }
+        ]
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "24ac1838-shared_endpoint_v5",
+      "checker_passed": false,
+      "checks": [
+        0,
+        1
+      ],
+      "progress": {
+        "session_id": "823c15d5",
+        "task_type": "target_assignment",
+        "progress_percentage": 38,
+        "details": {
+          "total_targets": 100,
+          "visited_targets": 38,
+          "unvisited_targets": 62
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "local_repair_budget_exhausted",
+      "plan_counters": [
+        {
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "local_repair_budget_exhausted",
+          "cursor": 126,
+          "units": 125,
+          "api_calls": 611,
+          "api_budget": 2000,
+          "repairs": 17,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 612,
+        "action_attempts": 156,
+        "action_receipts": {
+          "success": 139,
+          "partial_success": 0,
+          "error": 17
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 139,
+        "length_xy": 12424.064933503458,
+        "length_xyz": 13041.06493350346,
+        "vertical_distance": 617.0,
+        "consumed_mah": 89.85579610750584,
+        "charged_mah": 0
+      },
+      "all_move_errors": 17,
+      "unique_failures": 17,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 611,
+        "skill_progress_count": 13,
+        "skill_progress_reads": [
+          {
+            "request_id": 32,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e1",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 0,
+                "unvisited_targets": 100
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 156
+          },
+          {
+            "request_id": 124,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e185",
+            "percent": 2,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 2,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 2,
+                "unvisited_targets": 98
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 136
+          },
+          {
+            "request_id": 185,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e307",
+            "percent": 5,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 5,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 5,
+                "unvisited_targets": 95
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 116
+          },
+          {
+            "request_id": 246,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e429",
+            "percent": 6,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 6,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 6,
+                "unvisited_targets": 94
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 96
+          },
+          {
+            "request_id": 287,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e511",
+            "percent": 8,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 8,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 8,
+                "unvisited_targets": 92
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 86
+          },
+          {
+            "request_id": 328,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e593",
+            "percent": 10,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 10,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 10,
+                "unvisited_targets": 90
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 76
+          },
+          {
+            "request_id": 369,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e675",
+            "percent": 14,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 14,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 14,
+                "unvisited_targets": 86
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 66
+          },
+          {
+            "request_id": 411,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e759",
+            "percent": 17,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 17,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 17,
+                "unvisited_targets": 83
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 56
+          },
+          {
+            "request_id": 452,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e841",
+            "percent": 23,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 23,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 23,
+                "unvisited_targets": 77
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 46
+          },
+          {
+            "request_id": 493,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e923",
+            "percent": 26,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 26,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 26,
+                "unvisited_targets": 74
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 36
+          },
+          {
+            "request_id": 535,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e1007",
+            "percent": 34,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 34,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 34,
+                "unvisited_targets": 66
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 26
+          },
+          {
+            "request_id": 576,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e1089",
+            "percent": 36,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 36,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 36,
+                "unvisited_targets": 64
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 16
+          },
+          {
+            "request_id": 617,
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "evidence_ref": "e1171",
+            "percent": 38,
+            "normalized_receipt": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 38,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 38,
+                "unvisited_targets": 62
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 6
+          }
+        ],
+        "last_skill_progress": {
+          "request_id": 617,
+          "plan_id": "24ac1838-shared_endpoint_v5:p1",
+          "evidence_ref": "e1171",
+          "percent": 38,
+          "normalized_receipt": {
+            "session_id": "823c15d5",
+            "task_type": "target_assignment",
+            "progress_percentage": 38,
+            "details": {
+              "total_targets": 100,
+              "visited_targets": 38,
+              "unvisited_targets": 62
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "raw_and_evidence_valid": true,
+          "actions_after": 6
+        },
+        "terminal_frames": [
+          {
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted",
+            "api_calls": 611,
+            "cursor": 126,
+            "repairs": 17,
+            "cached_percent": 38,
+            "terminal_record": null,
+            "terminal_raw_evidence": null
+          }
+        ]
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "b1ad4f3e-shared_endpoint_v5",
+      "checker_passed": true,
+      "checks": [
+        1,
+        1
+      ],
+      "progress": {
+        "session_id": "35ce64d8",
+        "task_type": "target_assignment",
+        "progress_percentage": 100,
+        "details": {
+          "total_targets": 20,
+          "visited_targets": 20,
+          "unvisited_targets": 0
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "no_public_candidate",
+      "plan_counters": [
+        {
+          "skill": "public_search",
+          "status": "needs_replan",
+          "reason": "no_public_candidate",
+          "cursor": 176,
+          "units": 176,
+          "api_calls": 817,
+          "api_budget": 2000,
+          "repairs": 10,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 818,
+        "action_attempts": 191,
+        "action_receipts": {
+          "success": 181,
+          "partial_success": 0,
+          "error": 10
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 181,
+        "length_xy": 30809.95990592174,
+        "length_xyz": 31109.95990592174,
+        "vertical_distance": 300.0,
+        "consumed_mah": 171.58594848833144,
+        "charged_mah": 0
+      },
+      "all_move_errors": 10,
+      "unique_failures": 10,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 817,
+        "skill_progress_count": 18,
+        "skill_progress_reads": [
+          {
+            "request_id": 17,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e1",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 0,
+                "unvisited_targets": 20
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 191
+          },
+          {
+            "request_id": 94,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e155",
+            "percent": 10,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 10,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 2,
+                "unvisited_targets": 18
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 171
+          },
+          {
+            "request_id": 145,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e257",
+            "percent": 20,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 20,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 4,
+                "unvisited_targets": 16
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 156
+          },
+          {
+            "request_id": 186,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e339",
+            "percent": 40,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 40,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 8,
+                "unvisited_targets": 12
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 146
+          },
+          {
+            "request_id": 227,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e421",
+            "percent": 45,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 45,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 9,
+                "unvisited_targets": 11
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 136
+          },
+          {
+            "request_id": 268,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e503",
+            "percent": 50,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 50,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 10,
+                "unvisited_targets": 10
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 126
+          },
+          {
+            "request_id": 309,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e585",
+            "percent": 50,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 50,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 10,
+                "unvisited_targets": 10
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 116
+          },
+          {
+            "request_id": 350,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e667",
+            "percent": 50,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 50,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 10,
+                "unvisited_targets": 10
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 106
+          },
+          {
+            "request_id": 391,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e749",
+            "percent": 60,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 60,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 12,
+                "unvisited_targets": 8
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 96
+          },
+          {
+            "request_id": 432,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e831",
+            "percent": 70,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 70,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 14,
+                "unvisited_targets": 6
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 86
+          },
+          {
+            "request_id": 473,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e913",
+            "percent": 80,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 80,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 16,
+                "unvisited_targets": 4
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 76
+          },
+          {
+            "request_id": 514,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e995",
+            "percent": 85,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 85,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 17,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 66
+          },
+          {
+            "request_id": 555,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e1077",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 56
+          },
+          {
+            "request_id": 596,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e1159",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 46
+          },
+          {
+            "request_id": 637,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e1241",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 36
+          },
+          {
+            "request_id": 679,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e1325",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 26
+          },
+          {
+            "request_id": 724,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e1415",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 16
+          },
+          {
+            "request_id": 772,
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "evidence_ref": "e1511",
+            "percent": 95,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 95,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 19,
+                "unvisited_targets": 1
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 6
+          }
+        ],
+        "last_skill_progress": {
+          "request_id": 772,
+          "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+          "evidence_ref": "e1511",
+          "percent": 95,
+          "normalized_receipt": {
+            "session_id": "35ce64d8",
+            "task_type": "target_assignment",
+            "progress_percentage": 95,
+            "details": {
+              "total_targets": 20,
+              "visited_targets": 19,
+              "unvisited_targets": 1
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "raw_and_evidence_valid": true,
+          "actions_after": 6
+        },
+        "terminal_frames": [
+          {
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "status": "needs_replan",
+            "reason": "no_public_candidate",
+            "api_calls": 817,
+            "cursor": 176,
+            "repairs": 10,
+            "cached_percent": 95,
+            "terminal_record": null,
+            "terminal_raw_evidence": null
+          }
+        ]
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "b1ad4f3e-terminal_progress_v6",
+      "checker_passed": true,
+      "checks": [
+        1,
+        1
+      ],
+      "progress": {
+        "session_id": "35ce64d8",
+        "task_type": "target_assignment",
+        "progress_percentage": 100,
+        "details": {
+          "total_targets": 20,
+          "visited_targets": 20,
+          "unvisited_targets": 0
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "skill_public_stop_condition",
+      "plan_counters": [
+        {
+          "skill": "public_search",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 176,
+          "units": 176,
+          "api_calls": 818,
+          "api_budget": 2000,
+          "repairs": 10,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 819,
+        "action_attempts": 191,
+        "action_receipts": {
+          "success": 181,
+          "partial_success": 0,
+          "error": 10
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 181,
+        "length_xy": 30809.95990592174,
+        "length_xyz": 31109.95990592174,
+        "vertical_distance": 300.0,
+        "consumed_mah": 171.5755910721066,
+        "charged_mah": 0
+      },
+      "all_move_errors": 10,
+      "unique_failures": 10,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 818,
+        "skill_progress_count": 19,
+        "skill_progress_reads": [
+          {
+            "request_id": 17,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e1",
+            "percent": 0,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 0,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 0,
+                "unvisited_targets": 20
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 191
+          },
+          {
+            "request_id": 94,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e155",
+            "percent": 10,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 10,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 2,
+                "unvisited_targets": 18
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 171
+          },
+          {
+            "request_id": 145,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e257",
+            "percent": 20,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 20,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 4,
+                "unvisited_targets": 16
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 156
+          },
+          {
+            "request_id": 186,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e339",
+            "percent": 40,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 40,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 8,
+                "unvisited_targets": 12
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 146
+          },
+          {
+            "request_id": 227,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e421",
+            "percent": 45,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 45,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 9,
+                "unvisited_targets": 11
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 136
+          },
+          {
+            "request_id": 268,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e503",
+            "percent": 50,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 50,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 10,
+                "unvisited_targets": 10
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 126
+          },
+          {
+            "request_id": 309,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e585",
+            "percent": 50,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 50,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 10,
+                "unvisited_targets": 10
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 116
+          },
+          {
+            "request_id": 350,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e667",
+            "percent": 50,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 50,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 10,
+                "unvisited_targets": 10
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 106
+          },
+          {
+            "request_id": 391,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e749",
+            "percent": 60,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 60,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 12,
+                "unvisited_targets": 8
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 96
+          },
+          {
+            "request_id": 432,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e831",
+            "percent": 70,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 70,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 14,
+                "unvisited_targets": 6
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 86
+          },
+          {
+            "request_id": 473,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e913",
+            "percent": 80,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 80,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 16,
+                "unvisited_targets": 4
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 76
+          },
+          {
+            "request_id": 514,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e995",
+            "percent": 85,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 85,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 17,
+                "unvisited_targets": 3
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 66
+          },
+          {
+            "request_id": 555,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e1077",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 56
+          },
+          {
+            "request_id": 596,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e1159",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 46
+          },
+          {
+            "request_id": 637,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e1241",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 36
+          },
+          {
+            "request_id": 679,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e1325",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 26
+          },
+          {
+            "request_id": 724,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e1415",
+            "percent": 90,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 90,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 18,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 16
+          },
+          {
+            "request_id": 772,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e1511",
+            "percent": 95,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 95,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 19,
+                "unvisited_targets": 1
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 6
+          },
+          {
+            "request_id": 834,
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "evidence_ref": "e1635",
+            "percent": 100,
+            "normalized_receipt": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 100,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 20,
+                "unvisited_targets": 0
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict"
+            },
+            "raw_and_evidence_valid": true,
+            "actions_after": 0
+          }
+        ],
+        "last_skill_progress": {
+          "request_id": 834,
+          "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+          "evidence_ref": "e1635",
+          "percent": 100,
+          "normalized_receipt": {
+            "session_id": "35ce64d8",
+            "task_type": "target_assignment",
+            "progress_percentage": 100,
+            "details": {
+              "total_targets": 20,
+              "visited_targets": 20,
+              "unvisited_targets": 0
+            },
+            "source_endpoint": "/sessions/current",
+            "scope": "public_session_aggregate_not_full_task_verdict"
+          },
+          "raw_and_evidence_valid": true,
+          "actions_after": 0
+        },
+        "terminal_frames": [
+          {
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "api_calls": 818,
+            "cursor": 176,
+            "repairs": 10,
+            "cached_percent": 100,
+            "terminal_record": {
+              "trigger": "no_public_candidate",
+              "cached_progress_percent": 95,
+              "status": "confirmed",
+              "evidence_ref": "e1635",
+              "progress_percent": 100
+            },
+            "terminal_raw_evidence": {
+              "request_id": 834,
+              "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+              "evidence_ref": "e1635",
+              "percent": 100,
+              "normalized_receipt": {
+                "session_id": "35ce64d8",
+                "task_type": "target_assignment",
+                "progress_percentage": 100,
+                "details": {
+                  "total_targets": 20,
+                  "visited_targets": 20,
+                  "unvisited_targets": 0
+                },
+                "source_endpoint": "/sessions/current",
+                "scope": "public_session_aggregate_not_full_task_verdict"
+              },
+              "raw_and_evidence_valid": true,
+              "actions_after": 0
+            }
+          }
+        ]
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "b1eb0270-terminal_progress_v6",
+      "checker_passed": true,
+      "checks": [
+        2,
+        2
+      ],
+      "progress": {
+        "session_id": "ad34350a",
+        "task_type": "area_assignment_and_patrol",
+        "progress_percentage": 0,
+        "details": {
+          "total_targets": 20
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "skill_public_stop_condition",
+      "plan_counters": [
+        {
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "units": 2,
+          "api_calls": 10,
+          "api_budget": 2000,
+          "repairs": 0,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 11,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 10,
+        "skill_progress_count": 0,
+        "skill_progress_reads": [],
+        "last_skill_progress": null,
+        "terminal_frames": []
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "b1eb0270-shared_endpoint_v5",
+      "checker_passed": true,
+      "checks": [
+        2,
+        2
+      ],
+      "progress": {
+        "session_id": "ad34350a",
+        "task_type": "area_assignment_and_patrol",
+        "progress_percentage": 0,
+        "details": {
+          "total_targets": 20
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "skill_public_stop_condition",
+      "plan_counters": [
+        {
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "units": 2,
+          "api_calls": 10,
+          "api_budget": 2000,
+          "repairs": 0,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 11,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 10,
+        "skill_progress_count": 0,
+        "skill_progress_reads": [],
+        "last_skill_progress": null,
+        "terminal_frames": []
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "898cfdca-shared_endpoint_v5",
+      "checker_passed": true,
+      "checks": [
+        2,
+        2
+      ],
+      "progress": {
+        "session_id": "35ce64d8",
+        "task_type": "target_assignment",
+        "progress_percentage": 0,
+        "details": {
+          "total_targets": 20,
+          "visited_targets": 0,
+          "unvisited_targets": 20
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "skill_public_stop_condition",
+      "plan_counters": [
+        {
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "units": 2,
+          "api_calls": 10,
+          "api_budget": 2000,
+          "repairs": 0,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 11,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 30.0,
+        "vertical_distance": 30.0,
+        "consumed_mah": 0.514908913499994,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 10,
+        "skill_progress_count": 0,
+        "skill_progress_reads": [],
+        "last_skill_progress": null,
+        "terminal_frames": []
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "898cfdca-terminal_progress_v6",
+      "checker_passed": true,
+      "checks": [
+        2,
+        2
+      ],
+      "progress": {
+        "session_id": "35ce64d8",
+        "task_type": "target_assignment",
+        "progress_percentage": 0,
+        "details": {
+          "total_targets": 20,
+          "visited_targets": 0,
+          "unvisited_targets": 20
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "skill_public_stop_condition",
+      "plan_counters": [
+        {
+          "skill": "simple_chain",
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "units": 2,
+          "api_calls": 10,
+          "api_budget": 2000,
+          "repairs": 0,
+          "repair_budget": 16
+        }
+      ],
+      "cost": {
+        "api_requests": 11,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 30.0,
+        "vertical_distance": 30.0,
+        "consumed_mah": 0.514908913499994,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 10,
+        "skill_progress_count": 0,
+        "skill_progress_reads": [],
+        "last_skill_progress": null,
+        "terminal_frames": []
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "784d71f8-terminal_progress_v6",
+      "checker_passed": false,
+      "checks": [
+        0,
+        4
+      ],
+      "progress": {
+        "session_id": "823c15d5",
+        "task_type": "target_assignment",
+        "progress_percentage": 0,
+        "details": {
+          "total_targets": 100,
+          "visited_targets": 0,
+          "unvisited_targets": 100
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "unsupported_skill_or_full_task_grammar",
+      "plan_counters": [],
+      "cost": {
+        "api_requests": 1,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0,
+        "skill_progress_reads": [],
+        "last_skill_progress": null,
+        "terminal_frames": []
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "784d71f8-shared_endpoint_v5",
+      "checker_passed": false,
+      "checks": [
+        0,
+        4
+      ],
+      "progress": {
+        "session_id": "823c15d5",
+        "task_type": "target_assignment",
+        "progress_percentage": 0,
+        "details": {
+          "total_targets": 100,
+          "visited_targets": 0,
+          "unvisited_targets": 100
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "unsupported_skill_or_full_task_grammar",
+      "plan_counters": [],
+      "cost": {
+        "api_requests": 1,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0,
+        "skill_progress_reads": [],
+        "last_skill_progress": null,
+        "terminal_frames": []
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "1905e0ad-shared_endpoint_v5",
+      "checker_passed": false,
+      "checks": [
+        0,
+        6
+      ],
+      "progress": {
+        "session_id": "35ce64d8",
+        "task_type": "target_assignment",
+        "progress_percentage": 0,
+        "details": {
+          "total_targets": 20,
+          "visited_targets": 0,
+          "unvisited_targets": 20
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "unsupported_skill_or_full_task_grammar",
+      "plan_counters": [],
+      "cost": {
+        "api_requests": 1,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0,
+        "skill_progress_reads": [],
+        "last_skill_progress": null,
+        "terminal_frames": []
+      },
+      "endpoint_repeats": []
+    },
+    {
+      "trial_id": "1905e0ad-terminal_progress_v6",
+      "checker_passed": false,
+      "checks": [
+        0,
+        6
+      ],
+      "progress": {
+        "session_id": "35ce64d8",
+        "task_type": "target_assignment",
+        "progress_percentage": 0,
+        "details": {
+          "total_targets": 20,
+          "visited_targets": 0,
+          "unvisited_targets": 20
+        },
+        "source_endpoint": "/sessions/current",
+        "scope": "public_session_aggregate_not_full_task_verdict"
+      },
+      "stop_reason": "unsupported_skill_or_full_task_grammar",
+      "plan_counters": [],
+      "cost": {
+        "api_requests": 1,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "all_move_errors": 0,
+      "unique_failures": 0,
+      "cross_actor_events": [],
+      "cross_actor_groups": [],
+      "unqualified_endpoint_conflicts": [],
+      "terminal_progress": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0,
+        "skill_progress_reads": [],
+        "last_skill_progress": null,
+        "terminal_frames": []
+      },
+      "endpoint_repeats": []
+    }
+  ],
+  "pairs": [
+    {
+      "task_id": "7eba7390",
+      "identical_action_sequence": true,
+      "common_prefix": 85,
+      "first_different_action_index": null,
+      "baseline_first_different": null,
+      "candidate_first_different": null,
+      "baseline_unique_errors": 0,
+      "candidate_unique_errors": 0,
+      "new_unique_errors": 0,
+      "removed_unique_errors": 0,
+      "read_differences": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0
+      }
+    },
+    {
+      "task_id": "24ac1838",
+      "identical_action_sequence": true,
+      "common_prefix": 156,
+      "first_different_action_index": null,
+      "baseline_first_different": null,
+      "candidate_first_different": null,
+      "baseline_unique_errors": 17,
+      "candidate_unique_errors": 17,
+      "new_unique_errors": 0,
+      "removed_unique_errors": 0,
+      "read_differences": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0
+      }
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "identical_action_sequence": true,
+      "common_prefix": 191,
+      "first_different_action_index": null,
+      "baseline_first_different": null,
+      "candidate_first_different": null,
+      "baseline_unique_errors": 10,
+      "candidate_unique_errors": 10,
+      "new_unique_errors": 0,
+      "removed_unique_errors": 0,
+      "read_differences": {
+        "skill_api_count": 1,
+        "skill_progress_count": 1
+      }
+    },
+    {
+      "task_id": "b1eb0270",
+      "identical_action_sequence": true,
+      "common_prefix": 3,
+      "first_different_action_index": null,
+      "baseline_first_different": null,
+      "candidate_first_different": null,
+      "baseline_unique_errors": 0,
+      "candidate_unique_errors": 0,
+      "new_unique_errors": 0,
+      "removed_unique_errors": 0,
+      "read_differences": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0
+      }
+    },
+    {
+      "task_id": "898cfdca",
+      "identical_action_sequence": true,
+      "common_prefix": 3,
+      "first_different_action_index": null,
+      "baseline_first_different": null,
+      "candidate_first_different": null,
+      "baseline_unique_errors": 0,
+      "candidate_unique_errors": 0,
+      "new_unique_errors": 0,
+      "removed_unique_errors": 0,
+      "read_differences": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0
+      }
+    },
+    {
+      "task_id": "784d71f8",
+      "identical_action_sequence": true,
+      "common_prefix": 0,
+      "first_different_action_index": null,
+      "baseline_first_different": null,
+      "candidate_first_different": null,
+      "baseline_unique_errors": 0,
+      "candidate_unique_errors": 0,
+      "new_unique_errors": 0,
+      "removed_unique_errors": 0,
+      "read_differences": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0
+      }
+    },
+    {
+      "task_id": "1905e0ad",
+      "identical_action_sequence": true,
+      "common_prefix": 0,
+      "first_different_action_index": null,
+      "baseline_first_different": null,
+      "candidate_first_different": null,
+      "baseline_unique_errors": 0,
+      "candidate_unique_errors": 0,
+      "new_unique_errors": 0,
+      "removed_unique_errors": 0,
+      "read_differences": {
+        "skill_api_count": 0,
+        "skill_progress_count": 0
+      }
+    }
+  ]
+}

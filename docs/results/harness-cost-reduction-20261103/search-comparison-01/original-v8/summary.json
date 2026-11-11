@@ -1,0 +1,1109 @@
+{
+  "schema_version": 2,
+  "status": "completed",
+  "reason": null,
+  "profile_sha256": "593e22be57df7df699bffca05884c2afac5da0b1d49e8a91bc34a4258db9b149",
+  "scope": "known development fixtures + synthetic model replies; not natural-model results",
+  "provider_calls": 0,
+  "online_ready": false,
+  "planned_trials": 7,
+  "worker_count": 7,
+  "scorer_count": 7,
+  "unstarted_trials": [],
+  "trials": [
+    {
+      "trial_id": "7eba7390",
+      "termination": {
+        "schema_version": 1,
+        "category": "normal_return",
+        "reason": "normal_return",
+        "stop_reason": null,
+        "score_eligible": true,
+        "batch_action": "continue",
+        "archive_training_eligible": true,
+        "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+        "task_success": "not_evaluated",
+        "cost_context": "local_no_cost",
+        "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+        "requires_parent_exit_seal": true
+      },
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "[TASK DONE] Scripted fixture ended; independent scoring determines task completion.",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [
+          {
+            "id": "progress-1",
+            "scope": "session_task_progress",
+            "source_span": [
+              91,
+              124
+            ],
+            "threshold_percent": 95.0,
+            "operator": ">",
+            "observation": {
+              "session_id": "3973d0d6",
+              "task_type": "target_assignment",
+              "progress_percentage": 33,
+              "details": {
+                "total_targets": 3,
+                "visited_targets": 1,
+                "unvisited_targets": 2
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict",
+              "evidence_id": "e281",
+              "tool_call_id": "harness:71462047-1dd2-4993-8f25-054436d72c4d:p1:140",
+              "command_id": "71462047-1dd2-4993-8f25-054436d72c4d",
+              "start_sequence": 281,
+              "end_sequence": 282
+            },
+            "freshness": "observed",
+            "threshold_state": "observed_threshold_not_met",
+            "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply."
+          }
+        ],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json",
+        "execution_state_artifact": "policy/execution-state.json",
+        "recovery": {
+          "advisory_only": true,
+          "automatic_retry": false,
+          "global_stop": true,
+          "items": [
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e203",
+              "tool_call_id": "harness:71462047-1dd2-4993-8f25-054436d72c4d:p1:101",
+              "tool_name": "move_to",
+              "plan_id": "71462047-1dd2-4993-8f25-054436d72c4d:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e235",
+              "tool_call_id": "harness:71462047-1dd2-4993-8f25-054436d72c4d:p1:117",
+              "tool_name": "move_to",
+              "plan_id": "71462047-1dd2-4993-8f25-054436d72c4d:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "terminal_plan",
+              "plan_id": "71462047-1dd2-4993-8f25-054436d72c4d:p1",
+              "status": "needs_replan",
+              "reason": "search_progress_stalled",
+              "cursor": 30,
+              "recommendation": "stop_no_further_actions",
+              "eligible_now": false,
+              "resume_allowed": false,
+              "automatic_retry": false
+            }
+          ],
+          "opportunities": {
+            "current_candidates": 0,
+            "resumable_frames": 0,
+            "recovery_success_rate": null,
+            "rate_status": "no_current_opportunity",
+            "scope": "current_snapshot_not_historical_recovery_denominator"
+          }
+        },
+        "mission_completion": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    },
+    {
+      "trial_id": "24ac1838",
+      "termination": {
+        "schema_version": 1,
+        "category": "normal_return",
+        "reason": "normal_return",
+        "stop_reason": null,
+        "score_eligible": true,
+        "batch_action": "continue",
+        "archive_training_eligible": true,
+        "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+        "task_success": "not_evaluated",
+        "cost_context": "local_no_cost",
+        "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+        "requires_parent_exit_seal": true
+      },
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "[TASK DONE] Scripted fixture ended; independent scoring determines task completion.",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [
+          {
+            "id": "progress-1",
+            "scope": "session_task_progress",
+            "source_span": [
+              91,
+              124
+            ],
+            "threshold_percent": 95.0,
+            "operator": ">",
+            "observation": {
+              "session_id": "823c15d5",
+              "task_type": "target_assignment",
+              "progress_percentage": 51,
+              "details": {
+                "total_targets": 100,
+                "visited_targets": 51,
+                "unvisited_targets": 49
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict",
+              "evidence_id": "e1339",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:669",
+              "command_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd",
+              "start_sequence": 1339,
+              "end_sequence": 1340
+            },
+            "freshness": "stale_after_action_or_overlap",
+            "threshold_state": "unknown",
+            "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply."
+          }
+        ],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json",
+        "execution_state_artifact": "policy/execution-state.json",
+        "recovery": {
+          "advisory_only": true,
+          "automatic_retry": false,
+          "global_stop": true,
+          "items": [
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e101",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:50",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e125",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:62",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e191",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:95",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e217",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:108",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e485",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:242",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e555",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:277",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e563",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:281",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e589",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:294",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e769",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:384",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e845",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:422",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e897",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:448",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e1151",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:575",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e1177",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:588",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e1281",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:640",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e1325",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:662",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e1367",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:683",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e1391",
+              "tool_call_id": "harness:9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1:695",
+              "tool_name": "move_to",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "terminal_plan",
+              "plan_id": "9e540d75-8c4f-440f-825b-9d3a0a3a31cd:p1",
+              "status": "needs_replan",
+              "reason": "local_repair_budget_exhausted",
+              "cursor": 137,
+              "recommendation": "stop_no_further_actions",
+              "eligible_now": false,
+              "resume_allowed": false,
+              "automatic_retry": false
+            }
+          ],
+          "opportunities": {
+            "current_candidates": 0,
+            "resumable_frames": 0,
+            "recovery_success_rate": null,
+            "rate_status": "no_current_opportunity",
+            "scope": "current_snapshot_not_historical_recovery_denominator"
+          }
+        },
+        "mission_completion": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    },
+    {
+      "trial_id": "b1ad4f3e",
+      "termination": {
+        "schema_version": 1,
+        "category": "normal_return",
+        "reason": "normal_return",
+        "stop_reason": null,
+        "score_eligible": true,
+        "batch_action": "continue",
+        "archive_training_eligible": true,
+        "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+        "task_success": "not_evaluated",
+        "cost_context": "local_no_cost",
+        "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+        "requires_parent_exit_seal": true
+      },
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "take off necessary drones and  assigned them to all targets (within task radius) until the session task progress exceeds 95%.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "[TASK DONE] Scripted fixture ended; independent scoring determines task completion.",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [
+          {
+            "id": "progress-1",
+            "scope": "session_task_progress",
+            "source_span": [
+              91,
+              124
+            ],
+            "threshold_percent": 95.0,
+            "operator": ">",
+            "observation": {
+              "session_id": "35ce64d8",
+              "task_type": "target_assignment",
+              "progress_percentage": 100,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 20,
+                "unvisited_targets": 0
+              },
+              "source_endpoint": "/sessions/current",
+              "scope": "public_session_aggregate_not_full_task_verdict",
+              "evidence_id": "e951",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:475",
+              "command_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a",
+              "start_sequence": 951,
+              "end_sequence": 952
+            },
+            "freshness": "observed",
+            "threshold_state": "observed_threshold_met",
+            "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply."
+          }
+        ],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json",
+        "execution_state_artifact": "policy/execution-state.json",
+        "recovery": {
+          "advisory_only": true,
+          "automatic_retry": false,
+          "global_stop": true,
+          "items": [
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e55",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:27",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e79",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:39",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e105",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:52",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e131",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:65",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e571",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:285",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e595",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:297",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e613",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:306",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e739",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:369",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "explicit_failure",
+              "evidence_id": "e781",
+              "tool_call_id": "harness:b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1:390",
+              "tool_name": "move_to",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "recommendation": "stop_no_further_actions",
+              "issue_state": "unresolved_in_public_record",
+              "followup_evidence": [],
+              "eligible_now": false,
+              "automatic_retry": false,
+              "historical_effect_resolved": false
+            },
+            {
+              "category": "terminal_plan",
+              "plan_id": "b2f39d65-0b6c-400f-a327-ad1cb7d1f19a:p1",
+              "status": "completed",
+              "reason": "skill_public_stop_condition",
+              "cursor": 101,
+              "recommendation": "stop_no_further_actions",
+              "eligible_now": false,
+              "resume_allowed": false,
+              "automatic_retry": false
+            }
+          ],
+          "opportunities": {
+            "current_candidates": 0,
+            "resumable_frames": 0,
+            "recovery_success_rate": null,
+            "rate_status": "no_current_opportunity",
+            "scope": "current_snapshot_not_historical_recovery_denominator"
+          }
+        },
+        "mission_completion": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": true,
+        "artifact": "evaluation/result.json"
+      }
+    },
+    {
+      "trial_id": "b1eb0270",
+      "termination": {
+        "schema_version": 1,
+        "category": "normal_return",
+        "reason": "normal_return",
+        "stop_reason": null,
+        "score_eligible": true,
+        "batch_action": "continue",
+        "archive_training_eligible": true,
+        "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+        "task_success": "not_evaluated",
+        "cost_context": "local_no_cost",
+        "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+        "requires_parent_exit_seal": true
+      },
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "[TASK DONE] Scripted fixture ended; independent scoring determines task completion.",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json",
+        "execution_state_artifact": "policy/execution-state.json",
+        "recovery": {
+          "advisory_only": true,
+          "automatic_retry": false,
+          "global_stop": true,
+          "items": [
+            {
+              "category": "terminal_plan",
+              "plan_id": "bbbc3cc8-2e1b-4682-ae25-2b21c40e7808:p1",
+              "status": "completed",
+              "reason": "skill_public_stop_condition",
+              "cursor": 3,
+              "recommendation": "stop_no_further_actions",
+              "eligible_now": false,
+              "resume_allowed": false,
+              "automatic_retry": false
+            }
+          ],
+          "opportunities": {
+            "current_candidates": 0,
+            "resumable_frames": 0,
+            "recovery_success_rate": null,
+            "rate_status": "no_current_opportunity",
+            "scope": "current_snapshot_not_historical_recovery_denominator"
+          }
+        },
+        "mission_completion": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": true,
+        "artifact": "evaluation/result.json"
+      }
+    },
+    {
+      "trial_id": "898cfdca",
+      "termination": {
+        "schema_version": 1,
+        "category": "normal_return",
+        "reason": "normal_return",
+        "stop_reason": null,
+        "score_eligible": true,
+        "batch_action": "continue",
+        "archive_training_eligible": true,
+        "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+        "task_success": "not_evaluated",
+        "cost_context": "local_no_cost",
+        "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+        "requires_parent_exit_seal": true
+      },
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "Drone Drone 12 should take off to 10 meters, then climb to 30 meters altitude and hover.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "[TASK DONE] Scripted fixture ended; independent scoring determines task completion.",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [],
+        "aggregate_requirements": [],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json",
+        "execution_state_artifact": "policy/execution-state.json",
+        "recovery": {
+          "advisory_only": true,
+          "automatic_retry": false,
+          "global_stop": true,
+          "items": [
+            {
+              "category": "terminal_plan",
+              "plan_id": "67142355-24ec-47fc-a4b7-af3bd5df99c0:p1",
+              "status": "completed",
+              "reason": "skill_public_stop_condition",
+              "cursor": 3,
+              "recommendation": "stop_no_further_actions",
+              "eligible_now": false,
+              "resume_allowed": false,
+              "automatic_retry": false
+            }
+          ],
+          "opportunities": {
+            "current_candidates": 0,
+            "resumable_frames": 0,
+            "recovery_success_rate": null,
+            "rate_status": "no_current_opportunity",
+            "scope": "current_snapshot_not_historical_recovery_denominator"
+          }
+        },
+        "mission_completion": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": true,
+        "artifact": "evaluation/result.json"
+      }
+    },
+    {
+      "trial_id": "784d71f8",
+      "termination": {
+        "schema_version": 1,
+        "category": "normal_return",
+        "reason": "normal_return",
+        "stop_reason": null,
+        "score_eligible": true,
+        "batch_action": "continue",
+        "archive_training_eligible": true,
+        "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+        "task_success": "not_evaluated",
+        "cost_context": "local_no_cost",
+        "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+        "requires_parent_exit_seal": true
+      },
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "Take off necessary drones and assign them to reach required targets Fixed Target 80, Fixed Target 93, and Fixed Target 7; if those targets alone do not exceed 50% session task progress, continue reaching additional assigned targets until progress exceeds 50%.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "[TASK DONE] Scripted fixture ended; independent scoring determines task completion.",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [
+          {
+            "id": "ref-1",
+            "target_name": "Fixed Target 80",
+            "required_actor": null,
+            "relation": "unparsed_reference",
+            "source_span": [
+              0,
+              83
+            ],
+            "actor_id": null,
+            "target_id": null,
+            "knowledge_state": "unknown",
+            "position": null,
+            "execution_state": "unattempted",
+            "execution_evidence_id": null,
+            "execution_evidence_kind": null,
+            "execution_scope": "current_command_actor_visit_only; other_clauses_not_evaluated",
+            "report": null,
+            "reports_omitted": 0
+          },
+          {
+            "id": "ref-2",
+            "target_name": "Fixed Target 93",
+            "required_actor": null,
+            "relation": "unparsed_reference",
+            "source_span": [
+              0,
+              100
+            ],
+            "actor_id": null,
+            "target_id": null,
+            "knowledge_state": "unknown",
+            "position": null,
+            "execution_state": "unattempted",
+            "execution_evidence_id": null,
+            "execution_evidence_kind": null,
+            "execution_scope": "current_command_actor_visit_only; other_clauses_not_evaluated",
+            "report": null,
+            "reports_omitted": 0
+          },
+          {
+            "id": "ref-3",
+            "target_name": "Fixed Target 7",
+            "required_actor": null,
+            "relation": "unparsed_reference",
+            "source_span": [
+              0,
+              120
+            ],
+            "actor_id": null,
+            "target_id": null,
+            "knowledge_state": "unknown",
+            "position": null,
+            "execution_state": "unattempted",
+            "execution_evidence_id": null,
+            "execution_evidence_kind": null,
+            "execution_scope": "current_command_actor_visit_only; other_clauses_not_evaluated",
+            "report": null,
+            "reports_omitted": 0
+          }
+        ],
+        "aggregate_requirements": [
+          {
+            "id": "progress-1",
+            "scope": "session_task_progress",
+            "source_span": [
+              238,
+              258
+            ],
+            "threshold_percent": 50.0,
+            "operator": ">",
+            "observation": null,
+            "freshness": "unknown",
+            "threshold_state": "unknown",
+            "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply."
+          }
+        ],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json",
+        "execution_state_artifact": "policy/execution-state.json",
+        "recovery": {
+          "advisory_only": true,
+          "automatic_retry": false,
+          "global_stop": true,
+          "items": [],
+          "opportunities": {
+            "current_candidates": 0,
+            "resumable_frames": 0,
+            "recovery_success_rate": null,
+            "rate_status": "no_current_opportunity",
+            "scope": "current_snapshot_not_historical_recovery_denominator"
+          }
+        },
+        "mission_completion": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    },
+    {
+      "trial_id": "1905e0ad",
+      "termination": {
+        "schema_version": 1,
+        "category": "normal_return",
+        "reason": "normal_return",
+        "stop_reason": null,
+        "score_eligible": true,
+        "batch_action": "continue",
+        "archive_training_eligible": true,
+        "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+        "task_success": "not_evaluated",
+        "cost_context": "local_no_cost",
+        "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+        "requires_parent_exit_seal": true
+      },
+      "run": {
+        "status": "returned",
+        "worker_sealed": true,
+        "agent_returned_normally": true,
+        "stop_reason": null,
+        "archive_complete": true
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated",
+        "original_command": "Take off necessary drones and assign them to reach required targets Fixed Target 8, Fixed Target 10, Fixed Target 11, Fixed Target 6, and Fixed Target 3; if those targets alone do not exceed 70% session task progress, continue reaching additional assigned targets until progress exceeds 70%.",
+        "uninterpreted_requirements_policy": "retain full original command; clauses are not exhaustive",
+        "agent_claim": "[TASK DONE] Scripted fixture ended; independent scoring determines task completion.",
+        "state_artifact": "policy/task-state.json",
+        "requirements": [
+          {
+            "id": "ref-1",
+            "target_name": "Fixed Target 8",
+            "required_actor": null,
+            "relation": "unparsed_reference",
+            "source_span": [
+              0,
+              82
+            ],
+            "actor_id": null,
+            "target_id": null,
+            "knowledge_state": "unknown",
+            "position": null,
+            "execution_state": "unattempted",
+            "execution_evidence_id": null,
+            "execution_evidence_kind": null,
+            "execution_scope": "current_command_actor_visit_only; other_clauses_not_evaluated",
+            "report": null,
+            "reports_omitted": 0
+          },
+          {
+            "id": "ref-2",
+            "target_name": "Fixed Target 10",
+            "required_actor": null,
+            "relation": "unparsed_reference",
+            "source_span": [
+              0,
+              99
+            ],
+            "actor_id": null,
+            "target_id": null,
+            "knowledge_state": "unknown",
+            "position": null,
+            "execution_state": "unattempted",
+            "execution_evidence_id": null,
+            "execution_evidence_kind": null,
+            "execution_scope": "current_command_actor_visit_only; other_clauses_not_evaluated",
+            "report": null,
+            "reports_omitted": 0
+          },
+          {
+            "id": "ref-3",
+            "target_name": "Fixed Target 11",
+            "required_actor": null,
+            "relation": "unparsed_reference",
+            "source_span": [
+              0,
+              116
+            ],
+            "actor_id": null,
+            "target_id": null,
+            "knowledge_state": "unknown",
+            "position": null,
+            "execution_state": "unattempted",
+            "execution_evidence_id": null,
+            "execution_evidence_kind": null,
+            "execution_scope": "current_command_actor_visit_only; other_clauses_not_evaluated",
+            "report": null,
+            "reports_omitted": 0
+          },
+          {
+            "id": "ref-4",
+            "target_name": "Fixed Target 6",
+            "required_actor": null,
+            "relation": "unparsed_reference",
+            "source_span": [
+              0,
+              132
+            ],
+            "actor_id": null,
+            "target_id": null,
+            "knowledge_state": "unknown",
+            "position": null,
+            "execution_state": "unattempted",
+            "execution_evidence_id": null,
+            "execution_evidence_kind": null,
+            "execution_scope": "current_command_actor_visit_only; other_clauses_not_evaluated",
+            "report": null,
+            "reports_omitted": 0
+          },
+          {
+            "id": "ref-5",
+            "target_name": "Fixed Target 3",
+            "required_actor": null,
+            "relation": "unparsed_reference",
+            "source_span": [
+              0,
+              152
+            ],
+            "actor_id": null,
+            "target_id": null,
+            "knowledge_state": "unknown",
+            "position": null,
+            "execution_state": "unattempted",
+            "execution_evidence_id": null,
+            "execution_evidence_kind": null,
+            "execution_scope": "current_command_actor_visit_only; other_clauses_not_evaluated",
+            "report": null,
+            "reports_omitted": 0
+          }
+        ],
+        "aggregate_requirements": [
+          {
+            "id": "progress-1",
+            "scope": "session_task_progress",
+            "source_span": [
+              270,
+              290
+            ],
+            "threshold_percent": 70.0,
+            "operator": ">",
+            "observation": null,
+            "freshness": "unknown",
+            "threshold_state": "unknown",
+            "next_step": "Read get_mission_progress after coverage actions and before claiming the threshold. If below it, continue feasible search/coverage within the existing budget; known targets are not the total. Other original clauses still apply."
+          }
+        ],
+        "observer_errors": [],
+        "skill_artifact": "policy/harness.json",
+        "execution_state_artifact": "policy/execution-state.json",
+        "recovery": {
+          "advisory_only": true,
+          "automatic_retry": false,
+          "global_stop": true,
+          "items": [],
+          "opportunities": {
+            "current_candidates": 0,
+            "resumable_frames": 0,
+            "recovery_success_rate": null,
+            "rate_status": "no_current_opportunity",
+            "scope": "current_snapshot_not_historical_recovery_denominator"
+          }
+        },
+        "mission_completion": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "scored",
+        "passed": false,
+        "artifact": "evaluation/result.json"
+      }
+    }
+  ]
+}

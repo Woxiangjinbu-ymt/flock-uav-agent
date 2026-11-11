@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "scope": "fourth_item_W3_samples_and_student_input",
+  "status": "bounded_local_delivery_passed",
+  "report": "docs/results/agent-samples-student-input-20261103/REPORT_CN.md",
+  "final_verification_sha256": "5a0fc1c82cd53c8f72bfca69b654a5e52fdc072ca4926d9757154dd871f9c72a",
+  "conversion_counts": {
+    "eligible_episodes": 12,
+    "excluded_decisions": 37,
+    "excluded_episodes": 8,
+    "exported_samples": 61,
+    "logical_decisions": 98,
+    "planned_episodes": 22,
+    "unrun_episodes": 2
+  },
+  "code_tests_passed": 203,
+  "provider_calls": 0,
+  "teacher_training_examples": 0,
+  "weights_downloaded": false,
+  "training_started": false,
+  "historical_archives_modified": false,
+  "w2_split_manifest_unchanged": true,
+  "new_test_used_for_student_development": false,
+  "documents_sha256": {
+    "docs/RESEARCH_STATUS_CN.md": "9c3459e86f23a88d1dd6162f0b9a5e9cc8ae0682bc85a8d044217d67f9b25ee6",
+    "docs/RESEARCH_ROADMAP_CN.md": "ca8ac8bce1b89424a54930f61a8d224a34cd060cd3d0a3c5b59ef966458403d8",
+    "docs/POSTTRAINING_PLAN_CN.md": "27e06a41f7313e664759cbffb6c1a5ccd8d7a844068eaf734df47e778db6c7fd",
+    "docs/EXPERIMENT_EVIDENCE_CN.md": "d3819aace1ea67584d87c475454ec0a800900cb57f882201772eb3662906ae8d",
+    "docs/README.md": "297ea14e3240908c19450d485a56c123bc5f1fbb71b3485ead5bd586fd5851c6",
+    "scripts/README.md": "aaaa26738c51913da9420be131e522469d01c834ba43a8edaf937fae82df7e54",
+    "experiments/README.md": "0ad0c7b54131f126246307d04af5a86207fcb52cdf9da68a6ea6a538f0b4ec6e",
+    "docs/AGENT_SAMPLE_CONTRACT_CN.md": "4a2d8c86a2ad0e8ddc3584559931bafc2ee2ec4e7df9bb3354599350d3872543",
+    "training/README_INPUT_CN.md": "93ef2ba7f8b0c3d8a91677f16b3dff09b374da4fc11c4796af69b80002bb65f9",
+    "docs/results/agent-samples-student-input-20261103/REPORT_CN.md": "f3894a78a5398d028b6ff8f49352004584dd2c8c17a63470806b46d2547ab321"
+  },
+  "source_snapshot_manifest_sha256": "db6ffee387ad6d28e512ec0f17f8796e6876e3711ab541845d22960181623e14",
+  "limits": [
+    "Production Teacher export/loading disabled; current source datasets remain development",
+    "Qwen3-1.7B tokenizer candidate only; training base/context/GPU not frozen",
+    "61 accepted sequences fit16k;10 other historical requests rejected for same-name parallel mapping",
+    "No student model or new natural-agent performance result"
+  ],
+  "next_actions": [
+    "General provider driver and v2 live interface validation",
+    "Resolve parallel tool identity in student template and reserve output context",
+    "Bind new train source/initial state/review and freeze Teacher small-batch budget before collection"
+  ]
+}

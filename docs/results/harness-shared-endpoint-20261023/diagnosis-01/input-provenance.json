@@ -1,0 +1,425 @@
+{
+  "inputs/24ac1838/start.json": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/start.json",
+    "sha256": "6120f9e4e22165b64554835701ad776b4031527d42ac2c946022d3407e289abc",
+    "filter": null
+  },
+  "inputs/24ac1838/harness.json": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/harness.json",
+    "sha256": "fb34e8d01e05150d6304d150f937a95130cd6f8bf35782cf497329b929c7da8b",
+    "filter": null
+  },
+  "inputs/24ac1838/public-task-api.jsonl": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/24ac1838-blocked_candidate_v4/public-api.jsonl",
+    "sha256": "a65836f459d4d75983fccce71e133ef234ea9f1040cc7e1ae049fd0a175bcf38",
+    "filter": "phase=task and origin.kind=skill; excludes preparation/scoring/evaluator-only terminal session read",
+    "rows": 599,
+    "omitted": [
+      {
+        "request_id": 1,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 2,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 3,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 4,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 5,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 6,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 7,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 8,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 9,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 10,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 11,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 12,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 13,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 14,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 15,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 16,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 17,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 18,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 19,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 20,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 21,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 22,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 23,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 24,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 25,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 26,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 27,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 28,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 29,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 30,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 31,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 631,
+        "phase": "task",
+        "origin": {
+          "kind": "evaluator_public_observation"
+        }
+      },
+      {
+        "request_id": 632,
+        "phase": "scoring",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      }
+    ]
+  },
+  "inputs/b1ad4f3e/start.json": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/start.json",
+    "sha256": "f8f498e17b2e06428450f94bf45cfa77eb34e580d90c8edefd460866e6d3735f",
+    "filter": null
+  },
+  "inputs/b1ad4f3e/harness.json": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/harness.json",
+    "sha256": "b550583503ccba331f9ba5854f5b6675443fe70be851fbbd31e12c9a57b4b958",
+    "filter": null
+  },
+  "inputs/b1ad4f3e/public-task-api.jsonl": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/trials/b1ad4f3e-blocked_candidate_v4/public-api.jsonl",
+    "sha256": "7658855de97f4b057a8cce791058e01e6c79cbb38a02914b5aa4a3a134e72e7f",
+    "filter": "phase=task and origin.kind=skill; excludes preparation/scoring/evaluator-only terminal session read",
+    "rows": 477,
+    "omitted": [
+      {
+        "request_id": 1,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 2,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 3,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 4,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 5,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 6,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 7,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 8,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 9,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 10,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 11,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 12,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 13,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 14,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 15,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 16,
+        "phase": "preparation",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      },
+      {
+        "request_id": 494,
+        "phase": "task",
+        "origin": {
+          "kind": "evaluator_public_observation"
+        }
+      },
+      {
+        "request_id": 495,
+        "phase": "scoring",
+        "origin": {
+          "kind": "agent_initialization"
+        }
+      }
+    ]
+  },
+  "source/agent4drone/harness_skills.py": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/source/agent4drone/harness_skills.py",
+    "sha256": "80a16b472f089a3e3cd935cdc26212b4db4ecbbfd069308aa5ce8fee62d51608",
+    "filter": null
+  },
+  "source/agent4drone/harness_core.py": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/source/agent4drone/harness_core.py",
+    "sha256": "b1e112ba5975f45817fa7159ba268041e1c1b8fd086deccd5f7ddf60f5bad016",
+    "filter": null
+  },
+  "source/agent4drone/coordinated_search_r2.py": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/source/agent4drone/coordinated_search_r2.py",
+    "sha256": "693093f3ffeba3f5aeaaa3bd747dff5b846f4d8672c02208f90d88366efa4f14",
+    "filter": null
+  },
+  "source/agent4drone/command_results.py": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/source/agent4drone/command_results.py",
+    "sha256": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee",
+    "filter": null
+  },
+  "source/server/controllers/drone_controller.py": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/source/server/controllers/drone_controller.py",
+    "sha256": "aa3c192e7c79f6d90f51b6c549a91e4630ab28da750f70804393ca569b564f11",
+    "filter": null
+  },
+  "source/server/controllers/obstacle_controller.py": {
+    "source": "./docs/results/harness-blocked-candidate-20261023/run-20261023-01/source/server/controllers/obstacle_controller.py",
+    "sha256": "ebe68c25e76481a8e9f5b5aa7f1360d163adb722a824000400af5e795e7acd32",
+    "filter": null
+  }
+}

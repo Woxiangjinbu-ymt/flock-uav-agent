@@ -1,0 +1,35 @@
+[
+  {
+    "tool": "list_drones",
+    "arguments": {}
+  },
+  {
+    "tool": "take_off",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1",
+        "altitude": 15
+      }
+    }
+  },
+  {
+    "tool": "rotate",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1",
+        "heading": 96
+      }
+    }
+  },
+  {
+    "tool": "hover",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1"
+      }
+    }
+  },
+  {
+    "final": "Local scripted contract completed. [TASK DONE]"
+  }
+]

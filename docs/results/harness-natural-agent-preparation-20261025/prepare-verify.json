@@ -1,0 +1,34 @@
+{
+  "scope": "Actual static preparation and verification; no Agent/provider/simulator/trial execution",
+  "commands": [
+    {
+      "command": "agent4drone/.venv/bin/python scripts/prepare_harness_natural_agent.py prepare --workspace . --output experiments/harness-natural-agent-plan-v1",
+      "returncode": 0
+    },
+    {
+      "command": "agent4drone/.venv/bin/python scripts/prepare_harness_natural_agent.py verify --workspace . --output experiments/harness-natural-agent-plan-v1",
+      "returncode": 0
+    }
+  ],
+  "output_files": {
+    "experiments/harness-natural-agent-plan-v1/PROTOCOL_CN.md": "d5af7a3af1d4b81b5591338f323da818be4831db7abdfcce5cd5544c2da18b0d",
+    "experiments/harness-natural-agent-plan-v1/evaluation-annotations.json": "7dd6c6fbc7db20f8a1a79a2c39a46c896033b5963f6a9379c5531b0c96df4e8d",
+    "experiments/harness-natural-agent-plan-v1/input-references.json": "181b6427f94e888298ce0adae53a62362b5a1b331a51f07f08fa2e25e665abd6",
+    "experiments/harness-natural-agent-plan-v1/manifest.json": "d4c2219d18b33c286844df36115ec473e595f6af5b7b8a74775b9cc1d6d5cb9c",
+    "experiments/harness-natural-agent-plan-v1/preflight.json": "74ffff34445daf811b97f5208cfaa096fc9a583ae9bf6ece99eec7ae3af9e3ba",
+    "experiments/harness-natural-agent-plan-v1/schedule.proposed.json": "ef0e002d6f05e96ba394bb5a065cef39b7c50a250ae72919dc20d7372d97b69c",
+    "experiments/harness-natural-agent-plan-v1/source-references.json": "dfcf373fff663d6d3fff9aa5ea4ae446833cfb2472d4c62e5849feb0853c4770",
+    "experiments/harness-natural-agent-plan-v1/tasks.public.json": "7c05b03397a1967ca9a294373521ad2ba888fdb1d6a2756a42d420b88d69e78f"
+  },
+  "manifest_status": "local_preparation_only",
+  "authorized_executions": 0,
+  "provider_calls": 0,
+  "online_budget": {
+    "cost": 0,
+    "executions": 0,
+    "http_attempts": 0,
+    "tokens": 0
+  },
+  "online_ready": false,
+  "prepare_source_sha256": "179834ec820b4cb7efdfc53cae127f07098b32fad0eb3a66cac29af235a2485e"
+}

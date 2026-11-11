@@ -1,0 +1,2185 @@
+{
+  "schema": "shared-endpoint-public-diagnosis-v1",
+  "method": "static frozen public task receipts + frozen source inspection; no simulator/model",
+  "source_campaign_files_verified": 287,
+  "frozen_input_files_verified": 14,
+  "definitions": {
+    "qualified_failure": "Public move_to error whose full receipt matches endpoint-conflict grammar and actor; finite exact XYZ; next public status confirms unchanged XYZ before another same-actor action.",
+    "cross_actor_later_failure_event": "A qualified failure with an earlier qualified failure in the same plan/scene/epoch at exact XYZ by a different actor. Count each later request once, irrespective of number of sources.",
+    "group": "One exact XYZ in a plan/scene/epoch with qualified failures by at least two actors.",
+    "geometry_change": "Same public obstacle ID later observed with different type/position/radius/vertices/width/length/height. Empty nearby lists or absent names do not retract an obstacle.",
+    "counterevidence": "Later successful move to exact XYZ or public drone position at exact XYZ; scanned separately from named obstacle observations/changes."
+  },
+  "tasks": [
+    {
+      "task_id": "24ac1838",
+      "scene_id": "823c15d5",
+      "scene_epoch": 0,
+      "plan_id": "24ac1838-blocked_candidate_v4:p1",
+      "task_public_rows": 599,
+      "task_last_request_id": 630,
+      "endpoint_failure_count": 14,
+      "cross_actor_later_failure_event_count": 1,
+      "cross_actor_exact_xyz_group_count": 1,
+      "groups": [
+        {
+          "destination": [
+            1715.0,
+            1155.0,
+            20.0
+          ],
+          "first_source": {
+            "request_id": 313,
+            "relative_seconds": 1.7124214579998807,
+            "actor": "869a8e16",
+            "destination": [
+              1715.0,
+              1155.0,
+              20.0
+            ],
+            "obstacle_type": "polygon",
+            "obstacle_name": "Polygon Obstacle 7",
+            "receipt": {
+              "command_id": "c73e2cef",
+              "drone_id": "869a8e16",
+              "command": "move_to",
+              "status": "error",
+              "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+              "timestamp": 1802649601.710979
+            },
+            "before": {
+              "request_id": 312,
+              "relative_seconds": 1.7086882910007262,
+              "drone": {
+                "id": "869a8e16",
+                "name": "Drone 2",
+                "model": "Model-B",
+                "status": "hovering",
+                "position": {
+                  "x": 1785.0,
+                  "y": 1225.0,
+                  "z": 20.0
+                },
+                "heading": 283.038656583023,
+                "speed": 0.0,
+                "battery_level": 98.69177582245207,
+                "max_speed": 20.0,
+                "max_altitude": 395.0,
+                "battery_capacity": 78.1,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 1880.0,
+                  "y": 1203.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667266.917398,
+                "last_updated": 1802649600.9148204
+              }
+            },
+            "after": {
+              "request_id": 314,
+              "relative_seconds": 1.71658670800025,
+              "drone": {
+                "id": "869a8e16",
+                "name": "Drone 2",
+                "model": "Model-B",
+                "status": "hovering",
+                "position": {
+                  "x": 1785.0,
+                  "y": 1225.0,
+                  "z": 20.0
+                },
+                "heading": 283.038656583023,
+                "speed": 0.0,
+                "battery_level": 98.69177582245207,
+                "max_speed": 20.0,
+                "max_altitude": 395.0,
+                "battery_capacity": 78.1,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 1880.0,
+                  "y": 1203.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667266.917398,
+                "last_updated": 1802649600.9148204
+              }
+            },
+            "public_xyz_unchanged": true,
+            "mask": {
+              "actor": "869a8e16",
+              "candidate_index": 592,
+              "destination": [
+                1715.0,
+                1155.0,
+                20.0
+              ],
+              "evidence_ref": "e563",
+              "action": {
+                "tool": "move_to",
+                "args": {
+                  "drone_id": "869a8e16",
+                  "x": 1715.0,
+                  "y": 1155.0,
+                  "z": 20.0
+                },
+                "receipt": {
+                  "command_id": "c73e2cef",
+                  "drone_id": "869a8e16",
+                  "command": "move_to",
+                  "status": "error",
+                  "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+                  "timestamp": 1802649601.710979,
+                  "outcome": "blocked"
+                }
+              },
+              "round": 2,
+              "sequence": 47
+            }
+          },
+          "consumers": [
+            {
+              "request_id": 565,
+              "relative_seconds": 3.052133124998363,
+              "actor": "92e6a7b8",
+              "destination": [
+                1715.0,
+                1155.0,
+                20.0
+              ],
+              "obstacle_type": "polygon",
+              "obstacle_name": "Polygon Obstacle 7",
+              "receipt": {
+                "command_id": "e9559226",
+                "drone_id": "92e6a7b8",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+                "timestamp": 1802649603.0493102
+              },
+              "before": {
+                "request_id": 564,
+                "relative_seconds": 3.046972915999504,
+                "drone": {
+                  "id": "92e6a7b8",
+                  "name": "Drone 1",
+                  "model": "Model-X5",
+                  "status": "hovering",
+                  "position": {
+                    "x": 1505.0,
+                    "y": 1225.0,
+                    "z": 20.0
+                  },
+                  "heading": 225.0,
+                  "speed": 0.0,
+                  "battery_level": 96.87668596553303,
+                  "max_speed": 25.0,
+                  "max_altitude": 233.0,
+                  "battery_capacity": 83.8,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 1541.0,
+                    "y": 1157.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667266.917391,
+                  "last_updated": 1802649602.4155166
+                }
+              },
+              "after": {
+                "request_id": 566,
+                "relative_seconds": 3.0564432499995746,
+                "drone": {
+                  "id": "92e6a7b8",
+                  "name": "Drone 1",
+                  "model": "Model-X5",
+                  "status": "hovering",
+                  "position": {
+                    "x": 1505.0,
+                    "y": 1225.0,
+                    "z": 20.0
+                  },
+                  "heading": 225.0,
+                  "speed": 0.0,
+                  "battery_level": 96.87668596553303,
+                  "max_speed": 25.0,
+                  "max_altitude": 233.0,
+                  "battery_capacity": 83.8,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 1541.0,
+                    "y": 1157.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667266.917391,
+                  "last_updated": 1802649602.4155166
+                }
+              },
+              "public_xyz_unchanged": true,
+              "mask": {
+                "actor": "92e6a7b8",
+                "candidate_index": 592,
+                "destination": [
+                  1715.0,
+                  1155.0,
+                  20.0
+                ],
+                "evidence_ref": "e1067",
+                "action": {
+                  "tool": "move_to",
+                  "args": {
+                    "drone_id": "92e6a7b8",
+                    "x": 1715.0,
+                    "y": 1155.0,
+                    "z": 20.0
+                  },
+                  "receipt": {
+                    "command_id": "e9559226",
+                    "drone_id": "92e6a7b8",
+                    "command": "move_to",
+                    "status": "error",
+                    "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 7'",
+                    "timestamp": 1802649603.0493102,
+                    "outcome": "blocked"
+                  }
+                },
+                "round": 4,
+                "sequence": 108
+              },
+              "first_other_actor_source_request_id": 313,
+              "prior_other_actor_failure_request_ids": [
+                313
+              ],
+              "source_to_consumer": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              },
+              "consumer_to_task_end": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              }
+            }
+          ],
+          "full_task_same_name_observations": [],
+          "source_to_task_end": {
+            "successful_moves_to_exact_xyz": [],
+            "public_positions_at_exact_xyz": [],
+            "same_name_obstacle_observations": [],
+            "all_public_same_id_geometry_changes": [],
+            "public_api_mutations": []
+          }
+        }
+      ],
+      "public_obstacle_observations": 144,
+      "public_obstacle_unique_ids": 62,
+      "public_same_id_geometry_changes": [],
+      "all_physical_actions_skill_origin": true,
+      "single_plan_and_epoch": true,
+      "protocol": {
+        "model": null,
+        "scripted_start": true,
+        "deadline_seconds": 500,
+        "watchdog_seconds": 90,
+        "initial_state_sha256": "957cdc391615b630751b9222f962cbb389f53d4c0b822c0166000b0e41ca838c"
+      },
+      "api_budget": 2000,
+      "repair_budget": 16
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "scene_id": "35ce64d8",
+      "scene_epoch": 0,
+      "plan_id": "b1ad4f3e-blocked_candidate_v4:p1",
+      "task_public_rows": 477,
+      "task_last_request_id": 493,
+      "endpoint_failure_count": 15,
+      "cross_actor_later_failure_event_count": 7,
+      "cross_actor_exact_xyz_group_count": 4,
+      "groups": [
+        {
+          "destination": [
+            875.0,
+            385.0,
+            20.0
+          ],
+          "first_source": {
+            "request_id": 79,
+            "relative_seconds": 0.16996854200260714,
+            "actor": "6126210f",
+            "destination": [
+              875.0,
+              385.0,
+              20.0
+            ],
+            "obstacle_type": "circle",
+            "obstacle_name": "Circle Obstacle 3",
+            "receipt": {
+              "command_id": "34f250e7",
+              "drone_id": "6126210f",
+              "command": "move_to",
+              "status": "error",
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "timestamp": 1802649600.1695247
+            },
+            "before": {
+              "request_id": 78,
+              "relative_seconds": 0.1680524580006022,
+              "drone": {
+                "id": "6126210f",
+                "name": "Drone 7",
+                "model": "Model-E",
+                "status": "hovering",
+                "position": {
+                  "x": 927.0,
+                  "y": 267.0,
+                  "z": 20.0
+                },
+                "heading": 0.0,
+                "speed": 0.0,
+                "battery_level": 99.5,
+                "max_speed": 20.0,
+                "max_altitude": 454.0,
+                "battery_capacity": 69.0,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 927.0,
+                  "y": 267.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667075.6695821,
+                "last_updated": 1802649600.1649806
+              }
+            },
+            "after": {
+              "request_id": 80,
+              "relative_seconds": 0.17198929200094426,
+              "drone": {
+                "id": "6126210f",
+                "name": "Drone 7",
+                "model": "Model-E",
+                "status": "hovering",
+                "position": {
+                  "x": 927.0,
+                  "y": 267.0,
+                  "z": 20.0
+                },
+                "heading": 0.0,
+                "speed": 0.0,
+                "battery_level": 99.5,
+                "max_speed": 20.0,
+                "max_altitude": 454.0,
+                "battery_capacity": 69.0,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 927.0,
+                  "y": 267.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667075.6695821,
+                "last_updated": 1802649600.1649806
+              }
+            },
+            "public_xyz_unchanged": true,
+            "mask": {
+              "actor": "6126210f",
+              "candidate_index": 161,
+              "destination": [
+                875.0,
+                385.0,
+                20.0
+              ],
+              "evidence_ref": "e125",
+              "action": {
+                "tool": "move_to",
+                "args": {
+                  "drone_id": "6126210f",
+                  "x": 875.0,
+                  "y": 385.0,
+                  "z": 20.0
+                },
+                "receipt": {
+                  "command_id": "34f250e7",
+                  "drone_id": "6126210f",
+                  "command": "move_to",
+                  "status": "error",
+                  "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                  "timestamp": 1802649600.1695247,
+                  "outcome": "blocked"
+                }
+              },
+              "round": 1,
+              "sequence": 8
+            }
+          },
+          "consumers": [
+            {
+              "request_id": 188,
+              "relative_seconds": 0.4336126670023077,
+              "actor": "01e3ece4",
+              "destination": [
+                875.0,
+                385.0,
+                20.0
+              ],
+              "obstacle_type": "circle",
+              "obstacle_name": "Circle Obstacle 3",
+              "receipt": {
+                "command_id": "275bf209",
+                "drone_id": "01e3ece4",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                "timestamp": 1802649600.4327521
+              },
+              "before": {
+                "request_id": 187,
+                "relative_seconds": 0.43086762500024633,
+                "drone": {
+                  "id": "01e3ece4",
+                  "name": "Drone 12",
+                  "model": "Model-X2",
+                  "status": "hovering",
+                  "position": {
+                    "x": 665.0,
+                    "y": 175.0,
+                    "z": 20.0
+                  },
+                  "heading": 270.0,
+                  "speed": 0.0,
+                  "battery_level": 97.67106354546976,
+                  "max_speed": 29.0,
+                  "max_altitude": 234.0,
+                  "battery_capacity": 69.9,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 877.0,
+                    "y": 36.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.669599,
+                  "last_updated": 1802649600.2803245
+                }
+              },
+              "after": {
+                "request_id": 189,
+                "relative_seconds": 0.43567237500246847,
+                "drone": {
+                  "id": "01e3ece4",
+                  "name": "Drone 12",
+                  "model": "Model-X2",
+                  "status": "hovering",
+                  "position": {
+                    "x": 665.0,
+                    "y": 175.0,
+                    "z": 20.0
+                  },
+                  "heading": 270.0,
+                  "speed": 0.0,
+                  "battery_level": 97.67106354546976,
+                  "max_speed": 29.0,
+                  "max_altitude": 234.0,
+                  "battery_capacity": 69.9,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 877.0,
+                    "y": 36.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.669599,
+                  "last_updated": 1802649600.2803245
+                }
+              },
+              "public_xyz_unchanged": true,
+              "mask": {
+                "actor": "01e3ece4",
+                "candidate_index": 161,
+                "destination": [
+                  875.0,
+                  385.0,
+                  20.0
+                ],
+                "evidence_ref": "e343",
+                "action": {
+                  "tool": "move_to",
+                  "args": {
+                    "drone_id": "01e3ece4",
+                    "x": 875.0,
+                    "y": 385.0,
+                    "z": 20.0
+                  },
+                  "receipt": {
+                    "command_id": "275bf209",
+                    "drone_id": "01e3ece4",
+                    "command": "move_to",
+                    "status": "error",
+                    "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                    "timestamp": 1802649600.4327521,
+                    "outcome": "blocked"
+                  }
+                },
+                "round": 3,
+                "sequence": 31
+              },
+              "first_other_actor_source_request_id": 79,
+              "prior_other_actor_failure_request_ids": [
+                79
+              ],
+              "source_to_consumer": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              },
+              "consumer_to_task_end": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              }
+            },
+            {
+              "request_id": 229,
+              "relative_seconds": 0.5378922500021872,
+              "actor": "b6654aad",
+              "destination": [
+                875.0,
+                385.0,
+                20.0
+              ],
+              "obstacle_type": "circle",
+              "obstacle_name": "Circle Obstacle 3",
+              "receipt": {
+                "command_id": "6f965d71",
+                "drone_id": "b6654aad",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                "timestamp": 1802649600.5368876
+              },
+              "before": {
+                "request_id": 228,
+                "relative_seconds": 0.535228458000347,
+                "drone": {
+                  "id": "b6654aad",
+                  "name": "Drone 10",
+                  "model": "Model-X3",
+                  "status": "hovering",
+                  "position": {
+                    "x": 805.0,
+                    "y": 245.0,
+                    "z": 20.0
+                  },
+                  "heading": 0.0,
+                  "speed": 0.0,
+                  "battery_level": 98.2759759870417,
+                  "max_speed": 32.0,
+                  "max_altitude": 342.0,
+                  "battery_capacity": 80.8,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 759.0,
+                    "y": 76.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.6695921,
+                  "last_updated": 1802649600.3775744
+                }
+              },
+              "after": {
+                "request_id": 230,
+                "relative_seconds": 0.539981625002838,
+                "drone": {
+                  "id": "b6654aad",
+                  "name": "Drone 10",
+                  "model": "Model-X3",
+                  "status": "hovering",
+                  "position": {
+                    "x": 805.0,
+                    "y": 245.0,
+                    "z": 20.0
+                  },
+                  "heading": 0.0,
+                  "speed": 0.0,
+                  "battery_level": 98.2759759870417,
+                  "max_speed": 32.0,
+                  "max_altitude": 342.0,
+                  "battery_capacity": 80.8,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 759.0,
+                    "y": 76.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.6695921,
+                  "last_updated": 1802649600.3775744
+                }
+              },
+              "public_xyz_unchanged": true,
+              "mask": {
+                "actor": "b6654aad",
+                "candidate_index": 161,
+                "destination": [
+                  875.0,
+                  385.0,
+                  20.0
+                ],
+                "evidence_ref": "e425",
+                "action": {
+                  "tool": "move_to",
+                  "args": {
+                    "drone_id": "b6654aad",
+                    "x": 875.0,
+                    "y": 385.0,
+                    "z": 20.0
+                  },
+                  "receipt": {
+                    "command_id": "6f965d71",
+                    "drone_id": "b6654aad",
+                    "command": "move_to",
+                    "status": "error",
+                    "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                    "timestamp": 1802649600.5368876,
+                    "outcome": "blocked"
+                  }
+                },
+                "round": 3,
+                "sequence": 41
+              },
+              "first_other_actor_source_request_id": 79,
+              "prior_other_actor_failure_request_ids": [
+                79,
+                188
+              ],
+              "source_to_consumer": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              },
+              "consumer_to_task_end": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              }
+            }
+          ],
+          "full_task_same_name_observations": [],
+          "source_to_task_end": {
+            "successful_moves_to_exact_xyz": [],
+            "public_positions_at_exact_xyz": [],
+            "same_name_obstacle_observations": [],
+            "all_public_same_id_geometry_changes": [],
+            "public_api_mutations": []
+          }
+        },
+        {
+          "destination": [
+            175.0,
+            665.0,
+            20.0
+          ],
+          "first_source": {
+            "request_id": 142,
+            "relative_seconds": 0.31921862500166753,
+            "actor": "2a266de6",
+            "destination": [
+              175.0,
+              665.0,
+              20.0
+            ],
+            "obstacle_type": "polygon",
+            "obstacle_name": "Polygon Obstacle 9",
+            "receipt": {
+              "command_id": "bc769d4e",
+              "drone_id": "2a266de6",
+              "command": "move_to",
+              "status": "error",
+              "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+              "timestamp": 1802649600.3185294
+            },
+            "before": {
+              "request_id": 141,
+              "relative_seconds": 0.3168941670010099,
+              "drone": {
+                "id": "2a266de6",
+                "name": "Drone 9",
+                "model": "Model-X4",
+                "status": "hovering",
+                "position": {
+                  "x": 245.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "heading": 9.74364128703716,
+                "speed": 0.0,
+                "battery_level": 98.8137500650193,
+                "max_speed": 18.0,
+                "max_altitude": 487.0,
+                "battery_capacity": 94.1,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 228.0,
+                  "y": 426.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667075.669589,
+                "last_updated": 1802649600.128651
+              }
+            },
+            "after": {
+              "request_id": 143,
+              "relative_seconds": 0.3217299170028127,
+              "drone": {
+                "id": "2a266de6",
+                "name": "Drone 9",
+                "model": "Model-X4",
+                "status": "hovering",
+                "position": {
+                  "x": 245.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "heading": 9.74364128703716,
+                "speed": 0.0,
+                "battery_level": 98.8137500650193,
+                "max_speed": 18.0,
+                "max_altitude": 487.0,
+                "battery_capacity": 94.1,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 228.0,
+                  "y": 426.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667075.669589,
+                "last_updated": 1802649600.128651
+              }
+            },
+            "public_xyz_unchanged": true,
+            "mask": {
+              "actor": "2a266de6",
+              "candidate_index": 35,
+              "destination": [
+                175.0,
+                665.0,
+                20.0
+              ],
+              "evidence_ref": "e251",
+              "action": {
+                "tool": "move_to",
+                "args": {
+                  "drone_id": "2a266de6",
+                  "x": 175.0,
+                  "y": 665.0,
+                  "z": 20.0
+                },
+                "receipt": {
+                  "command_id": "bc769d4e",
+                  "drone_id": "2a266de6",
+                  "command": "move_to",
+                  "status": "error",
+                  "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+                  "timestamp": 1802649600.3185294,
+                  "outcome": "blocked"
+                }
+              },
+              "round": 2,
+              "sequence": 20
+            }
+          },
+          "consumers": [
+            {
+              "request_id": 151,
+              "relative_seconds": 0.3397641250012384,
+              "actor": "60892444",
+              "destination": [
+                175.0,
+                665.0,
+                20.0
+              ],
+              "obstacle_type": "polygon",
+              "obstacle_name": "Polygon Obstacle 9",
+              "receipt": {
+                "command_id": "2e9aab47",
+                "drone_id": "60892444",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+                "timestamp": 1802649600.3389347
+              },
+              "before": {
+                "request_id": 150,
+                "relative_seconds": 0.33735204200274893,
+                "drone": {
+                  "id": "60892444",
+                  "name": "Drone 1",
+                  "model": "Model-X5",
+                  "status": "hovering",
+                  "position": {
+                    "x": 105.0,
+                    "y": 525.0,
+                    "z": 20.0
+                  },
+                  "heading": 349.54009090707086,
+                  "speed": 0.0,
+                  "battery_level": 99.04842721999992,
+                  "max_speed": 22.0,
+                  "max_altitude": 359.0,
+                  "battery_capacity": 60.5,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 117.0,
+                    "y": 460.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.669549,
+                  "last_updated": 1802649600.1558425
+                }
+              },
+              "after": {
+                "request_id": 152,
+                "relative_seconds": 0.3418784580026113,
+                "drone": {
+                  "id": "60892444",
+                  "name": "Drone 1",
+                  "model": "Model-X5",
+                  "status": "hovering",
+                  "position": {
+                    "x": 105.0,
+                    "y": 525.0,
+                    "z": 20.0
+                  },
+                  "heading": 349.54009090707086,
+                  "speed": 0.0,
+                  "battery_level": 99.04842721999992,
+                  "max_speed": 22.0,
+                  "max_altitude": 359.0,
+                  "battery_capacity": 60.5,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 117.0,
+                    "y": 460.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.669549,
+                  "last_updated": 1802649600.1558425
+                }
+              },
+              "public_xyz_unchanged": true,
+              "mask": {
+                "actor": "60892444",
+                "candidate_index": 35,
+                "destination": [
+                  175.0,
+                  665.0,
+                  20.0
+                ],
+                "evidence_ref": "e269",
+                "action": {
+                  "tool": "move_to",
+                  "args": {
+                    "drone_id": "60892444",
+                    "x": 175.0,
+                    "y": 665.0,
+                    "z": 20.0
+                  },
+                  "receipt": {
+                    "command_id": "2e9aab47",
+                    "drone_id": "60892444",
+                    "command": "move_to",
+                    "status": "error",
+                    "message": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 9'",
+                    "timestamp": 1802649600.3389347,
+                    "outcome": "blocked"
+                  }
+                },
+                "round": 2,
+                "sequence": 22
+              },
+              "first_other_actor_source_request_id": 142,
+              "prior_other_actor_failure_request_ids": [
+                142
+              ],
+              "source_to_consumer": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              },
+              "consumer_to_task_end": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [
+                  {
+                    "request_id": 173,
+                    "observer": "be69a550",
+                    "id": "38598a93",
+                    "name": "Polygon Obstacle 9",
+                    "geometry": {
+                      "type": "polygon",
+                      "position": {
+                        "x": 202.0,
+                        "y": 666.0,
+                        "z": 0.0
+                      },
+                      "radius": null,
+                      "vertices": [
+                        {
+                          "x": 147.52,
+                          "y": 612.09
+                        },
+                        {
+                          "x": 255.52,
+                          "y": 612.09
+                        },
+                        {
+                          "x": 255.52,
+                          "y": 720.09
+                        },
+                        {
+                          "x": 147.52,
+                          "y": 720.09
+                        }
+                      ],
+                      "width": null,
+                      "length": null,
+                      "height": 0.0
+                    }
+                  },
+                  {
+                    "request_id": 206,
+                    "observer": "2a266de6",
+                    "id": "38598a93",
+                    "name": "Polygon Obstacle 9",
+                    "geometry": {
+                      "type": "polygon",
+                      "position": {
+                        "x": 202.0,
+                        "y": 666.0,
+                        "z": 0.0
+                      },
+                      "radius": null,
+                      "vertices": [
+                        {
+                          "x": 147.52,
+                          "y": 612.09
+                        },
+                        {
+                          "x": 255.52,
+                          "y": 612.09
+                        },
+                        {
+                          "x": 255.52,
+                          "y": 720.09
+                        },
+                        {
+                          "x": 147.52,
+                          "y": 720.09
+                        }
+                      ],
+                      "width": null,
+                      "length": null,
+                      "height": 0.0
+                    }
+                  },
+                  {
+                    "request_id": 263,
+                    "observer": "272fa7be",
+                    "id": "38598a93",
+                    "name": "Polygon Obstacle 9",
+                    "geometry": {
+                      "type": "polygon",
+                      "position": {
+                        "x": 202.0,
+                        "y": 666.0,
+                        "z": 0.0
+                      },
+                      "radius": null,
+                      "vertices": [
+                        {
+                          "x": 147.52,
+                          "y": 612.09
+                        },
+                        {
+                          "x": 255.52,
+                          "y": 612.09
+                        },
+                        {
+                          "x": 255.52,
+                          "y": 720.09
+                        },
+                        {
+                          "x": 147.52,
+                          "y": 720.09
+                        }
+                      ],
+                      "width": null,
+                      "length": null,
+                      "height": 0.0
+                    }
+                  },
+                  {
+                    "request_id": 267,
+                    "observer": "2a266de6",
+                    "id": "38598a93",
+                    "name": "Polygon Obstacle 9",
+                    "geometry": {
+                      "type": "polygon",
+                      "position": {
+                        "x": 202.0,
+                        "y": 666.0,
+                        "z": 0.0
+                      },
+                      "radius": null,
+                      "vertices": [
+                        {
+                          "x": 147.52,
+                          "y": 612.09
+                        },
+                        {
+                          "x": 255.52,
+                          "y": 612.09
+                        },
+                        {
+                          "x": 255.52,
+                          "y": 720.09
+                        },
+                        {
+                          "x": 147.52,
+                          "y": 720.09
+                        }
+                      ],
+                      "width": null,
+                      "length": null,
+                      "height": 0.0
+                    }
+                  }
+                ],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              }
+            }
+          ],
+          "full_task_same_name_observations": [
+            {
+              "request_id": 173,
+              "observer": "be69a550",
+              "id": "38598a93",
+              "name": "Polygon Obstacle 9",
+              "geometry": {
+                "type": "polygon",
+                "position": {
+                  "x": 202.0,
+                  "y": 666.0,
+                  "z": 0.0
+                },
+                "radius": null,
+                "vertices": [
+                  {
+                    "x": 147.52,
+                    "y": 612.09
+                  },
+                  {
+                    "x": 255.52,
+                    "y": 612.09
+                  },
+                  {
+                    "x": 255.52,
+                    "y": 720.09
+                  },
+                  {
+                    "x": 147.52,
+                    "y": 720.09
+                  }
+                ],
+                "width": null,
+                "length": null,
+                "height": 0.0
+              }
+            },
+            {
+              "request_id": 206,
+              "observer": "2a266de6",
+              "id": "38598a93",
+              "name": "Polygon Obstacle 9",
+              "geometry": {
+                "type": "polygon",
+                "position": {
+                  "x": 202.0,
+                  "y": 666.0,
+                  "z": 0.0
+                },
+                "radius": null,
+                "vertices": [
+                  {
+                    "x": 147.52,
+                    "y": 612.09
+                  },
+                  {
+                    "x": 255.52,
+                    "y": 612.09
+                  },
+                  {
+                    "x": 255.52,
+                    "y": 720.09
+                  },
+                  {
+                    "x": 147.52,
+                    "y": 720.09
+                  }
+                ],
+                "width": null,
+                "length": null,
+                "height": 0.0
+              }
+            },
+            {
+              "request_id": 263,
+              "observer": "272fa7be",
+              "id": "38598a93",
+              "name": "Polygon Obstacle 9",
+              "geometry": {
+                "type": "polygon",
+                "position": {
+                  "x": 202.0,
+                  "y": 666.0,
+                  "z": 0.0
+                },
+                "radius": null,
+                "vertices": [
+                  {
+                    "x": 147.52,
+                    "y": 612.09
+                  },
+                  {
+                    "x": 255.52,
+                    "y": 612.09
+                  },
+                  {
+                    "x": 255.52,
+                    "y": 720.09
+                  },
+                  {
+                    "x": 147.52,
+                    "y": 720.09
+                  }
+                ],
+                "width": null,
+                "length": null,
+                "height": 0.0
+              }
+            },
+            {
+              "request_id": 267,
+              "observer": "2a266de6",
+              "id": "38598a93",
+              "name": "Polygon Obstacle 9",
+              "geometry": {
+                "type": "polygon",
+                "position": {
+                  "x": 202.0,
+                  "y": 666.0,
+                  "z": 0.0
+                },
+                "radius": null,
+                "vertices": [
+                  {
+                    "x": 147.52,
+                    "y": 612.09
+                  },
+                  {
+                    "x": 255.52,
+                    "y": 612.09
+                  },
+                  {
+                    "x": 255.52,
+                    "y": 720.09
+                  },
+                  {
+                    "x": 147.52,
+                    "y": 720.09
+                  }
+                ],
+                "width": null,
+                "length": null,
+                "height": 0.0
+              }
+            }
+          ],
+          "source_to_task_end": {
+            "successful_moves_to_exact_xyz": [],
+            "public_positions_at_exact_xyz": [],
+            "same_name_obstacle_observations": [
+              {
+                "request_id": 173,
+                "observer": "be69a550",
+                "id": "38598a93",
+                "name": "Polygon Obstacle 9",
+                "geometry": {
+                  "type": "polygon",
+                  "position": {
+                    "x": 202.0,
+                    "y": 666.0,
+                    "z": 0.0
+                  },
+                  "radius": null,
+                  "vertices": [
+                    {
+                      "x": 147.52,
+                      "y": 612.09
+                    },
+                    {
+                      "x": 255.52,
+                      "y": 612.09
+                    },
+                    {
+                      "x": 255.52,
+                      "y": 720.09
+                    },
+                    {
+                      "x": 147.52,
+                      "y": 720.09
+                    }
+                  ],
+                  "width": null,
+                  "length": null,
+                  "height": 0.0
+                }
+              },
+              {
+                "request_id": 206,
+                "observer": "2a266de6",
+                "id": "38598a93",
+                "name": "Polygon Obstacle 9",
+                "geometry": {
+                  "type": "polygon",
+                  "position": {
+                    "x": 202.0,
+                    "y": 666.0,
+                    "z": 0.0
+                  },
+                  "radius": null,
+                  "vertices": [
+                    {
+                      "x": 147.52,
+                      "y": 612.09
+                    },
+                    {
+                      "x": 255.52,
+                      "y": 612.09
+                    },
+                    {
+                      "x": 255.52,
+                      "y": 720.09
+                    },
+                    {
+                      "x": 147.52,
+                      "y": 720.09
+                    }
+                  ],
+                  "width": null,
+                  "length": null,
+                  "height": 0.0
+                }
+              },
+              {
+                "request_id": 263,
+                "observer": "272fa7be",
+                "id": "38598a93",
+                "name": "Polygon Obstacle 9",
+                "geometry": {
+                  "type": "polygon",
+                  "position": {
+                    "x": 202.0,
+                    "y": 666.0,
+                    "z": 0.0
+                  },
+                  "radius": null,
+                  "vertices": [
+                    {
+                      "x": 147.52,
+                      "y": 612.09
+                    },
+                    {
+                      "x": 255.52,
+                      "y": 612.09
+                    },
+                    {
+                      "x": 255.52,
+                      "y": 720.09
+                    },
+                    {
+                      "x": 147.52,
+                      "y": 720.09
+                    }
+                  ],
+                  "width": null,
+                  "length": null,
+                  "height": 0.0
+                }
+              },
+              {
+                "request_id": 267,
+                "observer": "2a266de6",
+                "id": "38598a93",
+                "name": "Polygon Obstacle 9",
+                "geometry": {
+                  "type": "polygon",
+                  "position": {
+                    "x": 202.0,
+                    "y": 666.0,
+                    "z": 0.0
+                  },
+                  "radius": null,
+                  "vertices": [
+                    {
+                      "x": 147.52,
+                      "y": 612.09
+                    },
+                    {
+                      "x": 255.52,
+                      "y": 612.09
+                    },
+                    {
+                      "x": 255.52,
+                      "y": 720.09
+                    },
+                    {
+                      "x": 147.52,
+                      "y": 720.09
+                    }
+                  ],
+                  "width": null,
+                  "length": null,
+                  "height": 0.0
+                }
+              }
+            ],
+            "all_public_same_id_geometry_changes": [],
+            "public_api_mutations": []
+          }
+        },
+        {
+          "destination": [
+            875.0,
+            455.0,
+            20.0
+          ],
+          "first_source": {
+            "request_id": 302,
+            "relative_seconds": 0.7381505000012112,
+            "actor": "d4d95e8a",
+            "destination": [
+              875.0,
+              455.0,
+              20.0
+            ],
+            "obstacle_type": "circle",
+            "obstacle_name": "Circle Obstacle 3",
+            "receipt": {
+              "command_id": "bca58fc3",
+              "drone_id": "d4d95e8a",
+              "command": "move_to",
+              "status": "error",
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "timestamp": 1802649600.7367373
+            },
+            "before": {
+              "request_id": 301,
+              "relative_seconds": 0.7345291250021546,
+              "drone": {
+                "id": "d4d95e8a",
+                "name": "Drone 15",
+                "model": "Model-B",
+                "status": "hovering",
+                "position": {
+                  "x": 665.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "heading": 90.0,
+                "speed": 0.0,
+                "battery_level": 97.60072615904052,
+                "max_speed": 34.0,
+                "max_altitude": 338.0,
+                "battery_capacity": 78.9,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 486.0,
+                  "y": 490.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667075.6696079,
+                "last_updated": 1802649600.5660362
+              }
+            },
+            "after": {
+              "request_id": 303,
+              "relative_seconds": 0.7406086670016521,
+              "drone": {
+                "id": "d4d95e8a",
+                "name": "Drone 15",
+                "model": "Model-B",
+                "status": "hovering",
+                "position": {
+                  "x": 665.0,
+                  "y": 525.0,
+                  "z": 20.0
+                },
+                "heading": 90.0,
+                "speed": 0.0,
+                "battery_level": 97.60072615904052,
+                "max_speed": 34.0,
+                "max_altitude": 338.0,
+                "battery_capacity": 78.9,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 486.0,
+                  "y": 490.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667075.6696079,
+                "last_updated": 1802649600.5660362
+              }
+            },
+            "public_xyz_unchanged": true,
+            "mask": {
+              "actor": "d4d95e8a",
+              "candidate_index": 162,
+              "destination": [
+                875.0,
+                455.0,
+                20.0
+              ],
+              "evidence_ref": "e571",
+              "action": {
+                "tool": "move_to",
+                "args": {
+                  "drone_id": "d4d95e8a",
+                  "x": 875.0,
+                  "y": 455.0,
+                  "z": 20.0
+                },
+                "receipt": {
+                  "command_id": "bca58fc3",
+                  "drone_id": "d4d95e8a",
+                  "command": "move_to",
+                  "status": "error",
+                  "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                  "timestamp": 1802649600.7367373,
+                  "outcome": "blocked"
+                }
+              },
+              "round": 4,
+              "sequence": 59
+            }
+          },
+          "consumers": [
+            {
+              "request_id": 311,
+              "relative_seconds": 0.761603875002038,
+              "actor": "01e3ece4",
+              "destination": [
+                875.0,
+                455.0,
+                20.0
+              ],
+              "obstacle_type": "circle",
+              "obstacle_name": "Circle Obstacle 3",
+              "receipt": {
+                "command_id": "88023e0f",
+                "drone_id": "01e3ece4",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                "timestamp": 1802649600.7603216
+              },
+              "before": {
+                "request_id": 310,
+                "relative_seconds": 0.7586020000017015,
+                "drone": {
+                  "id": "01e3ece4",
+                  "name": "Drone 12",
+                  "model": "Model-X2",
+                  "status": "hovering",
+                  "position": {
+                    "x": 805.0,
+                    "y": 385.0,
+                    "z": 20.0
+                  },
+                  "heading": 33.690067525979785,
+                  "speed": 0.0,
+                  "battery_level": 95.97142136683749,
+                  "max_speed": 29.0,
+                  "max_altitude": 234.0,
+                  "battery_capacity": 69.9,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 877.0,
+                    "y": 36.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.669599,
+                  "last_updated": 1802649600.5885239
+                }
+              },
+              "after": {
+                "request_id": 312,
+                "relative_seconds": 0.7637591670027177,
+                "drone": {
+                  "id": "01e3ece4",
+                  "name": "Drone 12",
+                  "model": "Model-X2",
+                  "status": "hovering",
+                  "position": {
+                    "x": 805.0,
+                    "y": 385.0,
+                    "z": 20.0
+                  },
+                  "heading": 33.690067525979785,
+                  "speed": 0.0,
+                  "battery_level": 95.97142136683749,
+                  "max_speed": 29.0,
+                  "max_altitude": 234.0,
+                  "battery_capacity": 69.9,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 877.0,
+                    "y": 36.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.669599,
+                  "last_updated": 1802649600.5885239
+                }
+              },
+              "public_xyz_unchanged": true,
+              "mask": {
+                "actor": "01e3ece4",
+                "candidate_index": 162,
+                "destination": [
+                  875.0,
+                  455.0,
+                  20.0
+                ],
+                "evidence_ref": "e589",
+                "action": {
+                  "tool": "move_to",
+                  "args": {
+                    "drone_id": "01e3ece4",
+                    "x": 875.0,
+                    "y": 455.0,
+                    "z": 20.0
+                  },
+                  "receipt": {
+                    "command_id": "88023e0f",
+                    "drone_id": "01e3ece4",
+                    "command": "move_to",
+                    "status": "error",
+                    "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                    "timestamp": 1802649600.7603216,
+                    "outcome": "blocked"
+                  }
+                },
+                "round": 5,
+                "sequence": 61
+              },
+              "first_other_actor_source_request_id": 302,
+              "prior_other_actor_failure_request_ids": [
+                302
+              ],
+              "source_to_consumer": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              },
+              "consumer_to_task_end": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              }
+            },
+            {
+              "request_id": 352,
+              "relative_seconds": 0.8748642080026912,
+              "actor": "b6654aad",
+              "destination": [
+                875.0,
+                455.0,
+                20.0
+              ],
+              "obstacle_type": "circle",
+              "obstacle_name": "Circle Obstacle 3",
+              "receipt": {
+                "command_id": "abdeb5e0",
+                "drone_id": "b6654aad",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                "timestamp": 1802649600.8736742
+              },
+              "before": {
+                "request_id": 351,
+                "relative_seconds": 0.872162917003152,
+                "drone": {
+                  "id": "b6654aad",
+                  "name": "Drone 10",
+                  "model": "Model-X3",
+                  "status": "hovering",
+                  "position": {
+                    "x": 875.0,
+                    "y": 315.0,
+                    "z": 20.0
+                  },
+                  "heading": 45.0,
+                  "speed": 0.0,
+                  "battery_level": 97.59965981708854,
+                  "max_speed": 32.0,
+                  "max_altitude": 342.0,
+                  "battery_capacity": 80.8,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 759.0,
+                    "y": 76.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.6695921,
+                  "last_updated": 1802649600.6994293
+                }
+              },
+              "after": {
+                "request_id": 353,
+                "relative_seconds": 0.8774873750007828,
+                "drone": {
+                  "id": "b6654aad",
+                  "name": "Drone 10",
+                  "model": "Model-X3",
+                  "status": "hovering",
+                  "position": {
+                    "x": 875.0,
+                    "y": 315.0,
+                    "z": 20.0
+                  },
+                  "heading": 45.0,
+                  "speed": 0.0,
+                  "battery_level": 97.59965981708854,
+                  "max_speed": 32.0,
+                  "max_altitude": 342.0,
+                  "battery_capacity": 80.8,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 759.0,
+                    "y": 76.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.6695921,
+                  "last_updated": 1802649600.6994293
+                }
+              },
+              "public_xyz_unchanged": true,
+              "mask": {
+                "actor": "b6654aad",
+                "candidate_index": 162,
+                "destination": [
+                  875.0,
+                  455.0,
+                  20.0
+                ],
+                "evidence_ref": "e671",
+                "action": {
+                  "tool": "move_to",
+                  "args": {
+                    "drone_id": "b6654aad",
+                    "x": 875.0,
+                    "y": 455.0,
+                    "z": 20.0
+                  },
+                  "receipt": {
+                    "command_id": "abdeb5e0",
+                    "drone_id": "b6654aad",
+                    "command": "move_to",
+                    "status": "error",
+                    "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                    "timestamp": 1802649600.8736742,
+                    "outcome": "blocked"
+                  }
+                },
+                "round": 5,
+                "sequence": 71
+              },
+              "first_other_actor_source_request_id": 302,
+              "prior_other_actor_failure_request_ids": [
+                302,
+                311
+              ],
+              "source_to_consumer": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              },
+              "consumer_to_task_end": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              }
+            },
+            {
+              "request_id": 429,
+              "relative_seconds": 1.1123602500010747,
+              "actor": "e444398a",
+              "destination": [
+                875.0,
+                455.0,
+                20.0
+              ],
+              "obstacle_type": "circle",
+              "obstacle_name": "Circle Obstacle 3",
+              "receipt": {
+                "command_id": "b41188f5",
+                "drone_id": "e444398a",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                "timestamp": 1802649601.1106572
+              },
+              "before": {
+                "request_id": 428,
+                "relative_seconds": 1.1087193330022274,
+                "drone": {
+                  "id": "e444398a",
+                  "name": "Drone 2",
+                  "model": "Model-A",
+                  "status": "hovering",
+                  "position": {
+                    "x": 665.0,
+                    "y": 35.0,
+                    "z": 20.0
+                  },
+                  "heading": 90.0,
+                  "speed": 0.0,
+                  "battery_level": 95.14068867625892,
+                  "max_speed": 31.0,
+                  "max_altitude": 384.0,
+                  "battery_capacity": 91.5,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 265.0,
+                    "y": 101.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.6695628,
+                  "last_updated": 1802649600.916626
+                }
+              },
+              "after": {
+                "request_id": 430,
+                "relative_seconds": 1.1149709580022318,
+                "drone": {
+                  "id": "e444398a",
+                  "name": "Drone 2",
+                  "model": "Model-A",
+                  "status": "hovering",
+                  "position": {
+                    "x": 665.0,
+                    "y": 35.0,
+                    "z": 20.0
+                  },
+                  "heading": 90.0,
+                  "speed": 0.0,
+                  "battery_level": 95.14068867625892,
+                  "max_speed": 31.0,
+                  "max_altitude": 384.0,
+                  "battery_capacity": 91.5,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 265.0,
+                    "y": 101.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.6695628,
+                  "last_updated": 1802649600.916626
+                }
+              },
+              "public_xyz_unchanged": true,
+              "mask": {
+                "actor": "e444398a",
+                "candidate_index": 162,
+                "destination": [
+                  875.0,
+                  455.0,
+                  20.0
+                ],
+                "evidence_ref": "e825",
+                "action": {
+                  "tool": "move_to",
+                  "args": {
+                    "drone_id": "e444398a",
+                    "x": 875.0,
+                    "y": 455.0,
+                    "z": 20.0
+                  },
+                  "receipt": {
+                    "command_id": "b41188f5",
+                    "drone_id": "e444398a",
+                    "command": "move_to",
+                    "status": "error",
+                    "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                    "timestamp": 1802649601.1106572,
+                    "outcome": "blocked"
+                  }
+                },
+                "round": 6,
+                "sequence": 90
+              },
+              "first_other_actor_source_request_id": 302,
+              "prior_other_actor_failure_request_ids": [
+                302,
+                311,
+                352
+              ],
+              "source_to_consumer": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              },
+              "consumer_to_task_end": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              }
+            }
+          ],
+          "full_task_same_name_observations": [],
+          "source_to_task_end": {
+            "successful_moves_to_exact_xyz": [],
+            "public_positions_at_exact_xyz": [],
+            "same_name_obstacle_observations": [],
+            "all_public_same_id_geometry_changes": [],
+            "public_api_mutations": []
+          }
+        },
+        {
+          "destination": [
+            945.0,
+            385.0,
+            20.0
+          ],
+          "first_source": {
+            "request_id": 413,
+            "relative_seconds": 1.0650720830017235,
+            "actor": "b6654aad",
+            "destination": [
+              945.0,
+              385.0,
+              20.0
+            ],
+            "obstacle_type": "circle",
+            "obstacle_name": "Circle Obstacle 3",
+            "receipt": {
+              "command_id": "1b625813",
+              "drone_id": "b6654aad",
+              "command": "move_to",
+              "status": "error",
+              "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+              "timestamp": 1802649601.0635629
+            },
+            "before": {
+              "request_id": 412,
+              "relative_seconds": 1.0619192080011999,
+              "drone": {
+                "id": "b6654aad",
+                "name": "Drone 10",
+                "model": "Model-X3",
+                "status": "hovering",
+                "position": {
+                  "x": 875.0,
+                  "y": 315.0,
+                  "z": 20.0
+                },
+                "heading": 45.0,
+                "speed": 0.0,
+                "battery_level": 97.59965981708854,
+                "max_speed": 32.0,
+                "max_altitude": 342.0,
+                "battery_capacity": 80.8,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 759.0,
+                  "y": 76.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667075.6695921,
+                "last_updated": 1802649600.6994293
+              }
+            },
+            "after": {
+              "request_id": 414,
+              "relative_seconds": 1.0674603330007812,
+              "drone": {
+                "id": "b6654aad",
+                "name": "Drone 10",
+                "model": "Model-X3",
+                "status": "hovering",
+                "position": {
+                  "x": 875.0,
+                  "y": 315.0,
+                  "z": 20.0
+                },
+                "heading": 45.0,
+                "speed": 0.0,
+                "battery_level": 97.59965981708854,
+                "max_speed": 32.0,
+                "max_altitude": 342.0,
+                "battery_capacity": 80.8,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 759.0,
+                  "y": 76.0,
+                  "z": 0.0
+                },
+                "created_at": 1775667075.6695921,
+                "last_updated": 1802649600.6994293
+              }
+            },
+            "public_xyz_unchanged": true,
+            "mask": {
+              "actor": "b6654aad",
+              "candidate_index": 174,
+              "destination": [
+                945.0,
+                385.0,
+                20.0
+              ],
+              "evidence_ref": "e793",
+              "action": {
+                "tool": "move_to",
+                "args": {
+                  "drone_id": "b6654aad",
+                  "x": 945.0,
+                  "y": 385.0,
+                  "z": 20.0
+                },
+                "receipt": {
+                  "command_id": "1b625813",
+                  "drone_id": "b6654aad",
+                  "command": "move_to",
+                  "status": "error",
+                  "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                  "timestamp": 1802649601.0635629,
+                  "outcome": "blocked"
+                }
+              },
+              "round": 6,
+              "sequence": 86
+            }
+          },
+          "consumers": [
+            {
+              "request_id": 491,
+              "relative_seconds": 1.3140247500014084,
+              "actor": "e444398a",
+              "destination": [
+                945.0,
+                385.0,
+                20.0
+              ],
+              "obstacle_type": "circle",
+              "obstacle_name": "Circle Obstacle 3",
+              "receipt": {
+                "command_id": "37ab7f8f",
+                "drone_id": "e444398a",
+                "command": "move_to",
+                "status": "error",
+                "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                "timestamp": 1802649601.3122196
+              },
+              "before": {
+                "request_id": 490,
+                "relative_seconds": 1.3104110830026912,
+                "drone": {
+                  "id": "e444398a",
+                  "name": "Drone 2",
+                  "model": "Model-A",
+                  "status": "hovering",
+                  "position": {
+                    "x": 665.0,
+                    "y": 35.0,
+                    "z": 20.0
+                  },
+                  "heading": 90.0,
+                  "speed": 0.0,
+                  "battery_level": 95.14068867625892,
+                  "max_speed": 31.0,
+                  "max_altitude": 384.0,
+                  "battery_capacity": 91.5,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 265.0,
+                    "y": 101.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.6695628,
+                  "last_updated": 1802649600.916626
+                }
+              },
+              "after": {
+                "request_id": 492,
+                "relative_seconds": 1.316682792003121,
+                "drone": {
+                  "id": "e444398a",
+                  "name": "Drone 2",
+                  "model": "Model-A",
+                  "status": "hovering",
+                  "position": {
+                    "x": 665.0,
+                    "y": 35.0,
+                    "z": 20.0
+                  },
+                  "heading": 90.0,
+                  "speed": 0.0,
+                  "battery_level": 95.14068867625892,
+                  "max_speed": 31.0,
+                  "max_altitude": 384.0,
+                  "battery_capacity": 91.5,
+                  "perceived_radius": 50.0,
+                  "task_radius": 20.0,
+                  "home_position": {
+                    "x": 265.0,
+                    "y": 101.0,
+                    "z": 0.0
+                  },
+                  "created_at": 1775667075.6695628,
+                  "last_updated": 1802649600.916626
+                }
+              },
+              "public_xyz_unchanged": true,
+              "mask": {
+                "actor": "e444398a",
+                "candidate_index": 174,
+                "destination": [
+                  945.0,
+                  385.0,
+                  20.0
+                ],
+                "evidence_ref": "e949",
+                "action": {
+                  "tool": "move_to",
+                  "args": {
+                    "drone_id": "e444398a",
+                    "x": 945.0,
+                    "y": 385.0,
+                    "z": 20.0
+                  },
+                  "receipt": {
+                    "command_id": "37ab7f8f",
+                    "drone_id": "e444398a",
+                    "command": "move_to",
+                    "status": "error",
+                    "message": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 3'",
+                    "timestamp": 1802649601.3122196,
+                    "outcome": "blocked"
+                  }
+                },
+                "round": 7,
+                "sequence": 105
+              },
+              "first_other_actor_source_request_id": 413,
+              "prior_other_actor_failure_request_ids": [
+                413
+              ],
+              "source_to_consumer": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              },
+              "consumer_to_task_end": {
+                "successful_moves_to_exact_xyz": [],
+                "public_positions_at_exact_xyz": [],
+                "same_name_obstacle_observations": [],
+                "all_public_same_id_geometry_changes": [],
+                "public_api_mutations": []
+              }
+            }
+          ],
+          "full_task_same_name_observations": [],
+          "source_to_task_end": {
+            "successful_moves_to_exact_xyz": [],
+            "public_positions_at_exact_xyz": [],
+            "same_name_obstacle_observations": [],
+            "all_public_same_id_geometry_changes": [],
+            "public_api_mutations": []
+          }
+        }
+      ],
+      "public_obstacle_observations": 78,
+      "public_obstacle_unique_ids": 19,
+      "public_same_id_geometry_changes": [],
+      "all_physical_actions_skill_origin": true,
+      "single_plan_and_epoch": true,
+      "protocol": {
+        "model": null,
+        "scripted_start": true,
+        "deadline_seconds": 500,
+        "watchdog_seconds": 90,
+        "initial_state_sha256": "cc01dd4c6b7fcf558636b09064a154a3ea131bc9145af27f8d790180677241f2"
+      },
+      "api_budget": 2000,
+      "repair_budget": 16
+    }
+  ],
+  "limitations": [
+    "Only archived public evidence is reconstructed; absence of a public update does not prove immutable hidden world.",
+    "A name in an error provides no geometry or unique obstacle ID. No region, path, other height, or scene transfer follows.",
+    "This audit contains no candidate execution, task-success or generalization result."
+  ]
+}

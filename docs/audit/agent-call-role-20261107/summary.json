@@ -1,0 +1,59 @@
+{
+  "actual_total_tokens_by_role_including_input": {
+    "movement_requested": 302005,
+    "program_start": 75113,
+    "queries_only": 338690,
+    "sensing_and_optional_queries": 134803,
+    "terminal_text": 153117
+  },
+  "excluded_without_provider_response": [
+    [
+      "search-control",
+      "attempt-11"
+    ]
+  ],
+  "responses": 68,
+  "responses_containing_at_least_one_reported_tool_feedback_error_by_role": {
+    "movement_requested": 1,
+    "queries_only": 1,
+    "sensing_and_optional_queries": 1
+  },
+  "role_counts": {
+    "movement_requested": 17,
+    "program_start": 6,
+    "queries_only": 24,
+    "sensing_and_optional_queries": 12,
+    "terminal_text": 9
+  },
+  "role_counts_by_condition_group": {
+    "injected_receipt_loss": {
+      "movement_requested": 2,
+      "program_start": 2,
+      "queries_only": 7,
+      "sensing_and_optional_queries": 3,
+      "terminal_text": 2
+    },
+    "normal": {
+      "movement_requested": 15,
+      "program_start": 4,
+      "queries_only": 17,
+      "sensing_and_optional_queries": 9,
+      "terminal_text": 7
+    }
+  },
+  "scope": "Five selected development conditions, two harness variants per condition, one execution per variant. Queries and sensing describe information requested; sensing can update the blackboard. Tool feedback errors overlap roles. Scores describe whole trials. No role measures replaceability, marginal utility or sufficient evidence at an intermediate step.",
+  "source": "docs/results/deepseek-cost-pilot-20261103/analysis-01/analysis.json",
+  "source_sha256": "919f750b1440eba6a9f095707a79fbb57833b5fdc7079b9c64df3e6ca21162d1",
+  "terminal_text_trial_passed_original_checker_and_predeclared_action_audit": {
+    "navigation-candidate": true,
+    "navigation-control": true,
+    "search-candidate": true,
+    "search_complete-candidate": true,
+    "search_complete-control": true,
+    "short_chain-candidate": false,
+    "short_chain-control": true,
+    "unknown_takeoff-candidate": true,
+    "unknown_takeoff-control": true
+  },
+  "trials": 10
+}

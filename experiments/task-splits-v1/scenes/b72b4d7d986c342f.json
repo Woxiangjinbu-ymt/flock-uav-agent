@@ -1,0 +1,453 @@
+{
+  "canvas_height": 320,
+  "canvas_width": 400,
+  "created_at": 1802649600.0,
+  "creator": "task-coverage-splits-v1",
+  "description": "Visible-target, clear-route static instance; no hidden-search or recovery claim.",
+  "drones": [
+    {
+      "battery_capacity": 1000,
+      "battery_level": 100,
+      "battery_volume": 1000,
+      "created_at": 1802649600.0,
+      "heading": 0,
+      "home_position": {
+        "x": 50,
+        "y": 35,
+        "z": 0
+      },
+      "id": "052e6bac6c4f4917",
+      "last_updated": 1802649600.0,
+      "max_altitude": 60,
+      "max_speed": 10,
+      "model": "W2 static simulator",
+      "name": "Drone 1",
+      "perceived_radius": 350,
+      "position": {
+        "x": 50,
+        "y": 35,
+        "z": 0
+      },
+      "speed": 0,
+      "status": "idle",
+      "task_radius": 25
+    },
+    {
+      "battery_capacity": 1000,
+      "battery_level": 100,
+      "battery_volume": 1000,
+      "created_at": 1802649600.0,
+      "heading": 0,
+      "home_position": {
+        "x": 54,
+        "y": 58,
+        "z": 0
+      },
+      "id": "441f2751f6f7d878",
+      "last_updated": 1802649600.0,
+      "max_altitude": 60,
+      "max_speed": 10,
+      "model": "W2 static simulator",
+      "name": "Drone 2",
+      "perceived_radius": 350,
+      "position": {
+        "x": 54,
+        "y": 58,
+        "z": 0
+      },
+      "speed": 0,
+      "status": "idle",
+      "task_radius": 25
+    }
+  ],
+  "environment": {
+    "created_at": 1802649600.0,
+    "humidity": 50,
+    "id": "91994dc0010397af",
+    "last_updated": 1802649600.0,
+    "name": "Controlled clear weather",
+    "pressure": 1013.25,
+    "temperature": 22,
+    "visibility": 10000,
+    "weather": "clear",
+    "wind_direction": "north",
+    "wind_speed": 0
+  },
+  "history": {
+    "area_coverage": {},
+    "command_history": [],
+    "moving_target_tracking": {},
+    "path_history": {},
+    "status_history": {},
+    "target_reaches": {}
+  },
+  "id": "b72b4d7d986c342f",
+  "is_distance_3d": true,
+  "last_updated": 1802649600.0,
+  "name": "Static instance b72b4d7d986c342f",
+  "obstacles": [
+    {
+      "created_at": 1802649600.0,
+      "height": 80,
+      "id": "b6e9de0dea0f0927",
+      "last_updated": 1802649600.0,
+      "name": "Obstacle 1",
+      "position": {
+        "x": 356,
+        "y": 277,
+        "z": 0
+      },
+      "radius": 9,
+      "type": "circle"
+    }
+  ],
+  "statistics": {
+    "session_time": 0,
+    "total_commands_executed": 0,
+    "total_distance_traveled": 0,
+    "total_flight_time": 0
+  },
+  "status": "active",
+  "targets": [
+    {
+      "created_at": 1802649600.0,
+      "id": "a99af7c3e92a7237",
+      "is_reached": false,
+      "last_updated": 1802649600.0,
+      "name": "Fixed Target 1",
+      "position": {
+        "x": 171,
+        "y": 101,
+        "z": 0
+      },
+      "radius": 1,
+      "reached_by": [],
+      "type": "fixed"
+    },
+    {
+      "created_at": 1802649600.0,
+      "id": "ac833cdf6ca58292",
+      "is_reached": false,
+      "last_updated": 1802649600.0,
+      "name": "Fixed Target 2",
+      "position": {
+        "x": 220,
+        "y": 118,
+        "z": 0
+      },
+      "radius": 1,
+      "reached_by": [],
+      "type": "fixed"
+    },
+    {
+      "created_at": 1802649600.0,
+      "id": "788d963ae8c147c0",
+      "is_reached": false,
+      "last_updated": 1802649600.0,
+      "name": "Circle Target 1",
+      "position": {
+        "x": 200,
+        "y": 235,
+        "z": 0
+      },
+      "radius": 27,
+      "reached_by": [],
+      "type": "circle"
+    }
+  ],
+  "task_description": "Cumulative non-waypoint target visits.",
+  "task_type": "target_assignment",
+  "tasks": [
+    {
+      "commands": [
+        "take_off",
+        "rotate",
+        "hover"
+      ],
+      "content": "Drone 1 must take off to 12 meters, face heading 223 degrees, and execute a hover command. Finish at that altitude and heading.",
+      "content_aliases": [],
+      "created_at": 1802649600.0,
+      "creator": "task-coverage-splits-v1",
+      "description": "New bounded static instance; independently reset before execution.",
+      "difficulty": "medium",
+      "execution_check_apis": {
+        "checks": [
+          {
+            "endpoint": "/check/drone_has_taken_off",
+            "parameters": {
+              "drone_id": "052e6bac6c4f4917",
+              "max_altitude": 12,
+              "min_altitude": 12,
+              "tolerance": 0.1
+            }
+          },
+          {
+            "endpoint": "/check/drone_altitude",
+            "parameters": {
+              "drone_id": "052e6bac6c4f4917",
+              "expected_altitude": 12,
+              "tolerance": 0.1
+            }
+          },
+          {
+            "endpoint": "/check/drone_heading",
+            "parameters": {
+              "drone_id": "052e6bac6c4f4917",
+              "expected_heading": 223,
+              "tolerance": 0.1
+            }
+          },
+          {
+            "endpoint": "/check/drone_has_hovered",
+            "parameters": {
+              "drone_id": "052e6bac6c4f4917",
+              "min_count": 1
+            }
+          }
+        ],
+        "logic": "and"
+      },
+      "id": "76e97f0ba50988c9",
+      "is_done": false,
+      "is_passed": false,
+      "last_updated": 1802649600.0,
+      "name": "F1 instance 76e97f0ba50988c9",
+      "originated_from": "task-coverage-splits-v1:w2_f1_flight_heading_hover",
+      "related_apis": []
+    },
+    {
+      "commands": [
+        "take_off",
+        "move_to",
+        "hover"
+      ],
+      "content": "Drone 2 must take off to 14 meters and visit these positions in any order: (136, 160, 14); (257, 70, 14); (271, 173, 14). Execute a hover command and finish at (271, 173, 14).",
+      "content_aliases": [],
+      "created_at": 1802649600.0,
+      "creator": "task-coverage-splits-v1",
+      "description": "New bounded static instance; independently reset before execution.",
+      "difficulty": "medium",
+      "execution_check_apis": {
+        "checks": [
+          {
+            "endpoint": "/check/drone_has_taken_off",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "max_altitude": 14,
+              "min_altitude": 14,
+              "tolerance": 0.1
+            }
+          },
+          {
+            "endpoint": "/check/drone_has_visited_position",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "tolerance": 0.5,
+              "x": 136,
+              "y": 160,
+              "z": 14
+            }
+          },
+          {
+            "endpoint": "/check/drone_has_visited_position",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "tolerance": 0.5,
+              "x": 257,
+              "y": 70,
+              "z": 14
+            }
+          },
+          {
+            "endpoint": "/check/drone_has_visited_position",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "tolerance": 0.5,
+              "x": 271,
+              "y": 173,
+              "z": 14
+            }
+          },
+          {
+            "endpoint": "/check/drone_position",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "tolerance": 0.5,
+              "x": 271,
+              "y": 173,
+              "z": 14
+            }
+          },
+          {
+            "endpoint": "/check/drone_has_hovered",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "min_count": 1
+            }
+          }
+        ],
+        "logic": "and"
+      },
+      "id": "18f564e3199503cf",
+      "is_done": false,
+      "is_passed": false,
+      "last_updated": 1802649600.0,
+      "name": "F2 instance 18f564e3199503cf",
+      "originated_from": "task-coverage-splits-v1:w2_f2_unordered_waypoint_set",
+      "related_apis": []
+    },
+    {
+      "commands": [
+        "take_off",
+        "move_to",
+        "take_photo"
+      ],
+      "content": "Drone 2 must visit Fixed Target 2 within its task radius and take at least one photo with that target within its perception radius.",
+      "content_aliases": [],
+      "created_at": 1802649600.0,
+      "creator": "task-coverage-splits-v1",
+      "description": "New bounded static instance; independently reset before execution.",
+      "difficulty": "medium",
+      "execution_check_apis": {
+        "checks": [
+          {
+            "endpoint": "/check/target_is_reached_by_drone",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "target_id": "ac833cdf6ca58292"
+            }
+          },
+          {
+            "endpoint": "/check/target_in_photo_taken_by_drone",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "target_id": "ac833cdf6ca58292"
+            }
+          }
+        ],
+        "logic": "and"
+      },
+      "id": "02a9b2ba99f7e974",
+      "is_done": false,
+      "is_passed": false,
+      "last_updated": 1802649600.0,
+      "name": "F3 instance 02a9b2ba99f7e974",
+      "originated_from": "task-coverage-splits-v1:w2_f3_target_visit_visible_photo",
+      "related_apis": []
+    },
+    {
+      "commands": [
+        "take_off",
+        "move_along_path"
+      ],
+      "content": "Use the available fleet to cover at least 95% of Circle Target 1's area. Coverage is cumulative across all drones; any subset of the fleet may perform it.",
+      "content_aliases": [],
+      "created_at": 1802649600.0,
+      "creator": "task-coverage-splits-v1",
+      "description": "New bounded static instance; independently reset before execution.",
+      "difficulty": "medium",
+      "execution_check_apis": {
+        "checks": [
+          {
+            "endpoint": "/check/target_is_fully_searched",
+            "parameters": {
+              "coverage_threshold": 0.95,
+              "target_id": "788d963ae8c147c0"
+            }
+          }
+        ],
+        "logic": "and"
+      },
+      "id": "58cc632c09561fc0",
+      "is_done": false,
+      "is_passed": false,
+      "last_updated": 1802649600.0,
+      "name": "F4 instance 58cc632c09561fc0",
+      "originated_from": "task-coverage-splits-v1:w2_f4_fleet_aggregate_area_coverage",
+      "related_apis": []
+    },
+    {
+      "commands": [
+        "take_off",
+        "move_to",
+        "hover"
+      ],
+      "content": "Drone 1 must visit Fixed Target 1 within its task radius and execute a hover command. Drone 2 must visit Fixed Target 2 within its task radius and execute a hover command. Each named drone has its own visit requirement; no inter-drone execution order is required.",
+      "content_aliases": [],
+      "created_at": 1802649600.0,
+      "creator": "task-coverage-splits-v1",
+      "description": "New bounded static instance; independently reset before execution.",
+      "difficulty": "medium",
+      "execution_check_apis": {
+        "checks": [
+          {
+            "endpoint": "/check/target_is_reached_by_drone",
+            "parameters": {
+              "drone_id": "052e6bac6c4f4917",
+              "target_id": "a99af7c3e92a7237"
+            }
+          },
+          {
+            "endpoint": "/check/drone_has_hovered",
+            "parameters": {
+              "drone_id": "052e6bac6c4f4917",
+              "min_count": 1
+            }
+          },
+          {
+            "endpoint": "/check/target_is_reached_by_drone",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "target_id": "ac833cdf6ca58292"
+            }
+          },
+          {
+            "endpoint": "/check/drone_has_hovered",
+            "parameters": {
+              "drone_id": "441f2751f6f7d878",
+              "min_count": 1
+            }
+          }
+        ],
+        "logic": "and"
+      },
+      "id": "e817dac88be25d06",
+      "is_done": false,
+      "is_passed": false,
+      "last_updated": 1802649600.0,
+      "name": "F5 instance e817dac88be25d06",
+      "originated_from": "task-coverage-splits-v1:w2_f5_actor_specific_assignment",
+      "related_apis": []
+    },
+    {
+      "commands": [
+        "take_off",
+        "move_to"
+      ],
+      "content": "Use any available drones to visit all non-waypoint targets within task radius until public session task progress is at least 100%. Visits are cumulative; simultaneous occupancy is not required.",
+      "content_aliases": [],
+      "created_at": 1802649600.0,
+      "creator": "task-coverage-splits-v1",
+      "description": "New bounded static instance; independently reset before execution.",
+      "difficulty": "medium",
+      "execution_check_apis": {
+        "checks": [
+          {
+            "endpoint": "/check/task_progress",
+            "parameters": {
+              "expected_progress": 1.0
+            }
+          }
+        ],
+        "logic": "and"
+      },
+      "id": "96b3658335cc266f",
+      "is_done": false,
+      "is_passed": false,
+      "last_updated": 1802649600.0,
+      "name": "F6 instance 96b3658335cc266f",
+      "originated_from": "task-coverage-splits-v1:w2_f6_all_target_visit_progress",
+      "related_apis": []
+    }
+  ]
+}

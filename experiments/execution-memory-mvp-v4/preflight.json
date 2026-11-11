@@ -1,0 +1,636 @@
+{
+  "provider_calls": 0,
+  "cases": [
+    {
+      "case_id": "clue-horizontal",
+      "prefix_sha256": "9391dc44b62a98c078f154acc220773748a02a0a347f494059b1420b04ad0764",
+      "state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+      "projection_chars": {
+        "v2": 1043,
+        "v3": 1939,
+        "v4": 2007
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 10838,
+        "v3": 11778,
+        "v4": 11862
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "clue-horizontal",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.05035045800013904,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+          "final_state_sha256": "c6b06ad2e85aec77503ae4729fd4c1524583fd9c32a1a1b58c87a8b4eb33667d",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "clue-horizontal",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.03954929199971957,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+          "final_state_sha256": "58116b333b027b160343b2bb2e28caa210fa909d29641642a3ff280642839cbf",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v4": {
+          "case_id": "clue-horizontal",
+          "arm": "v4",
+          "repeat": 1,
+          "memory_revision": "v4",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.038643750000119326,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+          "final_state_sha256": "93d54d96bd54b4936445b1530b61a93316625a827b43f30d7e9a94081c0f6917",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "clue-vertical",
+      "prefix_sha256": "ea15e589aabb7dfb51ceeed4891646e463d30746d4882541c4ee0e80add69ec9",
+      "state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+      "projection_chars": {
+        "v2": 1043,
+        "v3": 1939,
+        "v4": 2007
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 10835,
+        "v3": 11775,
+        "v4": 11859
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "clue-vertical",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.04245874999924126,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+          "final_state_sha256": "43548779f8d68ebb674561b849f9580e5c95700879656e2123b2d782ffc86d61",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "clue-vertical",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.04330716599997686,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+          "final_state_sha256": "4cd0bad97a4f32bbb4f49401b68d465dfa829fcd87cfc7a7d7dd3b6495f3c0f1",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v4": {
+          "case_id": "clue-vertical",
+          "arm": "v4",
+          "repeat": 1,
+          "memory_revision": "v4",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.04266429099970992,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+          "final_state_sha256": "c068b590023eb60c92456081efb4a2004167673c288882f1b807776ffeedf208",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "route-interrupted",
+      "prefix_sha256": "8866f667c565e1390bb13eadc3e620b9cae67b7335696d5ed80cb8b67eb33e07",
+      "state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+      "projection_chars": {
+        "v2": 525,
+        "v3": 525,
+        "v4": 525
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 7802,
+        "v3": 7802,
+        "v4": 7802
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "route-interrupted",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.03040183299981436,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+          "final_state_sha256": "c49ad0926bfa3260daa2a63a746b5423a841890ed41c9144ff3c3e50a3e32d0a",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "route-interrupted",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.033106792000580754,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+          "final_state_sha256": "b165108f61d9b5914366aa383a25abb26b964f127cefbc5a67114d60a722595b",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v4": {
+          "case_id": "route-interrupted",
+          "arm": "v4",
+          "repeat": 1,
+          "memory_revision": "v4",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.031910749999951804,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+          "final_state_sha256": "a6a709b6dda2c7bd6f98f8cc2e922c3b261909014eaa6c0cce9ba47815ffdf21",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "route-blocked",
+      "prefix_sha256": "6ec72d6031fd454568037516f59ce0d79397e52c7427cd384044fcd9e6a001d4",
+      "state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+      "projection_chars": {
+        "v2": 525,
+        "v3": 525,
+        "v4": 525
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 8176,
+        "v3": 8176,
+        "v4": 8176
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "route-blocked",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.031019667000691697,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+          "final_state_sha256": "e4996aa17170214998e617021cecc3f50c70006afcd3fc181786cdf24d0f461a",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "route-blocked",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.0335627080003178,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+          "final_state_sha256": "1a6bfe24718ac735c79aae9ef4531194c29b8253206a2ce590f3569b473ea4fa",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v4": {
+          "case_id": "route-blocked",
+          "arm": "v4",
+          "repeat": 1,
+          "memory_revision": "v4",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.06572695900013059,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+          "final_state_sha256": "6ae3295fd4a5062aaeab6c0137bde603437d50a32ebc66270f56993cb0998a8e",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "control-complete",
+      "prefix_sha256": "b2b4ad5ab0266e125114a3cbee4e3995d47d75599ba3c923b59621eae4935bf3",
+      "state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+      "projection_chars": {
+        "v2": 388,
+        "v3": 388,
+        "v4": 388
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 8720,
+        "v3": 8720,
+        "v4": 8720
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "control-complete",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.03260374999990745,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+          "final_state_sha256": "52f157e98fc88771e90fd48b03caef0c978e380392e7d4b109e6a5c421609975",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "control-complete",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.03074420899974939,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+          "final_state_sha256": "2183647ec24f8ab997fc1767aef92d6d56a80c44d29ec8ee3e853a05657a5bee",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v4": {
+          "case_id": "control-complete",
+          "arm": "v4",
+          "repeat": 1,
+          "memory_revision": "v4",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.03214229199966212,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+          "final_state_sha256": "7e806d5e381612724bd98c993972b72c5761dbbdb6a1422349f41ae8f0acd42a",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "control-failed-sense",
+      "prefix_sha256": "0e91b5324d0416e117cbba9d2d0302339e5baefb069dab58abc37892789f003b",
+      "state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+      "projection_chars": {
+        "v2": 498,
+        "v3": 498,
+        "v4": 498
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 7569,
+        "v3": 7569,
+        "v4": 7569
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "control-failed-sense",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.0321940830008316,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1"
+            ]
+          },
+          "initial_state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+          "final_state_sha256": "2d3e524c532330996417b77f2afe7d5990c693141da8d4dec34f6911667c6ff9",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "control-failed-sense",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.0353384999998525,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1"
+            ]
+          },
+          "initial_state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+          "final_state_sha256": "805801bf7b8eab6eaac8fef62338ac17819d7c38ad6eb031e5bb60c7c41c96aa",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v4": {
+          "case_id": "control-failed-sense",
+          "arm": "v4",
+          "repeat": 1,
+          "memory_revision": "v4",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.03627787499954138,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1"
+            ]
+          },
+          "initial_state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+          "final_state_sha256": "c18ebd377e56214aba4c11be91c58e6cf1dc2c2e53132609718aafbe9e58cb02",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    }
+  ],
+  "budget": {
+    "model_calls": 6,
+    "tool_calls": 12,
+    "seconds": 90,
+    "total_tokens": 60000,
+    "max_output_tokens": 768,
+    "projection_chars": 3900,
+    "campaign_tokens": 900000,
+    "round_tokens": 300000
+  },
+  "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+  "protocol_change_from_v3": "Three prespecified rounds compare fresh v2 (no declaration), v3 (combined reason), and v4 (observed changes separated from planned actions). Facts, tools, read points, model and wire admission budgets are shared. Only the conditional declaration contract differs. Audit statements never gate tools. Earlier results are historical only. Every case rotates through each arm order.",
+  "scope": "Same six artificial controlled prefixes; 54 fresh v2/v3/v4 attempts in three prespecified rounds"
+}

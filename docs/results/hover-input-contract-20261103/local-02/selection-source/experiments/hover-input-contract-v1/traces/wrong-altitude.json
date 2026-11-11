@@ -1,0 +1,28 @@
+[
+  {
+    "tool": "list_drones",
+    "arguments": {}
+  },
+  {
+    "tool": "take_off",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 4",
+        "altitude": 18
+      }
+    },
+    "input_json_encoding": "object"
+  },
+  {
+    "tool": "get_drone_status",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 4"
+      }
+    },
+    "input_json_encoding": "object"
+  },
+  {
+    "final": "Task complete. [TASK DONE]"
+  }
+]

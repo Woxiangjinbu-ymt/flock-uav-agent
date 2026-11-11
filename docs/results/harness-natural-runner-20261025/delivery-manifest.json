@@ -1,0 +1,22 @@
+{
+  "created_at_utc": "2026-10-25T13:36:16.808371+00:00",
+  "files": {
+    "scripts/harness_request_limits.py": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+    "scripts/harness_natural_runner.py": "586adfa8b612820698199570758e1bac6216cdfe14d5a2a4c643a05b77e2744c",
+    "scripts/harness_natural_local.py": "763c986872adcb190874047b4539040fc492173c4bd30dd25a27956ee6859802",
+    "scripts/validate_harness_natural_runner.py": "2348201a3a130750a2bf6541f07240630cc69da1479997fbb44f8db57783cfdb",
+    "scripts/audit_harness_natural_runner.py": "5148a2aa0812ae5f52bdf2c7b07cec2e65ebbdbeed59e43e757f316e8426789e",
+    "scripts/tests/test_harness_request_limits.py": "1522280328fb58f60b5240e0cadec281b09731e2037c3483b9c6659d447e2adc",
+    "scripts/tests/test_harness_natural_runner.py": "7b1f6005cfb1f2e2f7292f7ed348ac0a277b5579028154d0b24b5480346b61a6",
+    "scripts/tests/test_harness_natural_runner_oracle.py": "4f4b20e26612260fa133c4f641a51003e6e6da0f475ca77196e15c24b2b43c8b",
+    "docs/RESEARCH_STATUS_CN.md": "c3033ee3639fb733d4f76bc5ba4b32132edeb4e7f330e2035f54e91330f12b0b",
+    "docs/CSCWD2027_INCREMENTAL_RESEARCH_ROADMAP_CN.md": "8dd8b8995cacab7e1253af914fec996cbe2cdd90aed4b764f449c651cc311070"
+  },
+  "original_run_sources": 86,
+  "runtime_changed_since_run": false,
+  "oracle_changed_since_run": true,
+  "correction": "hung_drain closes a partial response_end before awaiting parent kill; watchdog_hang stays open",
+  "full_readonly_revalidation": "revalidation-summary.json",
+  "online_executions": 0,
+  "training_started": false
+}

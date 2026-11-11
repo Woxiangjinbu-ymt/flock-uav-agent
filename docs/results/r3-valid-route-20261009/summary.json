@@ -1,0 +1,362 @@
+{
+  "schema": 1,
+  "study": "r3-valid-route-v1",
+  "arm_order": [
+    [
+      "50f133e6",
+      "control"
+    ],
+    [
+      "50f133e6",
+      "r3"
+    ],
+    [
+      "9d63875d",
+      "r3"
+    ],
+    [
+      "9d63875d",
+      "control"
+    ]
+  ],
+  "changed_source_files": [
+    "agent4drone/task_evidence_r3.py",
+    "agent4drone/tests/test_task_evidence_r3.py",
+    "agent4drone/uav_agent.py"
+  ],
+  "runs": {
+    "50f133e6:control": {
+      "scene_id": "50f133e6",
+      "task_id": "258f0943",
+      "arm": "control",
+      "passed": true,
+      "passed_checks": 26,
+      "checks": 26,
+      "agent_timed_out": false,
+      "agent_success": true,
+      "duration_seconds": 22.489,
+      "token_usage": {
+        "completion_tokens": 2661,
+        "llm_calls": 7,
+        "prompt_tokens": 87818,
+        "total_tokens": 90479
+      },
+      "tool_names": [
+        "list_drones",
+        "get_weather",
+        "sense_nearby_entities",
+        "take_off",
+        "take_off",
+        "navigate_to_and_sense",
+        "navigate_to_and_sense",
+        "move_along_path_and_sense",
+        "move_along_path_and_sense",
+        "land",
+        "land"
+      ],
+      "exact_ordered_route_from_tool_inputs": {
+        "0a614e65": true,
+        "c48eab16": true
+      },
+      "route_parse_status": null,
+      "r3_route_prefixes": {},
+      "evidence_injections": 1,
+      "injected_route_summaries": 0,
+      "wire_model_requests": 7,
+      "model_request_audit_errors": [],
+      "initial_drones": [
+        {
+          "id": "0a614e65",
+          "position": {
+            "x": 662.0,
+            "y": 871.0,
+            "z": 0.0
+          },
+          "battery_level": 100.0,
+          "status": "idle"
+        },
+        {
+          "id": "c48eab16",
+          "position": {
+            "x": 99.0,
+            "y": 66.0,
+            "z": 0.0
+          },
+          "battery_level": 100.0,
+          "status": "idle"
+        }
+      ],
+      "initial_environment": {
+        "weather": "fog",
+        "temperature": 20.057692983850046,
+        "wind_speed": 3.4601489898717515,
+        "wind_direction": "northwest",
+        "visibility": 12521.1
+      },
+      "attempt": "experiments/runs/20261009-194226-valid-route-50f133e6-control-3af88b1b",
+      "trace": "experiments/runs/20261009-194226-valid-route-50f133e6-control-3af88b1b/50f133e6/agent-traces/toolchains/20261009T194255307157_50f133e6_31e66597-b534-4314-aaa8-d30a5f051e08_completed.json"
+    },
+    "50f133e6:r3": {
+      "scene_id": "50f133e6",
+      "task_id": "258f0943",
+      "arm": "r3",
+      "passed": true,
+      "passed_checks": 26,
+      "checks": 26,
+      "agent_timed_out": false,
+      "agent_success": true,
+      "duration_seconds": 15.426,
+      "token_usage": {
+        "completion_tokens": 3228,
+        "llm_calls": 7,
+        "prompt_tokens": 94298,
+        "total_tokens": 97526
+      },
+      "tool_names": [
+        "list_drones",
+        "get_weather",
+        "sense_nearby_entities",
+        "take_off",
+        "take_off",
+        "move_along_path_and_sense",
+        "move_along_path_and_sense",
+        "land",
+        "land",
+        "get_drone_status",
+        "get_drone_status"
+      ],
+      "exact_ordered_route_from_tool_inputs": {
+        "0a614e65": true,
+        "c48eab16": true
+      },
+      "route_parse_status": "recognized_coordinate_routes",
+      "r3_route_prefixes": {
+        "Drone 1": 12,
+        "Drone 2": 12
+      },
+      "evidence_injections": 3,
+      "injected_route_summaries": 3,
+      "wire_model_requests": 7,
+      "model_request_audit_errors": [],
+      "initial_drones": [
+        {
+          "id": "0a614e65",
+          "position": {
+            "x": 662.0,
+            "y": 871.0,
+            "z": 0.0
+          },
+          "battery_level": 100.0,
+          "status": "idle"
+        },
+        {
+          "id": "c48eab16",
+          "position": {
+            "x": 99.0,
+            "y": 66.0,
+            "z": 0.0
+          },
+          "battery_level": 100.0,
+          "status": "idle"
+        }
+      ],
+      "initial_environment": {
+        "weather": "fog",
+        "temperature": 19.714343168659767,
+        "wind_speed": 4.24037285553283,
+        "wind_direction": "northwest",
+        "visibility": 12521.1
+      },
+      "attempt": "experiments/runs/20261009-194313-valid-route-50f133e6-r3-58eb2206",
+      "trace": "experiments/runs/20261009-194313-valid-route-50f133e6-r3-58eb2206/50f133e6/agent-traces/toolchains/20261009T194335213524_50f133e6_263ba9fa-cd8c-4fc5-a0e5-8c4176674656_completed.json"
+    },
+    "9d63875d:r3": {
+      "scene_id": "9d63875d",
+      "task_id": "428733dc",
+      "arm": "r3",
+      "passed": true,
+      "passed_checks": 26,
+      "checks": 26,
+      "agent_timed_out": false,
+      "agent_success": true,
+      "duration_seconds": 19.696,
+      "token_usage": {
+        "completion_tokens": 3179,
+        "llm_calls": 7,
+        "prompt_tokens": 94240,
+        "total_tokens": 97419
+      },
+      "tool_names": [
+        "list_drones",
+        "get_weather",
+        "sense_nearby_entities",
+        "take_off",
+        "take_off",
+        "navigate_to_and_sense",
+        "navigate_to_and_sense",
+        "move_along_path",
+        "move_along_path",
+        "land",
+        "land"
+      ],
+      "exact_ordered_route_from_tool_inputs": {
+        "184c20a1": true,
+        "f4ce4fbe": true
+      },
+      "route_parse_status": "recognized_coordinate_routes",
+      "r3_route_prefixes": {
+        "Drone 1": 12,
+        "Drone 2": 12
+      },
+      "evidence_injections": 4,
+      "injected_route_summaries": 4,
+      "wire_model_requests": 7,
+      "model_request_audit_errors": [],
+      "initial_drones": [
+        {
+          "id": "184c20a1",
+          "position": {
+            "x": 899.0,
+            "y": 65.0,
+            "z": 0.0
+          },
+          "battery_level": 100.0,
+          "status": "idle"
+        },
+        {
+          "id": "f4ce4fbe",
+          "position": {
+            "x": 737.0,
+            "y": 993.0,
+            "z": 0.0
+          },
+          "battery_level": 100.0,
+          "status": "idle"
+        }
+      ],
+      "initial_environment": {
+        "weather": "clear",
+        "temperature": 12.07622928075534,
+        "wind_speed": 6.109858768612046,
+        "wind_direction": "west",
+        "visibility": 14498.4
+      },
+      "attempt": "experiments/runs/20261009-194348-valid-route-9d63875d-r3-2684384d",
+      "trace": "experiments/runs/20261009-194348-valid-route-9d63875d-r3-2684384d/9d63875d/agent-traces/toolchains/20261009T194413812036_9d63875d_c5a620b6-afda-4711-8a61-4990541338f1_completed.json"
+    },
+    "9d63875d:control": {
+      "scene_id": "9d63875d",
+      "task_id": "428733dc",
+      "arm": "control",
+      "passed": true,
+      "passed_checks": 26,
+      "checks": 26,
+      "agent_timed_out": false,
+      "agent_success": true,
+      "duration_seconds": 16.554,
+      "token_usage": {
+        "completion_tokens": 2916,
+        "llm_calls": 8,
+        "prompt_tokens": 102150,
+        "total_tokens": 105066
+      },
+      "tool_names": [
+        "list_drones",
+        "get_weather",
+        "sense_nearby_entities",
+        "take_off",
+        "take_off",
+        "navigate_to_and_sense",
+        "navigate_to_and_sense",
+        "move_along_path",
+        "move_along_path",
+        "land",
+        "land",
+        "get_drone_status",
+        "get_drone_status"
+      ],
+      "exact_ordered_route_from_tool_inputs": {
+        "184c20a1": true,
+        "f4ce4fbe": true
+      },
+      "route_parse_status": null,
+      "r3_route_prefixes": {},
+      "evidence_injections": 1,
+      "injected_route_summaries": 0,
+      "wire_model_requests": 8,
+      "model_request_audit_errors": [],
+      "initial_drones": [
+        {
+          "id": "184c20a1",
+          "position": {
+            "x": 899.0,
+            "y": 65.0,
+            "z": 0.0
+          },
+          "battery_level": 100.0,
+          "status": "idle"
+        },
+        {
+          "id": "f4ce4fbe",
+          "position": {
+            "x": 737.0,
+            "y": 993.0,
+            "z": 0.0
+          },
+          "battery_level": 100.0,
+          "status": "idle"
+        }
+      ],
+      "initial_environment": {
+        "weather": "clear",
+        "temperature": 12.6375522759997,
+        "wind_speed": 6.166827512526896,
+        "wind_direction": "west",
+        "visibility": 14498.4
+      },
+      "attempt": "experiments/runs/20261009-194422-valid-route-9d63875d-control-83dc9870",
+      "trace": "experiments/runs/20261009-194422-valid-route-9d63875d-control-83dc9870/9d63875d/agent-traces/toolchains/20261009T194445481180_9d63875d_3f25adb1-346b-4b6e-aaa9-32bc746ac2cf_completed.json"
+    }
+  },
+  "pairs": [
+    {
+      "scene_id": "50f133e6",
+      "task_id": "258f0943",
+      "control_pass": true,
+      "r3_pass": true,
+      "control_checks": 26,
+      "r3_checks": 26,
+      "control_duration_seconds": 22.489,
+      "r3_duration_seconds": 15.426,
+      "control_tokens": 90479,
+      "r3_tokens": 97526,
+      "initial_drones_equal": true,
+      "initial_environment_equal": false
+    },
+    {
+      "scene_id": "9d63875d",
+      "task_id": "428733dc",
+      "control_pass": true,
+      "r3_pass": true,
+      "control_checks": 26,
+      "r3_checks": 26,
+      "control_duration_seconds": 16.554,
+      "r3_duration_seconds": 19.696,
+      "control_tokens": 105066,
+      "r3_tokens": 97419,
+      "initial_drones_equal": true,
+      "initial_environment_equal": false
+    }
+  ],
+  "totals": {
+    "control_passed_tasks": 2,
+    "r3_passed_tasks": 2,
+    "control_passed_checks": 52,
+    "r3_passed_checks": 52,
+    "r3_wins": 0,
+    "r3_losses": 0,
+    "ties": 2,
+    "control_tokens": 195545,
+    "r3_tokens": 194945
+  }
+}

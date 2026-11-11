@@ -1,0 +1,48 @@
+[
+  {
+    "trial_id": "undrained",
+    "processes": [
+      {
+        "mode": "worker",
+        "trial_id": "undrained",
+        "pid": 30871,
+        "started_ns": 1793633344684414000,
+        "ended_ns": 1793633345937819000,
+        "elapsed_seconds": 1.2534068749955622,
+        "returncode": -9,
+        "exited": true,
+        "kill_reason": "transport_not_drained",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "worker": null,
+    "score": null,
+    "termination": {
+      "schema_version": 1,
+      "category": "infrastructure_error",
+      "reason": "invalid_worker",
+      "stop_reason": null,
+      "score_eligible": false,
+      "batch_action": "stop",
+      "archive_training_eligible": false,
+      "archive_training_eligibility_scope": "archive_integrity_candidate_for_review_only_not_teacher_approval",
+      "task_success": "not_evaluated",
+      "cost_context": "unresolved",
+      "continuation_scope": "remaining_pre_authorized_manifest_slots_only_no_retry_topup_or_new_work",
+      "requires_parent_exit_seal": true
+    },
+    "result": {
+      "run": {
+        "status": "incomplete",
+        "agent_returned_normally": null
+      },
+      "public_evidence": {
+        "whole_task": "not_evaluated"
+      },
+      "independent_evaluation": {
+        "status": "not_scored",
+        "passed": null
+      }
+    }
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "tool": "list_drones",
+    "arguments": {}
+  },
+  {
+    "tool": "run_harness",
+    "arguments": {
+      "input_json": {
+        "action": "start",
+        "skill": "simple_chain"
+      }
+    }
+  },
+  {
+    "tool": "run_harness",
+    "arguments": {
+      "input_json": {
+        "action": "resume",
+        "plan_id": "$plan:latest"
+      }
+    }
+  },
+  {
+    "final": "Local scripted contract completed. [TASK DONE]"
+  }
+]

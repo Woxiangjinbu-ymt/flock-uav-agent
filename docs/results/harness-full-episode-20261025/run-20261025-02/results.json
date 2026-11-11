@@ -1,0 +1,2159 @@
+{
+  "workers": [
+    {
+      "schema_version": 1,
+      "trial_id": "reference-B",
+      "condition": "success",
+      "role": "reference",
+      "pid": 4957,
+      "instance_nonce": "987c3990e53a453e99702ff4ecc400d0",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "48f21b4c-a955-4090-b76a-e304b169fa7e",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": true,
+        "output": "Public sequence verified [TASK DONE]",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "58403d6f085747e38a97f6be5dd3737a",
+          "episode_id": "58403d6f085747e38a97f6be5dd3737a",
+          "command_id": "48f21b4c-a955-4090-b76a-e304b169fa7e",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/reference-B/policy/modelio/model-io-58403d6f085747e38a97f6be5dd3737a.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 24,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 24,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "success",
+        "triggered": false,
+        "trigger_request_id": null,
+        "virtual_elapsed": 0.0,
+        "wall_elapsed": 0.1592473330001667,
+        "frame_status": "completed",
+        "frame_reason": "skill_public_stop_condition",
+        "cancel_flag": false,
+        "harness_interruption": null,
+        "actual_terminal": "completed",
+        "provider_http_failure_observed": false,
+        "graph_error_type": null
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac",
+          "57ab5154f698fa7f035adc4f395470aaa3a4730746dd667af9c283e7cbad76a4"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "rotate",
+          "endpoint": "/drones/f7635bdf/command/rotate",
+          "method": "POST",
+          "params": {
+            "heading": 353.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "rotate",
+            "status": "success",
+            "message": "Drone heading set to 353.0° (battery: -0.2%/-0mAh, remaining: 99.3%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "hover",
+          "endpoint": "/drones/f7635bdf/command/hover",
+          "method": "POST",
+          "params": {},
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "c05f068091d96bd622603e0b51f957f43539875eada2b06542361d4b3848914e",
+        "state_sha256": "ca8860a820c5ab7e54c07c69ca99576ad08067bfea5a2368274555a62506b88b",
+        "score_seconds": 0.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "4d324e717ef81b11ce408e90e1add9d654a2b3ad733fb5bda1746dabb7771c80",
+        "policy/harness.json": "493ed500050f361170a95bc592b697bea0d7369ad29182c35b7f91a965b8f8ef",
+        "policy/agent-result.json": "c57b82809f0034f67f228c9eea06cedb6162f9c4dfdebaa04e5dbaf78ebd0e75",
+        "policy/transport-oracle.json": "345abf9b82c5a466438149cd86a133f8981063033392b74305b8998ec0cb574e",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203225_4957.log": "115336f29ee335aff5ec2cdde88c2e261442bcf8ef314fcbb51010c07b8c70ba",
+        "policy/worldlogs/physical-events.jsonl": "5b7623560e0079fffaf11aa0e788300c27de05a84d5e992606473927fa1ef97f",
+        "policy/worldlogs/public-api.jsonl": "d318dd623f3002473996ef5070a149ca3d161ea47d0afee6d1a4f4be55a30d91",
+        "policy/modelio/model-io-58403d6f085747e38a97f6be5dd3737a.jsonl": "bffa26b7c2954e811562d720b4029b6ae87618f5b89912dd811020b567401b3d",
+        "policy/toolchain/20261025T203226399742_ad34350a_48f21b4c-a955-4090-b76a-e304b169fa7e_completed_request_history.jsonl": "c4cb246414cd015760adecc6877f3726e2ebb8cc171024ea52c6bd64465eafd3",
+        "policy/toolchain/20261025T203226399742_ad34350a_48f21b4c-a955-4090-b76a-e304b169fa7e_completed.json": "f442bbb52922444cc3f1921f39c8a804a15a725cac720fd6e3dc73832253643c",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "c05f068091d96bd622603e0b51f957f43539875eada2b06542361d4b3848914e",
+        "private/score-boundary.json": "4c6a44edbadfe78326a8552095a52a6129725dc160ea41c018321a4956e91f16",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "success-A",
+      "condition": "success",
+      "role": "A",
+      "pid": 4974,
+      "instance_nonce": "8485d656ceed489aa8272cb53060485e",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "d42879f8-b60d-433d-b915-40c18917d65d",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": true,
+        "output": "Public sequence verified [TASK DONE]",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "7e99b8e0c40243518c5ae8ccfc3c760e",
+          "episode_id": "7e99b8e0c40243518c5ae8ccfc3c760e",
+          "command_id": "d42879f8-b60d-433d-b915-40c18917d65d",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/success-A/policy/modelio/model-io-7e99b8e0c40243518c5ae8ccfc3c760e.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 24,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 24,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "success",
+        "triggered": false,
+        "trigger_request_id": null,
+        "virtual_elapsed": 0.0,
+        "wall_elapsed": 0.14784662500005652,
+        "frame_status": "completed",
+        "frame_reason": "skill_public_stop_condition",
+        "cancel_flag": false,
+        "harness_interruption": null,
+        "actual_terminal": "completed",
+        "provider_http_failure_observed": false,
+        "graph_error_type": null
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac",
+          "a30a4059b1f345633a948bb46ffe60e2bae7d7133c24af69a0b3952138c3c884"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "rotate",
+          "endpoint": "/drones/f7635bdf/command/rotate",
+          "method": "POST",
+          "params": {
+            "heading": 353.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "rotate",
+            "status": "success",
+            "message": "Drone heading set to 353.0° (battery: -0.2%/-0mAh, remaining: 99.3%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "hover",
+          "endpoint": "/drones/f7635bdf/command/hover",
+          "method": "POST",
+          "params": {},
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "55f4019f22e1325691c8c6c2620b2ebb15eb544e3e44b52bc6435150b087559b",
+        "state_sha256": "5bd220d60c3c8d1be0c864aa1179d55e21098f932dfb0395199fe1b9bd5bef51",
+        "score_seconds": 0.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "4d324e717ef81b11ce408e90e1add9d654a2b3ad733fb5bda1746dabb7771c80",
+        "policy/harness.json": "2cac7532ff3f0d014d65894a44e58d3b07f9de4041ebae5f5c84637e0540ec75",
+        "policy/agent-result.json": "b83fa19fa65fc226060beafa32ae825366f347383c2a4c8a5afeaf82ba5aa6e8",
+        "policy/transport-oracle.json": "e0fa8946db272c296fecfca8534d966d813993e798bd4dc85b2de91c12bf5311",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203227_4974.log": "924b8947705c85e50bce19ac2ab0886543c41cef26f2bef9e3048bc7ecc40df5",
+        "policy/worldlogs/physical-events.jsonl": "ebd94e99b3207cac85ec6453d173f5948b873348b9aeda4fd34481eab5b3d343",
+        "policy/worldlogs/public-api.jsonl": "7c02d8f6809818b37a228ffec38e32eb99b27cb923ace8d22a613f394a2d46b2",
+        "policy/modelio/model-io-7e99b8e0c40243518c5ae8ccfc3c760e.jsonl": "61b8e95cddf87b217fc9cae2971b15872cd2313be37e136966fe99e3ed28cd15",
+        "policy/toolchain/20261025T203228484238_ad34350a_d42879f8-b60d-433d-b915-40c18917d65d_completed_request_history.jsonl": "0e20e6f313d0a161cd7debcd732af3d54d39da517dd7f75d0ea43bce464ff5e4",
+        "policy/toolchain/20261025T203228484238_ad34350a_d42879f8-b60d-433d-b915-40c18917d65d_completed.json": "eff1ecaf32175ade05da93902ca00120a52e8bdc8428a133c97ce1bdc2d46c01",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "55f4019f22e1325691c8c6c2620b2ebb15eb544e3e44b52bc6435150b087559b",
+        "private/score-boundary.json": "c0f53ab56493c6d2aa73d49ea96a0d09b4a52ce11a26abd580ab8584f8cb0693",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "success-B",
+      "condition": "success",
+      "role": "B",
+      "predecessor": "success-A",
+      "pid": 4999,
+      "instance_nonce": "52ba566aadd8444f94f6ab3109b43f4a",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "7ef3ed66-55de-4ae6-84d5-9cba09d3ae18",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": true,
+        "output": "Public sequence verified [TASK DONE]",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "63be8b4924eb4248977f7423b621340f",
+          "episode_id": "63be8b4924eb4248977f7423b621340f",
+          "command_id": "7ef3ed66-55de-4ae6-84d5-9cba09d3ae18",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/success-B/policy/modelio/model-io-63be8b4924eb4248977f7423b621340f.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 24,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 24,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "success",
+        "triggered": false,
+        "trigger_request_id": null,
+        "virtual_elapsed": 0.0,
+        "wall_elapsed": 0.17088829199929023,
+        "frame_status": "completed",
+        "frame_reason": "skill_public_stop_condition",
+        "cancel_flag": false,
+        "harness_interruption": null,
+        "actual_terminal": "completed",
+        "provider_http_failure_observed": false,
+        "graph_error_type": null
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac",
+          "a72db9acf2334358b886556d2ba9b0cc00309283bd317a5806795cd4c9e8e477"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "rotate",
+          "endpoint": "/drones/f7635bdf/command/rotate",
+          "method": "POST",
+          "params": {
+            "heading": 353.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "rotate",
+            "status": "success",
+            "message": "Drone heading set to 353.0° (battery: -0.2%/-0mAh, remaining: 99.3%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "hover",
+          "endpoint": "/drones/f7635bdf/command/hover",
+          "method": "POST",
+          "params": {},
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "18ac90125b1ccee8a1af85d6a8d132386ec4077cb3a74269ac70c3aacfd60605",
+        "state_sha256": "997c9d3ac308513a4b40ce62ad519b636096af1a90006ef09517b8e5677aba83",
+        "score_seconds": 0.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "4d324e717ef81b11ce408e90e1add9d654a2b3ad733fb5bda1746dabb7771c80",
+        "policy/harness.json": "ce57a6f2cf0a0df859de785fa067427fe225cef638bb4a9ee9ec8e0a730bcead",
+        "policy/agent-result.json": "fc690b5b2a379488ce936b1b0ee86031a248cd3c33a6b803aaed916fb735ff48",
+        "policy/transport-oracle.json": "92aaa660380f2275a4cc8da93c299f069a06511ecde1bef2e80bf7f80088a2a1",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203229_4999.log": "0ff446cbb40de9e969a2782ba621e5983482751d22a5215b0502457e01d60eff",
+        "policy/worldlogs/physical-events.jsonl": "faceef08128605d6e980a3f07ad944c076374dba7b6dbfae3be297acbd8c340e",
+        "policy/worldlogs/public-api.jsonl": "a3ce0675cc54042b81f313307a7a73318b7c4e7fab963b4823259de6891f12e0",
+        "policy/modelio/model-io-63be8b4924eb4248977f7423b621340f.jsonl": "906426dbcdb6a5ff89740a714215077503e61723b5bfd0d68a722cef8a0c352b",
+        "policy/toolchain/20261025T203230507833_ad34350a_7ef3ed66-55de-4ae6-84d5-9cba09d3ae18_completed.json": "dc090f378e8a22c5b4820a24fcf397283e5e900621b7f4f4a0352d6d2f8dfaf1",
+        "policy/toolchain/20261025T203230507833_ad34350a_7ef3ed66-55de-4ae6-84d5-9cba09d3ae18_completed_request_history.jsonl": "4ce1388b7a288b5e0157dd01f814c59c158b688d18d701a7838d78762f7dc081",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "18ac90125b1ccee8a1af85d6a8d132386ec4077cb3a74269ac70c3aacfd60605",
+        "private/score-boundary.json": "c204889cc0a8fae821c4ec9859d67c3af6cd6488876dd302dec64c4d68de5b0a",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "failure-A",
+      "condition": "failure",
+      "role": "A",
+      "pid": 5013,
+      "instance_nonce": "0b0d2ffe9b9d49e9914d7dab4b5f52f8",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "60665a55-8bf7-4e8b-985a-732ec58d2eb2",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": false,
+        "output": "Error executing command: Error code: 500 - {'error': {'message': 'controlled local provider failure', 'type': 'server_error'}}",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "e2a8831f5586460db4b7f24349fb4311",
+          "episode_id": "e2a8831f5586460db4b7f24349fb4311",
+          "command_id": "60665a55-8bf7-4e8b-985a-732ec58d2eb2",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/failure-A/policy/modelio/model-io-e2a8831f5586460db4b7f24349fb4311.jsonl",
+          "state": "incomplete",
+          "closed": true,
+          "complete": false,
+          "sequence": 24,
+          "reasons": [
+            "model_error"
+          ],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": false,
+          "record_count": 24,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "failure",
+        "triggered": false,
+        "trigger_request_id": null,
+        "virtual_elapsed": 0.0,
+        "wall_elapsed": 0.12233579100029601,
+        "frame_status": null,
+        "frame_reason": null,
+        "cancel_flag": false,
+        "harness_interruption": null,
+        "actual_terminal": "provider_failure",
+        "provider_http_failure_observed": true,
+        "graph_error_type": "OpenAIAPIError"
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac",
+          "8ba2cae131fdf1830862f9c7957ba9763e6be9116adfb57e8316e35cd155e762"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 5,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.3719999999999999,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "df6e79abbfcb7cf22c52ab948ba14b534dd0d0a1d14bf0228f9b9a31929ac559",
+        "state_sha256": "166acc1e5f41af18621e1aad68d2184f325b5045a993c09c2276ffad4baa0fb8",
+        "score_seconds": 0.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "1893c327539976cd0822719c4b590f4cc836a8a4d887edd9b6d4a5b4212cacce",
+        "policy/harness.json": "a57e26a42ff9cc796f08aa8e0dd9ef0a5a11cf260661d5b4c77cdc8654e238dd",
+        "policy/agent-result.json": "7104e3a9404c990705eacf0d688b154dbf584b62e03bf95034d5f9ab7d9e1d23",
+        "policy/transport-oracle.json": "d2bcb6d2f157ee0d141b1785e8083bee7338f2d0f45659428741e25d05ebaf06",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203231_5013.log": "e5e2ad7d6c545bffbb4e7960cabf0583d2e1eafa8e76c9dc12e15c1006e5183e",
+        "policy/worldlogs/physical-events.jsonl": "b7591d5f2ab189c23d483c4803794718318a062939796563e75f8e2d05a6c2dc",
+        "policy/worldlogs/public-api.jsonl": "376a8a5aa4bb5eb3b818cec4cff43661a12c13a6a48c8a2bbe741f494e353ee1",
+        "policy/modelio/model-io-e2a8831f5586460db4b7f24349fb4311.jsonl": "7fe3e618823fd2c84380e6d66adf73a40194f959591b00f2e89292456cd1f06e",
+        "policy/toolchain/20261025T203232490874_ad34350a_60665a55-8bf7-4e8b-985a-732ec58d2eb2_stream_error_request_history.jsonl": "d03aad52368822775d910152479d97e29009bad5967dee713e2986138bcfc708",
+        "policy/toolchain/20261025T203232490874_ad34350a_60665a55-8bf7-4e8b-985a-732ec58d2eb2_stream_error.json": "bf1cd89a87e69e8c02b8a9df1fc16e33ca0e32d5e221e6566d53084549cdca4f",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "df6e79abbfcb7cf22c52ab948ba14b534dd0d0a1d14bf0228f9b9a31929ac559",
+        "private/score-boundary.json": "bccebe079d437c78d3a38921870343a770e51a47688e6c7f9b735cd4e190e56d",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "failure-B",
+      "condition": "success",
+      "role": "B",
+      "predecessor": "failure-A",
+      "pid": 5025,
+      "instance_nonce": "b050ba3bc1e44a1e96fa0591fa97290f",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "70d37775-afa4-4062-bcac-8f0c310e9b54",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": true,
+        "output": "Public sequence verified [TASK DONE]",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "0f4eb0d62db1433db348b3568514537a",
+          "episode_id": "0f4eb0d62db1433db348b3568514537a",
+          "command_id": "70d37775-afa4-4062-bcac-8f0c310e9b54",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/failure-B/policy/modelio/model-io-0f4eb0d62db1433db348b3568514537a.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 24,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 24,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "success",
+        "triggered": false,
+        "trigger_request_id": null,
+        "virtual_elapsed": 0.0,
+        "wall_elapsed": 0.14917075000084878,
+        "frame_status": "completed",
+        "frame_reason": "skill_public_stop_condition",
+        "cancel_flag": false,
+        "harness_interruption": null,
+        "actual_terminal": "completed",
+        "provider_http_failure_observed": false,
+        "graph_error_type": null
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac",
+          "297710cf0c33034b0f558d5093b05c122b270a24342007b27893f04e31a0de1f"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "rotate",
+          "endpoint": "/drones/f7635bdf/command/rotate",
+          "method": "POST",
+          "params": {
+            "heading": 353.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "rotate",
+            "status": "success",
+            "message": "Drone heading set to 353.0° (battery: -0.2%/-0mAh, remaining: 99.3%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "hover",
+          "endpoint": "/drones/f7635bdf/command/hover",
+          "method": "POST",
+          "params": {},
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "ea788ac0840be5141290c8bc77f0244da4607925ddece600d1b833ddbdd998a4",
+        "state_sha256": "26c665203a10f93a65618094d0fd22d9b4365b198fa2f23b25c9a83da0cc1e83",
+        "score_seconds": 0.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "4d324e717ef81b11ce408e90e1add9d654a2b3ad733fb5bda1746dabb7771c80",
+        "policy/harness.json": "140ca4a1ba9541aae54750a8ce3bae3efdd6e912d8c105aaefb0b234bdbb9a9e",
+        "policy/agent-result.json": "12f6d16ae889f70b7534e27e08c6089966160f221b2b0605b9e5100fa8ff88e4",
+        "policy/transport-oracle.json": "9acd54bb119a6b5aab48f592e00e5d6b66618cb28cc8cd7cedbd027f5b5f1a99",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203233_5025.log": "be286bb671776bec711f4a9480b0097310e3e2805911cf785524d683b804869a",
+        "policy/worldlogs/physical-events.jsonl": "9754c1154d8d19377c4cb971e978aeb79cf46c6fb40a6c1c629e8b52f8e4f7f8",
+        "policy/worldlogs/public-api.jsonl": "cf6a145a4eb592bccc22c9366bff952a79cb64c00714a43e4dd51cadc0969d66",
+        "policy/modelio/model-io-0f4eb0d62db1433db348b3568514537a.jsonl": "6d828250009f489c663d5252933b63f1b1b88a34e3dfeada9a386d8758fb25ce",
+        "policy/toolchain/20261025T203234467375_ad34350a_70d37775-afa4-4062-bcac-8f0c310e9b54_completed.json": "a76bf8705c02a213c6a15d389863ab57cb482de9e097cc1bdbe9d1c185fec91a",
+        "policy/toolchain/20261025T203234467375_ad34350a_70d37775-afa4-4062-bcac-8f0c310e9b54_completed_request_history.jsonl": "8fc713b73721b0314a4d599c9501da355e66360ed2112f1c0137e7c11229ae41",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "ea788ac0840be5141290c8bc77f0244da4607925ddece600d1b833ddbdd998a4",
+        "private/score-boundary.json": "d0c6ced8b7b6e03e3565c730b815285f037347c886e053794ce5f8dc6764b951",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "timeout-A",
+      "condition": "timeout",
+      "role": "A",
+      "pid": 5047,
+      "instance_nonce": "ce628c5a009a4f3e8cdf17fd6fd5e2b7",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "42fc253a-371e-46e8-8291-0092adbcc62c",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": false,
+        "output": "Error executing command: harness task deadline reached",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "688c819d7bd640a9b14728b69ab1cb97",
+          "episode_id": "688c819d7bd640a9b14728b69ab1cb97",
+          "command_id": "42fc253a-371e-46e8-8291-0092adbcc62c",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/timeout-A/policy/modelio/model-io-688c819d7bd640a9b14728b69ab1cb97.jsonl",
+          "state": "incomplete",
+          "closed": true,
+          "complete": false,
+          "sequence": 18,
+          "reasons": [
+            "tool_error"
+          ],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": false,
+          "record_count": 18,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "timeout",
+        "triggered": true,
+        "trigger_request_id": 38,
+        "virtual_elapsed": 500.0,
+        "wall_elapsed": 0.2492297500002678,
+        "frame_status": "interrupted",
+        "frame_reason": "deadline",
+        "cancel_flag": false,
+        "harness_interruption": "deadline",
+        "actual_terminal": "timeout",
+        "provider_http_failure_observed": false,
+        "graph_error_type": "HarnessInterrupted"
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 7,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.3719999999999999,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "b226ea2eb478e514ef2cbec70e667b3af11ea60793361e6c831c6721e841fa9a",
+        "state_sha256": "62cedadb978b028c61ff4cb8e57ecb123db04a00e31ea051b077f6d1c1f12546",
+        "score_seconds": 500.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "117376b34c2644c129d7a245369bc58af86eacae962d1434c85606e1d2259445",
+        "policy/harness.json": "37b98977c378ab7bf57d49aef745f77f43e6b2b77feee4ebbe494a9108800621",
+        "policy/agent-result.json": "5467d96942aad610251b04a46f53d2ee26ddee87f16586ce9fd70b663a91830c",
+        "policy/transport-oracle.json": "2d6bbb16049950c26f68fea680642bc4e62c0eb687e6ed05a8a4d134ed969b45",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203235_5047.log": "604cc3c89c2b73b18c341a73234ee79f32ec2d3c7d68f7944de627fd37024b4b",
+        "policy/worldlogs/physical-events.jsonl": "d8e0fcb70c6c8ed026aee9bc2011bb498aaa34c353c78efecabf78b2300b692d",
+        "policy/worldlogs/public-api.jsonl": "067e607cf647b91a2b7b132c1d2b55cda469ff5ecdd034b446b6ff994e1d618d",
+        "policy/modelio/model-io-688c819d7bd640a9b14728b69ab1cb97.jsonl": "cf8f835a0387f63bf8cf3c612754ae4d910d081c5b2b73d0d60df3fd2b7ce5c2",
+        "policy/toolchain/20261025T203236621302_ad34350a_42fc253a-371e-46e8-8291-0092adbcc62c_stream_error_request_history.jsonl": "b05f91fad18a6181942105bd9900595f9a7f9b212b41dbabe20d85fb5b309674",
+        "policy/toolchain/20261025T203236621302_ad34350a_42fc253a-371e-46e8-8291-0092adbcc62c_stream_error.json": "02b1cc81ff5a8d09e7be6608baa158bdccb7a405cc5fcd3771d7d2d25ae00364",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "b226ea2eb478e514ef2cbec70e667b3af11ea60793361e6c831c6721e841fa9a",
+        "private/score-boundary.json": "e1ba027670b3ce54ea733cc2a93c133274c011d590b424e691d02202993e82f9",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "timeout-B",
+      "condition": "success",
+      "role": "B",
+      "predecessor": "timeout-A",
+      "pid": 5062,
+      "instance_nonce": "eeeb2b95a37a4246bca2874fb9489679",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "753efc49-33b6-47f7-99df-05ab7355f5ad",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": true,
+        "output": "Public sequence verified [TASK DONE]",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "b962b3c1a5484664848def28466257c5",
+          "episode_id": "b962b3c1a5484664848def28466257c5",
+          "command_id": "753efc49-33b6-47f7-99df-05ab7355f5ad",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/timeout-B/policy/modelio/model-io-b962b3c1a5484664848def28466257c5.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 24,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 24,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "success",
+        "triggered": false,
+        "trigger_request_id": null,
+        "virtual_elapsed": 0.0,
+        "wall_elapsed": 0.14544541699979163,
+        "frame_status": "completed",
+        "frame_reason": "skill_public_stop_condition",
+        "cancel_flag": false,
+        "harness_interruption": null,
+        "actual_terminal": "completed",
+        "provider_http_failure_observed": false,
+        "graph_error_type": null
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac",
+          "23ecb253c047b2a0bd62820d67279e2550c925dcfeda51585df822db90f5928a"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "rotate",
+          "endpoint": "/drones/f7635bdf/command/rotate",
+          "method": "POST",
+          "params": {
+            "heading": 353.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "rotate",
+            "status": "success",
+            "message": "Drone heading set to 353.0° (battery: -0.2%/-0mAh, remaining: 99.3%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "hover",
+          "endpoint": "/drones/f7635bdf/command/hover",
+          "method": "POST",
+          "params": {},
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "edff00f4aee16477800f50195977cf7b6fd61949ac1f81316a4c8f1b9486ad33",
+        "state_sha256": "bc68977c876667be8ed7799240186fcb9c7f5bb117d1a9325b460639cfe65047",
+        "score_seconds": 0.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "4d324e717ef81b11ce408e90e1add9d654a2b3ad733fb5bda1746dabb7771c80",
+        "policy/harness.json": "84b438bb13313179a48bc149511e166aa2391bfe03fb6b1981a67a6dc69684b9",
+        "policy/agent-result.json": "f1b027e49a171059a6380e088b35a54a682ef9f4b903d43324e6052f65f3a292",
+        "policy/transport-oracle.json": "45197797d78a3caad423caf0521b7ef5c3e42ecec136d3e6e0495f4a7eadf00c",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203238_5062.log": "0a6287e6e5f47fd82a1c2b2308e75f9610d6fc2ee21ecda168499e4d1ef1d678",
+        "policy/worldlogs/physical-events.jsonl": "3de9339facf24a682fbda2705fafc08f5a74a6d0dde846174e1768d090837140",
+        "policy/worldlogs/public-api.jsonl": "7b5b7311683500dfbbf1a532c0bbfd641f13bde43842f9d09412c1d4caadddbb",
+        "policy/modelio/model-io-b962b3c1a5484664848def28466257c5.jsonl": "f2744f01c9a1772c01ab4d37d3003d8602ff606cc6d4e41ada8382e3a3b601ee",
+        "policy/toolchain/20261025T203238651100_ad34350a_753efc49-33b6-47f7-99df-05ab7355f5ad_completed.json": "823e255f6d82d1044e4a1e4c310765e3c791b25a1a7e3d68e9ae97618c88f42f",
+        "policy/toolchain/20261025T203238651100_ad34350a_753efc49-33b6-47f7-99df-05ab7355f5ad_completed_request_history.jsonl": "f35ab60df6f2be56d7d03ec60e67933e408339a0ce5030f34c924a41daa3859a",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "edff00f4aee16477800f50195977cf7b6fd61949ac1f81316a4c8f1b9486ad33",
+        "private/score-boundary.json": "2c315768743920bb9602eb9600f2ad9936b6a4326234820d448d66717ca5facc",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "cancel-A",
+      "condition": "cancel",
+      "role": "A",
+      "pid": 5078,
+      "instance_nonce": "c55e1e38f79a40e599e235c8479e5f12",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "3937970d-b729-4387-ade1-41b61b700ad7",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": false,
+        "output": "Error executing command: controlled_episode_cancellation",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "65b7fe10226f4c21a8d9758082704caf",
+          "episode_id": "65b7fe10226f4c21a8d9758082704caf",
+          "command_id": "3937970d-b729-4387-ade1-41b61b700ad7",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/cancel-A/policy/modelio/model-io-65b7fe10226f4c21a8d9758082704caf.jsonl",
+          "state": "incomplete",
+          "closed": true,
+          "complete": false,
+          "sequence": 18,
+          "reasons": [
+            "tool_error"
+          ],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": false,
+          "record_count": 18,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "cancel",
+        "triggered": true,
+        "trigger_request_id": 38,
+        "virtual_elapsed": 0.0,
+        "wall_elapsed": 0.1289600000000064,
+        "frame_status": "interrupted",
+        "frame_reason": "cancelled",
+        "cancel_flag": true,
+        "harness_interruption": "cancelled",
+        "actual_terminal": "cancelled",
+        "provider_http_failure_observed": false,
+        "graph_error_type": "RuntimeError"
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 7,
+        "action_attempts": 1,
+        "action_receipts": {
+          "success": 1,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 1,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.3719999999999999,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "4b952301fb8852f5f369dde508c40327df73bacf42f9324c6e29c65ecf3b98aa",
+        "state_sha256": "302e84266a030fcbb8b24134bd4be83248459d3929da7215a14aaa8b1c5000c0",
+        "score_seconds": 0.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "ce5a1eaa7ce3181230931eebfd615373ff78007f3c235895f8a6c6c0e7c58d8d",
+        "policy/harness.json": "e0a4059dfeb2b918de90282c3bd1a0dbec55b6438b67c8d0e2e902daae5626e3",
+        "policy/agent-result.json": "22f78a9249e7c0b400f737aa2f43a0d7a25e0ac577086b1e663e0e6457a5122f",
+        "policy/transport-oracle.json": "2d6bbb16049950c26f68fea680642bc4e62c0eb687e6ed05a8a4d134ed969b45",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203240_5078.log": "8bbf09440e97817d484a5fe8547d5920a8bb157aadbd6a83e9e529ffff789722",
+        "policy/worldlogs/physical-events.jsonl": "55add2459c8cafb36a3d6af9d208fc7f4eb7948c91e5df9190967c2772a54e9c",
+        "policy/worldlogs/public-api.jsonl": "8b53953919943337e50f70a3f5fc62397cb995924d4e75e5461123a82102cfb9",
+        "policy/modelio/model-io-65b7fe10226f4c21a8d9758082704caf.jsonl": "8385447e510351e64481559b6377e45ce810bb8c950d1e177c913da80c5316f3",
+        "policy/toolchain/20261025T203240673295_ad34350a_3937970d-b729-4387-ade1-41b61b700ad7_stream_error.json": "c17dfe82fe435972c27901e5006a03c8491b69c13377e25bb90262d65e3e66b9",
+        "policy/toolchain/20261025T203240673295_ad34350a_3937970d-b729-4387-ade1-41b61b700ad7_stream_error_request_history.jsonl": "e801f56417e0782b24d117ae3ef3aac39c516fb5a869c2bc9c11f42d4b85cdda",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "4b952301fb8852f5f369dde508c40327df73bacf42f9324c6e29c65ecf3b98aa",
+        "private/score-boundary.json": "be8ffd090f1f1d781bd1b3b637068a9a27c6614dd06abceaf35e93aabdc095f2",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "cancel-B",
+      "condition": "success",
+      "role": "B",
+      "predecessor": "cancel-A",
+      "pid": 5090,
+      "instance_nonce": "f34f2b66755040078b639bad7757f713",
+      "status": "completed",
+      "budget": {
+        "max_iterations": 600,
+        "recursion_limit": 1800,
+        "deadline_seconds": 500,
+        "api_calls_per_plan": 2000,
+        "repair_budget": 16,
+        "search_rounds": 16
+      },
+      "clock_scope": "fixed_virtual_anchor_plus_controlled_offset_not_walltime_performance",
+      "initial": {
+        "original_state_sha256": "1d85850ead04a0510775b9a1f8ec0a6896b9666ffc0b2f97e00176d3c0c9218a",
+        "public_startup_sha256": "e7468e6a06efe2823d487eaf348824008f2504dc067feb22c4d56e562714fd29",
+        "derived_state_sha256": "4fd62935bab0a345299f76bf32dd18af9bd2a9d7881d3341c8da67713e740495",
+        "original_checker_tree_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d",
+        "derived_checker_tree_without_canary_sha256": "35aea1988787a4325855623fb47efb12e289727a14549e07faf3eaa042a4dd5d"
+      },
+      "entry": {
+        "command_id": "7f418fc5-a24e-4238-982e-ecd8b7a3a2e8",
+        "board": {
+          "targets": [],
+          "obstacles": [],
+          "drones": []
+        },
+        "scene_epoch": 0,
+        "harness_frames": 0,
+        "ledger_event_count": 0,
+        "ledger_model_request_count": 0,
+        "harness_event_kinds": [
+          "task_start",
+          "harness_revision",
+          "shared_endpoint_contract",
+          "full100_budget"
+        ]
+      },
+      "agent": {
+        "success": true,
+        "output": "Public sequence verified [TASK DONE]",
+        "error_type": null,
+        "harness_closed": true,
+        "archive_info": {
+          "archive_id": "5e66de12c2554a39b1972e8a3e60d288",
+          "episode_id": "5e66de12c2554a39b1972e8a3e60d288",
+          "command_id": "7f418fc5-a24e-4238-982e-ecd8b7a3a2e8",
+          "path": "./docs/results/harness-full-episode-20261025/run-20261025-02/trials/cancel-B/policy/modelio/model-io-5e66de12c2554a39b1972e8a3e60d288.jsonl",
+          "state": "closed",
+          "closed": true,
+          "complete": true,
+          "sequence": 24,
+          "reasons": [],
+          "error_types": []
+        },
+        "archive_verify": {
+          "valid": true,
+          "complete": true,
+          "record_count": 24,
+          "error_types": []
+        }
+      },
+      "terminal": {
+        "condition": "success",
+        "triggered": false,
+        "trigger_request_id": null,
+        "virtual_elapsed": 0.0,
+        "wall_elapsed": 0.14979445900007704,
+        "frame_status": "completed",
+        "frame_reason": "skill_public_stop_condition",
+        "cancel_flag": false,
+        "harness_interruption": null,
+        "actual_terminal": "completed",
+        "provider_http_failure_observed": false,
+        "graph_error_type": null
+      },
+      "isolation": {
+        "late_world_rejected": true,
+        "late_archive_unchanged": true,
+        "private_endpoint_denied": true,
+        "policy_canary_absent": true,
+        "policy_checker_definition_absent": true,
+        "canary_violations": [],
+        "checker_definition_violations": [],
+        "request_body_sha256": [
+          "43df59672c0737165a389455ad2b32420c70f2084932e5ccc2515c9bcae8f19a",
+          "9b69676f019a2715983a75eb0414ac78dccc54c4011f8bedd98e19847bc2efac",
+          "6940742ea008cf6468db2aefd9e75f230664ef46d76481faec80e837ef796965"
+        ]
+      },
+      "network_attempts": [],
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "action_signature": [
+        {
+          "tool": "take_off",
+          "endpoint": "/drones/f7635bdf/command/take_off",
+          "method": "POST",
+          "params": {
+            "altitude": 14.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "take_off",
+            "status": "success",
+            "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "rotate",
+          "endpoint": "/drones/f7635bdf/command/rotate",
+          "method": "POST",
+          "params": {
+            "heading": 353.0
+          },
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "rotate",
+            "status": "success",
+            "message": "Drone heading set to 353.0° (battery: -0.2%/-0mAh, remaining: 99.3%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        },
+        {
+          "tool": "hover",
+          "endpoint": "/drones/f7635bdf/command/hover",
+          "method": "POST",
+          "params": {},
+          "body": null,
+          "receipt": {
+            "drone_id": "f7635bdf",
+            "command": "hover",
+            "status": "success",
+            "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+            "outcome": "completed"
+          },
+          "error_type": null
+        }
+      ],
+      "state_changed": true,
+      "snapshot": {
+        "path": "private/score-world.pkl",
+        "sha256": "ee354b60eaf9bcd33ed1ce1942d0d3ef1a66a53f1fa99d39561787680aa52907",
+        "state_sha256": "7ceb82f0ce76d7c3e67c6f8c6f5a2591cb776ce7f4fdf0ca794a8f51f3fb509f",
+        "score_seconds": 0.0
+      },
+      "files": {
+        "policy/execution-diagnostics.json": "4d324e717ef81b11ce408e90e1add9d654a2b3ad733fb5bda1746dabb7771c80",
+        "policy/harness.json": "8bb61a9a3389e5690a50aa87afc49bb80af5478a6ce476abcb046fcb04db959d",
+        "policy/agent-result.json": "d8216a5806bd9927c2b9a673e45832ed6fbc5ff24d293ccea793dc4cd87a2423",
+        "policy/transport-oracle.json": "473d9ead0e077954c8afde269804de8d173c5aac56ec22c45a2121f9c32c9d8a",
+        "policy/agent-logs/agent4drone_harness_episode_local_20261025_203242_5090.log": "e16bfe66ad06848f733d74a2eb099b88421aadb5d4ade8f7bb0a34bd43a1c760",
+        "policy/worldlogs/physical-events.jsonl": "b3ce018472c2eda5dd78d49017e64676bd2ed08d8489a50837480c89ca9a8602",
+        "policy/worldlogs/public-api.jsonl": "8148ad727053ec03ee617152d652196c6da0b144d05a05bbe3e2c5cf4412565a",
+        "policy/modelio/model-io-5e66de12c2554a39b1972e8a3e60d288.jsonl": "1b4565aa2f6c78098ad9fd99283f1fa29e79dbef4e7d57789e31eb43587734cb",
+        "policy/toolchain/20261025T203242668719_ad34350a_7f418fc5-a24e-4238-982e-ecd8b7a3a2e8_completed.json": "ba00c981ad5a5aebc1fb0b073a60736a172f4791a3697585bddd437ff971c017",
+        "policy/toolchain/20261025T203242668719_ad34350a_7f418fc5-a24e-4238-982e-ecd8b7a3a2e8_completed_request_history.jsonl": "ae322187c6ae2c7f1f3a7eae3de3c9e529f9aeeef98e7bcd28b413725e1c4ea0",
+        "private/initial-state.json": "90f2ae63d1e6ffc3632c6de412b11827af450ffae190b1480a858d68441f3377",
+        "private/score-world.pkl": "ee354b60eaf9bcd33ed1ce1942d0d3ef1a66a53f1fa99d39561787680aa52907",
+        "private/score-boundary.json": "e922b0afd5b052b532fcb7e134431cec989a3ed2fa3b54269c94574446d5e9f3",
+        "private/preparation-public-api.jsonl": "9cf4f2932b20752fdb55ba0e45d586a3d25c61b330d41e7dfb211509809ae5ee"
+      }
+    }
+  ],
+  "scores": [
+    {
+      "schema_version": 1,
+      "trial_id": "reference-B",
+      "pid": 4970,
+      "worker_pid": 4957,
+      "worker_result_sha256": "6606bea2e66a87408ba9364dc2532f81d60a2d427bb2a013998f06e26e42b773",
+      "snapshot_sha256": "c05f068091d96bd622603e0b51f957f43539875eada2b06542361d4b3848914e",
+      "checker": {
+        "passed": true,
+        "checks_passed": 2,
+        "checks_expected": 2,
+        "details": {
+          "result": true,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 353.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 0.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "success-A",
+      "pid": 4993,
+      "worker_pid": 4974,
+      "worker_result_sha256": "f8b9b6bf7c280d1039613a8316354b2a4addf89522f3d90abfd8bca14d4e339e",
+      "snapshot_sha256": "55f4019f22e1325691c8c6c2620b2ebb15eb544e3e44b52bc6435150b087559b",
+      "checker": {
+        "passed": true,
+        "checks_passed": 2,
+        "checks_expected": 2,
+        "details": {
+          "result": true,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 353.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 0.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "success-B",
+      "pid": 5007,
+      "worker_pid": 4999,
+      "worker_result_sha256": "4d67cc7cb380d00dd196b2224dddf5fe4f59df01ca3fa56f2a15ddae93256cd2",
+      "snapshot_sha256": "18ac90125b1ccee8a1af85d6a8d132386ec4077cb3a74269ac70c3aacfd60605",
+      "checker": {
+        "passed": true,
+        "checks_passed": 2,
+        "checks_expected": 2,
+        "details": {
+          "result": true,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 353.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 0.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "failure-A",
+      "pid": 5021,
+      "worker_pid": 5013,
+      "worker_result_sha256": "686833e05f96ad965788498af9c867137e9e429ed440e12466e1e33b46e239a3",
+      "snapshot_sha256": "df6e79abbfcb7cf22c52ab948ba14b534dd0d0a1d14bf0228f9b9a31929ac559",
+      "checker": {
+        "passed": false,
+        "checks_passed": 1,
+        "checks_expected": 2,
+        "details": {
+          "result": false,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 7.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "failure-B",
+      "pid": 5036,
+      "worker_pid": 5025,
+      "worker_result_sha256": "3e7ccec1068405a22ee0ebe91360e63d74dee0bef8a99c97de8dcf65fc472826",
+      "snapshot_sha256": "ea788ac0840be5141290c8bc77f0244da4607925ddece600d1b833ddbdd998a4",
+      "checker": {
+        "passed": true,
+        "checks_passed": 2,
+        "checks_expected": 2,
+        "details": {
+          "result": true,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 353.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 0.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "timeout-A",
+      "pid": 5059,
+      "worker_pid": 5047,
+      "worker_result_sha256": "ad68b09b7af85047668f4f8353f4963e3c11c29e1f9981822bb7f0faf08c4057",
+      "snapshot_sha256": "b226ea2eb478e514ef2cbec70e667b3af11ea60793361e6c831c6721e841fa9a",
+      "checker": {
+        "passed": false,
+        "checks_passed": 1,
+        "checks_expected": 2,
+        "details": {
+          "result": false,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 7.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "timeout-B",
+      "pid": 5073,
+      "worker_pid": 5062,
+      "worker_result_sha256": "2edc107de25e88753598b6c5799a931b225e3fa87065d73d916a31e39d1f3811",
+      "snapshot_sha256": "edff00f4aee16477800f50195977cf7b6fd61949ac1f81316a4c8f1b9486ad33",
+      "checker": {
+        "passed": true,
+        "checks_passed": 2,
+        "checks_expected": 2,
+        "details": {
+          "result": true,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 353.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 0.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "cancel-A",
+      "pid": 5089,
+      "worker_pid": 5078,
+      "worker_result_sha256": "fc2b20164a55a7b738d9de344191e07b9091bd9166ac19bf1bfcaa48f0e4341b",
+      "snapshot_sha256": "4b952301fb8852f5f369dde508c40327df73bacf42f9324c6e29c65ecf3b98aa",
+      "checker": {
+        "passed": false,
+        "checks_passed": 1,
+        "checks_expected": 2,
+        "details": {
+          "result": false,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": false,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": false,
+                "value": 0.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 7.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    },
+    {
+      "schema_version": 1,
+      "trial_id": "cancel-B",
+      "pid": 5103,
+      "worker_pid": 5090,
+      "worker_result_sha256": "6f02650c9d16d278e6e40b1c06fd619866bfe8770ce1420b39820ace52cdbfed",
+      "snapshot_sha256": "ee354b60eaf9bcd33ed1ce1942d0d3ef1a66a53f1fa99d39561787680aa52907",
+      "checker": {
+        "passed": true,
+        "checks_passed": 2,
+        "checks_expected": 2,
+        "details": {
+          "result": true,
+          "type": "logic",
+          "logic": "and",
+          "checks": [
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_heading",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "tolerance": 5.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 353.0,
+                "drone_id": "f7635bdf",
+                "expected_heading": 353.0,
+                "heading_delta": 0.0,
+                "tolerance": 5.0
+              }
+            },
+            {
+              "result": true,
+              "type": "check",
+              "endpoint": "/check/drone_altitude",
+              "parameters": {
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "tolerance": 2.0
+              },
+              "expected": null,
+              "check_response": {
+                "result": true,
+                "value": 14.0,
+                "drone_id": "f7635bdf",
+                "expected_altitude": 14.0,
+                "difference": 0.0,
+                "tolerance": 2.0
+              }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "private_canary_present": true,
+      "checker_tree_matches_original": true,
+      "agent_imported": false,
+      "network_attempts": []
+    }
+  ]
+}

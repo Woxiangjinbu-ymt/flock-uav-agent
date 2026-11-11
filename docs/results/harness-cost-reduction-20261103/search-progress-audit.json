@@ -1,0 +1,3220 @@
+{
+  "schema_version": 1,
+  "source_validation_sha256": "f550d6efca7b954a551504cca51cc1d1d8b5fd16e709bec441db760f91580852",
+  "source_comparison_seal_sha256": "ff74114c2ad6e9a4930b9b3576abd55a00d1f9ebd5efb195c58892683683d990",
+  "planned": 16,
+  "started": 16,
+  "scored": 16,
+  "provider_calls": 0,
+  "pairs": [
+    {
+      "task_id": "7eba7390",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": -50,
+      "api_request_delta": -205,
+      "v7_public_progress": 66,
+      "v8_public_progress": 33,
+      "partial_progress_regressed": true,
+      "new_action_sequence_is_old_prefix": true,
+      "v7_actions": 85,
+      "v8_actions": 35,
+      "v7_api": 349,
+      "v8_api": 144
+    },
+    {
+      "task_id": "24ac1838",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 41,
+      "v7_public_progress": 51,
+      "v8_public_progress": 51,
+      "partial_progress_regressed": false,
+      "new_action_sequence_is_old_prefix": true,
+      "v7_actions": 167,
+      "v8_actions": 167,
+      "v7_api": 660,
+      "v8_api": 701
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "v7_passed": true,
+      "v8_passed": true,
+      "success_lost": false,
+      "action_attempt_delta": -9,
+      "api_request_delta": -23,
+      "v7_public_progress": 100,
+      "v8_public_progress": 100,
+      "partial_progress_regressed": false,
+      "new_action_sequence_is_old_prefix": true,
+      "v7_actions": 125,
+      "v8_actions": 116,
+      "v7_api": 502,
+      "v8_api": 479
+    },
+    {
+      "task_id": "b1eb0270",
+      "v7_passed": true,
+      "v8_passed": true,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 0,
+      "v7_public_progress": null,
+      "v8_public_progress": null,
+      "partial_progress_regressed": false,
+      "new_action_sequence_is_old_prefix": true,
+      "v7_actions": 3,
+      "v8_actions": 3,
+      "v7_api": 14,
+      "v8_api": 14
+    },
+    {
+      "task_id": "898cfdca",
+      "v7_passed": true,
+      "v8_passed": true,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 0,
+      "v7_public_progress": null,
+      "v8_public_progress": null,
+      "partial_progress_regressed": false,
+      "new_action_sequence_is_old_prefix": true,
+      "v7_actions": 3,
+      "v8_actions": 3,
+      "v7_api": 14,
+      "v8_api": 14
+    },
+    {
+      "task_id": "784d71f8",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 0,
+      "v7_public_progress": null,
+      "v8_public_progress": null,
+      "partial_progress_regressed": false,
+      "new_action_sequence_is_old_prefix": true,
+      "v7_actions": 0,
+      "v8_actions": 0,
+      "v7_api": 4,
+      "v8_api": 4
+    },
+    {
+      "task_id": "1905e0ad",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 0,
+      "v7_public_progress": null,
+      "v8_public_progress": null,
+      "partial_progress_regressed": false,
+      "new_action_sequence_is_old_prefix": true,
+      "v7_actions": 0,
+      "v8_actions": 0,
+      "v7_api": 4,
+      "v8_api": 4
+    },
+    {
+      "task_id": "fdd21809",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": -20,
+      "api_request_delta": -80,
+      "v7_public_progress": 66,
+      "v8_public_progress": 66,
+      "partial_progress_regressed": false,
+      "new_action_sequence_is_old_prefix": true,
+      "v7_actions": 85,
+      "v8_actions": 65,
+      "v7_api": 349,
+      "v8_api": 269
+    }
+  ],
+  "rows": [
+    {
+      "task_id": "7eba7390",
+      "revision": "observed_target_v7",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "cursor": 80,
+      "frame_status": "needs_replan",
+      "frame_reason": "round_limit_below_threshold",
+      "skill_public_final_progress": 66,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": {
+        "total_targets": 3,
+        "visited_targets": 2,
+        "unvisited_targets": 1
+      },
+      "physical_cost": {
+        "api_requests": 349,
+        "action_attempts": 85,
+        "action_receipts": {
+          "success": 83,
+          "partial_success": 0,
+          "error": 2
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 83,
+        "length_xy": 9753.515575873702,
+        "length_xyz": 9853.515575873704,
+        "vertical_distance": 100.0,
+        "consumed_mah": 54.51898556092426,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [
+        {
+          "request_id": 11,
+          "move_number": 0,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 0,
+            "unvisited_targets": 3
+          }
+        },
+        {
+          "request_id": 68,
+          "move_number": 10,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 109,
+          "move_number": 20,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 150,
+          "move_number": 30,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 191,
+          "move_number": 40,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 232,
+          "move_number": 50,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 273,
+          "move_number": 60,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 314,
+          "move_number": 70,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 355,
+          "move_number": 80,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        }
+      ],
+      "public_reached_receipts": [
+        {
+          "request_id": 65,
+          "move_number": 10,
+          "public_reached_names": "Fixed Target 2"
+        },
+        {
+          "request_id": 86,
+          "move_number": 15,
+          "public_reached_names": "Fixed Target 2"
+        },
+        {
+          "request_id": 205,
+          "move_number": 44,
+          "public_reached_names": "Fixed Target 1"
+        },
+        {
+          "request_id": 225,
+          "move_number": 49,
+          "public_reached_names": "Fixed Target 1"
+        },
+        {
+          "request_id": 316,
+          "move_number": 71,
+          "public_reached_names": "Fixed Target 1"
+        }
+      ],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/7eba7390/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "d91ebdeb26de1104f0c9d7cdf38369fcb64905a6d4d52218a52ab607a1d4780f",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/7eba7390/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/7eba7390/evaluation/result.json"
+    },
+    {
+      "task_id": "24ac1838",
+      "revision": "observed_target_v7",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "cursor": 137,
+      "frame_status": "needs_replan",
+      "frame_reason": "local_repair_budget_exhausted",
+      "skill_public_final_progress": 51,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": {
+        "total_targets": 100,
+        "visited_targets": 51,
+        "unvisited_targets": 49
+      },
+      "physical_cost": {
+        "api_requests": 660,
+        "action_attempts": 167,
+        "action_receipts": {
+          "success": 150,
+          "partial_success": 0,
+          "error": 17
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 150,
+        "length_xy": 11736.424934400398,
+        "length_xyz": 12353.424934400402,
+        "vertical_distance": 617.0,
+        "consumed_mah": 85.82243220304676,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [
+        {
+          "request_id": 36,
+          "move_number": 0,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 0,
+            "unvisited_targets": 100
+          }
+        },
+        {
+          "request_id": 128,
+          "move_number": 10,
+          "progress_percentage": 5,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 5,
+            "unvisited_targets": 95
+          }
+        },
+        {
+          "request_id": 189,
+          "move_number": 20,
+          "progress_percentage": 11,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 11,
+            "unvisited_targets": 89
+          }
+        },
+        {
+          "request_id": 250,
+          "move_number": 30,
+          "progress_percentage": 18,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 18,
+            "unvisited_targets": 82
+          }
+        },
+        {
+          "request_id": 291,
+          "move_number": 40,
+          "progress_percentage": 22,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 22,
+            "unvisited_targets": 78
+          }
+        },
+        {
+          "request_id": 332,
+          "move_number": 50,
+          "progress_percentage": 24,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 24,
+            "unvisited_targets": 76
+          }
+        },
+        {
+          "request_id": 373,
+          "move_number": 60,
+          "progress_percentage": 28,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 29,
+            "unvisited_targets": 71
+          }
+        },
+        {
+          "request_id": 415,
+          "move_number": 70,
+          "progress_percentage": 31,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 31,
+            "unvisited_targets": 69
+          }
+        },
+        {
+          "request_id": 456,
+          "move_number": 80,
+          "progress_percentage": 34,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 34,
+            "unvisited_targets": 66
+          }
+        },
+        {
+          "request_id": 497,
+          "move_number": 90,
+          "progress_percentage": 36,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 36,
+            "unvisited_targets": 64
+          }
+        },
+        {
+          "request_id": 539,
+          "move_number": 100,
+          "progress_percentage": 43,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 43,
+            "unvisited_targets": 57
+          }
+        },
+        {
+          "request_id": 580,
+          "move_number": 110,
+          "progress_percentage": 46,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 46,
+            "unvisited_targets": 54
+          }
+        },
+        {
+          "request_id": 621,
+          "move_number": 120,
+          "progress_percentage": 47,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 47,
+            "unvisited_targets": 53
+          }
+        },
+        {
+          "request_id": 663,
+          "move_number": 130,
+          "progress_percentage": 51,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 51,
+            "unvisited_targets": 49
+          }
+        }
+      ],
+      "public_reached_receipts": [
+        {
+          "request_id": 71,
+          "move_number": 1,
+          "public_reached_names": "Fixed Target 56"
+        },
+        {
+          "request_id": 77,
+          "move_number": 2,
+          "public_reached_names": "Fixed Target 15"
+        },
+        {
+          "request_id": 101,
+          "move_number": 6,
+          "public_reached_names": "Fixed Target 37"
+        },
+        {
+          "request_id": 113,
+          "move_number": 8,
+          "public_reached_names": "Fixed Target 14"
+        },
+        {
+          "request_id": 119,
+          "move_number": 9,
+          "public_reached_names": "Fixed Target 23"
+        },
+        {
+          "request_id": 156,
+          "move_number": 15,
+          "public_reached_names": "Fixed Target 68"
+        },
+        {
+          "request_id": 162,
+          "move_number": 16,
+          "public_reached_names": "Fixed Target 50"
+        },
+        {
+          "request_id": 168,
+          "move_number": 17,
+          "public_reached_names": "Fixed Target 13"
+        },
+        {
+          "request_id": 174,
+          "move_number": 18,
+          "public_reached_names": "Fixed Target 32"
+        },
+        {
+          "request_id": 180,
+          "move_number": 19,
+          "public_reached_names": "Fixed Target 93"
+        },
+        {
+          "request_id": 186,
+          "move_number": 20,
+          "public_reached_names": "Fixed Target 22"
+        },
+        {
+          "request_id": 193,
+          "move_number": 21,
+          "public_reached_names": "Fixed Target 77"
+        },
+        {
+          "request_id": 205,
+          "move_number": 23,
+          "public_reached_names": "Fixed Target 86"
+        },
+        {
+          "request_id": 211,
+          "move_number": 24,
+          "public_reached_names": "Fixed Target 6"
+        },
+        {
+          "request_id": 223,
+          "move_number": 26,
+          "public_reached_names": "Fixed Target 29"
+        },
+        {
+          "request_id": 229,
+          "move_number": 27,
+          "public_reached_names": "Fixed Target 78"
+        },
+        {
+          "request_id": 241,
+          "move_number": 29,
+          "public_reached_names": "Fixed Target 41, Fixed Target 69"
+        },
+        {
+          "request_id": 252,
+          "move_number": 31,
+          "public_reached_names": "Fixed Target 56"
+        },
+        {
+          "request_id": 256,
+          "move_number": 32,
+          "public_reached_names": "Fixed Target 96"
+        },
+        {
+          "request_id": 272,
+          "move_number": 36,
+          "public_reached_names": "Fixed Target 37"
+        },
+        {
+          "request_id": 280,
+          "move_number": 38,
+          "public_reached_names": "Fixed Target 14, Fixed Target 88"
+        },
+        {
+          "request_id": 284,
+          "move_number": 39,
+          "public_reached_names": "Fixed Target 23, Fixed Target 36, Fixed Target 44"
+        },
+        {
+          "request_id": 305,
+          "move_number": 44,
+          "public_reached_names": "Fixed Target 98"
+        },
+        {
+          "request_id": 313,
+          "move_number": 46,
+          "public_reached_names": "Fixed Target 50"
+        },
+        {
+          "request_id": 317,
+          "move_number": 47,
+          "public_reached_names": "Fixed Target 13, Fixed Target 73"
+        },
+        {
+          "request_id": 321,
+          "move_number": 48,
+          "public_reached_names": "Fixed Target 32"
+        },
+        {
+          "request_id": 325,
+          "move_number": 49,
+          "public_reached_names": "Fixed Target 93"
+        },
+        {
+          "request_id": 334,
+          "move_number": 51,
+          "public_reached_names": "Fixed Target 25, Fixed Target 77"
+        },
+        {
+          "request_id": 342,
+          "move_number": 53,
+          "public_reached_names": "Fixed Target 86"
+        },
+        {
+          "request_id": 346,
+          "move_number": 54,
+          "public_reached_names": "Fixed Target 6, Fixed Target 47"
+        },
+        {
+          "request_id": 354,
+          "move_number": 56,
+          "public_reached_names": "Fixed Target 29"
+        },
+        {
+          "request_id": 358,
+          "move_number": 57,
+          "public_reached_names": "Fixed Target 78"
+        },
+        {
+          "request_id": 362,
+          "move_number": 58,
+          "public_reached_names": "Fixed Target 70"
+        },
+        {
+          "request_id": 366,
+          "move_number": 59,
+          "public_reached_names": "Fixed Target 41, Fixed Target 69, Fixed Target 87"
+        },
+        {
+          "request_id": 370,
+          "move_number": 60,
+          "public_reached_names": "Fixed Target 65"
+        },
+        {
+          "request_id": 379,
+          "move_number": 62,
+          "public_reached_names": "Fixed Target 96"
+        },
+        {
+          "request_id": 383,
+          "move_number": 63,
+          "public_reached_names": "Fixed Target 55"
+        },
+        {
+          "request_id": 387,
+          "move_number": 64,
+          "public_reached_names": "Fixed Target 67"
+        },
+        {
+          "request_id": 400,
+          "move_number": 67,
+          "public_reached_names": "Fixed Target 88"
+        },
+        {
+          "request_id": 404,
+          "move_number": 68,
+          "public_reached_names": "Fixed Target 36, Fixed Target 44"
+        },
+        {
+          "request_id": 417,
+          "move_number": 71,
+          "public_reached_names": "Fixed Target 1"
+        },
+        {
+          "request_id": 425,
+          "move_number": 73,
+          "public_reached_names": "Fixed Target 98"
+        },
+        {
+          "request_id": 433,
+          "move_number": 75,
+          "public_reached_names": "Fixed Target 50"
+        },
+        {
+          "request_id": 437,
+          "move_number": 76,
+          "public_reached_names": "Fixed Target 21, Fixed Target 73"
+        },
+        {
+          "request_id": 449,
+          "move_number": 79,
+          "public_reached_names": "Fixed Target 12"
+        },
+        {
+          "request_id": 458,
+          "move_number": 81,
+          "public_reached_names": "Fixed Target 33"
+        },
+        {
+          "request_id": 466,
+          "move_number": 83,
+          "public_reached_names": "Fixed Target 47"
+        },
+        {
+          "request_id": 482,
+          "move_number": 87,
+          "public_reached_names": "Fixed Target 70"
+        },
+        {
+          "request_id": 490,
+          "move_number": 89,
+          "public_reached_names": "Fixed Target 65"
+        },
+        {
+          "request_id": 494,
+          "move_number": 90,
+          "public_reached_names": "Fixed Target 81"
+        },
+        {
+          "request_id": 503,
+          "move_number": 92,
+          "public_reached_names": "Fixed Target 27, Fixed Target 48, Fixed Target 55"
+        },
+        {
+          "request_id": 507,
+          "move_number": 93,
+          "public_reached_names": "Fixed Target 45, Fixed Target 67"
+        },
+        {
+          "request_id": 512,
+          "move_number": 94,
+          "public_reached_names": "Fixed Target 84, Fixed Target 94"
+        },
+        {
+          "request_id": 532,
+          "move_number": 99,
+          "public_reached_names": "Fixed Target 46"
+        },
+        {
+          "request_id": 536,
+          "move_number": 100,
+          "public_reached_names": "Fixed Target 62"
+        },
+        {
+          "request_id": 549,
+          "move_number": 103,
+          "public_reached_names": "Fixed Target 68"
+        },
+        {
+          "request_id": 557,
+          "move_number": 105,
+          "public_reached_names": "Fixed Target 21, Fixed Target 75"
+        },
+        {
+          "request_id": 565,
+          "move_number": 107,
+          "public_reached_names": "Fixed Target 7"
+        },
+        {
+          "request_id": 569,
+          "move_number": 108,
+          "public_reached_names": "Fixed Target 12"
+        },
+        {
+          "request_id": 577,
+          "move_number": 110,
+          "public_reached_names": "Fixed Target 33, Fixed Target 40"
+        },
+        {
+          "request_id": 602,
+          "move_number": 116,
+          "public_reached_names": "Fixed Target 63"
+        },
+        {
+          "request_id": 614,
+          "move_number": 119,
+          "public_reached_names": "Fixed Target 81"
+        },
+        {
+          "request_id": 623,
+          "move_number": 121,
+          "public_reached_names": "Fixed Target 27, Fixed Target 48"
+        },
+        {
+          "request_id": 627,
+          "move_number": 122,
+          "public_reached_names": "Fixed Target 8, Fixed Target 45"
+        },
+        {
+          "request_id": 632,
+          "move_number": 123,
+          "public_reached_names": "Fixed Target 84, Fixed Target 94"
+        },
+        {
+          "request_id": 644,
+          "move_number": 126,
+          "public_reached_names": "Fixed Target 26"
+        },
+        {
+          "request_id": 648,
+          "move_number": 127,
+          "public_reached_names": "Fixed Target 54"
+        },
+        {
+          "request_id": 652,
+          "move_number": 128,
+          "public_reached_names": "Fixed Target 46"
+        },
+        {
+          "request_id": 660,
+          "move_number": 130,
+          "public_reached_names": "Fixed Target 24"
+        },
+        {
+          "request_id": 681,
+          "move_number": 135,
+          "public_reached_names": "Fixed Target 27, Fixed Target 48, Fixed Target 55"
+        },
+        {
+          "request_id": 685,
+          "move_number": 136,
+          "public_reached_names": "Fixed Target 7"
+        }
+      ],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/24ac1838/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "b572028efeaf4567c44784bda83f10741c0b35a07e3339f0fb21f35501c31838",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/24ac1838/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/24ac1838/evaluation/result.json"
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "revision": "observed_target_v7",
+      "passed": true,
+      "checks_passed": 1,
+      "checks_expected": 1,
+      "cursor": 110,
+      "frame_status": "completed",
+      "frame_reason": "skill_public_stop_condition",
+      "skill_public_final_progress": 100,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": {
+        "total_targets": 20,
+        "visited_targets": 20,
+        "unvisited_targets": 0
+      },
+      "physical_cost": {
+        "api_requests": 502,
+        "action_attempts": 125,
+        "action_receipts": {
+          "success": 116,
+          "partial_success": 0,
+          "error": 9
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 116,
+        "length_xy": 15559.677978679743,
+        "length_xyz": 15859.677978679743,
+        "vertical_distance": 300.0,
+        "consumed_mah": 91.44987714472414,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [
+        {
+          "request_id": 21,
+          "move_number": 0,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 0,
+            "unvisited_targets": 20
+          }
+        },
+        {
+          "request_id": 98,
+          "move_number": 10,
+          "progress_percentage": 15,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 3,
+            "unvisited_targets": 17
+          }
+        },
+        {
+          "request_id": 149,
+          "move_number": 20,
+          "progress_percentage": 30,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 6,
+            "unvisited_targets": 14
+          }
+        },
+        {
+          "request_id": 190,
+          "move_number": 30,
+          "progress_percentage": 50,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 10,
+            "unvisited_targets": 10
+          }
+        },
+        {
+          "request_id": 231,
+          "move_number": 40,
+          "progress_percentage": 55,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 11,
+            "unvisited_targets": 9
+          }
+        },
+        {
+          "request_id": 272,
+          "move_number": 50,
+          "progress_percentage": 70,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 14,
+            "unvisited_targets": 6
+          }
+        },
+        {
+          "request_id": 313,
+          "move_number": 60,
+          "progress_percentage": 70,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 14,
+            "unvisited_targets": 6
+          }
+        },
+        {
+          "request_id": 354,
+          "move_number": 70,
+          "progress_percentage": 80,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 16,
+            "unvisited_targets": 4
+          }
+        },
+        {
+          "request_id": 395,
+          "move_number": 80,
+          "progress_percentage": 95,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 19,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 436,
+          "move_number": 90,
+          "progress_percentage": 95,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 19,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 477,
+          "move_number": 100,
+          "progress_percentage": 95,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 19,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 518,
+          "move_number": 110,
+          "progress_percentage": 100,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 20,
+            "unvisited_targets": 0
+          }
+        }
+      ],
+      "public_reached_receipts": [
+        {
+          "request_id": 65,
+          "move_number": 5,
+          "public_reached_names": "Fixed Target 13"
+        },
+        {
+          "request_id": 77,
+          "move_number": 7,
+          "public_reached_names": "Fixed Target 15"
+        },
+        {
+          "request_id": 89,
+          "move_number": 9,
+          "public_reached_names": "Fixed Target 3"
+        },
+        {
+          "request_id": 102,
+          "move_number": 11,
+          "public_reached_names": "Fixed Target 19"
+        },
+        {
+          "request_id": 114,
+          "move_number": 13,
+          "public_reached_names": "Fixed Target 1"
+        },
+        {
+          "request_id": 126,
+          "move_number": 15,
+          "public_reached_names": "Fixed Target 5"
+        },
+        {
+          "request_id": 146,
+          "move_number": 20,
+          "public_reached_names": "Fixed Target 13"
+        },
+        {
+          "request_id": 155,
+          "move_number": 22,
+          "public_reached_names": "Fixed Target 15"
+        },
+        {
+          "request_id": 163,
+          "move_number": 24,
+          "public_reached_names": "Fixed Target 7"
+        },
+        {
+          "request_id": 171,
+          "move_number": 26,
+          "public_reached_names": "Fixed Target 19"
+        },
+        {
+          "request_id": 179,
+          "move_number": 28,
+          "public_reached_names": "Fixed Target 1, Fixed Target 12"
+        },
+        {
+          "request_id": 187,
+          "move_number": 30,
+          "public_reached_names": "Fixed Target 10, Fixed Target 11"
+        },
+        {
+          "request_id": 224,
+          "move_number": 39,
+          "public_reached_names": "Fixed Target 7, Fixed Target 20"
+        },
+        {
+          "request_id": 241,
+          "move_number": 43,
+          "public_reached_names": "Fixed Target 1, Fixed Target 12, Fixed Target 14"
+        },
+        {
+          "request_id": 249,
+          "move_number": 45,
+          "public_reached_names": "Fixed Target 10, Fixed Target 11"
+        },
+        {
+          "request_id": 257,
+          "move_number": 47,
+          "public_reached_names": "Fixed Target 8"
+        },
+        {
+          "request_id": 269,
+          "move_number": 50,
+          "public_reached_names": "Fixed Target 6"
+        },
+        {
+          "request_id": 286,
+          "move_number": 54,
+          "public_reached_names": "Fixed Target 3, Fixed Target 7, Fixed Target 20"
+        },
+        {
+          "request_id": 302,
+          "move_number": 58,
+          "public_reached_names": "Fixed Target 14"
+        },
+        {
+          "request_id": 319,
+          "move_number": 62,
+          "public_reached_names": "Fixed Target 8"
+        },
+        {
+          "request_id": 327,
+          "move_number": 64,
+          "public_reached_names": "Fixed Target 2, Fixed Target 9, Fixed Target 13, Fixed Target 14"
+        },
+        {
+          "request_id": 331,
+          "move_number": 65,
+          "public_reached_names": "Fixed Target 1, Fixed Target 6, Fixed Target 9"
+        },
+        {
+          "request_id": 335,
+          "move_number": 66,
+          "public_reached_names": "Fixed Target 15"
+        },
+        {
+          "request_id": 347,
+          "move_number": 69,
+          "public_reached_names": "Fixed Target 3"
+        },
+        {
+          "request_id": 368,
+          "move_number": 74,
+          "public_reached_names": "Fixed Target 4"
+        },
+        {
+          "request_id": 392,
+          "move_number": 80,
+          "public_reached_names": "Fixed Target 16, Fixed Target 17"
+        },
+        {
+          "request_id": 429,
+          "move_number": 89,
+          "public_reached_names": "Fixed Target 4"
+        },
+        {
+          "request_id": 442,
+          "move_number": 92,
+          "public_reached_names": "Fixed Target 1, Fixed Target 9"
+        },
+        {
+          "request_id": 454,
+          "move_number": 95,
+          "public_reached_names": "Fixed Target 17"
+        },
+        {
+          "request_id": 466,
+          "move_number": 98,
+          "public_reached_names": "Fixed Target 4"
+        },
+        {
+          "request_id": 479,
+          "move_number": 101,
+          "public_reached_names": "Fixed Target 18"
+        },
+        {
+          "request_id": 515,
+          "move_number": 110,
+          "public_reached_names": "Fixed Target 16"
+        }
+      ],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/b1ad4f3e/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "0267855378c876badf931494fc5adf7082cdda9ff2ba569c7fc2a898d23b8ad2",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/b1ad4f3e/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/b1ad4f3e/evaluation/result.json"
+    },
+    {
+      "task_id": "b1eb0270",
+      "revision": "observed_target_v7",
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "cursor": 3,
+      "frame_status": "completed",
+      "frame_reason": "skill_public_stop_condition",
+      "skill_public_final_progress": null,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": null,
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [],
+      "public_reached_receipts": [],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/b1eb0270/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "f369b94f7761972117bd6bfb784461f478aa08c95a542ef93ae49e38719b7591",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/b1eb0270/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/b1eb0270/evaluation/result.json"
+    },
+    {
+      "task_id": "898cfdca",
+      "revision": "observed_target_v7",
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "cursor": 3,
+      "frame_status": "completed",
+      "frame_reason": "skill_public_stop_condition",
+      "skill_public_final_progress": null,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": null,
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 30.0,
+        "vertical_distance": 30.0,
+        "consumed_mah": 0.514908913499994,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [],
+      "public_reached_receipts": [],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/898cfdca/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "38cbdff138c7bf1109337020c9c19723923a63d1fbfbbb4aee2993412bb63bb3",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/898cfdca/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/898cfdca/evaluation/result.json"
+    },
+    {
+      "task_id": "784d71f8",
+      "revision": "observed_target_v7",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 4,
+      "cursor": null,
+      "frame_status": null,
+      "frame_reason": null,
+      "skill_public_final_progress": null,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": null,
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [],
+      "public_reached_receipts": [],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/784d71f8/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "7478e885ef303cdea8920c316068527af7f5c168626746c2c8ffa89c7cb8f8bf",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/784d71f8/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/784d71f8/evaluation/result.json"
+    },
+    {
+      "task_id": "1905e0ad",
+      "revision": "observed_target_v7",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 6,
+      "cursor": null,
+      "frame_status": null,
+      "frame_reason": null,
+      "skill_public_final_progress": null,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": null,
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [],
+      "public_reached_receipts": [],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/1905e0ad/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "ae0bad7b7a463dce830ea16ca79b7f9a929c17023182d44d95a97efd4b366d57",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/1905e0ad/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v7/trials/1905e0ad/evaluation/result.json"
+    },
+    {
+      "task_id": "7eba7390",
+      "revision": "search_progress_v8",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "cursor": 30,
+      "frame_status": "needs_replan",
+      "frame_reason": "search_progress_stalled",
+      "skill_public_final_progress": 33,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": {
+        "total_targets": 3,
+        "visited_targets": 1,
+        "unvisited_targets": 2
+      },
+      "physical_cost": {
+        "api_requests": 144,
+        "action_attempts": 35,
+        "action_receipts": {
+          "success": 33,
+          "partial_success": 0,
+          "error": 2
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 33,
+        "length_xy": 2796.0897515786755,
+        "length_xyz": 2896.0897515786755,
+        "vertical_distance": 100.0,
+        "consumed_mah": 17.50121006292931,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [
+        {
+          "request_id": 11,
+          "move_number": 0,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 0,
+            "unvisited_targets": 3
+          }
+        },
+        {
+          "request_id": 68,
+          "move_number": 10,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 109,
+          "move_number": 20,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 150,
+          "move_number": 30,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        }
+      ],
+      "public_reached_receipts": [
+        {
+          "request_id": 65,
+          "move_number": 10,
+          "public_reached_names": "Fixed Target 2"
+        },
+        {
+          "request_id": 86,
+          "move_number": 15,
+          "public_reached_names": "Fixed Target 2"
+        }
+      ],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/7eba7390/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "db5439529e3eb0f83097153122075d82d5472ed3abe0ba4599b4ec65c328a3dc",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/7eba7390/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/7eba7390/evaluation/result.json"
+    },
+    {
+      "task_id": "24ac1838",
+      "revision": "search_progress_v8",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "cursor": 137,
+      "frame_status": "needs_replan",
+      "frame_reason": "local_repair_budget_exhausted",
+      "skill_public_final_progress": 51,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": {
+        "total_targets": 100,
+        "visited_targets": 51,
+        "unvisited_targets": 49
+      },
+      "physical_cost": {
+        "api_requests": 701,
+        "action_attempts": 167,
+        "action_receipts": {
+          "success": 150,
+          "partial_success": 0,
+          "error": 17
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 150,
+        "length_xy": 11736.424934400398,
+        "length_xyz": 12353.424934400402,
+        "vertical_distance": 617.0,
+        "consumed_mah": 85.81421238697979,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [
+        {
+          "request_id": 36,
+          "move_number": 0,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 0,
+            "unvisited_targets": 100
+          }
+        },
+        {
+          "request_id": 74,
+          "move_number": 1,
+          "progress_percentage": 1,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 1,
+            "unvisited_targets": 99
+          }
+        },
+        {
+          "request_id": 81,
+          "move_number": 2,
+          "progress_percentage": 2,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 2,
+            "unvisited_targets": 98
+          }
+        },
+        {
+          "request_id": 106,
+          "move_number": 6,
+          "progress_percentage": 3,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 3,
+            "unvisited_targets": 97
+          }
+        },
+        {
+          "request_id": 119,
+          "move_number": 8,
+          "progress_percentage": 4,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 4,
+            "unvisited_targets": 96
+          }
+        },
+        {
+          "request_id": 126,
+          "move_number": 9,
+          "progress_percentage": 5,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 5,
+            "unvisited_targets": 95
+          }
+        },
+        {
+          "request_id": 133,
+          "move_number": 10,
+          "progress_percentage": 5,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 5,
+            "unvisited_targets": 95
+          }
+        },
+        {
+          "request_id": 164,
+          "move_number": 15,
+          "progress_percentage": 6,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 6,
+            "unvisited_targets": 94
+          }
+        },
+        {
+          "request_id": 171,
+          "move_number": 16,
+          "progress_percentage": 7,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 7,
+            "unvisited_targets": 93
+          }
+        },
+        {
+          "request_id": 178,
+          "move_number": 17,
+          "progress_percentage": 8,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 8,
+            "unvisited_targets": 92
+          }
+        },
+        {
+          "request_id": 185,
+          "move_number": 18,
+          "progress_percentage": 9,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 9,
+            "unvisited_targets": 91
+          }
+        },
+        {
+          "request_id": 192,
+          "move_number": 19,
+          "progress_percentage": 10,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 10,
+            "unvisited_targets": 90
+          }
+        },
+        {
+          "request_id": 199,
+          "move_number": 20,
+          "progress_percentage": 11,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 11,
+            "unvisited_targets": 89
+          }
+        },
+        {
+          "request_id": 206,
+          "move_number": 21,
+          "progress_percentage": 12,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 12,
+            "unvisited_targets": 88
+          }
+        },
+        {
+          "request_id": 219,
+          "move_number": 23,
+          "progress_percentage": 13,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 13,
+            "unvisited_targets": 87
+          }
+        },
+        {
+          "request_id": 226,
+          "move_number": 24,
+          "progress_percentage": 14,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 14,
+            "unvisited_targets": 86
+          }
+        },
+        {
+          "request_id": 239,
+          "move_number": 26,
+          "progress_percentage": 15,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 15,
+            "unvisited_targets": 85
+          }
+        },
+        {
+          "request_id": 246,
+          "move_number": 27,
+          "progress_percentage": 16,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 16,
+            "unvisited_targets": 84
+          }
+        },
+        {
+          "request_id": 259,
+          "move_number": 29,
+          "progress_percentage": 18,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 18,
+            "unvisited_targets": 82
+          }
+        },
+        {
+          "request_id": 266,
+          "move_number": 30,
+          "progress_percentage": 18,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 18,
+            "unvisited_targets": 82
+          }
+        },
+        {
+          "request_id": 275,
+          "move_number": 32,
+          "progress_percentage": 19,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 19,
+            "unvisited_targets": 81
+          }
+        },
+        {
+          "request_id": 300,
+          "move_number": 38,
+          "progress_percentage": 20,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 20,
+            "unvisited_targets": 80
+          }
+        },
+        {
+          "request_id": 305,
+          "move_number": 39,
+          "progress_percentage": 22,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 22,
+            "unvisited_targets": 78
+          }
+        },
+        {
+          "request_id": 310,
+          "move_number": 40,
+          "progress_percentage": 22,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 22,
+            "unvisited_targets": 78
+          }
+        },
+        {
+          "request_id": 327,
+          "move_number": 44,
+          "progress_percentage": 23,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 23,
+            "unvisited_targets": 77
+          }
+        },
+        {
+          "request_id": 340,
+          "move_number": 47,
+          "progress_percentage": 24,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 24,
+            "unvisited_targets": 76
+          }
+        },
+        {
+          "request_id": 353,
+          "move_number": 50,
+          "progress_percentage": 24,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 24,
+            "unvisited_targets": 76
+          }
+        },
+        {
+          "request_id": 358,
+          "move_number": 51,
+          "progress_percentage": 25,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 25,
+            "unvisited_targets": 75
+          }
+        },
+        {
+          "request_id": 371,
+          "move_number": 54,
+          "progress_percentage": 26,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 26,
+            "unvisited_targets": 74
+          }
+        },
+        {
+          "request_id": 388,
+          "move_number": 58,
+          "progress_percentage": 27,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 27,
+            "unvisited_targets": 73
+          }
+        },
+        {
+          "request_id": 393,
+          "move_number": 59,
+          "progress_percentage": 28,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 28,
+            "unvisited_targets": 72
+          }
+        },
+        {
+          "request_id": 398,
+          "move_number": 60,
+          "progress_percentage": 28,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 29,
+            "unvisited_targets": 71
+          }
+        },
+        {
+          "request_id": 411,
+          "move_number": 63,
+          "progress_percentage": 30,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 30,
+            "unvisited_targets": 70
+          }
+        },
+        {
+          "request_id": 416,
+          "move_number": 64,
+          "progress_percentage": 31,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 31,
+            "unvisited_targets": 69
+          }
+        },
+        {
+          "request_id": 442,
+          "move_number": 70,
+          "progress_percentage": 31,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 31,
+            "unvisited_targets": 69
+          }
+        },
+        {
+          "request_id": 447,
+          "move_number": 71,
+          "progress_percentage": 32,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 32,
+            "unvisited_targets": 68
+          }
+        },
+        {
+          "request_id": 468,
+          "move_number": 76,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 33,
+            "unvisited_targets": 67
+          }
+        },
+        {
+          "request_id": 481,
+          "move_number": 79,
+          "progress_percentage": 34,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 34,
+            "unvisited_targets": 66
+          }
+        },
+        {
+          "request_id": 486,
+          "move_number": 80,
+          "progress_percentage": 34,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 34,
+            "unvisited_targets": 66
+          }
+        },
+        {
+          "request_id": 491,
+          "move_number": 81,
+          "progress_percentage": 35,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 35,
+            "unvisited_targets": 65
+          }
+        },
+        {
+          "request_id": 528,
+          "move_number": 90,
+          "progress_percentage": 36,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 36,
+            "unvisited_targets": 64
+          }
+        },
+        {
+          "request_id": 537,
+          "move_number": 92,
+          "progress_percentage": 38,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 38,
+            "unvisited_targets": 62
+          }
+        },
+        {
+          "request_id": 542,
+          "move_number": 93,
+          "progress_percentage": 39,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 39,
+            "unvisited_targets": 61
+          }
+        },
+        {
+          "request_id": 548,
+          "move_number": 94,
+          "progress_percentage": 41,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 41,
+            "unvisited_targets": 59
+          }
+        },
+        {
+          "request_id": 569,
+          "move_number": 99,
+          "progress_percentage": 42,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 42,
+            "unvisited_targets": 58
+          }
+        },
+        {
+          "request_id": 574,
+          "move_number": 100,
+          "progress_percentage": 43,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 43,
+            "unvisited_targets": 57
+          }
+        },
+        {
+          "request_id": 595,
+          "move_number": 105,
+          "progress_percentage": 44,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 44,
+            "unvisited_targets": 56
+          }
+        },
+        {
+          "request_id": 604,
+          "move_number": 107,
+          "progress_percentage": 45,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 45,
+            "unvisited_targets": 55
+          }
+        },
+        {
+          "request_id": 617,
+          "move_number": 110,
+          "progress_percentage": 46,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 46,
+            "unvisited_targets": 54
+          }
+        },
+        {
+          "request_id": 642,
+          "move_number": 116,
+          "progress_percentage": 47,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 47,
+            "unvisited_targets": 53
+          }
+        },
+        {
+          "request_id": 659,
+          "move_number": 120,
+          "progress_percentage": 47,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 47,
+            "unvisited_targets": 53
+          }
+        },
+        {
+          "request_id": 668,
+          "move_number": 122,
+          "progress_percentage": 48,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 48,
+            "unvisited_targets": 52
+          }
+        },
+        {
+          "request_id": 686,
+          "move_number": 126,
+          "progress_percentage": 49,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 49,
+            "unvisited_targets": 51
+          }
+        },
+        {
+          "request_id": 691,
+          "move_number": 127,
+          "progress_percentage": 50,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 50,
+            "unvisited_targets": 50
+          }
+        },
+        {
+          "request_id": 704,
+          "move_number": 130,
+          "progress_percentage": 51,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 51,
+            "unvisited_targets": 49
+          }
+        }
+      ],
+      "public_reached_receipts": [
+        {
+          "request_id": 71,
+          "move_number": 1,
+          "public_reached_names": "Fixed Target 56"
+        },
+        {
+          "request_id": 78,
+          "move_number": 2,
+          "public_reached_names": "Fixed Target 15"
+        },
+        {
+          "request_id": 103,
+          "move_number": 6,
+          "public_reached_names": "Fixed Target 37"
+        },
+        {
+          "request_id": 116,
+          "move_number": 8,
+          "public_reached_names": "Fixed Target 14"
+        },
+        {
+          "request_id": 123,
+          "move_number": 9,
+          "public_reached_names": "Fixed Target 23"
+        },
+        {
+          "request_id": 161,
+          "move_number": 15,
+          "public_reached_names": "Fixed Target 68"
+        },
+        {
+          "request_id": 168,
+          "move_number": 16,
+          "public_reached_names": "Fixed Target 50"
+        },
+        {
+          "request_id": 175,
+          "move_number": 17,
+          "public_reached_names": "Fixed Target 13"
+        },
+        {
+          "request_id": 182,
+          "move_number": 18,
+          "public_reached_names": "Fixed Target 32"
+        },
+        {
+          "request_id": 189,
+          "move_number": 19,
+          "public_reached_names": "Fixed Target 93"
+        },
+        {
+          "request_id": 196,
+          "move_number": 20,
+          "public_reached_names": "Fixed Target 22"
+        },
+        {
+          "request_id": 203,
+          "move_number": 21,
+          "public_reached_names": "Fixed Target 77"
+        },
+        {
+          "request_id": 216,
+          "move_number": 23,
+          "public_reached_names": "Fixed Target 86"
+        },
+        {
+          "request_id": 223,
+          "move_number": 24,
+          "public_reached_names": "Fixed Target 6"
+        },
+        {
+          "request_id": 236,
+          "move_number": 26,
+          "public_reached_names": "Fixed Target 29"
+        },
+        {
+          "request_id": 243,
+          "move_number": 27,
+          "public_reached_names": "Fixed Target 78"
+        },
+        {
+          "request_id": 256,
+          "move_number": 29,
+          "public_reached_names": "Fixed Target 41, Fixed Target 69"
+        },
+        {
+          "request_id": 268,
+          "move_number": 31,
+          "public_reached_names": "Fixed Target 56"
+        },
+        {
+          "request_id": 272,
+          "move_number": 32,
+          "public_reached_names": "Fixed Target 96"
+        },
+        {
+          "request_id": 289,
+          "move_number": 36,
+          "public_reached_names": "Fixed Target 37"
+        },
+        {
+          "request_id": 297,
+          "move_number": 38,
+          "public_reached_names": "Fixed Target 14, Fixed Target 88"
+        },
+        {
+          "request_id": 302,
+          "move_number": 39,
+          "public_reached_names": "Fixed Target 23, Fixed Target 36, Fixed Target 44"
+        },
+        {
+          "request_id": 324,
+          "move_number": 44,
+          "public_reached_names": "Fixed Target 98"
+        },
+        {
+          "request_id": 333,
+          "move_number": 46,
+          "public_reached_names": "Fixed Target 50"
+        },
+        {
+          "request_id": 337,
+          "move_number": 47,
+          "public_reached_names": "Fixed Target 13, Fixed Target 73"
+        },
+        {
+          "request_id": 342,
+          "move_number": 48,
+          "public_reached_names": "Fixed Target 32"
+        },
+        {
+          "request_id": 346,
+          "move_number": 49,
+          "public_reached_names": "Fixed Target 93"
+        },
+        {
+          "request_id": 355,
+          "move_number": 51,
+          "public_reached_names": "Fixed Target 25, Fixed Target 77"
+        },
+        {
+          "request_id": 364,
+          "move_number": 53,
+          "public_reached_names": "Fixed Target 86"
+        },
+        {
+          "request_id": 368,
+          "move_number": 54,
+          "public_reached_names": "Fixed Target 6, Fixed Target 47"
+        },
+        {
+          "request_id": 377,
+          "move_number": 56,
+          "public_reached_names": "Fixed Target 29"
+        },
+        {
+          "request_id": 381,
+          "move_number": 57,
+          "public_reached_names": "Fixed Target 78"
+        },
+        {
+          "request_id": 385,
+          "move_number": 58,
+          "public_reached_names": "Fixed Target 70"
+        },
+        {
+          "request_id": 390,
+          "move_number": 59,
+          "public_reached_names": "Fixed Target 41, Fixed Target 69, Fixed Target 87"
+        },
+        {
+          "request_id": 395,
+          "move_number": 60,
+          "public_reached_names": "Fixed Target 65"
+        },
+        {
+          "request_id": 404,
+          "move_number": 62,
+          "public_reached_names": "Fixed Target 96"
+        },
+        {
+          "request_id": 408,
+          "move_number": 63,
+          "public_reached_names": "Fixed Target 55"
+        },
+        {
+          "request_id": 413,
+          "move_number": 64,
+          "public_reached_names": "Fixed Target 67"
+        },
+        {
+          "request_id": 427,
+          "move_number": 67,
+          "public_reached_names": "Fixed Target 88"
+        },
+        {
+          "request_id": 431,
+          "move_number": 68,
+          "public_reached_names": "Fixed Target 36, Fixed Target 44"
+        },
+        {
+          "request_id": 444,
+          "move_number": 71,
+          "public_reached_names": "Fixed Target 1"
+        },
+        {
+          "request_id": 453,
+          "move_number": 73,
+          "public_reached_names": "Fixed Target 98"
+        },
+        {
+          "request_id": 461,
+          "move_number": 75,
+          "public_reached_names": "Fixed Target 50"
+        },
+        {
+          "request_id": 465,
+          "move_number": 76,
+          "public_reached_names": "Fixed Target 21, Fixed Target 73"
+        },
+        {
+          "request_id": 478,
+          "move_number": 79,
+          "public_reached_names": "Fixed Target 12"
+        },
+        {
+          "request_id": 488,
+          "move_number": 81,
+          "public_reached_names": "Fixed Target 33"
+        },
+        {
+          "request_id": 497,
+          "move_number": 83,
+          "public_reached_names": "Fixed Target 47"
+        },
+        {
+          "request_id": 513,
+          "move_number": 87,
+          "public_reached_names": "Fixed Target 70"
+        },
+        {
+          "request_id": 521,
+          "move_number": 89,
+          "public_reached_names": "Fixed Target 65"
+        },
+        {
+          "request_id": 525,
+          "move_number": 90,
+          "public_reached_names": "Fixed Target 81"
+        },
+        {
+          "request_id": 534,
+          "move_number": 92,
+          "public_reached_names": "Fixed Target 27, Fixed Target 48, Fixed Target 55"
+        },
+        {
+          "request_id": 539,
+          "move_number": 93,
+          "public_reached_names": "Fixed Target 45, Fixed Target 67"
+        },
+        {
+          "request_id": 545,
+          "move_number": 94,
+          "public_reached_names": "Fixed Target 84, Fixed Target 94"
+        },
+        {
+          "request_id": 566,
+          "move_number": 99,
+          "public_reached_names": "Fixed Target 46"
+        },
+        {
+          "request_id": 571,
+          "move_number": 100,
+          "public_reached_names": "Fixed Target 62"
+        },
+        {
+          "request_id": 584,
+          "move_number": 103,
+          "public_reached_names": "Fixed Target 68"
+        },
+        {
+          "request_id": 592,
+          "move_number": 105,
+          "public_reached_names": "Fixed Target 21, Fixed Target 75"
+        },
+        {
+          "request_id": 601,
+          "move_number": 107,
+          "public_reached_names": "Fixed Target 7"
+        },
+        {
+          "request_id": 606,
+          "move_number": 108,
+          "public_reached_names": "Fixed Target 12"
+        },
+        {
+          "request_id": 614,
+          "move_number": 110,
+          "public_reached_names": "Fixed Target 33, Fixed Target 40"
+        },
+        {
+          "request_id": 639,
+          "move_number": 116,
+          "public_reached_names": "Fixed Target 63"
+        },
+        {
+          "request_id": 652,
+          "move_number": 119,
+          "public_reached_names": "Fixed Target 81"
+        },
+        {
+          "request_id": 661,
+          "move_number": 121,
+          "public_reached_names": "Fixed Target 27, Fixed Target 48"
+        },
+        {
+          "request_id": 665,
+          "move_number": 122,
+          "public_reached_names": "Fixed Target 8, Fixed Target 45"
+        },
+        {
+          "request_id": 671,
+          "move_number": 123,
+          "public_reached_names": "Fixed Target 84, Fixed Target 94"
+        },
+        {
+          "request_id": 683,
+          "move_number": 126,
+          "public_reached_names": "Fixed Target 26"
+        },
+        {
+          "request_id": 688,
+          "move_number": 127,
+          "public_reached_names": "Fixed Target 54"
+        },
+        {
+          "request_id": 693,
+          "move_number": 128,
+          "public_reached_names": "Fixed Target 46"
+        },
+        {
+          "request_id": 701,
+          "move_number": 130,
+          "public_reached_names": "Fixed Target 24"
+        },
+        {
+          "request_id": 722,
+          "move_number": 135,
+          "public_reached_names": "Fixed Target 27, Fixed Target 48, Fixed Target 55"
+        },
+        {
+          "request_id": 726,
+          "move_number": 136,
+          "public_reached_names": "Fixed Target 7"
+        }
+      ],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/24ac1838/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "d466786090856f3329da9a0f37882ba1854afd42c9b6715fc8c0bc66ee80a0ab",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/24ac1838/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/24ac1838/evaluation/result.json"
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "revision": "search_progress_v8",
+      "passed": true,
+      "checks_passed": 1,
+      "checks_expected": 1,
+      "cursor": 101,
+      "frame_status": "completed",
+      "frame_reason": "skill_public_stop_condition",
+      "skill_public_final_progress": 100,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": {
+        "total_targets": 20,
+        "visited_targets": 20,
+        "unvisited_targets": 0
+      },
+      "physical_cost": {
+        "api_requests": 479,
+        "action_attempts": 116,
+        "action_receipts": {
+          "success": 107,
+          "partial_success": 0,
+          "error": 9
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 107,
+        "length_xy": 14397.550978363171,
+        "length_xyz": 14697.550978363171,
+        "vertical_distance": 300.0,
+        "consumed_mah": 84.75256259315557,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [
+        {
+          "request_id": 21,
+          "move_number": 0,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 0,
+            "unvisited_targets": 20
+          }
+        },
+        {
+          "request_id": 68,
+          "move_number": 5,
+          "progress_percentage": 5,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 1,
+            "unvisited_targets": 19
+          }
+        },
+        {
+          "request_id": 81,
+          "move_number": 7,
+          "progress_percentage": 10,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 2,
+            "unvisited_targets": 18
+          }
+        },
+        {
+          "request_id": 94,
+          "move_number": 9,
+          "progress_percentage": 15,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 3,
+            "unvisited_targets": 17
+          }
+        },
+        {
+          "request_id": 101,
+          "move_number": 10,
+          "progress_percentage": 15,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 3,
+            "unvisited_targets": 17
+          }
+        },
+        {
+          "request_id": 108,
+          "move_number": 11,
+          "progress_percentage": 20,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 4,
+            "unvisited_targets": 16
+          }
+        },
+        {
+          "request_id": 121,
+          "move_number": 13,
+          "progress_percentage": 25,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 5,
+            "unvisited_targets": 15
+          }
+        },
+        {
+          "request_id": 134,
+          "move_number": 15,
+          "progress_percentage": 30,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 6,
+            "unvisited_targets": 14
+          }
+        },
+        {
+          "request_id": 155,
+          "move_number": 20,
+          "progress_percentage": 30,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 6,
+            "unvisited_targets": 14
+          }
+        },
+        {
+          "request_id": 172,
+          "move_number": 24,
+          "progress_percentage": 35,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 7,
+            "unvisited_targets": 13
+          }
+        },
+        {
+          "request_id": 189,
+          "move_number": 28,
+          "progress_percentage": 40,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 8,
+            "unvisited_targets": 12
+          }
+        },
+        {
+          "request_id": 198,
+          "move_number": 30,
+          "progress_percentage": 50,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 10,
+            "unvisited_targets": 10
+          }
+        },
+        {
+          "request_id": 235,
+          "move_number": 39,
+          "progress_percentage": 55,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 11,
+            "unvisited_targets": 9
+          }
+        },
+        {
+          "request_id": 240,
+          "move_number": 40,
+          "progress_percentage": 55,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 11,
+            "unvisited_targets": 9
+          }
+        },
+        {
+          "request_id": 253,
+          "move_number": 43,
+          "progress_percentage": 60,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 12,
+            "unvisited_targets": 8
+          }
+        },
+        {
+          "request_id": 270,
+          "move_number": 47,
+          "progress_percentage": 65,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 13,
+            "unvisited_targets": 7
+          }
+        },
+        {
+          "request_id": 283,
+          "move_number": 50,
+          "progress_percentage": 70,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 14,
+            "unvisited_targets": 6
+          }
+        },
+        {
+          "request_id": 324,
+          "move_number": 60,
+          "progress_percentage": 70,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 14,
+            "unvisited_targets": 6
+          }
+        },
+        {
+          "request_id": 341,
+          "move_number": 64,
+          "progress_percentage": 80,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 16,
+            "unvisited_targets": 4
+          }
+        },
+        {
+          "request_id": 366,
+          "move_number": 70,
+          "progress_percentage": 80,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 16,
+            "unvisited_targets": 4
+          }
+        },
+        {
+          "request_id": 383,
+          "move_number": 74,
+          "progress_percentage": 85,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 17,
+            "unvisited_targets": 3
+          }
+        },
+        {
+          "request_id": 408,
+          "move_number": 80,
+          "progress_percentage": 95,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 19,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 449,
+          "move_number": 90,
+          "progress_percentage": 95,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 19,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 490,
+          "move_number": 100,
+          "progress_percentage": 95,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 19,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 495,
+          "move_number": 101,
+          "progress_percentage": 100,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 20,
+            "unvisited_targets": 0
+          }
+        }
+      ],
+      "public_reached_receipts": [
+        {
+          "request_id": 65,
+          "move_number": 5,
+          "public_reached_names": "Fixed Target 13"
+        },
+        {
+          "request_id": 78,
+          "move_number": 7,
+          "public_reached_names": "Fixed Target 15"
+        },
+        {
+          "request_id": 91,
+          "move_number": 9,
+          "public_reached_names": "Fixed Target 3"
+        },
+        {
+          "request_id": 105,
+          "move_number": 11,
+          "public_reached_names": "Fixed Target 19"
+        },
+        {
+          "request_id": 118,
+          "move_number": 13,
+          "public_reached_names": "Fixed Target 1"
+        },
+        {
+          "request_id": 131,
+          "move_number": 15,
+          "public_reached_names": "Fixed Target 5"
+        },
+        {
+          "request_id": 152,
+          "move_number": 20,
+          "public_reached_names": "Fixed Target 13"
+        },
+        {
+          "request_id": 161,
+          "move_number": 22,
+          "public_reached_names": "Fixed Target 15"
+        },
+        {
+          "request_id": 169,
+          "move_number": 24,
+          "public_reached_names": "Fixed Target 7"
+        },
+        {
+          "request_id": 178,
+          "move_number": 26,
+          "public_reached_names": "Fixed Target 19"
+        },
+        {
+          "request_id": 186,
+          "move_number": 28,
+          "public_reached_names": "Fixed Target 1, Fixed Target 12"
+        },
+        {
+          "request_id": 195,
+          "move_number": 30,
+          "public_reached_names": "Fixed Target 10, Fixed Target 11"
+        },
+        {
+          "request_id": 232,
+          "move_number": 39,
+          "public_reached_names": "Fixed Target 7, Fixed Target 20"
+        },
+        {
+          "request_id": 250,
+          "move_number": 43,
+          "public_reached_names": "Fixed Target 1, Fixed Target 12, Fixed Target 14"
+        },
+        {
+          "request_id": 259,
+          "move_number": 45,
+          "public_reached_names": "Fixed Target 10, Fixed Target 11"
+        },
+        {
+          "request_id": 267,
+          "move_number": 47,
+          "public_reached_names": "Fixed Target 8"
+        },
+        {
+          "request_id": 280,
+          "move_number": 50,
+          "public_reached_names": "Fixed Target 6"
+        },
+        {
+          "request_id": 297,
+          "move_number": 54,
+          "public_reached_names": "Fixed Target 3, Fixed Target 7, Fixed Target 20"
+        },
+        {
+          "request_id": 313,
+          "move_number": 58,
+          "public_reached_names": "Fixed Target 14"
+        },
+        {
+          "request_id": 330,
+          "move_number": 62,
+          "public_reached_names": "Fixed Target 8"
+        },
+        {
+          "request_id": 338,
+          "move_number": 64,
+          "public_reached_names": "Fixed Target 2, Fixed Target 9, Fixed Target 13, Fixed Target 14"
+        },
+        {
+          "request_id": 343,
+          "move_number": 65,
+          "public_reached_names": "Fixed Target 1, Fixed Target 6, Fixed Target 9"
+        },
+        {
+          "request_id": 347,
+          "move_number": 66,
+          "public_reached_names": "Fixed Target 15"
+        },
+        {
+          "request_id": 359,
+          "move_number": 69,
+          "public_reached_names": "Fixed Target 3"
+        },
+        {
+          "request_id": 380,
+          "move_number": 74,
+          "public_reached_names": "Fixed Target 4"
+        },
+        {
+          "request_id": 405,
+          "move_number": 80,
+          "public_reached_names": "Fixed Target 16, Fixed Target 17"
+        },
+        {
+          "request_id": 442,
+          "move_number": 89,
+          "public_reached_names": "Fixed Target 4"
+        },
+        {
+          "request_id": 455,
+          "move_number": 92,
+          "public_reached_names": "Fixed Target 1, Fixed Target 9"
+        },
+        {
+          "request_id": 467,
+          "move_number": 95,
+          "public_reached_names": "Fixed Target 17"
+        },
+        {
+          "request_id": 479,
+          "move_number": 98,
+          "public_reached_names": "Fixed Target 4"
+        },
+        {
+          "request_id": 492,
+          "move_number": 101,
+          "public_reached_names": "Fixed Target 18"
+        }
+      ],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/b1ad4f3e/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "2c9d37bcdfd61327e83f578a6c1a6ab0b82c49f29082d8750d6cb306a58a30e4",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/b1ad4f3e/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/b1ad4f3e/evaluation/result.json"
+    },
+    {
+      "task_id": "b1eb0270",
+      "revision": "search_progress_v8",
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "cursor": 3,
+      "frame_status": "completed",
+      "frame_reason": "skill_public_stop_condition",
+      "skill_public_final_progress": null,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": null,
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 14.0,
+        "vertical_distance": 14.0,
+        "consumed_mah": 0.5952000000000055,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [],
+      "public_reached_receipts": [],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/b1eb0270/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "908763eafdf3eeec52b6eee27f8d02a4f71d7da2554ccc3a7f81dc5915ccb81f",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/b1eb0270/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/b1eb0270/evaluation/result.json"
+    },
+    {
+      "task_id": "898cfdca",
+      "revision": "search_progress_v8",
+      "passed": true,
+      "checks_passed": 2,
+      "checks_expected": 2,
+      "cursor": 3,
+      "frame_status": "completed",
+      "frame_reason": "skill_public_stop_condition",
+      "skill_public_final_progress": null,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": null,
+      "physical_cost": {
+        "api_requests": 14,
+        "action_attempts": 3,
+        "action_receipts": {
+          "success": 3,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 3,
+        "length_xy": 0.0,
+        "length_xyz": 30.0,
+        "vertical_distance": 30.0,
+        "consumed_mah": 0.514908913499994,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [],
+      "public_reached_receipts": [],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/898cfdca/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "7ebc219636ed4a4a689b3c93c54fe25d68a8f11453662c30d274d25181add03a",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/898cfdca/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/898cfdca/evaluation/result.json"
+    },
+    {
+      "task_id": "784d71f8",
+      "revision": "search_progress_v8",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 4,
+      "cursor": null,
+      "frame_status": null,
+      "frame_reason": null,
+      "skill_public_final_progress": null,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": null,
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [],
+      "public_reached_receipts": [],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/784d71f8/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "45306ad13381b6263cd92a49ccd9d0747a935d13cffb10eb5560923a8e97d35e",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/784d71f8/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/784d71f8/evaluation/result.json"
+    },
+    {
+      "task_id": "1905e0ad",
+      "revision": "search_progress_v8",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 6,
+      "cursor": null,
+      "frame_status": null,
+      "frame_reason": null,
+      "skill_public_final_progress": null,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": null,
+      "physical_cost": {
+        "api_requests": 4,
+        "action_attempts": 0,
+        "action_receipts": {
+          "success": 0,
+          "partial_success": 0,
+          "error": 0
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 0,
+        "length_xy": 0,
+        "length_xyz": 0,
+        "vertical_distance": 0,
+        "consumed_mah": 0,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [],
+      "public_reached_receipts": [],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/1905e0ad/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "f7503c778c07a79e8fb581eef54eb6888c611382ffa3db4fadc9314240113bd6",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/1905e0ad/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/original-v8/trials/1905e0ad/evaluation/result.json"
+    },
+    {
+      "task_id": "fdd21809",
+      "revision": "observed_target_v7",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "cursor": 80,
+      "frame_status": "needs_replan",
+      "frame_reason": "round_limit_below_threshold",
+      "skill_public_final_progress": 66,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": {
+        "total_targets": 3,
+        "visited_targets": 2,
+        "unvisited_targets": 1
+      },
+      "physical_cost": {
+        "api_requests": 349,
+        "action_attempts": 85,
+        "action_receipts": {
+          "success": 84,
+          "partial_success": 0,
+          "error": 1
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 84,
+        "length_xy": 10136.379995165818,
+        "length_xyz": 10236.379995165818,
+        "vertical_distance": 100.0,
+        "consumed_mah": 45.535914481765666,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [
+        {
+          "request_id": 11,
+          "move_number": 0,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 0,
+            "unvisited_targets": 3
+          }
+        },
+        {
+          "request_id": 68,
+          "move_number": 10,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 0,
+            "unvisited_targets": 3
+          }
+        },
+        {
+          "request_id": 109,
+          "move_number": 20,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 150,
+          "move_number": 30,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 191,
+          "move_number": 40,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 232,
+          "move_number": 50,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 273,
+          "move_number": 60,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 314,
+          "move_number": 70,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 355,
+          "move_number": 80,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        }
+      ],
+      "public_reached_receipts": [
+        {
+          "request_id": 78,
+          "move_number": 13,
+          "public_reached_names": "Fixed Target 3"
+        },
+        {
+          "request_id": 98,
+          "move_number": 18,
+          "public_reached_names": "Fixed Target 3"
+        },
+        {
+          "request_id": 164,
+          "move_number": 34,
+          "public_reached_names": "Fixed Target 2"
+        }
+      ],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/current-v7/trials/fdd21809/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "70ef66d8921fbf05074f322a11b951edf0e61cc3219ff6325880277c9b7f3672",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/current-v7/trials/fdd21809/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/current-v7/trials/fdd21809/evaluation/result.json"
+    },
+    {
+      "task_id": "fdd21809",
+      "revision": "search_progress_v8",
+      "passed": false,
+      "checks_passed": 0,
+      "checks_expected": 1,
+      "cursor": 60,
+      "frame_status": "needs_replan",
+      "frame_reason": "search_progress_stalled",
+      "skill_public_final_progress": 66,
+      "progress_read_scope": "public skill aggregate; null means skill did not sample aggregate",
+      "last_public_progress_details": {
+        "total_targets": 3,
+        "visited_targets": 2,
+        "unvisited_targets": 1
+      },
+      "physical_cost": {
+        "api_requests": 269,
+        "action_attempts": 65,
+        "action_receipts": {
+          "success": 64,
+          "partial_success": 0,
+          "error": 1
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 64,
+        "length_xy": 6478.70565262805,
+        "length_xyz": 6578.705652628051,
+        "vertical_distance": 100.0,
+        "consumed_mah": 29.525049584830583,
+        "charged_mah": 0
+      },
+      "public_progress_reads": [
+        {
+          "request_id": 11,
+          "move_number": 0,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 0,
+            "unvisited_targets": 3
+          }
+        },
+        {
+          "request_id": 68,
+          "move_number": 10,
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 0,
+            "unvisited_targets": 3
+          }
+        },
+        {
+          "request_id": 81,
+          "move_number": 13,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 110,
+          "move_number": 20,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 151,
+          "move_number": 30,
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          }
+        },
+        {
+          "request_id": 168,
+          "move_number": 34,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 193,
+          "move_number": 40,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 234,
+          "move_number": 50,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        },
+        {
+          "request_id": 275,
+          "move_number": 60,
+          "progress_percentage": 66,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 2,
+            "unvisited_targets": 1
+          }
+        }
+      ],
+      "public_reached_receipts": [
+        {
+          "request_id": 78,
+          "move_number": 13,
+          "public_reached_names": "Fixed Target 3"
+        },
+        {
+          "request_id": 99,
+          "move_number": 18,
+          "public_reached_names": "Fixed Target 3"
+        },
+        {
+          "request_id": 165,
+          "move_number": 34,
+          "public_reached_names": "Fixed Target 2"
+        }
+      ],
+      "public_api_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/current-v8/trials/fdd21809/policy/worldlogs/public-api.jsonl",
+      "public_api_sha256": "4b905cf69328dc7dca6c580292c6d9977209827a0bbeb3b72ea6f1f74977c8d5",
+      "worker_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/current-v8/trials/fdd21809/worker-result.json",
+      "score_path": "docs/results/harness-cost-reduction-20261103/search-comparison-01/current-v8/trials/fdd21809/evaluation/result.json"
+    }
+  ],
+  "interpretation": {
+    "measured_binary_success_preserved": true,
+    "measured_partial_progress_preserved": false,
+    "all_cases_nonincreasing_api_cost": false,
+    "natural_model_or_real_token_gain_measured": false,
+    "recommendation": "do not promote stagnation handoff as lossless search optimization; retain opt-in negative result",
+    "7eba7390": "v8 stops after move 30 at 1/3; v7 first reaches additional Fixed Target 1 at move 44 (request 205), reports 2/3 at move 50 (request 232)",
+    "24ac1838": "same 137 moves and 51/100 progress; 41 additional public progress checks, no action saving",
+    "b1ad4f3e": "both reach 20/20; v8 confirms completion at move 101 instead of periodic move 110",
+    "fdd21809": "both reach 2/3; v8 stops at move 60 instead of round limit move 80"
+  }
+}

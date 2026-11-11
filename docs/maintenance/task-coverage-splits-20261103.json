@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "authorization": "用户明确要求第三项：任务覆盖与独立数据划分，开始逐项推进",
+  "scope": "bounded local development coverage, fresh grouped train/dev/test, duplicate/exposure audit and public-API data quality validation",
+  "provider_calls": 0,
+  "teacher_dataset_created": false,
+  "training_started": false,
+  "historical_results_rewritten": false,
+  "source_sha256": {
+    "scripts/build_development_coverage.py": "92609c4baf81f4fe9c3d37a14b216d6f1f772b7b571104e428db25d5b87c0f99",
+    "scripts/task_split_generator.py": "267e9ae999b9942eabdb1ec0162f5011e98d04d2b4593df107a22ff22b367321",
+    "scripts/audit_task_splits.py": "401a198ffc22a239d6cd3dd633e8b5e67cab5c6cf22ccdec46c5635e17ed150d",
+    "scripts/prepare_task_dataset.py": "39a58c13e9639e96326552367dfdb1b1e5ccb3d05e259f8a074bc474e2b88b77",
+    "scripts/validate_task_dataset.py": "11f39984f52684ae908e2365d1d4c7e8d5ef0382f476180274d72df5223701b0",
+    "scripts/tests/test_development_coverage.py": "d472f175e29056525e1f6876baf54ba4c5bdf24d7fe779a27c72fd32405809b2",
+    "scripts/tests/test_task_split_generator.py": "5f1ce20af48490b759e7c9db33499b9fa6bbb81283c99f789bfeaec4b1d2732e",
+    "scripts/tests/test_task_split_audit.py": "8e9bfe2b95854a0bda1698adc85b400e4bea2d8368a1a577fd9338e5004a5775",
+    "scripts/tests/test_prepare_task_dataset.py": "1c76f58d7d3dc496929e0c2293d99f17d80ed0c5dabf19794e5574ebf5407d9e",
+    "scripts/tests/test_task_dataset_quality.py": "a9b8b01c1cddf87c8e2850ae4b1df1ffcf9a05b676ad4b14dbf87a47fcc2e750",
+    "docs/TASK_COVERAGE_AND_SPLITS_CN.md": "fc463851ec4a68b140b87775f5aed32cc8c0562f28d58789afc705097e4bd758",
+    "docs/RESEARCH_STATUS_CN.md": "fb84b5665062ad7662e6eabec9b435303cd6a46fd5beee5f679de6d60ddde0b4",
+    "docs/RESEARCH_ROADMAP_CN.md": "0e119ccc0be7ac35ae61782aaf7076084a084bc7cf853083edae32681bf15b0b",
+    "docs/EXPERIMENT_EVIDENCE_CN.md": "2b374a9d8aa0ddefd25d28660b479b74309033fb5d525c929eac3a1abf674964",
+    "docs/README.md": "bd70cdbdb2a4e27f24e72750861d99fc15afa7c90bde020f3b86c051b4153c9c",
+    "docs/POSTTRAINING_PLAN_CN.md": "38f414d312827813cc10b438b9402cd6b28a75a387263a5c03202a6f1d218517",
+    "scripts/README.md": "89d5c9883077f27f293f86e5dd314cf47aca5b5e4a783f404a4b963c565cb8b7",
+    "experiments/README.md": "2b2da4c511cfc01ca0c334bfe7ca205e8c1d9f730af9cd1ea0e01286ad1de72d",
+    "docs/results/task-coverage-splits-20261103/REPORT_CN.md": "3f799b8abc637eafd76b82554f21333b9e5ade9dcbf11819a40abdae6e37c47d"
+  },
+  "artifacts": {
+    "docs/results/task-coverage-splits-20261103/final-verification.json": "c58a564923d2ef6b7b1a5b1e2eefe333190d72eb4ef93ce4a8983f510d4fc5be",
+    "docs/results/task-coverage-splits-20261103/final-review.json": "805b4749b57f68758988d65ceccfee160964bb00343d0210bf4f2d3a2e2d478f",
+    "docs/results/task-coverage-splits-20261103/split-audit.json": "b96637aec90f8e0c6705b49e024e6ed49b7c7a811716568caecde118cb63a9b8",
+    "docs/results/task-coverage-splits-20261103/reproducibility.json": "a3d03beda62fb2d0e523f2cea6e5b886c4526870f5b3a0949a848b63f6a5b109",
+    "docs/results/task-coverage-splits-20261103/exposure-ledger.jsonl": "a33d5bac474e0c414400b6af32b214e6a38f2ae1c10e2c9b20679481a60c79e7",
+    "docs/results/task-coverage-splits-20261103/pytest.xml": "53c8ef8953b05354fa7dc30d956fb7df664d05c195726a34ffd2e1142e506f61"
+  },
+  "packages": {
+    "experiments/task-coverage-v1": {
+      "manifest_sha256": "c46f42c08b4c7d1c5b8a616c376b94ece394348b314d4d5defc5ccb1f09ac92f",
+      "sealed_entries": 13,
+      "passed": true
+    },
+    "experiments/task-coverage-v1-study": {
+      "manifest_sha256": "6386876e9e6172655abb899c836b4199909e438846b83be515a5f75aadb48bae",
+      "sealed_entries": 85,
+      "passed": true
+    },
+    "experiments/task-splits-v1": {
+      "manifest_sha256": "4d2da10b0a6ea753a924ec22f6f16ad29d59711a94ecef6fbd013cbadf226f4e",
+      "sealed_entries": 42,
+      "passed": true
+    }
+  },
+  "verification": {
+    "passed": true,
+    "code_tests": 138,
+    "formal_tasks": 174,
+    "formal_checker_evaluations": 522,
+    "local_markdown_links_checked": 159,
+    "broken_links": []
+  },
+  "not_completed": [
+    "cross_task_natural_agent_capability",
+    "template_or_task_family_OOD_generalization",
+    "complete_F2_F6_task_semantic_deduplication",
+    "generic_online_collection_and_v2_provider_acceptance",
+    "Teacher_conversion_SFT_RL"
+  ],
+  "next_mainline": "W3 episode to decision samples, labels/masks, student input budget; keep W1 online/cost gates"
+}

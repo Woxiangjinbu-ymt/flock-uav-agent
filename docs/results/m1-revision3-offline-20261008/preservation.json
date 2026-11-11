@@ -1,0 +1,51 @@
+{
+  "existing_manifests": [
+    {
+      "manifest": "docs/results/m1-progress-fast100-20261006/artifact-sha256.json",
+      "entries": 9,
+      "mismatches": []
+    },
+    {
+      "manifest": "docs/results/m1-revision-fast100-20261006/artifact-sha256.json",
+      "entries": 8,
+      "mismatches": []
+    },
+    {
+      "manifest": "docs/results/m1r-seal-regressions-20261007/artifact-sha256.json",
+      "entries": 19,
+      "mismatches": []
+    },
+    {
+      "manifest": "docs/results/m1-revision2-fast100-20261007/artifact-sha256.json",
+      "entries": 14,
+      "mismatches": []
+    },
+    {
+      "manifest": "docs/results/m1r2-regression-analysis-20261008/artifact-sha256.json",
+      "entries": 7,
+      "mismatches": []
+    },
+    {
+      "manifest": "docs/results/m1-revision2-fast100-20261007/input-sha256.json",
+      "entries": 1197,
+      "mismatches": []
+    },
+    {
+      "manifest": "docs/results/m1r2-regression-analysis-20261008/input-sha256.json",
+      "entries": 147,
+      "mismatches": []
+    }
+  ],
+  "unchanged_from_frozen_r2": {
+    "agent4drone/task_evidence.py": true,
+    "agent4drone/task_evidence_context.py": true,
+    "agent4drone/task_evidence_r2.py": true,
+    "agent4drone/task_progress.py": true,
+    "agent4drone/command_results.py": true,
+    "agent4drone/uav_langchain_tools.py": true,
+    "agent4drone/model_request_audit.py": true,
+    "agent4drone/tests/test_task_evidence_r2.py": true
+  },
+  "old_m1r_remains_unaccepted": true,
+  "new_paid_calls": 0
+}

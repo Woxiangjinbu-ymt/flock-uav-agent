@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-10-06T20:58:33.216194+08:00",
+  "scope": "offline audit and source-integrity checks; no model calls, environment replay, rescoring or frozen method edits",
+  "checks": {
+    "original_inputs": {
+      "checked_files": 874,
+      "mismatches": []
+    },
+    "original_report_artifacts": {
+      "checked_files": 9,
+      "mismatches": []
+    },
+    "research_inputs": {
+      "checked_files": 413,
+      "mismatches": []
+    },
+    "receipt_inputs": {
+      "checked_files": 102,
+      "mismatches": []
+    },
+    "temporal_boundary": {
+      "checked_prior_report_references": 12,
+      "same_session_only": true,
+      "no_future_reports": true,
+      "original_frozen_task_order": true
+    },
+    "method_sources": {
+      "agent4drone/task_progress.py": {
+        "matches_frozen_m1": true,
+        "sha256": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b"
+      },
+      "agent4drone/blackboard.py": {
+        "matches_frozen_m1": true,
+        "sha256": "00db1a37dd6b896c98f8449036c0e0321fe3872903e5c989bb516bf83e04d049"
+      },
+      "agent4drone/uav_agent.py": {
+        "matches_frozen_m1": true,
+        "sha256": "b89acb1e17d46cd50d5a34393c83bc420834ad88e51f63a878dd3ef37e0b6c26"
+      },
+      "agent4drone/uav_langchain_tools.py": {
+        "matches_frozen_m1": true,
+        "sha256": "3809e3a2258a0b55b6e2680a89e42ff8ba668388fe2c2c9d05d1060e5cc9fa74"
+      }
+    },
+    "aggregates": {
+      "tasks": 100,
+      "failed_tasks": 22,
+      "failed_checks": 70,
+      "failed_target_checks": 20,
+      "unresolved_target_checks": 16,
+      "historical_report_receiving_tasks": 5,
+      "failed_receiving_tasks": 3,
+      "successful_receiving_tasks": 2
+    }
+  }
+}

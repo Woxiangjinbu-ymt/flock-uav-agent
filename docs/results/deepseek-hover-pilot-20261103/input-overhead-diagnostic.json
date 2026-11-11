@@ -1,0 +1,31 @@
+{
+  "scope": "read-only first-request comparison, no extra provider/tokenizer calls",
+  "conditions": "same state_hover public command and restored initial state, before model output history",
+  "measurements": {
+    "control": {
+      "trial_id": "state_hover-control",
+      "request_body_sha256": "c05542d4d0f422cd3f53c3960dab2510445ed0c4b0a91fce814437950a495e42",
+      "native_tools_utf8_bytes": 22044,
+      "native_tool_count": 31,
+      "parameter_tool_count": 29,
+      "system_utf8_bytes": 9994,
+      "actual_first_prompt_tokens": 7883
+    },
+    "candidate": {
+      "trial_id": "state_hover-candidate",
+      "request_body_sha256": "b9b33b08c8981c854422001cd027123a28e2dcff5e0d7e56f6654f7545dae263",
+      "native_tools_utf8_bytes": 37431,
+      "native_tool_count": 31,
+      "parameter_tool_count": 29,
+      "system_utf8_bytes": 10693,
+      "actual_first_prompt_tokens": 11227
+    }
+  },
+  "limitations": [
+    "request bytes are not token estimates",
+    "native representation, descriptions and completion rules changed together",
+    "cannot attribute every downstream token difference to one mechanism"
+  ],
+  "provider_calls": 0,
+  "hidden_reasoning_exported": false
+}

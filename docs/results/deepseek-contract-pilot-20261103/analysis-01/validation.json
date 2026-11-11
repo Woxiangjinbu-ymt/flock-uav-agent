@@ -1,0 +1,22 @@
+{
+  "run": "./docs/results/deepseek-contract-pilot-20261103/run-01",
+  "manifest_sha256": "357de0553bdd0527c973a5e4311146b09465524ca000781b64f3818b2f1becb8",
+  "campaign_seal_sha256": "4b8df0ce3587cfb3f7db144ccd4cf10a38719d2d214942aa5a49e8ba8378322e",
+  "original_seal_unchanged_after_read_only_analysis": true,
+  "sealed_files_verified": 338,
+  "worker_hashes_verified": 8,
+  "scorer_hashes_and_snapshot_verified": 8,
+  "planned": 8,
+  "started": 8,
+  "scored": 8,
+  "unstarted": 0,
+  "analyzer_sources": {
+    "./scripts/analyze_deepseek_contract_pilot.py": "958fec80f75113a95296989e625214f704819eabef079f6fdaa4c6c8a95313ea",
+    "./scripts/analyze_deepseek_behavior_pilot.py": "cc27ccce7d8bf0370ee4529f5d5f8c455a04229c6255ba7051f1ad1d25c7141f"
+  },
+  "analysis_sha256": "5c5cd8e9849ba6c692104efc24f65831e6b22a408a3d04e6d44c27003797e6d5",
+  "report_sha256": "1704c5f750bc65e8d4c675d4d89c1b290c12eb92facdad25f7f9364436d2e1ea",
+  "review_notes_sha256": "e3932105dd88c58cbb310beffafaf904c69a5ff162f94e2be26c2b3e4abff6bb",
+  "tests_not_rerun_this_step": "28 prior specialized tests and tamper-copy rejection recorded in ../local-analysis/validation.json",
+  "provider_calls_by_analysis": 0
+}

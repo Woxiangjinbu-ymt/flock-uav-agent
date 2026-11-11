@@ -1,0 +1,22 @@
+{
+  "command": [
+    "./agent4drone/.venv/bin/python",
+    "-m",
+    "pytest",
+    "scripts/tests/test_harness_request_limits.py",
+    "-q"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 0.709771957999692,
+  "source_before": {
+    "scripts/harness_request_limits.py": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+    "scripts/tests/test_harness_request_limits.py": "1522280328fb58f60b5240e0cadec281b09731e2037c3483b9c6659d447e2adc"
+  },
+  "source_after": {
+    "scripts/harness_request_limits.py": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+    "scripts/tests/test_harness_request_limits.py": "1522280328fb58f60b5240e0cadec281b09731e2037c3483b9c6659d447e2adc"
+  },
+  "stable": true,
+  "log_sha256": "075a06b3627eeaf063f1f2d8bb503b4b5b92aaa2df93749e451501753185d309",
+  "scope": "Local fake transport, barriers and clock tests only; no provider, simulator or full trials"
+}

@@ -1,0 +1,82 @@
+{
+  "status": "completed_and_verified",
+  "m1r2_passed": 79,
+  "pair_vs_m0": {
+    "both_pass": 76,
+    "both_fail": 17,
+    "W": 3,
+    "L": 4
+  },
+  "pair_vs_m1r_diagnostic": {
+    "both_pass": 77,
+    "both_fail": 17,
+    "L": 4,
+    "W": 2
+  },
+  "old_W": {
+    "total": 4,
+    "retained": 3
+  },
+  "old_L": {
+    "total": 3,
+    "recovered": 2
+  },
+  "m1r2": {
+    "observed_tokens": {
+      "prompt_tokens": 128274894,
+      "completion_tokens": 2815708,
+      "total_tokens": 131090602,
+      "cache_hit_tokens": 121633405,
+      "cache_miss_tokens": 6641489,
+      "calls_with_usage": 1533,
+      "calls_with_cache_usage": 1533
+    },
+    "cache_hit_ratio": 0.9482245606065361,
+    "wall_seconds": 8828.370695417005,
+    "scoring_ready_seconds_sum": 13813.017771482468,
+    "passed_checks": 565,
+    "timeouts": 6,
+    "timeouts_passed": 0,
+    "llm_completed_calls": 1533,
+    "llm_failed_calls": 0,
+    "http_errors": 0
+  },
+  "evidence_audit": {
+    "traces": 100,
+    "active": 100,
+    "source_references_checked_with_duplicates": 379,
+    "relative_hints_checked_with_duplicates": 0,
+    "next_step_items_with_duplicates": 3,
+    "progress_tool_calls": 43,
+    "progress_valid_observations": 43,
+    "wire_requests": 1533,
+    "wire_prefix_preserved": 1433,
+    "wire_prefix_eligible": 1433,
+    "observer_errors": 0,
+    "request_audit_errors": 0,
+    "binding_issues": 0,
+    "aggregate_tasks": 11
+  },
+  "guard": {
+    "triggered": false,
+    "policy": {
+      "schema": 2,
+      "minimum_scored_pairs": 40,
+      "minimum_success_deficit": 5,
+      "poll_seconds": 5,
+      "comparison": "same scored tasks against frozen historical M0",
+      "boundary": "m0_passes - m1r2_passes >= 5 after at least 40 scored pairs",
+      "action": "SIGTERM owned job worker; preserve partial results; no retry",
+      "unscored": "excluded from paired rates; retain all 100 ledger entries",
+      "purpose": "budget futility safeguard, not a statistical test"
+    },
+    "observations": 99,
+    "max_observed_eligible_deficit": 1,
+    "final_deficit": 1,
+    "trigger_snapshot": null,
+    "extra_scored_after_trigger": null,
+    "no_retries": true,
+    "guard_sha256": "2b89d8b21c9e87fca74c384450c2d23c3a644bb392e74104440a9854592c07c9",
+    "policy_sha256": "2a77916e17b0ec017a745f116bbb6a0a6536594f07f1490fdddfd41e285df0d7"
+  }
+}

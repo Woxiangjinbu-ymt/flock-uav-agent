@@ -1,0 +1,1609 @@
+{
+  "audit": "independent_public_terminal_completion_20261023",
+  "run": "docs/results/harness-terminal-progress-20261023/run-20261023-01",
+  "scope": "Read-only; no simulator/model calls; no sealed-run edits",
+  "campaign_seal_sha256": "f95fc5a8d83b084c34fabe5c34bcb3d6894349e87cdaec09612d99c92a385db6",
+  "inputs": {
+    "manifest.json": "0f7a6d683228a02ab856389e25eb6f484ac06e8b3fb32079e3233a57e55ad7fc",
+    "summary.json": "44b6915756fdeac926ead1d71a43fcee87229ecad292bec92aeab588c18813d6",
+    "source/agent4drone/task_evidence_r2.py": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+    "source/agent4drone/harness_core.py": "213c59b62566aa1538b734edc74bf95f6e67fc8cf4213c77635d3a2fa712fde4",
+    "source/agent4drone/harness_skills.py": "6fa7161382f64eea46ce39e01e889c95a4b29900ecf795f9b94e0050163db844",
+    "source/agent4drone/harness_integration.py": "10659af763d23fc59dc23aed523181a8ba48f794348de7ad10bb30ad84b29248",
+    "source/scripts/validate_harness_terminal_progress.py": "5e082fa3b9f44b0bfba8bf12669d09e4cb8285e7450ae4bb2bc5151ca8f87a01",
+    "trials/7eba7390-shared_endpoint_v5/public-api.jsonl": "6afa55e5cf3e9e50368f0adc7482871de282b4e494dad2ab73d8e9293a7beae4",
+    "trials/7eba7390-shared_endpoint_v5/physical-events.jsonl": "72c6673c5ea8d6783a46e9a5d7c28bae5678bd0b59200e69c9fb704ca9a5a77d",
+    "trials/7eba7390-shared_endpoint_v5/harness.json": "01266cc0f01abb59abc4ffeecbe5d8961b7a6724da6abded99c6460641f54caa",
+    "trials/7eba7390-shared_endpoint_v5/controls.json": "eea61c71931c060665fc6f49a32413a23fe7e5bc12636ab22f274a6a7c70a1f3",
+    "trials/7eba7390-terminal_progress_v6/public-api.jsonl": "5f0dd2c9c9454ace0c5820d6942c10899543fb43f2814744dbb1c92d5292fa4b",
+    "trials/7eba7390-terminal_progress_v6/physical-events.jsonl": "1a247c21f69f932969f9f5e7fc9140a726d818d87195077c608e5322d24e5daa",
+    "trials/7eba7390-terminal_progress_v6/harness.json": "921fd680b806c85c47092c63e14f66a6bfe380a198cf4afa2bfe8e248031221e",
+    "trials/7eba7390-terminal_progress_v6/controls.json": "0da363505c3df8665586bac41207598ef3baff4ffb64b03f7c989bf06ca98a64",
+    "trials/24ac1838-shared_endpoint_v5/public-api.jsonl": "4633605500b88f2c4b664a0f8ff0a6c702ae488a521c8b3e66a71882e2fd634c",
+    "trials/24ac1838-shared_endpoint_v5/physical-events.jsonl": "ca68d791566f53ae4165d2e3cda49024ac612f8fa58c439d0cc66a223ad28bfd",
+    "trials/24ac1838-shared_endpoint_v5/harness.json": "f85b398abd18546ccc2450538a47c122a5dc3ede10f64a692bdd115efb491156",
+    "trials/24ac1838-shared_endpoint_v5/controls.json": "c94c3ca34c52588653bdd87dd8fafbd85f1c32e0edd1c305db379a4af304ec13",
+    "trials/24ac1838-terminal_progress_v6/public-api.jsonl": "d3a799b2e33ca88b231c21d0a9a71af1c164a63eed08edbafada4003a6bfda86",
+    "trials/24ac1838-terminal_progress_v6/physical-events.jsonl": "7300f61b124ddf505f010fa7847b10e34e617c54725b5ee4591b4995a99598dd",
+    "trials/24ac1838-terminal_progress_v6/harness.json": "79780186b3e300950fc0e86e87b34b7e47f730a1f74c78dff1eb4e19c9464480",
+    "trials/24ac1838-terminal_progress_v6/controls.json": "4878fbe5c94c21166f12b1fdef480aae66ccf4bbddcda3a911bdd14e827834cb",
+    "trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl": "9c0b218c71c26f5d7fc936a6883aaf21f42b677290b235e0ea91562fc82c366c",
+    "trials/b1ad4f3e-shared_endpoint_v5/physical-events.jsonl": "1c68cdced99b164556b1955c301fa76127694800568a218d97506a79ff9a90e8",
+    "trials/b1ad4f3e-shared_endpoint_v5/harness.json": "fc804449bc68498bb03cb836ef3bb4e5f61016083b07c363e97b3d26aa65a3d7",
+    "trials/b1ad4f3e-shared_endpoint_v5/controls.json": "de6c75d32226263be006f477b0b76d244e677bf1a747bcd39a72b3a43ddd1290",
+    "trials/b1ad4f3e-terminal_progress_v6/public-api.jsonl": "43d6f3a61f677b7b2a8b11718c6878d4671a0413b9d861dbf31fd4520d046ccb",
+    "trials/b1ad4f3e-terminal_progress_v6/physical-events.jsonl": "89f9571e5a544515013cf2202b7eea193b15106076cf121915ed90d90f59c487",
+    "trials/b1ad4f3e-terminal_progress_v6/harness.json": "c7b2ce05c8e15d421c8f7da53bb12f9e386becb7b4992877225377510b83bf84",
+    "trials/b1ad4f3e-terminal_progress_v6/controls.json": "a49e1a556cb50da567a988a76cfb651a736339ef182098ab2ef90992bd070b85",
+    "trials/b1eb0270-shared_endpoint_v5/public-api.jsonl": "4f908620c099373ebe54c4407738d00a11c400b661fa5689e77e9a0799ef0aa3",
+    "trials/b1eb0270-shared_endpoint_v5/physical-events.jsonl": "3c5b74e8a6792b3a62646df71178b5191e01e4878574cce91d7968273c22d201",
+    "trials/b1eb0270-shared_endpoint_v5/harness.json": "85c2ad8606a3bdd8c51aa6a30349b940537d17c8620702dad47cfc6b81b1a471",
+    "trials/b1eb0270-shared_endpoint_v5/controls.json": "0c21e5ec4b25d4952889a6dd8852de5e1e0bef0f7c1403d673a66886b6741013",
+    "trials/b1eb0270-terminal_progress_v6/public-api.jsonl": "97751598f3c583889d6eae6113f8ad8c4b75ea05f01ca9db4af77311b411a071",
+    "trials/b1eb0270-terminal_progress_v6/physical-events.jsonl": "e478b35fbaa3dc169c68b9589714391766c981ea90d6f77afa180037b7b35599",
+    "trials/b1eb0270-terminal_progress_v6/harness.json": "ab260e52ea5e16742774f0aaeb9c378ba69b431365b5adfcb2c5445d85eb4c09",
+    "trials/b1eb0270-terminal_progress_v6/controls.json": "1c348cebe94d73e34de858bd853a414c301bf1260a1813ed5440aef4622671b7",
+    "trials/898cfdca-shared_endpoint_v5/public-api.jsonl": "894cdaf95116fd2bc1a41d78a231d2154c4143b1e3a587a3b12a2d0c2c4edd16",
+    "trials/898cfdca-shared_endpoint_v5/physical-events.jsonl": "ff47af4fe1897106e9bb1a43e71f5ec293728f4645563bd281b2a2529d9fc1d5",
+    "trials/898cfdca-shared_endpoint_v5/harness.json": "580857075841f526ea665316df78b75fe0f5c926636256f1562302c452c5c59d",
+    "trials/898cfdca-shared_endpoint_v5/controls.json": "410df0b56982f27c84adcfeca971ac24a974556b34e16f89c189b6e4e2ca097c",
+    "trials/898cfdca-terminal_progress_v6/public-api.jsonl": "4cf2aa92b5f3f5ed11a07ed1a7e66d4a7dca4203bc008395a979923a2d59dce8",
+    "trials/898cfdca-terminal_progress_v6/physical-events.jsonl": "8988182db4bb877f9ca9d631d7b8b239cd7de0b0be111098e7672a03406725dc",
+    "trials/898cfdca-terminal_progress_v6/harness.json": "9bdbd84076af918317b8fb44fd3fc594469312aa0f895d8b133102bbc7635bb9",
+    "trials/898cfdca-terminal_progress_v6/controls.json": "1b0da1d35434d4d2bf62b00cfd9516dfa8efce0ae936ba9443e01a4d71af96a2",
+    "trials/784d71f8-shared_endpoint_v5/public-api.jsonl": "037a953b1f56f2dbe1960cff8d58ea567f95b14c0c3f2f195d4280b3975882b5",
+    "trials/784d71f8-shared_endpoint_v5/harness.json": "2333b8f9eb83a8842216b6cc00fab57d852f64f681d950a1c20c94c30c40392f",
+    "trials/784d71f8-shared_endpoint_v5/controls.json": "92b7be6934e11e3ea00bb7475de0d74f93d03f438c7bcd838fbc3424019c4515",
+    "trials/784d71f8-terminal_progress_v6/public-api.jsonl": "ee07e5d575a01117c1820b706bbc60e7cb647dee214993332216dda7fd33c82f",
+    "trials/784d71f8-terminal_progress_v6/harness.json": "1b5ecfaf8676a90c6e5d5f3815121592403c39fdad131458c9851f691c2e8e43",
+    "trials/784d71f8-terminal_progress_v6/controls.json": "92b7be6934e11e3ea00bb7475de0d74f93d03f438c7bcd838fbc3424019c4515",
+    "trials/1905e0ad-shared_endpoint_v5/public-api.jsonl": "667ac022bc0d1ee63f991bb2cd094f1207dbf55222dec9e4288c6e8b5a31ab5d",
+    "trials/1905e0ad-shared_endpoint_v5/harness.json": "5174c0fa760427dd4f0fa95f01549b1c488b49b8a7cac693bf98e9a518c3068c",
+    "trials/1905e0ad-shared_endpoint_v5/controls.json": "7bf13deb620d38f4ae3868093518b903ffcd9db723f9c6ce63f21bafc2eaa99f",
+    "trials/1905e0ad-terminal_progress_v6/public-api.jsonl": "ab8ef4b2d891131510dcacd7a109fd9f8d9ddc7128a9759adb5ab3caef907bbe",
+    "trials/1905e0ad-terminal_progress_v6/harness.json": "46c1a91dc39e0059755469e8799ee13fad7b951428e3053eb301af8eddaef8b1",
+    "trials/1905e0ad-terminal_progress_v6/controls.json": "7bf13deb620d38f4ae3868093518b903ffcd9db723f9c6ce63f21bafc2eaa99f"
+  },
+  "source_hashes": {
+    "agent4drone/task_evidence_r2.py": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+    "agent4drone/harness_core.py": "213c59b62566aa1538b734edc74bf95f6e67fc8cf4213c77635d3a2fa712fde4",
+    "agent4drone/harness_skills.py": "6fa7161382f64eea46ce39e01e889c95a4b29900ecf795f9b94e0050163db844",
+    "agent4drone/harness_integration.py": "10659af763d23fc59dc23aed523181a8ba48f794348de7ad10bb30ad84b29248",
+    "scripts/validate_harness_terminal_progress.py": "5e082fa3b9f44b0bfba8bf12669d09e4cb8285e7450ae4bb2bc5151ca8f87a01"
+  },
+  "signature_definitions": {
+    "action": "Ordered task action method/endpoint/params/body/admin/origin kind+tool, committed, response drone_id/command/status; plan IDs differ by revision and are excluded.",
+    "physical": "Ordered recorded effect actor/type/event/start XYZ/end XYZ/geometry metadata/path lengths; exclude absolute timing/duration and battery_consumed. Physical instrumentation supports effect comparison and is not fed into policy reasoning.",
+    "request": "Ordered task method/endpoint/params/body/admin/action/origin kind+tool; no response body/timestamps/plan ID equivalence claim."
+  },
+  "trials": {
+    "7eba7390-shared_endpoint_v5": {
+      "public_api_file": "trials/7eba7390-shared_endpoint_v5/public-api.jsonl",
+      "harness_file": "trials/7eba7390-shared_endpoint_v5/harness.json",
+      "action_count": 85,
+      "physical_effect_count": 85,
+      "task_api_count": 346,
+      "skill_api_count": 345,
+      "skill_progress_read_count": 9,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "needs_replan",
+          "reason": "round_limit_below_threshold",
+          "cursor": 80,
+          "units": 80,
+          "repairs": 0,
+          "api_calls": 345
+        }
+      ]
+    },
+    "7eba7390-terminal_progress_v6": {
+      "public_api_file": "trials/7eba7390-terminal_progress_v6/public-api.jsonl",
+      "harness_file": "trials/7eba7390-terminal_progress_v6/harness.json",
+      "action_count": 85,
+      "physical_effect_count": 85,
+      "task_api_count": 346,
+      "skill_api_count": 345,
+      "skill_progress_read_count": 9,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "needs_replan",
+          "reason": "round_limit_below_threshold",
+          "cursor": 80,
+          "units": 80,
+          "repairs": 0,
+          "api_calls": 345
+        }
+      ]
+    },
+    "24ac1838-shared_endpoint_v5": {
+      "public_api_file": "trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+      "harness_file": "trials/24ac1838-shared_endpoint_v5/harness.json",
+      "action_count": 156,
+      "physical_effect_count": 139,
+      "task_api_count": 612,
+      "skill_api_count": 611,
+      "skill_progress_read_count": 13,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "needs_replan",
+          "reason": "local_repair_budget_exhausted",
+          "cursor": 126,
+          "units": 125,
+          "repairs": 17,
+          "api_calls": 611
+        }
+      ]
+    },
+    "24ac1838-terminal_progress_v6": {
+      "public_api_file": "trials/24ac1838-terminal_progress_v6/public-api.jsonl",
+      "harness_file": "trials/24ac1838-terminal_progress_v6/harness.json",
+      "action_count": 156,
+      "physical_effect_count": 139,
+      "task_api_count": 612,
+      "skill_api_count": 611,
+      "skill_progress_read_count": 13,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "needs_replan",
+          "reason": "local_repair_budget_exhausted",
+          "cursor": 126,
+          "units": 125,
+          "repairs": 17,
+          "api_calls": 611
+        }
+      ]
+    },
+    "b1ad4f3e-shared_endpoint_v5": {
+      "public_api_file": "trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+      "harness_file": "trials/b1ad4f3e-shared_endpoint_v5/harness.json",
+      "action_count": 191,
+      "physical_effect_count": 181,
+      "task_api_count": 818,
+      "skill_api_count": 817,
+      "skill_progress_read_count": 18,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "needs_replan",
+          "reason": "no_public_candidate",
+          "cursor": 176,
+          "units": 176,
+          "repairs": 10,
+          "api_calls": 817
+        }
+      ]
+    },
+    "b1ad4f3e-terminal_progress_v6": {
+      "public_api_file": "trials/b1ad4f3e-terminal_progress_v6/public-api.jsonl",
+      "harness_file": "trials/b1ad4f3e-terminal_progress_v6/harness.json",
+      "action_count": 191,
+      "physical_effect_count": 181,
+      "task_api_count": 819,
+      "skill_api_count": 818,
+      "skill_progress_read_count": 19,
+      "terminal_frame_count": 1,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 176,
+          "units": 176,
+          "repairs": 10,
+          "api_calls": 818
+        }
+      ]
+    },
+    "b1eb0270-shared_endpoint_v5": {
+      "public_api_file": "trials/b1eb0270-shared_endpoint_v5/public-api.jsonl",
+      "harness_file": "trials/b1eb0270-shared_endpoint_v5/harness.json",
+      "action_count": 3,
+      "physical_effect_count": 3,
+      "task_api_count": 11,
+      "skill_api_count": 10,
+      "skill_progress_read_count": 0,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "units": 2,
+          "repairs": 0,
+          "api_calls": 10
+        }
+      ]
+    },
+    "b1eb0270-terminal_progress_v6": {
+      "public_api_file": "trials/b1eb0270-terminal_progress_v6/public-api.jsonl",
+      "harness_file": "trials/b1eb0270-terminal_progress_v6/harness.json",
+      "action_count": 3,
+      "physical_effect_count": 3,
+      "task_api_count": 11,
+      "skill_api_count": 10,
+      "skill_progress_read_count": 0,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "units": 2,
+          "repairs": 0,
+          "api_calls": 10
+        }
+      ]
+    },
+    "898cfdca-shared_endpoint_v5": {
+      "public_api_file": "trials/898cfdca-shared_endpoint_v5/public-api.jsonl",
+      "harness_file": "trials/898cfdca-shared_endpoint_v5/harness.json",
+      "action_count": 3,
+      "physical_effect_count": 3,
+      "task_api_count": 11,
+      "skill_api_count": 10,
+      "skill_progress_read_count": 0,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "units": 2,
+          "repairs": 0,
+          "api_calls": 10
+        }
+      ]
+    },
+    "898cfdca-terminal_progress_v6": {
+      "public_api_file": "trials/898cfdca-terminal_progress_v6/public-api.jsonl",
+      "harness_file": "trials/898cfdca-terminal_progress_v6/harness.json",
+      "action_count": 3,
+      "physical_effect_count": 3,
+      "task_api_count": 11,
+      "skill_api_count": 10,
+      "skill_progress_read_count": 0,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": [
+        {
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "cursor": 3,
+          "units": 2,
+          "repairs": 0,
+          "api_calls": 10
+        }
+      ]
+    },
+    "784d71f8-shared_endpoint_v5": {
+      "public_api_file": "trials/784d71f8-shared_endpoint_v5/public-api.jsonl",
+      "harness_file": "trials/784d71f8-shared_endpoint_v5/harness.json",
+      "action_count": 0,
+      "physical_effect_count": 0,
+      "task_api_count": 1,
+      "skill_api_count": 0,
+      "skill_progress_read_count": 0,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": []
+    },
+    "784d71f8-terminal_progress_v6": {
+      "public_api_file": "trials/784d71f8-terminal_progress_v6/public-api.jsonl",
+      "harness_file": "trials/784d71f8-terminal_progress_v6/harness.json",
+      "action_count": 0,
+      "physical_effect_count": 0,
+      "task_api_count": 1,
+      "skill_api_count": 0,
+      "skill_progress_read_count": 0,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": []
+    },
+    "1905e0ad-shared_endpoint_v5": {
+      "public_api_file": "trials/1905e0ad-shared_endpoint_v5/public-api.jsonl",
+      "harness_file": "trials/1905e0ad-shared_endpoint_v5/harness.json",
+      "action_count": 0,
+      "physical_effect_count": 0,
+      "task_api_count": 1,
+      "skill_api_count": 0,
+      "skill_progress_read_count": 0,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": []
+    },
+    "1905e0ad-terminal_progress_v6": {
+      "public_api_file": "trials/1905e0ad-terminal_progress_v6/public-api.jsonl",
+      "harness_file": "trials/1905e0ad-terminal_progress_v6/harness.json",
+      "action_count": 0,
+      "physical_effect_count": 0,
+      "task_api_count": 1,
+      "skill_api_count": 0,
+      "skill_progress_read_count": 0,
+      "terminal_frame_count": 0,
+      "terminal_control_probe_count": 2,
+      "frame_counters": []
+    }
+  },
+  "pairs": [
+    {
+      "task_id": "7eba7390",
+      "action_count_per_arm": [
+        85,
+        85
+      ],
+      "action_signature_sha256": [
+        "5e99160980dd94588162248c6fd5db38bf95f7cfc77d588044d391139eab861f",
+        "5e99160980dd94588162248c6fd5db38bf95f7cfc77d588044d391139eab861f"
+      ],
+      "action_requests_and_receipt_statuses_identical": true,
+      "physical_effect_count_per_arm": [
+        85,
+        85
+      ],
+      "physical_geometry_sha256": [
+        "c2b0f382ff3a883a1504704396a58d628822e0748c1cd79c1f09c54a7de3c026",
+        "c2b0f382ff3a883a1504704396a58d628822e0748c1cd79c1f09c54a7de3c026"
+      ],
+      "physical_effect_geometry_identical": true,
+      "task_api_count_per_arm": [
+        346,
+        346
+      ],
+      "common_task_request_prefix": 346,
+      "terminal_frame_count_per_arm": [
+        0,
+        0
+      ]
+    },
+    {
+      "task_id": "24ac1838",
+      "action_count_per_arm": [
+        156,
+        156
+      ],
+      "action_signature_sha256": [
+        "01ea20d2b9532997ddd4a424fb7f59f7ae09528bc53a6bb29feee91c8dfe634c",
+        "01ea20d2b9532997ddd4a424fb7f59f7ae09528bc53a6bb29feee91c8dfe634c"
+      ],
+      "action_requests_and_receipt_statuses_identical": true,
+      "physical_effect_count_per_arm": [
+        139,
+        139
+      ],
+      "physical_geometry_sha256": [
+        "4b1b92417f08f7dabc0877771e35cc62c25ecdc57d88b95f99e3abe501f699a7",
+        "4b1b92417f08f7dabc0877771e35cc62c25ecdc57d88b95f99e3abe501f699a7"
+      ],
+      "physical_effect_geometry_identical": true,
+      "task_api_count_per_arm": [
+        612,
+        612
+      ],
+      "common_task_request_prefix": 612,
+      "terminal_frame_count_per_arm": [
+        0,
+        0
+      ]
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "action_count_per_arm": [
+        191,
+        191
+      ],
+      "action_signature_sha256": [
+        "847a0bc133dfe2dd9ccf354bc28fe09b517a93334bed8f4f820a6d7176d40e73",
+        "847a0bc133dfe2dd9ccf354bc28fe09b517a93334bed8f4f820a6d7176d40e73"
+      ],
+      "action_requests_and_receipt_statuses_identical": true,
+      "physical_effect_count_per_arm": [
+        181,
+        181
+      ],
+      "physical_geometry_sha256": [
+        "904dc2197ff113b11819e586ace6cb27c1f5fb497211e4b991927392a6a3169e",
+        "904dc2197ff113b11819e586ace6cb27c1f5fb497211e4b991927392a6a3169e"
+      ],
+      "physical_effect_geometry_identical": true,
+      "task_api_count_per_arm": [
+        818,
+        819
+      ],
+      "common_task_request_prefix": 817,
+      "terminal_frame_count_per_arm": [
+        0,
+        1
+      ]
+    },
+    {
+      "task_id": "b1eb0270",
+      "action_count_per_arm": [
+        3,
+        3
+      ],
+      "action_signature_sha256": [
+        "a9cf554d1000860a372cd310a40eb6276ab57bbdd3394d981741776d4654d88d",
+        "a9cf554d1000860a372cd310a40eb6276ab57bbdd3394d981741776d4654d88d"
+      ],
+      "action_requests_and_receipt_statuses_identical": true,
+      "physical_effect_count_per_arm": [
+        3,
+        3
+      ],
+      "physical_geometry_sha256": [
+        "c50e9219811627972af29b3ebd3a0b9c27ce7659df0c4e25e57a09e739dd2c1e",
+        "c50e9219811627972af29b3ebd3a0b9c27ce7659df0c4e25e57a09e739dd2c1e"
+      ],
+      "physical_effect_geometry_identical": true,
+      "task_api_count_per_arm": [
+        11,
+        11
+      ],
+      "common_task_request_prefix": 11,
+      "terminal_frame_count_per_arm": [
+        0,
+        0
+      ]
+    },
+    {
+      "task_id": "898cfdca",
+      "action_count_per_arm": [
+        3,
+        3
+      ],
+      "action_signature_sha256": [
+        "a9e638f9a184371698ab81977c81519723ff2e597ea8c1947c388ccdc74bd483",
+        "a9e638f9a184371698ab81977c81519723ff2e597ea8c1947c388ccdc74bd483"
+      ],
+      "action_requests_and_receipt_statuses_identical": true,
+      "physical_effect_count_per_arm": [
+        3,
+        3
+      ],
+      "physical_geometry_sha256": [
+        "b037631b73195e9f62af2f940787d171bb232db73a352e37a03db14700202363",
+        "b037631b73195e9f62af2f940787d171bb232db73a352e37a03db14700202363"
+      ],
+      "physical_effect_geometry_identical": true,
+      "task_api_count_per_arm": [
+        11,
+        11
+      ],
+      "common_task_request_prefix": 11,
+      "terminal_frame_count_per_arm": [
+        0,
+        0
+      ]
+    },
+    {
+      "task_id": "784d71f8",
+      "action_count_per_arm": [
+        0,
+        0
+      ],
+      "action_signature_sha256": [
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      ],
+      "action_requests_and_receipt_statuses_identical": true,
+      "physical_effect_count_per_arm": [
+        0,
+        0
+      ],
+      "physical_geometry_sha256": [
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      ],
+      "physical_effect_geometry_identical": true,
+      "task_api_count_per_arm": [
+        1,
+        1
+      ],
+      "common_task_request_prefix": 1,
+      "terminal_frame_count_per_arm": [
+        0,
+        0
+      ]
+    },
+    {
+      "task_id": "1905e0ad",
+      "action_count_per_arm": [
+        0,
+        0
+      ],
+      "action_signature_sha256": [
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      ],
+      "action_requests_and_receipt_statuses_identical": true,
+      "physical_effect_count_per_arm": [
+        0,
+        0
+      ],
+      "physical_geometry_sha256": [
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      ],
+      "physical_effect_geometry_identical": true,
+      "task_api_count_per_arm": [
+        1,
+        1
+      ],
+      "common_task_request_prefix": 1,
+      "terminal_frame_count_per_arm": [
+        0,
+        0
+      ]
+    }
+  ],
+  "public_completion": {
+    "task_id": "b1ad4f3e",
+    "baseline_frame": {
+      "status": "needs_replan",
+      "reason": "no_public_candidate",
+      "cursor": 176,
+      "units": 176,
+      "repairs": 10,
+      "api_calls": 817
+    },
+    "candidate_frame": {
+      "status": "completed",
+      "reason": "skill_public_stop_condition",
+      "cursor": 176,
+      "units": 176,
+      "repairs": 10,
+      "api_calls": 818
+    },
+    "recorded_check": {
+      "trigger": "no_public_candidate",
+      "cached_progress_percent": 95,
+      "status": "confirmed",
+      "evidence_ref": "e1635",
+      "progress_percent": 100
+    },
+    "source_public_file": "trials/b1ad4f3e-terminal_progress_v6/public-api.jsonl",
+    "source_harness_file": "trials/b1ad4f3e-terminal_progress_v6/harness.json",
+    "source_public_request_id": 834,
+    "source_public_line": 834,
+    "source_public_origin": {
+      "kind": "skill",
+      "tool": "get_mission_progress",
+      "plan_id": "b1ad4f3e-terminal_progress_v6:p1"
+    },
+    "source_public_session_id": "35ce64d8",
+    "normalized_projection": {
+      "session_id": "35ce64d8",
+      "task_type": "target_assignment",
+      "progress_percentage": 100,
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 20,
+        "unvisited_targets": 0
+      },
+      "source_endpoint": "/sessions/current",
+      "scope": "public_session_aggregate_not_full_task_verdict"
+    },
+    "normalized_receipt_sha256": "6c601a4d8aaeeedc7595a5b5fd8709d4731f7242c39a18a3f7156f4cf02b7ade",
+    "literal_ledger_body_archived": false,
+    "evidence_method": "Raw public session projected with frozen public_progress; matching public_call_start/end order, plan/ref, receipt_sha256; no claim of directly reading ledger body.",
+    "harness_call_start": {
+      "sequence": 2810,
+      "task_id": "b1ad4f3e-terminal_progress_v6",
+      "kind": "public_call_start",
+      "monotonic_s": 29970.564116458,
+      "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+      "call_id": "harness:b1ad4f3e-terminal_progress_v6:p1:818",
+      "evidence_id": "e1635",
+      "call": {
+        "tool": "get_mission_progress",
+        "args": {},
+        "action": false
+      }
+    },
+    "harness_call_end": {
+      "sequence": 2811,
+      "task_id": "b1ad4f3e-terminal_progress_v6",
+      "kind": "public_call_end",
+      "monotonic_s": 29970.566766958,
+      "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+      "call_id": "harness:b1ad4f3e-terminal_progress_v6:p1:818",
+      "evidence_id": "e1635",
+      "receipt_sha256": "6c601a4d8aaeeedc7595a5b5fd8709d4731f7242c39a18a3f7156f4cf02b7ade"
+    },
+    "event_sequences": {
+      "last_running_update": 2735,
+      "read_start": 2810,
+      "read_end": 2811,
+      "stop": 2812,
+      "completed": 2813,
+      "skill_exit": 2814
+    },
+    "last_cached_progress_request_id": 772,
+    "move_request_ids_after_cached_progress": [
+      774,
+      779,
+      783,
+      787,
+      800,
+      807
+    ],
+    "evaluator_public_request_id": 835,
+    "remaining_deadline_s_at_stop": 497.2010960000007,
+    "changed_frame_state_keys": [
+      "progress_percent",
+      "public_stop_condition",
+      "terminal_progress_check"
+    ],
+    "state_comparison_exclusions": "Cross-arm plan_id and receipt.timestamp; no clock-equality claim.",
+    "extra_task_request_index_1based": 818,
+    "actions_after_confirmation": 0
+  },
+  "coverage": {
+    "paired_tasks": 7,
+    "trials": 14,
+    "real_terminal_check_trigger_cases": 1,
+    "real_confirmed_above95_cases": 1,
+    "real_confirmed_at_or_below95_cases": 0,
+    "real_invalid_terminal_read_cases": 0,
+    "real_terminal_budget_or_lifecycle_denial_cases": 0,
+    "other_paired_tasks_without_terminal_trigger": 6,
+    "scripted_runtime_boundary_tests_previously_passed": 61,
+    "tests_rerun_in_this_audit": 0
+  },
+  "checks": [
+    {
+      "check": "sealed_input:manifest.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:summary.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:source/agent4drone/task_evidence_r2.py",
+      "passed": true
+    },
+    {
+      "check": "source_manifest:agent4drone/task_evidence_r2.py",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:source/agent4drone/harness_core.py",
+      "passed": true
+    },
+    {
+      "check": "source_manifest:agent4drone/harness_core.py",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:source/agent4drone/harness_skills.py",
+      "passed": true
+    },
+    {
+      "check": "source_manifest:agent4drone/harness_skills.py",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:source/agent4drone/harness_integration.py",
+      "passed": true
+    },
+    {
+      "check": "source_manifest:agent4drone/harness_integration.py",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:source/scripts/validate_harness_terminal_progress.py",
+      "passed": true
+    },
+    {
+      "check": "source_manifest:scripts/validate_harness_terminal_progress.py",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/7eba7390-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/7eba7390-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/7eba7390-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/7eba7390-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "7eba7390-shared_endpoint_v5:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "7eba7390-shared_endpoint_v5:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "7eba7390-shared_endpoint_v5:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/7eba7390-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/7eba7390-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/7eba7390-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/7eba7390-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "7eba7390-terminal_progress_v6:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "7eba7390-terminal_progress_v6:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "7eba7390-terminal_progress_v6:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "7eba7390:all_action_requests_receipt_statuses_equal",
+      "passed": true
+    },
+    {
+      "check": "7eba7390:all_effect_geometries_equal",
+      "passed": true
+    },
+    {
+      "check": "7eba7390:frame_count_equal",
+      "passed": true
+    },
+    {
+      "check": "7eba7390:cursor_units_repairs_unchanged",
+      "passed": true
+    },
+    {
+      "check": "7eba7390:complete_task_request_sequence_equal",
+      "passed": true
+    },
+    {
+      "check": "7eba7390:no_terminal_check",
+      "passed": true
+    },
+    {
+      "check": "7eba7390:runtime_results_equal",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/24ac1838-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/24ac1838-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/24ac1838-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "24ac1838-shared_endpoint_v5:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "24ac1838-shared_endpoint_v5:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "24ac1838-shared_endpoint_v5:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/24ac1838-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/24ac1838-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/24ac1838-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/24ac1838-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "24ac1838-terminal_progress_v6:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "24ac1838-terminal_progress_v6:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "24ac1838-terminal_progress_v6:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "24ac1838:all_action_requests_receipt_statuses_equal",
+      "passed": true
+    },
+    {
+      "check": "24ac1838:all_effect_geometries_equal",
+      "passed": true
+    },
+    {
+      "check": "24ac1838:frame_count_equal",
+      "passed": true
+    },
+    {
+      "check": "24ac1838:cursor_units_repairs_unchanged",
+      "passed": true
+    },
+    {
+      "check": "24ac1838:complete_task_request_sequence_equal",
+      "passed": true
+    },
+    {
+      "check": "24ac1838:no_terminal_check",
+      "passed": true
+    },
+    {
+      "check": "24ac1838:runtime_results_equal",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1ad4f3e-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1ad4f3e-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1ad4f3e-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e-shared_endpoint_v5:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e-shared_endpoint_v5:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e-shared_endpoint_v5:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1ad4f3e-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1ad4f3e-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1ad4f3e-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1ad4f3e-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e-terminal_progress_v6:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e-terminal_progress_v6:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e-terminal_progress_v6:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:all_action_requests_receipt_statuses_equal",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:all_effect_geometries_equal",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:frame_count_equal",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:cursor_units_repairs_unchanged",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:only_added_request_is_terminal_read",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:old_skill_requests_are_exact_prefix",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:only_one_terminal_check",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:terminal_read_admitted_public_get",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:independent_projection_equals_frozen_pure_adapter",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:request_call_order_and_ref_bind",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:normalized_receipt_sha256_matches_event",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:read_end_before_stop_completed_exit",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:no_completed_frame_before_read",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:no_action_after_confirmation",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:no_cursor_units_repair_change_during_confirmation",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:cache95_to_fresh100",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:confirmed_completed_exact_stop",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:other_frame_state_equal_excluding_receipt_timestamps_and_paired_plan_id",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:evaluator_read_separate_and_later",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:budget_not_extended",
+      "passed": true
+    },
+    {
+      "check": "b1ad4f3e:terminal_call_within_deadline",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1eb0270-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1eb0270-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1eb0270-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1eb0270-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270-shared_endpoint_v5:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270-shared_endpoint_v5:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270-shared_endpoint_v5:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1eb0270-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1eb0270-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1eb0270-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/b1eb0270-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270-terminal_progress_v6:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270-terminal_progress_v6:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270-terminal_progress_v6:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270:all_action_requests_receipt_statuses_equal",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270:all_effect_geometries_equal",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270:frame_count_equal",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270:cursor_units_repairs_unchanged",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270:complete_task_request_sequence_equal",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270:no_terminal_check",
+      "passed": true
+    },
+    {
+      "check": "b1eb0270:runtime_results_equal",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/898cfdca-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/898cfdca-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/898cfdca-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/898cfdca-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "898cfdca-shared_endpoint_v5:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "898cfdca-shared_endpoint_v5:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "898cfdca-shared_endpoint_v5:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/898cfdca-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/898cfdca-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/898cfdca-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/898cfdca-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "898cfdca-terminal_progress_v6:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "898cfdca-terminal_progress_v6:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "898cfdca-terminal_progress_v6:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "898cfdca:all_action_requests_receipt_statuses_equal",
+      "passed": true
+    },
+    {
+      "check": "898cfdca:all_effect_geometries_equal",
+      "passed": true
+    },
+    {
+      "check": "898cfdca:frame_count_equal",
+      "passed": true
+    },
+    {
+      "check": "898cfdca:cursor_units_repairs_unchanged",
+      "passed": true
+    },
+    {
+      "check": "898cfdca:complete_task_request_sequence_equal",
+      "passed": true
+    },
+    {
+      "check": "898cfdca:no_terminal_check",
+      "passed": true
+    },
+    {
+      "check": "898cfdca:runtime_results_equal",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/784d71f8-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "784d71f8-shared_endpoint_v5:absent_effect_file_has_zero_task_actions_and_history",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/784d71f8-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/784d71f8-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "784d71f8-shared_endpoint_v5:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "784d71f8-shared_endpoint_v5:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "784d71f8-shared_endpoint_v5:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/784d71f8-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "784d71f8-terminal_progress_v6:absent_effect_file_has_zero_task_actions_and_history",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/784d71f8-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/784d71f8-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "784d71f8-terminal_progress_v6:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "784d71f8-terminal_progress_v6:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "784d71f8-terminal_progress_v6:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "784d71f8:all_action_requests_receipt_statuses_equal",
+      "passed": true
+    },
+    {
+      "check": "784d71f8:all_effect_geometries_equal",
+      "passed": true
+    },
+    {
+      "check": "784d71f8:frame_count_equal",
+      "passed": true
+    },
+    {
+      "check": "784d71f8:cursor_units_repairs_unchanged",
+      "passed": true
+    },
+    {
+      "check": "784d71f8:complete_task_request_sequence_equal",
+      "passed": true
+    },
+    {
+      "check": "784d71f8:no_terminal_check",
+      "passed": true
+    },
+    {
+      "check": "784d71f8:runtime_results_equal",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/1905e0ad-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad-shared_endpoint_v5:absent_effect_file_has_zero_task_actions_and_history",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/1905e0ad-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/1905e0ad-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad-shared_endpoint_v5:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad-shared_endpoint_v5:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad-shared_endpoint_v5:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/1905e0ad-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad-terminal_progress_v6:absent_effect_file_has_zero_task_actions_and_history",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/1905e0ad-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "sealed_input:trials/1905e0ad-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad-terminal_progress_v6:terminal_controls_before_after",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad-terminal_progress_v6:request_ids_unique_and_ordered",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad-terminal_progress_v6:skill_call_count_matches_frames",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad:all_action_requests_receipt_statuses_equal",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad:all_effect_geometries_equal",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad:frame_count_equal",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad:cursor_units_repairs_unchanged",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad:complete_task_request_sequence_equal",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad:no_terminal_check",
+      "passed": true
+    },
+    {
+      "check": "1905e0ad:runtime_results_equal",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:manifest.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:summary.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:source/agent4drone/task_evidence_r2.py",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:source/agent4drone/harness_core.py",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:source/agent4drone/harness_skills.py",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:source/agent4drone/harness_integration.py",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:source/scripts/validate_harness_terminal_progress.py",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/7eba7390-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/7eba7390-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/7eba7390-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/7eba7390-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/7eba7390-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/7eba7390-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/7eba7390-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/7eba7390-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/24ac1838-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/24ac1838-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/24ac1838-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/24ac1838-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/24ac1838-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/24ac1838-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/24ac1838-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/24ac1838-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1ad4f3e-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1ad4f3e-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1ad4f3e-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1ad4f3e-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1ad4f3e-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1ad4f3e-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1ad4f3e-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1eb0270-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1eb0270-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1eb0270-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1eb0270-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1eb0270-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1eb0270-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1eb0270-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/b1eb0270-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/898cfdca-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/898cfdca-shared_endpoint_v5/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/898cfdca-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/898cfdca-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/898cfdca-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/898cfdca-terminal_progress_v6/physical-events.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/898cfdca-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/898cfdca-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/784d71f8-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/784d71f8-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/784d71f8-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/784d71f8-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/784d71f8-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/784d71f8-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/1905e0ad-shared_endpoint_v5/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/1905e0ad-shared_endpoint_v5/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/1905e0ad-shared_endpoint_v5/controls.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/1905e0ad-terminal_progress_v6/public-api.jsonl",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/1905e0ad-terminal_progress_v6/harness.json",
+      "passed": true
+    },
+    {
+      "check": "input_unchanged_at_end:trials/1905e0ad-terminal_progress_v6/controls.json",
+      "passed": true
+    },
+    {
+      "check": "campaign_seal_unchanged",
+      "passed": true
+    }
+  ],
+  "check_count": 233,
+  "failed_check_count": 0,
+  "all_passed": true,
+  "issues": [],
+  "limits": [
+    "One scripted fixed-instance completion-reporting repair; no new task success/physical search capability or natural-model/generalization evidence.",
+    "Raw action request/effect geometry equality excludes clock and energy details; actual cost differences remain in main evidence report.",
+    "Normalized ledger receipt body is not saved; source raw projection and harness end hash/ref are verified instead.",
+    "The real comparison covers only the successful fresh terminal read; other three boundary categories remain code-test evidence."
+  ]
+}

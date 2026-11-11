@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "scope": "planning artifacts only; no simulator or model execution",
+  "unique_tasks": 100,
+  "checks_per_arm_per_repeat": 605,
+  "unique_trial_ids": 400,
+  "balanced_scene_worker_arm_first_cells": 5,
+  "every_task_reverses_arm_order_and_worker": true,
+  "near_balanced_first_arm_and_worker_within_skill": true,
+  "calibration_pairs": 20,
+  "unique_problem_clusters": 97,
+  "duplicate_problem_groups": [
+    [
+      "9c0b52a0",
+      "7eba7390"
+    ],
+    [
+      "5e743d21",
+      "24ac1838",
+      "7cdefb56"
+    ]
+  ],
+  "file_sha256": {
+    "budget.json": "b4164b99ba8bc37bb98da1dabe6884191d3bd1c3f3dfcbed26f90c7c973f2a95",
+    "tasks.proposed.json": "754e74b52728b33e892b5834513a2a5a346fd08c7f120bb28f1b5acadade19a4",
+    "schedule.proposed.json": "874db2f6941263afa1dee5c0bd9ff1457ac02e92107e72b8dbe31648a9512c67",
+    "design.proposed.json": "8a11ea6e2ca77512162b65af8cc04013d143afa4e6e912b72f8196549e95bea9"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "baseline": "docs/results/deepseek-contract-pilot-20261103/run-01/source",
+  "protected_files": {
+    "agent4drone/model_io_archive.py": {
+      "frozen_before_sha256": "9b49d4f970e067a3ec821ada8c95306e0bccf016746bbd9686235f8e8d6d8b35",
+      "current_sha256": "9b49d4f970e067a3ec821ada8c95306e0bccf016746bbd9686235f8e8d6d8b35",
+      "equal": true
+    },
+    "agent4drone/task_execution_state.py": {
+      "frozen_before_sha256": "55a15f5eee08e7daf206c2ed4165d2d9cfb9e896b2a7a12561849b8fe6884a1f",
+      "current_sha256": "55a15f5eee08e7daf206c2ed4165d2d9cfb9e896b2a7a12561849b8fe6884a1f",
+      "equal": true
+    },
+    "agent4drone/task_evidence_context.py": {
+      "frozen_before_sha256": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "current_sha256": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "equal": true
+    },
+    "agent4drone/task_evidence_r2.py": {
+      "frozen_before_sha256": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+      "current_sha256": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+      "equal": true
+    },
+    "scripts/harness_natural_runner.py": {
+      "frozen_before_sha256": "ab5a9ff9635281f99e78c794cd62b1e6655cf5de8ce7a0d90afe4901f8d8d7da",
+      "current_sha256": "ab5a9ff9635281f99e78c794cd62b1e6655cf5de8ce7a0d90afe4901f8d8d7da",
+      "equal": true
+    },
+    "scripts/harness_request_limits.py": {
+      "frozen_before_sha256": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+      "current_sha256": "ad8dd373b1556d603ae47c222b42186f327c8c7b2ee60802a394c91ebc8fd445",
+      "equal": true
+    },
+    "scripts/harness_live_cost.py": {
+      "frozen_before_sha256": "2e02695d40c404e7e2fc4e2aab4906e8ebe0287d1609ba752bf1745172efdbd3",
+      "current_sha256": "2e02695d40c404e7e2fc4e2aab4906e8ebe0287d1609ba752bf1745172efdbd3",
+      "equal": true
+    },
+    "scripts/episode_termination.py": {
+      "frozen_before_sha256": "25da8fd794a94937f6084bf590355e7f1a2537437fcf41db7ffeb2c266c425b5",
+      "current_sha256": "25da8fd794a94937f6084bf590355e7f1a2537437fcf41db7ffeb2c266c425b5",
+      "equal": true
+    },
+    "scripts/general_agent.py": {
+      "frozen_before_sha256": "c4f1300b2cff40f60761e9d2e61f10e5336df779784ca3bdfac51815bf5b5320",
+      "current_sha256": "c4f1300b2cff40f60761e9d2e61f10e5336df779784ca3bdfac51815bf5b5320",
+      "equal": true
+    },
+    "scripts/general_agent_local.py": {
+      "frozen_before_sha256": "6ad71fccb0e0d2bbf37d15a4ed73595d14bac76a593bfcdd5da6ba69c9f26570",
+      "current_sha256": "6ad71fccb0e0d2bbf37d15a4ed73595d14bac76a593bfcdd5da6ba69c9f26570",
+      "equal": true
+    },
+    "scripts/validate_harness_natural_runner.py": {
+      "frozen_before_sha256": "503e486cabaded3a28bf13c387d7bfa1e8894d43ab01869dc477c391b749a4d6",
+      "current_sha256": "503e486cabaded3a28bf13c387d7bfa1e8894d43ab01869dc477c391b749a4d6",
+      "equal": true
+    }
+  },
+  "uav_agent_changed_methods": [
+    "__init__",
+    "_build_system_prompt"
+  ],
+  "other_existing_agent_methods_ast_identical": true,
+  "scope": "source preservation check; does not substitute regression or model behavior tests"
+}

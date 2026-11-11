@@ -1,0 +1,112 @@
+{
+  "checked_at": "2026-10-02T20:35:11.536083+08:00",
+  "executor": "scene-parallel-v1",
+  "task_protocol": "agent4drone-v3-gui500-timeout-scoring",
+  "task_budget_seconds": 500,
+  "source_hashes": {
+    "scripts/reproduction.py": "ff287cbe27e5a58c72199633c0b819f7a29903671bd9bd5786216fcdf681e9d5",
+    "scripts/reproduction_agent.py": "22547d11fc898a280ab77745b32c5b72a9c62af5827ed7cde12514458bacfafb",
+    "scripts/reproduction_gateway.py": "ab136e3c5be048180301b3edd992e0b62fbdf122888d865a27cc15af9498cc24",
+    "scripts/reproduction_lifecycle.py": "511915a7565f9c31e2590e495f10089b2c4d2913968acf9975e0f770b4c08baa",
+    "scripts/reproduction_metrics.py": "5b25cf339bfd2abe66306b955142ea3aeb91d1b8165d8f0d9d77a8c2e85a5ec5",
+    "scripts/reproduction_parallel.py": "52badb1815ca0ee5a7136c2a009e67a49d222f1c6f74ed9f1314b409026a63f1",
+    "scripts/reproduction_process.py": "2c5a164f8da939c73e1a5f18edd256d7f217722c19556dfc72e1b6e29a7ca493",
+    "scripts/reproduction_server.py": "b6fe7d2dfea761f9df5ad895c3476344b536ef95a1317d44ca197976d5204063",
+    "scripts/tests/fake_agent_service.py": "29f7e00b52b07ae2ed6d35226136f294854bfe9a0b03910a2d7efc32ee5fa661",
+    "scripts/tests/fake_parallel_agent_service.py": "26032e474bc739d4eff3b5a9ce4a53b7385e59c7118fc4b6df3a9939d6d4cf1c",
+    "scripts/tests/gate_probe.py": "64ea68e59e699654aa81e47836b174133e39fbf446477e3e69601ea345e80f66",
+    "scripts/tests/test_reproduction.py": "95bcfb4e5a6f0353a373f29a7e03bd9cbc0b0ae51e04230863fbb43350cf2b8c",
+    "scripts/tests/test_reproduction_child.py": "d87bc1a1df84399028e273f54bda9f216e183884ee2fddb4df5fb36a654594e8",
+    "scripts/tests/test_reproduction_metrics.py": "a1f059f8be20fc508d91ab158be0b36d45cb2652843c23110f5ef38d09aac21e",
+    "scripts/tests/test_reproduction_parallel.py": "2de07c32220c9380460fbeb64109cd517aa9773ca0cba54ff72a995badb9ce58",
+    "scripts/tests/test_reproduction_process.py": "d33e106d5689dad75818b0ebca782dbfbe8cc6f24da36af274533e087e3190c7"
+  },
+  "tests": {
+    "regression_and_processes": {
+      "tests": 30,
+      "seconds": 36.794,
+      "passed": true,
+      "log": "docs/audit/PARALLEL_REGRESSION_TESTS_2026-10-02.txt",
+      "sha256": "d4cecea5afd50c231de73a335009bffdfc67682923bed6ee27939105a3c5fd69"
+    },
+    "parallel_and_recovery": {
+      "tests": 11,
+      "seconds": 64.15,
+      "passed": true,
+      "log": "docs/audit/PARALLEL_RUNNER_TESTS_2026-10-02.txt",
+      "sha256": "211036e56892fcb63197950b4aaa84e22bce9172ec88a4b223d1e0d2bc782a80"
+    },
+    "queue_four_workers_archive": {
+      "tests": 3,
+      "seconds": 26.12,
+      "passed": true,
+      "log": "docs/audit/PARALLEL_QUEUE_TESTS_2026-10-02.txt",
+      "sha256": "9ff92dcf0679de3390728ce8ef4c5913a69f65af8d3a9366d791d82b192b1ed6"
+    },
+    "metrics_and_sdk_mock": {
+      "tests": 9,
+      "seconds": 0.486,
+      "passed": true,
+      "log": "docs/audit/PARALLEL_METRICS_TESTS_2026-10-02.txt",
+      "sha256": "de9dfb9ae55165aa96219f97998f67013883947e7b55f662b77cc1a9997f3750"
+    }
+  },
+  "total_passed_tests": 53,
+  "external_model_calls_during_implementation": 0,
+  "upstream_agent_and_server_business_python_files_equal_HEAD": 43,
+  "plans": {
+    "smoke": {
+      "scenes": 1,
+      "tasks": 1,
+      "checks": 2
+    },
+    "pilot": {
+      "scenes": 3,
+      "tasks": 60,
+      "checks": 345
+    },
+    "calibration": {
+      "scenes": 8,
+      "tasks": 160,
+      "checks": 995
+    },
+    "full": {
+      "scenes": 75,
+      "tasks": 1500,
+      "checks": 9396
+    }
+  },
+  "configuration": {
+    "provider": "deepseek_official",
+    "base_url": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "existing_gateway_proof_matches": true
+  },
+  "validated_behaviors": [
+    "four concurrent independent local HTTP scenes",
+    "bounded two-worker queue with four scenes",
+    "within-scene task order and persistent blackboard",
+    "500-second production protocol unchanged; short deadlines only in test fixtures",
+    "timeout grading and continuation",
+    "stuck worker isolates its scene",
+    "SIGINT cleanup and whole-scene recovery",
+    "parent-pipe EOF and supervisor failure process-group cleanup",
+    "completed failed scenes reused without reruns",
+    "interrupted generation artifacts preserved",
+    "completion publication crash repaired from original saved checks",
+    "canonical task/check denominators",
+    "tamper and source/config/workers drift rejected",
+    "HTTP retry/rate/error, latency and token/cache instrumentation including cancellation",
+    "worker and fleet resource sampling"
+  ],
+  "real_model_parallel_throughput_measured": false,
+  "ready_for_real_model_calibration": true,
+  "next_command": "caffeinate -i controller/.venv/bin/python scripts/reproduction.py run calibration --workers 4",
+  "limitations": [
+    "Legacy pre-executor attempts cannot be resumed",
+    "No within-scene/task checkpoint restoration",
+    "Worker concurrency is frozen for an attempt",
+    "Resource peaks are sampled RSS sums, not exact physical memory",
+    "No 4x/8x speedup claim before real model calibration"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "passed_before_first_provider_dispatch",
+  "planned_live_episodes": 10,
+  "local_completed_scored": 10,
+  "final_regression_tests": 680,
+  "runtime_tests": 606,
+  "new_pilot_analysis_tests": 74,
+  "inputs_identical_to_local_smoke": true,
+  "trials_identical_to_local_smoke": true,
+  "source_changes_after_smoke_freeze": [
+    "scripts/analyze_deepseek_cost_pilot.py",
+    "scripts/tests/test_deepseek_cost_analysis.py"
+  ],
+  "runtime_source_changes_after_smoke": [],
+  "live_manifest_sha256": "78bee144d7b0bf5d7ebc946eeb1ec3051ac86cce22381a9f86ee09facf47c68b",
+  "live_frozen_source_files": 102,
+  "live_frozen_input_files": 19,
+  "fifth_item_started": false
+}

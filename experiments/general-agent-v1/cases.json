@@ -1,0 +1,58 @@
+[
+  {
+    "trial_id": "raw",
+    "task_id": "b1eb0270",
+    "trace_file": "traces/raw.json"
+  },
+  {
+    "trial_id": "skill",
+    "task_id": "b1eb0270",
+    "trace_file": "traces/skill.json"
+  },
+  {
+    "trial_id": "second-task",
+    "task_id": "898cfdca",
+    "trace_file": "traces/skill.json"
+  },
+  {
+    "trial_id": "premature",
+    "task_id": "b1eb0270",
+    "trace_file": "traces/premature.json"
+  },
+  {
+    "trial_id": "http_error",
+    "task_id": "b1eb0270",
+    "trace_file": "traces/raw.json",
+    "fault": {
+      "kind": "http_error",
+      "at_response": 2
+    }
+  },
+  {
+    "trial_id": "cancel",
+    "task_id": "b1eb0270",
+    "trace_file": "traces/raw.json",
+    "fault": {
+      "kind": "cancel",
+      "at_response": 2
+    }
+  },
+  {
+    "trial_id": "request_timeout",
+    "task_id": "b1eb0270",
+    "trace_file": "traces/raw.json",
+    "fault": {
+      "kind": "request_timeout",
+      "at_response": 2
+    }
+  },
+  {
+    "trial_id": "usage_missing",
+    "task_id": "b1eb0270",
+    "trace_file": "traces/raw.json",
+    "fault": {
+      "kind": "usage_missing",
+      "at_response": 2
+    }
+  }
+]

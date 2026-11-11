@@ -1,0 +1,79 @@
+[
+  {
+    "cohort": "search_search52",
+    "scene_id": "823c15d5",
+    "task_id": "5e743d21",
+    "trace": "./experiments/runs/20261010-104440-search-prefix-search-45088229/823c15d5/agent-traces/toolchains/20261010T113830930114_823c15d5_7c3052d3-eccb-4040-ace9-7adce54eaa20_step_limit.json",
+    "run": {
+      "api_calls": {
+        "get_drone_status": 240,
+        "get_mission_progress": 25,
+        "get_nearby_entities": 240,
+        "list_drones": 1,
+        "move_to": 240
+      },
+      "attempt_count": 240,
+      "elapsed_s": 4.507,
+      "final_public_progress_percent": 96,
+      "new_public_obstacles": 7,
+      "outcomes": {
+        "blocked": 4,
+        "completed": 236
+      },
+      "status": "public_progress_strictly_above_95",
+      "trigger": {
+        "elapsed_s": 434.179,
+        "progress_evidence_id": "e611",
+        "public_progress_percent": 88,
+        "remaining_s": 65.821,
+        "trigger_sequence": 612
+      }
+    },
+    "event_count": 746,
+    "failure_counts": {
+      "blocked": 4
+    },
+    "blocked_events": [
+      {
+        "evidence_id": "e647",
+        "args": {
+          "drone_id": "20dd2485",
+          "x": 1155.0,
+          "y": 175.0,
+          "z": 20.0
+        },
+        "receipt": "Path to waypoint 1 blocked: Flight path intersects with ObstacleType.POLYGON obstacle 'Polygon Obstacle 40'  "
+      },
+      {
+        "evidence_id": "e963",
+        "args": {
+          "drone_id": "e1432c2b",
+          "x": 1575.0,
+          "y": 665.0,
+          "z": 20.0
+        },
+        "receipt": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 11'  "
+      },
+      {
+        "evidence_id": "e1149",
+        "args": {
+          "drone_id": "e1432c2b",
+          "x": 1575.0,
+          "y": 735.0,
+          "z": 20.0
+        },
+        "receipt": "Target position conflicts with obstacle: Position conflicts with polygon obstacle 'Polygon Obstacle 11'  "
+      },
+      {
+        "evidence_id": "e1987",
+        "args": {
+          "drone_id": "4e22b83f",
+          "x": 1785.0,
+          "y": 175.0,
+          "z": 20.0
+        },
+        "receipt": "Target position conflicts with obstacle: Position conflicts with circle obstacle 'Circle Obstacle 9'  "
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "scope": "Final read-only source/seal/link verification; no trials or tests executed",
+  "campaign_files": 302,
+  "campaign_hash_mismatches": [],
+  "run_source_files": 80,
+  "live_source_mismatches": [],
+  "delivery_source_hashes": {
+    "scripts/validate_harness_episode.py": "ccd7bd3e14c057bd2e4c8a0ce614cf301b1f0b937986a9feeae22d4c0a24ea4b",
+    "scripts/harness_episode_local.py": "25b83ebb30fa6876932a0d8f93557e44810b9343cb0b213beff34ce88b582760",
+    "scripts/tests/test_harness_episode.py": "e45f6e0afab2b1e52b787d6d839ccc8341f71026078c3dd425311bb167a79274",
+    "agent4drone/tests/test_model_io_archive_integration.py": "e21065d51a1c875ba1e384dc9b1039c0921c5db5a313cd65b776e2784ec31161",
+    "docs/RESEARCH_STATUS_CN.md": "288a3749b678035a039d3e7500d9cea6462d4cbe72439dbafe54628f2323e52f",
+    "docs/CSCWD2027_INCREMENTAL_RESEARCH_ROADMAP_CN.md": "ea612999a62ff4a9ec275192e67f8d600f3ecd73aa3bfc7b1eaf37820baf4002"
+  },
+  "local_links_checked": 94,
+  "broken_local_links": [],
+  "original_html_sha256": "ec01c042e0d5345205965ebbb825b6b5aedcc448d02d84858442c83c7c21e88b",
+  "AGENTS_sha256": "f0b9d7bdcb9a47bafb17f2c0d7544e04053640487b3c2f4c422db9f007d628a6",
+  "passed": true,
+  "notes": [
+    "Actual runtime source remains identical to accepted run02. Only an existing test assertion changed, with exact diff retained.",
+    "9 local trials, 96 chain checks, 297 independent read-only checks, and code-test counts remain separate."
+  ]
+}

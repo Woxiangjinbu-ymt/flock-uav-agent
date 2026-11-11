@@ -1,0 +1,1835 @@
+--- a/agent4drone/uav_agent.py
++++ b/agent4drone/uav_agent.py
+@@ -339,6 +339,8 @@
+         share_blackboard_by_session: bool = False,
+         toolchain_json_recording: bool = False,
+         task_progress_mode: Optional[str] = None,
++        model_io_archive: Optional[bool] = None,
++        model_io_archive_dir: Optional[str] = None,
+     ):
+         mode = task_progress_mode if task_progress_mode is not None else os.environ.get("UAV_TASK_PROGRESS_MODE", "off")
+         self.task_progress_mode = str(mode).strip().lower()
+@@ -352,7 +354,14 @@
+         self._task_progress = None
+         self._task_progress_middleware = None
+         self._episode_lock = threading.Lock()
+-        self._model_request_audit_enabled = self.task_progress_mode.startswith("evidence") or os.environ.get("UAV_MODEL_REQUEST_AUDIT") == "1"
++        self._model_io_archive_enabled = (os.environ.get("UAV_MODEL_IO_ARCHIVE") == "1"
++                                          if model_io_archive is None else bool(model_io_archive))
++        self._model_io_archive_dir = model_io_archive_dir or os.environ.get("UAV_MODEL_IO_ARCHIVE_DIR")
++        self._model_io_archive = None
++        self._model_io_archive_error = None
++        self._model_request_audit_enabled = (self.task_progress_mode.startswith("evidence")
++                                             or os.environ.get("UAV_MODEL_REQUEST_AUDIT") == "1"
++                                             or self._model_io_archive_enabled)
+         self._model_wire_requests = []
+         self._model_wire_errors = []
+         self.client = UAVAPIClient(base_url, api_key=uav_api_key)
+@@ -501,7 +510,7 @@
+         if getattr(self, "_model_request_audit_enabled", False):
+             try:
+                 from model_request_audit import attach_request_hooks
+-                if self.task_progress_mode in {"evidence_harness", "evidence_memory_harness", "evidence_memory_v2_harness", "evidence_memory_v3_harness", "evidence_memory_v4_harness", "evidence_memory_v5_harness", "evidence_memory_v6_harness", "evidence_memory_v7_harness"}:
++                if (getattr(self, "_model_io_archive_enabled", False) or self.task_progress_mode in {"evidence_harness", "evidence_memory_harness", "evidence_memory_v2_harness", "evidence_memory_v3_harness", "evidence_memory_v4_harness", "evidence_memory_v5_harness", "evidence_memory_v6_harness", "evidence_memory_v7_harness"}):
+                     attach_request_hooks(llm, self._audit_model_request, self._aaudit_model_request,
+                                          self._audit_model_response, self._aaudit_model_response)
+                 else:
+@@ -514,6 +523,29 @@
+         return llm
+ 
+     def _audit_model_request(self, request) -> None:
++        if getattr(self, "_model_io_archive_enabled", False):
++            try:
++                from model_io_archive import archive_request, current_archive
++                owner = current_archive()
++                # Never attribute a detached/late request to whichever command
++                # is current now. The direct observation worker is explicitly
++                # outside this archive, but retains its existing hash audit.
++                if getattr(self, "_in_observation_worker", False):
++                    # A nested bare llm.invoke inherits its parent's ContextVar
++                    # but is not that graph call. Keep only its old hash audit.
++                    pass
++                elif owner is None:
++                    # This also quarantines any previously bound Request
++                    # reused outside a logical model call.
++                    archive_request(request)
++                    return
++                elif owner is not getattr(self, "_model_io_archive", None) or owner.closed:
++                    return
++                else:
++                    if archive_request(request) is None:
++                        return
++            except Exception as exc:
++                self._note_model_io_archive_error(exc)
+         try:
+             from model_request_audit import request_record
+             record = request_record(request)
+@@ -536,6 +568,7 @@
+             harness = getattr(self, "_harness", None)
+             if harness is not None:
+                 harness.wire_start(request, record)
++                request.extensions["uav_harness_owner"] = harness
+             self._model_wire_requests.append(record)
+         except Exception as exc:
+             self._model_wire_errors.append(type(exc).__name__)
+@@ -544,9 +577,17 @@
+         self._audit_model_request(request)
+ 
+     def _audit_model_response(self, response) -> None:
++        if getattr(self, "_model_io_archive_enabled", False):
++            try:
++                from model_io_archive import archive_response, request_is_ambiguous
++                archive_response(response)
++                if request_is_ambiguous(response.request):
++                    return
++            except Exception as exc:
++                self._note_model_io_archive_error(exc)
+         try:
+-            harness = getattr(self, "_harness", None)
+-            if harness is not None:
++            harness = response.request.extensions.get("uav_harness_owner")
++            if harness is not None and not getattr(harness, "_closed", False):
+                 harness.wire_response(response)
+         except Exception as exc:
+             self._model_wire_errors.append(type(exc).__name__)
+@@ -625,12 +666,22 @@
+ 
+     def _create_agent_runtime(self) -> Any:
+         middleware = getattr(self, "_task_progress_middleware", None)
+-        if middleware is not None:
++        middlewares = [middleware] if middleware is not None else []
++        archive = getattr(self, "_model_io_archive", None)
++        if archive is not None:
++            try:
++                from model_io_archive import ModelIOArchiveMiddleware
++                # Outermost observes rejections as well as successful tool calls.
++                # Its graph input is not the final provider input; HTTP bytes are.
++                middlewares.insert(0, ModelIOArchiveMiddleware(archive))
++            except Exception as exc:
++                self._note_model_io_archive_error(exc)
++        if middlewares:
+             return create_agent(
+                 model=self.llm,
+                 tools=self.tools,
+                 system_prompt=self._build_system_prompt(),
+-                middleware=[middleware],
++                middleware=middlewares,
+             )
+         return create_agent(
+             model=self.llm,
+@@ -1126,6 +1177,9 @@
+         empty_response_retries: int,
+         tool_names: Optional[List[str]] = None,
+     ) -> Dict[str, Any]:
++        archive_info = self._finish_model_io_archive(status)
++        if archive_info is not None:
++            result = {**result, "model_io_archive": archive_info}
+         worker_usage = getattr(self, "_observation_worker_token_usage", None)
+         harness = getattr(self, "_harness", None)
+         if harness is not None:
+@@ -1177,6 +1231,8 @@
+             if getattr(self, "_model_request_audit_enabled", False):
+                 record["model_requests_wire"] = self._model_wire_requests
+                 record["model_request_audit_errors"] = self._model_wire_errors
++            if archive_info is not None:
++                record["model_io_archive"] = archive_info
+             if harness is not None:
+                 record["harness"] = result["harness"]
+             if "memory_handoff" in result:
+@@ -1221,6 +1277,33 @@
+             config=config,
+         )
+ 
++    def _note_model_io_archive_error(self, exc):
++        self._model_io_archive_error = type(exc).__name__
++        archive = getattr(self, "_model_io_archive", None)
++        if archive is not None:
++            try:
++                archive.mark_incomplete("observer_error")
++            except Exception:
++                pass
++
++    def _finish_model_io_archive(self, reason):
++        if not getattr(self, "_model_io_archive_enabled", False):
++            return None
++        archive = getattr(self, "_model_io_archive", None)
++        if archive is not None:
++            try:
++                info = archive.close(reason)
++                error = getattr(self, "_model_io_archive_error", None)
++                if error:
++                    info = {**info, "complete": False, "state": "incomplete",
++                            "error_types": sorted(set(info.get("error_types", []) + [error]))}
++                return info
++            except Exception as exc:
++                self._model_io_archive_error = type(exc).__name__
++        return {"state": "incomplete", "complete": False, "path": None,
++                "reasons": ["archive_unavailable"],
++                "error_types": [self._model_io_archive_error] if getattr(self, "_model_io_archive_error", None) else []}
++
+     @contextmanager
+     def _exclusive_episode(self, operation: str):
+         # Older test adapters use __new__; initialize their instance gate under
+@@ -1260,6 +1343,7 @@
+                 # without inventing a successfully persisted command result.
+                 harness = getattr(self, "_harness", None)
+                 cleanup = []
++                cleanup.append(lambda: self._finish_model_io_archive("execute_aborted"))
+                 if harness is not None:
+                     cleanup.append(lambda: harness.close("execute_aborted"))
+                 stop = getattr(getattr(self, "client", None), "stop_api_call_recording", None)
+@@ -1286,6 +1370,20 @@
+             Dictionary with 'output', 'intermediate_steps', and 'success' keys.
+         """
+         command_id = str(uuid.uuid4())
++        self._model_io_archive = None
++        self._model_io_archive_error = None
++        if getattr(self, "_model_io_archive_enabled", False):
++            try:
++                from model_io_archive import ModelIOArchive
++                self._model_io_archive = ModelIOArchive(command_id, getattr(self, "_model_io_archive_dir", None))
++                if self.llm_provider not in {"openai", "openai-compatible"}:
++                    self._model_io_archive.mark_incomplete("unsupported_provider")
++                if self.task_progress_mode == "evidence_r2_worker":
++                    self._model_io_archive.mark_incomplete("observation_worker_not_instrumented")
++                if any(e.startswith("setup:") for e in getattr(self, "_model_wire_errors", [])):
++                    self._model_io_archive.mark_incomplete("hook_setup_unavailable")
++            except Exception as exc:
++                self._model_io_archive_error = type(exc).__name__
+         self._task_progress = None
+         self._task_progress_middleware = None
+         self._model_wire_requests = []
+--- /dev/null
++++ b/agent4drone/model_io_archive.py
+@@ -0,0 +1,662 @@
++"""Opt-in, command-local model I/O evidence; never executes or changes a call.
++
++Only HTTP hooks capture final serialized input. Middleware input precedes inner
++middleware. Stream bytes are HTTP-client body bytes, not TCP/HTTP framing.
++"""
++from __future__ import annotations
++
++import base64
++from contextvars import ContextVar
++from dataclasses import dataclass
++import hashlib
++import json
++import math
++import os
++import sys
++from pathlib import Path
++import threading
++import uuid
++
++from langchain.agents.middleware import AgentMiddleware, ModelResponse
++from langchain_core.messages import BaseMessage
++import httpx
++try:
++    import httpx2
++except ImportError:
++    httpx2 = None
++
++_OWNER_KEY = "_uav_model_io_archive_owner_v1"
++_QUARANTINE_KEY = "_uav_model_io_archive_ambiguous_v1"
++_REQUEST_BIND_LOCK = threading.RLock()
++_ACTIVE = ContextVar("uav_model_io_logical_call", default=None)
++_REASONS = frozenset({"hook_setup_unavailable", "unsupported_provider",
++    "observation_worker_not_instrumented", "serialization_unsupported",
++    "request_body_unavailable", "response_stream_unsupported", "wire_missing",
++    "no_model_calls", "open_model_on_close", "open_tool_on_close",
++    "response_incomplete", "tool_source_missing", "tool_source_ambiguous",
++    "archive_io_error", "observer_error", "model_error", "tool_error",
++    "tool_result_id_mismatch", "tool_calls_not_executed", "request_object_reused", "unspecified"})
++
++
++@dataclass(frozen=True)
++class _Owner:
++    archive: object
++    logical_call_id: str
++    attempt_id: str | None = None
++
++
++def current_archive():
++    owner = _ACTIVE.get()
++    return owner.archive if owner is not None else None
++
++
++def _bytes(value):
++    return {"base64": base64.b64encode(value).decode("ascii"),
++            "sha256": hashlib.sha256(value).hexdigest(), "length": len(value)}
++
++
++def _safe(archive, function, *args, **kwargs):
++    """Observer failures must never replace the result/exception of the handler."""
++    try:
++        return function(*args, **kwargs)
++    except Exception as exc:
++        try:
++            archive._error(exc)
++        except Exception:
++            pass
++        return None
++
++
++class ModelIOArchive:
++    def __init__(self, command_id, output_dir=None):
++        self.command_id, self.archive_id = str(command_id), uuid.uuid4().hex
++        self.path = None
++        self._lock, self._closed, self._failed = threading.RLock(), False, False
++        self._file, self._sequence, self._complete = None, 0, False
++        self._errors, self._reasons = set(), set()
++        self._models, self._tools, self._attempts, self._sources = {}, {}, {}, {}
++        self._consumed_sources = set()
++        try:
++            folder = Path(output_dir) if output_dir is not None else Path(__file__).parent / "logs/model_io"
++            folder.mkdir(mode=0o700, parents=True, exist_ok=True)
++            self.path = folder / ("model-io-" + self.archive_id + ".jsonl")
++            fd = os.open(self.path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
++            self._file = os.fdopen(fd, "w", encoding="utf-8", newline="\n")
++            self._append("archive_start", {"input_scope": "wire_only_at_http_hooks"})
++        except Exception as exc:
++            self._error(exc, io=True)
++        except BaseException:
++            try:
++                if self._file is not None:
++                    self._file.close()
++                elif "fd" in locals():
++                    os.close(fd)
++            finally:
++                self._closed = True
++            raise
++
++    @property
++    def closed(self):
++        with self._lock:
++            return self._closed
++
++    def _error(self, exc, io=False):
++        with self._lock:
++            if self._closed:
++                return
++            self._errors.add(type(exc).__name__)
++            self._reasons.add("archive_io_error" if io else "observer_error")
++            self._failed |= io
++
++    def mark_incomplete(self, reason):
++        with self._lock:
++            if not self._closed:
++                self._reasons.add(reason if reason in _REASONS else "unspecified")
++
++    def _append(self, kind, data):
++        # Caller holds the same RLock, including serialization and sequence commit.
++        with self._lock:
++            if self._closed or self._failed or self._file is None:
++                return
++            try:
++                row = {"schema_version": 1, "archive_id": self.archive_id,
++                       "episode_id": self.archive_id, "command_id": self.command_id,
++                       "sequence": self._sequence + 1, "kind": kind, "data": data}
++                self._file.write(json.dumps(row, ensure_ascii=False, allow_nan=False, separators=(",", ":")) + "\n")
++                self._file.flush()
++                self._sequence += 1
++            except Exception as exc:
++                self._error(exc, io=True)
++
++    def _serialize(self, value):
++        if value is None or isinstance(value, (str, bool, int)):
++            return value
++        if isinstance(value, float) and math.isfinite(value):
++            return value
++        if isinstance(value, bytes):
++            return {"__bytes__": _bytes(value)}
++        if isinstance(value, (list, tuple)):
++            return [self._serialize(item) for item in value]
++        if isinstance(value, dict) and all(isinstance(key, str) for key in value):
++            return {key: self._serialize(item) for key, item in value.items()}
++        if isinstance(value, BaseMessage):
++            # Never inspect ToolMessage.artifact or response_metadata (headers,
++            # private checkers and SDK objects are not model-visible messages).
++            names = ("type", "content", "additional_kwargs", "id", "name", "tool_calls",
++                     "invalid_tool_calls", "usage_metadata", "tool_call_id", "status")
++            return {name: self._serialize(getattr(value, name)) for name in names if hasattr(value, name)}
++        if isinstance(value, ModelResponse):
++            return {"result": self._serialize(value.result),
++                    "structured_response": self._serialize(value.structured_response)}
++        self.mark_incomplete("serialization_unsupported")
++        return {"__unsupported_type__": type(value).__name__}
++
++    def begin_model(self, request):
++        with self._lock:
++            if self._closed:
++                return None
++            call = "model-" + str(len(self._models) + 1)
++            self._models[call] = {"ended": False, "attempts": []}
++            self._append("model_start", {"logical_call_id": call,
++                "stage": "outer_middleware_input_before_inner_middleware",
++                "input": self._serialize({"system_message": getattr(request, "system_message", None),
++                                          "messages": getattr(request, "messages", [])})})
++            return call
++
++    def end_model(self, call, result=None, error=None):
++        with self._lock:
++            model = self._models.get(call)
++            if self._closed or model is None or model["ended"]:
++                return
++            if error is not None:
++                self.mark_incomplete("model_error")
++            self._append("model_end", {"logical_call_id": call,
++                "status": "error" if error else "returned", "error_type": type(error).__name__ if error else None,
++                "output": self._serialize(result) if error is None else None,
++                "output_scope": "structured_handler_output_not_wire"})
++            model["ended"] = True
++            messages = getattr(result, "result", [result]) if result is not None else []
++            for message in messages:
++                extra = getattr(message, "additional_kwargs", {})
++                raw = extra.get("tool_calls") if isinstance(extra, dict) else None
++                calls = raw if isinstance(raw, list) and raw else getattr(message, "tool_calls", [])
++                for item in calls or []:
++                    raw_id = item.get("id") if isinstance(item, dict) else None
++                    if isinstance(raw_id, str) and raw_id:
++                        self._sources.setdefault(raw_id, []).append(call)
++                        if len(self._sources[raw_id]) > 1:
++                            self.mark_incomplete("tool_source_ambiguous")
++                    else:
++                        self.mark_incomplete("tool_source_missing")
++
++    def begin_tool(self, request):
++        with self._lock:
++            if self._closed:
++                return None
++            span = "tool-" + str(len(self._tools) + 1)
++            tool_call = getattr(request, "tool_call", {})
++            raw_id = tool_call.get("id") if isinstance(tool_call, dict) else None
++            sources = self._sources.get(raw_id, []) if isinstance(raw_id, str) and raw_id else []
++            relation = "unique" if len(sources) == 1 else "ambiguous" if sources else "missing"
++            if relation != "unique":
++                self.mark_incomplete("tool_source_" + relation)
++            data = {"tool_span_id": span, "raw_tool_call_id": self._serialize(raw_id),
++                    "source_model_id": sources[0] if relation == "unique" else None,
++                    "source_relation": relation, "source_candidates": list(sources),
++                    "input": self._serialize(tool_call)}
++            self._tools[span] = {"ended": False, "raw_id": raw_id}
++            if relation == "unique":
++                self._consumed_sources.add((raw_id, sources[0]))
++            self._append("tool_start", data)
++            return span
++
++    def end_tool(self, span, result=None, error=None):
++        with self._lock:
++            if self._closed or span not in self._tools or self._tools[span]["ended"]:
++                return
++            mismatch = isinstance(result, BaseMessage) and hasattr(result, "tool_call_id") and result.tool_call_id != self._tools[span]["raw_id"]
++            if error is not None:
++                self.mark_incomplete("tool_error")
++            if mismatch:
++                self.mark_incomplete("tool_result_id_mismatch")
++            self._append("tool_end", {"tool_span_id": span, "status": "error" if error else "returned",
++                "error_type": type(error).__name__ if error else None, "tool_call_id_mismatch": mismatch,
++                "output": self._serialize(result) if error is None else None})
++            self._tools[span]["ended"] = True
++
++    def request(self, request, call):
++        with _REQUEST_BIND_LOCK:
++            previous = request.extensions.get(_OWNER_KEY)
++            if isinstance(previous, _Owner) or request_is_ambiguous(request):
++                request.extensions[_QUARANTINE_KEY] = True
++                self.mark_incomplete("request_object_reused")
++                if isinstance(previous, _Owner):
++                    previous.archive.mark_incomplete("request_object_reused")
++                return None
++            with self._lock:
++                if self._closed or call not in self._models or self._models[call]["ended"]:
++                    return None
++                attempt = "attempt-" + str(len(self._attempts) + 1)
++                owner = _Owner(self, call, attempt)
++                record = {"logical_call_id": call, "ended": False, "response": False,
++                          "hash": hashlib.sha256(), "length": 0, "chunks": 0, "request_captured": False}
++                self._attempts[attempt] = record
++                self._models[call]["attempts"].append(attempt)
++                request.extensions[_OWNER_KEY] = owner
++                body, error = None, None
++                try:
++                    content = request.content  # Never read()/consume an outbound stream.
++                    if not isinstance(content, bytes):
++                        raise TypeError()
++                    body, record["request_captured"] = _bytes(content), True
++                except Exception as exc:
++                    error = type(exc).__name__
++                    self.mark_incomplete("request_body_unavailable")
++                self._append("http_request", {"logical_call_id": call, "attempt_id": attempt,
++                    "body_scope": "serialized_http_request_content", "body": body,
++                    "error_type": error})  # No URL, headers, authentication or SDK client data.
++                return owner
++    def response_start(self, owner, response):
++        with self._lock:
++            item = self._attempts.get(owner.attempt_id)
++            if self._closed or item is None or item["ended"] or item["response"]:
++                return False
++            item["response"] = True
++            encoding = response.headers.get("content-encoding", "identity").lower()
++            encoding = encoding if encoding in {"identity", "gzip", "deflate", "br", "zstd"} else "other"
++            self._append("http_response_start", {"logical_call_id": owner.logical_call_id,
++                "attempt_id": owner.attempt_id, "status_code": response.status_code,
++                "content_encoding": encoding,
++                "body_scope": "buffered_httpx_content" if hasattr(response, "_content") else "httpx_stream_before_content_decoding"})
++            return True
++
++    def chunk(self, owner, chunk):
++        with self._lock:
++            item = self._attempts.get(owner.attempt_id)
++            if self._closed or item is None or item["ended"]:
++                return
++            item["hash"].update(chunk)
++            item["length"] += len(chunk)
++            item["chunks"] += 1
++            self._append("http_response_chunk", {"logical_call_id": owner.logical_call_id,
++                "attempt_id": owner.attempt_id, "chunk_index": item["chunks"], "body": _bytes(chunk)})
++
++    def response_end(self, owner, complete=False, error=None):
++        with self._lock:
++            item = self._attempts.get(owner.attempt_id)
++            if self._closed or item is None or item["ended"]:
++                return
++            item["ended"] = True
++            item["complete"] = bool(complete)
++            if not complete:
++                self.mark_incomplete("response_incomplete")
++            self._append("http_response_end", {"logical_call_id": owner.logical_call_id,
++                "attempt_id": owner.attempt_id, "complete": bool(complete),
++                "status": "complete" if complete else "error" if error else "partial",
++                "error_type": type(error).__name__ if error else None,
++                "response_observed": item["response"], "chunk_count": item["chunks"],
++                "length": item["length"], "sha256": item["hash"].hexdigest()})
++
++    def info(self):
++        with self._lock:
++            return {"archive_id": self.archive_id, "episode_id": self.archive_id,
++                    "command_id": self.command_id, "path": str(self.path) if self.path else None,
++                    "state": "incomplete" if self._reasons or self._errors else "closed" if self._closed else "open",
++                    "closed": self._closed, "complete": self._closed and self._complete and not (self._failed or self._reasons or self._errors),
++                    "sequence": self._sequence, "reasons": sorted(self._reasons), "error_types": sorted(self._errors)}
++
++    def close(self, reason="command_end"):
++        with self._lock:
++            if self._closed:
++                return self.info()
++            try:
++                for call, model in self._models.items():
++                    if not model["ended"]:
++                        self.mark_incomplete("open_model_on_close")
++                        model["ended"] = True
++                        self._append("model_end", {"logical_call_id": call, "status": "partial", "output": None})
++                    if not model["attempts"]:
++                        self.mark_incomplete("wire_missing")
++                for span, tool in self._tools.items():
++                    if not tool["ended"]:
++                        self.mark_incomplete("open_tool_on_close")
++                        tool["ended"] = True
++                        self._append("tool_end", {"tool_span_id": span, "status": "partial", "output": None})
++                for attempt, item in self._attempts.items():
++                    if not item["ended"]:
++                        self.response_end(_Owner(self, item["logical_call_id"], attempt))
++                pending = [{"raw_tool_call_id": raw_id, "source_model_id": call}
++                           for raw_id, calls in self._sources.items() for call in calls
++                           if (raw_id, call) not in self._consumed_sources]
++                if pending:
++                    self.mark_incomplete("tool_calls_not_executed")
++                    self._append("tool_calls_unexecuted", {"calls": pending})
++                if not self._models:
++                    self.mark_incomplete("no_model_calls")
++                self._complete = not (self._reasons or self._errors)
++                # The reason is a caller-selected fixed status, never exception text.
++                allowed = {"command_end", "completed", "failed", "exception", "stream_error", "step_limit", "execute_aborted"}
++                self._append("archive_end", {"reason": reason if reason in allowed else "other",
++                    "complete": self._complete, "reasons": sorted(self._reasons), "error_types": sorted(self._errors)})
++            except BaseException as exc:
++                self._error(exc)
++                if not isinstance(exc, Exception):
++                    raise
++            finally:
++                primary = sys.exc_info()[1]
++                try:
++                    if self._file is not None:
++                        self._file.close()
++                except BaseException as exc:
++                    self._error(exc, io=True)
++                    if not isinstance(exc, Exception) and primary is None:
++                        raise
++                finally:
++                    self._closed = True
++            return self.info()
++
++
++class ModelIOArchiveMiddleware(AgentMiddleware):
++    def __init__(self, archive):
++        self.archive = archive
++
++    def wrap_model_call(self, request, handler):
++        call = _safe(self.archive, self.archive.begin_model, request)
++        token = _ACTIVE.set(_Owner(self.archive, call))
++        try:
++            result = handler(request)
++        except BaseException as exc:
++            try:
++                _safe(self.archive, self.archive.end_model, call, error=exc)
++            except BaseException:
++                pass
++            raise
++        else:
++            _safe(self.archive, self.archive.end_model, call, result)
++            return result
++        finally:
++            _ACTIVE.reset(token)
++
++    async def awrap_model_call(self, request, handler):
++        call = _safe(self.archive, self.archive.begin_model, request)
++        token = _ACTIVE.set(_Owner(self.archive, call))
++        try:
++            result = await handler(request)
++        except BaseException as exc:
++            try:
++                _safe(self.archive, self.archive.end_model, call, error=exc)
++            except BaseException:
++                pass
++            raise
++        else:
++            _safe(self.archive, self.archive.end_model, call, result)
++            return result
++        finally:
++            _ACTIVE.reset(token)
++
++    def wrap_tool_call(self, request, handler):
++        span = _safe(self.archive, self.archive.begin_tool, request)
++        try:
++            result = handler(request)
++        except BaseException as exc:
++            try:
++                _safe(self.archive, self.archive.end_tool, span, error=exc)
++            except BaseException:
++                pass
++            raise
++        _safe(self.archive, self.archive.end_tool, span, result)
++        return result
++
++    async def awrap_tool_call(self, request, handler):
++        span = _safe(self.archive, self.archive.begin_tool, request)
++        try:
++            result = await handler(request)
++        except BaseException as exc:
++            try:
++                _safe(self.archive, self.archive.end_tool, span, error=exc)
++            except BaseException:
++                pass
++            raise
++        _safe(self.archive, self.archive.end_tool, span, result)
++        return result
++
++
++class _SyncTee:
++    def __init__(self, stream, owner):
++        self.stream, self.owner = stream, owner
++    def __iter__(self):
++        try:
++            for chunk in self.stream:
++                _safe(self.owner.archive, self.owner.archive.chunk, self.owner, chunk)
++                yield chunk
++        except BaseException as exc:
++            try:
++                _safe(self.owner.archive, self.owner.archive.response_end, self.owner, error=exc)
++            except BaseException:
++                pass
++            raise
++        else:
++            _safe(self.owner.archive, self.owner.archive.response_end, self.owner, complete=True)
++    def close(self):
++        try:
++            result = self.stream.close()
++        except BaseException as exc:
++            try:
++                _safe(self.owner.archive, self.owner.archive.response_end, self.owner, error=exc)
++            except BaseException:
++                pass
++            raise
++        else:
++            _safe(self.owner.archive, self.owner.archive.response_end, self.owner)
++            return result
++
++
++class _AsyncTee:
++    def __init__(self, stream, owner):
++        self.stream, self.owner = stream, owner
++    async def __aiter__(self):
++        try:
++            async for chunk in self.stream:
++                _safe(self.owner.archive, self.owner.archive.chunk, self.owner, chunk)
++                yield chunk
++        except BaseException as exc:
++            try:
++                _safe(self.owner.archive, self.owner.archive.response_end, self.owner, error=exc)
++            except BaseException:
++                pass
++            raise
++        else:
++            _safe(self.owner.archive, self.owner.archive.response_end, self.owner, complete=True)
++    async def aclose(self):
++        try:
++            result = await self.stream.aclose()
++        except BaseException as exc:
++            try:
++                _safe(self.owner.archive, self.owner.archive.response_end, self.owner, error=exc)
++            except BaseException:
++                pass
++            raise
++        else:
++            _safe(self.owner.archive, self.owner.archive.response_end, self.owner)
++            return result
++
++
++_TEES = [(module, type("ArchiveSyncTee", (_SyncTee, module.SyncByteStream), {}),
++          type("ArchiveAsyncTee", (_AsyncTee, module.AsyncByteStream), {}),
++          type("ArchiveDualTee", (_SyncTee, _AsyncTee, module.SyncByteStream, module.AsyncByteStream), {}))
++         for module in (httpx, httpx2) if module is not None]
++
++
++def request_is_ambiguous(request):
++    return request.extensions.get(_QUARANTINE_KEY) is True
++
++
++def archive_request(request):
++    owner = _ACTIVE.get()
++    if owner is not None:
++        return _safe(owner.archive, owner.archive.request, request, owner.logical_call_id)
++    # A previously bound object reused outside a model context cannot retain its
++    # former attribution. Quarantine it without writing any closed archive.
++    previous = request.extensions.get(_OWNER_KEY)
++    if isinstance(previous, _Owner):
++        request.extensions[_QUARANTINE_KEY] = True
++        _safe(previous.archive, previous.archive.mark_incomplete, "request_object_reused")
++    return None
++
++
++def archive_response(response):
++    owner = None
++    try:
++        if request_is_ambiguous(response.request):
++            return
++        owner = response.request.extensions.get(_OWNER_KEY)
++        if not isinstance(owner, _Owner) or not owner.archive.response_start(owner, response):
++            return
++        if hasattr(response, "_content"):
++            owner.archive.chunk(owner, response.content)
++            owner.archive.response_end(owner, complete=True)
++            return
++        for module, sync, async_, dual in _TEES:
++            if isinstance(response.stream, module.SyncByteStream) and isinstance(response.stream, module.AsyncByteStream):
++                response.stream = dual(response.stream, owner)
++                return
++            if isinstance(response.stream, module.AsyncByteStream):
++                response.stream = async_(response.stream, owner)
++                return
++            if isinstance(response.stream, module.SyncByteStream):
++                response.stream = sync(response.stream, owner)
++                return
++        owner.archive.mark_incomplete("response_stream_unsupported")
++    except Exception as exc:
++        if isinstance(owner, _Owner):
++            _safe(owner.archive, owner.archive._error, exc)
++
++
++async def aarchive_request(request):
++    return archive_request(request)
++
++
++async def aarchive_response(response):
++    archive_response(response)
++
++
++def verify_archive(path):
++    """Check bytes, lifecycle and source joins independently of the end claim.
++
++    `valid` means internally consistent evidence, including explicit partials;
++    `complete` additionally requires captured wire and unambiguous tool joins.
++    This is not authenticity proof or a Teacher-data quality verdict.
++    """
++    errors, rows, attempts, models, tools, sources = [], [], {}, {}, {}, {}
++    coverage, ended, consumed, pending_event = True, False, set(), None
++    try:
++        raw = Path(path).read_bytes()
++        if not raw.endswith(b"\n"):
++            raise ValueError("unterminated_line")
++        rows = [json.loads(line) for line in raw.decode("utf-8").splitlines()]
++        identity = None
++        def decode(body):
++            value = base64.b64decode(body["base64"], validate=True)
++            if len(value) != body["length"] or hashlib.sha256(value).hexdigest() != body["sha256"]:
++                raise ValueError("body_hash")
++            return value
++        for sequence, row in enumerate(rows, 1):
++            key = (row["archive_id"], row["episode_id"], row["command_id"])
++            identity = identity or key
++            if row["schema_version"] != 1 or row["sequence"] != sequence or key != identity or key[0] != key[1] or ended:
++                raise ValueError("order_or_identity")
++            kind, data = row["kind"], row["data"]
++            if kind == "archive_start":
++                if sequence != 1: raise ValueError("duplicate_start")
++            elif sequence == 1:
++                raise ValueError("missing_start")
++            elif kind == "model_start":
++                call = data["logical_call_id"]
++                if call in models: raise ValueError("duplicate_model")
++                models[call] = {"ended": False, "attempts": []}
++            elif kind == "model_end":
++                call = data["logical_call_id"]
++                if call not in models or models[call]["ended"]: raise ValueError("model_end")
++                models[call]["ended"] = True
++                coverage &= data["status"] == "returned"
++                output = data.get("output")
++                messages = output.get("result", [output] if output.get("type") == "ai" else []) if isinstance(output, dict) else []
++                for message in messages:
++                    extra = message.get("additional_kwargs", {})
++                    declared = extra.get("tool_calls") if isinstance(extra, dict) else None
++                    declared = declared if isinstance(declared, list) and declared else message.get("tool_calls", [])
++                    for item in declared or []:
++                        raw_id = item.get("id") if isinstance(item, dict) else None
++                        if isinstance(raw_id, str) and raw_id:
++                            sources.setdefault(raw_id, []).append(call)
++                            coverage &= len(sources[raw_id]) == 1
++                        else:
++                            coverage = False
++            elif kind == "tool_start":
++                span, raw_id = data["tool_span_id"], data["raw_tool_call_id"]
++                if span in tools: raise ValueError("duplicate_tool")
++                candidates = sources.get(raw_id, []) if isinstance(raw_id, str) and raw_id else []
++                relation = "unique" if len(candidates) == 1 else "ambiguous" if candidates else "missing"
++                expected = candidates[0] if relation == "unique" else None
++                if (data["source_relation"], data["source_model_id"], data["source_candidates"]) != (relation, expected, candidates):
++                    raise ValueError("tool_source")
++                if isinstance(data["input"], dict) and data["input"].get("id") != raw_id: raise ValueError("raw_tool_id")
++                tools[span] = {"ended": False, "raw_id": raw_id}
++                coverage &= relation == "unique"
++                if relation == "unique": consumed.add((raw_id, expected))
++            elif kind == "tool_end":
++                span = data["tool_span_id"]
++                if span not in tools or tools[span]["ended"]: raise ValueError("tool_end")
++                tools[span]["ended"] = True
++                coverage &= data["status"] == "returned" and not data.get("tool_call_id_mismatch", False)
++                output = data.get("output")
++                if isinstance(output, dict) and "tool_call_id" in output:
++                    coverage &= output["tool_call_id"] == tools[span]["raw_id"]
++            elif kind == "http_request":
++                attempt, call = data["attempt_id"], data["logical_call_id"]
++                if attempt in attempts or call not in models or models[call]["ended"]: raise ValueError("attempt_owner")
++                models[call]["attempts"].append(attempt)
++                attempts[attempt] = {"hash": hashlib.sha256(), "length": 0, "chunks": 0,
++                                     "logical": call, "started": False, "ended": False}
++                if data["body"] is not None: decode(data["body"])
++                else: coverage = False
++            elif kind in {"http_response_start", "http_response_chunk", "http_response_end"}:
++                item = attempts[data["attempt_id"]]
++                if item["logical"] != data["logical_call_id"] or item["ended"]: raise ValueError("response_owner")
++                if kind == "http_response_start":
++                    if item["started"]: raise ValueError("duplicate_response")
++                    item["started"] = True
++                    if not isinstance(data["status_code"], int): raise ValueError("status_code")
++                elif kind == "http_response_chunk":
++                    if not item["started"]: raise ValueError("chunk_before_response")
++                    value = decode(data["body"])
++                    item["hash"].update(value)
++                    item["length"] += len(value)
++                    item["chunks"] += 1
++                    if data["chunk_index"] != item["chunks"]: raise ValueError("chunk_order")
++                else:
++                    if (data["length"], data["chunk_count"], data["sha256"]) != (item["length"], item["chunks"], item["hash"].hexdigest()): raise ValueError("response_hash")
++                    if data["response_observed"] != item["started"]: raise ValueError("response_observed")
++                    coverage &= data["complete"] is True and data["status"] == "complete" and item["started"]
++                    item["ended"] = True
++            elif kind == "tool_calls_unexecuted":
++                if pending_event is not None: raise ValueError("duplicate_unexecuted")
++                pending_event = data["calls"]
++                coverage = False
++            elif kind == "archive_end":
++                pending = [{"raw_tool_call_id": raw_id, "source_model_id": call}
++                           for raw_id, calls in sources.items() for call in calls
++                           if (raw_id, call) not in consumed]
++                if pending_event != (pending or None): raise ValueError("unexecuted_declarations")
++                coverage &= bool(models) and all(model["attempts"] for model in models.values())
++                coverage &= not data["reasons"] and not data["error_types"]
++                if data["complete"] is True and not coverage: raise ValueError("false_complete")
++                ended = True
++            else:
++                raise ValueError("unknown_kind")
++        if not ended or any(not item["ended"] for group in (models, tools, attempts) for item in group.values()):
++            raise ValueError("unclosed_archive")
++    except Exception as exc:
++        errors.append(type(exc).__name__)
++    complete = bool(not errors and ended and coverage and rows[-1]["data"].get("complete") is True)
++    return {"valid": not errors, "complete": complete, "record_count": len(rows), "error_types": errors}
+--- /dev/null
++++ b/agent4drone/tests/test_model_io_archive_integration.py
+@@ -0,0 +1,864 @@
++"""Actual pinned OpenAI SDK/LangChain graph against local MockTransport only.
++
++No provider, simulator, credentials, or benchmark. Transport bytes are the
++independent oracle; graph-preparation logs are not the serialized request.
++"""
++import asyncio
++import base64
++import copy
++import gzip
++import hashlib
++import json
++import socket
++import threading
++from contextlib import contextmanager
++from pathlib import Path
++from types import SimpleNamespace
++
++import openai
++import pytest
++from langchain.agents import create_agent
++from langchain.agents.middleware.types import ModelResponse
++from langchain_core.callbacks import BaseCallbackHandler
++from langchain_core.messages import AIMessage, HumanMessage
++from langchain_core.tools import tool
++from langchain_openai import ChatOpenAI
++from openai import _base_client
++
++import uav_agent
++from test_agent_episode_isolation import RecordedPublicWorld, ThreadCall
++from uav_agent import UAVControlAgent
++
++
++httpx = getattr(_base_client, "httpx2", None) or _base_client.httpx
++AUTH_CANARY = "synthetic-auth-canary-not-a-real-key"
++URL_CANARY = "synthetic-query-secret"
++PRIVATE_CANARY = "private-checker-canary-never-policy-input"
++COMMAND = "读取两架无人机公开状态，保持工具调用身份。🛰"
++
++
++@pytest.fixture(autouse=True)
++def no_network_or_configuration(monkeypatch):
++    def forbidden(*args, **kwargs):
++        raise AssertionError("External sockets/configuration forbidden in model-I/O tests")
++    monkeypatch.setattr(socket.socket, "connect", forbidden)
++    monkeypatch.setattr(socket.socket, "connect_ex", forbidden)
++    monkeypatch.setattr(socket, "create_connection", forbidden)
++    monkeypatch.setattr(uav_agent, "load_llm_settings", forbidden)
++    for name in ("UAV_MODEL_IO_ARCHIVE", "UAV_MODEL_IO_ARCHIVE_DIR", "UAV_MODEL_REQUEST_AUDIT"):
++        monkeypatch.delenv(name, raising=False)
++    monkeypatch.setenv("UAV_HARNESS_REVISION", "observed_target_v7")
++    monkeypatch.setenv("UAV_HARNESS_STATIC_OBSTACLES", "1")
++    monkeypatch.setenv("UAV_HARNESS_SCHEDULER", "applicability")
++    # Exercise the SDK's actual retry loop, without its deliberate backoff sleep.
++    monkeypatch.setattr(_base_client.BaseClient, "_calculate_retry_timeout", lambda *args, **kwargs: 0)
++
++
++def completion(message=None, ident="mock-response"):
++    message = message or {"role": "assistant", "content": "已核对 [TASK DONE]"}
++    return {"id": ident, "object": "chat.completion", "created": 1,
++            "model": "offline-model", "choices": [{"index": 0, "message": message,
++                "finish_reason": "tool_calls" if message.get("tool_calls") else "stop"}],
++            "usage": {"prompt_tokens": 17, "completion_tokens": 9, "total_tokens": 26}}
++
++
++def tools_message():
++    return {"role": "assistant", "content": "公开检查", "reasoning_content": "先分别读取，保留证据链。",
++            "tool_calls": [{"id": ident, "type": "function", "function": {
++                "name": "get_drone_status", "arguments": json.dumps({
++                    "input_json": json.dumps({"drone_id": drone}, ensure_ascii=False)}, ensure_ascii=False)}}
++                for ident, drone in (("call_甲", "d1"), ("call_乙", "d2"))]}
++
++
++def raw_json(value):
++    return json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode()
++
++
++class SyncChunks(httpx.SyncByteStream):
++    def __init__(self, chunks, error=None):
++        self.chunks, self.error, self.reads, self.closed = chunks, error, 0, False
++
++    def __iter__(self):
++        for chunk in self.chunks:
++            self.reads += 1
++            yield chunk
++        if self.error:
++            raise self.error
++
++    def close(self):
++        self.closed = True
++
++
++class AsyncChunks(httpx.AsyncByteStream):
++    def __init__(self, chunks, error=None):
++        self.chunks, self.error, self.reads, self.closed = chunks, error, 0, False
++
++    async def __aiter__(self):
++        for chunk in self.chunks:
++            self.reads += 1
++            yield chunk
++        if self.error:
++            raise self.error
++
++    async def aclose(self):
++        self.closed = True
++
++
++class SDKPublicWorld(RecordedPublicWorld):
++    def get_drone_status(self, drone_id):
++        # Production create_uav_tools passes this public-client argument
++        # positionally; the older skill-only fake accepted keyword arguments.
++        return self._call("get_drone_status", drone_id=drone_id)
++
++
++class LocalTransport:
++    def __init__(self, replies=None):
++        self.replies = list(replies or [completion()])
++        self.requests, self.response_bodies, self.streams, self.hook_reads = [], [], [], []
++
++    def respond(self, request, *, asynchronous=False):
++        index = len(self.requests)
++        self.requests.append(request)
++        value = self.replies[index]
++        if callable(value):
++            value = value(request)
++        if isinstance(value, BaseException):
++            raise value
++        if isinstance(value, httpx.Response):
++            if hasattr(value.stream, "reads"):
++                self.streams.append(value.stream)
++            return value
++        status, payload = value if isinstance(value, tuple) else (200, value)
++        body = payload if isinstance(payload, bytes) else raw_json(payload)
++        self.response_bodies.append(body)
++        stream = (AsyncChunks if asynchronous else SyncChunks)([body[:13], body[13:]])
++        self.streams.append(stream)
++        return httpx.Response(status, stream=stream, headers={"content-type": "application/json",
++                              "x-auth-canary": AUTH_CANARY, "authorization": AUTH_CANARY,
++                              "retry-after-ms": "1"}, request=request)
++
++    async def arespond(self, request):
++        return self.respond(request, asynchronous=True)
++
++
++@contextmanager
++def sdk_agent(monkeypatch, tmp_path, *, replies=None, enabled=True, mode="evidence_harness", model_options=None):
++    transport = LocalTransport(replies)
++    world = SDKPublicWorld()
++    # This object is deliberately adjacent to, but absent from, the public API.
++    world.private_checker = {"secret": PRIVATE_CANARY}
++    sync = openai.DefaultHttpxClient(transport=httpx.MockTransport(transport.respond), trust_env=False)
++    asynchronous = openai.DefaultAsyncHttpxClient(transport=httpx.MockTransport(transport.arespond), trust_env=False)
++    options = {"max_retries": 2, "max_tokens": 123, "top_p": 0.77, "seed": 17,
++               "extra_body": {"thinking": {"type": "enabled"}},
++               "default_query": {"synthetic_key": URL_CANARY}}
++    options.update(model_options or {})
++    monkeypatch.setattr(uav_agent, "UAVAPIClient", lambda *args, **kwargs: world)
++    monkeypatch.setattr(uav_agent, "ChatOpenAI", lambda **kwargs: ChatOpenAI(
++        http_client=sync, http_async_client=asynchronous, **options, **kwargs))
++    kwargs = {"model_io_archive_dir": tmp_path / "model-io"}
++    if enabled is not None:
++        kwargs["model_io_archive"] = enabled
++    agent = UAVControlAgent(base_url="offline://public-fixture", llm_provider="openai-compatible",
++                            llm_model="offline-model", llm_api_key=AUTH_CANARY,
++                            llm_base_url="https://offline.invalid/v1", verbose=False,
++                            task_progress_mode=mode, toolchain_json_recording=False, **kwargs)
++    agent.max_empty_response_retries = 0
++    def after_archive_hook(response):
++        transport.hook_reads.append((transport.streams[-1].reads if transport.streams else None,
++                                     response.is_stream_consumed))
++    async def after_archive_ahook(response):
++        after_archive_hook(response)
++    sync.event_hooks["response"].append(after_archive_hook)
++    asynchronous.event_hooks["response"].append(after_archive_ahook)
++    try:
++        yield agent, world, transport
++    finally:
++        sync.close()
++        asyncio.run(asynchronous.aclose())
++
++
++def rows(path):
++    return [json.loads(line) for line in Path(path).read_text().splitlines()]
++
++
++def kind(records, value):
++    return [record["data"] for record in records if record["kind"] == value]
++
++
++def decoded(blob):
++    result = base64.b64decode(blob["base64"], validate=True)
++    assert hashlib.sha256(result).hexdigest() == blob["sha256"]
++    assert len(result) == blob["length"]
++    return result
++
++
++def blobs(value):
++    if isinstance(value, dict):
++        if {"base64", "sha256", "length"}.issubset(value):
++            yield value
++        else:
++            for item in value.values():
++                yield from blobs(item)
++    elif isinstance(value, list):
++        for item in value:
++            yield from blobs(item)
++
++
++def request_bodies(records):
++    result = []
++    for data in kind(records, "http_request"):
++        fields = list(blobs(data))
++        assert len(fields) == 1, "Each HTTP request must have exactly one serialized body"
++        result.append(decoded(fields[0]))
++    return result
++
++
++def response_bodies(records):
++    output = {}
++    for data in kind(records, "http_response_chunk"):
++        fields = list(blobs(data))
++        assert len(fields) == 1
++        output.setdefault(data["attempt_id"], bytearray()).extend(decoded(fields[0]))
++    return [bytes(value) for value in output.values()]
++
++
++def archive_for(result):
++    from model_io_archive import verify_archive
++    info = result["model_io_archive"]
++    assert info["path"] is not None
++    records = rows(info["path"])
++    checked = verify_archive(info["path"])
++    assert checked["valid"], checked
++    assert checked["complete"] == info["complete"]
++    return info, records
++
++
++def assert_no_nonpolicy_data(records):
++    text = json.dumps(records, ensure_ascii=False)
++    text += "\n".join(decoded(blob).decode("utf-8", errors="replace") for blob in blobs(records))
++    for canary in (AUTH_CANARY, URL_CANARY, PRIVATE_CANARY):
++        assert canary not in text
++
++
++@pytest.mark.parametrize("mode", ["off", "evidence_harness"])
++def test_actual_sdk_body_tools_unicode_reasoning_and_off_on_equivalence(monkeypatch, tmp_path, mode):
++    observations = []
++    for enabled in (False, True):
++        with sdk_agent(monkeypatch, tmp_path / str(enabled), enabled=enabled, mode=mode,
++                       replies=[completion(tools_message()), completion()]) as (agent, world, transport):
++            result = agent.execute(COMMAND)
++            assert result["success"]
++            assert len(transport.requests) == 2
++            assert transport.hook_reads == [(0, False), (0, False)]
++            assert all(stream.reads == 2 for stream in transport.streams)
++            body_bytes = [request.content for request in transport.requests]
++            payload = json.loads(body_bytes[0])
++            assert payload["temperature"] == 0.1 and payload["top_p"] == 0.77
++            assert payload["seed"] == 17 and payload.get("max_tokens", payload.get("max_completion_tokens")) == 123
++            assert payload["thinking"] == {"type": "enabled"}
++            assert any(COMMAND in str(message.get("content")) for message in payload["messages"])
++            assert any(tool["function"]["name"] == "get_drone_status" for tool in payload["tools"])
++            assert AUTH_CANARY in transport.requests[0].headers["authorization"]
++            assert URL_CANARY in str(transport.requests[0].url)
++            next_messages = json.loads(body_bytes[1])["messages"]
++            assert {message["tool_call_id"] for message in next_messages if message["role"] == "tool"} == {"call_甲", "call_乙"}
++            assert any(message.get("reasoning_content") == "先分别读取，保留证据链。" for message in next_messages)
++            observations.append({"requests": body_bytes, "public_calls": copy.deepcopy(world.calls),
++                                 "success": result["success"], "output": result["output"],
++                                 "steps": [(action.tool, action.tool_input, receipt)
++                                           for action, receipt in result["intermediate_steps"]],
++                                 "token_usage": result["token_usage"]})
++            if not enabled:
++                assert "model_io_archive" not in result
++                assert not (tmp_path / str(enabled) / "model-io").exists()
++                continue
++            info, records = archive_for(result)
++            assert info["complete"]
++            assert request_bodies(records) == body_bytes
++            assert response_bodies(records) == transport.response_bodies
++            assert len(kind(records, "model_start")) == len(kind(records, "model_end")) == 2
++            assert len(kind(records, "tool_start")) == len(kind(records, "tool_end")) == 2
++            assert len({item["logical_call_id"] for item in kind(records, "http_request")}) == 2
++            first_id = kind(records, "model_start")[0]["logical_call_id"]
++            starts = kind(records, "tool_start")
++            assert {item["raw_tool_call_id"] for item in starts} == {"call_甲", "call_乙"}
++            assert all(item["source_model_id"] == first_id and item["source_relation"] == "unique" for item in starts)
++            outputs = {item["output"]["tool_call_id"]: item["output"] for item in kind(records, "tool_end")}
++            actual_tools = {message["tool_call_id"]: message for message in next_messages if message["role"] == "tool"}
++            assert set(outputs) == set(actual_tools)
++            assert all(output["content"] == actual_tools[ident]["content"] for ident, output in outputs.items())
++            ai = kind(records, "model_end")[0]["output"]["result"][0]
++            assert ai["additional_kwargs"]["reasoning_content"] == "先分别读取，保留证据链。"
++            assert {call["id"] for call in ai["tool_calls"]} == set(outputs)
++            assert_no_nonpolicy_data(records)
++            assert Path(info["path"]).stat().st_mode & 0o777 == 0o600
++            assert not agent.toolchain_json_recording
++    assert observations[0] == observations[1]
++
++
++@pytest.mark.parametrize("setting,explicit,expected", [
++    (None, None, False), ("0", None, False), ("true", None, False),
++    ("1", None, True), ("1", False, False), ("0", True, True),
++])
++def test_explicit_opt_in_and_environment_exact_one(monkeypatch, tmp_path, setting, explicit, expected):
++    if setting is not None:
++        monkeypatch.setenv("UAV_MODEL_IO_ARCHIVE", setting)
++    with sdk_agent(monkeypatch, tmp_path, enabled=explicit, mode="off") as (agent, _, transport):
++        result = agent.execute("读取说明 [PUBLIC]")
++        assert result["success"] and len(transport.requests) == 1
++        assert ("model_io_archive" in result) is expected
++        assert bool(list(tmp_path.rglob("*.jsonl"))) is expected
++        if expected:
++            assert archive_for(result)[0]["complete"]
++
++
++@pytest.mark.parametrize("failure", ["429", "timeout"])
++def test_sync_sdk_retry_keeps_attempts_under_one_logical_call(monkeypatch, tmp_path, failure):
++    first = (429, {"error": {"message": "synthetic retry", "type": "rate_limit_error"}})
++    if failure == "timeout":
++        first = lambda request: httpx.ReadTimeout("synthetic timeout " + AUTH_CANARY, request=request)
++    with sdk_agent(monkeypatch, tmp_path, replies=[first, completion()]) as (agent, _, transport):
++        result = agent.execute("重试读取")
++        assert result["success"] and len(transport.requests) == 2
++        info, records = archive_for(result)
++        requests = kind(records, "http_request")
++        assert len(requests) == 2 and requests[0]["logical_call_id"] == requests[1]["logical_call_id"]
++        assert requests[0]["attempt_id"] != requests[1]["attempt_id"]
++        assert request_bodies(records) == [request.content for request in transport.requests]
++        assert request_bodies(records)[0] == request_bodies(records)[1]
++        assert len(kind(records, "model_start")) == len(kind(records, "model_end")) == 1
++        assert info["complete"] is (failure == "429")
++        assert_no_nonpolicy_data(records)
++
++
++def test_empty_terminal_response_is_retained_without_fabricating_output(monkeypatch, tmp_path):
++    with sdk_agent(monkeypatch, tmp_path, replies=[completion({"role": "assistant", "content": ""}),
++                                                  completion()]) as (agent, _, transport):
++        agent.max_empty_response_retries = 1
++        result = agent.execute(COMMAND)
++        # Existing final-output extraction falls back to the user text for an
++        # empty AI reply, so this real path does not enter its empty-string retry.
++        # We preserve and document that pre-existing behavior, not fix it here.
++        assert not result["success"] and result["empty_response_retries"] == 0
++        info, records = archive_for(result)
++        assert info["complete"] and len(transport.requests) == 1
++        assert len({request["logical_call_id"] for request in kind(records, "http_request")}) == 1
++        assert len({record["archive_id"] for record in records}) == 1
++        assert kind(records, "model_end")[0]["output"]["result"][0]["content"] == ""
++
++
++@pytest.mark.parametrize("failure", ["invalid_json", "http_400"])
++def test_closed_error_trace_is_not_command_success(monkeypatch, tmp_path, failure):
++    reply = b"{" if failure == "invalid_json" else (400, {"error": {"message": "synthetic error " + AUTH_CANARY,
++                                                                  "type": "invalid_request_error"}})
++    with sdk_agent(monkeypatch, tmp_path, replies=[reply], model_options={"max_retries": 0}) as (agent, _, transport):
++        result = agent.execute(COMMAND)
++        assert not result["success"] and len(transport.requests) == 1
++        info, records = archive_for(result)
++        assert request_bodies(records) == [transport.requests[0].content]
++        assert response_bodies(records) == transport.response_bodies
++        assert len(kind(records, "model_end")) == 1
++        # Provider error BODY is intentionally retained; exception strings must
++        # not become an additional accidental source of request/header context.
++        assert kind(records, "archive_end")
++        assert not any(record.get("success") is True for record in kind(records, "model_end"))
++
++
++@pytest.mark.parametrize("failure", [None, "429", "timeout"])
++def test_async_sdk_graph_and_retry_association(monkeypatch, tmp_path, failure):
++    from model_io_archive import ModelIOArchive, ModelIOArchiveMiddleware, verify_archive
++    replies = [completion(tools_message()), completion()]
++    if failure == "429":
++        replies.insert(0, (429, {"error": {"message": "synthetic", "type": "rate_limit_error"}}))
++    elif failure == "timeout":
++        replies.insert(0, lambda request: httpx.ReadTimeout("synthetic timeout", request=request))
++    with sdk_agent(monkeypatch, tmp_path, replies=replies, mode="off") as (agent, world, transport):
++        archive = ModelIOArchive("explicit-async-graph", tmp_path / "async")
++        agent._model_io_archive = archive
++        graph = create_agent(agent.llm, tools=agent.tools, system_prompt="冻结公开状态检查",
++                             middleware=[ModelIOArchiveMiddleware(archive)])
++        async def run():
++            try:
++                return await graph.ainvoke({"messages": [HumanMessage(content=COMMAND)]})
++            finally:
++                archive.close("command_end")
++        result = asyncio.run(run())
++        assert result["messages"][-1].content == "已核对 [TASK DONE]"
++        records = rows(archive.path)
++        checked = verify_archive(archive.path)
++        assert checked["valid"] and checked["complete"] is (failure != "timeout")
++        assert request_bodies(records) == [request.content for request in transport.requests]
++        assert response_bodies(records) == transport.response_bodies
++        assert all(count == 0 and consumed is False for count, consumed in transport.hook_reads)
++        requests = kind(records, "http_request")
++        assert len(requests) == (2 if failure is None else 3)
++        assert len({item["logical_call_id"] for item in requests}) == 2
++        if failure:
++            assert requests[0]["logical_call_id"] == requests[1]["logical_call_id"]
++            assert requests[0]["attempt_id"] != requests[1]["attempt_id"]
++        assert {item["raw_tool_call_id"] for item in kind(records, "tool_start")} == {"call_甲", "call_乙"}
++        assert sum(name == "get_drone_status" for name, _ in world.calls) == 2
++        assert_no_nonpolicy_data(records)
++
++
++def sse_body():
++    result = []
++    for delta, finish in (({"role": "assistant", "content": "你好"}, None),
++                          ({"content": " [TASK DONE]"}, None), ({}, "stop")):
++        result.append(b"data: " + raw_json({"id": "stream-response", "object": "chat.completion.chunk",
++                     "created": 1, "model": "offline-model", "choices": [{"index": 0,
++                      "delta": delta, "finish_reason": finish}]}) + b"\n\n")
++    result.append(b"data: [DONE]\n\n")
++    return result
++
++
++@pytest.mark.parametrize("ending", ["eof", "done_marker", "broken"])
++def test_actual_sdk_stream_tee_never_preconsumes_and_partial_is_incomplete(monkeypatch, tmp_path, ending):
++    partial = ending == "broken"
++    chunks = sse_body() if ending != "eof" else sse_body()[:-1]
++    stream = SyncChunks(chunks[:1] if partial else chunks,
++                        httpx.ReadError("synthetic interrupted stream") if partial else None)
++    def reply(request):
++        return httpx.Response(200, stream=stream, headers={"content-type": "text/event-stream"}, request=request)
++    with sdk_agent(monkeypatch, tmp_path, replies=[reply],
++                   model_options={"streaming": True, "max_retries": 0}) as (agent, _, transport):
++        result = agent.execute(COMMAND)
++        info, records = archive_for(result)
++        assert result["success"] is (not partial)
++        # SDK [DONE] ends semantic SSE parsing before requesting underlying EOF.
++        # The passive observer must not drain it to upgrade capture eligibility.
++        assert info["complete"] is (ending == "eof")
++        assert transport.hook_reads == [(0, False)]
++        assert json.loads(request_bodies(records)[0])["stream"] is True
++        assert response_bodies(records) == [b"".join(chunks[:1] if partial else chunks)]
++        assert kind(records, "http_response_end")[0]["complete"] is (ending == "eof")
++        if partial:
++            assert kind(records, "model_end")[0]["status"] == "error"
++        else:
++            assert "你好" in result["output"]
++
++
++@pytest.mark.parametrize("buffered", [False, True])
++def test_compressed_response_scope_is_truthful(monkeypatch, tmp_path, buffered):
++    body = raw_json(completion())
++    compressed = gzip.compress(body, mtime=0)
++    def reply(request):
++        if buffered:
++            return httpx.Response(200, content=compressed, headers={"content-encoding": "gzip",
++                "content-type": "application/json"}, request=request)
++        return httpx.Response(200, stream=SyncChunks([compressed]), headers={"content-encoding": "gzip",
++                "content-type": "application/json"}, request=request)
++    with sdk_agent(monkeypatch, tmp_path, replies=[reply]) as (agent, _, _):
++        result = agent.execute(COMMAND)
++        info, records = archive_for(result)
++        assert result["success"] and info["complete"]
++        start = kind(records, "http_response_start")[0]
++        assert start["content_encoding"] == "gzip"
++        assert start["body_scope"] == ("buffered_httpx_content" if buffered else "httpx_stream_before_content_decoding")
++        archived = response_bodies(records)[0]
++        assert archived == (body if buffered else compressed)
++        assert (archived if buffered else gzip.decompress(archived)) == body
++
++
++def test_cancelled_after_model_reply_keeps_tool_rejection_and_no_extra_action(monkeypatch, tmp_path):
++    cancelled = threading.Event()
++    class Cancelled(BaseCallbackHandler):
++        def _check_cancellation(self):
++            if cancelled.is_set():
++                raise RuntimeError("synthetic cancellation")
++    def reply(request):
++        cancelled.set()
++        return completion(tools_message())
++    with sdk_agent(monkeypatch, tmp_path, replies=[reply]) as (agent, world, transport):
++        before = len(world.calls)
++        result = agent.execute(COMMAND, callbacks=[Cancelled()])
++        assert not result["success"] and len(transport.requests) == 1
++        assert not any(name == "get_drone_status" for name, _ in world.calls[before:])
++        _, records = archive_for(result)
++        assert kind(records, "model_end")[0]["status"] == "returned"
++        assert all(item["status"] == "error" for item in kind(records, "tool_end"))
++        assert kind(records, "archive_end")[0]["reason"] == "exception"
++
++
++def test_escaped_baseexception_closes_partial_archive_and_allows_new_episode(monkeypatch, tmp_path):
++    def abort(request):
++        raise KeyboardInterrupt("synthetic abort " + AUTH_CANARY)
++    with sdk_agent(monkeypatch, tmp_path, replies=[abort, completion()]) as (agent, _, transport):
++        with pytest.raises(KeyboardInterrupt):
++            agent.execute("episode A")
++        old = agent._model_io_archive
++        assert old.closed and not old.info()["complete"]
++        old_bytes = old.path.read_bytes()
++        assert kind(rows(old.path), "archive_end")[0]["reason"] == "execute_aborted"
++        result = agent.execute("episode B")
++        assert result["success"] and archive_for(result)[0]["complete"]
++        assert old.path.read_bytes() == old_bytes
++        assert old.path != Path(result["model_io_archive"]["path"])
++
++
++def test_late_a_response_and_request_cannot_touch_active_b(monkeypatch, tmp_path):
++    entered, release = threading.Event(), threading.Event()
++    def held_reply(request):
++        entered.set()
++        assert release.wait(5), "Offline response not released"
++        return completion()
++    with sdk_agent(monkeypatch, tmp_path, replies=[completion(), held_reply]) as (agent, _, transport):
++        first = agent.execute("episode A")
++        old_info, old_records = archive_for(first)
++        old_path = Path(old_info["path"])
++        frozen_a = old_path.read_bytes()
++        old_request = transport.requests[0]
++        running = ThreadCall(lambda: agent.execute("episode B"))
++        try:
++            assert entered.wait(5)
++            active = agent._model_io_archive
++            frozen_b = active.path.read_bytes()
++            old_hashes = copy.deepcopy(agent._model_wire_requests)
++            fake_late = httpx.Response(200, content=b"late-a", request=old_request)
++            agent._audit_model_response(fake_late)
++            agent._audit_model_request(old_request)  # No current model context on this thread.
++            assert old_path.read_bytes() == frozen_a
++            assert active.path.read_bytes() == frozen_b
++            assert agent._model_wire_requests == old_hashes
++        finally:
++            release.set()
++            running.join()
++        assert running.error is None and running.value["success"]
++        new_info, new_records = archive_for(running.value)
++        assert old_info["command_id"] != new_info["command_id"]
++        assert old_info["archive_id"] != new_info["archive_id"]
++        assert len(kind(new_records, "http_request")) == len(kind(old_records, "http_request")) == 1
++        assert b"late-a" not in b"".join(response_bodies(new_records))
++
++
++def test_disk_unavailable_is_visible_and_does_not_change_execution(monkeypatch, tmp_path):
++    destination = tmp_path / "model-io"
++    destination.write_text("file blocks archive directory")
++    with sdk_agent(monkeypatch, tmp_path) as (agent, _, transport):
++        result = agent.execute(COMMAND)
++        assert result["success"] and len(transport.requests) == 1
++        assert result["model_io_archive"]["complete"] is False
++        assert result["model_io_archive"]["state"] == "incomplete"
++        assert destination.read_text() == "file blocks archive directory"
++
++
++def test_scripted_model_without_wire_is_explicitly_partial(monkeypatch, tmp_path):
++    from langchain_core.messages import AIMessage
++    from test_task_progress_integration import ScriptedModel
++    with sdk_agent(monkeypatch, tmp_path, mode="off") as (agent, _, transport):
++        agent.llm = ScriptedModel(replies=[AIMessage(content="本地回复 [TASK DONE]")])
++        result = agent.execute(COMMAND)
++        info, records = archive_for(result)
++        assert result["success"] and not info["complete"]
++        assert not transport.requests and not kind(records, "http_request")
++        assert "wire_missing" in info["reasons"]
++        assert kind(records, "model_end")[0]["output"]["result"][0]["content"] == "本地回复 [TASK DONE]"
++
++
++@pytest.mark.parametrize("damage", ["body", "hash", "sequence", "missing_end", "half_line"])
++def test_verifier_rejects_damaged_independent_copy(monkeypatch, tmp_path, damage):
++    from model_io_archive import verify_archive
++    with sdk_agent(monkeypatch, tmp_path) as (agent, _, _):
++        result = agent.execute(COMMAND)
++        info, records = archive_for(result)
++        original = Path(info["path"]).read_bytes()
++        copied = copy.deepcopy(records)
++        if damage in {"body", "hash"}:
++            body = kind(copied, "http_request")[0]["body"]
++            body["base64" if damage == "body" else "sha256"] = (base64.b64encode(b"changed").decode()
++                                                                        if damage == "body" else "0" * 64)
++        elif damage == "sequence":
++            copied[1]["sequence"] += 1
++        elif damage == "missing_end":
++            copied = copied[:-1]
++        text = "".join(json.dumps(record, ensure_ascii=False) + "\n" for record in copied)
++        if damage == "half_line":
++            text = text[:-12]
++        target = tmp_path / (damage + ".jsonl")
++        target.write_text(text)
++        checked = verify_archive(target)
++        assert not checked["valid"] and not checked["complete"]
++        assert Path(info["path"]).read_bytes() == original
++
++
++def test_nonvisible_ai_headers_and_tool_artifact_never_enter_archive(monkeypatch, tmp_path):
++    @tool(response_format="content_and_artifact")
++    def get_drone_status(input_json: str):
++        """Read a public drone status; test artifact is intentionally non-visible."""
++        value = json.loads(input_json)
++        return json.dumps({"id": value["drone_id"], "status": "idle"}), {"private_checker": PRIVATE_CANARY}
++    with sdk_agent(monkeypatch, tmp_path, mode="off", replies=[completion(tools_message()), completion()],
++                   model_options={"include_response_headers": True}) as (agent, _, transport):
++        agent._create_tools = lambda board: [get_drone_status]
++        result = agent.execute(COMMAND)
++        assert result["success"]
++        _, records = archive_for(result)
++        assert_no_nonpolicy_data(records)
++        for output in kind(records, "tool_end"):
++            assert "artifact" not in output["output"]
++        for output in kind(records, "model_end"):
++            for message in output["output"]["result"]:
++                assert "headers" not in message.get("response_metadata", {})
++        assert request_bodies(records) == [request.content for request in transport.requests]
++
++
++def interrupt_archive_write(monkeypatch, exception, event="model_start"):
++    """Fault the actual archive file boundary once, without faulting SDK/tools."""
++    import model_io_archive
++    original = model_io_archive.os.fdopen
++    hit = []
++    class Writer:
++        def __init__(self, file):
++            self.file = file
++        def write(self, value):
++            if not hit and ('"kind":"' + event + '"') in value:
++                hit.append(True)
++                raise exception
++            return self.file.write(value)
++        def __getattr__(self, name):
++            return getattr(self.file, name)
++    monkeypatch.setattr(model_io_archive.os, "fdopen", lambda *args, **kwargs: Writer(original(*args, **kwargs)))
++    return hit
++
++
++@pytest.mark.parametrize("exception_type", [KeyboardInterrupt, asyncio.CancelledError])
++def test_archive_observer_baseexception_propagates_and_next_episode_works(monkeypatch, tmp_path, exception_type):
++    error = exception_type("synthetic observer interruption " + AUTH_CANARY)
++    hit = interrupt_archive_write(monkeypatch, error)
++    with sdk_agent(monkeypatch, tmp_path, mode="off") as (agent, _, transport):
++        if exception_type is KeyboardInterrupt:
++            with pytest.raises(exception_type) as raised:
++                agent.execute("interrupted A")
++            assert raised.value is error
++        else:
++            # Pinned LangGraph intentionally converts a node-raised
++            # CancelledError into NodeCancelledError. execute preserves its
++            # ordinary graph-error result contract; this is not success.
++            failed = agent.execute("interrupted A")
++            assert not failed["success"] and "CancelledError" in failed["output"]
++        assert hit
++        old = agent._model_io_archive
++        assert old.closed and not old.info()["complete"]
++        frozen = old.path.read_bytes()
++        assert not transport.requests
++        result = agent.execute("normal B")
++        assert result["success"] and archive_for(result)[0]["complete"]
++        assert old.path.read_bytes() == frozen
++
++
++def test_archive_observer_oserror_fails_open_and_reports_incomplete(monkeypatch, tmp_path):
++    hit = interrupt_archive_write(monkeypatch, OSError("synthetic write failure " + AUTH_CANARY))
++    with sdk_agent(monkeypatch, tmp_path, mode="off") as (agent, _, transport):
++        result = agent.execute(COMMAND)
++        assert hit and result["success"] and len(transport.requests) == 1
++        info = result["model_io_archive"]
++        assert not info["complete"] and info["state"] == "incomplete"
++        assert "OSError" in info.get("error_types", [])
++        assert AUTH_CANARY not in Path(info["path"]).read_text()
++
++
++def test_async_archive_observer_cancellation_propagates(monkeypatch, tmp_path):
++    from model_io_archive import ModelIOArchive, ModelIOArchiveMiddleware
++    error = asyncio.CancelledError("synthetic cancellation")
++    hit = interrupt_archive_write(monkeypatch, error)
++    with sdk_agent(monkeypatch, tmp_path, mode="off") as (agent, _, transport):
++        archive = ModelIOArchive("explicit-async-cancel", tmp_path / "async")
++        agent._model_io_archive = archive
++        graph = create_agent(agent.llm, tools=agent.tools, middleware=[ModelIOArchiveMiddleware(archive)])
++        async def run():
++            try:
++                return await graph.ainvoke({"messages": [HumanMessage(content=COMMAND)]})
++            finally:
++                archive.close("execute_aborted")
++        from langgraph.errors import NodeCancelledError
++        with pytest.raises(NodeCancelledError) as raised:
++            asyncio.run(run())
++        assert raised.value.__cause__ is error
++        assert hit and not transport.requests
++        assert archive.closed and not archive.info()["complete"]
++
++
++def test_graph_step_callback_path_keeps_complete_model_and_tool_chain(monkeypatch, tmp_path):
++    updates = []
++    with sdk_agent(monkeypatch, tmp_path, replies=[completion(tools_message()), completion()]) as (agent, _, transport):
++        result = agent.execute(COMMAND, step_callback=lambda steps: updates.append(copy.deepcopy(steps)))
++        info, records = archive_for(result)
++        assert result["success"] and info["complete"] and updates
++        assert len(kind(records, "model_start")) == len(kind(records, "model_end")) == 2
++        assert len(kind(records, "tool_start")) == len(kind(records, "tool_end")) == 2
++        assert request_bodies(records) == [request.content for request in transport.requests]
++        assert json.loads(request_bodies(records)[0]).get("stream", False) is False
++
++
++def test_sse_callback_cancel_leaves_unconsumed_stream_partial(monkeypatch, tmp_path):
++    class StopFirstToken(BaseCallbackHandler):
++        raise_error = True
++        def on_llm_new_token(self, token, **kwargs):
++            raise RuntimeError("synthetic token cancellation")
++    chunks = sse_body()
++    stream = SyncChunks(chunks)
++    def reply(request):
++        return httpx.Response(200, stream=stream, headers={"content-type": "text/event-stream"}, request=request)
++    with sdk_agent(monkeypatch, tmp_path, replies=[reply], model_options={"streaming": True}) as (agent, _, transport):
++        result = agent.execute(COMMAND, callbacks=[StopFirstToken()])
++        info, records = archive_for(result)
++        assert not result["success"] and not info["complete"]
++        assert stream.reads < len(chunks)
++        assert transport.hook_reads == [(0, False)]
++        assert kind(records, "http_response_end")[0]["complete"] is False
++
++
++def test_duplicate_raw_tool_ids_are_ambiguous_not_guessed(monkeypatch, tmp_path):
++    message = tools_message()
++    for call in message["tool_calls"]:
++        call["id"] = "duplicate-call-id"
++    with sdk_agent(monkeypatch, tmp_path, mode="off", replies=[completion(message), completion()]) as (agent, _, _):
++        result = agent.execute(COMMAND)
++        info, records = archive_for(result)
++        assert not info["complete"]
++        starts = kind(records, "tool_start")
++        assert starts and all(item["source_relation"] == "ambiguous" for item in starts)
++        assert all(item["source_model_id"] is None for item in starts)
++        assert "tool_source_ambiguous" in info["reasons"]
++
++
++@pytest.mark.parametrize("asynchronous", [False, True])
++def test_middleware_itself_propagates_original_cancelled_error(monkeypatch, tmp_path, asynchronous):
++    from model_io_archive import ModelIOArchive, ModelIOArchiveMiddleware
++    error = asyncio.CancelledError("synthetic observer cancellation")
++    hit = interrupt_archive_write(monkeypatch, error)
++    archive = ModelIOArchive("middleware-boundary", tmp_path)
++    middleware = ModelIOArchiveMiddleware(archive)
++    request = SimpleNamespace(system_message=None, messages=[])
++    handler_called = []
++    def handler(request):
++        handler_called.append(True)
++    async def ahandler(request):
++        handler_called.append(True)
++    try:
++        with pytest.raises(asyncio.CancelledError) as raised:
++            if asynchronous:
++                asyncio.run(middleware.awrap_model_call(request, ahandler))
++            else:
++                middleware.wrap_model_call(request, handler)
++        assert raised.value is error and hit and not handler_called
++    finally:
++        archive.close("execute_aborted")
++    assert not archive.info()["complete"]
++
++
++@pytest.mark.parametrize("exception_type", [RuntimeError, KeyboardInterrupt])
++def test_archive_end_write_failure_never_claims_complete(monkeypatch, tmp_path, exception_type):
++    from model_io_archive import verify_archive
++    error = exception_type("synthetic final write failure")
++    hit = interrupt_archive_write(monkeypatch, error, event="archive_end")
++    with sdk_agent(monkeypatch, tmp_path, replies=[completion(), completion()]) as (agent, _, transport):
++        if exception_type is KeyboardInterrupt:
++            with pytest.raises(KeyboardInterrupt) as raised:
++                agent.execute("A complete execution interrupted during archive close")
++            assert raised.value is error
++            info = agent._model_io_archive.info()
++        else:
++            result = agent.execute("A complete execution with archive finalization error")
++            assert result["success"]
++            info = result["model_io_archive"]
++        assert hit and len(transport.requests) == 1
++        assert info["state"] == "incomplete" and not info["complete"]
++        assert not verify_archive(info["path"])["complete"]
++        assert request_bodies(rows(info["path"])) == [transport.requests[0].content]
++        result_b = agent.execute("B subsequent episode")
++        assert result_b["success"] and archive_for(result_b)[0]["complete"]
++
++
++@pytest.mark.parametrize("asynchronous", [False, True])
++def test_dual_protocol_response_stream_preserves_transport_protocol(monkeypatch, tmp_path, asynchronous):
++    from model_io_archive import ModelIOArchive, ModelIOArchiveMiddleware, verify_archive
++    class Dual(httpx.SyncByteStream, httpx.AsyncByteStream):
++        def __init__(self):
++            self.reads = 0
++        def __iter__(self):
++            self.reads += 1
++            yield raw_json(completion())
++        async def __aiter__(self):
++            self.reads += 1
++            yield raw_json(completion())
++        def close(self):
++            pass
++        async def aclose(self):
++            pass
++    stream = Dual()
++    def reply(request):
++        return httpx.Response(200, stream=stream, headers={"content-type": "application/json"}, request=request)
++    with sdk_agent(monkeypatch, tmp_path, mode="off", replies=[reply]) as (agent, _, transport):
++        if not asynchronous:
++            result = agent.execute(COMMAND)
++            assert result["success"]
++            info, records = archive_for(result)
++        else:
++            archive = ModelIOArchive("async-dual", tmp_path / "async")
++            agent._model_io_archive = archive
++            graph = create_agent(agent.llm, middleware=[ModelIOArchiveMiddleware(archive)])
++            asyncio.run(graph.ainvoke({"messages": [HumanMessage(content=COMMAND)]}))
++            info = archive.close()
++            records = rows(info["path"])
++            assert verify_archive(info["path"])["valid"]
++        assert info["complete"] and stream.reads == 1
++        assert transport.hook_reads == [(0, False)]
++        assert response_bodies(records) == [raw_json(completion())]
++
++
++@pytest.mark.parametrize("boundary", ["same_episode", "open_a", "closed_a"])
++def test_reused_http_request_is_quarantined_not_rebound(monkeypatch, tmp_path, boundary):
++    from model_io_archive import ModelIOArchive, ModelIOArchiveMiddleware, request_is_ambiguous
++    with sdk_agent(monkeypatch, tmp_path, mode="off") as (agent, _, transport):
++        first = ModelIOArchive("manual-owner-A", tmp_path / "manual")
++        second = first if boundary == "same_episode" else ModelIOArchive("manual-owner-B", tmp_path / "manual")
++        request = httpx.Request("POST", "https://offline.invalid/v1/chat/completions",
++                                content=raw_json({"messages": [{"role": "user", "content": "owner A"}]}))
++        model_request = SimpleNamespace(system_message=None, messages=[])
++        def bind(archive):
++            agent._model_io_archive = archive
++            def handler(_):
++                agent._audit_model_request(request)
++                return ModelResponse(result=[AIMessage(content="synthetic hook-boundary only")])
++            return ModelIOArchiveMiddleware(archive).wrap_model_call(model_request, handler)
++        bind(first)
++        if boundary == "closed_a":
++            first.close()
++        before_first = first.path.read_bytes()
++        first_info = first.info()
++        bind(second)
++        assert request_is_ambiguous(request)
++        # The same mutable request cannot identify the old or new reply anymore.
++        # Neither a delayed A nor B receipt may be invented as another owner.
++        agent._audit_model_response(httpx.Response(200, content=b"late-owner-A", request=request))
++        agent._audit_model_response(httpx.Response(200, content=b"owner-B", request=request))
++        first.close(); second.close()
++        for archive in (first, second):
++            assert not archive.info()["complete"]
++            assert response_bodies(rows(archive.path)) == []
++        if boundary == "closed_a":
++            assert first.path.read_bytes() == before_first and first.info() == first_info
++        assert not transport.requests  # Explicit hook misuse probe, not an SDK rollout.
++
++
++def test_direct_worker_cannot_inherit_parent_archive_context(monkeypatch, tmp_path):
++    from model_io_archive import ModelIOArchive, ModelIOArchiveMiddleware
++    with sdk_agent(monkeypatch, tmp_path, mode="off") as (agent, _, transport):
++        archive = ModelIOArchive("explicit-unsupported-worker", tmp_path / "worker")
++        archive.mark_incomplete("observation_worker_not_instrumented")
++        agent._model_io_archive = archive
++        agent._in_observation_worker = True
++        request = httpx.Request("POST", "https://offline.invalid/v1/chat/completions",
++                                content=raw_json({"model": "offline", "messages": [{"role": "user", "content": "worker"}]}))
++        def handler(_):
++            agent._audit_model_request(request)
++            return ModelResponse(result=[AIMessage(content="worker hook boundary")])
++        ModelIOArchiveMiddleware(archive).wrap_model_call(SimpleNamespace(messages=[], system_message=None), handler)
++        info = archive.close()
++        assert not info["complete"] and "observation_worker_not_instrumented" in info["reasons"]
++        assert not kind(rows(archive.path), "http_request")
++        assert len(agent._model_wire_requests) == 1
++        assert agent._model_wire_requests[0]["agent_role"] == "observation_worker"
++        assert not transport.requests
+--- a/agent4drone/README_SERVICE.md
++++ b/agent4drone/README_SERVICE.md
+@@ -58,6 +58,47 @@
+ world restoration and wait for all users of that world to stop. This per-instance
+ guard does not provide a global simulator lock, multiple-agent isolation, or a
+ complete training-environment reset. See the [episode contract validation](../docs/results/harness-episode-contract-20261024/REPORT_CN.md).
++
++### Optional model I/O archive
++
++Model body recording is **off by default**, independently of evidence/hash audit
++and `toolchain_json_recording`. Set `UAV_MODEL_IO_ARCHIVE=1` before constructing
++the agent/service to opt in. `UAV_MODEL_IO_ARCHIVE_DIR` selects the local output
++directory (default: `agent4drone/logs/model_io`). Python callers may instead pass
++`model_io_archive=True, model_io_archive_dir="..."`; explicit `False` overrides
++the environment flag. No model settings, retry policy or task budgets are changed.
++
++Each command creates a separate, non-overwriting JSONL file with a unique
++`archive_id`, even when session or command labels repeat. The result's
++`model_io_archive` field reports its path, completeness and gaps; optional
++tool-chain export references the same archive. Existing `tool_chain` summaries
++remain lossy and are not the source for reconstructing model messages.
++
++The archive contains exact serialized HTTP request bytes (base64, SHA-256 and
++length), logical-call/HTTP-attempt references, passively observed response-body
++chunks, structured assistant messages and tool receipts with their original call
++IDs. The observer never reads a response early. Stream chunks are recorded before
++HTTP content decoding; already buffered responses are explicitly labeled as
++decoded HTTPX content. Neither is a complete HTTP packet capture. Middleware
++input is labeled separately because inner middleware can still transform it.
++
++`model_io_archive.verify_archive(path)` checks the recorded sequence, references,
++byte hashes and completeness. `valid` and `complete` are separate: missing returns,
++unconsumed/partial responses, missing wire evidence, ambiguous tool associations
++or recording errors cannot be accepted as a complete interaction. Ordinary
++archive errors leave execution running and report an incomplete archive;
++the observer preserves cancellation and process interrupts, with the surrounding
++framework retaining its own error semantics. Closed archives reject late
++callbacks instead of appending them to the next command.
++
++The initial scope is the OpenAI-compatible graph model/tool path. Ollama and the
++direct observation-worker model call are explicitly incomplete/unsupported for
++wire reconstruction. Authentication headers, URL queries, non-visible tool
++artifacts and arbitrary response metadata are excluded. Actual message/body
++content is retained verbatim; no automatic redaction of content supplied by the
++caller is claimed. This is model-interaction evidence, not a validated Teacher
++dataset or a complete simulator episode. See the
++[implementation and local validation report](../docs/results/harness-model-io-20261024/REPORT_CN.md).
+ 
+ ### 1. Asynchronous Execution (Recommended)
+ Since agent commands can take 1-3 minutes to process, use the async "Job" pattern to avoid timeouts.
+--- a/agent4drone/README_API.md
++++ b/agent4drone/README_API.md
+@@ -34,6 +34,10 @@
+ [command isolation contract](README_SERVICE.md#command-isolation-and-reset).
+ Busy synchronous calls return HTTP 409; an async job that cannot acquire the
+ shared agent fails explicitly without automatic retries.
++
++An optional [model I/O archive](README_SERVICE.md#optional-model-io-archive)
++records reconstructible request/response evidence per command. It is disabled
++by default and reports gaps separately from task success.
+ 
+ ### 1. Asynchronous Execution (Recommended)
+ Since agent commands can take 1-3 minutes to process, use the async "Job" pattern to avoid timeouts.
+--- a/docs/RESEARCH_STATUS_CN.md
++++ b/docs/RESEARCH_STATUS_CN.md
+@@ -79,6 +79,7 @@
+ | [退出前进度确认 v6 最小修复对照](results/harness-terminal-progress-20261023/REPORT_CN.md) | 新批原 7 题 × v5/v6 共 14 次，同初态同预算。`b1ad4f3e` 在无候选出口增加一次技能公开进度读取，缓存 95%→100%，由 `needs_replan/no_public_candidate` 变为 `completed/skill_public_stop_condition`；API 818→819。七对动作序列、路径、访问数及原检查结果不变；其余六对未触发新读取。既有 376＋专项 61，共 437 项不重复代码测试通过 | 支持完成报告缺口修复；原搜索整题成功仍 1/3→1/3，不能当新增任务收益。真实任务只触发一次已完成分支；未完成、读取失败、预算不足由脚本测试覆盖，分母单列。仅无候选出口确认一次、严格 >95，不重试或越预算；v6 继承静态共享前提、保持 opt-in。无 LLM；墙钟驱动的微小耗电差不归因为节能 |
+ | [已观察目标跟进 v7 独立对照](results/harness-observed-target-20261024/REPORT_CN.md) | 先公开回放两题，再新增发现者正常动作槽中的一次 fixed 目标跟进；原 7 题 × v6/v7 共 14 次，同初态同预算。`7eba7390` 1/3→2/3、API 346 不变，但错误 0→2；`24ac1838` 38/100→51/100、API 612→657、错误仍17；`b1ad4f3e` 均20/20，动作191→125、API819→499。532 项不重复代码测试通过 | 搜索整题成功仍1/3→1/3，只支持两个已知题的部分进度及一个成功题的成本改善；两失败题未解决。正名字/true标志仅抑制定向，false不推remaining；每ID一次、公开来源、正常槽、共享/路径屏蔽及原终止守卫均保留。v7 opt-in、默认legacy，无LLM；不是自然决策、泛化或后训练成果，与执行记忆v7是不同组件 |
+ | [单 Agent 回合隔离修复](results/harness-episode-contract-20261024/REPORT_CN.md) | 固定线程顺序反例确认共享Agent重叠execute会使A归档/关闭B的Harness；新增execute/reset/refresh/summary同实例互斥、服务busy处理及异常收尾。66项独立前后对照、32项新增＋738项既有代码测试通过；忙时无状态/API改写，A实际退出后B可运行 | 这是生命周期正确性，不是新任务成功率或模型收益。取消flag不释放占用，清理失败禁止复用；完整世界reset、跨实例隔离和模型正文归档仍未完成。没有重跑Benchmark、调用真实模型、改搜索预算或启用新默认Harness；现有hash-only日志不能直接当Teacher数据 |
++| [实际模型 I/O 归档本地验收](results/harness-model-io-20261024/REPORT_CN.md) | 新增默认关闭的独立 JSONL：实际请求字节、被动响应流、结构化消息、logical/attempt/tool ID 关联及闭合隔离。真实 Agent/SDK＋MockTransport 专项49项、既有回归776项，共825项不重复pytest通过；无外部网络或provider调用 | 只支持本地模型交互层的可重建性，不是完整Teacher回合或任务成功率。未耗尽SSE、缺响应、工具关系不明及归档错误显式partial；worker/Ollama未支持完整wire。未改变实验预算、默认Harness、训练状态或历史成绩 |
+ 
+ 执行记忆 v5–v7 pilot 使用报告中的 `deepseek-flash`、temperature 0.1、关闭 thinking，每次最多 6 次模型调用、12 次工具调用、90 秒及 60,000 token。这与全量 500 秒协议及本轮无 LLM 的 Harness v2–v7 对照不同，结果不能直接横向比较。
+ 
+@@ -112,7 +113,7 @@
+ 
+ 同日进入接口收束，先完成[单 Agent 回合隔离](results/harness-episode-contract-20261024/REPORT_CN.md)。公开服务共用同一个Agent，原重叠execute可覆盖Harness引用并串归档；现对execute、证据reset、会话refresh/summary统一非重入准入，busy在命令状态改写前拒绝，直到执行和归档真实退出才释放。逃逸BaseException关闭旧Harness并停记录，清理失败则拒绝复用。66项受控前后检查及770项代码测试通过，未跑新的任务成绩。**只验收同实例生命周期，不等于完整世界reset或跨Agent隔离。**
+ 
+-[模型输入审计](results/harness-episode-contract-20261024/MODEL_INPUT_AUDIT_CN.md)另确认：现有请求hash不能还原正文/工具schema，steps导出丢失调用ID，尚不能形成可训练轨迹。下一项优先默认关闭的实际模型I/O归档及离线重建验收；随后用已有新进程隔离方式验收完整episode链，不直接承诺进程池复用或进入训练。
++前一轮[模型输入审计](results/harness-episode-contract-20261024/MODEL_INPUT_AUDIT_CN.md)确认当时的请求hash不能还原正文/工具schema，steps导出丢失调用ID。现已完成[默认关闭的独立模型I/O归档](results/harness-model-io-20261024/REPORT_CN.md)：SDK请求原字节、正常消费的响应字节、结构化消息及调用/回执关联可在本地核对；49项专项＋776项既有回归通过。请求owner按原回合绑定、关闭后拒写，同Request复用隔离；消息附件/响应头元数据不进入模型轨迹。**完整性标记仅属于模型交互层，不能把旧steps或新partial档案直接当Teacher数据。** SSE遇DONE但未到EOF、ReadTimeout缺响应、worker/Ollama无wire等仍显式不完整。随后用已有新进程隔离方式验收完整episode链，不直接承诺进程池复用或进入训练。
+ 
+ 执行记忆 v7 补验证也已完成：原 R3 筛查中全部 14 道局部几何合法路线均保留全文，没有删导语或缩小义务。它们全部触发 v5 回退，故未产生压缩收益；补充合成探针虽通过，也不能补足真实 compact 任务的证据。断言是定向检查，未独立证明自然语言解析完整性或模型视图的全部必要字段，详见报告的审计边界。下一步先明确实际适用范围与独立完整任务，再决定是否值得在线验证，不为让这 14 题进入压缩分支而直接放宽语法。
+ 
+@@ -142,7 +143,7 @@
+ | 顺序 | 具体工作 | 可审查的完成标志 |
+ | --- | --- | --- |
+ | 1 | 保持搜索候选与单Agent隔离的已验证契约，整理完整episode的进入/退出条件 | 搜索仍1/3；单实例互斥已修。取消状态不等于执行排空，清记忆不等于恢复世界；完整world reset/多实例隔离仍待验收，不续跑360次或继续叠同题搜索机制 |
+-| 2 | 补默认关闭的实际模型I/O归档，先验证请求正文、工具schema、结构化输出及调用/回执关联可重建 | 使用本地MockTransport/脚本响应核验正文hash、跨回合、重试/异常/取消边界；不改变模型输入或消费响应流，不读取认证/私有评分；不可把部分归档写成完整Teacher数据集 |
++| 2 | 保持已验收模型I/O归档默认关闭，明确完整/partial和支持范围，供下一项episode链使用 | 49项本地专项＋776项既有回归通过；原字节/hash、工具ID、跨回合、重试/异常/取消均有证据。SSE未到EOF、缺wire、关系不明保守partial；没有真实provider或Teacher数据质量验收，不以归档完整代表任务完成 |
+ | 3 | 用已有每trial新进程隔离方式验收完整episode链，再冻结小规模自然Agent选择/接手验证与一个可训练问题 | 初态、模型可见输入、动作来源、终止与隔离评分可追踪；私有状态不进入策略。进程池复用另行确认，后训练按进入条件推进；执行记忆v7 compact适用性继续单列低优先级 |
+ 
+ 收束范围与学生职责明确后，再核对模型和资源、按场景冻结划分、采集并清洗一小批 Teacher 轨迹，跑通第一个约 2B SFT 的训练、导出和回接评测；学习围绕数据构建、框架、LoRA/QLoRA、评估展开，不要求先掌握整个后训练生态。之后审查 RL 的奖励、reset、超时、rollout 信号和成本，形成进入/暂缓依据；通过后才定算法。阶段细分、消融矩阵及论文进入条件统一放在 Roadmap。
+--- a/docs/CSCWD2027_INCREMENTAL_RESEARCH_ROADMAP_CN.md
++++ b/docs/CSCWD2027_INCREMENTAL_RESEARCH_ROADMAP_CN.md
+@@ -44,7 +44,7 @@
+ 
+ 随后完成[单 Agent 回合隔离修复](results/harness-episode-contract-20261024/REPORT_CN.md)：原服务重叠execute会覆盖当前runtime，导致A归档或关闭B；现在同实例execute、证据reset、会话refresh/summary互斥，竞争在状态改写前拒绝，取消后仍持有到实际收尾完成。66项受控前后检查及32新增＋738既有、共770项代码测试通过；未重跑Benchmark或改搜索策略。该结果仅支持命令生命周期正确性，完整世界reset、跨实例隔离尚未验收。
+ 
+-[轨迹审计](results/harness-episode-contract-20261024/MODEL_INPUT_AUDIT_CN.md)确认现有hash-only请求日志和丢失调用ID的steps不能重建完整模型可见轨迹。**当前下一项：补显式启用的实际请求/结构化输出归档并用本地回执验证；随后在现有新进程隔离方式下串起初态恢复、模型输入/行动、终止与独立评分。** 进程池复用、模型自然决策验证和Teacher数据生产分别验收，不因单Agent加锁就宣布训练环境已完成。
++前一轮[轨迹审计](results/harness-episode-contract-20261024/MODEL_INPUT_AUDIT_CN.md)确认hash-only请求日志和丢失调用ID的steps不能重建模型可见轨迹。现已完成[默认关闭的实际模型I/O归档本地验收](results/harness-model-io-20261024/REPORT_CN.md)：独立JSONL保留请求原字节、被动响应分块、结构化消息及logical/attempt/tool关联；49项专项＋776项既有回归，共825项不重复pytest通过。默认关闭与启用的请求/动作对照一致，未改预算或启动真实provider、Benchmark、训练。SSE未到EOF、缺响应、工具关联不明和写盘故障显式partial；Ollama/直接worker未支持完整wire，现有steps摘要未改成训练格式。**当前下一项：在现有新进程隔离方式下串起初态恢复、模型输入/行动、终止与独立评分。** 完整性仅指交互层；进程池复用、自然模型验证和Teacher数据生产仍分别验收，不因I/O归档通过就宣布训练环境已完成。
+ 
+ 执行记忆 v7 的真实完整任务适用范围继续列为待查事项；R3 补点只保留低优先级可达性诊断。详细依据与停止条件见上述报告；旧 360 次继续保持未启动。按这些证据整理可复用配置与收束边界，再确定 SFT 进入时点，不因单题成功重新扩张多个研究分支。
+ 

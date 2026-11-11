@@ -1,0 +1,2805 @@
+{
+  "study": "./experiments/execution-memory-mvp-v4",
+  "memory_revision": "v4",
+  "baseline_arm": "v2",
+  "comparison_arms": [
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "scope": "Six artificial recovery cases, three prespecified stochastic repetitions; not fast100 or full-agent generalization",
+  "scheduled_trials": 54,
+  "completed_trials": 54,
+  "unstarted_trials": 0,
+  "started_without_result": 0,
+  "historical_results_reused_as_trials": false,
+  "missing_outcomes_are_not_filled_with_zero": true,
+  "overall_arms": {
+    "v2": {
+      "completed_trials": 18,
+      "checker_successes": 18,
+      "success_rate": 1.0,
+      "statuses": {
+        "model_finished": 18
+      },
+      "model_request_attempts": {
+        "sum": 57,
+        "mean": 3.1666666666666665,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "model_calls": {
+        "sum": 57,
+        "mean": 3.1666666666666665,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "tool_calls": {
+        "sum": 42,
+        "mean": 2.3333333333333335,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "input_tokens": {
+        "sum": 133659,
+        "mean": 7425.5,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "output_tokens": {
+        "sum": 7292,
+        "mean": 405.1111111111111,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "total_tokens": {
+        "sum": 140951,
+        "mean": 7830.611111111111,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "charged_tokens_including_uncertain_requests": {
+        "sum": 140951,
+        "mean": 7830.611111111111,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "seconds": {
+        "sum": 69.30729779000103,
+        "mean": 3.850405432777835,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "repeated_successful_sense_queries": {
+        "sum": 3,
+        "mean": 0.16666666666666666,
+        "known_trials": 18,
+        "missing_trials": 0
+      }
+    },
+    "v3": {
+      "completed_trials": 18,
+      "checker_successes": 18,
+      "success_rate": 1.0,
+      "statuses": {
+        "model_finished": 18
+      },
+      "model_request_attempts": {
+        "sum": 55,
+        "mean": 3.0555555555555554,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "model_calls": {
+        "sum": 55,
+        "mean": 3.0555555555555554,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "tool_calls": {
+        "sum": 38,
+        "mean": 2.111111111111111,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "input_tokens": {
+        "sum": 126603,
+        "mean": 7033.5,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "output_tokens": {
+        "sum": 6820,
+        "mean": 378.8888888888889,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "total_tokens": {
+        "sum": 133423,
+        "mean": 7412.388888888889,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "charged_tokens_including_uncertain_requests": {
+        "sum": 133423,
+        "mean": 7412.388888888889,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "seconds": {
+        "sum": 63.73940470600064,
+        "mean": 3.541078039222258,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "repeated_successful_sense_queries": {
+        "sum": 0,
+        "mean": 0,
+        "known_trials": 18,
+        "missing_trials": 0
+      }
+    },
+    "v4": {
+      "completed_trials": 18,
+      "checker_successes": 18,
+      "success_rate": 1.0,
+      "statuses": {
+        "model_finished": 18
+      },
+      "model_request_attempts": {
+        "sum": 57,
+        "mean": 3.1666666666666665,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "model_calls": {
+        "sum": 57,
+        "mean": 3.1666666666666665,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "tool_calls": {
+        "sum": 39,
+        "mean": 2.1666666666666665,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "input_tokens": {
+        "sum": 141092,
+        "mean": 7838.444444444444,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "output_tokens": {
+        "sum": 7918,
+        "mean": 439.8888888888889,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "total_tokens": {
+        "sum": 149010,
+        "mean": 8278.333333333334,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "charged_tokens_including_uncertain_requests": {
+        "sum": 149010,
+        "mean": 8278.333333333334,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "seconds": {
+        "sum": 73.6705540849971,
+        "mean": 4.092808560277616,
+        "known_trials": 18,
+        "missing_trials": 0
+      },
+      "repeated_successful_sense_queries": {
+        "sum": 0,
+        "mean": 0,
+        "known_trials": 18,
+        "missing_trials": 0
+      }
+    }
+  },
+  "by_round": {
+    "1": {
+      "arms": {
+        "v2": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 14,
+            "mean": 2.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 45450,
+            "mean": 7575,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2492,
+            "mean": 415.3333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 47942,
+            "mean": 7990.333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 47942,
+            "mean": 7990.333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 23.861308292001013,
+            "mean": 3.9768847153335023,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 1,
+            "mean": 0.16666666666666666,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        },
+        "v3": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 13,
+            "mean": 2.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 44228,
+            "mean": 7371.333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2444,
+            "mean": 407.3333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 46672,
+            "mean": 7778.666666666667,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 46672,
+            "mean": 7778.666666666667,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 21.87177341699953,
+            "mean": 3.645295569499922,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        },
+        "v4": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 17,
+            "mean": 2.8333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 17,
+            "mean": 2.8333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 11,
+            "mean": 1.8333333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 37956,
+            "mean": 6326,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2153,
+            "mean": 358.8333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 40109,
+            "mean": 6684.833333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 40109,
+            "mean": 6684.833333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 20.784152707999056,
+            "mean": 3.464025451333176,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        }
+      },
+      "decision_counts": {
+        "v2": {
+          "responses": 19,
+          "eligible_responses": 3,
+          "contract_active_responses": 0,
+          "applicable_query_calls": 1,
+          "applicable_query_declaration_missing": 1,
+          "declarations": 0,
+          "structured_change_supported": 0,
+          "structured_change_unsupported": 0,
+          "structured_change_unverified": 0
+        },
+        "v3": {
+          "responses": 19,
+          "eligible_responses": 2,
+          "contract_active_responses": 2,
+          "declarations": 4,
+          "declaration_format_v3_legacy": 4,
+          "structured_change_unsupported": 2,
+          "support_reason_cited_events_are_not_after_the_last_successful_query": 2,
+          "structured_change_supported": 2,
+          "support_reason_same_actor_public_fact_differs_from_successful_query_baseline": 1,
+          "support_reason_no_change_observed_in_supported_public_fields_after_successful_query": 1,
+          "structured_change_unverified": 0
+        },
+        "v4": {
+          "responses": 17,
+          "eligible_responses": 2,
+          "contract_active_responses": 2,
+          "declarations": 0,
+          "structured_change_supported": 0,
+          "structured_change_unsupported": 0,
+          "structured_change_unverified": 0
+        }
+      }
+    },
+    "2": {
+      "arms": {
+        "v2": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 14,
+            "mean": 2.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 44383,
+            "mean": 7397.166666666667,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2319,
+            "mean": 386.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 46702,
+            "mean": 7783.666666666667,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 46702,
+            "mean": 7783.666666666667,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 22.825185414999396,
+            "mean": 3.804197569166566,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 1,
+            "mean": 0.16666666666666666,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        },
+        "v3": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 17,
+            "mean": 2.8333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 17,
+            "mean": 2.8333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 12,
+            "mean": 2,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 38152,
+            "mean": 6358.666666666667,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 1961,
+            "mean": 326.8333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 40113,
+            "mean": 6685.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 40113,
+            "mean": 6685.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 18.8453532070007,
+            "mean": 3.1408922011667832,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        },
+        "v4": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 20,
+            "mean": 3.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 20,
+            "mean": 3.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 14,
+            "mean": 2.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 51638,
+            "mean": 8606.333333333334,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2888,
+            "mean": 481.3333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 54526,
+            "mean": 9087.666666666666,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 54526,
+            "mean": 9087.666666666666,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 26.75015462599731,
+            "mean": 4.458359104332885,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        }
+      },
+      "decision_counts": {
+        "v2": {
+          "responses": 19,
+          "eligible_responses": 3,
+          "contract_active_responses": 0,
+          "applicable_query_calls": 1,
+          "applicable_query_declaration_missing": 1,
+          "declarations": 0,
+          "structured_change_supported": 0,
+          "structured_change_unsupported": 0,
+          "structured_change_unverified": 0
+        },
+        "v3": {
+          "responses": 17,
+          "eligible_responses": 2,
+          "contract_active_responses": 2,
+          "declarations": 2,
+          "declaration_format_v3_legacy": 2,
+          "structured_change_unsupported": 2,
+          "support_reason_cited_events_are_not_after_the_last_successful_query": 2,
+          "structured_change_supported": 0,
+          "structured_change_unverified": 0
+        },
+        "v4": {
+          "responses": 20,
+          "eligible_responses": 2,
+          "contract_active_responses": 2,
+          "declarations": 3,
+          "declaration_format_split_v4": 3,
+          "structured_change_unsupported": 1,
+          "support_reason_cited_events_are_not_after_the_last_successful_query": 1,
+          "structured_change_supported": 2,
+          "support_reason_same_actor_public_fact_differs_from_successful_query_baseline": 1,
+          "support_reason_no_change_observed_in_supported_public_fields_after_successful_query": 1,
+          "structured_change_unverified": 0
+        }
+      }
+    },
+    "3": {
+      "arms": {
+        "v2": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 14,
+            "mean": 2.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 43826,
+            "mean": 7304.333333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2481,
+            "mean": 413.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 46307,
+            "mean": 7717.833333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 46307,
+            "mean": 7717.833333333333,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 22.62080408300062,
+            "mean": 3.7701340138334367,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 1,
+            "mean": 0.16666666666666666,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        },
+        "v3": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 19,
+            "mean": 3.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 13,
+            "mean": 2.1666666666666665,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 44223,
+            "mean": 7370.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2415,
+            "mean": 402.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 46638,
+            "mean": 7773,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 46638,
+            "mean": 7773,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 23.022278082000412,
+            "mean": 3.8370463470000686,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        },
+        "v4": {
+          "completed_trials": 6,
+          "checker_successes": 6,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 6
+          },
+          "model_request_attempts": {
+            "sum": 20,
+            "mean": 3.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 20,
+            "mean": 3.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 14,
+            "mean": 2.3333333333333335,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 51498,
+            "mean": 8583,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 2877,
+            "mean": 479.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 54375,
+            "mean": 9062.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 54375,
+            "mean": 9062.5,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 26.136246751000726,
+            "mean": 4.356041125166787,
+            "known_trials": 6,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 6,
+            "missing_trials": 0
+          }
+        }
+      },
+      "decision_counts": {
+        "v2": {
+          "responses": 19,
+          "eligible_responses": 3,
+          "contract_active_responses": 0,
+          "applicable_query_calls": 1,
+          "applicable_query_declaration_missing": 1,
+          "declarations": 0,
+          "structured_change_supported": 0,
+          "structured_change_unsupported": 0,
+          "structured_change_unverified": 0
+        },
+        "v3": {
+          "responses": 19,
+          "eligible_responses": 2,
+          "contract_active_responses": 2,
+          "declarations": 3,
+          "declaration_format_v3_legacy": 3,
+          "structured_change_unsupported": 2,
+          "support_reason_cited_events_are_not_after_the_last_successful_query": 2,
+          "structured_change_supported": 1,
+          "support_reason_same_actor_public_fact_differs_from_successful_query_baseline": 1,
+          "structured_change_unverified": 0
+        },
+        "v4": {
+          "responses": 20,
+          "eligible_responses": 2,
+          "contract_active_responses": 2,
+          "declarations": 4,
+          "declaration_format_split_v4": 4,
+          "structured_change_supported": 3,
+          "support_reason_same_actor_public_fact_differs_from_successful_query_baseline": 2,
+          "structured_change_unsupported": 1,
+          "support_reason_cited_events_are_not_after_the_last_successful_query": 1,
+          "support_reason_no_change_observed_in_supported_public_fields_after_successful_query": 1,
+          "structured_change_unverified": 0
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "v3_vs_v2": {
+      "baseline": "v2",
+      "candidate": "v3",
+      "overall": {
+        "scheduled_pairs": 18,
+        "complete_pairs": 18,
+        "missing_pairs": 0,
+        "candidate_success_wins": 0,
+        "candidate_success_losses": 0,
+        "ties_both_success": 18,
+        "ties_both_failure": 0,
+        "fewer_actual_duplicate_queries": 3,
+        "same_actual_duplicate_queries": 15,
+        "more_actual_duplicate_queries": 0,
+        "duplicate_query_comparison_eligible_pairs": 18,
+        "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+        "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+        "both_normally_finished_pairs": 18
+      },
+      "by_round": {
+        "1": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 1,
+          "same_actual_duplicate_queries": 5,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        },
+        "2": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 1,
+          "same_actual_duplicate_queries": 5,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        },
+        "3": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 1,
+          "same_actual_duplicate_queries": 5,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        }
+      },
+      "per_case_repeat_outcomes": {
+        "clue-horizontal": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 1,
+            "same_actual_duplicate_queries": 2,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 352,
+                "output_tokens": -91,
+                "total_tokens": 261,
+                "charged_tokens_including_uncertain_requests": 261,
+                "seconds": -0.4159667090007133,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -1,
+                "input_tokens": -2810,
+                "output_tokens": -127,
+                "total_tokens": -2937,
+                "charged_tokens_including_uncertain_requests": -2937,
+                "seconds": -1.4488494579991311,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -2,
+                "input_tokens": -3792,
+                "output_tokens": -159,
+                "total_tokens": -3951,
+                "charged_tokens_including_uncertain_requests": -3951,
+                "seconds": -1.2146800830005304,
+                "repeated_successful_sense_queries": -1
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "clue-vertical": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 2,
+            "same_actual_duplicate_queries": 1,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -2,
+                "input_tokens": -4088,
+                "output_tokens": -115,
+                "total_tokens": -4203,
+                "charged_tokens_including_uncertain_requests": -4203,
+                "seconds": -2.5063614589998906,
+                "repeated_successful_sense_queries": -1
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -2,
+                "input_tokens": -3679,
+                "output_tokens": -176,
+                "total_tokens": -3855,
+                "charged_tokens_including_uncertain_requests": -3855,
+                "seconds": -1.4576834169993163,
+                "repeated_successful_sense_queries": -1
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 1,
+                "model_calls": 1,
+                "tool_calls": 1,
+                "input_tokens": 4219,
+                "output_tokens": 141,
+                "total_tokens": 4360,
+                "charged_tokens_including_uncertain_requests": 4360,
+                "seconds": 2.1258503319995725,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "control-complete": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -5,
+                "output_tokens": -5,
+                "total_tokens": -10,
+                "charged_tokens_including_uncertain_requests": -10,
+                "seconds": 0.28312662499865837,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -15,
+                "output_tokens": -23,
+                "total_tokens": -38,
+                "charged_tokens_including_uncertain_requests": -38,
+                "seconds": 0.06885362499997427,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -6,
+                "output_tokens": -4,
+                "total_tokens": -10,
+                "charged_tokens_including_uncertain_requests": -10,
+                "seconds": 0.01679262500056211,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "control-failed-sense": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 1,
+                "model_calls": 1,
+                "tool_calls": 1,
+                "input_tokens": 2557,
+                "output_tokens": 149,
+                "total_tokens": 2706,
+                "charged_tokens_including_uncertain_requests": 2706,
+                "seconds": 1.2380237500001385,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 1,
+                "input_tokens": 374,
+                "output_tokens": -8,
+                "total_tokens": 366,
+                "charged_tokens_including_uncertain_requests": 366,
+                "seconds": -0.6679410420001659,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": 4,
+                "total_tokens": 4,
+                "charged_tokens_including_uncertain_requests": 4,
+                "seconds": 0.6137311250004132,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "route-blocked": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": 32,
+                "total_tokens": 32,
+                "charged_tokens_including_uncertain_requests": 32,
+                "seconds": -0.5221433329998035,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -63,
+                "output_tokens": -6,
+                "total_tokens": -69,
+                "charged_tokens_including_uncertain_requests": -69,
+                "seconds": 0.3017574589994183,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -24,
+                "output_tokens": -22,
+                "total_tokens": -46,
+                "charged_tokens_including_uncertain_requests": -46,
+                "seconds": -0.3402086659998531,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "route-interrupted": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -38,
+                "output_tokens": -18,
+                "total_tokens": -56,
+                "charged_tokens_including_uncertain_requests": -56,
+                "seconds": -0.06621374899987131,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -38,
+                "output_tokens": -18,
+                "total_tokens": -56,
+                "charged_tokens_including_uncertain_requests": -56,
+                "seconds": -0.7759693749994767,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": -26,
+                "total_tokens": -26,
+                "charged_tokens_including_uncertain_requests": -26,
+                "seconds": -0.8000113340003736,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        }
+      },
+      "both_normally_finished_only": {
+        "pair_count": 18,
+        "baseline": {
+          "completed_trials": 18,
+          "checker_successes": 18,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 18
+          },
+          "model_request_attempts": {
+            "sum": 57,
+            "mean": 3.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 57,
+            "mean": 3.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 42,
+            "mean": 2.3333333333333335,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 133659,
+            "mean": 7425.5,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 7292,
+            "mean": 405.1111111111111,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 140951,
+            "mean": 7830.611111111111,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 140951,
+            "mean": 7830.611111111111,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 69.30729779000103,
+            "mean": 3.850405432777835,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 3,
+            "mean": 0.16666666666666666,
+            "known_trials": 18,
+            "missing_trials": 0
+          }
+        },
+        "candidate": {
+          "completed_trials": 18,
+          "checker_successes": 18,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 18
+          },
+          "model_request_attempts": {
+            "sum": 55,
+            "mean": 3.0555555555555554,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 55,
+            "mean": 3.0555555555555554,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 38,
+            "mean": 2.111111111111111,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 126603,
+            "mean": 7033.5,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 6820,
+            "mean": 378.8888888888889,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 133423,
+            "mean": 7412.388888888889,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 133423,
+            "mean": 7412.388888888889,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 63.73940470600064,
+            "mean": 3.541078039222258,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 18,
+            "missing_trials": 0
+          }
+        }
+      }
+    },
+    "v4_vs_v2": {
+      "baseline": "v2",
+      "candidate": "v4",
+      "overall": {
+        "scheduled_pairs": 18,
+        "complete_pairs": 18,
+        "missing_pairs": 0,
+        "candidate_success_wins": 0,
+        "candidate_success_losses": 0,
+        "ties_both_success": 18,
+        "ties_both_failure": 0,
+        "fewer_actual_duplicate_queries": 3,
+        "same_actual_duplicate_queries": 15,
+        "more_actual_duplicate_queries": 0,
+        "duplicate_query_comparison_eligible_pairs": 18,
+        "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+        "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+        "both_normally_finished_pairs": 18
+      },
+      "by_round": {
+        "1": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 1,
+          "same_actual_duplicate_queries": 5,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        },
+        "2": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 1,
+          "same_actual_duplicate_queries": 5,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        },
+        "3": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 1,
+          "same_actual_duplicate_queries": 5,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        }
+      },
+      "per_case_repeat_outcomes": {
+        "clue-horizontal": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 1,
+            "same_actual_duplicate_queries": 2,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 436,
+                "output_tokens": -43,
+                "total_tokens": 393,
+                "charged_tokens_including_uncertain_requests": 393,
+                "seconds": 0.4685391659986635,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -1,
+                "input_tokens": -2746,
+                "output_tokens": -73,
+                "total_tokens": -2819,
+                "charged_tokens_including_uncertain_requests": -2819,
+                "seconds": -0.9396133330001248,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -2,
+                "input_tokens": -3730,
+                "output_tokens": -117,
+                "total_tokens": -3847,
+                "charged_tokens_including_uncertain_requests": -3847,
+                "seconds": -0.5205129989999477,
+                "repeated_successful_sense_queries": -1
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "clue-vertical": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 2,
+            "same_actual_duplicate_queries": 1,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -2,
+                "model_calls": -2,
+                "tool_calls": -3,
+                "input_tokens": -7933,
+                "output_tokens": -354,
+                "total_tokens": -8287,
+                "charged_tokens_including_uncertain_requests": -8287,
+                "seconds": -3.9145119169997997,
+                "repeated_successful_sense_queries": -1
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 2,
+                "model_calls": 2,
+                "tool_calls": 1,
+                "input_tokens": 10043,
+                "output_tokens": 698,
+                "total_tokens": 10741,
+                "charged_tokens_including_uncertain_requests": 10741,
+                "seconds": 4.011296582999421,
+                "repeated_successful_sense_queries": -1
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 3,
+                "model_calls": 3,
+                "tool_calls": 3,
+                "input_tokens": 14001,
+                "output_tokens": 689,
+                "total_tokens": 14690,
+                "charged_tokens_including_uncertain_requests": 14690,
+                "seconds": 5.147025124999345,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "control-complete": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -1,
+                "output_tokens": -3,
+                "total_tokens": -4,
+                "charged_tokens_including_uncertain_requests": -4,
+                "seconds": -0.060886500000378874,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -15,
+                "output_tokens": -48,
+                "total_tokens": -63,
+                "charged_tokens_including_uncertain_requests": -63,
+                "seconds": 0.45738687599987315,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -15,
+                "output_tokens": -26,
+                "total_tokens": -41,
+                "charged_tokens_including_uncertain_requests": -41,
+                "seconds": 0.05415208300019003,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "control-failed-sense": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 4,
+                "output_tokens": 24,
+                "total_tokens": 28,
+                "charged_tokens_including_uncertain_requests": 28,
+                "seconds": 0.002711582999836537,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -25,
+                "output_tokens": -10,
+                "total_tokens": -35,
+                "charged_tokens_including_uncertain_requests": -35,
+                "seconds": 0.1896906249994572,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -1,
+                "input_tokens": -2557,
+                "output_tokens": -129,
+                "total_tokens": -2686,
+                "charged_tokens_including_uncertain_requests": -2686,
+                "seconds": -0.8669038329999239,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "route-blocked": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": 30,
+                "total_tokens": 30,
+                "charged_tokens_including_uncertain_requests": 30,
+                "seconds": -0.0373634999996284,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -2,
+                "output_tokens": -7,
+                "total_tokens": -9,
+                "charged_tokens_including_uncertain_requests": -9,
+                "seconds": -0.46525691600072605,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -27,
+                "output_tokens": -19,
+                "total_tokens": -46,
+                "charged_tokens_including_uncertain_requests": -46,
+                "seconds": 0.27773412500027916,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "route-interrupted": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": 7,
+                "total_tokens": 7,
+                "charged_tokens_including_uncertain_requests": 7,
+                "seconds": 0.4643555839993496,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": 9,
+                "total_tokens": 9,
+                "charged_tokens_including_uncertain_requests": 9,
+                "seconds": 0.6714653760000147,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": -2,
+                "total_tokens": -2,
+                "charged_tokens_including_uncertain_requests": -2,
+                "seconds": -0.5760518329998376,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        }
+      },
+      "both_normally_finished_only": {
+        "pair_count": 18,
+        "baseline": {
+          "completed_trials": 18,
+          "checker_successes": 18,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 18
+          },
+          "model_request_attempts": {
+            "sum": 57,
+            "mean": 3.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 57,
+            "mean": 3.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 42,
+            "mean": 2.3333333333333335,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 133659,
+            "mean": 7425.5,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 7292,
+            "mean": 405.1111111111111,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 140951,
+            "mean": 7830.611111111111,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 140951,
+            "mean": 7830.611111111111,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 69.30729779000103,
+            "mean": 3.850405432777835,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 3,
+            "mean": 0.16666666666666666,
+            "known_trials": 18,
+            "missing_trials": 0
+          }
+        },
+        "candidate": {
+          "completed_trials": 18,
+          "checker_successes": 18,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 18
+          },
+          "model_request_attempts": {
+            "sum": 57,
+            "mean": 3.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 57,
+            "mean": 3.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 39,
+            "mean": 2.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 141092,
+            "mean": 7838.444444444444,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 7918,
+            "mean": 439.8888888888889,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 149010,
+            "mean": 8278.333333333334,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 149010,
+            "mean": 8278.333333333334,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 73.6705540849971,
+            "mean": 4.092808560277616,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 18,
+            "missing_trials": 0
+          }
+        }
+      }
+    },
+    "v4_vs_v3": {
+      "baseline": "v3",
+      "candidate": "v4",
+      "overall": {
+        "scheduled_pairs": 18,
+        "complete_pairs": 18,
+        "missing_pairs": 0,
+        "candidate_success_wins": 0,
+        "candidate_success_losses": 0,
+        "ties_both_success": 18,
+        "ties_both_failure": 0,
+        "fewer_actual_duplicate_queries": 0,
+        "same_actual_duplicate_queries": 18,
+        "more_actual_duplicate_queries": 0,
+        "duplicate_query_comparison_eligible_pairs": 18,
+        "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+        "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+        "both_normally_finished_pairs": 18
+      },
+      "by_round": {
+        "1": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 0,
+          "same_actual_duplicate_queries": 6,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        },
+        "2": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 0,
+          "same_actual_duplicate_queries": 6,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        },
+        "3": {
+          "scheduled_pairs": 6,
+          "complete_pairs": 6,
+          "missing_pairs": 0,
+          "candidate_success_wins": 0,
+          "candidate_success_losses": 0,
+          "ties_both_success": 6,
+          "ties_both_failure": 0,
+          "fewer_actual_duplicate_queries": 0,
+          "same_actual_duplicate_queries": 6,
+          "more_actual_duplicate_queries": 0,
+          "duplicate_query_comparison_eligible_pairs": 6,
+          "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+          "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+          "both_normally_finished_pairs": 6
+        }
+      },
+      "per_case_repeat_outcomes": {
+        "clue-horizontal": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 84,
+                "output_tokens": 48,
+                "total_tokens": 132,
+                "charged_tokens_including_uncertain_requests": 132,
+                "seconds": 0.8845058749993768,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 64,
+                "output_tokens": 54,
+                "total_tokens": 118,
+                "charged_tokens_including_uncertain_requests": 118,
+                "seconds": 0.5092361249990063,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 62,
+                "output_tokens": 42,
+                "total_tokens": 104,
+                "charged_tokens_including_uncertain_requests": 104,
+                "seconds": 0.6941670840005827,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "clue-vertical": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -1,
+                "input_tokens": -3845,
+                "output_tokens": -239,
+                "total_tokens": -4084,
+                "charged_tokens_including_uncertain_requests": -4084,
+                "seconds": -1.4081504579999091,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 3,
+                "model_calls": 3,
+                "tool_calls": 3,
+                "input_tokens": 13722,
+                "output_tokens": 874,
+                "total_tokens": 14596,
+                "charged_tokens_including_uncertain_requests": 14596,
+                "seconds": 5.468979999998737,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 2,
+                "model_calls": 2,
+                "tool_calls": 2,
+                "input_tokens": 9782,
+                "output_tokens": 548,
+                "total_tokens": 10330,
+                "charged_tokens_including_uncertain_requests": 10330,
+                "seconds": 3.0211747929997728,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "control-complete": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 4,
+                "output_tokens": 2,
+                "total_tokens": 6,
+                "charged_tokens_including_uncertain_requests": 6,
+                "seconds": -0.34401312499903725,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": -25,
+                "total_tokens": -25,
+                "charged_tokens_including_uncertain_requests": -25,
+                "seconds": 0.3885332509998989,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -9,
+                "output_tokens": -22,
+                "total_tokens": -31,
+                "charged_tokens_including_uncertain_requests": -31,
+                "seconds": 0.03735945799962792,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "control-failed-sense": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -1,
+                "input_tokens": -2553,
+                "output_tokens": -125,
+                "total_tokens": -2678,
+                "charged_tokens_including_uncertain_requests": -2678,
+                "seconds": -1.235312167000302,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": -1,
+                "input_tokens": -399,
+                "output_tokens": -2,
+                "total_tokens": -401,
+                "charged_tokens_including_uncertain_requests": -401,
+                "seconds": 0.8576316669996231,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": -1,
+                "model_calls": -1,
+                "tool_calls": -1,
+                "input_tokens": -2557,
+                "output_tokens": -133,
+                "total_tokens": -2690,
+                "charged_tokens_including_uncertain_requests": -2690,
+                "seconds": -1.480634958000337,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "route-blocked": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": -2,
+                "total_tokens": -2,
+                "charged_tokens_including_uncertain_requests": -2,
+                "seconds": 0.48477983300017513,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 61,
+                "output_tokens": -1,
+                "total_tokens": 60,
+                "charged_tokens_including_uncertain_requests": 60,
+                "seconds": -0.7670143750001444,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": -3,
+                "output_tokens": 3,
+                "total_tokens": 0,
+                "charged_tokens_including_uncertain_requests": 0,
+                "seconds": 0.6179427910001323,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        },
+        "route-interrupted": {
+          "counts": {
+            "scheduled_pairs": 3,
+            "complete_pairs": 3,
+            "missing_pairs": 0,
+            "candidate_success_wins": 0,
+            "candidate_success_losses": 0,
+            "ties_both_success": 3,
+            "ties_both_failure": 0,
+            "fewer_actual_duplicate_queries": 0,
+            "same_actual_duplicate_queries": 3,
+            "more_actual_duplicate_queries": 0,
+            "duplicate_query_comparison_eligible_pairs": 3,
+            "duplicate_query_counts_use_only_both_normally_finished_pairs": true,
+            "early_stopped_pairs_excluded_from_duplicate_benefit": [],
+            "both_normally_finished_pairs": 3
+          },
+          "rounds": [
+            {
+              "repeat": 1,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 38,
+                "output_tokens": 25,
+                "total_tokens": 63,
+                "charged_tokens_including_uncertain_requests": 63,
+                "seconds": 0.5305693329992209,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 2,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 38,
+                "output_tokens": 27,
+                "total_tokens": 65,
+                "charged_tokens_including_uncertain_requests": 65,
+                "seconds": 1.4474347509994914,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            },
+            {
+              "repeat": 3,
+              "success_outcome": "tie_success",
+              "candidate_minus_baseline": {
+                "model_request_attempts": 0,
+                "model_calls": 0,
+                "tool_calls": 0,
+                "input_tokens": 0,
+                "output_tokens": 24,
+                "total_tokens": 24,
+                "charged_tokens_including_uncertain_requests": 24,
+                "seconds": 0.22395950100053597,
+                "repeated_successful_sense_queries": 0
+              },
+              "resources_comparable": true
+            }
+          ]
+        }
+      },
+      "both_normally_finished_only": {
+        "pair_count": 18,
+        "baseline": {
+          "completed_trials": 18,
+          "checker_successes": 18,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 18
+          },
+          "model_request_attempts": {
+            "sum": 55,
+            "mean": 3.0555555555555554,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 55,
+            "mean": 3.0555555555555554,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 38,
+            "mean": 2.111111111111111,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 126603,
+            "mean": 7033.5,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 6820,
+            "mean": 378.8888888888889,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 133423,
+            "mean": 7412.388888888889,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 133423,
+            "mean": 7412.388888888889,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 63.73940470600064,
+            "mean": 3.541078039222258,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 18,
+            "missing_trials": 0
+          }
+        },
+        "candidate": {
+          "completed_trials": 18,
+          "checker_successes": 18,
+          "success_rate": 1.0,
+          "statuses": {
+            "model_finished": 18
+          },
+          "model_request_attempts": {
+            "sum": 57,
+            "mean": 3.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "model_calls": {
+            "sum": 57,
+            "mean": 3.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "tool_calls": {
+            "sum": 39,
+            "mean": 2.1666666666666665,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "input_tokens": {
+            "sum": 141092,
+            "mean": 7838.444444444444,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "output_tokens": {
+            "sum": 7918,
+            "mean": 439.8888888888889,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "total_tokens": {
+            "sum": 149010,
+            "mean": 8278.333333333334,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "charged_tokens_including_uncertain_requests": {
+            "sum": 149010,
+            "mean": 8278.333333333334,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "seconds": {
+            "sum": 73.6705540849971,
+            "mean": 4.092808560277616,
+            "known_trials": 18,
+            "missing_trials": 0
+          },
+          "repeated_successful_sense_queries": {
+            "sum": 0,
+            "mean": 0,
+            "known_trials": 18,
+            "missing_trials": 0
+          }
+        }
+      }
+    }
+  },
+  "budget": {
+    "model_calls": 6,
+    "tool_calls": 12,
+    "seconds": 90,
+    "total_tokens": 60000,
+    "max_output_tokens": 768,
+    "projection_chars": 3900,
+    "campaign_tokens": 900000,
+    "round_tokens": 300000
+  },
+  "global_budget": {
+    "charged_tokens": 423384,
+    "recomputed_charge": 423384,
+    "accounting_matches": true,
+    "cap": 900000,
+    "within_cap": true,
+    "by_round": {
+      "1": {
+        "charged_tokens": 134723,
+        "unsettled_requests": 0,
+        "cap": 300000,
+        "within_cap": true
+      },
+      "2": {
+        "charged_tokens": 141341,
+        "unsettled_requests": 0,
+        "cap": 300000,
+        "within_cap": true
+      },
+      "3": {
+        "charged_tokens": 147320,
+        "unsettled_requests": 0,
+        "cap": 300000,
+        "within_cap": true
+      }
+    },
+    "unsettled_requests": 0
+  },
+  "budget_limited_trials": [],
+  "decision_audit": {
+    "arms": {
+      "v2": {
+        "responses": 57,
+        "eligible_responses": 9,
+        "contract_active_responses": 0,
+        "declarations": 0,
+        "structured_change_supported": 0,
+        "structured_change_unsupported": 0,
+        "structured_change_unverified": 0,
+        "applicable_query_calls": 3,
+        "applicable_query_declaration_missing": 3
+      },
+      "v3": {
+        "responses": 55,
+        "eligible_responses": 6,
+        "contract_active_responses": 6,
+        "declarations": 9,
+        "declaration_format_v3_legacy": 9,
+        "structured_change_unsupported": 6,
+        "support_reason_cited_events_are_not_after_the_last_successful_query": 6,
+        "structured_change_supported": 3,
+        "structured_change_unverified": 0,
+        "support_reason_same_actor_public_fact_differs_from_successful_query_baseline": 2,
+        "support_reason_no_change_observed_in_supported_public_fields_after_successful_query": 1
+      },
+      "v4": {
+        "responses": 57,
+        "eligible_responses": 6,
+        "contract_active_responses": 6,
+        "declarations": 7,
+        "structured_change_supported": 5,
+        "structured_change_unsupported": 2,
+        "structured_change_unverified": 0,
+        "declaration_format_split_v4": 7,
+        "support_reason_cited_events_are_not_after_the_last_successful_query": 2,
+        "support_reason_same_actor_public_fact_differs_from_successful_query_baseline": 3,
+        "support_reason_no_change_observed_in_supported_public_fields_after_successful_query": 2
+      }
+    },
+    "missing_declarations_count_as_correct": false,
+    "scope": "Structured observed-change support from pre-model public receipts only; free text is not verified. Planned actions are intentions, not executed facts.",
+    "duplicate_sensing_exempted_by_stated_reasons": false
+  },
+  "current_integrity_passed": true,
+  "limitations": [
+    "The same six cases were used in development; repetitions test stochastic consistency, not generalization.",
+    "Three repetitions per case are descriptive; no population success or significance claim.",
+    "V2 has no declaration requirement; absence of a claim is neither a supported nor an unsupported explanation.",
+    "Structured support does not prove that the free-text explanation is true or that a repeated query was necessary.",
+    "All tool requests execute unchanged regardless of missing, malformed or unsupported reasons.",
+    "Only both-normally-finished pairs support resource comparison; budget stops are listed separately.",
+    "Cache hit/miss and output tokens are retained separately; total tokens do not establish monetary savings.",
+    "Repeated sensing concerns equal actor/position in this static simulator; reason text never cancels the diagnostic.",
+    "Current checks do not prove continuous on-disk source identity during execution."
+  ]
+}

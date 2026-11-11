@@ -1,0 +1,28 @@
+{
+  "frozen_source_files": 96,
+  "current_source_mismatches": [],
+  "protocol_matches_frozen": true,
+  "credential_value_present_in_run_files": false,
+  "manifest_sha256": "357de0553bdd0527c973a5e4311146b09465524ca000781b64f3818b2f1becb8",
+  "campaign_seal_sha256": "4b8df0ce3587cfb3f7db144ccd4cf10a38719d2d214942aa5a49e8ba8378322e",
+  "verification": {
+    "valid": true,
+    "sealed_files": 338,
+    "planned_trials": 8,
+    "started_trials": 8,
+    "scored_trials": 8,
+    "local_smoke": false,
+    "cost_journal_replayed_without_open": true
+  },
+  "analysis_valid": true,
+  "real_provider_requests": 56,
+  "first_combined_test_outcome": "592 passed / 1 failed: adapter baseline requires no imported uav_agent global patch; retained log",
+  "isolated_regression": {
+    "runtime_initial": 539,
+    "adapter": 54,
+    "analysis_final": 28,
+    "analysis_note": "final analyzer adds three tests after initial 25; overlapping tests are not added twice",
+    "unique_final_tests": 596
+  },
+  "local_smoke_archive": "8785b9807d73b8b2764a3d37b222ff14238ba947e888d86982e01fc6fe47ed23"
+}

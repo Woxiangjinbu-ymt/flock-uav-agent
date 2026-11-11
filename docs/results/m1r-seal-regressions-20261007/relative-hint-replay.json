@@ -1,0 +1,157 @@
+{
+  "scope": "offline clue recovery only; no navigation/model replay or task-success claim",
+  "source_trace": "experiments/runs/20261006-214358-m1r-fast100-b4e9b6f3/35ce64d8/agent-traces/toolchains/20261006T225241743741_35ce64d8_2913ce40-bf11-4a77-80b7-292c74942dcd_completed.json",
+  "source_task": "de294a89",
+  "original_events": [
+    {
+      "args": {
+        "distance": 79.0,
+        "drone_id": "7954b39a",
+        "heading": 180.0
+      },
+      "end_sequence": 52,
+      "entity_ids": [],
+      "evidence_id": "e51",
+      "ordering": "certain",
+      "overlaps": [],
+      "payload": {
+        "command": "move_towards",
+        "command_id": "2a8c4414",
+        "drone_id": "7954b39a",
+        "message": "Drone moved 79.00m to position (154.00, 36.00, 18.00), heading: 180.0° (battery: -0.5%/-0mAh, remaining: 98.2%/74mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "outcome": "completed",
+        "status": "success",
+        "timestamp": 1791298354.683787
+      },
+      "scope": "action_receipt",
+      "source_clause_ids": [
+        "clause-1",
+        "clause-2"
+      ],
+      "start_sequence": 51,
+      "status": "completed",
+      "tool_call_id": "call_00_KxfycsR1S3VOuKKTUf500987",
+      "tool_name": "move_towards"
+    },
+    {
+      "args": {
+        "distance": 88.0,
+        "drone_id": "7954b39a",
+        "heading": 0.0
+      },
+      "end_sequence": 54,
+      "entity_ids": [],
+      "evidence_id": "e53",
+      "ordering": "certain",
+      "overlaps": [],
+      "payload": {
+        "command": "move_towards",
+        "command_id": "ee6fb3bb",
+        "drone_id": "7954b39a",
+        "message": "Drone moved 88.00m to position (154.00, 124.00, 18.00), heading: 0.0° (battery: -0.5%/-0mAh, remaining: 97.6%/74mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "outcome": "completed",
+        "status": "success",
+        "timestamp": 1791298356.063738
+      },
+      "scope": "action_receipt",
+      "source_clause_ids": [
+        "clause-1",
+        "clause-2"
+      ],
+      "start_sequence": 53,
+      "status": "completed",
+      "tool_call_id": "call_00_AvUWW2LtlWCMcObkcdxQ6078",
+      "tool_name": "move_towards"
+    }
+  ],
+  "candidate_hints": [
+    {
+      "kind": "receipt_derived_relative_segment",
+      "points": [
+        [
+          154.0,
+          115.0,
+          18.0
+        ],
+        [
+          154.0,
+          36.0,
+          18.0
+        ]
+      ],
+      "coordinate_rounding_m": 0.02,
+      "reported_names": [
+        "Fixed Target 10",
+        "Fixed Target 11"
+      ],
+      "source": {
+        "session_id": "35ce64d8",
+        "command_id": "2913ce40-bf11-4a77-80b7-292c74942dcd",
+        "evidence_id": "e51",
+        "tool_call_id": "call_00_KxfycsR1S3VOuKKTUf500987",
+        "actor_id": "7954b39a",
+        "message_path": [
+          "message"
+        ]
+      },
+      "target_position": null,
+      "current_assignment_completed": false,
+      "meaning": "historical contact near this segment; search clue only; no endpoint/radius guarantee"
+    },
+    {
+      "kind": "receipt_derived_relative_segment",
+      "points": [
+        [
+          154.0,
+          36.0,
+          18.0
+        ],
+        [
+          154.0,
+          124.0,
+          18.0
+        ]
+      ],
+      "coordinate_rounding_m": 0.02,
+      "reported_names": [
+        "Fixed Target 10",
+        "Fixed Target 11"
+      ],
+      "source": {
+        "session_id": "35ce64d8",
+        "command_id": "2913ce40-bf11-4a77-80b7-292c74942dcd",
+        "evidence_id": "e53",
+        "tool_call_id": "call_00_AvUWW2LtlWCMcObkcdxQ6078",
+        "actor_id": "7954b39a",
+        "message_path": [
+          "message"
+        ]
+      },
+      "target_position": null,
+      "current_assignment_completed": false,
+      "meaning": "historical contact near this segment; search clue only; no endpoint/radius guarantee"
+    }
+  ],
+  "new_search_hints_for_two_unresolved_assignments": true,
+  "current_assignment_completed": false,
+  "audit_only_geometry": [
+    {
+      "name": "Fixed Target 10",
+      "audit_only_ground_truth": [
+        150.0,
+        44.0,
+        0.0
+      ],
+      "distance_from_e51_endpoint_3d_m": 20.09975124224178
+    },
+    {
+      "name": "Fixed Target 11",
+      "audit_only_ground_truth": [
+        164.0,
+        15.0,
+        0.0
+      ],
+      "distance_from_e51_endpoint_3d_m": 29.410882339705484
+    }
+  ]
+}

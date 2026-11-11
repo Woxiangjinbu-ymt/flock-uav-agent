@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>阶段研究报告（二）｜Harness 引导的多无人机小模型后训练路线</title>
+<style>
+:root{--ink:#193047;--muted:#5b6d7f;--blue:#236ca2;--line:#d9e3eb;--paper:#fff;--bg:#f3f6f8;--amber:#946517;--violet:#7a55a2}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:75px}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.85 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif}a{color:var(--blue);text-underline-offset:4px;overflow-wrap:anywhere}a:hover{color:#164c75}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #d4a33d;outline-offset:4px}.topbar{position:sticky;top:0;z-index:10;background:#fffffff5;border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}.topinner{max-width:1320px;margin:auto;display:flex;gap:24px;align-items:center;padding:12px 24px;font-size:14px}.brand{font-weight:750;letter-spacing:.08em;margin-right:auto}.topinner a{text-decoration:none;color:var(--muted)}main{max-width:1120px;margin:30px auto 0;background:var(--paper);padding:62px 60px 70px}header{border-bottom:1px solid var(--line);padding-bottom:36px;margin-bottom:40px}.eyebrow{font-size:13px;letter-spacing:.15em;color:var(--blue);font-weight:750;text-transform:uppercase}h1{font-size:43px;line-height:1.35;letter-spacing:-.03em;margin:14px 0 24px}h1 span{display:block;font-size:26px;font-weight:500;color:var(--muted);margin-top:12px}.lead{font-size:21px;line-height:1.8;max-width:920px}.meta{font-size:14px;color:var(--muted)}h2{font-size:28px;line-height:1.45;margin:58px 0 22px;padding-top:8px}h2 .n{font-size:15px;color:var(--blue);font-weight:600;display:block;letter-spacing:.14em;margin-bottom:7px}h3{font-size:21px;line-height:1.5;margin:30px 0 12px}p{margin:13px 0}strong{font-weight:700}ul,ol{padding-left:1.5em}li{padding:3px 0}.callout{border-left:4px solid var(--blue);background:#f0f6fa;padding:18px 23px;margin:24px 0}.callout p{margin:4px 0}.note{border-left-color:#b98632;background:#fff8eb}.label{display:inline-block;font-size:12px;padding:1px 8px;border:1px solid #b9ccdf;border-radius:4px;color:#2d6b9f;background:#edf5fd;white-space:nowrap;line-height:1.7;font-weight:650}.label.u{background:#f1f4f7;border-color:#bac6d3;color:#5c6c7b}.label.p{background:#fff6e6;border-color:#d8bd8f;color:#8c641e}.label.d{background:#f6f0fb;border:1px dashed #ab91c7;color:#7a55a2}.toc{display:grid;grid-template-columns:1fr 1fr;column-gap:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin:28px 0}.toc a{padding:4px 0;text-decoration:none;font-size:15px}.fig{margin:28px -35px 34px}.fig-shell{overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff}.fig svg{display:block;width:100%;height:auto}.fig-tools{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:8px 0;color:var(--muted);font-size:13px}.fig-tools button{border:0;background:transparent;color:var(--blue);padding:2px 0}.fig-tools a{text-decoration:none}.fig figcaption{color:var(--muted);font-size:14px;line-height:1.75;margin:10px 0}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:7px;margin:23px 0}table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.7;min-width:780px;text-align:left}th{background:#edf3f7;font-weight:700;white-space:nowrap}th,td{vertical-align:top;padding:14px 15px;border-bottom:1px solid var(--line)}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#fafcfd}td:first-child{font-weight:650}td code{white-space:normal;overflow-wrap:anywhere}code{font-family:"SFMono-Regular",Consolas,monospace;font-size:.87em;background:#edf2f6;padding:2px 4px;border-radius:3px}pre{background:#152d43;color:#eef5fc;padding:23px;border-radius:8px;overflow-x:auto;font-size:14px;line-height:1.85}pre code{background:none;color:inherit;padding:0}.steps{counter-reset:step;list-style:none;padding:0}.steps li{position:relative;padding:11px 0 14px 44px;border-bottom:1px solid var(--line)}.steps li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:13px;color:var(--blue);font-weight:750}.source-list{font-size:14px;line-height:1.8}.source-list li{padding:7px 0}.quote{font-size:18px;line-height:1.95;padding:23px 27px;border:1px solid var(--line);border-radius:8px;background:#fcfdff}.mini{font-size:14px;color:var(--muted)}footer{max-width:1120px;margin:auto;padding:25px 24px 45px;color:var(--muted);font-size:13px}dialog{border:1px solid var(--line);border-radius:12px;width:96vw;max-width:none;height:94vh;padding:0;background:white;color:var(--ink)}dialog::backdrop{background:#142c46bd}.dialog-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;background:white;border-bottom:1px solid var(--line);z-index:1}.dialog-bar button{border:1px solid var(--line);border-radius:5px;background:#f3f7fa;padding:4px 15px}.dialog-body{overflow:auto;height:calc(100% - 64px);padding:18px}.dialog-body svg{display:block;width:100%;height:auto;min-width:1050px}.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}.split>div{border-top:3px solid var(--line);padding-top:12px}.formula{text-align:center;font-size:21px;padding:18px;background:#f6f9fb;border-radius:6px}.statusline{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.nowrap{white-space:nowrap}
+@media(max-width:760px){.topinner{padding:10px 16px;gap:15px}.topinner a:nth-of-type(2),.topinner a:nth-of-type(3){display:none}main{margin:0;padding:34px 21px 40px}h1{font-size:31px}h1 span{font-size:21px}.lead{font-size:18px}h2{font-size:24px;margin-top:42px}.toc{grid-template-columns:1fr}.fig{margin:24px -6px}.fig-shell svg{min-width:880px}.fig-shell{max-height:75vh}.split{grid-template-columns:1fr}.quote{padding:18px;font-size:17px}.formula{font-size:17px}.topinner{font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white;font-size:11pt;line-height:1.65}.topbar,.fig-tools,.toc,dialog{display:none!important}main{max-width:none;margin:0;padding:0}h1{font-size:28pt}h1 span{font-size:17pt}h2{font-size:19pt;break-after:avoid}h3{break-after:avoid}.fig{margin:20px 0;break-inside:avoid}.fig-shell{overflow:visible;border:0;max-height:none}.fig-shell svg{min-width:0}.table-wrap{overflow:visible;border:0}table{min-width:0;font-size:9pt}thead{display:table-header-group}tr{break-inside:avoid}a{color:inherit;text-decoration:none}.callout,.quote{break-inside:avoid}footer{padding:10px 0}.split{display:block}@page{size:A4;margin:16mm}}
+</style>
+</head>
+<body>
+<nav class="topbar" aria-label="报告导航"><div class="topinner"><span class="brand">RESEARCH / 02</span><a href="#route">路线总览</a><a href="#data">轨迹数据</a><a href="#sft">Student SFT</a><a href="#milestones">实施安排</a></div></nav>
+<main>
+<header>
+<div class="eyebrow">Stage Research Report · Part II · 2026.11.01</div>
+<h1>面向多无人机协作任务的小模型后训练<span>Harness 引导的数据构建、监督迁移与条件式策略优化</span></h1>
+<p class="lead">以阶段一的执行与接管机制为基础，将强 Teacher 在多无人机环境中的<strong>真实决策与执行反馈</strong>转化为可验证的训练数据，先建立约 2B Student 的 SFT 与回接评测闭环，再依据奖励、采样信号和资源条件决定是否开展 Agentic RL。</p>
+<p class="meta">路线整理：2026-11-01 ｜ 依据：本次阶段二规划、10-28 研究状态与既有研究路线 ｜ 配套阅读：<a href="HARNESS_STAGE_REPORT_CN.html">阶段报告（一）：Agent Harness</a></p>
+</header>
+
+<div class="callout"><p><strong>核心路线。</strong>冻结任务与数据边界 → Teacher 真实交互 → 执行感知的轨迹验证 → 版本化数据集 → Student SFT → 同 Harness 回接 → 统一评估。RL 是满足条件后的扩展；SFT 与统一评测本身可以形成完整阶段交付。</p><p><strong>当前事实。</strong>项目已有 Harness 原型、回合隔离和模型 I/O 归档基础，但 Teacher 数据集、SFT、Agentic RL 与约 2B 训练后模型仍未完成。以下架构按完整研究方法绘制，正文中的工作包和里程碑均为计划。<a href="RESEARCH_STATUS_CN.md">[状态依据]</a></p></div>
+
+<nav class="toc" aria-label="目录">
+<a href="#position">01　研究定位与问题定义</a><a href="#route">02　完整路线与模块分工</a>
+<a href="#prepare">03　采集前的协议与数据划分</a><a href="#data">04　WP1：Teacher 轨迹与质量验证</a>
+<a href="#sft">05　WP2：Student SFT 与回接</a><a href="#rl">06　WP3：条件式 Agentic RL</a>
+<a href="#evaluation">07　WP4：统一评估与贡献归因</a><a href="#milestones">08　里程碑、交付物与未决项</a>
+<a href="#ready-text">09　可直接纳入研究报告的正文</a><a href="#sources">附录　编写依据与技术参考</a>
+</nav>
+
+<section id="position">
+<h2><span class="n">01 / RESEARCH POSITION</span>把可验证的协作决策能力迁移到小模型</h2>
+<p>阶段一主要改变模型周围的运行机制：用公开证据组织状态，以计划契约管理技能执行，在依赖失效、效果不明或修复耗尽时交回模型。阶段二进一步改变模型参数，使小模型能够在同一机制下选择技能、分配无人机、填写工具参数、处理接管并判断剩余任务。两阶段围绕同一个协作问题组织，Harness 同时承担数据生产、执行约束和评估支撑的职责。</p>
+<p>本路线沿用<strong>集中式主 Agent</strong>：一个语言模型调度多个 UAV，并利用 Harness 暴露的工具和技能完成任务。学生目标规模约 2B，承担高层任务与工具决策；低层飞行控制、几何计算和既定技能内部流程仍由环境与程序实现。基座、推理部署与训练配置尚待选择。</p>
+<div class="table-wrap"><table><thead><tr><th>研究问题</th><th>要建立的证据</th><th>不预设的结论</th></tr></thead><tbody>
+<tr><td>RQ1：什么轨迹值得学习？</td><td>结构、执行效果、任务完成和决策质量联合验证，能否提高训练样本的有效性？</td><td>Teacher 输出或最终成功不自动意味着每一步都正确。</td></tr>
+<tr><td>RQ2：SFT 能迁移哪些能力？</td><td>同一基座、同一 Harness 下，任务成功、工具使用、接管与停止判断是否改善？</td><td>训练 loss 降低或格式正确，不等于端到端能力提升。</td></tr>
+<tr><td>RQ3：何时需要进一步 RL？</td><td>SFT 后仍存在的决策错误，是否能由有效 rollout 与可验证奖励提供改进信号？</td><td>RL 不作为必须完成的阶段，也不保证优于 SFT。</td></tr>
+<tr><td>RQ4：提升来自系统还是模型？</td><td>固定 Harness 比较训练效果；固定模型比较 Harness；对关键数据规则单独消融。</td><td>系统技能、公开权限或预算变化不能直接归因于模型学习。</td></tr>
+</tbody></table></div>
+<p><strong>建议的首轮切入点：</strong>优先围绕“技能选择、退出与接管”选定一个具有实际决策机会的协作失败族，明确模型在什么状态下需要重新选择 UAV、工具或剩余子任务。广义规划、分配和恢复可作为能力标签，但不同时扩展为多个互不相干的研究题目。若自然任务中没有恢复机会，应收缩研究问题或另设有独立标识的受控协议，不能用零机会回合推断恢复能力。</p>
+<p class="mini">本报告将“蒸馏”理解为 Teacher → Student 的能力迁移思路，第一条实施路径为轨迹 SFT；不额外预设一个独立的蒸馏训练阶段。研究假设、工程交付与实证贡献需分别验收。</p>
+</section>
+
+<section id="route">
+<h2><span class="n">02 / METHOD OVERVIEW</span>以执行证据连接数据、训练与评估</h2>
+<p>图 1 从共享环境出发，将 Teacher 交互、数据验证、Student 优化和回接评测连接为一条主线。实线表示核心流程，绿色虚线只表示开发反馈，紫色虚线表示条件式 RL 路径。颜色区分模块职责，不表示实现进度。</p>
+<figure class="fig" id="fig-route"><div class="fig-shell"><svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1430" viewBox="0 0 1680 1430" role="img" aria-labelledby="posttraining-route-title posttraining-route-desc">
+<title id="posttraining-route-title">Harness 引导的多无人机小模型后训练路线</title><desc id="posttraining-route-desc">真实 Teacher 交互 → 执行感知的数据验证 → Student SFT → 回接评测；Agentic RL 作为条件分支。</desc>
+<defs>
+<marker id="posttraining-route-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#566c83"/></marker>
+<marker id="posttraining-route-feedback" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#548e80"/></marker>
+<marker id="posttraining-route-optional" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#9275ad"/></marker>
+</defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif;fill:#1b3047}.edge-label{font-size:16px;fill:#465f76;paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}</style>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="38" y="48" font-size="30" font-weight="700">Harness 引导的多无人机小模型后训练路线</text>
+<text x="38" y="80" font-size="17" font-weight="400" style="fill:#52677d">Harness-guided Small Language Model Post-training · 数据构建、监督迁移与条件式策略优化</text>
+<rect x="38" y="102" width="20" height="20" rx="4" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="69" y="119" font-size="17" font-weight="400">证据与数据</text>
+<rect x="308" y="102" width="20" height="20" rx="4" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="339" y="119" font-size="17" font-weight="400">模型与策略</text>
+<rect x="578" y="102" width="20" height="20" rx="4" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="609" y="119" font-size="17" font-weight="400">验证与评测</text>
+<rect x="848" y="102" width="20" height="20" rx="4" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="879" y="119" font-size="17" font-weight="400">环境与协议</text>
+<rect x="1118" y="102" width="20" height="20" rx="4" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="1149" y="119" font-size="17" font-weight="400">训练与优化</text>
+<g data-role="runtime">
+<rect x="38" y="151" width="1604" height="137" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="58" y="186" font-size="22" font-weight="650">任务协议与独立划分 · 采集前冻结</text>
+<text x="58" y="222" font-size="20" font-weight="400">决策职责、公开输入、工具权限、场景 / 种子 / 任务族、Harness 版本与执行预算</text>
+<text x="58" y="249" font-size="20" font-weight="400">Train：采样与训练　｜　Dev：选择配置、分析错误与修订数据　｜　Test：模型与协议冻结后统一评价</text>
+</g>
+<text x="60" y="329" font-size="19" font-weight="650">WP1 / 执行感知的 Teacher 轨迹构建</text>
+<g data-role="runtime">
+<rect x="60" y="350" width="440" height="315" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="80" y="385" font-size="22" font-weight="650">共享 Harness 与多 UAV 环境</text>
+<text x="80" y="421" font-size="19" font-weight="400">公开任务、局部观测与执行证据</text>
+<text x="80" y="450" font-size="19" font-weight="400">计划契约、适用性门控与宏技能</text>
+<text x="80" y="479" font-size="19" font-weight="400">工具执行、局部修复与模型接管</text>
+<text x="80" y="508" font-size="19" font-weight="400">独立回合、时限、归档与请求预算</text>
+<text x="80" y="537" font-size="19" font-weight="400">Teacher / Student 复用执行语义</text>
+<text x="80" y="566" font-size="19" font-weight="400">私有状态仅供隔离评分 / 奖励</text>
+</g>
+<g data-role="decision">
+<rect x="560" y="350" width="470" height="130" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="580" y="385" font-size="22" font-weight="650">Teacher Agent · 真实交互</text>
+<text x="580" y="421" font-size="19" font-weight="400">理解、规划、分配、工具与恢复决策</text>
+<text x="580" y="448" font-size="19" font-weight="400">冻结模型身份、采样参数与调用预算</text>
+</g>
+<g data-role="evidence">
+<rect x="560" y="535" width="470" height="130" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="580" y="570" font-size="22" font-weight="650">回合轨迹与模型 I/O</text>
+<text x="580" y="606" font-size="19" font-weight="400">消息顺序、调用 ID、并行关系与回执</text>
+<text x="580" y="633" font-size="19" font-weight="400">模型决策 / Harness 内部执行分开</text>
+</g>
+<g data-role="verification">
+<rect x="1090" y="350" width="490" height="315" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="1110" y="385" font-size="22" font-weight="650">Execution-aware Verification</text>
+<text x="1110" y="421" font-size="19" font-weight="400">L1 结构：消息、Schema、调用关联</text>
+<text x="1110" y="450" font-size="19" font-weight="400">L2 执行：参数、动作效果与重复</text>
+<text x="1110" y="479" font-size="19" font-weight="400">L3 任务：隔离 Scorer 与义务满足</text>
+<text x="1110" y="508" font-size="19" font-weight="400">L4 质量：冗余、恢复价值与可解释性</text>
+<text x="1110" y="537" font-size="19" font-weight="400">保存质量标签、异常类型与筛选理由</text>
+<text x="1110" y="566" font-size="19" font-weight="400">隐藏检查不进入模型输入与示范</text>
+</g>
+<path d="M470,288 L470,350" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<path d="M795,288 L795,350" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<path d="M500,409 L560,409" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="508" y="399" font-size="16" font-weight="400" class="edge-label">观测</text>
+<path d="M560,454 L500,454" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="508" y="444" font-size="16" font-weight="400" class="edge-label">动作</text>
+<path d="M795,480 L795,535" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="809" y="515" font-size="16" font-weight="400" class="edge-label">交互归档</text>
+<path d="M1030,600 L1090,600" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<g data-role="runtime">
+<rect x="60" y="745" width="440" height="140" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="80" y="780" font-size="22" font-weight="650">失败、部分完成与排除记录</text>
+<text x="80" y="816" font-size="18" font-weight="400">保留来源、质量标签及排除理由</text>
+<text x="80" y="843" font-size="18" font-weight="400">用于诊断、纠错与任务设计</text>
+<text x="80" y="870" font-size="18" font-weight="400">不默认混入正向 SFT 标签</text>
+</g>
+<g data-role="evidence">
+<rect x="560" y="745" width="470" height="140" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="580" y="780" font-size="22" font-weight="650">版本化决策数据集</text>
+<text x="580" y="816" font-size="18" font-weight="400">成功 / 有效恢复 / 接管等能力标签</text>
+<text x="580" y="843" font-size="18" font-weight="400">公开上下文 + 审核后的模型输出</text>
+<text x="580" y="870" font-size="18" font-weight="400">训练 / 开发划分 · 输入预算 · Loss Mask</text>
+</g>
+<g data-role="training">
+<rect x="1090" y="745" width="490" height="140" rx="14" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="1110" y="780" font-size="22" font-weight="650">WP2 / 约 2B Student SFT</text>
+<text x="1110" y="816" font-size="18" font-weight="400">只监督有效 assistant 决策与工具调用</text>
+<text x="1110" y="843" font-size="18" font-weight="400">模板适配、参数高效微调与检查点导出</text>
+<text x="1110" y="870" font-size="18" font-weight="400">环境回执和技能内部动作不作生成标签</text>
+</g>
+<path d="M1210,665 L1210,694 L280,694 L280,745" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="610" y="686" font-size="16" font-weight="400" class="edge-label">分流与追溯</text>
+<path d="M1400,665 L1400,715 L795,715 L795,745" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="1040" y="708" font-size="16" font-weight="400" class="edge-label">验证通过的决策样本</text>
+<path d="M1030,815 L1090,815" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="60" y="945" font-size="19" font-weight="650">回接、验证与策略优化</text>
+<g data-role="decision">
+<rect x="1090" y="970" width="490" height="140" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="1110" y="1005" font-size="22" font-weight="650">Student 回接同一 Harness</text>
+<text x="1110" y="1041" font-size="18" font-weight="400">模型替换；固定公开权限与技能语义</text>
+<text x="1110" y="1068" font-size="18" font-weight="400">多轮工具调用、异常处理与停止判断</text>
+<text x="1110" y="1095" font-size="18" font-weight="400">导出模型 / Adapter 与推理配置留档</text>
+</g>
+<g data-role="verification">
+<rect x="560" y="970" width="470" height="140" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="580" y="1005" font-size="22" font-weight="650">开发集验证与错误分析</text>
+<text x="580" y="1041" font-size="18" font-weight="400">同 Harness：基座 vs SFT</text>
+<text x="580" y="1068" font-size="18" font-weight="400">任务成功、工具正确性、恢复与成本</text>
+<text x="580" y="1095" font-size="18" font-weight="400">检查输入、标签、分布偏移与策略回归</text>
+</g>
+<g data-role="verification">
+<rect x="60" y="970" width="440" height="140" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="80" y="1005" font-size="22" font-weight="650">RL 准入：奖励、采样与成本</text>
+<text x="80" y="1041" font-size="18" font-weight="400">可用 SFT 起点与有效交互信号</text>
+<text x="80" y="1068" font-size="18" font-weight="400">奖励语义、回合隔离与反例检验</text>
+<text x="80" y="1095" font-size="18" font-weight="400">训练器适配、吞吐与预算可承担</text>
+</g>
+<path d="M1335,885 L1335,970" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="1348" y="933" font-size="16" font-weight="400" class="edge-label">导出与部署</text>
+<path d="M1090,1040 L1030,1040" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<path d="M560,1040 L500,1040" fill="none" stroke="#9275ad" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-optional)" stroke-dasharray="7 5"/>
+<path d="M760,970 L760,924 L535,924 L535,815 L560,815" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-feedback)" stroke-dasharray="7 5"/>
+<text x="557" y="918" font-size="16" font-weight="400" class="edge-label">仅开发集诊断回流</text>
+<g data-role="training">
+<rect x="60" y="1190" width="440" height="140" rx="14" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6" stroke-dasharray="8 5"/>
+<text x="80" y="1225" font-size="22" font-weight="650">WP3 / Agentic RL · 条件分支</text>
+<text x="80" y="1261" font-size="18" font-weight="400">Student rollout ↔ 隔离奖励 ↔ 更新</text>
+<text x="80" y="1288" font-size="18" font-weight="400">仅优化真实模型生成的决策序列</text>
+<text x="80" y="1315" font-size="18" font-weight="400">与固定 SFT 起点对照</text>
+</g>
+<g data-role="verification">
+<rect x="560" y="1190" width="1020" height="140" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="580" y="1225" font-size="22" font-weight="650">WP4 / 冻结后的统一评估与贡献归因</text>
+<text x="580" y="1261" font-size="18" font-weight="400">基座 / SFT / SFT+RL（如开展）· 同 Harness · 新独立测试 · 关键系统与数据消融</text>
+<text x="580" y="1288" font-size="18" font-weight="400">主指标：端到端任务成功；同时报告工具正确性、恢复、泛化、token、时间、动作与训练成本</text>
+<text x="580" y="1315" font-size="18" font-weight="400">Test 不参与数据生成、样本筛选、调参与反复选择；各模型使用相同初态与评估协议</text>
+</g>
+<path d="M280,1110 L280,1190" fill="none" stroke="#9275ad" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-optional)" stroke-dasharray="7 5"/>
+<text x="293" y="1159" font-size="16" font-weight="400" class="edge-label">通过准入后</text>
+<path d="M795,1110 L795,1190" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="810" y="1159" font-size="16" font-weight="400" class="edge-label">SFT 路径可直接交付</text>
+<path d="M500,1260 L560,1260" fill="none" stroke="#9275ad" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-optional)" stroke-dasharray="7 5"/>
+<path d="M60,1385 L126,1385" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="140" y="1391" font-size="17" font-weight="400">核心研究路线</text>
+<path d="M430,1385 L496,1385" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-feedback)" stroke-dasharray="7 5"/>
+<text x="510" y="1391" font-size="17" font-weight="400">开发反馈与数据修订</text>
+<path d="M900,1385 L966,1385" fill="none" stroke="#9275ad" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-optional)" stroke-dasharray="7 5"/>
+<text x="980" y="1391" font-size="17" font-weight="400">条件式 RL 路径</text>
+<text x="1270" y="1391" font-size="17" font-weight="600">能力迁移优先通过 SFT 实现</text></svg></div><div class="fig-tools"><button type="button" data-expand="fig-route">放大查看</button><button type="button" data-download="fig-route" data-name="posttraining-route.svg">下载 SVG</button><a href="assets/posttraining-stage-20261101/posttraining-route.png">高清 PNG</a><a href="assets/posttraining-stage-20261101/build_route.py">绘图源码</a></div><figcaption><strong>图 1．Harness 引导的多无人机小模型后训练方法总览。</strong>公开观测与真实模型决策构成训练内容，执行与隔离评分用于验证轨迹。Student 在同一 Harness 中接受开发验证；冻结配置后进入独立测试。RL 通过准入后开展，测试结果不进入数据修订循环。</figcaption></figure>
+<div class="table-wrap"><table><thead><tr><th>模块</th><th>阶段二职责</th><th>与阶段一的连接</th></tr></thead><tbody>
+<tr><td>Teacher Agent</td><td>在规定权限和预算内产生规划、工具调用与接管决策，记录实际模型身份与完整交互。</td><td>复用主 Agent、公开上下文与技能接口；不为 Teacher 开放隐藏状态。</td></tr>
+<tr><td>Harness / Environment</td><td>执行动作、维护公开证据、管理技能生命周期、结束与归档独立回合。</td><td>复用计划契约、适用性门控、局部修复、原工具接管和执行记忆；按实验冻结版本。</td></tr>
+<tr><td>Verifier / Dataset Builder</td><td>检查轨迹结构与实际效果，分流样本，生成带来源、质量标签和监督掩码的数据。</td><td>在模型 I/O、工具回执与独立 scorer 结果之上构建；现有 JSONL 只是原始输入。</td></tr>
+<tr><td>Student / Trainer</td><td>SFT 学习有效决策；条件成熟时通过交互奖励优化策略。</td><td>替换模型策略；确定性技能动作仍属于运行机制。</td></tr>
+<tr><td>Evaluation</td><td>固定模型外部条件，量化成功、工具正确性、恢复、泛化与成本。</td><td>复用独立回合和隔离评分，增加训练版本、数据版本及模型对照。</td></tr>
+</tbody></table></div>
+<p>Teacher 与 Student 应共享任务、工具和公开信息的语义。两者可以使用各自模型要求的序列化模板，但必须记录差异；不得把 Teacher 的额外上下文、人工提示或后验信息悄悄当作 Student 可见输入。</p>
+</section>
+
+<section id="prepare">
+<h2><span class="n">03 / PREPARATION</span>先冻结研究接口，再扩大数据规模</h2>
+<p>数据格式、输入预算和部署接口需要在大规模采集前对齐。准备工作可与 Harness 的有界修复交叠推进；近期交付应围绕被选定的决策职责，避免为了训练准备而扩张全部架构。<a href="RESEARCH_ROADMAP_CN.md">[研究路线]</a></p>
+<ol class="steps">
+<li><strong>冻结决策职责。</strong>明确是学习技能启动／恢复／取消／原工具接手，还是还包含细粒度动作；列出可见状态、可调用工具、动作约束、接管机会与任务成功标准。</li>
+<li><strong>冻结独立划分。</strong>建立新场景、种子和任务族清单；同一场景的改写、重复采样与衍生版本按组划分，防止相邻轨迹进入不同集合。训练集用于采样与优化，开发集用于选型和错误分析，测试集只在配置冻结后评价。</li>
+<li><strong>对齐 Teacher 与 Student 接口。</strong>验证工具 Schema、消息模板、角色边界、上下文长度、截断策略与推理输出解析；先验证样本可训练、模型可回接，再扩大付费采样。</li>
+<li><strong>完成运行与资源预检。</strong>—</li>
+</ol>
+<div class="callout note"><p><strong>划分边界。</strong>历史 main300、dev240、validation60、fast100、full1500 等已用于开发或分析的数据，不能重新命名为未见测试。历史错误可以指导新训练任务设计；开发反馈形成的数据修订也必须保留来源。若某批开发案例被直接转作训练，它就不能继续承担该轮开发评价，需更新划分清单。</p><p>正式泛化结论须区分“同任务族的新场景／种子”和“留出的任务族”，并核查场景模板与派生数据的重叠。新增故障注入应单列协议，遵守现有环境约束，不能混同于原静态障碍 benchmark。</p></div>
+<p>—</p>
+</section>
+
+<section id="data">
+<h2><span class="n">04 / WP1 · TEACHER DATA</span>构建执行感知、可追溯的决策轨迹</h2>
+<h3>4.1　从完整归档生成可训练视图</h3>
+<p>原始回合是证据载体，训练样本是对原始证据的受控投影。每个样本应能追溯到回合、模型请求和决策位置，重建该决策产生时的公开信息；后续工具回执与终态可以用于质量验证，但不能被提前放进该决策的输入。</p>
+<div class="table-wrap"><table><thead><tr><th>记录层</th><th>核心内容</th><th>训练用途</th></tr></thead><tbody>
+<tr><td>回合与配置</td><td>episode ID、场景／种子／任务族、划分、代码与 Harness 版本、模型身份、采样参数、预算、时间和终止原因。</td><td>重现、分组划分与统计；元数据不自动拼入提示词。</td></tr>
+<tr><td>公开模型交互</td><td>实际请求消息、工具定义、模型响应、tool call ID、调用顺序／并行关系、公开工具回执。</td><td>重建因果上下文；审核真实 assistant 输出后生成监督标签。</td></tr>
+<tr><td>执行与 Harness 事件</td><td>任务进度、公开证据更新、技能开始／暂停／失效、局部修复、接管、实际动作效果。</td><td>解释执行结果、标记决策机会；仅在当时确实暴露给模型时进入上下文。</td></tr>
+<tr><td>隔离评分证据</td><td>终态、隐藏检查、任务完成分数、归档完整性与评分器版本。</td><td>离线质量标签、最终评价或经设计的 RL 奖励；与策略可读消息分离。</td></tr>
+</tbody></table></div>
+<p>若 API 实际返回 <code>reasoning_content</code>，可原样保留并记录来源；未返回时不补写“原始推理”。Harness 执行某项宏技能时产生的内部动作，不能伪装为模型逐步生成的工具调用。评估侧私有信息和原始归档应按回合 ID 关联，训练器只读取经过审核的公开视图。</p>
+<h3>4.2　四层质量验证</h3>
+<div class="table-wrap"><table><thead><tr><th>层级</th><th>主要检查</th><th>失败后的处理</th></tr></thead><tbody>
+<tr><td>L1 · 结构</td><td>消息完整、角色合法、工具 Schema 可解析、call/result 关联正确、并行调用与结束状态明确。</td><td>标记截断、缺失或异常；不能将断裂轨迹作为完整成功示范。</td></tr>
+<tr><td>L2 · 执行</td><td>UAV／目标绑定、参数合法性、动作实际效果、重复执行、效果未知与过期技能恢复。</td><td>保留具体错误位置与可见证据；区分程序执行问题和模型决策错误。</td></tr>
+<tr><td>L3 · 任务</td><td>由独立 scorer 检查任务义务与终态；区分完整成功、部分完成、失败和不可评分。</td><td>不能用模型的成功宣称代替检查；评分失败保留为独立状态。</td></tr>
+<tr><td>L4 · 决策质量</td><td>无效调用、冗余、恢复价值、接管选择、停止时机，以及输入是否足以支持目标决策。</td><td>按明确规则标记质量与筛选理由；对边界样本抽样复核。</td></tr>
+</tbody></table></div>
+<p>以上验证组合成数据筛选方法，规则与阈值由训练／开发阶段确定并版本化。其是否带来学习收益仍需实验验证，不能把“增加检查器”直接当作已经成立的方法贡献。</p>
+<h3>4.3　样本分流与小规模 pilot</h3>
+<p>首版正向 SFT 优先使用<strong>完整成功轨迹与经验证的恢复决策</strong>。在恢复样本中，先前错误和失败回执可以保留为因果历史，但错误 assistant 输出不默认成为正向目标。部分完成与失败轨迹留作诊断、纠错任务设计及后续策略研究；若要回收其中的有效局部决策，需单独验证上下文完整性与标签正确性。</p>
+<p>成功、恢复、工具使用、接管是可重叠的能力标签；成功／部分完成／失败／不可评分则是回合结果分类。统计时分开报告，避免把重叠标签比例相加。pilot 先检查样本是否足够覆盖目标决策，再决定扩量，不预先以一个大回合数替代质量门槛。</p>
+<ul>
+<li><strong>数量与覆盖：</strong>回合数、唯一场景与任务族数、有效决策数、恢复／接管机会数、结果分布。</li>
+<li><strong>完整性与质量：</strong>结构通过率、缺失／截断／重复比例、四层筛选通过与排除数量、抽检分歧。</li>
+<li><strong>—</strong>序列长度、决策轮数、有效标签 token、工具调用、每条合格样本的采集成本。</li>
+</ul>
+<p><strong>WP1 交付：</strong>可追溯的录制与转换流程、四层 verifier、带排除原因的数据清单、冻结划分、首版训练／开发数据及统计报告。已有离线接口通过和旧 JSONL 记录均不能代替该验收。</p>
+</section>
+
+<section id="sft">
+<h2><span class="n">05 / WP2 · STUDENT SFT</span>训练模型负责的决策，并验证其能在环境中执行</h2>
+<h3>5.1　监督目标与样本边界</h3>
+<p>训练目标覆盖任务理解、子任务规划、无人机分配、工具选择与参数、多轮状态判断、异常恢复、接管与停止决策。这些是能力维度，不要求 Teacher 额外生成一套并不存在的结构化分析字段。首先保持真实对话与工具协议，再检验是否需要更紧凑的公开上下文。</p>
+<div class="formula" aria-label="监督微调损失">ℒ<sub>SFT</sub> = − (1 / ∑<sub>t</sub> m<sub>t</sub>) ∑<sub>t</sub> m<sub>t</sub> log π<sub>θ</sub>(y<sub>t</sub> | x, y<sub>&lt;t</sub>)</div>
+<p>这里 <em>m<sub>t</sub></em> 仅在审核通过的真实 assistant 决策与工具调用 token 上取 1；system、user、tool 回执及未批准的错误输出取 0。已执行的错误可作为历史保留，环境响应作为观测条件使用，二者不因此变成要模仿的正确答案。没有有效标签的样本不进入训练。</p>
+<p>TRL 的 SFT 工具调用数据使用带 <code>tool_calls</code>、tool 角色响应的 <code>messages</code>，并提供 <code>tools</code> Schema；<code>assistant_only_loss</code> 依赖模板能返回 assistant 生成掩码。项目仍须验证选定基座的角色边界与 token 掩码，并在 assistant 范围内叠加质量筛选，不能把“只训练 assistant”当作样本已经审核。<a href="https://huggingface.co/docs/trl/sft_trainer">[TRL 官方文档]</a></p>
+<p>长轨迹可按决策窗口切分，但必须保留目标决策依赖的公开状态、工具定义、调用关联与接管证据。上下文压缩或摘要需要记录转换方式并核对信息充分性；不得在截断前提后继续保留只有完整上下文才能解释的标签。原始归档始终保留，训练时与部署时的输入构造保持一致。</p>
+<h3>5.2　推理内容采用受控变体</h3>
+<div class="table-wrap"><table><thead><tr><th>变体</th><th>样本内容</th><th>比较重点</th></tr></thead><tbody>
+<tr><td>决策与工具调用</td><td>审核后的实际动作决策和必要输出，不要求额外生成长推理。</td><td>作为较简洁的起点，评估工具正确性、任务成功与推理成本。</td></tr>
+<tr><td>简短可见解释</td><td>保留真实简短解释；若另行生成摘要，标记为派生数据并单独审核。</td><td>输入／输出长度与决策效果；不把事后摘要标成当时原始推理。</td></tr>
+<tr><td>完整返回推理</td><td>仅使用 API 确实返回、允许使用且与 Student 模板兼容的推理内容。</td><td>监督长度、有效信息与成本；验证长轨迹是否适合小模型学习。</td></tr>
+</tbody></table></div>
+<p>这些变体是候选消融，首轮不要求全部实施。比较时报告有效监督 token 和训练计算量，避免把更多训练量带来的差异归为推理形式本身的效果。</p>
+<h3>5.3　训练、导出与回接验收</h3>
+<p>初期采用参数高效微调作为候选实现。LoRA 通过可训练低秩更新适配冻结权重；QLoRA 进一步结合量化基座与低秩适配，提供降低内存需求的候选路径。二者均需在所选模型、序列长度和训练器上实测，不能由论文中的显存结果推断本项目配置必然可行。<a href="https://arxiv.org/abs/2106.09685">[LoRA]</a> <a href="https://arxiv.org/abs/2305.14314">[QLoRA]</a></p>
+<ol class="steps">
+<li><strong>样本与模板验收。</strong>检查角色／工具模板、标签解码、掩码、长度分布及上下文依赖；使用小批数据验证训练链路。</li>
+<li><strong>形成首个可部署检查点。</strong>记录模型 revision、数据版本、训练配置、随机种子、峰值显存与时间；一并导出 tokenizer、模板、Adapter 或完整权重和推理配置。</li>
+<li><strong>回接同一 Harness。</strong>实测多轮工具调用、错误响应后的继续决策、技能接管和停止；检查训练端与推理端的参数和序列化差异。</li>
+<li><strong>在开发集上与基座比较。</strong>同时看端到端成功、工具错误、机会条件下的恢复和成本；根据错误来源修订数据／上下文，再冻结待评模型。</li>
+</ol>
+<p><strong>WP2 交付：</strong>可复现的 SFT 配置、可加载模型或 Adapter、统一推理入口、基座与 SFT 的开发集对照和失败分析。若 SFT 无增益，优先定位数据、输入、监督边界与分布偏移；不直接通过增加 RL 阶段掩盖问题。</p>
+</section>
+
+<section id="rl">
+<h2><span class="n">06 / WP3 · CONDITIONAL RL</span>只有交互信号可用时，进一步优化策略</h2>
+<p>Agentic RL 的对象是模型在真实环境交互中产生的决策序列。Student 根据公开上下文选择工具或技能，环境执行并返回观测，隔离评分侧计算奖励；训练器据此更新模型。确定性技能内部动作不具有模型生成的 action log-probability，不能作为学生逐步采样的动作参与策略梯度计算。</p>
+<div class="table-wrap"><table><thead><tr><th>准入条件</th><th>需要的验证</th><th>不满足时的行动</th></tr></thead><tbody>
+<tr><td>可用 SFT 起点</td><td>能够稳定解析工具、完成有效回合，存在值得进一步优化的模型决策问题。</td><td>先修复 SFT 数据与回接，不启动大规模 RL。</td></tr>
+<tr><td>可验证奖励</td><td>成功与进度语义明确，私有检查隔离；提前终止、重复动作和部分进度套利通过反例检验。</td><td>收缩任务与奖励，保留 SFT 路线。</td></tr>
+<tr><td>有效 rollout</td><td>独立初态、终止语义、超时排空、归档与评分可追溯；奖励能区分策略质量。</td><td>补齐训练器适配和运行器；若奖励几乎恒定，先调整任务难度或采样设计。</td></tr>
+<tr><td>成本可承担</td><td>测量有效回合／小时、采样成功率、GPU 时间、显存与总预算。</td><td>减少范围或暂缓 RL；不影响 SFT 与统一评测交付。</td></tr>
+</tbody></table></div>
+<p>奖励以端到端任务成功为核心，公开可验证的进度、无效动作和调用成本可作为辅助候选。奖励项、范围、权重及终止规则需在训练／开发数据上校准，防止模型通过过早停止、重复领取进度或不完成任务来优化成本。不得用测试评分反复设计奖励；基础设施异常与策略失败要分别标识，既保留全部尝试，也避免把不可评分回合的缺失值直接解释为策略信号。</p>
+<p>PPO 与 GRPO 保留为算法候选。PPO 提供交互采样与策略更新框架；DeepSeekMath 中提出的 GRPO 使用组内相对奖励构造优化信号。若选择 GRPO，需要同任务条件下相互隔离的多条 rollout 和有区分度的奖励；组内结果近乎一致时，学习信号可能不足。算法在其他领域的效果不能直接外推到本项目。<a href="https://arxiv.org/abs/1707.06347">[PPO]</a> <a href="https://arxiv.org/abs/2402.03300">[DeepSeekMath / GRPO]</a></p>
+<p>环境可以从现有“fresh worker → 归档 → 退出 → 独立 scorer”路径起步，但需实测吞吐和训练器接口。现有 <code>World.restore</code> 尚不能代表通用 RL reset；同样，也不必把全量向量化 reset 系统设为 SFT 准备的前置条件。<a href="POSTTRAINING_PLAN_CN.md">[环境复用依据]</a></p>
+<p><strong>WP3 交付（如开展）：</strong>版本化奖励、rollout 适配、训练记录、策略检查点，以及同协议下相对固定 SFT 起点的收益与成本。若不开展，报告准入证据与限制，不把候选算法写成已完成训练。</p>
+</section>
+
+<section id="evaluation">
+<h2><span class="n">07 / WP4 · EVALUATION</span>固定外部条件，分别回答系统与训练是否有效</h2>
+<p>统一评测先固定任务集合、初始状态、工具权限、技能语义、Harness 版本、顺序／调度、采样参数和预算。训练消融使用同一基座；报告实际模型版本、分母、评分协议与失败类型。Teacher 可作为能力与成本参照，其成绩并非严格上界。</p>
+<div class="table-wrap"><table><thead><tr><th>对照组</th><th>控制方式</th><th>回答的问题</th></tr></thead><tbody>
+<tr><td>同基座 + 基线运行方式<br>vs 同基座 + Harness</td><td>固定外部任务、原工具权限、初态和预算；明确宏技能等接口差异。</td><td>整个系统方案的贡献。若要单独判断门控作用，进一步固定技能与动作能力。</td></tr>
+<tr><td>同基座 + Harness<br>vs SFT + 同 Harness</td><td>保持公开输入、工具和执行机制一致；记录模型模板必要差异。</td><td>监督训练带来的策略变化。</td></tr>
+<tr><td>SFT + Harness<br>vs SFT+RL + 同 Harness</td><td>从固定 SFT 检查点出发，冻结评测与奖励协议。</td><td>RL 的增量收益及额外训练成本，仅在实际开展后报告。</td></tr>
+<tr><td>关键数据／系统消融</td><td>优先比较验证规则、有无恢复／接管样本，或固定技能下的门控；配平数据规模或监督 token 并说明偏差。</td><td>所提方法中的哪一项机制解释了提升。</td></tr>
+</tbody></table></div>
+<p>“基座 + 基线运行方式”应在实验中给出具体实现，不能用不同工具能力的简化壳层替代 Agent4Drone，却仍声称复现了原论文对照。原论文排行榜与历史非同协议结果可作背景，不作为新训练实验的直接提升基准。</p>
+<h3>指标与分母</h3>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>报告内容</th><th>解释边界</th></tr></thead><tbody>
+<tr><td>主要指标</td><td>端到端任务成功数／冻结评测回合数；同时报告有效评分、不可评分和各失败原因。</td><td>预先定义基础设施失败与重试规则，保留全部尝试，不只保留成功或可评分回合。</td></tr>
+<tr><td>工具与协作</td><td>工具格式／参数／对象正确率、无效调用与重复动作；接管机会数、接管正确性和后续完成。</td><td>明确按调用、决策还是回合统计；被 Harness 拦截的错误也需记录。</td></tr>
+<tr><td>恢复能力</td><td>可恢复机会数、成功恢复数／机会数，以及对应全任务成功。</td><td>机会分母为零时写“不可估计”；受控注入和自然事件分开。</td></tr>
+<tr><td>效率与成本</td><td>模型调用、输入／输出 token、端到端时间、动作数；Teacher 数据费、训练 GPU 时与显存、部署成本。</td><td>同时看成功率与成本；更少调用不必然意味着更少 token 或更快完成。</td></tr>
+<tr><td>泛化与稳定性</td><td>新场景／种子、留出任务族的分项结果；配对差异、重复运行或适当置信区间。</td><td>使用真实样本量报告不确定性，不能从少量开发 pilot 宣称广泛泛化。</td></tr>
+</tbody></table></div>
+<p>模型和协议在开发集上确定后，再按一次冻结的评价方案运行测试。若读取测试错误后继续改模型或数据，该集合应标记为已暴露；后续泛化结论另需新的独立证据。最终报告同时保存成功案例、失败案例、无增益结果与完整成本账本。</p>
+<p><strong>WP4 交付：</strong>冻结评测清单、模型与系统对照表、逐任务结果、消融、错误分析及可重现命令。论文主张只覆盖这些实验实际支持的范围。</p>
+</section>
+
+<section id="milestones">
+<h2><span class="n">08 / MILESTONES</span>按验收条件推进，用 1–2 个月形成可评估闭环</h2>
+<p>以下以项目已有的未来约 1–2 个月窗口作安排，起点为资源与协议落实时；时间是工作预算，不是模型收益或论文完成承诺。工作包允许交叠，采集扩量与 RL 由对应门槛控制，不设置投稿倒排。</p>
+<div class="table-wrap"><table><thead><tr><th>建议窗口</th><th>重点工作</th><th>可检查的交付 / 阶段门槛</th></tr></thead><tbody>
+
+<tr><td>第 2–4 周<br>数据版本与首轮 SFT</td><td>四层验证与抽检、按质量扩量、数据统计；训练首个约 2B 检查点并接回 Harness。</td><td><strong>G2：可训且可执行。</strong>划分和数据版本固定、监督掩码正确、模型可部署；给出同 Harness 基座／SFT 对照。</td></tr>
+<tr><td>第 4–6 周<br>错误定位与路线选择</td><td>分析协作／接管失败，修订训练数据或上下文；开展必要消融；评估奖励、采样信号与吞吐。</td><td><strong>G3：是否进入 RL。</strong>有可用 SFT 起点与可信奖励／rollout／预算才进入；否则继续完善 SFT 和评测。</td></tr>
+<tr><td>第 6–8 周<br>条件式 RL 与统一评价</td><td>资源允许时开展有界 RL；冻结模型与协议，统一评测；整理系统／训练贡献及正负结果。</td><td><strong>G4：可复现结论。</strong>提供独立测试、消融、成本和限制；未完成项明确顺延，不用计划替代结果。</td></tr>
+</tbody></table></div>
+<h3>当前决定、假设与未决项</h3>
+<div class="table-wrap"><table><thead><tr><th>状态</th><th>本报告采用的判断</th></tr></thead><tbody>
+<tr><td>Confirmed Decisions<br>已确定方向</td><td>Harness → Teacher 数据 → SFT → 条件式 RL → 统一评估；蒸馏为迁移思路；小模型约 2B；准备可与 Harness 贡献分析交叠。</td></tr>
+<tr><td>Verified Results<br>已核实基础</td><td>已有 Harness 原型、回合隔离、模型 I/O 归档及本地链路验证。现有脚本模型／Mock 验收不能作为 Teacher 数据质量或训练成果；具体证据见第一份报告。</td></tr>
+<tr><td>Working Hypotheses<br>待检验假设</td><td>执行感知的筛选能改善监督信号；有效恢复与接管示范能改善小模型闭环决策；条件合适时交互优化可补充 SFT。</td></tr>
+
+<tr><td>Next Actions<br>近期可交付工作</td><td>产出一份协议清单、一份划分清单和可审核的样本规格；跑通转换／模板／掩码检查与本地回接准备，再按 G1 决定真实采样。</td></tr>
+</tbody></table></div>
+<div class="callout"><p><strong>最小完整阶段交付：</strong>一套可追溯且经过质量验证的数据、一份可复现 SFT 配置、一个可部署 Student，以及固定 Harness 下基座／SFT 的独立评价。RL、完整长推理监督或分布式多 Agent 训练均不作为该闭环的必要组成。</p></div>
+</section>
+
+<section id="ready-text">
+<h2><span class="n">09 / REPORT-READY TEXT</span>可直接纳入阶段研究报告的路线说明</h2>
+<div class="quote">
+<p>第二阶段拟开展面向多无人机协作任务的小模型后训练研究，重点是利用阶段一建立的 Agent Harness，将强模型在环境中的协作决策能力迁移到约 2B 学生模型。整体采用集中式主 Agent，由语言模型负责任务理解、无人机分配、技能选择、工具参数、异常恢复和控制权接管；Harness 负责公开状态组织、执行约束、技能运行、证据归档与独立评估，从而保持模型策略与确定性执行机制的责任边界。</p>
+<p>研究首先在冻结任务协议与独立数据划分的基础上，采集 Teacher 的真实环境交互，保留模型输入输出、工具调用关联、执行回执与 Harness 事件。随后通过结构完整性、执行正确性、任务完成度和决策质量四层验证构建版本化数据集，优先使用完整成功轨迹与有效恢复决策。训练数据只包含当时可见的公开上下文和经审核的模型输出，隐藏检查与私有状态用于隔离验证，不进入策略输入或示范；技能内部动作也不被误标为模型决策。</p>
+<p>学生模型优先通过监督微调学习工具使用和多轮协作策略，监督范围限定为有效 assistant 决策与工具调用。训练后模型将接回同一 Harness，在相同任务、权限、初态与预算下与未训练基座比较。只有在 SFT 起点可用、奖励可验证、交互采样稳定且资源可承担时，才进一步开展 Agentic RL，并以固定 SFT 检查点为对照评估增量收益。</p>
+<p>最终评价以端到端任务成功率为主要指标，同时报告工具正确性、恢复与接管机会、泛化和全流程成本。通过固定模型比较 Harness、固定 Harness 比较训练模型，以及对关键数据规则开展消融，区分系统机制与模型学习的贡献。当前已有执行与归档基础，Teacher 数据集、SFT 和 RL 尚未完成；下一步将优先完成协议冻结、可训练样本转换与小规模闭环验证。</p>
+</div>
+</section>
+
+<section id="sources">
+<h2><span class="n">SOURCES / PROVENANCE</span>编写依据与技术参考</h2>
+<p class="mini">本报告以用户提供的阶段二规划为主体。附件实际结束于 §5.4“初期采用参数高效微调作为候选实现”；本报告保留其 Teacher 轨迹、质量验证与 SFT 主线，并依据已确认研究路线补充条件式 RL、统一评测、监督细节和里程碑。补充内容属于路线设计，不是新增实验结论。</p>
+<ol class="source-list">
+<li><strong>本次阶段二规划原文。</strong><a href="assets/posttraining-stage-20261101/stage2-route-source.txt">原文存档（2026-11-01）</a>。保留所提供内容，不补写原件缺失部分。</li>
+<li><strong>当前项目依据。</strong><a href="RESEARCH_STATUS_CN.md">研究状态</a>、<a href="RESEARCH_ROADMAP_CN.md">研究路线</a>、<a href="POSTTRAINING_PLAN_CN.md">后训练准备</a>；事实依据为 2026-10-28 版本与阶段一报告。后训练尚无新实验结果。</li>
+<li><strong>阶段一与历史调研。</strong><a href="HARNESS_STAGE_REPORT_CN.html">Agent Harness 架构与阶段成果</a>、<a href="EXPERIMENT_EVIDENCE_CN.md">实验依据</a>、<a href="SMALL_MODEL_POSTTRAINING_SURVEY_CN.html">原始后训练调研 HTML</a>。原始调研保留，当前决策以最新研究状态和本路线为准。</li>
+<li><strong>工具调用 SFT 实现依据。</strong>Hugging Face TRL, <a href="https://huggingface.co/docs/trl/sft_trainer">SFT Trainer 官方文档</a>，核查于 2026-11-01。用于消息／工具格式与 assistant 掩码要求；实际训练须固定软件版本和模型模板。</li>
+<li><strong>参数高效训练候选。</strong>Hu et al. <a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation of Large Language Models</a>, 2021；Dettmers et al. <a href="https://arxiv.org/abs/2305.14314">QLoRA: Efficient Finetuning of Quantized LLMs</a>, 2023。</li>
+<li><strong>策略优化候选。</strong>Schulman et al. <a href="https://arxiv.org/abs/1707.06347">Proximal Policy Optimization Algorithms</a>, 2017；Shao et al. <a href="https://arxiv.org/abs/2402.03300">DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models</a>, 2024。这里只用于候选机制说明，不作为多无人机任务上的效果证据。</li>
+</ol>
+<p class="mini">本版是阶段二实施路线报告，技术参考仅用于支撑关键选择，不替代完整后训练文献综述，也不据此宣称方法新颖性已获得证明。</p>
+</section>
+</main>
+<footer>阶段报告第二部分 · 离线 HTML 与内嵌可编辑 SVG；图可放大或单独导出。相对链接依赖仓库目录。本文为研究路线，未启动付费采样、模型训练或 RL，未改写历史实验与原始调研。</footer>
+<dialog id="zoom" aria-label="路线图放大预览"><div class="dialog-bar"><span id="zoom-title">研究路线图</span><button type="button" id="close-zoom">关闭 · Esc</button></div><div class="dialog-body" id="zoom-body"></div></dialog>
+<script>
+const zoom=document.querySelector('#zoom');
+document.querySelectorAll('[data-expand]').forEach(btn=>btn.addEventListener('click',()=>{
+ const fig=document.getElementById(btn.dataset.expand);const svg=fig.querySelector('svg').cloneNode(true);
+ document.getElementById('zoom-title').textContent=svg.querySelector('title').textContent;
+ svg.querySelectorAll('[id]').forEach(el=>{const old=el.id;const replacement='zoom-'+old;el.id=replacement;svg.querySelectorAll('[marker-end]').forEach(p=>{if(p.getAttribute('marker-end')==='url(#'+old+')')p.setAttribute('marker-end','url(#'+replacement+')')});});
+ svg.setAttribute('aria-labelledby','zoom-posttraining-route-title zoom-posttraining-route-desc');
+ document.getElementById('zoom-body').replaceChildren(svg);zoom.showModal();
+}));
+document.querySelector('#close-zoom').addEventListener('click',()=>zoom.close());
+zoom.addEventListener('click',e=>{if(e.target===zoom)zoom.close()});
+document.querySelectorAll('[data-download]').forEach(btn=>btn.addEventListener('click',()=>{
+ const svg=document.getElementById(btn.dataset.download).querySelector('svg');
+ const blob=new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml;charset=utf-8'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=btn.dataset.name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}));
+</script>
+</body></html>

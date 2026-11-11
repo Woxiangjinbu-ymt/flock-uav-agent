@@ -1,0 +1,169 @@
+{
+  "method": "Read-only reconstruction of public progress refresh/terminal reporting, no simulator/model.",
+  "source_sha256": {
+    "run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/public-api.jsonl": "8d4b199ce48950f252794264666e036632bd5823c4a49e0ec7a25c9899cf30e4",
+    "run-20261023-01/trials/b1ad4f3e-shared_endpoint_v5/harness.json": "12d13666141b300c237300625344e0dcb8ca2985be3bb16e5ec370e287a1d1ed",
+    "run-20261023-01/source/agent4drone/harness_skills.py": "9c0a901c6ec0cdc46fb9a7a80a1da416a87f61e11db5d2ecce9ed43dafafa255"
+  },
+  "last_skill_progress": {
+    "request_id": 772,
+    "progress": {
+      "task_type": "target_assignment",
+      "progress_percentage": 95,
+      "is_completed": false,
+      "status_message": "Task to be Done",
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 19,
+        "unvisited_targets": 1
+      },
+      "target_reach_summary": {
+        "total_reaches": 56,
+        "drones_with_reaches": 12,
+        "unique_targets_reached": 19
+      },
+      "area_coverage_summary": {
+        "total_targets_tracked": 19,
+        "average_coverage": 95.0,
+        "fully_covered_targets": 19
+      }
+    }
+  },
+  "subsequent_action_requests": [
+    {
+      "request_id": 774,
+      "actor": "176a4688",
+      "params": {
+        "x": 105.0,
+        "y": 315.0,
+        "z": 20.0
+      },
+      "receipt": {
+        "command_id": "0853df7a",
+        "drone_id": "176a4688",
+        "command": "move_to",
+        "status": "success",
+        "message": "Drone moved to position (105.0, 315.0, 20.0), heading: 225.0° (battery: -3.9%/-3mAh, remaining: 76.9%/54mAh) - Reached target(s): Fixed Target 1, Fixed Target 2, Fixed Target 9, Fixed Target 14",
+        "timestamp": 1802649602.3757124
+      }
+    },
+    {
+      "request_id": 779,
+      "actor": "2a266de6",
+      "params": {
+        "x": 35.0,
+        "y": 315.0,
+        "z": 20.0
+      },
+      "receipt": {
+        "command_id": "33909d0b",
+        "drone_id": "2a266de6",
+        "command": "move_to",
+        "status": "success",
+        "message": "Drone moved to position (35.0, 315.0, 20.0), heading: 236.3° (battery: -1.7%/-2mAh, remaining: 85.7%/81mAh)",
+        "timestamp": 1802649602.3911426
+      }
+    },
+    {
+      "request_id": 783,
+      "actor": "5f7a6eec",
+      "params": {
+        "x": 385.0,
+        "y": 35.0,
+        "z": 20.0
+      },
+      "receipt": {
+        "command_id": "4f6ff223",
+        "drone_id": "5f7a6eec",
+        "command": "move_to",
+        "status": "success",
+        "message": "Drone moved to position (385.0, 35.0, 20.0), heading: 270.0° (battery: -1.4%/-1mAh, remaining: 87.2%/78mAh)",
+        "timestamp": 1802649602.4052014
+      }
+    },
+    {
+      "request_id": 787,
+      "actor": "60892444",
+      "params": {
+        "x": 35.0,
+        "y": 35.0,
+        "z": 20.0
+      },
+      "receipt": {
+        "command_id": "efaca96e",
+        "drone_id": "60892444",
+        "command": "move_to",
+        "status": "success",
+        "message": "Drone moved to position (35.0, 35.0, 20.0), heading: 180.0° (battery: -4.1%/-2mAh, remaining: 76.3%/46mAh)",
+        "timestamp": 1802649602.4186435
+      }
+    },
+    {
+      "request_id": 800,
+      "actor": "04315908",
+      "params": {
+        "x": 315.0,
+        "y": 105.0,
+        "z": 20.0
+      },
+      "receipt": {
+        "command_id": "0b43418f",
+        "drone_id": "04315908",
+        "command": "move_to",
+        "status": "success",
+        "message": "Drone moved to position (315.0, 105.0, 20.0), heading: 135.0° (battery: -2.7%/-2mAh, remaining: 84.3%/57mAh) - Reached target(s): Fixed Target 7, Fixed Target 20",
+        "timestamp": 1802649602.450331
+      }
+    },
+    {
+      "request_id": 807,
+      "actor": "5f7a6eec",
+      "params": {
+        "x": 385.0,
+        "y": 175.0,
+        "z": 20.0
+      },
+      "receipt": {
+        "command_id": "695ac26f",
+        "drone_id": "5f7a6eec",
+        "command": "move_to",
+        "status": "success",
+        "message": "Drone moved to position (385.0, 175.0, 20.0), heading: 0.0° (battery: -1.0%/-1mAh, remaining: 86.3%/77mAh) - Reached target(s): Fixed Target 3",
+        "timestamp": 1802649602.4700239
+      }
+    }
+  ],
+  "final_evaluator_public_progress": {
+    "request_id": 834,
+    "progress": {
+      "task_type": "target_assignment",
+      "progress_percentage": 100,
+      "is_completed": true,
+      "status_message": "Task Finished",
+      "details": {
+        "total_targets": 20,
+        "visited_targets": 20,
+        "unvisited_targets": 0
+      },
+      "target_reach_summary": {
+        "total_reaches": 63,
+        "drones_with_reaches": 12,
+        "unique_targets_reached": 20
+      },
+      "area_coverage_summary": {
+        "total_targets_tracked": 20,
+        "average_coverage": 100.0,
+        "fully_covered_targets": 20
+      }
+    }
+  },
+  "runtime": {
+    "status": "needs_replan",
+    "reason": "no_public_candidate",
+    "cursor": 176,
+    "attempts": 176,
+    "cached_progress": 95,
+    "round": 14
+  },
+  "explanation": "PROGRESS_EVERY cadence leaves cached progress=95 at attempts176; an empty-attempt round raises no_public_candidate before the trailing partial-cadence progress refresh. The evaluator later reads100 and original checker passes. No claim is made that the final move alone completed the remaining target."
+}

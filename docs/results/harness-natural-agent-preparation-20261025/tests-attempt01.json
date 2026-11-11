@@ -1,0 +1,26 @@
+{
+  "attempt": "01",
+  "command": [
+    "./agent4drone/.venv/bin/python",
+    "-m",
+    "pytest",
+    "scripts/tests/test_harness_natural_agent_prepare.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 11.047661781311035,
+  "source_before": {
+    "scripts/prepare_harness_natural_agent.py": "179834ec820b4cb7efdfc53cae127f07098b32fad0eb3a66cac29af235a2485e",
+    "scripts/tests/test_harness_natural_agent_prepare.py": "e16f5268f80b7a74eb88de9d6cf455a5418805c45388cfa259dd5bc00356cf77"
+  },
+  "source_after": {
+    "scripts/prepare_harness_natural_agent.py": "179834ec820b4cb7efdfc53cae127f07098b32fad0eb3a66cac29af235a2485e",
+    "scripts/tests/test_harness_natural_agent_prepare.py": "e16f5268f80b7a74eb88de9d6cf455a5418805c45388cfa259dd5bc00356cf77"
+  },
+  "sources_unchanged": true,
+  "scope": "Synthetic file-only preparation tests; zero provider/model/simulator/worker/scorer executions; not benchmark samples",
+  "fixture_inputs": "All inputs generated in pytest tmp_path; inert pickle bytes never deserialized",
+  "log_sha256": "f7198a18dc767598c7a8f9e199f577fc294156ac4c830e427e751afc32438aa6"
+}

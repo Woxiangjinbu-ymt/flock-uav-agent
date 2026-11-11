@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "passed": true,
+  "scope": "W2_minimal_local_delivery_not_model_performance",
+  "packages": {
+    "experiments/task-coverage-v1": {
+      "manifest_sha256": "c46f42c08b4c7d1c5b8a616c376b94ece394348b314d4d5defc5ccb1f09ac92f",
+      "sealed_entries": 13,
+      "passed": true
+    },
+    "experiments/task-coverage-v1-study": {
+      "manifest_sha256": "6386876e9e6172655abb899c836b4199909e438846b83be515a5f75aadb48bae",
+      "sealed_entries": 85,
+      "passed": true
+    },
+    "experiments/task-splits-v1": {
+      "manifest_sha256": "4d2da10b0a6ea753a924ec22f6f16ad29d59711a94ecef6fbd013cbadf226f4e",
+      "sealed_entries": 42,
+      "passed": true
+    }
+  },
+  "quality_sealed_entries": 96,
+  "quality_seal_sha256": "ca412267966a3bcb206e79a5d0e1b94ce8fdc886c186039211e2e8e4e99ba392",
+  "formal_source_snapshot_matches_current": true,
+  "formal_dataset": {
+    "by_split": {
+      "dev": {
+        "scenes": 5,
+        "tasks": 29
+      },
+      "test": {
+        "scenes": 5,
+        "tasks": 29
+      },
+      "train": {
+        "scenes": 20,
+        "tasks": 116
+      }
+    },
+    "scenes": 30,
+    "tasks": 174
+  },
+  "formal_quality": {
+    "initially_unsatisfied": 174,
+    "positive_passed": 174,
+    "missing_required_step_failed": 174,
+    "checker_evaluations": 522,
+    "provider_calls": 0,
+    "teacher_examples": 0
+  },
+  "development": {
+    "tasks": 18,
+    "scenes": 9,
+    "initially_satisfied": 0,
+    "snapshot_restore_verified": 18
+  },
+  "entry_smoke": {
+    "workers": 2,
+    "scorers": 2,
+    "checker_passed": 2,
+    "sealed_entries": 158,
+    "model": "scripted_mock_only"
+  },
+  "code_tests": {
+    "passed": 138,
+    "failed": 0,
+    "skipped": 0,
+    "junit_sha256": "53c8ef8953b05354fa7dc30d956fb7df664d05c195726a34ffd2e1142e506f61"
+  },
+  "split_audit_sha256": "b96637aec90f8e0c6705b49e024e6ed49b7c7a811716568caecde118cb63a9b8",
+  "independent_review_sha256": "805b4749b57f68758988d65ceccfee160964bb00343d0210bf4f2d3a2e2d478f",
+  "exposure_chain_last_sha256": "b3863c6c2c08ae5326302f393f53802a9e0f05ebf76b4d12c91bae24e1424f0e",
+  "reproducibility": {
+    "passed": true,
+    "files": 44,
+    "from_frozen_source": true,
+    "original_manifest_sha256": "4d2da10b0a6ea753a924ec22f6f16ad29d59711a94ecef6fbd013cbadf226f4e",
+    "rebuild_manifest_sha256": "4d2da10b0a6ea753a924ec22f6f16ad29d59711a94ecef6fbd013cbadf226f4e",
+    "changed_files": []
+  },
+  "limitations": [
+    "Quality scoring is a separately guarded evaluator in the same scene process; only entry-smoke uses independent scorer processes.",
+    "Quality process records contain 30 scene return codes but no PID/start/end journal; fresh serial subprocess execution is supported by sealed source, not independently identifiable PID telemetry.",
+    "Quality uses timer=False and predeclared public-action witnesses; it does not establish 500-second Agent success, Teacher eligibility, full checker semantics or generalization.",
+    "F2-F6 fine semantic equivalence and rotated/scaled geometry remain outside the split audit."
+  ],
+  "local_development_attempts": {
+    "pilot_tasks": 174,
+    "pilot_quality_checks": 522,
+    "pilot_not_in_formal_denominator": true,
+    "test_command_typo": "pytest-invocation-error.xml; no tests collected; final invocation passed",
+    "materializer_provenance": "study retains its earlier frozen materializer; final source adds input version drift guards; origin manifest/current raw data verified unchanged"
+  }
+}

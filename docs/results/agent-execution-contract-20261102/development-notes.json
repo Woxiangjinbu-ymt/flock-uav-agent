@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-02",
+  "local_only": true,
+  "provider_calls": 0,
+  "development_runs": [
+    {
+      "path": "tmp/agent-execution-budget-dev-01",
+      "worker_count": 2,
+      "scorer_count": 2,
+      "seal_sha256": "72d86f16ec09b1915e178a6586f161547a323cf0a981b3de60635e7e44a9a5fb"
+    },
+    {
+      "path": "tmp/agent-execution-cancel-dev-01",
+      "worker_count": 1,
+      "scorer_count": 1,
+      "seal_sha256": "92322a545c0040ed7b8790c4f0ddf507fb55a9375dccd4249723f22b26ad611d"
+    },
+    {
+      "path": "tmp/agent-execution-deadline-dev-01",
+      "worker_count": 1,
+      "scorer_count": 1,
+      "seal_sha256": "711e5c3123182178b8fc6a897fda832dff4ebeef5c9829476b1094cb88f02c4b"
+    },
+    {
+      "path": "tmp/agent-execution-main-dev-01",
+      "worker_count": 4,
+      "scorer_count": 4,
+      "seal_sha256": "08d5cfd6d1bd98c09e22c52c2d1332c96ffe4eee5c82b49ec521717fd232047e"
+    },
+    {
+      "path": "tmp/agent-execution-main-dev-02",
+      "worker_count": 4,
+      "scorer_count": 4,
+      "seal_sha256": "a6b15c93e222809c51571d4866c0426b945872b0e553e0b9eeb0efa735da6f94"
+    },
+    {
+      "path": "tmp/agent-execution-resume-dev-01",
+      "worker_count": 2,
+      "scorer_count": 2,
+      "seal_sha256": "c046298b97397087326d53b2575b88af8ccb90978fb319253a779f62c608aac8"
+    },
+    {
+      "path": "tmp/agent-execution-timeout-dev-01",
+      "worker_count": 1,
+      "scorer_count": 1,
+      "seal_sha256": "0d658c8077dd58787eeeaa7dd505dc20fba5383372761d6186e694f0d78befe7"
+    },
+    {
+      "path": "tmp/agent-execution-undrained-dev-01",
+      "worker_count": 1,
+      "scorer_count": 0,
+      "seal_sha256": "ce3d7322fb72b76d8c549984999a2adc3122028cd1cac724f1f8759532d17c5d"
+    },
+    {
+      "path": "tmp/agent-execution-unknown-dev-01",
+      "worker_count": 1,
+      "scorer_count": 1,
+      "seal_sha256": "32e2d644c3a7967dc19115a3ca8b1061ac997fe4254f9d43881a9ccc0768484c"
+    }
+  ],
+  "development_worker_count": 17,
+  "not_added_to_formal_denominator": true,
+  "findings_before_formal_freeze": [
+    {
+      "finding": "Ground rotate returned success in the original raw_repair probe; it was not a failure recovery case.",
+      "evidence": "tmp/agent-execution-main-dev-01/trials/raw_repair/policy/worldlogs/public-api.jsonl",
+      "correction": "Use ground move_to; actual server IDLE error confirmed before formal freeze."
+    },
+    {
+      "finding": "Controlled receipt-loss exception text exposed its synthetic nature to the tool caller.",
+      "evidence": "tmp/agent-execution-main-dev-01/trials/unknown_after_commit/policy/modelio/",
+      "correction": "Neutral public timeout; synthetic fault record remains private. Actual outbound bytes audited."
+    },
+    {
+      "finding": "Recovery suffix was initially added after pre-provider message hashes were recorded.",
+      "correction": "Move decoration into _prepare before parent audit, tested for sync/async and v1 compatibility."
+    }
+  ],
+  "test_suites": [
+    {
+      "name": "integrated",
+      "passed": 818,
+      "log_sha256": "1df400032a81dd2a91c5015e42209e89b67cb1c719df6cd7af100eb7ba3cc9b8",
+      "junit_sha256": "929055d7fd5bb4767e37f14235656d0ea589d62f37241a01a9b06879849197ea"
+    },
+    {
+      "name": "adapter",
+      "passed": 54,
+      "log_sha256": "7b510866c58daf9bb1092914dce181f3d4eea0570400a0e24db19c536481ab08",
+      "junit_sha256": "22fba4c707d842c97422d67164092ae99f26b9c68951e75dfb8df84ab75f3642"
+    }
+  ],
+  "unique_tests_passed": 872,
+  "skipped": 0,
+  "sdk_control_isolation": "Adapter control runs in a separate interpreter from Agent global reasoning patch.",
+  "warnings": "Three existing deprecation warnings retained in integrated log.",
+  "prior_runs_unchanged": [
+    {
+      "path": "docs/results/general-agent-integration-20261102/run-01",
+      "unchanged": true,
+      "files": 324,
+      "seal_sha256": "cca69979bd76ed8d44606f4b4fafeb7761b27688a40e519e664cbe6dfb38115b"
+    },
+    {
+      "path": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "unchanged": true,
+      "files": 241,
+      "seal_sha256": "373bcffe71d3d95e628e1f01633a630284c52e51c5dbc239fb4e35c3c699f3b8"
+    }
+  ]
+}

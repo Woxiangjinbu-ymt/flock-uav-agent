@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "name": "smoke",
+  "benchmark_sha256": "b5040097d2bfdd44600f3bf486fdb43ee3eb1247fec9c67900b5fcda6feb94a3",
+  "protocol": {
+    "id": "agent4drone-v3-gui500-timeout-scoring",
+    "session_order": "filename ascending",
+    "task_order": "original JSON array",
+    "reset": "original JSON once per session; set-current, land, charge before each task",
+    "share_blackboard_by_session": true,
+    "temperature": 0.1,
+    "timeout_seconds": 500,
+    "timeout_source": "upstream Checker GUI timeout_var initial value (500), not AGENT_TIMEOUT fallback (300)",
+    "poll_seconds": 5,
+    "land_wait_seconds": 2,
+    "charge_wait_seconds": 2,
+    "between_tasks_seconds": 1,
+    "timeout_policy": "close admission, drain, freeze world, score; continue only after worker exits; no retry",
+    "drain_seconds": 30,
+    "worker_stop_seconds": 120,
+    "inflight_policy": "finish requests admitted before cutoff; refuse later and stale-lease requests",
+    "grading_state": "pause simulation ticks after drain; resume before next preparation",
+    "agent_budget": "upstream max_iterations=150; recursion_limit=450; not a hard tool budget",
+    "aliases": false,
+    "resume": false
+  },
+  "expected_tasks": 1,
+  "expected_checks": 2,
+  "sessions": [
+    {
+      "id": "7f1a1456",
+      "name": "Target Assignment Easy 1",
+      "file": "Target_Assignment_Easy_1_7f1a1456.json",
+      "sha256": "872701124620dd5aab6a418435d4834437b629501d127c708adf240331e7d459",
+      "family": "target_assignment",
+      "tasks": [
+        {
+          "id": "213cfacb",
+          "name": "Simple Rotation Test 1",
+          "difficulty": "easy",
+          "content_sha256": "583359c8de1d6031c47a8e1155c1bcd2baa41949c91b0603a6ada237aed78610",
+          "leaves": [
+            {
+              "path": "root.0",
+              "definition": {
+                "endpoint": "/check/drone_heading",
+                "parameters": {
+                  "drone_id": "da04d07a",
+                  "expected_heading": 206.0,
+                  "tolerance": 5.0
+                }
+              }
+            },
+            {
+              "path": "root.1",
+              "definition": {
+                "endpoint": "/check/drone_altitude",
+                "parameters": {
+                  "drone_id": "da04d07a",
+                  "expected_altitude": 13.0,
+                  "tolerance": 2.0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

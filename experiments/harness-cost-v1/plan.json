@@ -1,0 +1,33 @@
+{
+  "schema": "harness-cost-local-plan-v1",
+  "planned_episodes": 14,
+  "provider_calls": 0,
+  "scope": "fixed development scripted decisions; local execution and wire bytes only",
+  "arms": {
+    "control": "control-profile.json",
+    "candidate": "candidate-profile.json"
+  },
+  "groups": {
+    "main": "main-cases.json",
+    "partial": "partial-cases.json"
+  },
+  "studies": {
+    "main": {
+      "path": "experiments/task-coverage-v1-study",
+      "manifest_sha256": "6386876e9e6172655abb899c836b4199909e438846b83be515a5f75aadb48bae"
+    },
+    "partial": {
+      "path": "docs/results/harness-method-validation-20261103/partial-recovery-02/study",
+      "manifest_sha256": "fd95584af2c2af0e8f331b37e5557128d7663137694dfa17a036ca1bf5e0b620"
+    }
+  },
+  "expected_checker": {
+    "short-chain": true,
+    "navigation": true,
+    "search": false,
+    "unknown-raw": true,
+    "unknown-skill": true,
+    "partial-positive": true,
+    "partial-negative": false
+  }
+}

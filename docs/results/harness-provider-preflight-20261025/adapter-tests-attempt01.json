@@ -1,0 +1,13 @@
+{
+  "scope": "Local actual SDK + MockTransport only; no provider, simulator or model trial",
+  "command": "agent4drone/.venv/bin/python -m pytest scripts/tests/test_harness_deepseek_adapter.py -q",
+  "exit_code": 1,
+  "passed": 46,
+  "failed": 1,
+  "log_source": "Captured terminal tool output, timing and failing assertion preserved; transient fixture address omitted",
+  "sources_sha256": {
+    "scripts/harness_deepseek_adapter.py": "5281c1e939b2b1da0b83a9e89c86fed5743c5e8be43418b233704934851f0c1f",
+    "scripts/tests/test_harness_deepseek_adapter.py": "ee77e6858ea544c71da2a4fe931d53c57d4532ad13d37bc26345622be1ee1ba2"
+  },
+  "cause": "Base ChatModel.stream can fall back to invoke; public stream entry also requires explicit rejection"
+}

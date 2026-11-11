@@ -1,0 +1,75 @@
+{
+  "valid": true,
+  "date": "2026-11-02",
+  "provider_calls": 0,
+  "current_runtime_matches_all_frozen_runs": true,
+  "source_files_per_run": 90,
+  "sealed_file_entries": 1169,
+  "runs": [
+    {
+      "path": "docs/results/agent-execution-contract-20261102/budget-run-01",
+      "sealed_files": 157,
+      "manifest_sha256": "bb8987b97976a5de7add92870017b143c97949f538a3aa03014690fcbeabad4d",
+      "seal_sha256": "e77718b2c9f16b69ed06a54fcb7b4a9fd4bd721372e73b518b04cb552393e489"
+    },
+    {
+      "path": "docs/results/agent-execution-contract-20261102/cancel-run-01",
+      "sealed_files": 129,
+      "manifest_sha256": "fd9f09b5122716e0e7174218521a89f87b9b34dc4ea5e1a68ed1b1e56a0d12ef",
+      "seal_sha256": "0d039bc567e7af7df55f3729efba01fdc79b3f9d3a2ebaf8117c96898cdd52f1"
+    },
+    {
+      "path": "docs/results/agent-execution-contract-20261102/deadline-run-01",
+      "sealed_files": 129,
+      "manifest_sha256": "91f75f06734d14ea1cb1ce9153cea789dee47722f3dba0dfaa0643c15939875a",
+      "seal_sha256": "4f353a07115295f219fc593674718a81b0777c8d18f6c469d9ecb8c0e80eaee5"
+    },
+    {
+      "path": "docs/results/agent-execution-contract-20261102/main-run-01",
+      "sealed_files": 217,
+      "manifest_sha256": "7698a31d6144b412b0b79eb523996bb8df659d915d83ce173ef032afdb3d6436",
+      "seal_sha256": "c964ba18e7b325dd53cabd17e03a0ca53fabe1be60dbbc0a960d7076e8b6f19e"
+    },
+    {
+      "path": "docs/results/agent-execution-contract-20261102/resume-run-01",
+      "sealed_files": 158,
+      "manifest_sha256": "1669a93bb6eaacc04109c548597cecd60a88a27ae1d50c4acea0dd736de3e84e",
+      "seal_sha256": "dd2714b2a21563af2c928b47286ccb14140ed6ad4013b8976c9461f1ee55c390"
+    },
+    {
+      "path": "docs/results/agent-execution-contract-20261102/timeout-run-01",
+      "sealed_files": 129,
+      "manifest_sha256": "d24502d71c855d94e1179ab7e580ec7442bd4a8f010c9832aa350f4a4d7b5020",
+      "seal_sha256": "58ea6bb2de08abda1c00ecc3478ccfbe0ee94305c3c0e29b42a4ffdff7c9d5ec"
+    },
+    {
+      "path": "docs/results/agent-execution-contract-20261102/undrained-run-01",
+      "sealed_files": 121,
+      "manifest_sha256": "ddb2deeb270cc738a60de47055859cc87c69285fbc922c8387b1fd5b7026ef16",
+      "seal_sha256": "c61ce1472a6e9bf3eefec985c549b38147468a4a9a2def2ce22f02774b608bb2"
+    },
+    {
+      "path": "docs/results/agent-execution-contract-20261102/unknown-run-01",
+      "sealed_files": 129,
+      "manifest_sha256": "62472e9cb9c648e368054f92e82997066fd30e47128573e0bccda4c01661b3b1",
+      "seal_sha256": "fc4064968d9fb882b84afa15db7304cdf55aa0d677d37a05c1aad94824f57106"
+    }
+  ],
+  "prior_runs_unchanged": [
+    {
+      "path": "docs/results/general-agent-integration-20261102/run-01",
+      "unchanged": true,
+      "files": 324,
+      "seal_sha256": "cca69979bd76ed8d44606f4b4fafeb7761b27688a40e519e664cbe6dfb38115b"
+    },
+    {
+      "path": "docs/results/deepseek-behavior-pilot-20261102/run-01",
+      "unchanged": true,
+      "files": 241,
+      "seal_sha256": "373bcffe71d3d95e628e1f01633a630284c52e51c5dbc239fb4e35c3c699f3b8"
+    }
+  ],
+  "tests": 872,
+  "acceptance_sha256": "c383bb8768370eacedf4c69a286e18c32ecf2f275ff92a91e949e762896b9a49",
+  "validation_sha256": "4e43b97dfa9f6cd49cdb34902c7fb5dc480c5a22484608b451c4c9f68e754df3"
+}

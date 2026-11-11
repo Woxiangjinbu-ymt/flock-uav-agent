@@ -1,0 +1,481 @@
+{
+  "cohort": "first_attempt_no_replay",
+  "baseline_protocol": "deployment-no-scene-replay-v1",
+  "cautions": [
+    "Qwen is accounting-complete, not fully executed or valid_complete_run",
+    "Do not mix generations or historical recovered scores",
+    "Token usage is observed only; unfinished requests may add unknown cost",
+    "Scoring-ready time is not physical flight time or end-to-end job time"
+  ],
+  "splits": {
+    "main300": {
+      "deepseek": {
+        "tasks": 300,
+        "checks": 1733,
+        "passed": 248,
+        "task_pass_rate": 0.8266666666666667,
+        "deployment_passed": 248,
+        "avg_check": 0.9065566703827576,
+        "global_check": 0.8701673398730525,
+        "buckets": {
+          "pass": 248,
+          "near_miss": 16,
+          "other_partial": 18,
+          "zero_multi": 5,
+          "zero_single": 7,
+          "terminal_provider_error": 6
+        },
+        "timeouts": 8,
+        "worker_not_confirmed_scored": 0,
+        "scoring_ready_seconds": {
+          "observed_tasks": 300,
+          "sum": 32571.758442640305,
+          "mean": 108.57252814213435,
+          "p95": 446.72038636207594
+        },
+        "observed_token_usage": {
+          "prompt_tokens": {
+            "observed_tasks": 296,
+            "sum": 252641605,
+            "mean": 853518.9358108108,
+            "p95": 3889309.5,
+            "observed_sum_per_planned_task": 842138.6833333333
+          },
+          "completion_tokens": {
+            "observed_tasks": 296,
+            "sum": 7017805,
+            "mean": 23708.800675675677,
+            "p95": 99895.75,
+            "observed_sum_per_planned_task": 23392.683333333334
+          },
+          "total_tokens": {
+            "observed_tasks": 296,
+            "sum": 259659410,
+            "mean": 877227.7364864865,
+            "p95": 3981245.0,
+            "observed_sum_per_planned_task": 865531.3666666667
+          },
+          "cache_hit_tokens": {
+            "observed_tasks": 296,
+            "sum": 239299328,
+            "mean": 808443.6756756756,
+            "p95": 3725024.0,
+            "observed_sum_per_planned_task": 797664.4266666666
+          }
+        }
+      },
+      "qwen": {
+        "tasks": 300,
+        "checks": 1733,
+        "passed": 226,
+        "task_pass_rate": 0.7533333333333333,
+        "deployment_passed": 226,
+        "avg_check": 0.8589953084355257,
+        "global_check": 0.860934795152914,
+        "buckets": {
+          "pass": 226,
+          "near_miss": 25,
+          "zero_multi": 14,
+          "other_partial": 27,
+          "zero_single": 8
+        },
+        "timeouts": 52,
+        "worker_not_confirmed_scored": 1,
+        "scoring_ready_seconds": {
+          "observed_tasks": 300,
+          "sum": 65571.53184390068,
+          "mean": 218.57177281300227,
+          "p95": 500.09089995622634
+        },
+        "observed_token_usage": {
+          "prompt_tokens": {
+            "observed_tasks": 300,
+            "sum": 283648667,
+            "mean": 945495.5566666666,
+            "p95": 3731089.3000000035,
+            "observed_sum_per_planned_task": 945495.5566666666
+          },
+          "completion_tokens": {
+            "observed_tasks": 300,
+            "sum": 4188751,
+            "mean": 13962.503333333334,
+            "p95": 36810.65000000001,
+            "observed_sum_per_planned_task": 13962.503333333334
+          },
+          "total_tokens": {
+            "observed_tasks": 300,
+            "sum": 287837418,
+            "mean": 959458.06,
+            "p95": 3760304.800000003,
+            "observed_sum_per_planned_task": 959458.06
+          },
+          "cache_hit_tokens": {
+            "observed_tasks": 300,
+            "sum": 259386880,
+            "mean": 864622.9333333333,
+            "p95": 3463334.400000004,
+            "observed_sum_per_planned_task": 864622.9333333333
+          }
+        }
+      },
+      "paired_outcomes_observed": {
+        "both_pass": 210,
+        "deepseek_only": 38,
+        "both_fail": 34,
+        "qwen_only": 12,
+        "infrastructure_affected": 6
+      }
+    },
+    "dev240": {
+      "deepseek": {
+        "tasks": 240,
+        "checks": 1391,
+        "passed": 198,
+        "task_pass_rate": 0.825,
+        "deployment_passed": 198,
+        "avg_check": 0.8967548657562247,
+        "global_check": 0.8504672897196262,
+        "buckets": {
+          "pass": 198,
+          "near_miss": 11,
+          "other_partial": 14,
+          "zero_multi": 5,
+          "zero_single": 6,
+          "terminal_provider_error": 6
+        },
+        "timeouts": 7,
+        "worker_not_confirmed_scored": 0,
+        "scoring_ready_seconds": {
+          "observed_tasks": 240,
+          "sum": 25448.210802793503,
+          "mean": 106.03421167830626,
+          "p95": 425.39547910690305
+        },
+        "observed_token_usage": {
+          "prompt_tokens": {
+            "observed_tasks": 236,
+            "sum": 197719158,
+            "mean": 837793.0423728813,
+            "p95": 3684738.75,
+            "observed_sum_per_planned_task": 823829.825
+          },
+          "completion_tokens": {
+            "observed_tasks": 236,
+            "sum": 5474814,
+            "mean": 23198.36440677966,
+            "p95": 96441.25,
+            "observed_sum_per_planned_task": 22811.725
+          },
+          "total_tokens": {
+            "observed_tasks": 236,
+            "sum": 203193972,
+            "mean": 860991.406779661,
+            "p95": 3789858.5,
+            "observed_sum_per_planned_task": 846641.55
+          },
+          "cache_hit_tokens": {
+            "observed_tasks": 236,
+            "sum": 187477248,
+            "mean": 794395.1186440678,
+            "p95": 3569792.0,
+            "observed_sum_per_planned_task": 781155.2
+          }
+        }
+      },
+      "qwen": {
+        "tasks": 240,
+        "checks": 1391,
+        "passed": 178,
+        "task_pass_rate": 0.7416666666666667,
+        "deployment_passed": 178,
+        "avg_check": 0.8465739966555184,
+        "global_check": 0.8425593098490295,
+        "buckets": {
+          "pass": 178,
+          "near_miss": 20,
+          "zero_multi": 13,
+          "other_partial": 22,
+          "zero_single": 7
+        },
+        "timeouts": 43,
+        "worker_not_confirmed_scored": 1,
+        "scoring_ready_seconds": {
+          "observed_tasks": 240,
+          "sum": 52206.789048194885,
+          "mean": 217.52828770081203,
+          "p95": 500.09193967580796
+        },
+        "observed_token_usage": {
+          "prompt_tokens": {
+            "observed_tasks": 240,
+            "sum": 225280958,
+            "mean": 938670.6583333333,
+            "p95": 3685396.199999994,
+            "observed_sum_per_planned_task": 938670.6583333333
+          },
+          "completion_tokens": {
+            "observed_tasks": 240,
+            "sum": 3356572,
+            "mean": 13985.716666666667,
+            "p95": 36810.64999999999,
+            "observed_sum_per_planned_task": 13985.716666666667
+          },
+          "total_tokens": {
+            "observed_tasks": 240,
+            "sum": 228637530,
+            "mean": 952656.375,
+            "p95": 3718832.549999994,
+            "observed_sum_per_planned_task": 952656.375
+          },
+          "cache_hit_tokens": {
+            "observed_tasks": 240,
+            "sum": 206099200,
+            "mean": 858746.6666666666,
+            "p95": 3463334.399999994,
+            "observed_sum_per_planned_task": 858746.6666666666
+          }
+        }
+      },
+      "paired_outcomes_observed": {
+        "both_pass": 166,
+        "deepseek_only": 32,
+        "both_fail": 28,
+        "qwen_only": 8,
+        "infrastructure_affected": 6
+      }
+    },
+    "validation60": {
+      "deepseek": {
+        "tasks": 60,
+        "checks": 342,
+        "passed": 50,
+        "task_pass_rate": 0.8333333333333334,
+        "deployment_passed": 50,
+        "avg_check": 0.945763888888889,
+        "global_check": 0.9502923976608187,
+        "buckets": {
+          "pass": 50,
+          "near_miss": 5,
+          "other_partial": 4,
+          "zero_single": 1
+        },
+        "timeouts": 1,
+        "worker_not_confirmed_scored": 0,
+        "scoring_ready_seconds": {
+          "observed_tasks": 60,
+          "sum": 7123.547639846802,
+          "mean": 118.7257939974467,
+          "p95": 481.2804311275482
+        },
+        "observed_token_usage": {
+          "prompt_tokens": {
+            "observed_tasks": 60,
+            "sum": 54922447,
+            "mean": 915374.1166666667,
+            "p95": 5022526.449999997,
+            "observed_sum_per_planned_task": 915374.1166666667
+          },
+          "completion_tokens": {
+            "observed_tasks": 60,
+            "sum": 1542991,
+            "mean": 25716.516666666666,
+            "p95": 104414.24999999999,
+            "observed_sum_per_planned_task": 25716.516666666666
+          },
+          "total_tokens": {
+            "observed_tasks": 60,
+            "sum": 56465438,
+            "mean": 941090.6333333333,
+            "p95": 5100410.999999997,
+            "observed_sum_per_planned_task": 941090.6333333333
+          },
+          "cache_hit_tokens": {
+            "observed_tasks": 60,
+            "sum": 51822080,
+            "mean": 863701.3333333334,
+            "p95": 4727263.999999997,
+            "observed_sum_per_planned_task": 863701.3333333334
+          }
+        }
+      },
+      "qwen": {
+        "tasks": 60,
+        "checks": 342,
+        "passed": 48,
+        "task_pass_rate": 0.8,
+        "deployment_passed": 48,
+        "avg_check": 0.9086805555555556,
+        "global_check": 0.935672514619883,
+        "buckets": {
+          "pass": 48,
+          "near_miss": 5,
+          "other_partial": 5,
+          "zero_multi": 1,
+          "zero_single": 1
+        },
+        "timeouts": 9,
+        "worker_not_confirmed_scored": 0,
+        "scoring_ready_seconds": {
+          "observed_tasks": 60,
+          "sum": 13364.742795705795,
+          "mean": 222.74571326176326,
+          "p95": 500.06975507736206
+        },
+        "observed_token_usage": {
+          "prompt_tokens": {
+            "observed_tasks": 60,
+            "sum": 58367709,
+            "mean": 972795.15,
+            "p95": 3777767.0999999964,
+            "observed_sum_per_planned_task": 972795.15
+          },
+          "completion_tokens": {
+            "observed_tasks": 60,
+            "sum": 832179,
+            "mean": 13869.65,
+            "p95": 34870.249999999985,
+            "observed_sum_per_planned_task": 13869.65
+          },
+          "total_tokens": {
+            "observed_tasks": 60,
+            "sum": 59199888,
+            "mean": 986664.8,
+            "p95": 3807167.4499999965,
+            "observed_sum_per_planned_task": 986664.8
+          },
+          "cache_hit_tokens": {
+            "observed_tasks": 60,
+            "sum": 53287680,
+            "mean": 888128,
+            "p95": 3443673.5999999964,
+            "observed_sum_per_planned_task": 888128.0
+          }
+        }
+      },
+      "paired_outcomes_observed": {
+        "both_pass": 44,
+        "both_fail": 6,
+        "deepseek_only": 6,
+        "qwen_only": 4
+      }
+    },
+    "fast100": {
+      "deepseek": {
+        "tasks": 100,
+        "checks": 605,
+        "passed": 70,
+        "task_pass_rate": 0.7,
+        "deployment_passed": 70,
+        "avg_check": 0.8197116778149386,
+        "global_check": 0.6958677685950413,
+        "buckets": {
+          "pass": 70,
+          "other_partial": 10,
+          "zero_multi": 3,
+          "near_miss": 8,
+          "zero_single": 3,
+          "terminal_provider_error": 6
+        },
+        "timeouts": 5,
+        "worker_not_confirmed_scored": 0,
+        "scoring_ready_seconds": {
+          "observed_tasks": 100,
+          "sum": 14894.872505187988,
+          "mean": 148.94872505187988,
+          "p95": 480.53926805257794
+        },
+        "observed_token_usage": {
+          "prompt_tokens": {
+            "observed_tasks": 96,
+            "sum": 112836327,
+            "mean": 1175378.40625,
+            "p95": 4201474.5,
+            "observed_sum_per_planned_task": 1128363.27
+          },
+          "completion_tokens": {
+            "observed_tasks": 96,
+            "sum": 3287146,
+            "mean": 34241.104166666664,
+            "p95": 105436.0,
+            "observed_sum_per_planned_task": 32871.46
+          },
+          "total_tokens": {
+            "observed_tasks": 96,
+            "sum": 116123473,
+            "mean": 1209619.5104166667,
+            "p95": 4279357.75,
+            "observed_sum_per_planned_task": 1161234.73
+          },
+          "cache_hit_tokens": {
+            "observed_tasks": 96,
+            "sum": 106945664,
+            "mean": 1114017.3333333333,
+            "p95": 4142752.0,
+            "observed_sum_per_planned_task": 1069456.64
+          }
+        }
+      },
+      "qwen": {
+        "tasks": 100,
+        "checks": 605,
+        "passed": 59,
+        "task_pass_rate": 0.59,
+        "deployment_passed": 59,
+        "avg_check": 0.7452711817168338,
+        "global_check": 0.7090909090909091,
+        "buckets": {
+          "pass": 59,
+          "zero_multi": 9,
+          "near_miss": 13,
+          "other_partial": 14,
+          "zero_single": 5
+        },
+        "timeouts": 30,
+        "worker_not_confirmed_scored": 1,
+        "scoring_ready_seconds": {
+          "observed_tasks": 100,
+          "sum": 28530.33047890663,
+          "mean": 285.3033047890663,
+          "p95": 500.4254644870758
+        },
+        "observed_token_usage": {
+          "prompt_tokens": {
+            "observed_tasks": 100,
+            "sum": 122332906,
+            "mean": 1223329.06,
+            "p95": 5019944.999999999,
+            "observed_sum_per_planned_task": 1223329.06
+          },
+          "completion_tokens": {
+            "observed_tasks": 100,
+            "sum": 1927836,
+            "mean": 19278.36,
+            "p95": 41961.9,
+            "observed_sum_per_planned_task": 19278.36
+          },
+          "total_tokens": {
+            "observed_tasks": 100,
+            "sum": 124260742,
+            "mean": 1242607.42,
+            "p95": 5053827.699999999,
+            "observed_sum_per_planned_task": 1242607.42
+          },
+          "cache_hit_tokens": {
+            "observed_tasks": 100,
+            "sum": 110883328,
+            "mean": 1108833.28,
+            "p95": 4708966.399999999,
+            "observed_sum_per_planned_task": 1108833.28
+          }
+        }
+      },
+      "paired_outcomes_observed": {
+        "both_pass": 51,
+        "both_fail": 20,
+        "deepseek_only": 19,
+        "qwen_only": 4,
+        "infrastructure_affected": 6
+      }
+    }
+  }
+}

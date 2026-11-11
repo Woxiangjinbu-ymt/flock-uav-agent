@@ -1,0 +1,453 @@
+{
+  "provider_calls": 0,
+  "cases": [
+    {
+      "case_id": "clue-horizontal",
+      "prefix_sha256": "9391dc44b62a98c078f154acc220773748a02a0a347f494059b1420b04ad0764",
+      "state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+      "projection_chars": {
+        "v2": 1043,
+        "v3": 1939
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 10838,
+        "v3": 11778
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "clue-horizontal",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.03464783300023555,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+          "final_state_sha256": "47e28e29f35f85610d2065cf60ecf85a2992f92b959b7009108e9c1d8c1587f0",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "clue-horizontal",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.028304709000622097,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+          "final_state_sha256": "3a90e9d4dd5941335d25b49e11efd657caed2f201d72266bd5839118f8304edd",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "clue-vertical",
+      "prefix_sha256": "ea15e589aabb7dfb51ceeed4891646e463d30746d4882541c4ee0e80add69ec9",
+      "state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+      "projection_chars": {
+        "v2": 1043,
+        "v3": 1939
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 10835,
+        "v3": 11775
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "clue-vertical",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.026369540999439778,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+          "final_state_sha256": "2194ed0703c44c7084dac092b199b230039d2f2954a17fac327a151d7a0effd9",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "clue-vertical",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.02659966600003827,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1",
+              "drone-2"
+            ]
+          },
+          "initial_state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+          "final_state_sha256": "4fd97c8145a15c6033dcfbe114d954f7472a8f473c9c7d7d938f7724f5ee78d0",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "route-interrupted",
+      "prefix_sha256": "8866f667c565e1390bb13eadc3e620b9cae67b7335696d5ed80cb8b67eb33e07",
+      "state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+      "projection_chars": {
+        "v2": 525,
+        "v3": 525
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 7802,
+        "v3": 7802
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "route-interrupted",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.024677458000041952,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+          "final_state_sha256": "340054170515791eccca64ef7061baaed9a015650d9a2c2dbe30d27d8675c5ac",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "route-interrupted",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.02404591699996672,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+          "final_state_sha256": "104d1227473abf3e503a9747efd0ae285e146447382579c573becffad271dda9",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "route-blocked",
+      "prefix_sha256": "6ec72d6031fd454568037516f59ce0d79397e52c7427cd384044fcd9e6a001d4",
+      "state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+      "projection_chars": {
+        "v2": 525,
+        "v3": 525
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 8176,
+        "v3": 8176
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "route-blocked",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.02510379199975432,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+          "final_state_sha256": "ba3a4251cdc875ef16f32a60e18c2b9309676983f0387ba5c355263fcd5c94e6",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "route-blocked",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.027269041999716137,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+          "final_state_sha256": "f2db2e822968a27dc0051f2a7825c3f6d4c10bf0cd3fe5a0da0df772fdbeb1d7",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "control-complete",
+      "prefix_sha256": "b2b4ad5ab0266e125114a3cbee4e3995d47d75599ba3c923b59621eae4935bf3",
+      "state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+      "projection_chars": {
+        "v2": 388,
+        "v3": 388
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 8720,
+        "v3": 8720
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "control-complete",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.026124291000087396,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+          "final_state_sha256": "94fbc41786a6467999ecac737f5f3d0efe59efe32b3ee8a8ff25ef5dca613b44",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "control-complete",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.02753149999989546,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "ordered_points": 4,
+            "total_points": 4,
+            "landed": true
+          },
+          "initial_state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+          "final_state_sha256": "a3079fa28fb9f2b95d507582f2c75d3c0339775769d8eee5dc24358ca65bafa6",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    },
+    {
+      "case_id": "control-failed-sense",
+      "prefix_sha256": "0e91b5324d0416e117cbba9d2d0302339e5baefb069dab58abc37892789f003b",
+      "state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+      "projection_chars": {
+        "v2": 498,
+        "v3": 498
+      },
+      "same_facts_except_contract": true,
+      "initial_request_reservation": {
+        "v2": 7569,
+        "v3": 7569
+      },
+      "six_decision_offline_oracles": {
+        "v2": {
+          "case_id": "control-failed-sense",
+          "arm": "v2",
+          "repeat": 1,
+          "memory_revision": "v2",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.025304124999820488,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1"
+            ]
+          },
+          "initial_state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+          "final_state_sha256": "d234f86cff4397ad6138ba472857e7c5c433fc88c3cd754633d2e0ddfa4e9f82",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        },
+        "v3": {
+          "case_id": "control-failed-sense",
+          "arm": "v3",
+          "repeat": 1,
+          "memory_revision": "v3",
+          "provider_http": false,
+          "status": "model_finished",
+          "seconds": 0.025438499999836495,
+          "model_calls": 6,
+          "model_request_attempts": 6,
+          "tool_calls": 5,
+          "total_tokens": 36600,
+          "input_tokens": 36000,
+          "output_tokens": 600,
+          "charged_tokens_including_uncertain_requests": 36600,
+          "checker": {
+            "passed": true,
+            "reached_by": [
+              "drone-1"
+            ]
+          },
+          "initial_state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+          "final_state_sha256": "96da0efc876a948740c121ea47bad9eb895be048ef2c8bbeffd0ff100ad6eb1c",
+          "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+          "decision_audit_rows": 6,
+          "decision_audit_errors": 0,
+          "repeated_successful_sense_queries": 0
+        }
+      }
+    }
+  ],
+  "budget": {
+    "model_calls": 6,
+    "tool_calls": 12,
+    "seconds": 90,
+    "total_tokens": 60000,
+    "max_output_tokens": 768,
+    "projection_chars": 3900,
+    "campaign_tokens": 300000
+  },
+  "budget_method": "serialized_provider_request_utf8_bytes_plus_2048_framing_and_max_output",
+  "protocol_change_from_v2": "Fresh baseline v2 and candidate v3 use identical v2 facts, tools, read points, wire admission accounting and budgets. V3 alone adds an eligible-query decision declaration contract. Both arms are audited without enforcing declarations or changing tool calls. Earlier results are historical only.",
+  "scope": "Same six artificial controlled prefixes; twelve fresh v2/v3 attempts only"
+}

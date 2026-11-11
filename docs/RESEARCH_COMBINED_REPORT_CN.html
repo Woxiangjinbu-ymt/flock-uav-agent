@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多无人机 Agent 系统与小模型后训练｜阶段一・二研究报告</title>
+<style>
+/* Shared report theme: embedded for standalone offline rendering. */
+:root{--ink:#193047;--muted:#5b6d7f;--blue:#236ca2;--line:#d9e3eb;--paper:#fff;--bg:#f3f6f8;--amber:#946517;--violet:#7a55a2}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:75px}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.85 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif}a{color:var(--blue);text-underline-offset:4px;overflow-wrap:anywhere}a:hover{color:#164c75}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #d4a33d;outline-offset:4px}.topbar{position:sticky;top:0;z-index:10;background:#fffffff5;border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}.topinner{max-width:1320px;margin:auto;display:flex;gap:24px;align-items:center;padding:12px 24px;font-size:14px}.brand{font-weight:750;letter-spacing:.08em;margin-right:auto}.topinner a{text-decoration:none;color:var(--muted)}main{max-width:1120px;margin:30px auto 0;background:var(--paper);padding:62px 60px 70px}header{border-bottom:1px solid var(--line);padding-bottom:36px;margin-bottom:40px}.eyebrow{font-size:13px;letter-spacing:.15em;color:var(--blue);font-weight:750;text-transform:uppercase}h1{font-size:43px;line-height:1.35;letter-spacing:-.03em;margin:14px 0 24px}h1 span{display:block;font-size:26px;font-weight:500;color:var(--muted);margin-top:12px}.lead{font-size:21px;line-height:1.8;max-width:920px}.meta{font-size:14px;color:var(--muted)}h2{font-size:28px;line-height:1.45;margin:58px 0 22px;padding-top:8px}h2 .n{font-size:15px;color:var(--blue);font-weight:600;display:block;letter-spacing:.14em;margin-bottom:7px}h3{font-size:21px;line-height:1.5;margin:30px 0 12px}p{margin:13px 0}strong{font-weight:700}ul,ol{padding-left:1.5em}li{padding:3px 0}.callout{border-left:4px solid var(--blue);background:#f0f6fa;padding:18px 23px;margin:24px 0}.callout p{margin:4px 0}.note{border-left-color:#b98632;background:#fff8eb}.label{display:inline-block;font-size:12px;padding:1px 8px;border:1px solid #b9ccdf;border-radius:4px;color:#2d6b9f;background:#edf5fd;white-space:nowrap;line-height:1.7;font-weight:650}.label.u{background:#f1f4f7;border-color:#bac6d3;color:#5c6c7b}.label.p{background:#fff6e6;border-color:#d8bd8f;color:#8c641e}.label.d{background:#f6f0fb;border:1px dashed #ab91c7;color:#7a55a2}.toc{display:grid;grid-template-columns:1fr 1fr;column-gap:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin:28px 0}.toc a{padding:4px 0;text-decoration:none;font-size:15px}.fig{margin:28px -35px 34px}.fig-shell{overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff}.fig svg{display:block;width:100%;height:auto}.fig-tools{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:8px 0;color:var(--muted);font-size:13px}.fig-tools button{border:0;background:transparent;color:var(--blue);padding:2px 0}.fig-tools a{text-decoration:none}.fig figcaption{color:var(--muted);font-size:14px;line-height:1.75;margin:10px 0}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:7px;margin:23px 0}table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.7;min-width:780px;text-align:left}th{background:#edf3f7;font-weight:700;white-space:nowrap}th,td{vertical-align:top;padding:14px 15px;border-bottom:1px solid var(--line)}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#fafcfd}td:first-child{font-weight:650}td code{white-space:normal;overflow-wrap:anywhere}code{font-family:"SFMono-Regular",Consolas,monospace;font-size:.87em;background:#edf2f6;padding:2px 4px;border-radius:3px}pre{background:#152d43;color:#eef5fc;padding:23px;border-radius:8px;overflow-x:auto;font-size:14px;line-height:1.85}pre code{background:none;color:inherit;padding:0}.steps{counter-reset:step;list-style:none;padding:0}.steps li{position:relative;padding:11px 0 14px 44px;border-bottom:1px solid var(--line)}.steps li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:13px;color:var(--blue);font-weight:750}.source-list{font-size:14px;line-height:1.8}.source-list li{padding:7px 0}.quote{font-size:18px;line-height:1.95;padding:23px 27px;border:1px solid var(--line);border-radius:8px;background:#fcfdff}.mini{font-size:14px;color:var(--muted)}footer{max-width:1120px;margin:auto;padding:25px 24px 45px;color:var(--muted);font-size:13px}dialog{border:1px solid var(--line);border-radius:12px;width:96vw;max-width:none;height:94vh;padding:0;background:white;color:var(--ink)}dialog::backdrop{background:#142c46bd}.dialog-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;background:white;border-bottom:1px solid var(--line);z-index:1}.dialog-bar button{border:1px solid var(--line);border-radius:5px;background:#f3f7fa;padding:4px 15px}.dialog-body{overflow:auto;height:calc(100% - 64px);padding:18px}.dialog-body svg{display:block;width:100%;height:auto;min-width:1050px}.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}.split>div{border-top:3px solid var(--line);padding-top:12px}.formula{text-align:center;font-size:21px;padding:18px;background:#f6f9fb;border-radius:6px}.statusline{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.nowrap{white-space:nowrap}
+@media(max-width:760px){.topinner{padding:10px 16px;gap:15px}.topinner a:nth-of-type(2),.topinner a:nth-of-type(3){display:none}main{margin:0;padding:34px 21px 40px}h1{font-size:31px}h1 span{font-size:21px}.lead{font-size:18px}h2{font-size:24px;margin-top:42px}.toc{grid-template-columns:1fr}.fig{margin:24px -6px}.fig-shell svg{min-width:880px}.fig-shell{max-height:75vh}.split{grid-template-columns:1fr}.quote{padding:18px;font-size:17px}.formula{font-size:17px}.topinner{font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white;font-size:11pt;line-height:1.65}.topbar,.fig-tools,.toc,dialog{display:none!important}main{max-width:none;margin:0;padding:0}h1{font-size:28pt}h1 span{font-size:17pt}h2{font-size:19pt;break-after:avoid}h3{break-after:avoid}.fig{margin:20px 0;break-inside:avoid}.fig-shell{overflow:visible;border:0;max-height:none}.fig-shell svg{min-width:0}.table-wrap{overflow:visible;border:0}table{min-width:0;font-size:9pt}thead{display:table-header-group}tr{break-inside:avoid}a{color:inherit;text-decoration:none}.callout,.quote{break-inside:avoid}footer{padding:10px 0}.split{display:block}@page{size:A4;margin:16mm}}
+
+/* Original compact report layout. */
+main{padding-top:42px;padding-bottom:40px}header{padding-bottom:22px;margin-bottom:26px}h1{font-size:39px;margin-bottom:18px}h1 span{font-size:24px}.lead{font-size:20px}h2{margin-top:40px}.fig{margin-top:22px;margin-bottom:22px}.keypoints{list-style:none;padding:0;margin:18px 0}.keypoints li{padding:9px 0;border-bottom:1px solid var(--line)}.keypoints li:last-child{border-bottom:0}.overview{padding:14px 18px;border:1px solid var(--line);border-radius:6px;background:#f7fafc;font-size:16px;line-height:1.8}.overview strong{color:var(--blue);white-space:nowrap}.evidence{border-left:3px solid #548e80;padding:5px 20px;margin:24px 0;background:#f4faf7}.evidence p{font-size:15px;line-height:1.8;margin:10px 0}.comparison-table td:first-child{width:120px;white-space:nowrap}.compact-links{font-size:14px;color:var(--muted);margin:26px 0 0}.compare-detail{margin:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0}.compare-detail summary{cursor:pointer;color:var(--blue);font-size:15px;font-weight:650}.compare-detail summary:focus-visible{outline:3px solid #d4a33d;outline-offset:4px}.compare-detail[open] summary{margin-bottom:20px}.compare-detail p{font-size:15px}.compare-detail .fig{margin:14px 0}.compare-detail svg{width:100%;height:auto}.steps li{padding-top:9px;padding-bottom:12px}.steps li:before{top:11px}.table-wrap{margin:20px 0}section+section{margin-top:18px}footer{padding-top:18px}
+@media(max-width:760px){main{padding:30px 21px}h1{font-size:29px}h1 span{font-size:20px}.lead{font-size:18px}.overview{font-size:15px}.evidence{padding:4px 15px}.compare-detail .fig{margin-left:-6px;margin-right:-6px}.topinner{gap:16px}.topinner a:nth-of-type(2){display:inline}.topinner a:nth-of-type(3){display:none}}
+@media print{main{padding:0}h1{font-size:25pt}h1 span{font-size:16pt}.lead{font-size:13pt}.overview{font-size:11pt}.evidence p{font-size:10pt}.compare-detail:not([open]){display:none}.keypoints li{break-inside:avoid}.compact-links{font-size:9pt}}
+
+h3[id]{scroll-margin-top:75px}
+</style>
+</head>
+<body>
+<nav class="topbar" aria-label="报告导航"><div class="topinner"><span class="brand">RESEARCH / I + II</span><a href="#harness">架构与对比</a><a href="#training">后训练路线</a><a href="#plan">评测与计划</a></div></nav>
+<main>
+<header>
+<div class="eyebrow">Integrated Research Report · 2026.11.01</div>
+<h1>多无人机 Agent 系统与小模型后训练<span>阶段一・二合并报告 · 架构、阶段成果与研究路线</span></h1>
+<p class="lead">本研究围绕多无人机协作中的<strong>计划执行与控制权交接</strong>，构建公开证据驱动的 Agent Harness，并进一步探索基于真实交互轨迹的小模型后训练。两阶段分别研究运行机制的有效性与决策能力的迁移，通过统一环境和评测协议建立联系。</p>
+<div class="overview"><strong>阶段一</strong>　Harness：执行、证据与接管　→　<strong>阶段二</strong>　Teacher 轨迹 → SFT → 同 Harness 评测 → 条件式 RL</div>
+<p>核心问题包括：公开执行证据能否支持对“继续、失效、交回模型”的正确判断；经过验证的 Teacher 轨迹能否改善约 2B 学生的技能选择、工具使用和接管决策；系统机制与模型训练分别贡献了哪些收益。</p>
+<p class="meta">2026-11-01 整理 ｜ 实验截至 10-25，状态依据为 10-28 核查 ｜ 图示按完整方法设计呈现；当前实现、验证结果及待开展工作在正文中分别说明。</p>
+</header>
+
+<section id="harness">
+<h2><span class="n">01 / AGENT HARNESS</span>公开证据驱动的执行与接管机制</h2>
+<h3 id="baseline">1.1　Agent4Drone 原架构与研究基础</h3>
+<p>本项目复用 MultiUAV-Plat 的仿真环境、多无人机工具、任务生成与评估基础，并以 Agent4Drone 为对比基线。原架构通过观察、任务理解、规划、工具链执行和验证形成反馈闭环；Memory 保存局部信息、动作历史与中间结果，执行反馈进一步支持重试和重规划。</p>
+<figure class="fig" id="fig-baseline"><div class="fig-shell"><svg xmlns="http://www.w3.org/2000/svg" width="1680" height="700" viewBox="0 0 1680 700" role="img" aria-labelledby="agent4drone-baseline-title agent4drone-baseline-desc">
+<title id="agent4drone-baseline-title">Agent4Drone baseline：论文 Fig. 4 的结构重绘</title><desc id="agent4drone-baseline-desc">依据 MultiUAV-Plat §3.3 / Fig. 4（2026，v1）｜概念模块，不代表六个独立 Agent；图中各组件均属上游方法描述。</desc>
+<defs><marker id="agent4drone-baseline-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#566c83"/></marker><marker id="agent4drone-baseline-purple" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#9472b9"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif;fill:#1b3047}.small{font-size:17px;fill:#52677d}.body{font-size:20px}.title{font-size:22px;font-weight:650}.edge-label{font-size:16px;fill:#465f76;paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}</style>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="38" y="48" font-size="30" font-weight="700" text-anchor="start">Agent4Drone baseline：论文 Fig. 4 的结构重绘</text>
+<text x="38" y="80" font-size="17" font-weight="400" text-anchor="start" style="fill:#52677d">依据 MultiUAV-Plat §3.3 / Fig. 4（2026，v1）｜概念模块，不代表六个独立 Agent；图中各组件均属上游方法描述。</text>
+<rect x="38" y="120" width="1604" height="510" rx="14" fill="#f8fbff" stroke="#bed0e4" stroke-width="1.6"/>
+<g data-state="U">
+<rect x="66" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="86" y="199" font-size="22" font-weight="650" text-anchor="start">任务输入</text>
+<text x="86" y="225" font-size="17" font-weight="400" text-anchor="start">指令与公开上下文</text>
+</g>
+<g data-state="U">
+<rect x="292" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="312" y="199" font-size="22" font-weight="650" text-anchor="start">观察</text>
+<text x="312" y="225" font-size="17" font-weight="400" text-anchor="start">状态 / 局部感知</text>
+</g>
+<g data-state="U">
+<rect x="518" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="538" y="199" font-size="22" font-weight="650" text-anchor="start">任务理解</text>
+<text x="538" y="225" font-size="17" font-weight="400" text-anchor="start">目标 / 对象 / 约束</text>
+</g>
+<g data-state="U">
+<rect x="744" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="764" y="199" font-size="22" font-weight="650" text-anchor="start">规划</text>
+<text x="764" y="225" font-size="17" font-weight="400" text-anchor="start">子任务 / UAV 分配</text>
+</g>
+<g data-state="U">
+<rect x="970" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="990" y="199" font-size="22" font-weight="650" text-anchor="start">工具链落地</text>
+<text x="990" y="225" font-size="17" font-weight="400" text-anchor="start">有界动作链</text>
+</g>
+<g data-state="U">
+<rect x="1196" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="1216" y="199" font-size="22" font-weight="650" text-anchor="start">执行</text>
+<text x="1216" y="225" font-size="17" font-weight="400" text-anchor="start">动作 / 多机协作</text>
+</g>
+<g data-state="U">
+<rect x="1422" y="165" width="192" height="112" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="1442" y="199" font-size="22" font-weight="650" text-anchor="start">验证</text>
+<text x="1442" y="225" font-size="17" font-weight="400" text-anchor="start">进度 / 完成检查</text>
+</g>
+<path d="M258,221 L292,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<path d="M484,221 L518,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<path d="M710,221 L744,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<path d="M936,221 L970,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<path d="M1162,221 L1196,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<path d="M1388,221 L1422,221" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<g data-state="U">
+<rect x="292" y="367" width="650" height="115" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="312" y="401" font-size="22" font-weight="650" text-anchor="start">Memory · 共享黑板与交互记忆</text>
+<text x="312" y="427" font-size="20" font-weight="400" text-anchor="start">局部观测、动作历史、中间结果、验证反馈</text>
+</g>
+<g data-state="U">
+<rect x="1020" y="367" width="594" height="115" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="1040" y="401" font-size="22" font-weight="650" text-anchor="start">Decision Artifacts · 决策产物</text>
+<text x="1040" y="427" font-size="20" font-weight="400" text-anchor="start">子任务、UAV 分配、路线、工具链与停止条件</text>
+</g>
+<path d="M942,425 L1020,425" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)" marker-start="url(#agent4drone-baseline-arrow)"/>
+<path d="M388,367 L388,277" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<path d="M614,367 L614,277" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<path d="M840,367 L840,277" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<path d="M1518,277 L1518,327 L865,327 L865,367" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<text x="1000" y="318" font-size="16" font-weight="400" text-anchor="start" class="edge-label">执行 / 验证反馈 → 更新记忆 → 重规划</text>
+<path d="M1066,367 L1066,277" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<g data-state="U">
+<rect x="292" y="530" width="1322" height="62" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="312" y="564" font-size="22" font-weight="650" text-anchor="start">外部交互边界：合法观测 ↔ 支持的动作 ↔ 多 UAV 环境执行反馈</text>
+</g>
+<path d="M1292,277 L1292,340 L1640,340 L1640,560 L1614,560" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#agent4drone-baseline-arrow)"/>
+<text x="42" y="671" font-size="18" font-weight="400" text-anchor="start">重绘只统一视觉语言；原论文已经包含短程规划、有界工具链、Memory 和 Verification，不能将这些概念本身视为本项目新增。</text></svg></div><div class="fig-tools"><button type="button" data-expand="fig-baseline">放大查看</button><button type="button" data-download="fig-baseline" data-name="agent4drone-baseline.svg">下载 SVG</button><a href="assets/harness-stage-20261101/agent4drone-baseline.png">PNG</a></div><figcaption>图 1．Agent4Drone 原架构的结构重绘（依据原论文 Fig. 4）。展示任务工作流、共享记忆及执行验证反馈；箭头为概念归纳。</figcaption></figure>
+<p>原论文已经包含短程规划、有界工具链、记忆和验证。上述模块代表同一主 Agent 的概念职责，多个 UAV 由集中式策略调度。本研究在此基础上，进一步明确计划的适用条件、执行状态与交接内容，使程序内继续执行和模型重新决策之间的边界能够被检查和评价。</p>
+<p class="mini">图 1 依据 Zhang 等，<em>MultiUAV-Plat</em>（2026），§3.3 / Fig. 4 结构重绘。<a href="https://arxiv.org/abs/2606.31073v1">原论文</a> · <a href="HARNESS_STAGE_REPORT_CN.html#baseline">原架构核对</a>。仿真、几何导航与平台可视化的上游能力不计为本研究新增贡献。</p>
+
+<h3>1.2　Harness 总体架构与模块职责</h3>
+<p>完整架构由<strong>任务与证据、模型决策、有界执行、回合与评估</strong>四层组成。模型负责语义判断、技能选择、无人机分配和重规划；Harness 管理已提交计划及其确定性执行规则；环境提供实际动作效果；独立评分给出最终任务判定。</p>
+<figure class="fig" id="fig-complete"><div class="fig-shell"><svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1410" viewBox="0 0 1680 1410" role="img" aria-labelledby="harness-complete-architecture-title harness-complete-architecture-desc">
+<title id="harness-complete-architecture-title">公开证据驱动的多 UAV Agent Harness</title><desc id="harness-complete-architecture-desc">Evidence-Guided Multi-UAV Agent Harness · 计划提交、适用性执行与证据驱动接管</desc>
+<defs><marker id="harness-complete-architecture-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#566c83"/></marker><marker id="harness-complete-architecture-purple" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#9472b9"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif;fill:#1b3047}.small{font-size:17px;fill:#52677d}.body{font-size:20px}.title{font-size:22px;font-weight:650}.edge-label{font-size:16px;fill:#465f76;paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}</style>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="38" y="48" font-size="30" font-weight="700" text-anchor="start">公开证据驱动的多 UAV Agent Harness</text>
+<text x="38" y="80" font-size="17" font-weight="400" text-anchor="start" style="fill:#52677d">Evidence-Guided Multi-UAV Agent Harness · 计划提交、适用性执行与证据驱动接管</text>
+<defs><marker id="harness-complete-architecture-evidence-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#548e80"/></marker></defs>
+<rect x="38" y="102" width="20" height="20" rx="4" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="69" y="119" font-size="17" font-weight="400" text-anchor="start">证据与状态</text>
+<rect x="308" y="102" width="20" height="20" rx="4" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="339" y="119" font-size="17" font-weight="400" text-anchor="start">决策与计划</text>
+<rect x="578" y="102" width="20" height="20" rx="4" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="609" y="119" font-size="17" font-weight="400" text-anchor="start">技能与执行</text>
+<rect x="848" y="102" width="20" height="20" rx="4" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="879" y="119" font-size="17" font-weight="400" text-anchor="start">环境与运行</text>
+<rect x="1118" y="102" width="20" height="20" rx="4" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="1149" y="119" font-size="17" font-weight="400" text-anchor="start">评估与学习</text>
+<rect x="38" y="148" width="1604" height="955" rx="14" fill="#fcfdff" stroke="#d7e1eb" stroke-width="1.6"/>
+<text x="58" y="178" font-size="18" font-weight="600" text-anchor="start">在线决策与执行 · 集中式策略 / 多 UAV 协作 / 公开信息边界</text>
+<g data-role="runtime">
+<rect x="60" y="202" width="340" height="123" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="80" y="236" font-size="22" font-weight="650" text-anchor="start">任务输入</text>
+<text x="80" y="271" font-size="19" font-weight="400" text-anchor="start">自然语言指令与公开规则</text>
+<text x="80" y="300" font-size="19" font-weight="400" text-anchor="start">指定主体、任务目标与资源约束</text>
+</g>
+<g data-role="evidence">
+<rect x="450" y="202" width="390" height="123" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="470" y="236" font-size="22" font-weight="650" text-anchor="start">任务义务与约束</text>
+<text x="470" y="271" font-size="19" font-weight="400" text-anchor="start">主体 · 对象 · 动作 · 先后依赖</text>
+<text x="470" y="300" font-size="19" font-weight="400" text-anchor="start">来源条款 · 空间约束 · 最终状态</text>
+</g>
+<g data-role="decision">
+<rect x="900" y="202" width="680" height="123" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="920" y="236" font-size="22" font-weight="650" text-anchor="start">集中式策略 · LLM Planner</text>
+<text x="920" y="271" font-size="20" font-weight="400" text-anchor="start">任务理解、UAV 分配、技能选择与重规划</text>
+<text x="920" y="300" font-size="20" font-weight="400" text-anchor="start">start / resume / cancel · 直接工具调用</text>
+</g>
+<path d="M400,258 L450,258" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<path d="M840,258 L900,258" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<g data-role="evidence">
+<rect x="60" y="385" width="440" height="348" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="80" y="419" font-size="22" font-weight="650" text-anchor="start">公开证据与任务状态</text>
+<text x="80" y="454" font-size="20" font-weight="400" text-anchor="start">局部观测 · UAV 状态 · 动作回执</text>
+<text x="80" y="483" font-size="20" font-weight="400" text-anchor="start">来源 / 主体 / 时间 / 场景作用域</text>
+<text x="80" y="512" font-size="20" font-weight="400" text-anchor="start">已确认效果 / 部分效果 / 未知效果</text>
+</g>
+<path d="M80,532 H480" stroke="#c2ddd5" stroke-width="1.4"/>
+<text x="80" y="571" font-size="21" font-weight="650" text-anchor="start">决策上下文构建</text>
+<text x="80" y="610" font-size="20" font-weight="400" text-anchor="start">任务义务与执行证据匹配</text>
+<text x="80" y="639" font-size="20" font-weight="400" text-anchor="start">已完成步骤 · 剩余任务 · 相关失败</text>
+<text x="80" y="668" font-size="20" font-weight="400" text-anchor="start">有效依赖 · 未知信息 · 上下文投影</text>
+<g data-role="decision">
+<rect x="560" y="385" width="470" height="155" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="580" y="419" font-size="22" font-weight="650" text-anchor="start">计划契约 · DecisionFrame</text>
+<text x="580" y="454" font-size="20" font-weight="400" text-anchor="start">计划身份 · 执行主体 · 游标</text>
+<text x="580" y="483" font-size="20" font-weight="400" text-anchor="start">来源义务 · 证据依赖 · 有效条件</text>
+<text x="580" y="512" font-size="20" font-weight="400" text-anchor="start">修复范围 · 停止条件 · 执行预算</text>
+</g>
+<g data-role="decision">
+<rect x="1090" y="385" width="490" height="155" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="1110" y="419" font-size="22" font-weight="650" text-anchor="start">任务验证与决策交接</text>
+<text x="1110" y="454" font-size="20" font-weight="400" text-anchor="start">计划状态 · 退出原因 · 证据引用</text>
+<text x="1110" y="483" font-size="20" font-weight="400" text-anchor="start">剩余义务与任务完成证据核对</text>
+<text x="1110" y="512" font-size="20" font-weight="400" text-anchor="start">恢复 / 重规划 / 结束报告</text>
+</g>
+<path d="M1200,325 L1200,352 L795,352 L795,385" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="930" y="345" font-size="16" font-weight="400" text-anchor="start" class="edge-label">显式提交</text>
+<path d="M1345,385 L1345,325" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="1355" y="361" font-size="16" font-weight="400" text-anchor="start" class="edge-label">决策更新</text>
+<path d="M500,455 L527,455 L527,341 L870,341 L870,290 L900,290" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-evidence-arrow)" stroke-dasharray="7 5"/>
+<text x="563" y="335" font-size="16" font-weight="400" text-anchor="start" class="edge-label">决策上下文</text>
+<g data-role="execution">
+<rect x="560" y="590" width="470" height="143" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="580" y="624" font-size="22" font-weight="650" text-anchor="start">适用性门控 · Applicability</text>
+<text x="580" y="659" font-size="20" font-weight="400" text-anchor="start">检查计划依赖与局部修复条件</text>
+<text x="580" y="688" font-size="20" font-weight="400" text-anchor="start">继续执行 / 补充观察 / 失效交接</text>
+<text x="580" y="717" font-size="20" font-weight="400" text-anchor="start">停止条件与预算边界控制</text>
+</g>
+<g data-role="execution">
+<rect x="1090" y="590" width="490" height="143" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="1110" y="624" font-size="22" font-weight="650" text-anchor="start">有界技能与协作执行</text>
+<text x="1110" y="659" font-size="20" font-weight="400" text-anchor="start">顺序动作链 · 多 UAV 协同搜索</text>
+<text x="1110" y="688" font-size="20" font-weight="400" text-anchor="start">状态修复 · 冲突证据共享</text>
+<text x="1110" y="717" font-size="20" font-weight="400" text-anchor="start">已见目标跟进 · 进度确认</text>
+</g>
+<path d="M795,540 L795,590" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<path d="M500,652 L560,652" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-evidence-arrow)" stroke-dasharray="7 5"/>
+<path d="M1030,660 L1090,660" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="1039" y="649" font-size="16" font-weight="400" text-anchor="start" class="edge-label">继续</text>
+<path d="M1030,623 L1060,623 L1060,458 L1090,458" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="1037" y="570" font-size="16" font-weight="400" text-anchor="start" class="edge-label">失效 / 退出</text>
+<path d="M1335,590 L1335,540" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="1348" y="568" font-size="16" font-weight="400" text-anchor="start" class="edge-label">技能退出</text>
+<g data-role="evidence">
+<rect x="60" y="790" width="440" height="120" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="80" y="824" font-size="22" font-weight="650" text-anchor="start">执行反馈与证据更新</text>
+<text x="80" y="859" font-size="20" font-weight="400" text-anchor="start">动作回执关联 · 实际效果核对</text>
+<text x="80" y="888" font-size="20" font-weight="400" text-anchor="start">状态后读 · 证据追加 · 依赖更新</text>
+</g>
+<g data-role="execution">
+<rect x="560" y="790" width="1020" height="120" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="580" y="824" font-size="22" font-weight="650" text-anchor="start">公共工具与执行接口 · AGENT API</text>
+<text x="580" y="859" font-size="20" font-weight="400" text-anchor="start">状态读取、局部感知、动作控制、导航与覆盖规划</text>
+<text x="580" y="888" font-size="20" font-weight="400" text-anchor="start">技能与直接工具共享执行边界；相关外部动作触发计划依赖失效</text>
+</g>
+<path d="M1335,733 L1335,790" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<path d="M1580,270 L1615,270 L1615,845 L1580,845" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="1596" y="536" font-size="15" font-weight="600" text-anchor="start">直</text>
+<text x="1596" y="559" font-size="15" font-weight="600" text-anchor="start">接</text>
+<text x="1596" y="582" font-size="15" font-weight="600" text-anchor="start">工</text>
+<text x="1596" y="605" font-size="15" font-weight="600" text-anchor="start">具</text>
+<path d="M560,850 L500,850" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-evidence-arrow)" stroke-dasharray="7 5"/>
+<text x="510" y="840" font-size="16" font-weight="400" text-anchor="start" class="edge-label">回执</text>
+<path d="M280,790 L280,733" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-evidence-arrow)" stroke-dasharray="7 5"/>
+<g data-role="runtime">
+<rect x="60" y="970" width="440" height="120" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="80" y="1004" font-size="22" font-weight="650" text-anchor="start">回合监督与资源管理</text>
+<text x="80" y="1039" font-size="18" font-weight="400" text-anchor="start">隔离执行 · 取消 / 截止 · 请求排空</text>
+<text x="80" y="1068" font-size="18" font-weight="400" text-anchor="start">—</text>
+</g>
+<g data-role="runtime">
+<rect x="560" y="970" width="1020" height="120" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="580" y="1004" font-size="22" font-weight="650" text-anchor="start">多 UAV 环境 · MultiUAV-Plat</text>
+<text x="580" y="1039" font-size="20" font-weight="400" text-anchor="start">多无人机实体、场景与任务动力学；动作执行、局部感知与公开状态反馈</text>
+</g>
+<path d="M1000,910 L1000,970" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="1014" y="947" font-size="16" font-weight="400" text-anchor="start" class="edge-label">动作</text>
+<path d="M1200,970 L1200,910" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-evidence-arrow)" stroke-dasharray="7 5"/>
+<text x="1214" y="947" font-size="16" font-weight="400" text-anchor="start" class="edge-label">观测 / 回执</text>
+<path d="M500,1015 L530,1015 L530,890 L560,890" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="458" y="946" font-size="16" font-weight="400" text-anchor="start" class="edge-label">执行约束</text>
+<text x="1090" y="1139" font-size="19" font-weight="650" text-anchor="start">离线评估与轨迹学习接口</text>
+<g data-role="offline">
+<rect x="60" y="1166" width="440" height="142" rx="14" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="80" y="1200" font-size="22" font-weight="650" text-anchor="start">交互轨迹归档</text>
+<text x="80" y="1235" font-size="18" font-weight="400" text-anchor="start">模型请求 / 响应 / 工具调用关联</text>
+<text x="80" y="1264" font-size="18" font-weight="400" text-anchor="start">计划状态、执行回执与事件序列</text>
+<text x="80" y="1293" font-size="18" font-weight="400" text-anchor="start">完整性校验与回合封存</text>
+</g>
+<g data-role="offline">
+<rect x="560" y="1166" width="470" height="142" rx="14" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="580" y="1200" font-size="22" font-weight="650" text-anchor="start">独立任务评估</text>
+<text x="580" y="1235" font-size="18" font-weight="400" text-anchor="start">隔离检查器 · 隐藏任务验证</text>
+<text x="580" y="1264" font-size="18" font-weight="400" text-anchor="start">成功率、进度、token、时间与动作</text>
+<text x="580" y="1293" font-size="18" font-weight="400" text-anchor="start">私有真值仅用于离线评价</text>
+</g>
+<g data-role="offline">
+<rect x="1090" y="1166" width="490" height="142" rx="14" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="1110" y="1200" font-size="22" font-weight="650" text-anchor="start">训练样本与策略优化接口</text>
+<text x="1110" y="1235" font-size="18" font-weight="400" text-anchor="start">轨迹转换、质量筛选与监督掩码</text>
+<text x="1110" y="1264" font-size="18" font-weight="400" text-anchor="start">公开上下文 + 真实模型决策</text>
+<text x="1110" y="1293" font-size="18" font-weight="400" text-anchor="start">版本化数据 → 学生策略训练</text>
+</g>
+<path d="M280,1090 L280,1166" fill="none" stroke="#9472b9" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-purple)" stroke-dasharray="7 5"/>
+<text x="293" y="1118" font-size="16" font-weight="400" text-anchor="start" class="edge-label">回合封存</text>
+<path d="M795,1090 L795,1166" fill="none" stroke="#9472b9" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-purple)" stroke-dasharray="7 5"/>
+<text x="808" y="1118" font-size="16" font-weight="400" text-anchor="start" class="edge-label">冻结世界</text>
+<path d="M500,1237 L530,1237 L530,1330 L1060,1330 L1060,1237 L1090,1237" fill="none" stroke="#9472b9" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-purple)" stroke-dasharray="7 5"/>
+<text x="690" y="1323" font-size="16" font-weight="400" text-anchor="start" class="edge-label">策略可见轨迹</text>
+<path d="M1030,1220 L1090,1220" fill="none" stroke="#9472b9" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-purple)" stroke-dasharray="7 5"/>
+<text x="1098" y="1157" font-size="15" font-weight="400" text-anchor="start" style="fill:#77618d">评估结果用于样本质量标注</text>
+<path d="M60,1380 L126,1380" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-arrow)"/>
+<text x="140" y="1386" font-size="17" font-weight="400" text-anchor="start">决策与执行控制</text>
+<path d="M420,1380 L486,1380" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-evidence-arrow)" stroke-dasharray="7 5"/>
+<text x="500" y="1386" font-size="17" font-weight="400" text-anchor="start">公开证据与反馈</text>
+<path d="M800,1380 L866,1380" fill="none" stroke="#9472b9" stroke-width="2" stroke-linejoin="round" marker-end="url(#harness-complete-architecture-purple)" stroke-dasharray="7 5"/>
+<text x="880" y="1386" font-size="17" font-weight="400" text-anchor="start">离线评估与数据流</text>
+<text x="1190" y="1386" font-size="17" font-weight="600" text-anchor="start">隐藏检查不进入在线策略输入</text></svg></div><div class="fig-tools"><button type="button" data-expand="fig-complete">放大查看</button><button type="button" data-download="fig-complete" data-name="harness-complete-architecture.svg">下载 SVG</button><a href="assets/harness-stage-20261101/harness-complete-architecture.png">PNG</a></div><figcaption>图 2．公开证据驱动的多 UAV Agent Harness。模型负责决策，运行时负责适用性检查与有界执行，交接信息连接两者。</figcaption></figure>
+<p><strong>任务与证据层。</strong>将任务要求与公开观测、状态查询、动作回执对应起来，保留执行主体、信息来源和作用范围，区分动作意图、已确认效果与未知项。目标表示还包括剩余义务和未支持条款，避免将局部进度或某个技能结束直接解释为整任务完成。</p>
+<p><strong>模型决策层。</strong>模型根据任务、公开上下文和工具定义，选择启动、恢复或取消技能，也可调用原工具处理未支持任务。技能工厂将选择编译为显式计划，记录计划身份、执行游标、依赖、预算和退出条件；模型无需自由生成任意计划图。</p>
+<p><strong>有界执行层。</strong>运行时在技能检查点验证计划适用性：条件满足时继续执行，问题处于既定修复范围内时实施局部修复，效果不明、依赖失效或预算耗尽时交回模型。原工具改变相关依赖后，旧计划应失效，以限制过期恢复与重复动作。</p>
+<p><strong>回合与评估层。</strong>采用独立回合、实际模型 I/O 和工具关联记录，保存交互顺序、执行效果与异常终止原因。回合结束后封存并隔离评分，公开信息用于策略决策，隐藏检查保留在评估侧；同一记录基础进一步支撑 Teacher 轨迹转换。</p>
+<div class="callout"><p><strong>执行原则：</strong>动作失败不必然意味着计划失效，技能完成也不等于整任务完成。交接应包含状态与原因、当前游标、已确认和未知效果、剩余义务及可用预算。</p><p>例如，动作请求发出后响应丢失，应先核对公开状态；无法确认效果时保留未知状态并交回，避免将“请求已发出”当作完成，或未经核对直接重放。</p></div>
+
+<h3 id="comparison">1.3　与 Agent4Drone 的方法对比</h3>
+<p>方法扩展集中在<strong>证据、计划有效性与控制权交接的显式化</strong>。在原有“规划—执行—验证—重规划”闭环中，引入可追溯的计划状态和执行约束，分别处理可局部修复的异常与需要模型新判断的变化。</p>
+<div class="table-wrap"><table class="comparison-table"><thead><tr><th>比较维度</th><th>原论文 Agent4Drone</th><th>本研究 Harness · 完整方法设计</th></tr></thead><tbody>
+<tr><td>计划与执行</td><td>生成短程子任务、UAV 分配、工具链与停止条件，根据执行反馈调整计划。</td><td>显式记录计划身份、执行游标、依赖和预算；在技能检查点判断适用性，约束继续、暂停与失效。</td></tr>
+<tr><td>状态与证据</td><td>Memory 保存观测、动作历史和中间结果，Verification 检查进展。</td><td>关联任务义务、证据来源和作用范围，区分已确认效果、未知项与剩余任务；技能结束与整题成功分开判断。</td></tr>
+<tr><td>恢复与接管</td><td>通过验证反馈进行有界重试与重规划。</td><td>适用范围内执行局部修复；效果不明或修复耗尽时，携带原因、游标和剩余义务交回模型，防止过期恢复与重复动作。</td></tr>
+<tr><td>评测与学习</td><td>依托平台、Benchmark 与工作流实验评价任务表现。</td><td>以独立回合、真实模型 I/O 和隔离评分形成可追溯证据，并连接轨迹验证、Student SFT 与同 Harness 对照。</td></tr>
+</tbody></table></div>
+<p>该设计同时为学习过程提供决策边界：技能内部的确定性动作由运行机制负责，模型真正产生的技能选择、参数和接管决策构成候选监督对象。方法有效性需通过同权限、同技能与同预算的实验建立，不能仅由模块数量或架构完整性推断。</p>
+<details class="compare-detail"><summary>展开：Agent4Drone 与 Harness 并排对比图</summary>
+<figure class="fig" id="fig-compare"><div class="fig-shell"><svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1110" viewBox="0 0 1680 1110" role="img" aria-labelledby="architecture-comparison-title architecture-comparison-desc">
+<title id="architecture-comparison-title">Agent4Drone 与公开证据驱动 Harness 的方法对比</title><desc id="architecture-comparison-desc">短程任务闭环与显式执行契约 · 统一公共接口、局部观测与独立任务评价边界</desc>
+<defs><marker id="architecture-comparison-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#566c83"/></marker><marker id="architecture-comparison-purple" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#9472b9"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif;fill:#1b3047}.small{font-size:17px;fill:#52677d}.body{font-size:20px}.title{font-size:22px;font-weight:650}.edge-label{font-size:16px;fill:#465f76;paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}</style>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="38" y="48" font-size="30" font-weight="700" text-anchor="start">Agent4Drone 与公开证据驱动 Harness 的方法对比</text>
+<text x="38" y="80" font-size="17" font-weight="400" text-anchor="start" style="fill:#52677d">短程任务闭环与显式执行契约 · 统一公共接口、局部观测与独立任务评价边界</text>
+<defs><marker id="architecture-comparison-evidence-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#548e80"/></marker></defs>
+<rect x="38" y="102" width="20" height="20" rx="4" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="69" y="119" font-size="17" font-weight="400" text-anchor="start">证据与状态</text>
+<rect x="308" y="102" width="20" height="20" rx="4" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="339" y="119" font-size="17" font-weight="400" text-anchor="start">决策与计划</text>
+<rect x="578" y="102" width="20" height="20" rx="4" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="609" y="119" font-size="17" font-weight="400" text-anchor="start">技能与执行</text>
+<rect x="848" y="102" width="20" height="20" rx="4" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="879" y="119" font-size="17" font-weight="400" text-anchor="start">环境与运行</text>
+<rect x="1118" y="102" width="20" height="20" rx="4" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="1149" y="119" font-size="17" font-weight="400" text-anchor="start">评估与学习</text>
+<rect x="38" y="150" width="746" height="760" rx="14" fill="#fcfdff" stroke="#c7d6e5" stroke-width="1.6"/>
+<rect x="816" y="150" width="826" height="760" rx="14" fill="#fcfdff" stroke="#c7d6e5" stroke-width="1.6"/>
+<text x="66" y="191" font-size="25" font-weight="700" text-anchor="start">(a) Agent4Drone</text>
+<text x="844" y="191" font-size="25" font-weight="700" text-anchor="start">(b) Evidence-Guided Harness</text>
+<g data-role="decision">
+<rect x="70" y="225" width="680" height="106" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="90" y="260" font-size="22" font-weight="650" text-anchor="start">观察、任务理解与规划</text>
+<text x="90" y="297" font-size="19" font-weight="400" text-anchor="start">公开上下文、任务约束、UAV 分配与短程子任务</text>
+</g>
+<g data-role="execution">
+<rect x="70" y="375" width="680" height="106" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="90" y="410" font-size="22" font-weight="650" text-anchor="start">工具链落地与多机执行</text>
+<text x="90" y="447" font-size="19" font-weight="400" text-anchor="start">有界工具链 · 动作执行 · 协作控制</text>
+</g>
+<g data-role="decision">
+<rect x="70" y="525" width="680" height="106" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="90" y="560" font-size="22" font-weight="650" text-anchor="start">状态验证与反馈决策</text>
+<text x="90" y="597" font-size="19" font-weight="400" text-anchor="start">预期 / 实际状态比较 → 完成、重试或重规划</text>
+</g>
+<g data-role="evidence">
+<rect x="70" y="675" width="680" height="106" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="90" y="710" font-size="22" font-weight="650" text-anchor="start">Memory 与 Decision Artifacts</text>
+<text x="90" y="747" font-size="19" font-weight="400" text-anchor="start">局部观测、动作历史、分配、工具链与停止条件</text>
+</g>
+<path d="M410,331 L410,375" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#architecture-comparison-arrow)"/>
+<path d="M410,481 L410,525" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#architecture-comparison-arrow)"/>
+<path d="M410,631 L410,675" fill="none" stroke="#548e80" stroke-width="2" stroke-dasharray="7 5" stroke-linejoin="round" marker-end="url(#architecture-comparison-evidence-arrow)"/>
+<text x="426" y="660" font-size="16" font-weight="400" text-anchor="start" class="edge-label">执行与验证反馈</text>
+<path d="M70,728 L52,728 L52,278 L70,278" fill="none" stroke="#548e80" stroke-width="2" stroke-dasharray="7 5" stroke-linejoin="round" marker-end="url(#architecture-comparison-evidence-arrow)"/>
+<text x="70" y="834" font-size="22" font-weight="650" text-anchor="start">反馈驱动的短程任务闭环</text>
+<text x="70" y="870" font-size="19" font-weight="400" text-anchor="start">共享记忆连接观察、规划、执行与验证。</text>
+<g data-role="evidence">
+<rect x="850" y="225" width="756" height="106" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="870" y="260" font-size="22" font-weight="650" text-anchor="start">任务义务与公开证据 → 决策上下文</text>
+<text x="870" y="297" font-size="19" font-weight="400" text-anchor="start">来源与作用域 · 已确认 / 未知效果 · 已完成 / 剩余义务</text>
+</g>
+<g data-role="decision">
+<rect x="850" y="375" width="756" height="106" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="870" y="410" font-size="22" font-weight="650" text-anchor="start">模型显式提交 → 计划契约 DecisionFrame</text>
+<text x="870" y="447" font-size="19" font-weight="400" text-anchor="start">计划身份、主体、游标、证据依赖、适用条件与执行预算</text>
+</g>
+<g data-role="execution">
+<rect x="850" y="525" width="756" height="106" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="870" y="560" font-size="22" font-weight="650" text-anchor="start">适用性门控 → 有界技能与协作执行</text>
+<text x="870" y="597" font-size="19" font-weight="400" text-anchor="start">有效则继续或局部修复；依赖失效、效果不明或耗尽则交回</text>
+</g>
+<g data-role="decision">
+<rect x="850" y="675" width="756" height="106" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="870" y="710" font-size="22" font-weight="650" text-anchor="start">任务验证 → 交接、重规划与完成报告</text>
+<text x="870" y="747" font-size="19" font-weight="400" text-anchor="start">状态与原因 · 执行证据 · 剩余义务 · 可用后续控制</text>
+</g>
+<path d="M1228,331 L1228,375" fill="none" stroke="#548e80" stroke-width="2" stroke-dasharray="7 5" stroke-linejoin="round" marker-end="url(#architecture-comparison-evidence-arrow)"/>
+<text x="1244" y="360" font-size="16" font-weight="400" text-anchor="start" class="edge-label">上下文输入</text>
+<path d="M1228,481 L1228,525" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#architecture-comparison-arrow)"/>
+<path d="M1228,631 L1228,675" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#architecture-comparison-arrow)"/>
+<text x="1244" y="660" font-size="16" font-weight="400" text-anchor="start" class="edge-label">失效 / 技能退出</text>
+<path d="M1606,728 L1624,728 L1624,278 L1606,278" fill="none" stroke="#548e80" stroke-width="2" stroke-dasharray="7 5" stroke-linejoin="round" marker-end="url(#architecture-comparison-evidence-arrow)"/>
+<path d="M850,592 L834,592 L834,551 L850,551" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#architecture-comparison-arrow)"/>
+<g data-role="offline">
+<rect x="850" y="815" width="756" height="73" rx="14" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="870" y="850" font-size="22" font-weight="650" text-anchor="start">轨迹归档 → 独立评估 → 训练样本接口</text>
+</g>
+<path d="M1228,781 L1228,815" fill="none" stroke="#9472b9" stroke-width="2" stroke-linejoin="round" marker-end="url(#architecture-comparison-purple)" stroke-dasharray="7 5"/>
+<rect x="38" y="944" width="1604" height="104" rx="14" fill="#f2f5f8" stroke="#b9c8d7" stroke-width="1.6"/>
+<text x="64" y="983" font-size="23" font-weight="650" text-anchor="start">共同底座：MultiUAV-Plat · 公共动作与感知接口 · 多 UAV 场景 · 独立任务评估</text>
+<text x="64" y="1021" font-size="21" font-weight="400" text-anchor="start">方法扩展：将证据、计划有效性与控制权交接组织为显式契约，区分程序内继续执行与模型重新决策。</text>
+<path d="M60,1082 L126,1082" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#architecture-comparison-arrow)"/>
+<text x="140" y="1088" font-size="17" font-weight="400" text-anchor="start">决策与执行控制</text>
+<path d="M450,1082 L516,1082" fill="none" stroke="#548e80" stroke-width="2" stroke-dasharray="7 5" stroke-linejoin="round" marker-end="url(#architecture-comparison-evidence-arrow)"/>
+<text x="530" y="1088" font-size="17" font-weight="400" text-anchor="start">公开信息与执行反馈</text>
+<path d="M900,1082 L966,1082" fill="none" stroke="#9472b9" stroke-width="2" stroke-linejoin="round" marker-end="url(#architecture-comparison-purple)" stroke-dasharray="7 5"/>
+<text x="980" y="1088" font-size="17" font-weight="400" text-anchor="start">离线评估与数据流</text>
+<text x="1360" y="1088" font-size="16" font-weight="400" text-anchor="start" style="fill:#52677d">(a) 依据论文 Fig. 4</text></svg></div><div class="fig-tools"><button type="button" data-expand="fig-compare">放大查看</button><button type="button" data-download="fig-compare" data-name="architecture-comparison.svg">下载 SVG</button><a href="assets/harness-stage-20261101/architecture-comparison.png">PNG</a></div><figcaption>补充图．Agent4Drone 与 Harness 的方法对比：从已有任务闭环，进一步明确执行契约与接管边界。</figcaption></figure>
+<p class="mini">完整模块说明与原论文核对见<a href="HARNESS_STAGE_REPORT_CN.html#comparison">阶段一报告</a>。</p>
+</details>
+
+<h3 id="progress">1.4　已有成果与验证边界</h3>
+<p>当前已实现有限技能的计划状态机、公开执行证据、局部修复和模型接管接口，以及回合隔离、模型 I/O 归档与独立评分的本地基础。现有完整技能主要覆盖简单动作链与特定公开搜索指令；通用任务义务、统一交接报告和自然端到端收益仍需补齐。</p>
+<div class="table-wrap"><table><thead><tr><th>工作与协议</th><th>关键结果</th><th>结论与限制</th></tr></thead><tbody>
+<tr><td>适用性门控机制实验<br><code>deepseek-flash</code>，temperature 0.1；24 案例 × 两臂 × 两轮＝96 次；初始技能由夹具提交。</td><td>8 对起飞失败案例的动作与回执一致，双方均 8/8 成功；failure→applicability 的模型调用由 <strong>41 降至 23</strong>。</td><td>支持已选定技能下的条件性模型交互节省；不证明自主选技能、总体成功率或所有成本改善。<a href="results/minimal-harness-v2-mechanism-20261016/FINAL_ANALYSIS_CN.md">[原报告]</a></td></tr>
+<tr><td>自然入口校准<br>同模型、temperature 0.1；20 任务 × 两臂＝40 次；独立初态，500 秒评分窗。</td><td>6/40 回合执行提交技能；真实可恢复暂停机会为 <strong>0/40</strong>。</td><td>暴露技能选择与终态使用问题；缺少恢复机会，尚不能估计自然恢复率。<a href="results/minimal-harness-full100-calibration-20261016/FINAL_ANALYSIS_CN.md">[原报告]</a></td></tr>
+<tr><td>回合与交互归档<br>本地脚本模型 / MockTransport 验证，无真实 provider 调用。</td><td>支持独立 worker、请求与工具关联、超时排空、异常归档及隔离评分。</td><td>属于可复用实验基础，不能视为已完成的 Teacher 数据集或通用 RL 环境。<a href="RESEARCH_STATUS_CN.md">[状态依据]</a></td></tr>
+</tbody></table></div>
+<p>现阶段最有依据的贡献候选是条件性执行调度与接管机制。搜索修复和执行记忆另有局部正负结果，尚不足以支持稳定总体效率或跨任务泛化结论。后续验证应优先选定具有真实决策机会的协作任务族，并保留失败分母、成本与适用范围。<a href="HARNESS_STAGE_REPORT_CN.html#results">[完整阶段成果]</a></p>
+</section>
+
+<section id="training">
+<h2><span class="n">02 / SMALL MODEL POST-TRAINING</span>从执行轨迹到小模型决策能力</h2>
+<p>阶段二利用同一 Harness 采集强 Teacher 的真实协作轨迹，经质量验证后构建版本化数据集，优先通过 SFT 将有效决策迁移到约 2B Student，再回接环境评价。学生承担高层规划、分配、工具使用与恢复决策，低层控制及确定性技能流程仍由程序执行。</p>
+<p>待验证的工作假设是：执行感知的样本筛选和有效恢复示范能够改善小模型的闭环决策。蒸馏在此指 Teacher 到 Student 的能力迁移思路，首先通过轨迹 SFT 实施；RL 保留为奖励、采样信号与成本条件成熟后的扩展。</p>
+<figure class="fig" id="fig-route"><div class="fig-shell"><svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1430" viewBox="0 0 1680 1430" role="img" aria-labelledby="posttraining-route-title posttraining-route-desc">
+<title id="posttraining-route-title">Harness 引导的多无人机小模型后训练路线</title><desc id="posttraining-route-desc">真实 Teacher 交互 → 执行感知的数据验证 → Student SFT → 回接评测；Agentic RL 作为条件分支。</desc>
+<defs>
+<marker id="posttraining-route-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#566c83"/></marker>
+<marker id="posttraining-route-feedback" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#548e80"/></marker>
+<marker id="posttraining-route-optional" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 4.5L0 9Z" fill="#9275ad"/></marker>
+</defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif;fill:#1b3047}.edge-label{font-size:16px;fill:#465f76;paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}</style>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="38" y="48" font-size="30" font-weight="700">Harness 引导的多无人机小模型后训练路线</text>
+<text x="38" y="80" font-size="17" font-weight="400" style="fill:#52677d">Harness-guided Small Language Model Post-training · 数据构建、监督迁移与条件式策略优化</text>
+<rect x="38" y="102" width="20" height="20" rx="4" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="69" y="119" font-size="17" font-weight="400">证据与数据</text>
+<rect x="308" y="102" width="20" height="20" rx="4" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="339" y="119" font-size="17" font-weight="400">模型与策略</text>
+<rect x="578" y="102" width="20" height="20" rx="4" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="609" y="119" font-size="17" font-weight="400">验证与评测</text>
+<rect x="848" y="102" width="20" height="20" rx="4" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="879" y="119" font-size="17" font-weight="400">环境与协议</text>
+<rect x="1118" y="102" width="20" height="20" rx="4" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="1149" y="119" font-size="17" font-weight="400">训练与优化</text>
+<g data-role="runtime">
+<rect x="38" y="151" width="1604" height="137" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="58" y="186" font-size="22" font-weight="650">任务协议与独立划分 · 采集前冻结</text>
+<text x="58" y="222" font-size="20" font-weight="400">决策职责、公开输入、工具权限、场景 / 种子 / 任务族、Harness 版本与执行预算</text>
+<text x="58" y="249" font-size="20" font-weight="400">Train：采样与训练　｜　Dev：选择配置、分析错误与修订数据　｜　Test：模型与协议冻结后统一评价</text>
+</g>
+<text x="60" y="329" font-size="19" font-weight="650">WP1 / 执行感知的 Teacher 轨迹构建</text>
+<g data-role="runtime">
+<rect x="60" y="350" width="440" height="315" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="80" y="385" font-size="22" font-weight="650">共享 Harness 与多 UAV 环境</text>
+<text x="80" y="421" font-size="19" font-weight="400">公开任务、局部观测与执行证据</text>
+<text x="80" y="450" font-size="19" font-weight="400">计划契约、适用性门控与宏技能</text>
+<text x="80" y="479" font-size="19" font-weight="400">工具执行、局部修复与模型接管</text>
+<text x="80" y="508" font-size="19" font-weight="400">独立回合、时限、归档与请求预算</text>
+<text x="80" y="537" font-size="19" font-weight="400">Teacher / Student 复用执行语义</text>
+<text x="80" y="566" font-size="19" font-weight="400">私有状态仅供隔离评分 / 奖励</text>
+</g>
+<g data-role="decision">
+<rect x="560" y="350" width="470" height="130" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="580" y="385" font-size="22" font-weight="650">Teacher Agent · 真实交互</text>
+<text x="580" y="421" font-size="19" font-weight="400">理解、规划、分配、工具与恢复决策</text>
+<text x="580" y="448" font-size="19" font-weight="400">冻结模型身份、采样参数与调用预算</text>
+</g>
+<g data-role="evidence">
+<rect x="560" y="535" width="470" height="130" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="580" y="570" font-size="22" font-weight="650">回合轨迹与模型 I/O</text>
+<text x="580" y="606" font-size="19" font-weight="400">消息顺序、调用 ID、并行关系与回执</text>
+<text x="580" y="633" font-size="19" font-weight="400">模型决策 / Harness 内部执行分开</text>
+</g>
+<g data-role="verification">
+<rect x="1090" y="350" width="490" height="315" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="1110" y="385" font-size="22" font-weight="650">Execution-aware Verification</text>
+<text x="1110" y="421" font-size="19" font-weight="400">L1 结构：消息、Schema、调用关联</text>
+<text x="1110" y="450" font-size="19" font-weight="400">L2 执行：参数、动作效果与重复</text>
+<text x="1110" y="479" font-size="19" font-weight="400">L3 任务：隔离 Scorer 与义务满足</text>
+<text x="1110" y="508" font-size="19" font-weight="400">L4 质量：冗余、恢复价值与可解释性</text>
+<text x="1110" y="537" font-size="19" font-weight="400">保存质量标签、异常类型与筛选理由</text>
+<text x="1110" y="566" font-size="19" font-weight="400">隐藏检查不进入模型输入与示范</text>
+</g>
+<path d="M470,288 L470,350" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<path d="M795,288 L795,350" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<path d="M500,409 L560,409" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="508" y="399" font-size="16" font-weight="400" class="edge-label">观测</text>
+<path d="M560,454 L500,454" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="508" y="444" font-size="16" font-weight="400" class="edge-label">动作</text>
+<path d="M795,480 L795,535" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="809" y="515" font-size="16" font-weight="400" class="edge-label">交互归档</text>
+<path d="M1030,600 L1090,600" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<g data-role="runtime">
+<rect x="60" y="745" width="440" height="140" rx="14" fill="#f2f5f8" stroke="#8a99ac" stroke-width="1.6"/>
+<text x="80" y="780" font-size="22" font-weight="650">失败、部分完成与排除记录</text>
+<text x="80" y="816" font-size="18" font-weight="400">保留来源、质量标签及排除理由</text>
+<text x="80" y="843" font-size="18" font-weight="400">用于诊断、纠错与任务设计</text>
+<text x="80" y="870" font-size="18" font-weight="400">不默认混入正向 SFT 标签</text>
+</g>
+<g data-role="evidence">
+<rect x="560" y="745" width="470" height="140" rx="14" fill="#eef8f5" stroke="#548e80" stroke-width="1.6"/>
+<text x="580" y="780" font-size="22" font-weight="650">版本化决策数据集</text>
+<text x="580" y="816" font-size="18" font-weight="400">成功 / 有效恢复 / 接管等能力标签</text>
+<text x="580" y="843" font-size="18" font-weight="400">公开上下文 + 审核后的模型输出</text>
+<text x="580" y="870" font-size="18" font-weight="400">训练 / 开发划分 · 输入预算 · Loss Mask</text>
+</g>
+<g data-role="training">
+<rect x="1090" y="745" width="490" height="140" rx="14" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6"/>
+<text x="1110" y="780" font-size="22" font-weight="650">WP2 / 约 2B Student SFT</text>
+<text x="1110" y="816" font-size="18" font-weight="400">只监督有效 assistant 决策与工具调用</text>
+<text x="1110" y="843" font-size="18" font-weight="400">模板适配、参数高效微调与检查点导出</text>
+<text x="1110" y="870" font-size="18" font-weight="400">环境回执和技能内部动作不作生成标签</text>
+</g>
+<path d="M1210,665 L1210,694 L280,694 L280,745" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="610" y="686" font-size="16" font-weight="400" class="edge-label">分流与追溯</text>
+<path d="M1400,665 L1400,715 L795,715 L795,745" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="1040" y="708" font-size="16" font-weight="400" class="edge-label">验证通过的决策样本</text>
+<path d="M1030,815 L1090,815" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="60" y="945" font-size="19" font-weight="650">回接、验证与策略优化</text>
+<g data-role="decision">
+<rect x="1090" y="970" width="490" height="140" rx="14" fill="#edf4fc" stroke="#507fac" stroke-width="1.6"/>
+<text x="1110" y="1005" font-size="22" font-weight="650">Student 回接同一 Harness</text>
+<text x="1110" y="1041" font-size="18" font-weight="400">模型替换；固定公开权限与技能语义</text>
+<text x="1110" y="1068" font-size="18" font-weight="400">多轮工具调用、异常处理与停止判断</text>
+<text x="1110" y="1095" font-size="18" font-weight="400">导出模型 / Adapter 与推理配置留档</text>
+</g>
+<g data-role="verification">
+<rect x="560" y="970" width="470" height="140" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="580" y="1005" font-size="22" font-weight="650">开发集验证与错误分析</text>
+<text x="580" y="1041" font-size="18" font-weight="400">同 Harness：基座 vs SFT</text>
+<text x="580" y="1068" font-size="18" font-weight="400">任务成功、工具正确性、恢复与成本</text>
+<text x="580" y="1095" font-size="18" font-weight="400">检查输入、标签、分布偏移与策略回归</text>
+</g>
+<g data-role="verification">
+<rect x="60" y="970" width="440" height="140" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="80" y="1005" font-size="22" font-weight="650">RL 准入：奖励、采样与成本</text>
+<text x="80" y="1041" font-size="18" font-weight="400">可用 SFT 起点与有效交互信号</text>
+<text x="80" y="1068" font-size="18" font-weight="400">奖励语义、回合隔离与反例检验</text>
+<text x="80" y="1095" font-size="18" font-weight="400">训练器适配、吞吐与预算可承担</text>
+</g>
+<path d="M1335,885 L1335,970" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="1348" y="933" font-size="16" font-weight="400" class="edge-label">导出与部署</text>
+<path d="M1090,1040 L1030,1040" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<path d="M560,1040 L500,1040" fill="none" stroke="#9275ad" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-optional)" stroke-dasharray="7 5"/>
+<path d="M760,970 L760,924 L535,924 L535,815 L560,815" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-feedback)" stroke-dasharray="7 5"/>
+<text x="557" y="918" font-size="16" font-weight="400" class="edge-label">仅开发集诊断回流</text>
+<g data-role="training">
+<rect x="60" y="1190" width="440" height="140" rx="14" fill="#f5f1fa" stroke="#9275ad" stroke-width="1.6" stroke-dasharray="8 5"/>
+<text x="80" y="1225" font-size="22" font-weight="650">WP3 / Agentic RL · 条件分支</text>
+<text x="80" y="1261" font-size="18" font-weight="400">Student rollout ↔ 隔离奖励 ↔ 更新</text>
+<text x="80" y="1288" font-size="18" font-weight="400">仅优化真实模型生成的决策序列</text>
+<text x="80" y="1315" font-size="18" font-weight="400">与固定 SFT 起点对照</text>
+</g>
+<g data-role="verification">
+<rect x="560" y="1190" width="1020" height="140" rx="14" fill="#fff6e8" stroke="#b68b44" stroke-width="1.6"/>
+<text x="580" y="1225" font-size="22" font-weight="650">WP4 / 冻结后的统一评估与贡献归因</text>
+<text x="580" y="1261" font-size="18" font-weight="400">基座 / SFT / SFT+RL（如开展）· 同 Harness · 新独立测试 · 关键系统与数据消融</text>
+<text x="580" y="1288" font-size="18" font-weight="400">主指标：端到端任务成功；同时报告工具正确性、恢复、泛化、token、时间、动作与训练成本</text>
+<text x="580" y="1315" font-size="18" font-weight="400">Test 不参与数据生成、样本筛选、调参与反复选择；各模型使用相同初态与评估协议</text>
+</g>
+<path d="M280,1110 L280,1190" fill="none" stroke="#9275ad" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-optional)" stroke-dasharray="7 5"/>
+<text x="293" y="1159" font-size="16" font-weight="400" class="edge-label">通过准入后</text>
+<path d="M795,1110 L795,1190" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="810" y="1159" font-size="16" font-weight="400" class="edge-label">SFT 路径可直接交付</text>
+<path d="M500,1260 L560,1260" fill="none" stroke="#9275ad" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-optional)" stroke-dasharray="7 5"/>
+<path d="M60,1385 L126,1385" fill="none" stroke="#566c83" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-arrow)"/>
+<text x="140" y="1391" font-size="17" font-weight="400">核心研究路线</text>
+<path d="M430,1385 L496,1385" fill="none" stroke="#548e80" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-feedback)" stroke-dasharray="7 5"/>
+<text x="510" y="1391" font-size="17" font-weight="400">开发反馈与数据修订</text>
+<path d="M900,1385 L966,1385" fill="none" stroke="#9275ad" stroke-width="2" stroke-linejoin="round" marker-end="url(#posttraining-route-optional)" stroke-dasharray="7 5"/>
+<text x="980" y="1391" font-size="17" font-weight="400">条件式 RL 路径</text>
+<text x="1270" y="1391" font-size="17" font-weight="600">能力迁移优先通过 SFT 实现</text></svg></div><div class="fig-tools"><button type="button" data-expand="fig-route">放大查看</button><button type="button" data-download="fig-route" data-name="posttraining-route.svg">下载 SVG</button><a href="assets/posttraining-stage-20261101/posttraining-route.png">高清 PNG</a></div><figcaption>图 3．Harness 引导的小模型后训练路线。实线为核心流程，绿色虚线为开发反馈，紫色虚线为条件式 RL；独立测试不进入数据修订循环。</figcaption></figure>
+
+<h3>2.1　Teacher 轨迹构建与质量验证</h3>
+<p><strong>轨迹记录。</strong>保留任务、场景与种子、模型身份、实际请求和响应、工具调用 ID、顺序与并行关系、公开回执及 Harness 事件。每个样本应追溯到原始回合和决策位置，重建当时可见的输入；后续回执与终态可用于验证，不能提前注入该决策的上下文。</p>
+<p><strong>四层验证。</strong>依次检查结构完整性、执行正确性、任务完成度和决策质量：消息及调用关联是否完整，参数与实际动作效果是否正确，独立 scorer 是否确认完成，以及是否存在冗余、重复或无效恢复。质量标签、规则版本和排除理由随数据一并保存。</p>
+<p><strong>样本分流。</strong>首版正向 SFT 优先采用完整成功轨迹和经过验证的恢复决策。错误输出可以作为恢复历史保留，但不默认成为正确标签；部分完成与失败轨迹用于诊断和任务设计。技能内部动作不伪装为模型生成，隐藏检查与私有状态不进入策略输入或示范。</p>
+<p><strong>独立划分与采样。</strong>正式采集前冻结场景、种子和任务族划分，同源改写与衍生轨迹按组管理。训练集用于优化，开发集用于选型与修订，测试集在模型和协议冻结后评价。小规模 pilot 先测量有效率、决策机会、长度、重复与截断比例，以及合格样本的采集成本，再决定扩量；历史开发题不重新命名为未见测试。</p>
+
+<h3>2.2　Student SFT 与同 Harness 回接</h3>
+<p>SFT 保持真实消息和工具协议，仅监督审核通过的 assistant 决策与工具调用，环境回执作为上下文。需要核对模型模板、角色边界与监督掩码；长轨迹按决策窗口切分或压缩时，必须保留目标决策依赖的公开证据。原始归档与训练视图分开管理，训练和部署使用一致的输入构造方式。</p>
+<p>初期以 LoRA / QLoRA 等参数高效训练方式为候选，具体配置依据基座、上下文长度和实测资源确定。首个检查点应连同 tokenizer、模板、Adapter 或权重及推理配置导出，并接回同一 Harness，验证多轮工具调用、异常处理、接管与停止判断。</p>
+<p>验收以<strong>可部署检查点及同 Harness 的基座／SFT 对照</strong>为依据，训练 loss 仅作为过程指标。若无增益，优先分析样本质量、上下文缺失、监督边界和分布偏移，再修订数据与配置。相关样本规范和训练选择见<a href="POSTTRAINING_STAGE_REPORT_CN.html#sft">阶段二详细路线</a>。</p>
+
+<h3>2.3　条件式 Agentic RL</h3>
+<p>—</p>
+<p>奖励以端到端成功为核心，进度、无效动作和调用成本作为待验证的辅助项；需检查提前停止、重复获取进度等反例，并区分策略失败与基础设施异常。PPO / GRPO 保留为候选，具体算法尚未冻结。条件不足时继续完成 SFT 与统一评价，首轮可复用“新 worker → 完整归档 → 退出 → 独立评分”的整回合路径。</p>
+<p class="mini"><strong>当前状态：</strong>本项目 Teacher 数据集、SFT、Agentic RL 与约 2B 训练后模型均未完成。已有记录和本地接口验证不等同于数据质量或学习效果验收。</p>
+</section>
+
+<section id="plan">
+<h2><span class="n">03 / EVALUATION &amp; NEXT STEPS</span>贡献归因、阶段交付与实施安排</h2>
+<h3>3.1　统一对照与评价指标</h3>
+<p>实验分别评价系统机制、监督学习和交互优化的作用。控制模型身份、公开权限、初态、技能语义、顺序、预算和评分协议；关键数据消融需同时报告样本量、有效监督 token 与训练计算量，避免将训练规模差异归因于数据形式。</p>
+<div class="table-wrap"><table><thead><tr><th>关键对照</th><th>回答的问题</th></tr></thead><tbody>
+<tr><td>固定模型，比较基线运行方式与 Harness</td><td>系统机制是否有效？单独消融门控时保持技能和动作能力相同。</td></tr>
+<tr><td>固定 Harness，比较基座与 SFT</td><td>数据与监督训练是否改善决策？再消融关键质量规则或恢复样本。</td></tr>
+<tr><td>同一 SFT 起点，比较 SFT 与 SFT+RL</td><td>交互优化是否提供额外收益？仅在实际开展 RL 后报告。</td></tr>
+</tbody></table></div>
+<p><strong>主指标为端到端任务成功。</strong>同时记录工具正确性、接管／恢复机会、模型调用、token、时间、动作及 Teacher 和训练成本。恢复指标以实际机会为分母，机会为零时标记不可估计；失败、不可评分与重试按预先规定的口径保留。开发集用于改进，独立测试不参与样本筛选、奖励设计与反复调参。</p>
+
+<h3>3.2　近期安排与阶段门槛</h3>
+<p>未来约 1–2 个月以形成数据、SFT 和同 Harness 评价闭环为重点。Harness 的有界验证、模型接口集成与样本准备可交叠推进，具体规模依据小批采样和训练吞吐调整。</p>
+<ol class="steps">
+<li><strong>准备与小批采样。</strong>—</li>
+<li><strong>首轮 SFT 与回接。</strong>形成版本化数据、可部署检查点和基座／SFT 开发集对照；检查工具错误、接管表现和成本，根据错误来源修订数据或上下文。</li>
+<li><strong>归因与统一交付。</strong>完成关键消融、冻结模型后的独立测试和失败分析；通过奖励、采样及资源门槛后开展有界 RL，并评价其相对固定 SFT 起点的增量作用。</li>
+</ol>
+<p class="mini"><strong>待冻结事项：</strong>—</p>
+<div class="callout"><p><strong>最小完整交付：</strong>可追溯的合格数据集、可复现的 SFT 配置、可部署 Student，以及固定 Harness 下的基座／SFT 独立评价。最终研究主张对应明确的机制、消融、成本和失败边界；RL 为条件项。</p></div>
+</section>
+
+<p class="compact-links">详细依据：<a href="HARNESS_STAGE_REPORT_CN.html">阶段一报告</a> · <a href="POSTTRAINING_STAGE_REPORT_CN.html">阶段二报告</a> · <a href="RESEARCH_STATUS_CN.md">研究状态</a> · <a href="EXPERIMENT_EVIDENCE_CN.md">实验索引</a> · <a href="RESEARCH_ROADMAP_CN.md">研究路线</a></p>
+</main>
+
+
+<footer>阶段一・二合并研究报告 · 离线 HTML / 内嵌 SVG · 图可放大或下载；相对链接依赖仓库目录。</footer>
+<dialog id="zoom" aria-label="研究示意图放大预览"><div class="dialog-bar"><span id="zoom-title">研究示意图</span><button type="button" id="close-zoom">关闭 · Esc</button></div><div class="dialog-body" id="zoom-body"></div></dialog>
+<script>
+const zoom=document.querySelector('#zoom');
+document.querySelectorAll('[data-expand]').forEach(btn=>btn.addEventListener('click',()=>{
+ const svg=document.getElementById(btn.dataset.expand).querySelector('svg').cloneNode(true);
+ document.getElementById('zoom-title').textContent=svg.querySelector('title').textContent;
+ const ids=new Map([...svg.querySelectorAll('[id]')].map(el=>[el.id,'zoom-'+el.id]));
+ svg.querySelectorAll('[id]').forEach(el=>el.id=ids.get(el.id));
+ [svg,...svg.querySelectorAll('*')].forEach(el=>{
+   for(const attr of ['marker-start','marker-end','marker-mid']){
+     const value=el.getAttribute(attr);
+     if(value)el.setAttribute(attr,value.replace(/url\(#([^)]*)\)/g,(_,id)=>'url(#'+(ids.get(id)||id)+')'));
+   }
+   const labelled=el.getAttribute('aria-labelledby');
+   if(labelled)el.setAttribute('aria-labelledby',labelled.split(' ').map(id=>ids.get(id)||id).join(' '));
+ });
+ document.getElementById('zoom-body').replaceChildren(svg);zoom.showModal();
+}));
+document.getElementById('close-zoom').addEventListener('click',()=>zoom.close());
+zoom.addEventListener('click',e=>{if(e.target===zoom)zoom.close()});
+document.querySelectorAll('[data-download]').forEach(btn=>btn.addEventListener('click',()=>{
+ const svg=document.getElementById(btn.dataset.download).querySelector('svg');
+ const url=URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml;charset=utf-8'}));
+ const a=document.createElement('a');a.href=url;a.download=btn.dataset.name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}));
+</script>
+</body></html>

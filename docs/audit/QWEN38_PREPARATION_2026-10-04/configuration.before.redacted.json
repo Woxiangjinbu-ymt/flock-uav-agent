@@ -1,0 +1,42 @@
+{
+  "selected_provider": "deepseek_official",
+  "uav_base_url": "http://127.0.0.1:8000",
+  "uav_api_key": "",
+  "share_blackboard_by_session": true,
+  "toolchain_json_recording": true,
+  "provider_configs": {
+    "bupt_deepseek_flash": {
+      "name": "BUPT deepseek-flash",
+      "type": "openai-compatible",
+      "base_url": "https://myai.bupt.edu.cn/llm-gw/v1",
+      "requires_api_key": true,
+      "api_key": "<redacted>",
+      "default_model": "deepseek-flash",
+      "default_models": [
+        "deepseek-flash"
+      ]
+    },
+    "deepseek_official": {
+      "name": "deepseek-flash",
+      "type": "openai-compatible",
+      "base_url": "https://api.deepseek.com",
+      "requires_api_key": true,
+      "api_key": "<redacted>",
+      "default_model": "deepseek-flash",
+      "default_models": [
+        "deepseek-flash"
+      ]
+    },
+    "bailian_qwen_flash": {
+      "name": "Aliyun Bailian Qwen3.8 Flash",
+      "type": "openai-compatible",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "requires_api_key": true,
+      "api_key": "<redacted>",
+      "default_model": "qwen3.8-flash",
+      "default_models": [
+        "qwen3.8-flash"
+      ]
+    }
+  }
+}

@@ -1,0 +1,834 @@
+{
+  "current_source_and_artifact_hashes_pass": true,
+  "source_checks": [
+    {
+      "path": "agent4drone/blackboard.py",
+      "expected": "cbb6efac0f97bf5035fdac41edb3ac509ccf529bc18f8788f9b9a59a3847f9d9",
+      "actual": "cbb6efac0f97bf5035fdac41edb3ac509ccf529bc18f8788f9b9a59a3847f9d9",
+      "passed": true
+    },
+    {
+      "path": "agent4drone/command_results.py",
+      "expected": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee",
+      "actual": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee",
+      "passed": true
+    },
+    {
+      "path": "agent4drone/execution_memory.py",
+      "expected": "6c0765e18d3ec51432399f658eeb31f6e091f2d8e319ee535a5d08493b31f282",
+      "actual": "6c0765e18d3ec51432399f658eeb31f6e091f2d8e319ee535a5d08493b31f282",
+      "passed": true
+    },
+    {
+      "path": "agent4drone/task_evidence.py",
+      "expected": "6851e93c9ee0ccf540867bd7debe266d2dc5084d7ea1778b8be064db4383dd57",
+      "actual": "6851e93c9ee0ccf540867bd7debe266d2dc5084d7ea1778b8be064db4383dd57",
+      "passed": true
+    },
+    {
+      "path": "agent4drone/task_evidence_context.py",
+      "expected": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "actual": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "passed": true
+    },
+    {
+      "path": "agent4drone/task_evidence_r2.py",
+      "expected": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+      "actual": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+      "passed": true
+    },
+    {
+      "path": "agent4drone/task_evidence_r3.py",
+      "expected": "2031abeee2d244ef7f96ca1f8d57e5a65b1747f96425b0979d5b2c981e353905",
+      "actual": "2031abeee2d244ef7f96ca1f8d57e5a65b1747f96425b0979d5b2c981e353905",
+      "passed": true
+    },
+    {
+      "path": "agent4drone/task_progress.py",
+      "expected": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+      "actual": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+      "passed": true
+    },
+    {
+      "path": "agent4drone/uav_api_client.py",
+      "expected": "5196331a1f7260f6fe25fecb3bd3be9888aeedcec81608ca11c399543739e420",
+      "actual": "5196331a1f7260f6fe25fecb3bd3be9888aeedcec81608ca11c399543739e420",
+      "passed": true
+    },
+    {
+      "path": "scripts/execution_memory_pilot.py",
+      "expected": "d840d0db6ae33cd0acf1999021157f9cffd95a5a87d7755a77920da7188c62f9",
+      "actual": "d840d0db6ae33cd0acf1999021157f9cffd95a5a87d7755a77920da7188c62f9",
+      "passed": true
+    },
+    {
+      "path": "scripts/harness_v2_online.py",
+      "expected": "9662c0f5f213fddc32472fc8069762962730e2febc2f4a493eae25ab99facff2",
+      "actual": "9662c0f5f213fddc32472fc8069762962730e2febc2f4a493eae25ab99facff2",
+      "passed": true
+    },
+    {
+      "path": "scripts/harness_v2_world.py",
+      "expected": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+      "actual": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+      "passed": true
+    },
+    {
+      "path": "server/api/__init__.py",
+      "expected": "e14cd82a39ad17dc8c86185d384df124012dd3df0fb3c9037ff81176993c27ae",
+      "actual": "e14cd82a39ad17dc8c86185d384df124012dd3df0fb3c9037ff81176993c27ae",
+      "passed": true
+    },
+    {
+      "path": "server/api/server.py",
+      "expected": "9e74a981aac858fb4f829eb36fc7c06c8fbdb0c2cf3dc967e09bcda61584d061",
+      "actual": "9e74a981aac858fb4f829eb36fc7c06c8fbdb0c2cf3dc967e09bcda61584d061",
+      "passed": true
+    },
+    {
+      "path": "server/config/__init__.py",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "path": "server/config/battery_config.py",
+      "expected": "422ac9300306226c73f1073b58111b8f1aca4c20301331496a4f315bf194e852",
+      "actual": "422ac9300306226c73f1073b58111b8f1aca4c20301331496a4f315bf194e852",
+      "passed": true
+    },
+    {
+      "path": "server/config/logging_config.py",
+      "expected": "dd8990aa32c961570648d36e58d32a96cd9b2f5cd643a0a77921c3893a92c893",
+      "actual": "dd8990aa32c961570648d36e58d32a96cd9b2f5cd643a0a77921c3893a92c893",
+      "passed": true
+    },
+    {
+      "path": "server/config/privilege_keys.py",
+      "expected": "8975bfa63d391877960326ea6192b54620cab40f04fe23ed8d41482b062637de",
+      "actual": "8975bfa63d391877960326ea6192b54620cab40f04fe23ed8d41482b062637de",
+      "passed": true
+    },
+    {
+      "path": "server/config/util.py",
+      "expected": "c5ee6c16b30c7d6b7a7f6be5bd080c634750d738d976ced70b6423dc5c3e08e1",
+      "actual": "c5ee6c16b30c7d6b7a7f6be5bd080c634750d738d976ced70b6423dc5c3e08e1",
+      "passed": true
+    },
+    {
+      "path": "server/controllers/__init__.py",
+      "expected": "0ab269292ce6c5efa4f4fe3578f0a4ee3ba020904ca8527400175440b8314c49",
+      "actual": "0ab269292ce6c5efa4f4fe3578f0a4ee3ba020904ca8527400175440b8314c49",
+      "passed": true
+    },
+    {
+      "path": "server/controllers/drone_controller.py",
+      "expected": "aa3c192e7c79f6d90f51b6c549a91e4630ab28da750f70804393ca569b564f11",
+      "actual": "aa3c192e7c79f6d90f51b6c549a91e4630ab28da750f70804393ca569b564f11",
+      "passed": true
+    },
+    {
+      "path": "server/controllers/environment_controller.py",
+      "expected": "68dda8421bb34ec438ab96afebc87f69e7d570fa698a9de1c6b3719ee01289b5",
+      "actual": "68dda8421bb34ec438ab96afebc87f69e7d570fa698a9de1c6b3719ee01289b5",
+      "passed": true
+    },
+    {
+      "path": "server/controllers/obstacle_controller.py",
+      "expected": "ebe68c25e76481a8e9f5b5aa7f1360d163adb722a824000400af5e795e7acd32",
+      "actual": "ebe68c25e76481a8e9f5b5aa7f1360d163adb722a824000400af5e795e7acd32",
+      "passed": true
+    },
+    {
+      "path": "server/controllers/session_controller.py",
+      "expected": "7eb2ec8725bb11019142ae59fe51ca7558d339525c116c67d9005a89bb76fca7",
+      "actual": "7eb2ec8725bb11019142ae59fe51ca7558d339525c116c67d9005a89bb76fca7",
+      "passed": true
+    },
+    {
+      "path": "server/controllers/target_controller.py",
+      "expected": "c26c8c9d6e1048a39506862dcc9931a5ca305916591ef0835d46b21228e1e7c9",
+      "actual": "c26c8c9d6e1048a39506862dcc9931a5ca305916591ef0835d46b21228e1e7c9",
+      "passed": true
+    },
+    {
+      "path": "server/main.py",
+      "expected": "240060e31f7a8a01b0afedef9a8652f26b3d969285f6c79026d4eb927ec5b313",
+      "actual": "240060e31f7a8a01b0afedef9a8652f26b3d969285f6c79026d4eb927ec5b313",
+      "passed": true
+    },
+    {
+      "path": "server/models/__init__.py",
+      "expected": "87cdf15b52e536adfc7836378edc7e13feb369e359604df7b530659ce1940e45",
+      "actual": "87cdf15b52e536adfc7836378edc7e13feb369e359604df7b530659ce1940e45",
+      "passed": true
+    },
+    {
+      "path": "server/models/drone.py",
+      "expected": "ef16fdec4402a705ce736c3cf5467fcb03fd068a799d24d3f809572fd06aed52",
+      "actual": "ef16fdec4402a705ce736c3cf5467fcb03fd068a799d24d3f809572fd06aed52",
+      "passed": true
+    },
+    {
+      "path": "server/models/environment.py",
+      "expected": "22d4f000bb0e997b5fd004fb99f2af80c2a4bd6db6123ff8cfbe4e0328cb48e2",
+      "actual": "22d4f000bb0e997b5fd004fb99f2af80c2a4bd6db6123ff8cfbe4e0328cb48e2",
+      "passed": true
+    },
+    {
+      "path": "server/models/obstacle.py",
+      "expected": "e3867c4926c5e78c99ed1bc296112952b7a808a66e7f059e9b7f524993db600d",
+      "actual": "e3867c4926c5e78c99ed1bc296112952b7a808a66e7f059e9b7f524993db600d",
+      "passed": true
+    },
+    {
+      "path": "server/models/session.py",
+      "expected": "b2ea22ac56096600b6737dad67ce7dc0a1ba300acf77d2638f0da56ec99f257e",
+      "actual": "b2ea22ac56096600b6737dad67ce7dc0a1ba300acf77d2638f0da56ec99f257e",
+      "passed": true
+    },
+    {
+      "path": "server/models/target.py",
+      "expected": "29ad7c30890072a618d00b2dad08c37f17c5c97e3bf2c02c189837e796631424",
+      "actual": "29ad7c30890072a618d00b2dad08c37f17c5c97e3bf2c02c189837e796631424",
+      "passed": true
+    },
+    {
+      "path": "server/models/task.py",
+      "expected": "bcd0432d4ea2c9fb2393a261b957ae1b34c4c81da1d51dfcf58d69627bbb1178",
+      "actual": "bcd0432d4ea2c9fb2393a261b957ae1b34c4c81da1d51dfcf58d69627bbb1178",
+      "passed": true
+    }
+  ],
+  "artifact_checks": [
+    {
+      "path": "schedule.json",
+      "expected": "888b1f1787f4ef32e01914574c43dfbdca97aee4c29437b8b1eda6e6503632fe",
+      "actual": "888b1f1787f4ef32e01914574c43dfbdca97aee4c29437b8b1eda6e6503632fe",
+      "passed": true
+    },
+    {
+      "path": "preflight.json",
+      "expected": "03cf515b45b61241521e80d6c9eba9f9252159d9cfc02c2dc954a88ccb9c5bba",
+      "actual": "03cf515b45b61241521e80d6c9eba9f9252159d9cfc02c2dc954a88ccb9c5bba",
+      "passed": true
+    },
+    {
+      "path": "fixtures/route-interrupted.private-prefix.json",
+      "expected": "c51d2cdd478722df50be993b9ee7757be43c6129f227a3a1ce3797f68cda5eaf",
+      "actual": "c51d2cdd478722df50be993b9ee7757be43c6129f227a3a1ce3797f68cda5eaf",
+      "passed": true
+    },
+    {
+      "path": "fixtures/clue-horizontal.pkl",
+      "expected": "2c39bb843a7177cd1ee934abe65f729bc66b6a728c7c903be5832cb1ef6b3293",
+      "actual": "2c39bb843a7177cd1ee934abe65f729bc66b6a728c7c903be5832cb1ef6b3293",
+      "passed": true
+    },
+    {
+      "path": "fixtures/route-blocked.views.json",
+      "expected": "363b9493f4285f55dd77f6c93b2649ab945fe2eb9e5864723b9adc5ab9c93f93",
+      "actual": "363b9493f4285f55dd77f6c93b2649ab945fe2eb9e5864723b9adc5ab9c93f93",
+      "passed": true
+    },
+    {
+      "path": "fixtures/route-blocked.private-prefix.json",
+      "expected": "30e398a214fac9dc9e8fc7794cce91adb9d87530b6d066a1e790a076fd9aebf1",
+      "actual": "30e398a214fac9dc9e8fc7794cce91adb9d87530b6d066a1e790a076fd9aebf1",
+      "passed": true
+    },
+    {
+      "path": "fixtures/clue-horizontal.json",
+      "expected": "ac902ae2dfc074ba7c7e1c879cebfa3ccfdcddc9743ec515beee22b588c3ef02",
+      "actual": "ac902ae2dfc074ba7c7e1c879cebfa3ccfdcddc9743ec515beee22b588c3ef02",
+      "passed": true
+    },
+    {
+      "path": "fixtures/clue-vertical.private-prefix.json",
+      "expected": "9f6ff008b6712d737a9dfa1f5f1945f1faeb2a9cf48d4fc45fd2ace7f4dbd78a",
+      "actual": "9f6ff008b6712d737a9dfa1f5f1945f1faeb2a9cf48d4fc45fd2ace7f4dbd78a",
+      "passed": true
+    },
+    {
+      "path": "fixtures/clue-horizontal.private-prefix.json",
+      "expected": "50517768e896c1a2dbb348994a4d64aa3dd366f9f7f41cac1c4a90d76e54ed49",
+      "actual": "50517768e896c1a2dbb348994a4d64aa3dd366f9f7f41cac1c4a90d76e54ed49",
+      "passed": true
+    },
+    {
+      "path": "fixtures/route-blocked.json",
+      "expected": "999c9b341bf7abdd9116f56a3e59da38a8c5ad3dc368c1f84a3cdde6d7951d17",
+      "actual": "999c9b341bf7abdd9116f56a3e59da38a8c5ad3dc368c1f84a3cdde6d7951d17",
+      "passed": true
+    },
+    {
+      "path": "fixtures/route-interrupted.views.json",
+      "expected": "bd2c6a2233bd723c8dc3682752660770eb7fd9d48ac20e32d0d801af87830832",
+      "actual": "bd2c6a2233bd723c8dc3682752660770eb7fd9d48ac20e32d0d801af87830832",
+      "passed": true
+    },
+    {
+      "path": "fixtures/control-failed-sense.private-prefix.json",
+      "expected": "fd5e1c6889814386d2b6641f64ae763c834a5f56bca551ef3ec14ccd261ec44f",
+      "actual": "fd5e1c6889814386d2b6641f64ae763c834a5f56bca551ef3ec14ccd261ec44f",
+      "passed": true
+    },
+    {
+      "path": "fixtures/clue-horizontal.views.json",
+      "expected": "2b1d30cdd05a3767a26e2e4ddc0999d1c53ea2d4589bc2a105ef80e7d7f3ae0b",
+      "actual": "2b1d30cdd05a3767a26e2e4ddc0999d1c53ea2d4589bc2a105ef80e7d7f3ae0b",
+      "passed": true
+    },
+    {
+      "path": "fixtures/control-failed-sense.views.json",
+      "expected": "a6598ad545a430e9b107a23c6daf226f3e3c461ddc492c4d5cd723cfaf148d4d",
+      "actual": "a6598ad545a430e9b107a23c6daf226f3e3c461ddc492c4d5cd723cfaf148d4d",
+      "passed": true
+    },
+    {
+      "path": "fixtures/clue-vertical.json",
+      "expected": "e2c3e656224d221ac647b502a89464eaffe1024a8d5538ef8253142f648c4f42",
+      "actual": "e2c3e656224d221ac647b502a89464eaffe1024a8d5538ef8253142f648c4f42",
+      "passed": true
+    },
+    {
+      "path": "fixtures/control-complete.private-prefix.json",
+      "expected": "68fbacfa8a91d9dbdec1ba3af06cee6b2daac68190b4e81ac7e37882f81b7425",
+      "actual": "68fbacfa8a91d9dbdec1ba3af06cee6b2daac68190b4e81ac7e37882f81b7425",
+      "passed": true
+    },
+    {
+      "path": "fixtures/clue-vertical.pkl",
+      "expected": "99ab5eec2ae4a35786ee61f7c1258bdde5fe838e5daaca4941b52cd4b4512c79",
+      "actual": "99ab5eec2ae4a35786ee61f7c1258bdde5fe838e5daaca4941b52cd4b4512c79",
+      "passed": true
+    },
+    {
+      "path": "fixtures/route-interrupted.json",
+      "expected": "045c14887fc5641327df8da767e533dc0dc06e032b2452e01ee53d3ef7060114",
+      "actual": "045c14887fc5641327df8da767e533dc0dc06e032b2452e01ee53d3ef7060114",
+      "passed": true
+    },
+    {
+      "path": "fixtures/route-blocked.pkl",
+      "expected": "ebcbd73694a7fa14961bb3ac6a69704e4dd19391991acdd561743a61a48b8303",
+      "actual": "ebcbd73694a7fa14961bb3ac6a69704e4dd19391991acdd561743a61a48b8303",
+      "passed": true
+    },
+    {
+      "path": "fixtures/clue-vertical.views.json",
+      "expected": "8518e8913f2b751d1ce058cbef10d9edd0cdedefc52358bdcaa1443392fdeddc",
+      "actual": "8518e8913f2b751d1ce058cbef10d9edd0cdedefc52358bdcaa1443392fdeddc",
+      "passed": true
+    },
+    {
+      "path": "fixtures/control-complete.json",
+      "expected": "5454a707d093941265b70ccc017e91ae72f8462f389c0ed1596c7688bcb8d31d",
+      "actual": "5454a707d093941265b70ccc017e91ae72f8462f389c0ed1596c7688bcb8d31d",
+      "passed": true
+    },
+    {
+      "path": "fixtures/control-failed-sense.pkl",
+      "expected": "7a3d0c95c2b4d4ee4fae173ea4027dd9e26c0acde6f2392f3e3728824051043a",
+      "actual": "7a3d0c95c2b4d4ee4fae173ea4027dd9e26c0acde6f2392f3e3728824051043a",
+      "passed": true
+    },
+    {
+      "path": "fixtures/route-interrupted.pkl",
+      "expected": "e7ef0b7331eba451456eb43b33c5cbee4ec8230554fe6e3233a8a5fa42264776",
+      "actual": "e7ef0b7331eba451456eb43b33c5cbee4ec8230554fe6e3233a8a5fa42264776",
+      "passed": true
+    },
+    {
+      "path": "fixtures/control-complete.views.json",
+      "expected": "ccd885b24b3c67649caf53fada7ea2690a76ec61336db15ced3d0c36a765d61c",
+      "actual": "ccd885b24b3c67649caf53fada7ea2690a76ec61336db15ced3d0c36a765d61c",
+      "passed": true
+    },
+    {
+      "path": "fixtures/control-failed-sense.json",
+      "expected": "509c62270111725dbbaebe5783c1297b90bd98eb4659637a6ae64b917995d2a2",
+      "actual": "509c62270111725dbbaebe5783c1297b90bd98eb4659637a6ae64b917995d2a2",
+      "passed": true
+    },
+    {
+      "path": "fixtures/control-complete.pkl",
+      "expected": "f283ccef87bc1f01aa1fb8d9ab374f488ce1472663c7a694c76c90cafd587d02",
+      "actual": "f283ccef87bc1f01aa1fb8d9ab374f488ce1472663c7a694c76c90cafd587d02",
+      "passed": true
+    }
+  ],
+  "trials": [
+    {
+      "label": "clue-horizontal-r1-r3",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 6,
+        "tool_calls": 6,
+        "model_request_attempts": 6,
+        "total_tokens": 25948,
+        "input_tokens": 25069,
+        "output_tokens": 879
+      },
+      "view_omissions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "wire_requests": 6,
+      "views_count": 6
+    },
+    {
+      "label": "clue-horizontal-r1-memory",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 4,
+        "tool_calls": 4,
+        "model_request_attempts": 4,
+        "total_tokens": 20919,
+        "input_tokens": 20265,
+        "output_tokens": 654
+      },
+      "view_omissions": [
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 1,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 1,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        }
+      ],
+      "wire_requests": 4,
+      "views_count": 4
+    },
+    {
+      "label": "clue-vertical-r1-memory",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 4,
+        "tool_calls": 5,
+        "model_request_attempts": 4,
+        "total_tokens": 22030,
+        "input_tokens": 21474,
+        "output_tokens": 556
+      },
+      "view_omissions": [
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 1,
+          "obligations": 0,
+          "observations": 1,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        }
+      ],
+      "wire_requests": 4,
+      "views_count": 5
+    },
+    {
+      "label": "clue-vertical-r1-r3",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 6,
+        "tool_calls": 6,
+        "model_request_attempts": 6,
+        "total_tokens": 25700,
+        "input_tokens": 24915,
+        "output_tokens": 785
+      },
+      "view_omissions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "wire_requests": 6,
+      "views_count": 6
+    },
+    {
+      "label": "route-interrupted-r1-r3",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "model_request_attempts": 4,
+        "total_tokens": 9175,
+        "input_tokens": 8769,
+        "output_tokens": 406
+      },
+      "view_omissions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "wire_requests": 4,
+      "views_count": 4
+    },
+    {
+      "label": "route-interrupted-r1-memory",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "model_request_attempts": 4,
+        "total_tokens": 12795,
+        "input_tokens": 12396,
+        "output_tokens": 399
+      },
+      "view_omissions": [
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        }
+      ],
+      "wire_requests": 4,
+      "views_count": 4
+    },
+    {
+      "label": "route-blocked-r1-memory",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "model_request_attempts": 4,
+        "total_tokens": 13218,
+        "input_tokens": 12790,
+        "output_tokens": 428
+      },
+      "view_omissions": [
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        }
+      ],
+      "wire_requests": 4,
+      "views_count": 4
+    },
+    {
+      "label": "route-blocked-r1-r3",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "model_request_attempts": 4,
+        "total_tokens": 9570,
+        "input_tokens": 9183,
+        "output_tokens": 387
+      },
+      "view_omissions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "wire_requests": 4,
+      "views_count": 4
+    },
+    {
+      "label": "control-complete-r1-r3",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 2,
+        "tool_calls": 1,
+        "model_request_attempts": 2,
+        "total_tokens": 4289,
+        "input_tokens": 4075,
+        "output_tokens": 214
+      },
+      "view_omissions": [
+        0,
+        0
+      ],
+      "wire_requests": 2,
+      "views_count": 2
+    },
+    {
+      "label": "control-complete-r1-memory",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 2,
+        "tool_calls": 1,
+        "model_request_attempts": 2,
+        "total_tokens": 5211,
+        "input_tokens": 4955,
+        "output_tokens": 256
+      },
+      "view_omissions": [
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        }
+      ],
+      "wire_requests": 2,
+      "views_count": 2
+    },
+    {
+      "label": "control-failed-sense-r1-memory",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 4,
+        "tool_calls": 4,
+        "model_request_attempts": 4,
+        "total_tokens": 13181,
+        "input_tokens": 12691,
+        "output_tokens": 490
+      },
+      "view_omissions": [
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        },
+        {
+          "actual_effects": 0,
+          "aggregate_requirements": 0,
+          "clue_checks": 0,
+          "obligations": 0,
+          "observations": 0,
+          "routes": 0,
+          "unparsed_or_unverified_clauses": 0
+        }
+      ],
+      "wire_requests": 4,
+      "views_count": 4
+    },
+    {
+      "label": "control-failed-sense-r1-r3",
+      "passed": true,
+      "issues": [],
+      "deadline_overrun_seconds": 0,
+      "recomputed": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "model_request_attempts": 3,
+        "total_tokens": 6569,
+        "input_tokens": 6233,
+        "output_tokens": 336
+      },
+      "view_omissions": [
+        0,
+        0,
+        0
+      ],
+      "wire_requests": 3,
+      "views_count": 3
+    }
+  ],
+  "issues": [],
+  "all_completed_trial_checks_pass": true,
+  "continuous_source_identity_not_proven_by_current_hash_check": true,
+  "source_integrity_note": {
+    "event": "temporary on-disk edit after repeat 1 process had loaded the frozen runner",
+    "file": "scripts/execution_memory_pilot.py",
+    "frozen_sha256": "d840d0db6ae33cd0acf1999021157f9cffd95a5a87d7755a77920da7188c62f9",
+    "temporary_sha256": "0176b45fa9e03184584bfdf49cea27fc21245dfd5f9515b734165f490f7d11a7",
+    "changed_sections": [
+      "prepare-only additional checks",
+      "sources list"
+    ],
+    "trial_execution_functions_changed": false,
+    "resolution": "exact frozen bytes restored; original manifest unchanged; post-run check passed; no reruns"
+  },
+  "global_budget": {
+    "charged_tokens": 168605,
+    "recomputed_charge": 168605,
+    "cap": 300000,
+    "within_cap": true,
+    "accounting_matches": true,
+    "unsettled_requests": 0
+  }
+}

@@ -1,0 +1,2683 @@
+{
+  "schema": "harness-architecture-audit-v1",
+  "generated_at": "2026-10-16T08:10:41.787764+00:00",
+  "scope": "current_workspace_static_audit_and_existing_offline_component_regression",
+  "application_source_changed": false,
+  "online_experiments_started": false,
+  "provider_calls": 0,
+  "sources": [
+    {
+      "path": "agent4drone/blackboard.py",
+      "sha256": "cbb6efac0f97bf5035fdac41edb3ac509ccf529bc18f8788f9b9a59a3847f9d9",
+      "lines": 204,
+      "symbols": [
+        {
+          "name": "_coordinate_tuple",
+          "line": 5,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_vertices_tuples",
+          "line": 19,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard",
+          "line": 25,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "PerceptionBlackboard.__init__",
+          "line": 28,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard.clear",
+          "line": 38,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard.next_step",
+          "line": 46,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard.ingest_nearby",
+          "line": 50,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard.update_note",
+          "line": 94,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard.summary",
+          "line": 113,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard.full",
+          "line": 120,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard.compact_entry",
+          "line": 127,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard._collection_for_kind",
+          "line": 144,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard._ingest_entities",
+          "line": 154,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PerceptionBlackboard._facts_from_entity",
+          "line": 193,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/task_progress.py",
+      "sha256": "7012fe57d753753b5028ac89d170b001c49aa623bfe2970e64fdf92adae98d6b",
+      "lines": 495,
+      "symbols": [
+        {
+          "name": "_safe",
+          "line": 50,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_decode",
+          "line": 55,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_arguments",
+          "line": 70,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_primary_receipt",
+          "line": 77,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger",
+          "line": 85,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskProgressLedger.__init__",
+          "line": 93,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger.observer_error",
+          "line": 118,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger.begin_tool",
+          "line": 122,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger.end_tool",
+          "line": 143,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger.observe_tool",
+          "line": 170,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger._receipt_outcome",
+          "line": 177,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger._invalidate_action",
+          "line": 193,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger._entity",
+          "line": 217,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger._ingest_collection",
+          "line": 253,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger._ingest_reply",
+          "line": 263,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger._bindings",
+          "line": 299,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger.snapshot",
+          "line": 311,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressLedger.summary",
+          "line": 340,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware",
+          "line": 420,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskProgressMiddleware.__init__",
+          "line": 423,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware._begin",
+          "line": 429,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware._error",
+          "line": 437,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware._end",
+          "line": 443,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware.wrap_tool_call",
+          "line": 450,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware.awrap_tool_call",
+          "line": 460,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware._model_request",
+          "line": 470,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware.wrap_model_call",
+          "line": 491,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskProgressMiddleware.awrap_model_call",
+          "line": 494,
+          "kind": "AsyncFunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/task_evidence.py",
+      "sha256": "6851e93c9ee0ccf540867bd7debe266d2dc5084d7ea1778b8be064db4383dd57",
+      "lines": 362,
+      "symbols": [
+        {
+          "name": "encode",
+          "line": 25,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "point",
+          "line": 29,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "goal_xy",
+          "line": 39,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "references",
+          "line": 48,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "SessionEvidenceIndex",
+          "line": 79,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "SessionEvidenceIndex.__init__",
+          "line": 82,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "SessionEvidenceIndex.clear",
+          "line": 90,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "SessionEvidenceIndex.remember",
+          "line": 97,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_receipts",
+          "line": 106,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger",
+          "line": 123,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceLedger.__init__",
+          "line": 124,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger._entity",
+          "line": 146,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger.begin_tool",
+          "line": 163,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger.end_tool",
+          "line": 175,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger._actor_conflict",
+          "line": 186,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger._consume",
+          "line": 190,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger._path_hint",
+          "line": 252,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger._view",
+          "line": 282,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger.projection",
+          "line": 332,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger.summary",
+          "line": 341,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedger.snapshot",
+          "line": 354,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/task_evidence_context.py",
+      "sha256": "5992d8b0aaf44801776b2ceb38165c28f0cd4f6268fd81acc4e531a91c461ea2",
+      "lines": 137,
+      "symbols": [
+        {
+          "name": "digest",
+          "line": 33,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "message_value",
+          "line": 37,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "append_content",
+          "line": 42,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceMiddleware",
+          "line": 51,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceMiddleware.__init__",
+          "line": 52,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceMiddleware._prepare",
+          "line": 63,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceMiddleware._model_request",
+          "line": 102,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/task_evidence_r2.py",
+      "sha256": "b5a9807f8eea903fd4f590f94f82feb996de467168d45ab873ab837713d120e9",
+      "lines": 283,
+      "symbols": [
+        {
+          "name": "aggregate_requirements",
+          "line": 27,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "relative_segment",
+          "line": 47,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "public_progress",
+          "line": 87,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "progress_tool",
+          "line": 112,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "SessionEvidenceIndexR2",
+          "line": 130,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "SessionEvidenceIndexR2.__init__",
+          "line": 131,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "SessionEvidenceIndexR2.clear",
+          "line": 135,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR2",
+          "line": 141,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR2.__init__",
+          "line": 142,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR2.begin_tool",
+          "line": 152,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR2._consume",
+          "line": 159,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR2._view",
+          "line": 200,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR2.aggregate_projection",
+          "line": 223,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR2.summary",
+          "line": 245,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR2.snapshot",
+          "line": 263,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceR2Middleware",
+          "line": 272,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceR2Middleware.__init__",
+          "line": 273,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceR2Middleware._model_request",
+          "line": 279,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/task_evidence_r3.py",
+      "sha256": "2031abeee2d244ef7f96ca1f8d57e5a65b1747f96425b0979d5b2c981e353905",
+      "lines": 243,
+      "symbols": [
+        {
+          "name": "explicit_routes",
+          "line": 42,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_finite",
+          "line": 79,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_path_points",
+          "line": 83,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "receipt_points",
+          "line": 98,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_matches",
+          "line": 152,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR3",
+          "line": 157,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR3.__init__",
+          "line": 158,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR3.route_projection",
+          "line": 162,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR3.summary",
+          "line": 197,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceLedgerR3.snapshot",
+          "line": 223,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceR3Middleware",
+          "line": 232,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceR3Middleware.__init__",
+          "line": 233,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceR3Middleware._model_request",
+          "line": 239,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/harness_core.py",
+      "sha256": "9c241b2f72b27ca6e35ec7b8030f9e3692038081629057deac1e63f56eecf2c1",
+      "lines": 338,
+      "symbols": [
+        {
+          "name": "PublicCall",
+          "line": 13,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "Checkpoint",
+          "line": 20,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "SkillExit",
+          "line": 25,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "SkillExit.__init__",
+          "line": 26,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessInterrupted",
+          "line": 31,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "HarnessLog",
+          "line": 35,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "HarnessLog.__init__",
+          "line": 36,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessLog.emit",
+          "line": 41,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessLog.snapshot",
+          "line": 48,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "DecisionFrame",
+          "line": 54,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "HarnessRuntime",
+          "line": 82,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "HarnessRuntime.__init__",
+          "line": 91,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.check_interrupt",
+          "line": 116,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.external_begin",
+          "line": 132,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.external_end",
+          "line": 148,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime._gate",
+          "line": 153,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime._response",
+          "line": 161,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.control",
+          "line": 171,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime._drive",
+          "line": 212,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.model_start",
+          "line": 290,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.model_end",
+          "line": 299,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.wire_start",
+          "line": 309,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.wire_response",
+          "line": 317,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.close",
+          "line": 325,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessRuntime.snapshot",
+          "line": 335,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/harness_skills.py",
+      "sha256": "c8025e4f86aa0f27ab3237b7783085e0b411fd0c547364bef1d659bd7e5ca6a3",
+      "lines": 240,
+      "symbols": [
+        {
+          "name": "simple_plan",
+          "line": 14,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "search_supported",
+          "line": 39,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_state",
+          "line": 46,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_check_progress",
+          "line": 59,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_checked_action",
+          "line": 66,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "simple_chain",
+          "line": 79,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "public_search",
+          "line": 130,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "make_skill_factory",
+          "line": 221,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/harness_integration.py",
+      "sha256": "80eae100bbd28b3ab82ca272368134194f0c9e6f8457689a0b2ea2edaa753fc4",
+      "lines": 161,
+      "symbols": [
+        {
+          "name": "_usage",
+          "line": 28,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_tool_ids",
+          "line": 33,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessMiddleware",
+          "line": 37,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "HarnessMiddleware.__init__",
+          "line": 38,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessMiddleware._control_batch_error",
+          "line": 42,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessMiddleware.wrap_tool_call",
+          "line": 54,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessMiddleware.awrap_tool_call",
+          "line": 69,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "HarnessMiddleware.wrap_model_call",
+          "line": 84,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "HarnessMiddleware.awrap_model_call",
+          "line": 95,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "install_harness",
+          "line": 107,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/coordinated_search_r2.py",
+      "sha256": "eb090d1e84dd8e063363b45d21b0640bf34fd4d0c378f3b9822edb174e23700e",
+      "lines": 127,
+      "symbols": [
+        {
+          "name": "lattice",
+          "line": 23,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PublicSearchPolicy",
+          "line": 36,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "PublicSearchPolicy.__init__",
+          "line": 37,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PublicSearchPolicy._refresh_blocked",
+          "line": 69,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PublicSearchPolicy.choose",
+          "line": 73,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PublicSearchPolicy.accept",
+          "line": 96,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PublicSearchPolicy.disable",
+          "line": 126,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/coordinated_search_trigger_r2.py",
+      "sha256": "c234bf11b06a028ce4f0c2ce31921b13bf31d911de5d6ac6ae66d3c813f7dac0",
+      "lines": 40,
+      "symbols": [
+        {
+          "name": "TriggerDecision",
+          "line": 19,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "decide_public_search_trigger",
+          "line": 24,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/coordinated_search_worker_r2.py",
+      "sha256": "2c94a32971f84a1fc37099117fbd7fabd3484d07881f73e41b6cf3d427720913",
+      "lines": 200,
+      "symbols": [
+        {
+          "name": "TaskEvidenceSearchLedger",
+          "line": 22,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceSearchLedger.__init__",
+          "line": 23,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceSearchLedger.snapshot",
+          "line": 27,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceSearchMiddleware",
+          "line": 33,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceSearchMiddleware.__init__",
+          "line": 36,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceSearchMiddleware._candidate",
+          "line": 44,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceSearchMiddleware._model_request",
+          "line": 74,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "run_public_search",
+          "line": 92,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/observation_worker_r2.py",
+      "sha256": "ce1cae6e75a44af1ff6bc74574fdf1566af3b668105466b25c2850fea47cc29d",
+      "lines": 274,
+      "symbols": [
+        {
+          "name": "TaskEvidenceWorkerLedger",
+          "line": 30,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceWorkerLedger.__init__",
+          "line": 31,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceWorkerLedger.snapshot",
+          "line": 35,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceWorkerMiddleware",
+          "line": 41,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TaskEvidenceWorkerMiddleware.__init__",
+          "line": 44,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceWorkerMiddleware._visits",
+          "line": 55,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceWorkerMiddleware._candidate",
+          "line": 59,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "TaskEvidenceWorkerMiddleware._model_request",
+          "line": 107,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_position",
+          "line": 125,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_plan_from_message",
+          "line": 134,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_valid_plan",
+          "line": 149,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "run_observation_worker",
+          "line": 184,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/uav_agent.py",
+      "sha256": "ca2bb420f9f9f0baf3a78f1d8c5bb5c84b32886f23a571049c4c0289668cb97c",
+      "lines": 1621,
+      "symbols": [
+        {
+          "name": "patch_openai_compatible_reasoning_content",
+          "line": 34,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "sanitize_for_log",
+          "line": 68,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "empty_token_usage",
+          "line": 76,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "int_token",
+          "line": 85,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "token_usage_from_dict",
+          "line": 94,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "token_usage_from_message",
+          "line": 108,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "merge_token_usage",
+          "line": 122,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "format_token_usage_for_log",
+          "line": 129,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "token_usage_from_llm_result",
+          "line": 138,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "ProviderTokenLoggingCallback",
+          "line": 162,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ProviderTokenLoggingCallback.__init__",
+          "line": 163,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "ProviderTokenLoggingCallback.on_llm_end",
+          "line": 168,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "load_llm_settings",
+          "line": 179,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "bool_setting",
+          "line": 191,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "prompt_user_for_llm_config",
+          "line": 205,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent",
+          "line": 316,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "UAVControlAgent.__init__",
+          "line": 319,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._create_llm",
+          "line": 434,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._audit_model_request",
+          "line": 504,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._aaudit_model_request",
+          "line": 531,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._audit_model_response",
+          "line": 534,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._aaudit_model_response",
+          "line": 542,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._create_tools",
+          "line": 545,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._current_session_id",
+          "line": 548,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent.reset_task_evidence",
+          "line": 575,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._blackboard_for_current_command",
+          "line": 586,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._build_system_prompt",
+          "line": 596,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._create_agent_runtime",
+          "line": 603,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._initialize_task_progress",
+          "line": 618,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._recursion_limit_for_steps",
+          "line": 704,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent.refresh_session_context",
+          "line": 708,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent.get_session_summary",
+          "line": 723,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._normalize_tool_input",
+          "line": 750,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._message_text",
+          "line": 760,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._extract_intermediate_steps",
+          "line": 777,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._empty_token_usage",
+          "line": 808,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._int_token",
+          "line": 812,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._token_usage_from_message",
+          "line": 815,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._extract_token_usage",
+          "line": 818,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._extract_tool_names",
+          "line": 827,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._ingest_stream_messages",
+          "line": 836,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._stream_updates_to_steps",
+          "line": 876,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._extract_final_output",
+          "line": 930,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._last_observation_preview",
+          "line": 941,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._last_response_message",
+          "line": 952,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._message_finish_reason",
+          "line": 959,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._log_empty_terminal_response",
+          "line": 975,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._empty_response_recovery_command",
+          "line": 1001,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._incomplete_output_reason",
+          "line": 1023,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._runtime_metadata_for_toolchain",
+          "line": 1030,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._record_toolchain_if_enabled",
+          "line": 1052,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._run_agent_once",
+          "line": 1137,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent.execute",
+          "line": 1150,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent.run_interactive",
+          "line": 1426,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVControlAgent._print_help",
+          "line": 1466,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "main",
+          "line": 1503,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/uav_api_client.py",
+      "sha256": "5196331a1f7260f6fe25fecb3bd3be9888aeedcec81608ca11c399543739e420",
+      "lines": 430,
+      "symbols": [
+        {
+          "name": "_format_log_value",
+          "line": 25,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_json_safe",
+          "line": 37,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_response_json_safe",
+          "line": 47,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_compact_command_response",
+          "line": 54,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_sanitize_command_response",
+          "line": 82,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient",
+          "line": 94,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "UAVAPIClient.__init__",
+          "line": 97,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.start_api_call_recording",
+          "line": 114,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_api_call_records",
+          "line": 117,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.stop_api_call_recording",
+          "line": 120,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient._start_api_call_record",
+          "line": 125,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient._finish_api_call_record",
+          "line": 144,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient._request",
+          "line": 161,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.list_drones",
+          "line": 256,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_drone_status",
+          "line": 260,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.take_off",
+          "line": 264,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.land",
+          "line": 268,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.move_to",
+          "line": 272,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.move_along_path",
+          "line": 277,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.change_altitude",
+          "line": 290,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.hover",
+          "line": 295,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.rotate",
+          "line": 308,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.move_towards",
+          "line": 313,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.return_home",
+          "line": 331,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.set_home",
+          "line": 335,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.calibrate",
+          "line": 339,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.charge",
+          "line": 343,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.take_photo",
+          "line": 348,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.send_message",
+          "line": 352,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.broadcast",
+          "line": 364,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_current_session",
+          "line": 376,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_session_data",
+          "line": 380,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_task_progress",
+          "line": 384,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_weather",
+          "line": 389,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_target",
+          "line": 393,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_waypoints",
+          "line": 397,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_obstacle",
+          "line": 401,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.get_nearby_entities",
+          "line": 405,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.check_point_collision",
+          "line": 410,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "UAVAPIClient.check_path_collision",
+          "line": 420,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/uav_langchain_tools.py",
+      "sha256": "3809e3a2258a0b55b6e2680a89e42ff8ba668388fe2c2c9d05d1060e5cc9fa74",
+      "lines": 1570,
+      "symbols": [
+        {
+          "name": "_position_xy",
+          "line": 30,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_position_xyz",
+          "line": 39,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_float_param",
+          "line": 50,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_bool_param",
+          "line": 57,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_blackboard_obstacles_for_planner",
+          "line": 70,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_waypoints_with_altitude",
+          "line": 74,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_target_to_planner_target",
+          "line": 81,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_waypoints_from_path",
+          "line": 108,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_waypoint_preview",
+          "line": 112,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_coverage_execution_call",
+          "line": 120,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_coverage_plan_error",
+          "line": 141,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_normalize_waypoint",
+          "line": 184,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_normalize_waypoints",
+          "line": 195,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_json",
+          "line": 199,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_detail_level",
+          "line": 203,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_compact_position",
+          "line": 212,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_compact_drone",
+          "line": 222,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_compact_entity",
+          "line": 235,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_compact_nearby",
+          "line": 249,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_compact_changes",
+          "line": 266,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_compact_move_result",
+          "line": 274,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_move_and_sense_response",
+          "line": 307,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_compact_navigation_response",
+          "line": 336,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_navigate_and_sense_response",
+          "line": 366,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_navigate_to_destination",
+          "line": 395,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "create_uav_tools",
+          "line": 505,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/command_results.py",
+      "sha256": "d3d6a9d44078e65b040ac8931498f827f236d35d1064915940294f658f6d98ee",
+      "lines": 90,
+      "symbols": [
+        {
+          "name": "_is_geometry_blocked",
+          "line": 27,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "command_outcome",
+          "line": 40,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "normalize_command_result",
+          "line": 86,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/relative_movement.py",
+      "sha256": "d7791bf79cd1fbe61921f835665a51df385d2be97c32d7c29a8d2b4c85714a4f",
+      "lines": 168,
+      "symbols": [
+        {
+          "name": "_number",
+          "line": 12,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_position",
+          "line": 24,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_point",
+          "line": 34,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_distance",
+          "line": 38,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "create_relative_movement_tool",
+          "line": 45,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/agent_api_service.py",
+      "sha256": "6ab96ab9c1ceae42b187c48289883fe382f4c8627a520835c56c185f0fe06087",
+      "lines": 365,
+      "symbols": [
+        {
+          "name": "CommandRequest",
+          "line": 26,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TokenUsage",
+          "line": 29,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "CommandResponse",
+          "line": 35,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "JobStatus",
+          "line": 41,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "AsyncCommandResponse",
+          "line": 48,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "JobInfo",
+          "line": 53,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "SessionSummaryResponse",
+          "line": 62,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "HealthResponse",
+          "line": 65,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "make_json_safe",
+          "line": 71,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "command_response_from_result",
+          "line": 97,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "JobCancelledException",
+          "line": 114,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "CancellationCallback",
+          "line": 118,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "CancellationCallback.__init__",
+          "line": 123,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "CancellationCallback._check_cancellation",
+          "line": 126,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "CancellationCallback.on_llm_start",
+          "line": 131,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "CancellationCallback.on_tool_start",
+          "line": 134,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "CancellationCallback.on_chain_start",
+          "line": 137,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "initialize_agent_from_settings",
+          "line": 140,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "lifespan",
+          "line": 221,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "health_check",
+          "line": 244,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "process_agent_command",
+          "line": 249,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "execute_command_async",
+          "line": 296,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "cancel_job",
+          "line": 318,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "get_job_status",
+          "line": 340,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "execute_command",
+          "line": 346,
+          "kind": "AsyncFunctionDef"
+        },
+        {
+          "name": "get_session_summary",
+          "line": 354,
+          "kind": "AsyncFunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/template/system_prompt.py",
+      "sha256": "a1f808d9ba46b5b4beb721c630729eca8ded1791274c9e15e164c55b176c1889",
+      "lines": 96,
+      "symbols": [
+        {
+          "name": "build_system_prompt",
+          "line": 84,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "scripts/harness_v2_world.py",
+      "sha256": "bb4c5ee6e72c749608a6c1f977f34b70acbd36a3fa0d32989a6ad2c7e69edc58",
+      "lines": 198,
+      "symbols": [
+        {
+          "name": "sha",
+          "line": 31,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "digest",
+          "line": 35,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "write_json",
+          "line": 39,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "SimulatorClock",
+          "line": 47,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "SimulatorClock.__init__",
+          "line": 48,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "SimulatorClock.time",
+          "line": 51,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "SimulatorClock.__getattr__",
+          "line": 54,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World",
+          "line": 58,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "World.__init__",
+          "line": 59,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.import_session",
+          "line": 86,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.snapshot",
+          "line": 98,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.restore",
+          "line": 104,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.inspect_blob",
+          "line": 121,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.state_digest",
+          "line": 138,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.bake_timeline",
+          "line": 141,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.advance",
+          "line": 158,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.start",
+          "line": 174,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.request",
+          "line": 177,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "World.public_seed",
+          "line": 194,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "scripts/harness_full100_world.py",
+      "sha256": "a71a13284f65b86b91d3424e6c29b3675284dc68117f12aa9aea69cc4b10ec47",
+      "lines": 203,
+      "symbols": [
+        {
+          "name": "TaskDeadlineReached",
+          "line": 17,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "origin",
+          "line": 22,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld",
+          "line": 30,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "FullWorld.__init__",
+          "line": 33,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld.elapsed",
+          "line": 60,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld.start",
+          "line": 63,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld.freeze_score",
+          "line": 75,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld.check_admission",
+          "line": 95,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld._append",
+          "line": 100,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld.request",
+          "line": 106,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld.evaluate",
+          "line": 169,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "FullWorld.cost",
+          "line": 190,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "scripts/harness_full100_prepare.py",
+      "sha256": "84e2d821ef1992904d19a90c8e060f7b1c9ea63e7b84d2bd8a04c01d9d34d6d5",
+      "lines": 90,
+      "symbols": [
+        {
+          "name": "prepare",
+          "line": 12,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "scripts/harness_full100_online.py",
+      "sha256": "3e6d63c16d574481b6ffc009540f44404982c91997ed6b7ad52c91bde923ced8",
+      "lines": 183,
+      "symbols": [
+        {
+          "name": "agent_class",
+          "line": 16,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "run_trial",
+          "line": 98,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "scripts/harness_full100_campaign.py",
+      "sha256": "b017dcff54720b242b641e9055c8f84c7b9b16fba85cbdbcb25825717ce90f1b",
+      "lines": 188,
+      "symbols": [
+        {
+          "name": "read",
+          "line": 14,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "calibration_blocks",
+          "line": 18,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "verify",
+          "line": 31,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "summarize",
+          "line": 42,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "campaign",
+          "line": 71,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "scripts/harness_full100_freeze.py",
+      "sha256": "b9cd765780158d654660b10184a6c8b8c17b0914e69cfd470608f7c26cc0b8d7",
+      "lines": 83,
+      "symbols": [
+        {
+          "name": "stage",
+          "line": 12,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "freeze",
+          "line": 40,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/tests/test_task_evidence.py",
+      "sha256": "4a6d6969225f385b1c616c9d7f3e59e689887af6023525fe29ee514bc01b1a3d",
+      "lines": 411,
+      "symbols": [
+        {
+          "name": "ledger",
+          "line": 20,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "status",
+          "line": 24,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "receipt",
+          "line": 29,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "reach",
+          "line": 34,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "view",
+          "line": 38,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_name_report_is_not_an_id_coordinate_or_full_task_completion",
+          "line": 42,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_prior_command_and_wrong_actor_do_not_discharge_current_visit",
+          "line": 54,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_requests_errors_and_arbitrary_nested_text_never_create_knowledge",
+          "line": 80,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_read_tool_cannot_forge_action_report",
+          "line": 87,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_partial_path_uses_only_returned_points_and_keeps_unknown_start",
+          "line": 93,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_nested_fallback_does_not_connect_unobserved_path_to_old_start",
+          "line": 104,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_and_sense_source_path_resolves_to_actual_nested_receipt",
+          "line": 114,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_nonmovement_error_can_land_drone_and_invalidates_path_origin",
+          "line": 127,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_parallel_same_actor_is_uncertain_but_other_actor_does_not_erase_path",
+          "line": 136,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_dynamic_and_area_names_do_not_get_static_point_hints",
+          "line": 149,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_localized_ambiguous_and_coordinate_attempt_are_distinct",
+          "line": 157,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_clear_new_session_and_late_receipt_isolation",
+          "line": 174,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_requirement_extraction_retains_unsupported_negation_and_original_spans",
+          "line": 191,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_bound_four_items_and_keep_current_report_when_session_history_is_evicted",
+          "line": 205,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "request",
+          "line": 219,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_prefix_append_batch_boundary_and_event_trigger",
+          "line": 223,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_real_graph_modes_leave_tools_and_raw_results_unchanged",
+          "line": 253,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_async_tools_execute_once_and_observer_errors_fail_open",
+          "line": 276,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_opaque_message_artifact_never_prevents_original_model_call",
+          "line": 295,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_actual_sdk_serialization_and_graph_prefix_with_mock_transport",
+          "line": 305,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_visible_reset_metadata_and_explicit_reset_use_no_extra_api_calls",
+          "line": 351,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_empty_retry_keeps_command_evidence_and_next_command_has_new_view",
+          "line": 374,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_audit_trace_saved_with_toolchain_and_async_request_hook",
+          "line": 393,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/tests/test_task_evidence_r2.py",
+      "sha256": "f0f8819e59cd3dcee0397a8946fd1527dcfdb5d654dcb67b8d15defb67d053f9",
+      "lines": 286,
+      "symbols": [
+        {
+          "name": "g",
+          "line": 19,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "relative",
+          "line": 23,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "bind_actor",
+          "line": 32,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "metadata",
+          "line": 36,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "read_progress",
+          "line": 42,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_relative_hint_survives_command_boundary_without_transferring_completion",
+          "line": 47,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_invalid_receipt_does_not_create_relative_hint",
+          "line": 68,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_receipt_direction_distance_and_nested_fallback_are_not_invented",
+          "line": 73,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_nested_contact_is_not_assigned_the_primary_relative_segment",
+          "line": 85,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_actor_overlap_is_local_and_clear_rejects_late_contacts",
+          "line": 97,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_shorter_historical_segment_selected_and_known_target_uses_r1_view",
+          "line": 112,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_aggregate_reader_preserves_span_and_does_not_capture_local_coverage_or_conditions",
+          "line": 125,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_public_progress_filters_entities_rejects_wrong_session_missing_and_inconsistent_data",
+          "line": 137,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_public_progress_matches_existing_server_integer_rounding",
+          "line": 146,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_progress_is_fresh_only_after_nonoverlapping_read_and_never_mission_verdict",
+          "line": 154,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_exact_threshold_operator_and_new_command_no_progress_transfer",
+          "line": 172,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_aggregate_budget_and_named_obligations_remain_visible_or_explicitly_omitted",
+          "line": 181,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_unaffected_task_preserves_r1_model_inputs_tools_actions_and_calls",
+          "line": 193,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_shadow_adds_neither_public_tool_nor_model_input_or_client_calls",
+          "line": 203,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_real_graph_tool_is_task_scoped_observed_once_and_prefix_stable",
+          "line": 213,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_hints_only_mode_keeps_original_toolset_for_aggregate_task",
+          "line": 234,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_r2_actual_sdk_wire_prefix_hashes_and_public_tool_without_network",
+          "line": 241,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/tests/test_task_evidence_r3.py",
+      "sha256": "7ec72eae318895f30b85f5d81c8ef5f236436ef8b214773ff3c215c0c1d8c1cf",
+      "lines": 356,
+      "symbols": [
+        {
+          "name": "route",
+          "line": 21,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "ledger",
+          "line": 26,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "nav",
+          "line": 32,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "path",
+          "line": 43,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "view",
+          "line": 55,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_source_spans_actor_order_and_signed_decimal_coordinates",
+          "line": 59,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_unsupported_text_preserves_r2_summary",
+          "line": 79,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_parser_limits_fail_closed_without_partial_extraction",
+          "line": 85,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_gap_remains_visible_after_later_arrival_and_landing",
+          "line": 92,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_only_actual_successful_path_prefix_counts",
+          "line": 109,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_invalid_path_does_not_prove_requested_goals",
+          "line": 127,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_invalid_navigation_does_not_infer_arrival",
+          "line": 138,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_invalid_public_tolerance_does_not_confirm",
+          "line": 144,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_public_tolerance_is_bound_to_exact_requested_goal_and_three_dimensions",
+          "line": 155,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_nested_sensing_and_unexecuted_requests_are_not_proof",
+          "line": 168,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_fallback_endpoint_is_not_double_counted_for_repeated_coordinate",
+          "line": 177,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_direct_message_positions_are_actual_actor_bound_receipts",
+          "line": 190,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_same_actor_concurrency_is_uncertain_other_actor_is_independent",
+          "line": 200,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_wrong_actor_ambiguous_identity_new_command_and_clear_do_not_transfer_progress",
+          "line": 209,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_r2_contact_and_aggregate_semantics_survive_inheritance",
+          "line": 222,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_large_route_summary_has_explicit_omissions_and_full_snapshot",
+          "line": 232,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_unaffected_real_graph_preserves_r2_inputs_tools_and_call_count",
+          "line": 242,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_real_graph_gap_feedback_stable_prefix_and_no_automatic_retry_or_final_veto",
+          "line": 254,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_shadow_observes_without_injecting_tools_or_model_input",
+          "line": 283,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_mode_is_explicit_opt_in_and_environment_can_be_overridden",
+          "line": 292,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_actual_sdk_wire_hashes_route_feedback_and_prefix_without_network",
+          "line": 315,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "agent4drone/tests/test_minimal_harness.py",
+      "sha256": "c8b3748868538c399d15471b302c9a7ad265d3701b0a9adefe364b1114f64ed0",
+      "lines": 445,
+      "symbols": [
+        {
+          "name": "PublicWorld",
+          "line": 25,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "PublicWorld.__init__",
+          "line": 26,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PublicWorld._call",
+          "line": 39,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PublicWorld.__getattr__",
+          "line": 76,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "runtime",
+          "line": 83,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "finish",
+          "line": 101,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_four_schedulers_have_identical_effects_public_calls_and_plan_source",
+          "line": 114,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_public_search_is_resumable_handles_blockage_and_requires_strict_threshold",
+          "line": 130,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_search_scheduling_changes_no_public_action_or_observation_sequence",
+          "line": 142,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_transport_unknown_observes_once_and_never_replays_action",
+          "line": 151,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_actor_and_public_state_guards_prevent_first_action",
+          "line": 164,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_task_clause_and_other_task_plan_cannot_be_dropped_or_reused",
+          "line": 177,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_paused_plan_rechecks_actual_state_without_trusting_old_receipt",
+          "line": 189,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_external_mutation_invalidation_is_actor_local",
+          "line": 199,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_scene_reset_cancel_and_deadline_prevent_further_io",
+          "line": 209,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_partial_effect_and_wrong_actor_do_not_advance_cursor",
+          "line": 230,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_no_fake_tool_effects_when_policy_or_api_budget_exits",
+          "line": 240,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "graph_agent",
+          "line": 251,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_real_agent_graph_records_plan_gates_model_calls_and_public_receipts",
+          "line": 260,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_real_graph_rejects_harness_in_parallel_tool_batch",
+          "line": 273,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_model_error_and_new_command_have_separate_log_scopes",
+          "line": 283,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_transport_attempts_share_logical_request_without_exposing_headers",
+          "line": 291,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_public_http_deadline_is_opt_in",
+          "line": 305,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_busy_control_cannot_duplicate_a_concurrent_start",
+          "line": 324,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_local_search_takeoff_failure_keeps_other_actor_available",
+          "line": 346,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_local_repair_budget_is_enforced",
+          "line": 360,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_search_takeoff_receipt_cannot_replace_public_effect_verification",
+          "line": 373,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_search_already_at_goal_needs_no_obstacle_model_or_motion",
+          "line": 388,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_actual_async_agent_middleware_and_tool_execution",
+          "line": 398,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_real_execute_checks_service_cancellation_between_inner_calls",
+          "line": 413,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "test_optional_response_hooks_preserve_existing_clients_and_transport",
+          "line": 426,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    },
+    {
+      "path": "scripts/tests/test_minimal_harness_runtime.py",
+      "sha256": "8fc5ae519028cd35b00d72380c42d1c286a4d60b1106c1dc10e3daea84124cc9",
+      "lines": 6,
+      "symbols": [
+        {
+          "name": "test_harness_service_mode_preserves_r2_evidence_and_writes_trace",
+          "line": 5,
+          "kind": "FunctionDef"
+        }
+      ],
+      "frozen_calibration_match": true
+    }
+  ],
+  "frozen_integrity": {
+    "study": "experiments/minimal-harness-full100-v1",
+    "checked_files": 410,
+    "mismatches": [],
+    "campaign_status": "calibration_complete_paused_pending_user_decision"
+  },
+  "regression": {
+    "files": [
+      "agent4drone/tests/test_task_evidence.py",
+      "agent4drone/tests/test_task_evidence_r2.py",
+      "agent4drone/tests/test_task_evidence_r3.py",
+      "agent4drone/tests/test_minimal_harness.py",
+      "scripts/tests/test_minimal_harness_runtime.py"
+    ],
+    "passed": 162,
+    "duration_seconds": 1.28,
+    "network_blocked": [
+      "socket.socket.connect",
+      "socket.socket.connect_ex",
+      "socket.create_connection"
+    ],
+    "model": "ScriptedModel_or_HTTP_MockTransport",
+    "log": "offline-reuse-regression.log",
+    "setup_attempt": {
+      "result": "pytest_configuration_error_before_collection",
+      "reason": "local Tee output wrapper missing isatty; replaced with standard file redirection",
+      "log": "offline-reuse-regression-setup-error.log"
+    },
+    "meaning": "Existing components pass; this is not a regression of a newly integrated architecture"
+  }
+}

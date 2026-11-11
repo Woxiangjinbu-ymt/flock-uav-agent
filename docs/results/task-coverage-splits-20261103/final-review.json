@@ -1,0 +1,251 @@
+{
+  "schema": "task-splits-final-independent-review-v1",
+  "passed": true,
+  "dataset_manifest_sha256": "4d2da10b0a6ea753a924ec22f6f16ad29d59711a94ecef6fbd013cbadf226f4e",
+  "quality_seal_sha256": "ca412267966a3bcb206e79a5d0e1b94ce8fdc886c186039211e2e8e4e99ba392",
+  "counts": {
+    "dataset_sealed_files": 42,
+    "quality_sealed_files": 96,
+    "smoke_sealed_files": 158,
+    "study_sealed_files": 85
+  },
+  "raw_quality": {
+    "initial": {
+      "tasks": 174,
+      "checks_expected": 588,
+      "checks_passed": 0
+    },
+    "positive": {
+      "tasks": 174,
+      "public_requests": 1704,
+      "actions": 762,
+      "physical_events": 1106,
+      "checks_expected": 588,
+      "checks_passed": 588
+    },
+    "missing_required_step": {
+      "tasks": 174,
+      "public_requests": 1446,
+      "actions": 588,
+      "physical_events": 588,
+      "checks_expected": 588,
+      "checks_passed": 384
+    }
+  },
+  "tasks_by_split": {
+    "train": 116,
+    "dev": 29,
+    "test": 29
+  },
+  "tasks_by_family": {
+    "F1": {
+      "positive": 30,
+      "missing_required_step": 30
+    },
+    "F2": {
+      "positive": 30,
+      "missing_required_step": 30
+    },
+    "F3": {
+      "positive": 30,
+      "missing_required_step": 30
+    },
+    "F4": {
+      "positive": 30,
+      "missing_required_step": 30
+    },
+    "F6": {
+      "positive": 30,
+      "missing_required_step": 30
+    },
+    "F5": {
+      "positive": 24,
+      "missing_required_step": 24
+    }
+  },
+  "public_api_counts": {
+    "GET /drones": 348,
+    "GET /drones/<id>/nearby": 1068,
+    "POST /drones/<id>/command/take_off": 468,
+    "POST /drones/<id>/command/rotate": 30,
+    "POST /drones/<id>/command/hover": 288,
+    "POST /drones/<id>/command/move_to": 504,
+    "GET /targets/<id>": 384,
+    "POST /drones/<id>/command/take_photo": 30,
+    "POST /drones/<id>/command/move_along_path": 30
+  },
+  "tests": {
+    "tests": 138,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "checks": [
+    {
+      "name": "dataset manifest hash",
+      "passed": true
+    },
+    {
+      "name": "quality run manifest hash",
+      "passed": true
+    },
+    {
+      "name": "quality seal hash",
+      "passed": true
+    },
+    {
+      "name": "experiments/task-splits-v1 inventory",
+      "passed": true,
+      "detail": {
+        "actual": 42,
+        "sealed": 42
+      }
+    },
+    {
+      "name": "experiments/task-splits-v1 no symlink",
+      "passed": true
+    },
+    {
+      "name": "experiments/task-splits-v1 hashes",
+      "passed": true
+    },
+    {
+      "name": "docs/results/task-coverage-splits-20261103/quality-run-01 inventory",
+      "passed": true,
+      "detail": {
+        "actual": 96,
+        "sealed": 96
+      }
+    },
+    {
+      "name": "docs/results/task-coverage-splits-20261103/quality-run-01 no symlink",
+      "passed": true
+    },
+    {
+      "name": "docs/results/task-coverage-splits-20261103/quality-run-01 hashes",
+      "passed": true
+    },
+    {
+      "name": "quality source copies and current workspace",
+      "passed": true,
+      "detail": 33
+    },
+    {
+      "name": "dataset generator source copies and current workspace",
+      "passed": true,
+      "detail": 12
+    },
+    {
+      "name": "all scene tasks exactly once",
+      "passed": true
+    },
+    {
+      "name": "raw results match summary",
+      "passed": true
+    },
+    {
+      "name": "all initial positive and negative outcomes independently reduced",
+      "passed": true
+    },
+    {
+      "name": "all worker completions registered",
+      "passed": true
+    },
+    {
+      "name": "quality not model or Teacher evidence",
+      "passed": true
+    },
+    {
+      "name": "fresh scene initial digests",
+      "passed": true
+    },
+    {
+      "name": "docs/results/task-coverage-splits-20261103/entry-smoke-run-01 inventory",
+      "passed": true,
+      "detail": {
+        "actual_protocol_inventory": 158,
+        "sealed": 158,
+        "ignored_pycache_files": 7,
+        "exclusion": "Matches frozen general_agent.py campaign-seal/verify protocol."
+      }
+    },
+    {
+      "name": "docs/results/task-coverage-splits-20261103/entry-smoke-run-01 no symlink",
+      "passed": true
+    },
+    {
+      "name": "docs/results/task-coverage-splits-20261103/entry-smoke-run-01 hashes",
+      "passed": true
+    },
+    {
+      "name": "smoke two fresh workers and independent scorers",
+      "passed": true
+    },
+    {
+      "name": "experiments/task-coverage-v1-study inventory",
+      "passed": true,
+      "detail": {
+        "actual": 85,
+        "sealed": 85
+      }
+    },
+    {
+      "name": "experiments/task-coverage-v1-study no symlink",
+      "passed": true
+    },
+    {
+      "name": "experiments/task-coverage-v1-study hashes",
+      "passed": true
+    },
+    {
+      "name": "study manifest hash",
+      "passed": true
+    },
+    {
+      "name": "development 18 restored initially-unsatisfied tasks",
+      "passed": true
+    },
+    {
+      "name": "reported tests",
+      "passed": true,
+      "detail": {
+        "tests": 138,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "all 3150 quality requests match explicit public allowlist and observed identity provenance",
+      "passed": true
+    },
+    {
+      "name": "all 1350 quality action receipts match public request records and frozen positive or omit-one recipe",
+      "passed": true
+    },
+    {
+      "name": "all 1694 physical events bind to corresponding committed action/history record",
+      "passed": true
+    },
+    {
+      "name": "all 522 initial/positive/negative checker trees independently reduced from raw leaf responses",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Quality scoring is a separately guarded evaluator in the same scene process; only entry-smoke uses independent scorer processes.",
+    "Quality process records contain 30 scene return codes but no PID/start/end journal; fresh serial subprocess execution is supported by sealed source, not independently identifiable PID telemetry.",
+    "Quality uses timer=False and predeclared public-action witnesses; it does not establish 500-second Agent success, Teacher eligibility, full checker semantics or generalization.",
+    "F2-F6 fine semantic equivalence and rotated/scaled geometry remain outside the split audit."
+  ],
+  "provider_calls_performed_by_this_review": 0,
+  "unsealed_protocol_cache_files": [
+    "source/agent4drone/__pycache__/agent_profile.cpython-311.pyc",
+    "source/scripts/__pycache__/episode_termination.cpython-311.pyc",
+    "source/scripts/__pycache__/general_agent_local.cpython-311.pyc",
+    "source/scripts/__pycache__/harness_episode_local.cpython-311.pyc",
+    "source/scripts/__pycache__/harness_natural_runner.cpython-311.pyc",
+    "source/scripts/__pycache__/validate_harness_episode.cpython-311.pyc",
+    "source/scripts/__pycache__/validate_harness_natural_runner.cpython-311.pyc"
+  ]
+}

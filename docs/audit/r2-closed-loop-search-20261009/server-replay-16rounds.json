@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "source_evaluation": "docs/audit/r2-closed-loop-search-20261009/evaluation.json",
+  "max_rounds": 16,
+  "uses_local_testclient": true,
+  "model_calls": 0,
+  "results": [
+    {
+      "task_id": "5e743d21",
+      "max_rounds": 16,
+      "completed_moves": 344,
+      "blocked_moves": 53,
+      "nearby_queries": 397,
+      "checkpoints": [
+        {
+          "round": 4,
+          "server_progress_percent": 72,
+          "offline_progress_percent": 72,
+          "original_check_result": false
+        },
+        {
+          "round": 8,
+          "server_progress_percent": 81,
+          "offline_progress_percent": 81,
+          "original_check_result": false
+        },
+        {
+          "round": 16,
+          "server_progress_percent": 97,
+          "offline_progress_percent": 97,
+          "original_check_result": true
+        }
+      ],
+      "mismatches": [],
+      "matched": true
+    },
+    {
+      "task_id": "24ac1838",
+      "max_rounds": 16,
+      "completed_moves": 380,
+      "blocked_moves": 41,
+      "nearby_queries": 421,
+      "checkpoints": [
+        {
+          "round": 4,
+          "server_progress_percent": 82,
+          "offline_progress_percent": 82,
+          "original_check_result": false
+        },
+        {
+          "round": 8,
+          "server_progress_percent": 87,
+          "offline_progress_percent": 87,
+          "original_check_result": false
+        },
+        {
+          "round": 16,
+          "server_progress_percent": 96,
+          "offline_progress_percent": 96,
+          "original_check_result": true
+        }
+      ],
+      "mismatches": [],
+      "matched": true
+    },
+    {
+      "task_id": "7cdefb56",
+      "max_rounds": 16,
+      "completed_moves": 387,
+      "blocked_moves": 20,
+      "nearby_queries": 407,
+      "checkpoints": [
+        {
+          "round": 4,
+          "server_progress_percent": 95,
+          "offline_progress_percent": 95,
+          "original_check_result": true
+        },
+        {
+          "round": 8,
+          "server_progress_percent": 98,
+          "offline_progress_percent": 98,
+          "original_check_result": true
+        },
+        {
+          "round": 16,
+          "server_progress_percent": 99,
+          "offline_progress_percent": 99,
+          "original_check_result": true
+        }
+      ],
+      "mismatches": [],
+      "matched": true
+    }
+  ]
+}

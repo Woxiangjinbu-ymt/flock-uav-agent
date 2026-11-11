@@ -1,0 +1,282 @@
+[
+  {
+    "case_id": "clue-horizontal",
+    "repeat": 1,
+    "arm": "r3",
+    "status": "model_finished",
+    "seconds": 7.841194874999928,
+    "model_calls": 6,
+    "tool_calls": 6,
+    "total_tokens": 25948,
+    "input_tokens": 25069,
+    "output_tokens": 879,
+    "model_request_attempts": 6,
+    "charged_tokens_including_uncertain_requests": 25948,
+    "checker": {
+      "passed": true,
+      "reached_by": [
+        "drone-1",
+        "drone-2"
+      ]
+    },
+    "initial_state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+    "final_state_sha256": "1da7fff36d464cc21ca2b7cff7478c78183c37060cc63d8aac25e34c7d66d512",
+    "repeated_successful_sense_queries": 1
+  },
+  {
+    "case_id": "clue-horizontal",
+    "repeat": 1,
+    "arm": "memory",
+    "status": "model_finished",
+    "seconds": 5.022943250000026,
+    "model_calls": 4,
+    "tool_calls": 4,
+    "total_tokens": 20919,
+    "input_tokens": 20265,
+    "output_tokens": 654,
+    "model_request_attempts": 4,
+    "charged_tokens_including_uncertain_requests": 20919,
+    "checker": {
+      "passed": true,
+      "reached_by": [
+        "drone-1",
+        "drone-2"
+      ]
+    },
+    "initial_state_sha256": "91465a6c88773b1b267c372aac9d55e9dfcb21635ed56bd783ee50658f5baf88",
+    "final_state_sha256": "0e1bbc40845480a4cc83f8bd6950621d4fd339b5d9794e30f65cca2be617bb15",
+    "repeated_successful_sense_queries": 1
+  },
+  {
+    "case_id": "clue-vertical",
+    "repeat": 1,
+    "arm": "memory",
+    "status": "token_budget_preflight",
+    "seconds": 4.733733792000294,
+    "model_calls": 4,
+    "tool_calls": 5,
+    "total_tokens": 22030,
+    "input_tokens": 21474,
+    "output_tokens": 556,
+    "model_request_attempts": 4,
+    "charged_tokens_including_uncertain_requests": 22030,
+    "checker": {
+      "passed": true,
+      "reached_by": [
+        "drone-1",
+        "drone-2"
+      ]
+    },
+    "initial_state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+    "final_state_sha256": "b8ed87523cb827ba48ba981ba3804bbf7bc0641678f724962ac7b14730b3f243",
+    "repeated_successful_sense_queries": 1
+  },
+  {
+    "case_id": "clue-vertical",
+    "repeat": 1,
+    "arm": "r3",
+    "status": "model_finished",
+    "seconds": 7.179273082999771,
+    "model_calls": 6,
+    "tool_calls": 6,
+    "total_tokens": 25700,
+    "input_tokens": 24915,
+    "output_tokens": 785,
+    "model_request_attempts": 6,
+    "charged_tokens_including_uncertain_requests": 25700,
+    "checker": {
+      "passed": true,
+      "reached_by": [
+        "drone-1",
+        "drone-2"
+      ]
+    },
+    "initial_state_sha256": "a85b54afebc6527d7be785ba0279bd06b5f75df42633b443235a29a364538880",
+    "final_state_sha256": "65a7b005e7a49bc14c2f0752718041be148fedb6bb44d0b50abc9ebcf2f6d71a",
+    "repeated_successful_sense_queries": 1
+  },
+  {
+    "case_id": "route-interrupted",
+    "repeat": 1,
+    "arm": "r3",
+    "status": "model_finished",
+    "seconds": 4.3672389170001225,
+    "model_calls": 4,
+    "tool_calls": 3,
+    "total_tokens": 9175,
+    "input_tokens": 8769,
+    "output_tokens": 406,
+    "model_request_attempts": 4,
+    "charged_tokens_including_uncertain_requests": 9175,
+    "checker": {
+      "passed": true,
+      "ordered_points": 4,
+      "total_points": 4,
+      "landed": true
+    },
+    "initial_state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+    "final_state_sha256": "ab75d44994ea29be8807167544ad18cafe9bdde7239f23d4ac66371f7b91ae2e",
+    "repeated_successful_sense_queries": 0
+  },
+  {
+    "case_id": "route-interrupted",
+    "repeat": 1,
+    "arm": "memory",
+    "status": "model_finished",
+    "seconds": 4.694793749999917,
+    "model_calls": 4,
+    "tool_calls": 3,
+    "total_tokens": 12795,
+    "input_tokens": 12396,
+    "output_tokens": 399,
+    "model_request_attempts": 4,
+    "charged_tokens_including_uncertain_requests": 12795,
+    "checker": {
+      "passed": true,
+      "ordered_points": 4,
+      "total_points": 4,
+      "landed": true
+    },
+    "initial_state_sha256": "b2878c595ab441c50dc197693c249d501da94491ef8eb5e4a17182cd36a21948",
+    "final_state_sha256": "505c921dd5c749d5ae7af1160c506da5fd10df65acb1e6d30c4b129c315eaeb5",
+    "repeated_successful_sense_queries": 0
+  },
+  {
+    "case_id": "route-blocked",
+    "repeat": 1,
+    "arm": "memory",
+    "status": "model_finished",
+    "seconds": 4.203332874999887,
+    "model_calls": 4,
+    "tool_calls": 3,
+    "total_tokens": 13218,
+    "input_tokens": 12790,
+    "output_tokens": 428,
+    "model_request_attempts": 4,
+    "charged_tokens_including_uncertain_requests": 13218,
+    "checker": {
+      "passed": true,
+      "ordered_points": 4,
+      "total_points": 4,
+      "landed": true
+    },
+    "initial_state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+    "final_state_sha256": "71658dc7a5ccc72060f9e78d686f3c5706142114253d009c1af048c9d9d1a569",
+    "repeated_successful_sense_queries": 0
+  },
+  {
+    "case_id": "route-blocked",
+    "repeat": 1,
+    "arm": "r3",
+    "status": "model_finished",
+    "seconds": 4.57002379100004,
+    "model_calls": 4,
+    "tool_calls": 3,
+    "total_tokens": 9570,
+    "input_tokens": 9183,
+    "output_tokens": 387,
+    "model_request_attempts": 4,
+    "charged_tokens_including_uncertain_requests": 9570,
+    "checker": {
+      "passed": true,
+      "ordered_points": 4,
+      "total_points": 4,
+      "landed": true
+    },
+    "initial_state_sha256": "c869a5de7f9b7d0004981522a0717952703557ede5191a0011226e0cbf878095",
+    "final_state_sha256": "d48367bb671aedf8da2cf9c35fb1e03a4f118d9986609ccacd9e06653d30af8d",
+    "repeated_successful_sense_queries": 0
+  },
+  {
+    "case_id": "control-complete",
+    "repeat": 1,
+    "arm": "r3",
+    "status": "model_finished",
+    "seconds": 2.5694814590001442,
+    "model_calls": 2,
+    "tool_calls": 1,
+    "total_tokens": 4289,
+    "input_tokens": 4075,
+    "output_tokens": 214,
+    "model_request_attempts": 2,
+    "charged_tokens_including_uncertain_requests": 4289,
+    "checker": {
+      "passed": true,
+      "ordered_points": 4,
+      "total_points": 4,
+      "landed": true
+    },
+    "initial_state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+    "final_state_sha256": "9dd53fe12378717744f4f7dbe884417fecd585fddb6237a5c0d0190578aa280d",
+    "repeated_successful_sense_queries": 0
+  },
+  {
+    "case_id": "control-complete",
+    "repeat": 1,
+    "arm": "memory",
+    "status": "model_finished",
+    "seconds": 2.5168438340001558,
+    "model_calls": 2,
+    "tool_calls": 1,
+    "total_tokens": 5211,
+    "input_tokens": 4955,
+    "output_tokens": 256,
+    "model_request_attempts": 2,
+    "charged_tokens_including_uncertain_requests": 5211,
+    "checker": {
+      "passed": true,
+      "ordered_points": 4,
+      "total_points": 4,
+      "landed": true
+    },
+    "initial_state_sha256": "fcbadfabfc7f9bc9ed758e7efcd6433c37528a7f55e6a103ad10227a1d83f114",
+    "final_state_sha256": "786e35c3a9627475c383b4ff10de8fd55442101e76a70c8ff1daa049fe26a2b9",
+    "repeated_successful_sense_queries": 0
+  },
+  {
+    "case_id": "control-failed-sense",
+    "repeat": 1,
+    "arm": "memory",
+    "status": "model_finished",
+    "seconds": 4.65788587499992,
+    "model_calls": 4,
+    "tool_calls": 4,
+    "total_tokens": 13181,
+    "input_tokens": 12691,
+    "output_tokens": 490,
+    "model_request_attempts": 4,
+    "charged_tokens_including_uncertain_requests": 13181,
+    "checker": {
+      "passed": true,
+      "reached_by": [
+        "drone-1"
+      ]
+    },
+    "initial_state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+    "final_state_sha256": "9a9105d8707af67bcf51eb6d25faa94f841f433ec05a92f6864d9452420c5eea",
+    "repeated_successful_sense_queries": 0
+  },
+  {
+    "case_id": "control-failed-sense",
+    "repeat": 1,
+    "arm": "r3",
+    "status": "model_finished",
+    "seconds": 4.241313292000086,
+    "model_calls": 3,
+    "tool_calls": 3,
+    "total_tokens": 6569,
+    "input_tokens": 6233,
+    "output_tokens": 336,
+    "model_request_attempts": 3,
+    "charged_tokens_including_uncertain_requests": 6569,
+    "checker": {
+      "passed": true,
+      "reached_by": [
+        "drone-1"
+      ]
+    },
+    "initial_state_sha256": "ffa7043447c81153b75e03cb501d4a830998156225ccc94f6e5a67c3525d929f",
+    "final_state_sha256": "eb61a4796cac45d090926cb2323403fc79c49855601a37af0a8342e360260f4c",
+    "repeated_successful_sense_queries": 0
+  }
+]

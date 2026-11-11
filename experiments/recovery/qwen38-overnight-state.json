@@ -1,0 +1,1715 @@
+{
+  "created_at": "2026-10-04T19:50:08.688248+08:00",
+  "automation_id": "qwen-full",
+  "status": "closed_with_failure_accounting",
+  "attempt": "experiments/runs/20261004-142512-full-aca112a7",
+  "target_review_time": "2026-10-05T09:00:00+08:00",
+  "resume_launches": [
+    {
+      "ordinal": 1,
+      "prepared_at": "2026-10-05T02:36:43.177631+08:00",
+      "status": "blocked_provider_arrearage",
+      "log": "experiments/recovery/qwen38-resume-20261005-023643-01.log",
+      "pre_recovery_evidence": "experiments/recovery/qwen38-resume-20261005-023643-01-before",
+      "scored_before": 1444,
+      "completed_scenes_before": 62,
+      "scenes_to_resume": [
+        "3ec31656",
+        "29ec452f",
+        "ccbe2537",
+        "cc14d231",
+        "9d4d90ca",
+        "79b207ff",
+        "823c15d5",
+        "193e179a",
+        "ec1f47f4",
+        "5de86ceb",
+        "d23eb117",
+        "dcae50c1",
+        "1a9c1abc"
+      ],
+      "preserved_completed_scenes": {
+        "fb8971ec": {
+          "directory": "fb8971ec",
+          "generation": 1,
+          "seal_sha256": "0261913ba17ab52611b737b954ca9d052054ab5e83d1385785d9b16907544dbf"
+        },
+        "90e931b1": {
+          "directory": "90e931b1",
+          "generation": 1,
+          "seal_sha256": "f0ff922553a5ebce23fb497ae3435cf4f7f0d1b59f543fe53d4ae0b862f0b0dc"
+        },
+        "04cd6269": {
+          "directory": "04cd6269",
+          "generation": 1,
+          "seal_sha256": "1949b73279ad9ba192b436f1a9260bf78882d29bf81ac0973a7295dab3caee99"
+        },
+        "14289fc5": {
+          "directory": "14289fc5",
+          "generation": 1,
+          "seal_sha256": "123d1cb51768bef09e34a6d3a27ab57f2d983d0b07453dad9e137e26c1d8f333"
+        },
+        "4aa67fd7": {
+          "directory": "4aa67fd7",
+          "generation": 1,
+          "seal_sha256": "acdc478e894a26ee5b7ea2c2879dc648c55b2ef52d795f67131dfb8a83649906"
+        },
+        "228ef1f0": {
+          "directory": "228ef1f0",
+          "generation": 1,
+          "seal_sha256": "9fef901fbee7decf759c5c018bf3338df457eb3a20be50888f5dcaba2394ddbf"
+        },
+        "8b7866a0": {
+          "directory": "8b7866a0",
+          "generation": 1,
+          "seal_sha256": "cc01bfe011b23b29d5e992942847d56dbd1e8944fd1b76aa133bbf11fec52196"
+        },
+        "640b66d4": {
+          "directory": "640b66d4",
+          "generation": 1,
+          "seal_sha256": "5f4b2f1912e700c66ae068c30ff6dda50be2d78688143ce59a4ba84a129862df"
+        },
+        "ad34350a": {
+          "directory": "ad34350a",
+          "generation": 1,
+          "seal_sha256": "8f554cb6c22c88b13225d1a7a999523cb12e104a413d6a289da61272a0e554c7"
+        },
+        "cc05a425": {
+          "directory": "cc05a425",
+          "generation": 1,
+          "seal_sha256": "e7ec1a1f1f8d23f0eacb52e1fae992a1f922650d67077ab0eeebf2838ec3008c"
+        },
+        "c350908c": {
+          "directory": "c350908c",
+          "generation": 1,
+          "seal_sha256": "c9d51a9ce68e9789526e422cc082eebda0368c0163ebdb78e3e87bc500b3b2f8"
+        },
+        "76802002": {
+          "directory": "76802002",
+          "generation": 1,
+          "seal_sha256": "fbeea0f2f22df147349701bd04c23c1204fc26bc0581dd10eae73931fb0fc6c9"
+        },
+        "5be2589b": {
+          "directory": "5be2589b",
+          "generation": 1,
+          "seal_sha256": "6c034f674740bdc645c0f3db44b6a902adb008b6681178af615e78ceadd6cf73"
+        },
+        "86336c8b": {
+          "directory": "86336c8b",
+          "generation": 1,
+          "seal_sha256": "7a9bbc6ebb5dbb6f45ec913abed76c9dd388b307e32153200ee8ed59691f0038"
+        },
+        "00c63e73": {
+          "directory": "00c63e73",
+          "generation": 1,
+          "seal_sha256": "dfefb152176972e501b20a6a8545f0fc934087c7fa1fe754b57f4d6c9533ec00"
+        },
+        "d76359cf": {
+          "directory": "d76359cf",
+          "generation": 1,
+          "seal_sha256": "6ad44973da7f29933cd253012eeb1c223958b900cbe08ed546886c9cee0ac034"
+        },
+        "36cbddd1": {
+          "directory": "36cbddd1",
+          "generation": 1,
+          "seal_sha256": "be14cb05c14d59527019e25d0a8c3e9dd56aa5d4202a0c28a36c2d1ea68e472b"
+        },
+        "72ccacd0": {
+          "directory": "72ccacd0",
+          "generation": 1,
+          "seal_sha256": "4e3303bd4d0333a8f2fa37ade62c6d9184417445169fc0ae171d9cdb83d8c03a"
+        },
+        "09aae7d9": {
+          "directory": "09aae7d9",
+          "generation": 1,
+          "seal_sha256": "9583220db86ec9f2ad006e218beadc956f724fd80f641d63a751da5ebc99360e"
+        },
+        "4e425a5b": {
+          "directory": "4e425a5b",
+          "generation": 1,
+          "seal_sha256": "1231d3b190b5319e90337979cd28f0d1cfeed100269e0be559ce2b11bef772b1"
+        },
+        "6df54034": {
+          "directory": "6df54034",
+          "generation": 1,
+          "seal_sha256": "c02f4d631e6aea3b367c63155bc9d383bbd3fb173d0955779be27890128bf651"
+        },
+        "0567e470": {
+          "directory": "0567e470",
+          "generation": 1,
+          "seal_sha256": "4ec250e3b5874d17f7c34a5a5b4cad55e580c3f8869a96e7b2b4021cb6057489"
+        },
+        "c67bc3cd": {
+          "directory": "c67bc3cd",
+          "generation": 1,
+          "seal_sha256": "8f46979078d6eda38d3ee1f05a8ca5c72f3a7b45ab92da5fe6ec214b83c34334"
+        },
+        "93831d6d": {
+          "directory": "93831d6d",
+          "generation": 1,
+          "seal_sha256": "ab513a65dc0f16705862c6cf761bbcb88c0f52fa52edcdccf5f441e1c1aba063"
+        },
+        "5aabad33": {
+          "directory": "5aabad33",
+          "generation": 1,
+          "seal_sha256": "42798b06cbf9c549e080ece703018e59cc07350313550a1bdc71077b3a311471"
+        },
+        "25239af9": {
+          "directory": "25239af9",
+          "generation": 1,
+          "seal_sha256": "aece890d55a474e5f122ac438fc43732de6e61150e95ebce25e28ac79b1829be"
+        },
+        "9ddae16c": {
+          "directory": "9ddae16c",
+          "generation": 1,
+          "seal_sha256": "57d5ae3a9658c1ac12ae5247a7e014d934b6319594566c87d132340b9c30ae39"
+        },
+        "c8149bec": {
+          "directory": "c8149bec",
+          "generation": 1,
+          "seal_sha256": "694c22dc94249a7a101ad5d71d3b2c858bf8bc32c6a40d7af8a3c2a92ba4c0a9"
+        },
+        "bad1e9e5": {
+          "directory": "bad1e9e5",
+          "generation": 1,
+          "seal_sha256": "40bfcdb73d04d4b63fa29f7abade3f1f7ab82e603d468a6188f3de6ce618a203"
+        },
+        "9b21081a": {
+          "directory": "9b21081a",
+          "generation": 1,
+          "seal_sha256": "0b37941433cc0b221b6eede532db9f949cc3d113a704f07e448c67be767f2ae7"
+        },
+        "dc6b1d11": {
+          "directory": "dc6b1d11",
+          "generation": 1,
+          "seal_sha256": "916180599fb605cb03e4069e1c30097f66ff8aca7b41c03875cdc46883fa20da"
+        },
+        "793e7745": {
+          "directory": "793e7745",
+          "generation": 1,
+          "seal_sha256": "1ab93816002e883e3ce02d956e0e62012378dc4aea850f8ad0db0925562457c0"
+        },
+        "ef36e27a": {
+          "directory": "ef36e27a",
+          "generation": 1,
+          "seal_sha256": "b384d203390494ccbbec9b3319600c80fde2c798b2c5916b9f8dcbeae8eb5189"
+        },
+        "4fd5a5a4": {
+          "directory": "4fd5a5a4",
+          "generation": 1,
+          "seal_sha256": "7001ec263905b005ff45915a7c52bb4f01bc196f16ae59650d67a0b4ff4600da"
+        },
+        "d7e7bcd1": {
+          "directory": "d7e7bcd1",
+          "generation": 1,
+          "seal_sha256": "3a052a83b524cb254267e85acc2d4a85ac5d37c1f68bf14c49437e16043f4776"
+        },
+        "0cec9497": {
+          "directory": "0cec9497",
+          "generation": 1,
+          "seal_sha256": "159459a3d82acaffeec2f791395eb3e1881d2278638877c9f3920930551777c5"
+        },
+        "139a4109": {
+          "directory": "139a4109",
+          "generation": 1,
+          "seal_sha256": "a7819c4b0f402275cbde76c2742bd3d035ecba57175fcd45c873b3d509bd226d"
+        },
+        "0f23ff1e": {
+          "directory": "0f23ff1e",
+          "generation": 1,
+          "seal_sha256": "c85645780ac1e743e473065ad3dbf6643dddbf3c492454d8c7a9b9150e1863db"
+        },
+        "6a707f08": {
+          "directory": "6a707f08",
+          "generation": 1,
+          "seal_sha256": "88f273167c6426952689cca8df51219839159b88b1ab4f6f7b8c8e4034060192"
+        },
+        "5b8dd44e": {
+          "directory": "5b8dd44e",
+          "generation": 1,
+          "seal_sha256": "3fa833dba47bea678b0dfc009a560d819718e46ad435fd146591655e5a5942ac"
+        },
+        "ff4fbc38": {
+          "directory": "ff4fbc38",
+          "generation": 1,
+          "seal_sha256": "40062ba8888f958f3b70c636bf26fbc8334e88fbd106d34ec027970efcf4ea72"
+        },
+        "83533bc1": {
+          "directory": "83533bc1",
+          "generation": 1,
+          "seal_sha256": "01c9587359dae9ea1603dc0d97c37cdcdefb940a586e3f60b83d81871ce0e086"
+        },
+        "6a30689f": {
+          "directory": "6a30689f",
+          "generation": 1,
+          "seal_sha256": "99521b77561bb5b74bdb9ef348186bc73fbf98e2a896d17a933bb8e4dab0f6f0"
+        },
+        "13b94391": {
+          "directory": "13b94391",
+          "generation": 1,
+          "seal_sha256": "dc2568a0a3770068ea6e8e60ce7cfa18207cd7d98987235b3212d00e94c75f90"
+        },
+        "6e1a4ad2": {
+          "directory": "6e1a4ad2",
+          "generation": 1,
+          "seal_sha256": "ff77434f8acac3daded30929317ce62730ef09fa6e698dfa49cb5dae989a1766"
+        },
+        "0293952c": {
+          "directory": "0293952c",
+          "generation": 1,
+          "seal_sha256": "9a3eacc4f47532f0375ef8ce73f88820b6f5cc10b6ed95fb903d64615a5cbd7b"
+        },
+        "a2931e29": {
+          "directory": "a2931e29",
+          "generation": 1,
+          "seal_sha256": "ef110d524f2be8fc79572dcda9e21ec7f42413d4bbce23a3868ed85538b45c02"
+        },
+        "7f1a1456": {
+          "directory": "7f1a1456",
+          "generation": 1,
+          "seal_sha256": "638efb33fa4ac4a7188cf4ddbf4e1e552a567f05e39ad3082c52625f99b2d8bb"
+        },
+        "056a1f86": {
+          "directory": "056a1f86",
+          "generation": 1,
+          "seal_sha256": "b000015f63c963de25d6754f0dd2d9e034c7f9fc0a37bfb84d96129c4751e151"
+        },
+        "be5d648b": {
+          "directory": "be5d648b",
+          "generation": 1,
+          "seal_sha256": "186048ee866303fd5963e0dbf9bf9251370343ff6b766a692aa79fdba29153d2"
+        },
+        "597d7169": {
+          "directory": "597d7169",
+          "generation": 1,
+          "seal_sha256": "6a4cc38cb47127c64259c264320733276c6bb87ee51aec39e50fb363b3dd343b"
+        },
+        "3973d0d6": {
+          "directory": "3973d0d6",
+          "generation": 1,
+          "seal_sha256": "c8c0058e18899468bc75bd35c376aa3160c565caba41f4f1a47059694bfe675d"
+        },
+        "550aa487": {
+          "directory": "550aa487",
+          "generation": 1,
+          "seal_sha256": "78f56bae6d0fdff2900adda0a9a5192ed329cfda16eac342caab3254d8003f1d"
+        },
+        "b3c8ded2": {
+          "directory": "b3c8ded2",
+          "generation": 1,
+          "seal_sha256": "ba3feb467b765dd143869223767bd28e377443f88d277193b1dad18bfb8c9f71"
+        },
+        "312d24b1": {
+          "directory": "312d24b1",
+          "generation": 1,
+          "seal_sha256": "266413e11633528aa2a2fd16e30a9611ac6e73b59c1419cec8b7ff25774f0cfe"
+        },
+        "ae503ad1": {
+          "directory": "ae503ad1",
+          "generation": 1,
+          "seal_sha256": "0fa4b745bb6607042537cd6e428142ff6eda729e235c543ebdca62d68e95d373"
+        },
+        "e76728cc": {
+          "directory": "e76728cc",
+          "generation": 1,
+          "seal_sha256": "89d19f7ae8e1eebc98a13c9d3d105f345693c77dd100b5a19050c6e06a068abc"
+        },
+        "58fe4605": {
+          "directory": "58fe4605",
+          "generation": 1,
+          "seal_sha256": "9d21cd8c43ea8442d860f45b7a61619f78548517f026cc68b7b94c2d1c23bcbe"
+        },
+        "e170cdd8": {
+          "directory": "e170cdd8",
+          "generation": 1,
+          "seal_sha256": "f501ecbacc4a43d419a76f388629b8136d81875a95461d07af65c3143e61be87"
+        },
+        "c5fb45ca": {
+          "directory": "c5fb45ca",
+          "generation": 1,
+          "seal_sha256": "83a79ea06b0bbb6bacbd6a7b54aec6ff3337da80a97382b078da2166585737c5"
+        },
+        "35ce64d8": {
+          "directory": "35ce64d8",
+          "generation": 1,
+          "seal_sha256": "aa5443e26118951707187fe2e1cb3348c5e458a88d594d58a2be0b45bba56dcb"
+        },
+        "6702871a": {
+          "directory": "6702871a",
+          "generation": 1,
+          "seal_sha256": "4925de4dfb7d3b9789c6fd62463268026344ccd4a04b8f4b7f1b9fc72449956a"
+        }
+      },
+      "session_id": 70622,
+      "launch_verified_at": "2026-10-05T02:37:34.871589+08:00",
+      "processes": [
+        "88564 88563 caffeinate       caffeinate -i controller/.venv/bin/python scripts/reproduction.py resume experiments/runs/20261004-142512-full-aca112a7"
+      ],
+      "blocker": {
+        "code": "provider_arrearage",
+        "provider_error_code": "Arrearage",
+        "http_status": 400,
+        "detected_at": "2026-10-05T04:37:13.470344+08:00",
+        "error_at": "2026-10-05T04:35:50+08:00",
+        "scene_id": "1a9c1abc",
+        "task_id": "f89fbba8",
+        "generation": 2,
+        "evidence_directory": "experiments/recovery/qwen38-blocked-20261005-043550-arrearage",
+        "recovery_policy": "Do not resume or make connectivity/API calls until account arrears are resolved; do not top up automatically. Keep the existing results and all generations.",
+        "required_external_change": "Restore the Alibaba Cloud Model Studio account to good standing."
+      },
+      "exit_code": 2,
+      "finished_at": "2026-10-05T04:36:43+0800",
+      "observed_stopped_at": "2026-10-05T04:37:56.102728+08:00",
+      "scored_after": 1396,
+      "completed_scenes_after": 64
+    },
+    {
+      "ordinal": 2,
+      "prepared_at": "2026-10-05T09:14:09.460486+08:00",
+      "status": "finished_incomplete",
+      "log": "experiments/recovery/qwen38-resume-20261005-091409-02.log",
+      "pre_recovery_evidence": "experiments/recovery/qwen38-resume-20261005-091409-02-before",
+      "scored_before": 1396,
+      "completed_scenes_before": 64,
+      "scenes_to_resume": [
+        "3ec31656",
+        "ccbe2537",
+        "cc14d231",
+        "9d4d90ca",
+        "79b207ff",
+        "823c15d5",
+        "ec1f47f4",
+        "5de86ceb",
+        "d23eb117",
+        "dcae50c1",
+        "1a9c1abc"
+      ],
+      "preserved_completed_scenes": {
+        "fb8971ec": {
+          "directory": "fb8971ec",
+          "generation": 1,
+          "seal_sha256": "0261913ba17ab52611b737b954ca9d052054ab5e83d1385785d9b16907544dbf"
+        },
+        "90e931b1": {
+          "directory": "90e931b1",
+          "generation": 1,
+          "seal_sha256": "f0ff922553a5ebce23fb497ae3435cf4f7f0d1b59f543fe53d4ae0b862f0b0dc"
+        },
+        "04cd6269": {
+          "directory": "04cd6269",
+          "generation": 1,
+          "seal_sha256": "1949b73279ad9ba192b436f1a9260bf78882d29bf81ac0973a7295dab3caee99"
+        },
+        "14289fc5": {
+          "directory": "14289fc5",
+          "generation": 1,
+          "seal_sha256": "123d1cb51768bef09e34a6d3a27ab57f2d983d0b07453dad9e137e26c1d8f333"
+        },
+        "4aa67fd7": {
+          "directory": "4aa67fd7",
+          "generation": 1,
+          "seal_sha256": "acdc478e894a26ee5b7ea2c2879dc648c55b2ef52d795f67131dfb8a83649906"
+        },
+        "228ef1f0": {
+          "directory": "228ef1f0",
+          "generation": 1,
+          "seal_sha256": "9fef901fbee7decf759c5c018bf3338df457eb3a20be50888f5dcaba2394ddbf"
+        },
+        "8b7866a0": {
+          "directory": "8b7866a0",
+          "generation": 1,
+          "seal_sha256": "cc01bfe011b23b29d5e992942847d56dbd1e8944fd1b76aa133bbf11fec52196"
+        },
+        "640b66d4": {
+          "directory": "640b66d4",
+          "generation": 1,
+          "seal_sha256": "5f4b2f1912e700c66ae068c30ff6dda50be2d78688143ce59a4ba84a129862df"
+        },
+        "ad34350a": {
+          "directory": "ad34350a",
+          "generation": 1,
+          "seal_sha256": "8f554cb6c22c88b13225d1a7a999523cb12e104a413d6a289da61272a0e554c7"
+        },
+        "cc05a425": {
+          "directory": "cc05a425",
+          "generation": 1,
+          "seal_sha256": "e7ec1a1f1f8d23f0eacb52e1fae992a1f922650d67077ab0eeebf2838ec3008c"
+        },
+        "c350908c": {
+          "directory": "c350908c",
+          "generation": 1,
+          "seal_sha256": "c9d51a9ce68e9789526e422cc082eebda0368c0163ebdb78e3e87bc500b3b2f8"
+        },
+        "76802002": {
+          "directory": "76802002",
+          "generation": 1,
+          "seal_sha256": "fbeea0f2f22df147349701bd04c23c1204fc26bc0581dd10eae73931fb0fc6c9"
+        },
+        "5be2589b": {
+          "directory": "5be2589b",
+          "generation": 1,
+          "seal_sha256": "6c034f674740bdc645c0f3db44b6a902adb008b6681178af615e78ceadd6cf73"
+        },
+        "86336c8b": {
+          "directory": "86336c8b",
+          "generation": 1,
+          "seal_sha256": "7a9bbc6ebb5dbb6f45ec913abed76c9dd388b307e32153200ee8ed59691f0038"
+        },
+        "00c63e73": {
+          "directory": "00c63e73",
+          "generation": 1,
+          "seal_sha256": "dfefb152176972e501b20a6a8545f0fc934087c7fa1fe754b57f4d6c9533ec00"
+        },
+        "d76359cf": {
+          "directory": "d76359cf",
+          "generation": 1,
+          "seal_sha256": "6ad44973da7f29933cd253012eeb1c223958b900cbe08ed546886c9cee0ac034"
+        },
+        "36cbddd1": {
+          "directory": "36cbddd1",
+          "generation": 1,
+          "seal_sha256": "be14cb05c14d59527019e25d0a8c3e9dd56aa5d4202a0c28a36c2d1ea68e472b"
+        },
+        "72ccacd0": {
+          "directory": "72ccacd0",
+          "generation": 1,
+          "seal_sha256": "4e3303bd4d0333a8f2fa37ade62c6d9184417445169fc0ae171d9cdb83d8c03a"
+        },
+        "09aae7d9": {
+          "directory": "09aae7d9",
+          "generation": 1,
+          "seal_sha256": "9583220db86ec9f2ad006e218beadc956f724fd80f641d63a751da5ebc99360e"
+        },
+        "4e425a5b": {
+          "directory": "4e425a5b",
+          "generation": 1,
+          "seal_sha256": "1231d3b190b5319e90337979cd28f0d1cfeed100269e0be559ce2b11bef772b1"
+        },
+        "6df54034": {
+          "directory": "6df54034",
+          "generation": 1,
+          "seal_sha256": "c02f4d631e6aea3b367c63155bc9d383bbd3fb173d0955779be27890128bf651"
+        },
+        "0567e470": {
+          "directory": "0567e470",
+          "generation": 1,
+          "seal_sha256": "4ec250e3b5874d17f7c34a5a5b4cad55e580c3f8869a96e7b2b4021cb6057489"
+        },
+        "c67bc3cd": {
+          "directory": "c67bc3cd",
+          "generation": 1,
+          "seal_sha256": "8f46979078d6eda38d3ee1f05a8ca5c72f3a7b45ab92da5fe6ec214b83c34334"
+        },
+        "93831d6d": {
+          "directory": "93831d6d",
+          "generation": 1,
+          "seal_sha256": "ab513a65dc0f16705862c6cf761bbcb88c0f52fa52edcdccf5f441e1c1aba063"
+        },
+        "5aabad33": {
+          "directory": "5aabad33",
+          "generation": 1,
+          "seal_sha256": "42798b06cbf9c549e080ece703018e59cc07350313550a1bdc71077b3a311471"
+        },
+        "25239af9": {
+          "directory": "25239af9",
+          "generation": 1,
+          "seal_sha256": "aece890d55a474e5f122ac438fc43732de6e61150e95ebce25e28ac79b1829be"
+        },
+        "9ddae16c": {
+          "directory": "9ddae16c",
+          "generation": 1,
+          "seal_sha256": "57d5ae3a9658c1ac12ae5247a7e014d934b6319594566c87d132340b9c30ae39"
+        },
+        "c8149bec": {
+          "directory": "c8149bec",
+          "generation": 1,
+          "seal_sha256": "694c22dc94249a7a101ad5d71d3b2c858bf8bc32c6a40d7af8a3c2a92ba4c0a9"
+        },
+        "bad1e9e5": {
+          "directory": "bad1e9e5",
+          "generation": 1,
+          "seal_sha256": "40bfcdb73d04d4b63fa29f7abade3f1f7ab82e603d468a6188f3de6ce618a203"
+        },
+        "29ec452f": {
+          "directory": "retries/29ec452f/0002",
+          "generation": 2,
+          "seal_sha256": "75238df388025ad2b2723edeff93abdbca464cf57abbf404f125484343dad2d2"
+        },
+        "9b21081a": {
+          "directory": "9b21081a",
+          "generation": 1,
+          "seal_sha256": "0b37941433cc0b221b6eede532db9f949cc3d113a704f07e448c67be767f2ae7"
+        },
+        "dc6b1d11": {
+          "directory": "dc6b1d11",
+          "generation": 1,
+          "seal_sha256": "916180599fb605cb03e4069e1c30097f66ff8aca7b41c03875cdc46883fa20da"
+        },
+        "793e7745": {
+          "directory": "793e7745",
+          "generation": 1,
+          "seal_sha256": "1ab93816002e883e3ce02d956e0e62012378dc4aea850f8ad0db0925562457c0"
+        },
+        "ef36e27a": {
+          "directory": "ef36e27a",
+          "generation": 1,
+          "seal_sha256": "b384d203390494ccbbec9b3319600c80fde2c798b2c5916b9f8dcbeae8eb5189"
+        },
+        "4fd5a5a4": {
+          "directory": "4fd5a5a4",
+          "generation": 1,
+          "seal_sha256": "7001ec263905b005ff45915a7c52bb4f01bc196f16ae59650d67a0b4ff4600da"
+        },
+        "d7e7bcd1": {
+          "directory": "d7e7bcd1",
+          "generation": 1,
+          "seal_sha256": "3a052a83b524cb254267e85acc2d4a85ac5d37c1f68bf14c49437e16043f4776"
+        },
+        "0cec9497": {
+          "directory": "0cec9497",
+          "generation": 1,
+          "seal_sha256": "159459a3d82acaffeec2f791395eb3e1881d2278638877c9f3920930551777c5"
+        },
+        "139a4109": {
+          "directory": "139a4109",
+          "generation": 1,
+          "seal_sha256": "a7819c4b0f402275cbde76c2742bd3d035ecba57175fcd45c873b3d509bd226d"
+        },
+        "0f23ff1e": {
+          "directory": "0f23ff1e",
+          "generation": 1,
+          "seal_sha256": "c85645780ac1e743e473065ad3dbf6643dddbf3c492454d8c7a9b9150e1863db"
+        },
+        "6a707f08": {
+          "directory": "6a707f08",
+          "generation": 1,
+          "seal_sha256": "88f273167c6426952689cca8df51219839159b88b1ab4f6f7b8c8e4034060192"
+        },
+        "5b8dd44e": {
+          "directory": "5b8dd44e",
+          "generation": 1,
+          "seal_sha256": "3fa833dba47bea678b0dfc009a560d819718e46ad435fd146591655e5a5942ac"
+        },
+        "ff4fbc38": {
+          "directory": "ff4fbc38",
+          "generation": 1,
+          "seal_sha256": "40062ba8888f958f3b70c636bf26fbc8334e88fbd106d34ec027970efcf4ea72"
+        },
+        "83533bc1": {
+          "directory": "83533bc1",
+          "generation": 1,
+          "seal_sha256": "01c9587359dae9ea1603dc0d97c37cdcdefb940a586e3f60b83d81871ce0e086"
+        },
+        "6a30689f": {
+          "directory": "6a30689f",
+          "generation": 1,
+          "seal_sha256": "99521b77561bb5b74bdb9ef348186bc73fbf98e2a896d17a933bb8e4dab0f6f0"
+        },
+        "13b94391": {
+          "directory": "13b94391",
+          "generation": 1,
+          "seal_sha256": "dc2568a0a3770068ea6e8e60ce7cfa18207cd7d98987235b3212d00e94c75f90"
+        },
+        "6e1a4ad2": {
+          "directory": "6e1a4ad2",
+          "generation": 1,
+          "seal_sha256": "ff77434f8acac3daded30929317ce62730ef09fa6e698dfa49cb5dae989a1766"
+        },
+        "0293952c": {
+          "directory": "0293952c",
+          "generation": 1,
+          "seal_sha256": "9a3eacc4f47532f0375ef8ce73f88820b6f5cc10b6ed95fb903d64615a5cbd7b"
+        },
+        "a2931e29": {
+          "directory": "a2931e29",
+          "generation": 1,
+          "seal_sha256": "ef110d524f2be8fc79572dcda9e21ec7f42413d4bbce23a3868ed85538b45c02"
+        },
+        "7f1a1456": {
+          "directory": "7f1a1456",
+          "generation": 1,
+          "seal_sha256": "638efb33fa4ac4a7188cf4ddbf4e1e552a567f05e39ad3082c52625f99b2d8bb"
+        },
+        "056a1f86": {
+          "directory": "056a1f86",
+          "generation": 1,
+          "seal_sha256": "b000015f63c963de25d6754f0dd2d9e034c7f9fc0a37bfb84d96129c4751e151"
+        },
+        "be5d648b": {
+          "directory": "be5d648b",
+          "generation": 1,
+          "seal_sha256": "186048ee866303fd5963e0dbf9bf9251370343ff6b766a692aa79fdba29153d2"
+        },
+        "597d7169": {
+          "directory": "597d7169",
+          "generation": 1,
+          "seal_sha256": "6a4cc38cb47127c64259c264320733276c6bb87ee51aec39e50fb363b3dd343b"
+        },
+        "3973d0d6": {
+          "directory": "3973d0d6",
+          "generation": 1,
+          "seal_sha256": "c8c0058e18899468bc75bd35c376aa3160c565caba41f4f1a47059694bfe675d"
+        },
+        "550aa487": {
+          "directory": "550aa487",
+          "generation": 1,
+          "seal_sha256": "78f56bae6d0fdff2900adda0a9a5192ed329cfda16eac342caab3254d8003f1d"
+        },
+        "193e179a": {
+          "directory": "retries/193e179a/0002",
+          "generation": 2,
+          "seal_sha256": "7a0bb88980d308335f70c76dc3c3725fe6b6cb921c3bf79a1974ed548f8be9b0"
+        },
+        "b3c8ded2": {
+          "directory": "b3c8ded2",
+          "generation": 1,
+          "seal_sha256": "ba3feb467b765dd143869223767bd28e377443f88d277193b1dad18bfb8c9f71"
+        },
+        "312d24b1": {
+          "directory": "312d24b1",
+          "generation": 1,
+          "seal_sha256": "266413e11633528aa2a2fd16e30a9611ac6e73b59c1419cec8b7ff25774f0cfe"
+        },
+        "ae503ad1": {
+          "directory": "ae503ad1",
+          "generation": 1,
+          "seal_sha256": "0fa4b745bb6607042537cd6e428142ff6eda729e235c543ebdca62d68e95d373"
+        },
+        "e76728cc": {
+          "directory": "e76728cc",
+          "generation": 1,
+          "seal_sha256": "89d19f7ae8e1eebc98a13c9d3d105f345693c77dd100b5a19050c6e06a068abc"
+        },
+        "58fe4605": {
+          "directory": "58fe4605",
+          "generation": 1,
+          "seal_sha256": "9d21cd8c43ea8442d860f45b7a61619f78548517f026cc68b7b94c2d1c23bcbe"
+        },
+        "e170cdd8": {
+          "directory": "e170cdd8",
+          "generation": 1,
+          "seal_sha256": "f501ecbacc4a43d419a76f388629b8136d81875a95461d07af65c3143e61be87"
+        },
+        "c5fb45ca": {
+          "directory": "c5fb45ca",
+          "generation": 1,
+          "seal_sha256": "83a79ea06b0bbb6bacbd6a7b54aec6ff3337da80a97382b078da2166585737c5"
+        },
+        "35ce64d8": {
+          "directory": "35ce64d8",
+          "generation": 1,
+          "seal_sha256": "aa5443e26118951707187fe2e1cb3348c5e458a88d594d58a2be0b45bba56dcb"
+        },
+        "6702871a": {
+          "directory": "6702871a",
+          "generation": 1,
+          "seal_sha256": "4925de4dfb7d3b9789c6fd62463268026344ccd4a04b8f4b7f1b9fc72449956a"
+        }
+      },
+      "session_id": 15269,
+      "launch_verified_at": "2026-10-05T09:14:55.416243+08:00",
+      "processes": [
+        {
+          "pid": 25008,
+          "ppid": 25007,
+          "command": "caffeinate -i controller/.venv/bin/python scripts/reproduction.py resume experiments/runs/20261004-142512-full-aca112a7"
+        }
+      ],
+      "generations_before": {
+        "3ec31656": 2,
+        "ccbe2537": 2,
+        "cc14d231": 2,
+        "9d4d90ca": 2,
+        "79b207ff": 2,
+        "823c15d5": 2,
+        "ec1f47f4": 2,
+        "5de86ceb": 2,
+        "d23eb117": 2,
+        "dcae50c1": 2,
+        "1a9c1abc": 2
+      },
+      "exit_code": 2,
+      "finished_at": "2026-10-05T13:08:26+0800",
+      "scored_after": 1482,
+      "completed_scenes_after": 68
+    },
+    {
+      "ordinal": 3,
+      "prepared_at": "2026-10-05T13:30:52.600874+08:00",
+      "status": "stopped_by_user_for_failure_accounting",
+      "log": "experiments/recovery/qwen38-resume-20261005-133052-03.log",
+      "pre_recovery_evidence": "experiments/recovery/qwen38-resume-20261005-133052-03-before",
+      "scored_before": 1482,
+      "completed_scenes_before": 68,
+      "scenes_to_resume": [
+        "cc14d231",
+        "9d4d90ca",
+        "79b207ff",
+        "823c15d5",
+        "ec1f47f4",
+        "d23eb117",
+        "dcae50c1"
+      ],
+      "generations_before": {
+        "cc14d231": 3,
+        "9d4d90ca": 3,
+        "79b207ff": 3,
+        "823c15d5": 3,
+        "ec1f47f4": 3,
+        "d23eb117": 3,
+        "dcae50c1": 3
+      },
+      "preserved_completed_scenes": {
+        "fb8971ec": {
+          "directory": "fb8971ec",
+          "generation": 1,
+          "seal_sha256": "0261913ba17ab52611b737b954ca9d052054ab5e83d1385785d9b16907544dbf"
+        },
+        "90e931b1": {
+          "directory": "90e931b1",
+          "generation": 1,
+          "seal_sha256": "f0ff922553a5ebce23fb497ae3435cf4f7f0d1b59f543fe53d4ae0b862f0b0dc"
+        },
+        "04cd6269": {
+          "directory": "04cd6269",
+          "generation": 1,
+          "seal_sha256": "1949b73279ad9ba192b436f1a9260bf78882d29bf81ac0973a7295dab3caee99"
+        },
+        "14289fc5": {
+          "directory": "14289fc5",
+          "generation": 1,
+          "seal_sha256": "123d1cb51768bef09e34a6d3a27ab57f2d983d0b07453dad9e137e26c1d8f333"
+        },
+        "4aa67fd7": {
+          "directory": "4aa67fd7",
+          "generation": 1,
+          "seal_sha256": "acdc478e894a26ee5b7ea2c2879dc648c55b2ef52d795f67131dfb8a83649906"
+        },
+        "228ef1f0": {
+          "directory": "228ef1f0",
+          "generation": 1,
+          "seal_sha256": "9fef901fbee7decf759c5c018bf3338df457eb3a20be50888f5dcaba2394ddbf"
+        },
+        "8b7866a0": {
+          "directory": "8b7866a0",
+          "generation": 1,
+          "seal_sha256": "cc01bfe011b23b29d5e992942847d56dbd1e8944fd1b76aa133bbf11fec52196"
+        },
+        "3ec31656": {
+          "directory": "retries/3ec31656/0003",
+          "generation": 3,
+          "seal_sha256": "ef0f92aa86287f97d23c70b1954111667eede7253903491fbdbbe60f4d5c6a1e"
+        },
+        "640b66d4": {
+          "directory": "640b66d4",
+          "generation": 1,
+          "seal_sha256": "5f4b2f1912e700c66ae068c30ff6dda50be2d78688143ce59a4ba84a129862df"
+        },
+        "ad34350a": {
+          "directory": "ad34350a",
+          "generation": 1,
+          "seal_sha256": "8f554cb6c22c88b13225d1a7a999523cb12e104a413d6a289da61272a0e554c7"
+        },
+        "cc05a425": {
+          "directory": "cc05a425",
+          "generation": 1,
+          "seal_sha256": "e7ec1a1f1f8d23f0eacb52e1fae992a1f922650d67077ab0eeebf2838ec3008c"
+        },
+        "c350908c": {
+          "directory": "c350908c",
+          "generation": 1,
+          "seal_sha256": "c9d51a9ce68e9789526e422cc082eebda0368c0163ebdb78e3e87bc500b3b2f8"
+        },
+        "76802002": {
+          "directory": "76802002",
+          "generation": 1,
+          "seal_sha256": "fbeea0f2f22df147349701bd04c23c1204fc26bc0581dd10eae73931fb0fc6c9"
+        },
+        "5be2589b": {
+          "directory": "5be2589b",
+          "generation": 1,
+          "seal_sha256": "6c034f674740bdc645c0f3db44b6a902adb008b6681178af615e78ceadd6cf73"
+        },
+        "86336c8b": {
+          "directory": "86336c8b",
+          "generation": 1,
+          "seal_sha256": "7a9bbc6ebb5dbb6f45ec913abed76c9dd388b307e32153200ee8ed59691f0038"
+        },
+        "00c63e73": {
+          "directory": "00c63e73",
+          "generation": 1,
+          "seal_sha256": "dfefb152176972e501b20a6a8545f0fc934087c7fa1fe754b57f4d6c9533ec00"
+        },
+        "d76359cf": {
+          "directory": "d76359cf",
+          "generation": 1,
+          "seal_sha256": "6ad44973da7f29933cd253012eeb1c223958b900cbe08ed546886c9cee0ac034"
+        },
+        "36cbddd1": {
+          "directory": "36cbddd1",
+          "generation": 1,
+          "seal_sha256": "be14cb05c14d59527019e25d0a8c3e9dd56aa5d4202a0c28a36c2d1ea68e472b"
+        },
+        "72ccacd0": {
+          "directory": "72ccacd0",
+          "generation": 1,
+          "seal_sha256": "4e3303bd4d0333a8f2fa37ade62c6d9184417445169fc0ae171d9cdb83d8c03a"
+        },
+        "09aae7d9": {
+          "directory": "09aae7d9",
+          "generation": 1,
+          "seal_sha256": "9583220db86ec9f2ad006e218beadc956f724fd80f641d63a751da5ebc99360e"
+        },
+        "4e425a5b": {
+          "directory": "4e425a5b",
+          "generation": 1,
+          "seal_sha256": "1231d3b190b5319e90337979cd28f0d1cfeed100269e0be559ce2b11bef772b1"
+        },
+        "6df54034": {
+          "directory": "6df54034",
+          "generation": 1,
+          "seal_sha256": "c02f4d631e6aea3b367c63155bc9d383bbd3fb173d0955779be27890128bf651"
+        },
+        "0567e470": {
+          "directory": "0567e470",
+          "generation": 1,
+          "seal_sha256": "4ec250e3b5874d17f7c34a5a5b4cad55e580c3f8869a96e7b2b4021cb6057489"
+        },
+        "c67bc3cd": {
+          "directory": "c67bc3cd",
+          "generation": 1,
+          "seal_sha256": "8f46979078d6eda38d3ee1f05a8ca5c72f3a7b45ab92da5fe6ec214b83c34334"
+        },
+        "93831d6d": {
+          "directory": "93831d6d",
+          "generation": 1,
+          "seal_sha256": "ab513a65dc0f16705862c6cf761bbcb88c0f52fa52edcdccf5f441e1c1aba063"
+        },
+        "5aabad33": {
+          "directory": "5aabad33",
+          "generation": 1,
+          "seal_sha256": "42798b06cbf9c549e080ece703018e59cc07350313550a1bdc71077b3a311471"
+        },
+        "25239af9": {
+          "directory": "25239af9",
+          "generation": 1,
+          "seal_sha256": "aece890d55a474e5f122ac438fc43732de6e61150e95ebce25e28ac79b1829be"
+        },
+        "9ddae16c": {
+          "directory": "9ddae16c",
+          "generation": 1,
+          "seal_sha256": "57d5ae3a9658c1ac12ae5247a7e014d934b6319594566c87d132340b9c30ae39"
+        },
+        "c8149bec": {
+          "directory": "c8149bec",
+          "generation": 1,
+          "seal_sha256": "694c22dc94249a7a101ad5d71d3b2c858bf8bc32c6a40d7af8a3c2a92ba4c0a9"
+        },
+        "bad1e9e5": {
+          "directory": "bad1e9e5",
+          "generation": 1,
+          "seal_sha256": "40bfcdb73d04d4b63fa29f7abade3f1f7ab82e603d468a6188f3de6ce618a203"
+        },
+        "29ec452f": {
+          "directory": "retries/29ec452f/0002",
+          "generation": 2,
+          "seal_sha256": "75238df388025ad2b2723edeff93abdbca464cf57abbf404f125484343dad2d2"
+        },
+        "9b21081a": {
+          "directory": "9b21081a",
+          "generation": 1,
+          "seal_sha256": "0b37941433cc0b221b6eede532db9f949cc3d113a704f07e448c67be767f2ae7"
+        },
+        "dc6b1d11": {
+          "directory": "dc6b1d11",
+          "generation": 1,
+          "seal_sha256": "916180599fb605cb03e4069e1c30097f66ff8aca7b41c03875cdc46883fa20da"
+        },
+        "793e7745": {
+          "directory": "793e7745",
+          "generation": 1,
+          "seal_sha256": "1ab93816002e883e3ce02d956e0e62012378dc4aea850f8ad0db0925562457c0"
+        },
+        "ccbe2537": {
+          "directory": "retries/ccbe2537/0003",
+          "generation": 3,
+          "seal_sha256": "7ffa52c3de00d6b027e1f00fc59174225369f2b383770f4ecea53e9a020fd784"
+        },
+        "ef36e27a": {
+          "directory": "ef36e27a",
+          "generation": 1,
+          "seal_sha256": "b384d203390494ccbbec9b3319600c80fde2c798b2c5916b9f8dcbeae8eb5189"
+        },
+        "4fd5a5a4": {
+          "directory": "4fd5a5a4",
+          "generation": 1,
+          "seal_sha256": "7001ec263905b005ff45915a7c52bb4f01bc196f16ae59650d67a0b4ff4600da"
+        },
+        "d7e7bcd1": {
+          "directory": "d7e7bcd1",
+          "generation": 1,
+          "seal_sha256": "3a052a83b524cb254267e85acc2d4a85ac5d37c1f68bf14c49437e16043f4776"
+        },
+        "0cec9497": {
+          "directory": "0cec9497",
+          "generation": 1,
+          "seal_sha256": "159459a3d82acaffeec2f791395eb3e1881d2278638877c9f3920930551777c5"
+        },
+        "139a4109": {
+          "directory": "139a4109",
+          "generation": 1,
+          "seal_sha256": "a7819c4b0f402275cbde76c2742bd3d035ecba57175fcd45c873b3d509bd226d"
+        },
+        "0f23ff1e": {
+          "directory": "0f23ff1e",
+          "generation": 1,
+          "seal_sha256": "c85645780ac1e743e473065ad3dbf6643dddbf3c492454d8c7a9b9150e1863db"
+        },
+        "6a707f08": {
+          "directory": "6a707f08",
+          "generation": 1,
+          "seal_sha256": "88f273167c6426952689cca8df51219839159b88b1ab4f6f7b8c8e4034060192"
+        },
+        "5b8dd44e": {
+          "directory": "5b8dd44e",
+          "generation": 1,
+          "seal_sha256": "3fa833dba47bea678b0dfc009a560d819718e46ad435fd146591655e5a5942ac"
+        },
+        "ff4fbc38": {
+          "directory": "ff4fbc38",
+          "generation": 1,
+          "seal_sha256": "40062ba8888f958f3b70c636bf26fbc8334e88fbd106d34ec027970efcf4ea72"
+        },
+        "83533bc1": {
+          "directory": "83533bc1",
+          "generation": 1,
+          "seal_sha256": "01c9587359dae9ea1603dc0d97c37cdcdefb940a586e3f60b83d81871ce0e086"
+        },
+        "6a30689f": {
+          "directory": "6a30689f",
+          "generation": 1,
+          "seal_sha256": "99521b77561bb5b74bdb9ef348186bc73fbf98e2a896d17a933bb8e4dab0f6f0"
+        },
+        "13b94391": {
+          "directory": "13b94391",
+          "generation": 1,
+          "seal_sha256": "dc2568a0a3770068ea6e8e60ce7cfa18207cd7d98987235b3212d00e94c75f90"
+        },
+        "6e1a4ad2": {
+          "directory": "6e1a4ad2",
+          "generation": 1,
+          "seal_sha256": "ff77434f8acac3daded30929317ce62730ef09fa6e698dfa49cb5dae989a1766"
+        },
+        "0293952c": {
+          "directory": "0293952c",
+          "generation": 1,
+          "seal_sha256": "9a3eacc4f47532f0375ef8ce73f88820b6f5cc10b6ed95fb903d64615a5cbd7b"
+        },
+        "a2931e29": {
+          "directory": "a2931e29",
+          "generation": 1,
+          "seal_sha256": "ef110d524f2be8fc79572dcda9e21ec7f42413d4bbce23a3868ed85538b45c02"
+        },
+        "7f1a1456": {
+          "directory": "7f1a1456",
+          "generation": 1,
+          "seal_sha256": "638efb33fa4ac4a7188cf4ddbf4e1e552a567f05e39ad3082c52625f99b2d8bb"
+        },
+        "056a1f86": {
+          "directory": "056a1f86",
+          "generation": 1,
+          "seal_sha256": "b000015f63c963de25d6754f0dd2d9e034c7f9fc0a37bfb84d96129c4751e151"
+        },
+        "be5d648b": {
+          "directory": "be5d648b",
+          "generation": 1,
+          "seal_sha256": "186048ee866303fd5963e0dbf9bf9251370343ff6b766a692aa79fdba29153d2"
+        },
+        "597d7169": {
+          "directory": "597d7169",
+          "generation": 1,
+          "seal_sha256": "6a4cc38cb47127c64259c264320733276c6bb87ee51aec39e50fb363b3dd343b"
+        },
+        "3973d0d6": {
+          "directory": "3973d0d6",
+          "generation": 1,
+          "seal_sha256": "c8c0058e18899468bc75bd35c376aa3160c565caba41f4f1a47059694bfe675d"
+        },
+        "550aa487": {
+          "directory": "550aa487",
+          "generation": 1,
+          "seal_sha256": "78f56bae6d0fdff2900adda0a9a5192ed329cfda16eac342caab3254d8003f1d"
+        },
+        "193e179a": {
+          "directory": "retries/193e179a/0002",
+          "generation": 2,
+          "seal_sha256": "7a0bb88980d308335f70c76dc3c3725fe6b6cb921c3bf79a1974ed548f8be9b0"
+        },
+        "b3c8ded2": {
+          "directory": "b3c8ded2",
+          "generation": 1,
+          "seal_sha256": "ba3feb467b765dd143869223767bd28e377443f88d277193b1dad18bfb8c9f71"
+        },
+        "312d24b1": {
+          "directory": "312d24b1",
+          "generation": 1,
+          "seal_sha256": "266413e11633528aa2a2fd16e30a9611ac6e73b59c1419cec8b7ff25774f0cfe"
+        },
+        "5de86ceb": {
+          "directory": "retries/5de86ceb/0003",
+          "generation": 3,
+          "seal_sha256": "ef251bf132dcc0b8f7342c02e0ab64e22dba19fda14ea998e619e9a58dc21857"
+        },
+        "ae503ad1": {
+          "directory": "ae503ad1",
+          "generation": 1,
+          "seal_sha256": "0fa4b745bb6607042537cd6e428142ff6eda729e235c543ebdca62d68e95d373"
+        },
+        "e76728cc": {
+          "directory": "e76728cc",
+          "generation": 1,
+          "seal_sha256": "89d19f7ae8e1eebc98a13c9d3d105f345693c77dd100b5a19050c6e06a068abc"
+        },
+        "58fe4605": {
+          "directory": "58fe4605",
+          "generation": 1,
+          "seal_sha256": "9d21cd8c43ea8442d860f45b7a61619f78548517f026cc68b7b94c2d1c23bcbe"
+        },
+        "e170cdd8": {
+          "directory": "e170cdd8",
+          "generation": 1,
+          "seal_sha256": "f501ecbacc4a43d419a76f388629b8136d81875a95461d07af65c3143e61be87"
+        },
+        "c5fb45ca": {
+          "directory": "c5fb45ca",
+          "generation": 1,
+          "seal_sha256": "83a79ea06b0bbb6bacbd6a7b54aec6ff3337da80a97382b078da2166585737c5"
+        },
+        "35ce64d8": {
+          "directory": "35ce64d8",
+          "generation": 1,
+          "seal_sha256": "aa5443e26118951707187fe2e1cb3348c5e458a88d594d58a2be0b45bba56dcb"
+        },
+        "6702871a": {
+          "directory": "6702871a",
+          "generation": 1,
+          "seal_sha256": "4925de4dfb7d3b9789c6fd62463268026344ccd4a04b8f4b7f1b9fc72449956a"
+        },
+        "1a9c1abc": {
+          "directory": "retries/1a9c1abc/0003",
+          "generation": 3,
+          "seal_sha256": "85db7fc322c632ef94359bab93331263640e9afcf2d43056e80f043b40023edf"
+        }
+      },
+      "session_id": 56309,
+      "launch_verified_at": "2026-10-05T13:33:56.486032+08:00",
+      "exit_code": 2
+    }
+  ],
+  "preserved_completed_scenes": {
+    "fb8971ec": {
+      "directory": "fb8971ec",
+      "seal_sha256": "0261913ba17ab52611b737b954ca9d052054ab5e83d1385785d9b16907544dbf",
+      "generation": 1
+    },
+    "90e931b1": {
+      "directory": "90e931b1",
+      "seal_sha256": "f0ff922553a5ebce23fb497ae3435cf4f7f0d1b59f543fe53d4ae0b862f0b0dc",
+      "generation": 1
+    },
+    "04cd6269": {
+      "directory": "04cd6269",
+      "seal_sha256": "1949b73279ad9ba192b436f1a9260bf78882d29bf81ac0973a7295dab3caee99",
+      "generation": 1
+    },
+    "14289fc5": {
+      "directory": "14289fc5",
+      "seal_sha256": "123d1cb51768bef09e34a6d3a27ab57f2d983d0b07453dad9e137e26c1d8f333",
+      "generation": 1
+    },
+    "4aa67fd7": {
+      "directory": "4aa67fd7",
+      "seal_sha256": "acdc478e894a26ee5b7ea2c2879dc648c55b2ef52d795f67131dfb8a83649906",
+      "generation": 1
+    },
+    "228ef1f0": {
+      "directory": "228ef1f0",
+      "seal_sha256": "9fef901fbee7decf759c5c018bf3338df457eb3a20be50888f5dcaba2394ddbf",
+      "generation": 1
+    },
+    "8b7866a0": {
+      "directory": "8b7866a0",
+      "seal_sha256": "cc01bfe011b23b29d5e992942847d56dbd1e8944fd1b76aa133bbf11fec52196",
+      "generation": 1
+    },
+    "640b66d4": {
+      "directory": "640b66d4",
+      "seal_sha256": "5f4b2f1912e700c66ae068c30ff6dda50be2d78688143ce59a4ba84a129862df",
+      "generation": 1
+    },
+    "ad34350a": {
+      "directory": "ad34350a",
+      "seal_sha256": "8f554cb6c22c88b13225d1a7a999523cb12e104a413d6a289da61272a0e554c7",
+      "generation": 1
+    },
+    "cc05a425": {
+      "directory": "cc05a425",
+      "seal_sha256": "e7ec1a1f1f8d23f0eacb52e1fae992a1f922650d67077ab0eeebf2838ec3008c",
+      "generation": 1
+    },
+    "c350908c": {
+      "directory": "c350908c",
+      "seal_sha256": "c9d51a9ce68e9789526e422cc082eebda0368c0163ebdb78e3e87bc500b3b2f8",
+      "generation": 1
+    },
+    "76802002": {
+      "directory": "76802002",
+      "seal_sha256": "fbeea0f2f22df147349701bd04c23c1204fc26bc0581dd10eae73931fb0fc6c9",
+      "generation": 1
+    },
+    "5be2589b": {
+      "directory": "5be2589b",
+      "seal_sha256": "6c034f674740bdc645c0f3db44b6a902adb008b6681178af615e78ceadd6cf73",
+      "generation": 1
+    },
+    "86336c8b": {
+      "directory": "86336c8b",
+      "seal_sha256": "7a9bbc6ebb5dbb6f45ec913abed76c9dd388b307e32153200ee8ed59691f0038",
+      "generation": 1
+    },
+    "00c63e73": {
+      "directory": "00c63e73",
+      "seal_sha256": "dfefb152176972e501b20a6a8545f0fc934087c7fa1fe754b57f4d6c9533ec00",
+      "generation": 1
+    },
+    "d76359cf": {
+      "directory": "d76359cf",
+      "seal_sha256": "6ad44973da7f29933cd253012eeb1c223958b900cbe08ed546886c9cee0ac034",
+      "generation": 1
+    },
+    "36cbddd1": {
+      "directory": "36cbddd1",
+      "seal_sha256": "be14cb05c14d59527019e25d0a8c3e9dd56aa5d4202a0c28a36c2d1ea68e472b",
+      "generation": 1
+    },
+    "72ccacd0": {
+      "directory": "72ccacd0",
+      "seal_sha256": "4e3303bd4d0333a8f2fa37ade62c6d9184417445169fc0ae171d9cdb83d8c03a",
+      "generation": 1
+    },
+    "09aae7d9": {
+      "directory": "09aae7d9",
+      "seal_sha256": "9583220db86ec9f2ad006e218beadc956f724fd80f641d63a751da5ebc99360e",
+      "generation": 1
+    },
+    "4e425a5b": {
+      "directory": "4e425a5b",
+      "seal_sha256": "1231d3b190b5319e90337979cd28f0d1cfeed100269e0be559ce2b11bef772b1",
+      "generation": 1
+    },
+    "6df54034": {
+      "directory": "6df54034",
+      "seal_sha256": "c02f4d631e6aea3b367c63155bc9d383bbd3fb173d0955779be27890128bf651",
+      "generation": 1
+    },
+    "0567e470": {
+      "directory": "0567e470",
+      "seal_sha256": "4ec250e3b5874d17f7c34a5a5b4cad55e580c3f8869a96e7b2b4021cb6057489",
+      "generation": 1
+    },
+    "c67bc3cd": {
+      "directory": "c67bc3cd",
+      "seal_sha256": "8f46979078d6eda38d3ee1f05a8ca5c72f3a7b45ab92da5fe6ec214b83c34334",
+      "generation": 1
+    },
+    "93831d6d": {
+      "directory": "93831d6d",
+      "seal_sha256": "ab513a65dc0f16705862c6cf761bbcb88c0f52fa52edcdccf5f441e1c1aba063",
+      "generation": 1
+    },
+    "5aabad33": {
+      "directory": "5aabad33",
+      "seal_sha256": "42798b06cbf9c549e080ece703018e59cc07350313550a1bdc71077b3a311471",
+      "generation": 1
+    },
+    "25239af9": {
+      "directory": "25239af9",
+      "seal_sha256": "aece890d55a474e5f122ac438fc43732de6e61150e95ebce25e28ac79b1829be",
+      "generation": 1
+    },
+    "9ddae16c": {
+      "directory": "9ddae16c",
+      "seal_sha256": "57d5ae3a9658c1ac12ae5247a7e014d934b6319594566c87d132340b9c30ae39",
+      "generation": 1
+    },
+    "c8149bec": {
+      "directory": "c8149bec",
+      "seal_sha256": "694c22dc94249a7a101ad5d71d3b2c858bf8bc32c6a40d7af8a3c2a92ba4c0a9",
+      "generation": 1
+    },
+    "bad1e9e5": {
+      "directory": "bad1e9e5",
+      "seal_sha256": "40bfcdb73d04d4b63fa29f7abade3f1f7ab82e603d468a6188f3de6ce618a203",
+      "generation": 1
+    },
+    "ef36e27a": {
+      "directory": "ef36e27a",
+      "seal_sha256": "b384d203390494ccbbec9b3319600c80fde2c798b2c5916b9f8dcbeae8eb5189",
+      "generation": 1
+    },
+    "4fd5a5a4": {
+      "directory": "4fd5a5a4",
+      "seal_sha256": "7001ec263905b005ff45915a7c52bb4f01bc196f16ae59650d67a0b4ff4600da",
+      "generation": 1
+    },
+    "d7e7bcd1": {
+      "directory": "d7e7bcd1",
+      "seal_sha256": "3a052a83b524cb254267e85acc2d4a85ac5d37c1f68bf14c49437e16043f4776",
+      "generation": 1
+    }
+  },
+  "policy": "Use original resume, retain all complete scenes, replay whole incomplete scenes, no frozen source/config changes; stop persistent nonrecoverable failures.",
+  "finalizer": "experiments/recovery/finalize_qwen_round1.py",
+  "output": "docs/results/baseline-deployment-20261005",
+  "keep_awake": {
+    "pid": 26077,
+    "identity": "Sun Oct 4 19:50:30 2026",
+    "until": "2026-10-05T09:30:00+08:00",
+    "scope": "prevent idle sleep; cannot prevent lid-close sleep or shutdown",
+    "last_verified_at": "2026-10-05T02:37:34.910328+08:00",
+    "last_process_snapshot": "26077 Sun Oct  4 19:50:30 2026     /usr/bin/caffeinate"
+  },
+  "duplicate_runner_guard_verified": true,
+  "finalizer_sha256": "26c2cda3609d1c221c3536e2fbd72baceca066c8aa1931d798b6267e99ea54e8",
+  "incomplete_publish_refused": true,
+  "last_checked_at": "2026-10-05T13:29:42.167103+08:00",
+  "last_snapshot": {
+    "checked_at": "2026-10-05T13:29:42.167103+08:00",
+    "status": "aborted",
+    "locks": {
+      "runner": "free",
+      "attempt": "free"
+    },
+    "summary": {
+      "valid_complete_run": false,
+      "planned_tasks": 1500,
+      "planned_checks": 9396,
+      "scored_tasks": 1482,
+      "scored_checks": 9194,
+      "agent_timed_out_tasks": 244,
+      "timed_out_but_passed_tasks": 18,
+      "missing_or_invalid_tasks": 18,
+      "metrics": null
+    },
+    "performance_age_seconds": 1266.8,
+    "all_generation_http": {
+      "200": 27864,
+      "400": 1
+    },
+    "preserved_completed_scenes_unchanged": true,
+    "blocker": null,
+    "report": {
+      "reported_at": "2026-10-05T13:29:42.167103+08:00",
+      "resume_ordinal": 2,
+      "resume_scored_tasks": 202,
+      "resume_planned_tasks": 220,
+      "resume_passed_tasks": 95,
+      "resume_agent_timeouts": 99,
+      "completed_scenes": 68,
+      "running_scenes": 0,
+      "queued_scenes": 0,
+      "resume_completed_scenes": 4,
+      "resume_aborted_scenes": 7,
+      "new_terminal_api_errors": [],
+      "current_resume_http_statuses": {
+        "200": 3443
+      },
+      "scored_since_previous_report": 1,
+      "previous_report_at": "2026-10-05T12:59:45.997683+08:00"
+    },
+    "scene_detail": [
+      {
+        "scene_id": "3ec31656",
+        "status": "completed",
+        "generation": 3,
+        "scored": 20,
+        "error": null
+      },
+      {
+        "scene_id": "ccbe2537",
+        "status": "completed",
+        "generation": 3,
+        "scored": 20,
+        "error": null
+      },
+      {
+        "scene_id": "cc14d231",
+        "status": "aborted",
+        "generation": 3,
+        "scored": 14,
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task"
+      },
+      {
+        "scene_id": "9d4d90ca",
+        "status": "aborted",
+        "generation": 3,
+        "scored": 15,
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task"
+      },
+      {
+        "scene_id": "79b207ff",
+        "status": "aborted",
+        "generation": 3,
+        "scored": 15,
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task"
+      },
+      {
+        "scene_id": "823c15d5",
+        "status": "aborted",
+        "generation": 3,
+        "scored": 20,
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task"
+      },
+      {
+        "scene_id": "ec1f47f4",
+        "status": "aborted",
+        "generation": 3,
+        "scored": 18,
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task"
+      },
+      {
+        "scene_id": "5de86ceb",
+        "status": "completed",
+        "generation": 3,
+        "scored": 20,
+        "error": null
+      },
+      {
+        "scene_id": "d23eb117",
+        "status": "aborted",
+        "generation": 3,
+        "scored": 20,
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task"
+      },
+      {
+        "scene_id": "dcae50c1",
+        "status": "aborted",
+        "generation": 3,
+        "scored": 20,
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task"
+      },
+      {
+        "scene_id": "1a9c1abc",
+        "status": "completed",
+        "generation": 3,
+        "scored": 20,
+        "error": null
+      }
+    ]
+  },
+  "automatic_resume_allowed": false,
+  "morning_reported_at": "2026-10-05T09:06:27.663774+08:00",
+  "morning_report_path": "experiments/recovery/qwen38-morning-status-20261005-0905.json",
+  "blocker_history": [
+    {
+      "code": "provider_arrearage",
+      "provider_error_code": "Arrearage",
+      "http_status": 400,
+      "detected_at": "2026-10-05T04:37:13.470344+08:00",
+      "error_at": "2026-10-05T04:35:50+08:00",
+      "scene_id": "1a9c1abc",
+      "task_id": "f89fbba8",
+      "generation": 2,
+      "evidence_directory": "experiments/recovery/qwen38-blocked-20261005-043550-arrearage",
+      "recovery_policy": "Do not resume or make connectivity/API calls until account arrears are resolved; do not top up automatically. Keep the existing results and all generations.",
+      "required_external_change": "Restore the Alibaba Cloud Model Studio account to good standing.",
+      "notification_recorded_at": "2026-10-05T04:37:56.102728+08:00",
+      "user_reported_restored_at": "2026-10-05T09:14:09.460486+08:00",
+      "resolution": "User explicitly reported Alibaba Cloud Model Studio service restored and requested remaining experiments."
+    }
+  ],
+  "provider_restoration": {
+    "user_reported_at": "2026-10-05T09:14:09.460486+08:00",
+    "verified_by_successful_request": true,
+    "verified_at": "2026-10-05T09:15:17.358499+08:00",
+    "first_success": {
+      "scene_id": "3ec31656",
+      "event": "http_end",
+      "status_code": 200,
+      "error_type": null,
+      "timestamp": 1791162898.239302
+    }
+  },
+  "active_keep_awake": null,
+  "progress_reporting": {
+    "interval_minutes": 30,
+    "requested_by_user": true,
+    "last_reported_at": "2026-10-05T13:29:42.167103+08:00",
+    "last_report": {
+      "reported_at": "2026-10-05T13:29:42.167103+08:00",
+      "resume_ordinal": 2,
+      "resume_scored_tasks": 202,
+      "resume_planned_tasks": 220,
+      "resume_passed_tasks": 95,
+      "resume_agent_timeouts": 99,
+      "completed_scenes": 68,
+      "running_scenes": 0,
+      "queued_scenes": 0,
+      "resume_completed_scenes": 4,
+      "resume_aborted_scenes": 7,
+      "new_terminal_api_errors": [],
+      "current_resume_http_statuses": {
+        "200": 3443
+      },
+      "scored_since_previous_report": 1,
+      "previous_report_at": "2026-10-05T12:59:45.997683+08:00"
+    }
+  },
+  "pending_recovery_scene_ids": [
+    "cc14d231",
+    "9d4d90ca",
+    "79b207ff",
+    "823c15d5",
+    "ec1f47f4",
+    "d23eb117",
+    "dcae50c1"
+  ],
+  "recovery_failure_audit": {
+    "cc14d231": [
+      {
+        "generation": 1,
+        "is_recovery": false,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 19,
+        "last_scored_task": "181df0da"
+      },
+      {
+        "generation": 2,
+        "is_recovery": true,
+        "status": "interrupted",
+        "error": "InterruptedError: Experiment interrupted",
+        "scored_tasks": 18,
+        "last_scored_task": "eb9625aa"
+      },
+      {
+        "generation": 3,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 14,
+        "last_scored_task": "35cf6a79"
+      }
+    ],
+    "9d4d90ca": [
+      {
+        "generation": 1,
+        "is_recovery": false,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 11,
+        "last_scored_task": "0a4a4a2e"
+      },
+      {
+        "generation": 2,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 11,
+        "last_scored_task": "0a4a4a2e"
+      },
+      {
+        "generation": 3,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 15,
+        "last_scored_task": "a6d41f67"
+      }
+    ],
+    "79b207ff": [
+      {
+        "generation": 1,
+        "is_recovery": false,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 15,
+        "last_scored_task": "9349f4d1"
+      },
+      {
+        "generation": 2,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 15,
+        "last_scored_task": "9349f4d1"
+      },
+      {
+        "generation": 3,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 15,
+        "last_scored_task": "9349f4d1"
+      }
+    ],
+    "823c15d5": [
+      {
+        "generation": 1,
+        "is_recovery": false,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 20,
+        "last_scored_task": "08332988"
+      },
+      {
+        "generation": 2,
+        "is_recovery": true,
+        "status": "interrupted",
+        "error": "InterruptedError: Experiment interrupted",
+        "scored_tasks": 16,
+        "last_scored_task": "5aa74653"
+      },
+      {
+        "generation": 3,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 20,
+        "last_scored_task": "08332988"
+      }
+    ],
+    "ec1f47f4": [
+      {
+        "generation": 1,
+        "is_recovery": false,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 18,
+        "last_scored_task": "2a977256"
+      },
+      {
+        "generation": 2,
+        "is_recovery": true,
+        "status": "interrupted",
+        "error": "InterruptedError: Experiment interrupted",
+        "scored_tasks": 9,
+        "last_scored_task": "e3164f19"
+      },
+      {
+        "generation": 3,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 18,
+        "last_scored_task": "2a977256"
+      }
+    ],
+    "d23eb117": [
+      {
+        "generation": 1,
+        "is_recovery": false,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 18,
+        "last_scored_task": "586b6548"
+      },
+      {
+        "generation": 2,
+        "is_recovery": true,
+        "status": "interrupted",
+        "error": "InterruptedError: Experiment interrupted",
+        "scored_tasks": 3,
+        "last_scored_task": "5eb30d9c"
+      },
+      {
+        "generation": 3,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 20,
+        "last_scored_task": "1ab825bd"
+      }
+    ],
+    "dcae50c1": [
+      {
+        "generation": 1,
+        "is_recovery": false,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 14,
+        "last_scored_task": "8d6146c5"
+      },
+      {
+        "generation": 2,
+        "is_recovery": true,
+        "status": "interrupted",
+        "error": "InterruptedError: Experiment interrupted",
+        "scored_tasks": 1,
+        "last_scored_task": "614249d9"
+      },
+      {
+        "generation": 3,
+        "is_recovery": true,
+        "status": "aborted",
+        "error": "TimeoutError: Worker did not exit; scored task saved, refusing to start next task",
+        "scored_tasks": 20,
+        "last_scored_task": "1b83245a"
+      }
+    ]
+  },
+  "partial_result_audit": "docs/audit/QWEN38_PARTIAL_RESULTS_2026-10-05_1335.json",
+  "stop_requested_at": "2026-10-05T13:41:51.405375+08:00",
+  "stop_reason": "User requests no scene replays; finalize deployment failure accounting for both models",
+  "stopped_at": "2026-10-05T13:43:54.392912+08:00",
+  "automation_status": "PAUSED",
+  "closed_at": "2026-10-05T13:52:02.659890+08:00",
+  "accounting_protocol": "deployment-no-scene-replay-v1",
+  "accounting_complete": true,
+  "original_valid_complete_run": false,
+  "first_attempt_metrics": {
+    "tasks": 1500,
+    "checks": 9396,
+    "passed_tasks": 1151,
+    "task_pass": 0.7673333333333333,
+    "deployment_passed_tasks": 1150,
+    "deployment_pass": 0.7666666666666667,
+    "passed_checks": 7376,
+    "avg_check": 0.8550255945745077,
+    "global_check": 0.7850148999574287,
+    "zero_check_tasks": 114,
+    "total_failed": 0.076,
+    "agent_timeouts": 220,
+    "timeouts_with_task_pass": 16,
+    "checker_scored_tasks": 1444,
+    "imputed_failure_tasks": 56,
+    "unscored_runtime_failure_tasks": 56,
+    "provider_failure_tasks": 0,
+    "scored_without_worker_confirmation": 13,
+    "agent_success_but_check_fail": 84,
+    "near_miss_observed": 96
+  },
+  "recovery_snapshot_metrics": {
+    "tasks": 1500,
+    "checks": 9396,
+    "passed_tasks": 1163,
+    "task_pass": 0.7753333333333333,
+    "deployment_passed_tasks": 1163,
+    "deployment_pass": 0.7753333333333333,
+    "passed_checks": 7582,
+    "avg_check": 0.8703332125603865,
+    "global_check": 0.8069391230310771,
+    "zero_check_tasks": 87,
+    "total_failed": 0.058,
+    "agent_timeouts": 244,
+    "timeouts_with_task_pass": 18,
+    "checker_scored_tasks": 1482,
+    "imputed_failure_tasks": 18,
+    "unscored_runtime_failure_tasks": 18,
+    "provider_failure_tasks": 0,
+    "scored_without_worker_confirmation": 7,
+    "agent_success_but_check_fail": 88,
+    "near_miss_observed": 98
+  }
+}

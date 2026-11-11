@@ -1,0 +1,2821 @@
+{
+  "expected_trials": 14,
+  "attempted_trials": 14,
+  "verified_trials": 14,
+  "unstarted_trials": 0,
+  "pairs": [
+    {
+      "task_id": "7eba7390",
+      "same_initial_hash": true,
+      "baseline": {
+        "status": "needs_replan",
+        "reason": "round_limit_below_threshold",
+        "cursor": 80,
+        "checker": {
+          "passed": false,
+          "checks_passed": 0,
+          "checks_expected": 1,
+          "details": {
+            "result": false,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.95
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0.33,
+                  "session_id": "3973d0d6",
+                  "expected_progress": 0.95,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 33,
+                  "is_completed": false
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "3973d0d6",
+          "task_type": "target_assignment",
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 346,
+          "action_attempts": 85,
+          "action_receipts": {
+            "success": 85,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 85,
+          "length_xy": 9782.38782015026,
+          "length_xyz": 9882.38782015026,
+          "vertical_distance": 100.0,
+          "consumed_mah": 55.04257576935267,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 85,
+          "nonflight_trigger_count": 5,
+          "nonflight_trigger_actors": [
+            "1a4f0495",
+            "492c9b8c",
+            "5ed7d6ab",
+            "a3b868a8",
+            "d99f1904"
+          ],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 5,
+          "takeoff_success_count": 5,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 80,
+          "classification": {
+            "success": 80,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 345,
+          "skill_progress_read_count": 9,
+          "skill_action_count": 85,
+          "last_skill_progress_request_id": 351,
+          "last_skill_progress_percent": 33,
+          "skill_actions_after_last_progress": 0,
+          "skill_progress_reads_after_last_action": 1,
+          "evaluator_public_progress_percent": 33,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "public_search",
+            "status": "needs_replan",
+            "reason": "round_limit_below_threshold",
+            "cursor": 80,
+            "units": 80,
+            "api_calls": 345,
+            "api_budget": 2000,
+            "repairs": 0,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "candidate": {
+        "status": "needs_replan",
+        "reason": "round_limit_below_threshold",
+        "cursor": 80,
+        "checker": {
+          "passed": false,
+          "checks_passed": 0,
+          "checks_expected": 1,
+          "details": {
+            "result": false,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.95
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0.33,
+                  "session_id": "3973d0d6",
+                  "expected_progress": 0.95,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 33,
+                  "is_completed": false
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "3973d0d6",
+          "task_type": "target_assignment",
+          "progress_percentage": 33,
+          "details": {
+            "total_targets": 3,
+            "visited_targets": 1,
+            "unvisited_targets": 2
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 346,
+          "action_attempts": 85,
+          "action_receipts": {
+            "success": 85,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 85,
+          "length_xy": 9782.38782015026,
+          "length_xyz": 9882.38782015026,
+          "vertical_distance": 100.0,
+          "consumed_mah": 55.04257576935267,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 85,
+          "nonflight_trigger_count": 5,
+          "nonflight_trigger_actors": [
+            "1a4f0495",
+            "492c9b8c",
+            "5ed7d6ab",
+            "a3b868a8",
+            "d99f1904"
+          ],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 5,
+          "takeoff_success_count": 5,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 80,
+          "classification": {
+            "success": 80,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 345,
+          "skill_progress_read_count": 9,
+          "skill_action_count": 85,
+          "last_skill_progress_request_id": 351,
+          "last_skill_progress_percent": 33,
+          "skill_actions_after_last_progress": 0,
+          "skill_progress_reads_after_last_action": 1,
+          "evaluator_public_progress_percent": 33,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "public_search",
+            "status": "needs_replan",
+            "reason": "round_limit_below_threshold",
+            "cursor": 80,
+            "units": 80,
+            "api_calls": 345,
+            "api_budget": 2000,
+            "repairs": 0,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "same_initial_obstacle_geometry": true,
+      "both_static_obstacle_contracts_verified": true,
+      "action_comparison": {
+        "identical": true,
+        "common_prefix_actions": 85,
+        "first_different_action_index": null,
+        "baseline_action": null,
+        "candidate_action": null,
+        "baseline_action_count": 85,
+        "candidate_action_count": 85
+      },
+      "public_request_comparison": {
+        "identical": true,
+        "common_prefix_requests": 346,
+        "baseline_request_count": 346,
+        "candidate_request_count": 346,
+        "candidate_minus_baseline_requests": 0,
+        "baseline_first_different": null,
+        "candidate_first_different": null
+      },
+      "terminal_progress_comparison": {
+        "baseline_search_frames": [
+          {
+            "plan_id": "7eba7390-shared_endpoint_v5:p1",
+            "status": "needs_replan",
+            "reason": "round_limit_below_threshold",
+            "cursor": 80,
+            "units": 80,
+            "api_calls": 345,
+            "cached_progress_percent": 33,
+            "public_stop_condition": null,
+            "recorded_terminal_progress_check": null,
+            "matched_terminal_public_read": null,
+            "runtime_completed_vs_final_public_threshold_agree": true
+          }
+        ],
+        "candidate_search_frames": [
+          {
+            "plan_id": "7eba7390-terminal_progress_v6:p1",
+            "status": "needs_replan",
+            "reason": "round_limit_below_threshold",
+            "cursor": 80,
+            "units": 80,
+            "api_calls": 345,
+            "cached_progress_percent": 33,
+            "public_stop_condition": null,
+            "recorded_terminal_progress_check": null,
+            "matched_terminal_public_read": null,
+            "runtime_completed_vs_final_public_threshold_agree": true
+          }
+        ],
+        "candidate_minus_baseline_skill_progress_reads": 0,
+        "candidate_minus_baseline_skill_api": 0,
+        "candidate_minus_baseline_total_task_api": 0
+      },
+      "failure_comparison": {
+        "baseline_unique_failure_count": 0,
+        "candidate_unique_failure_count": 0,
+        "shared_unique_failure_count": 0,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "new_unique_failures": [],
+        "removed_unique_failures": [],
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    },
+    {
+      "task_id": "24ac1838",
+      "same_initial_hash": true,
+      "baseline": {
+        "status": "needs_replan",
+        "reason": "local_repair_budget_exhausted",
+        "cursor": 126,
+        "checker": {
+          "passed": false,
+          "checks_passed": 0,
+          "checks_expected": 1,
+          "details": {
+            "result": false,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.95
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0.38,
+                  "session_id": "823c15d5",
+                  "expected_progress": 0.95,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 38,
+                  "is_completed": false
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "823c15d5",
+          "task_type": "target_assignment",
+          "progress_percentage": 38,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 38,
+            "unvisited_targets": 62
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 612,
+          "action_attempts": 156,
+          "action_receipts": {
+            "success": 139,
+            "partial_success": 0,
+            "error": 17
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 139,
+          "length_xy": 12424.064933503458,
+          "length_xyz": 13041.06493350346,
+          "vertical_distance": 617.0,
+          "consumed_mah": 89.85579610750584,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 156,
+          "nonflight_trigger_count": 30,
+          "nonflight_trigger_actors": [
+            "016f4513",
+            "067d49a2",
+            "13150227",
+            "1d2b6769",
+            "1e74cdea",
+            "20dd2485",
+            "2d37b969",
+            "2dfc9922",
+            "318da56a",
+            "3ca2bbad",
+            "436f6476",
+            "4e22b83f",
+            "4f0a6ce5",
+            "5ee786b5",
+            "6264d2dc",
+            "75543d66",
+            "869a8e16",
+            "884ca74f",
+            "8ffc1bba",
+            "92e6a7b8",
+            "a1a9de39",
+            "a70c20d2",
+            "a83433e1",
+            "b407b91f",
+            "bc746fd7",
+            "bcda9199",
+            "e1432c2b",
+            "ec78a027",
+            "f762cfb2",
+            "f77bc481"
+          ],
+          "positive_altitude_trigger_count": 1,
+          "positive_altitude_trigger_actors": [
+            "a83433e1"
+          ],
+          "positive_altitude_takeoff_count": 1,
+          "takeoff_count": 30,
+          "takeoff_success_count": 30,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 126,
+          "classification": {
+            "success": 109,
+            "endpoint_conflict": 14,
+            "path_conflict": 3,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 17,
+          "unique_failure_count": 17,
+          "unique_actor_endpoint_conflict_count": 14,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 1,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 611,
+          "skill_progress_read_count": 13,
+          "skill_action_count": 156,
+          "last_skill_progress_request_id": 617,
+          "last_skill_progress_percent": 38,
+          "skill_actions_after_last_progress": 6,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 38,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "public_search",
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted",
+            "cursor": 126,
+            "units": 125,
+            "api_calls": 611,
+            "api_budget": 2000,
+            "repairs": 17,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "candidate": {
+        "status": "needs_replan",
+        "reason": "local_repair_budget_exhausted",
+        "cursor": 126,
+        "checker": {
+          "passed": false,
+          "checks_passed": 0,
+          "checks_expected": 1,
+          "details": {
+            "result": false,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.95
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0.38,
+                  "session_id": "823c15d5",
+                  "expected_progress": 0.95,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 38,
+                  "is_completed": false
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "823c15d5",
+          "task_type": "target_assignment",
+          "progress_percentage": 38,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 38,
+            "unvisited_targets": 62
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 612,
+          "action_attempts": 156,
+          "action_receipts": {
+            "success": 139,
+            "partial_success": 0,
+            "error": 17
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 139,
+          "length_xy": 12424.064933503458,
+          "length_xyz": 13041.06493350346,
+          "vertical_distance": 617.0,
+          "consumed_mah": 89.7858213511838,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 156,
+          "nonflight_trigger_count": 30,
+          "nonflight_trigger_actors": [
+            "016f4513",
+            "067d49a2",
+            "13150227",
+            "1d2b6769",
+            "1e74cdea",
+            "20dd2485",
+            "2d37b969",
+            "2dfc9922",
+            "318da56a",
+            "3ca2bbad",
+            "436f6476",
+            "4e22b83f",
+            "4f0a6ce5",
+            "5ee786b5",
+            "6264d2dc",
+            "75543d66",
+            "869a8e16",
+            "884ca74f",
+            "8ffc1bba",
+            "92e6a7b8",
+            "a1a9de39",
+            "a70c20d2",
+            "a83433e1",
+            "b407b91f",
+            "bc746fd7",
+            "bcda9199",
+            "e1432c2b",
+            "ec78a027",
+            "f762cfb2",
+            "f77bc481"
+          ],
+          "positive_altitude_trigger_count": 1,
+          "positive_altitude_trigger_actors": [
+            "a83433e1"
+          ],
+          "positive_altitude_takeoff_count": 1,
+          "takeoff_count": 30,
+          "takeoff_success_count": 30,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 126,
+          "classification": {
+            "success": 109,
+            "endpoint_conflict": 14,
+            "path_conflict": 3,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 17,
+          "unique_failure_count": 17,
+          "unique_actor_endpoint_conflict_count": 14,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 1,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 611,
+          "skill_progress_read_count": 13,
+          "skill_action_count": 156,
+          "last_skill_progress_request_id": 617,
+          "last_skill_progress_percent": 38,
+          "skill_actions_after_last_progress": 6,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 38,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "public_search",
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted",
+            "cursor": 126,
+            "units": 125,
+            "api_calls": 611,
+            "api_budget": 2000,
+            "repairs": 17,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "same_initial_obstacle_geometry": true,
+      "both_static_obstacle_contracts_verified": true,
+      "action_comparison": {
+        "identical": true,
+        "common_prefix_actions": 156,
+        "first_different_action_index": null,
+        "baseline_action": null,
+        "candidate_action": null,
+        "baseline_action_count": 156,
+        "candidate_action_count": 156
+      },
+      "public_request_comparison": {
+        "identical": true,
+        "common_prefix_requests": 612,
+        "baseline_request_count": 612,
+        "candidate_request_count": 612,
+        "candidate_minus_baseline_requests": 0,
+        "baseline_first_different": null,
+        "candidate_first_different": null
+      },
+      "terminal_progress_comparison": {
+        "baseline_search_frames": [
+          {
+            "plan_id": "24ac1838-shared_endpoint_v5:p1",
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted",
+            "cursor": 126,
+            "units": 125,
+            "api_calls": 611,
+            "cached_progress_percent": 38,
+            "public_stop_condition": null,
+            "recorded_terminal_progress_check": null,
+            "matched_terminal_public_read": null,
+            "runtime_completed_vs_final_public_threshold_agree": true
+          }
+        ],
+        "candidate_search_frames": [
+          {
+            "plan_id": "24ac1838-terminal_progress_v6:p1",
+            "status": "needs_replan",
+            "reason": "local_repair_budget_exhausted",
+            "cursor": 126,
+            "units": 125,
+            "api_calls": 611,
+            "cached_progress_percent": 38,
+            "public_stop_condition": null,
+            "recorded_terminal_progress_check": null,
+            "matched_terminal_public_read": null,
+            "runtime_completed_vs_final_public_threshold_agree": true
+          }
+        ],
+        "candidate_minus_baseline_skill_progress_reads": 0,
+        "candidate_minus_baseline_skill_api": 0,
+        "candidate_minus_baseline_total_task_api": 0
+      },
+      "failure_comparison": {
+        "baseline_unique_failure_count": 17,
+        "candidate_unique_failure_count": 17,
+        "shared_unique_failure_count": 17,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "new_unique_failures": [],
+        "removed_unique_failures": [],
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "same_initial_hash": true,
+      "baseline": {
+        "status": "needs_replan",
+        "reason": "no_public_candidate",
+        "cursor": 176,
+        "checker": {
+          "passed": true,
+          "checks_passed": 1,
+          "checks_expected": 1,
+          "details": {
+            "result": true,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.95
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": 1.0,
+                  "session_id": "35ce64d8",
+                  "expected_progress": 0.95,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 100,
+                  "is_completed": true
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "35ce64d8",
+          "task_type": "target_assignment",
+          "progress_percentage": 100,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 20,
+            "unvisited_targets": 0
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 818,
+          "action_attempts": 191,
+          "action_receipts": {
+            "success": 181,
+            "partial_success": 0,
+            "error": 10
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 181,
+          "length_xy": 30809.95990592174,
+          "length_xyz": 31109.95990592174,
+          "vertical_distance": 300.0,
+          "consumed_mah": 171.58594848833144,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 191,
+          "nonflight_trigger_count": 15,
+          "nonflight_trigger_actors": [
+            "01e3ece4",
+            "04315908",
+            "176a4688",
+            "272fa7be",
+            "2a266de6",
+            "5f7a6eec",
+            "60892444",
+            "6126210f",
+            "63e09994",
+            "7954b39a",
+            "b6654aad",
+            "be69a550",
+            "d32ef0d8",
+            "d4d95e8a",
+            "e444398a"
+          ],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 15,
+          "takeoff_success_count": 15,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 176,
+          "classification": {
+            "success": 166,
+            "endpoint_conflict": 7,
+            "path_conflict": 3,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 10,
+          "unique_failure_count": 10,
+          "unique_actor_endpoint_conflict_count": 7,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 817,
+          "skill_progress_read_count": 18,
+          "skill_action_count": 191,
+          "last_skill_progress_request_id": 772,
+          "last_skill_progress_percent": 95,
+          "skill_actions_after_last_progress": 6,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 100,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "public_search",
+            "status": "needs_replan",
+            "reason": "no_public_candidate",
+            "cursor": 176,
+            "units": 176,
+            "api_calls": 817,
+            "api_budget": 2000,
+            "repairs": 10,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "candidate": {
+        "status": "completed",
+        "reason": "skill_public_stop_condition",
+        "cursor": 176,
+        "checker": {
+          "passed": true,
+          "checks_passed": 1,
+          "checks_expected": 1,
+          "details": {
+            "result": true,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.95
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": 1.0,
+                  "session_id": "35ce64d8",
+                  "expected_progress": 0.95,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 100,
+                  "is_completed": true
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "35ce64d8",
+          "task_type": "target_assignment",
+          "progress_percentage": 100,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 20,
+            "unvisited_targets": 0
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 819,
+          "action_attempts": 191,
+          "action_receipts": {
+            "success": 181,
+            "partial_success": 0,
+            "error": 10
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 181,
+          "length_xy": 30809.95990592174,
+          "length_xyz": 31109.95990592174,
+          "vertical_distance": 300.0,
+          "consumed_mah": 171.5755910721066,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 191,
+          "nonflight_trigger_count": 15,
+          "nonflight_trigger_actors": [
+            "01e3ece4",
+            "04315908",
+            "176a4688",
+            "272fa7be",
+            "2a266de6",
+            "5f7a6eec",
+            "60892444",
+            "6126210f",
+            "63e09994",
+            "7954b39a",
+            "b6654aad",
+            "be69a550",
+            "d32ef0d8",
+            "d4d95e8a",
+            "e444398a"
+          ],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 15,
+          "takeoff_success_count": 15,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 176,
+          "classification": {
+            "success": 166,
+            "endpoint_conflict": 7,
+            "path_conflict": 3,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 10,
+          "unique_failure_count": 10,
+          "unique_actor_endpoint_conflict_count": 7,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 818,
+          "skill_progress_read_count": 19,
+          "skill_action_count": 191,
+          "last_skill_progress_request_id": 834,
+          "last_skill_progress_percent": 100,
+          "skill_actions_after_last_progress": 0,
+          "skill_progress_reads_after_last_action": 1,
+          "evaluator_public_progress_percent": 100,
+          "terminal_check_record_count": 1,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "public_search",
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "cursor": 176,
+            "units": 176,
+            "api_calls": 818,
+            "api_budget": 2000,
+            "repairs": 10,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "same_initial_obstacle_geometry": true,
+      "both_static_obstacle_contracts_verified": true,
+      "action_comparison": {
+        "identical": true,
+        "common_prefix_actions": 191,
+        "first_different_action_index": null,
+        "baseline_action": null,
+        "candidate_action": null,
+        "baseline_action_count": 191,
+        "candidate_action_count": 191
+      },
+      "public_request_comparison": {
+        "identical": false,
+        "common_prefix_requests": 817,
+        "baseline_request_count": 818,
+        "candidate_request_count": 819,
+        "candidate_minus_baseline_requests": 1,
+        "baseline_first_different": {
+          "request_id": 834,
+          "request": {
+            "method": "GET",
+            "endpoint": "/sessions/current",
+            "params": null,
+            "body": null,
+            "origin_kind": "evaluator_public_observation",
+            "tool": null
+          }
+        },
+        "candidate_first_different": {
+          "request_id": 834,
+          "request": {
+            "method": "GET",
+            "endpoint": "/sessions/current",
+            "params": null,
+            "body": null,
+            "origin_kind": "skill",
+            "tool": "get_mission_progress"
+          }
+        }
+      },
+      "terminal_progress_comparison": {
+        "baseline_search_frames": [
+          {
+            "plan_id": "b1ad4f3e-shared_endpoint_v5:p1",
+            "status": "needs_replan",
+            "reason": "no_public_candidate",
+            "cursor": 176,
+            "units": 176,
+            "api_calls": 817,
+            "cached_progress_percent": 95,
+            "public_stop_condition": null,
+            "recorded_terminal_progress_check": null,
+            "matched_terminal_public_read": null,
+            "runtime_completed_vs_final_public_threshold_agree": false
+          }
+        ],
+        "candidate_search_frames": [
+          {
+            "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "cursor": 176,
+            "units": 176,
+            "api_calls": 818,
+            "cached_progress_percent": 100,
+            "public_stop_condition": "session_progress_strictly_above_95",
+            "recorded_terminal_progress_check": {
+              "trigger": "no_public_candidate",
+              "cached_progress_percent": 95,
+              "status": "confirmed",
+              "evidence_ref": "e1635",
+              "progress_percent": 100
+            },
+            "matched_terminal_public_read": {
+              "request_id": 834,
+              "plan_id": "b1ad4f3e-terminal_progress_v6:p1",
+              "session_id": "35ce64d8",
+              "progress_percentage": 100,
+              "details": {
+                "total_targets": 20,
+                "visited_targets": 20,
+                "unvisited_targets": 0
+              },
+              "valid_public_progress": true,
+              "public_read_request_contract_valid": true,
+              "normalized_public_receipt_sha256": "6c601a4d8aaeeedc7595a5b5fd8709d4731f7242c39a18a3f7156f4cf02b7ade",
+              "source": "public-api.jsonl",
+              "source_line": 834,
+              "harness_call_id": "harness:b1ad4f3e-terminal_progress_v6:p1:818",
+              "evidence_ref": "e1635",
+              "call_start_sequence": 2810,
+              "call_end_sequence": 2811,
+              "logged_receipt_sha256": "6c601a4d8aaeeedc7595a5b5fd8709d4731f7242c39a18a3f7156f4cf02b7ade",
+              "skill_actions_before": 191,
+              "skill_actions_after": 0
+            },
+            "runtime_completed_vs_final_public_threshold_agree": true
+          }
+        ],
+        "candidate_minus_baseline_skill_progress_reads": 1,
+        "candidate_minus_baseline_skill_api": 1,
+        "candidate_minus_baseline_total_task_api": 1
+      },
+      "failure_comparison": {
+        "baseline_unique_failure_count": 10,
+        "candidate_unique_failure_count": 10,
+        "shared_unique_failure_count": 10,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "new_unique_failures": [],
+        "removed_unique_failures": [],
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    },
+    {
+      "task_id": "b1eb0270",
+      "same_initial_hash": true,
+      "baseline": {
+        "status": "completed",
+        "reason": "skill_public_stop_condition",
+        "cursor": 3,
+        "checker": {
+          "passed": true,
+          "checks_passed": 2,
+          "checks_expected": 2,
+          "details": {
+            "result": true,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/drone_heading",
+                "parameters": {
+                  "drone_id": "f7635bdf",
+                  "expected_heading": 353.0,
+                  "tolerance": 5.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": 353.0,
+                  "drone_id": "f7635bdf",
+                  "expected_heading": 353.0,
+                  "heading_delta": 0.0,
+                  "tolerance": 5.0
+                }
+              },
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/drone_altitude",
+                "parameters": {
+                  "drone_id": "f7635bdf",
+                  "expected_altitude": 14.0,
+                  "tolerance": 2.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": 14.0,
+                  "drone_id": "f7635bdf",
+                  "expected_altitude": 14.0,
+                  "difference": 0.0,
+                  "tolerance": 2.0
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "ad34350a",
+          "task_type": "area_assignment_and_patrol",
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 20
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 11,
+          "action_attempts": 3,
+          "action_receipts": {
+            "success": 3,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 3,
+          "length_xy": 0.0,
+          "length_xyz": 14.0,
+          "vertical_distance": 14.0,
+          "consumed_mah": 0.5952000000000055,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 3,
+          "nonflight_trigger_count": 1,
+          "nonflight_trigger_actors": [
+            "f7635bdf"
+          ],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 1,
+          "takeoff_success_count": 1,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 0,
+          "classification": {
+            "success": 0,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 10,
+          "skill_progress_read_count": 0,
+          "skill_action_count": 3,
+          "last_skill_progress_request_id": null,
+          "last_skill_progress_percent": null,
+          "skill_actions_after_last_progress": null,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 0,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "simple_chain",
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "cursor": 3,
+            "units": 2,
+            "api_calls": 10,
+            "api_budget": 2000,
+            "repairs": 0,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "candidate": {
+        "status": "completed",
+        "reason": "skill_public_stop_condition",
+        "cursor": 3,
+        "checker": {
+          "passed": true,
+          "checks_passed": 2,
+          "checks_expected": 2,
+          "details": {
+            "result": true,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/drone_heading",
+                "parameters": {
+                  "drone_id": "f7635bdf",
+                  "expected_heading": 353.0,
+                  "tolerance": 5.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": 353.0,
+                  "drone_id": "f7635bdf",
+                  "expected_heading": 353.0,
+                  "heading_delta": 0.0,
+                  "tolerance": 5.0
+                }
+              },
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/drone_altitude",
+                "parameters": {
+                  "drone_id": "f7635bdf",
+                  "expected_altitude": 14.0,
+                  "tolerance": 2.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": 14.0,
+                  "drone_id": "f7635bdf",
+                  "expected_altitude": 14.0,
+                  "difference": 0.0,
+                  "tolerance": 2.0
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "ad34350a",
+          "task_type": "area_assignment_and_patrol",
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 20
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 11,
+          "action_attempts": 3,
+          "action_receipts": {
+            "success": 3,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 3,
+          "length_xy": 0.0,
+          "length_xyz": 14.0,
+          "vertical_distance": 14.0,
+          "consumed_mah": 0.5952000000000055,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 3,
+          "nonflight_trigger_count": 1,
+          "nonflight_trigger_actors": [
+            "f7635bdf"
+          ],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 1,
+          "takeoff_success_count": 1,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 0,
+          "classification": {
+            "success": 0,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 10,
+          "skill_progress_read_count": 0,
+          "skill_action_count": 3,
+          "last_skill_progress_request_id": null,
+          "last_skill_progress_percent": null,
+          "skill_actions_after_last_progress": null,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 0,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "simple_chain",
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "cursor": 3,
+            "units": 2,
+            "api_calls": 10,
+            "api_budget": 2000,
+            "repairs": 0,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "same_initial_obstacle_geometry": true,
+      "both_static_obstacle_contracts_verified": true,
+      "action_comparison": {
+        "identical": true,
+        "common_prefix_actions": 3,
+        "first_different_action_index": null,
+        "baseline_action": null,
+        "candidate_action": null,
+        "baseline_action_count": 3,
+        "candidate_action_count": 3
+      },
+      "public_request_comparison": {
+        "identical": true,
+        "common_prefix_requests": 11,
+        "baseline_request_count": 11,
+        "candidate_request_count": 11,
+        "candidate_minus_baseline_requests": 0,
+        "baseline_first_different": null,
+        "candidate_first_different": null
+      },
+      "terminal_progress_comparison": {
+        "baseline_search_frames": [],
+        "candidate_search_frames": [],
+        "candidate_minus_baseline_skill_progress_reads": 0,
+        "candidate_minus_baseline_skill_api": 0,
+        "candidate_minus_baseline_total_task_api": 0
+      },
+      "failure_comparison": {
+        "baseline_unique_failure_count": 0,
+        "candidate_unique_failure_count": 0,
+        "shared_unique_failure_count": 0,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "new_unique_failures": [],
+        "removed_unique_failures": [],
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    },
+    {
+      "task_id": "898cfdca",
+      "same_initial_hash": true,
+      "baseline": {
+        "status": "completed",
+        "reason": "skill_public_stop_condition",
+        "cursor": 3,
+        "checker": {
+          "passed": true,
+          "checks_passed": 2,
+          "checks_expected": 2,
+          "details": {
+            "result": true,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/drone_altitude",
+                "parameters": {
+                  "drone_id": "01e3ece4",
+                  "expected_altitude": 30.0,
+                  "tolerance": 2.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": 30.0,
+                  "drone_id": "01e3ece4",
+                  "expected_altitude": 30.0,
+                  "difference": 0.0,
+                  "tolerance": 2.0
+                }
+              },
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/drone_hovering",
+                "parameters": {
+                  "drone_id": "01e3ece4",
+                  "tolerance": 0.5
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": "hovering",
+                  "drone_id": "01e3ece4",
+                  "altitude": 30.0,
+                  "tolerance": 0.5
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "35ce64d8",
+          "task_type": "target_assignment",
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 0,
+            "unvisited_targets": 20
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 11,
+          "action_attempts": 3,
+          "action_receipts": {
+            "success": 3,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 3,
+          "length_xy": 0.0,
+          "length_xyz": 30.0,
+          "vertical_distance": 30.0,
+          "consumed_mah": 0.514908913499994,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 3,
+          "nonflight_trigger_count": 1,
+          "nonflight_trigger_actors": [
+            "01e3ece4"
+          ],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 1,
+          "takeoff_success_count": 1,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 0,
+          "classification": {
+            "success": 0,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 10,
+          "skill_progress_read_count": 0,
+          "skill_action_count": 3,
+          "last_skill_progress_request_id": null,
+          "last_skill_progress_percent": null,
+          "skill_actions_after_last_progress": null,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 0,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "simple_chain",
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "cursor": 3,
+            "units": 2,
+            "api_calls": 10,
+            "api_budget": 2000,
+            "repairs": 0,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "candidate": {
+        "status": "completed",
+        "reason": "skill_public_stop_condition",
+        "cursor": 3,
+        "checker": {
+          "passed": true,
+          "checks_passed": 2,
+          "checks_expected": 2,
+          "details": {
+            "result": true,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/drone_altitude",
+                "parameters": {
+                  "drone_id": "01e3ece4",
+                  "expected_altitude": 30.0,
+                  "tolerance": 2.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": 30.0,
+                  "drone_id": "01e3ece4",
+                  "expected_altitude": 30.0,
+                  "difference": 0.0,
+                  "tolerance": 2.0
+                }
+              },
+              {
+                "result": true,
+                "type": "check",
+                "endpoint": "/check/drone_hovering",
+                "parameters": {
+                  "drone_id": "01e3ece4",
+                  "tolerance": 0.5
+                },
+                "expected": null,
+                "check_response": {
+                  "result": true,
+                  "value": "hovering",
+                  "drone_id": "01e3ece4",
+                  "altitude": 30.0,
+                  "tolerance": 0.5
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "35ce64d8",
+          "task_type": "target_assignment",
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 0,
+            "unvisited_targets": 20
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 11,
+          "action_attempts": 3,
+          "action_receipts": {
+            "success": 3,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 3,
+          "length_xy": 0.0,
+          "length_xyz": 30.0,
+          "vertical_distance": 30.0,
+          "consumed_mah": 0.514908913499994,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 3,
+          "nonflight_trigger_count": 1,
+          "nonflight_trigger_actors": [
+            "01e3ece4"
+          ],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 1,
+          "takeoff_success_count": 1,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 0,
+          "classification": {
+            "success": 0,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 10,
+          "skill_progress_read_count": 0,
+          "skill_action_count": 3,
+          "last_skill_progress_request_id": null,
+          "last_skill_progress_percent": null,
+          "skill_actions_after_last_progress": null,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 0,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": [
+          {
+            "skill": "simple_chain",
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "cursor": 3,
+            "units": 2,
+            "api_calls": 10,
+            "api_budget": 2000,
+            "repairs": 0,
+            "repair_budget": 16
+          }
+        ]
+      },
+      "same_initial_obstacle_geometry": true,
+      "both_static_obstacle_contracts_verified": true,
+      "action_comparison": {
+        "identical": true,
+        "common_prefix_actions": 3,
+        "first_different_action_index": null,
+        "baseline_action": null,
+        "candidate_action": null,
+        "baseline_action_count": 3,
+        "candidate_action_count": 3
+      },
+      "public_request_comparison": {
+        "identical": true,
+        "common_prefix_requests": 11,
+        "baseline_request_count": 11,
+        "candidate_request_count": 11,
+        "candidate_minus_baseline_requests": 0,
+        "baseline_first_different": null,
+        "candidate_first_different": null
+      },
+      "terminal_progress_comparison": {
+        "baseline_search_frames": [],
+        "candidate_search_frames": [],
+        "candidate_minus_baseline_skill_progress_reads": 0,
+        "candidate_minus_baseline_skill_api": 0,
+        "candidate_minus_baseline_total_task_api": 0
+      },
+      "failure_comparison": {
+        "baseline_unique_failure_count": 0,
+        "candidate_unique_failure_count": 0,
+        "shared_unique_failure_count": 0,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "new_unique_failures": [],
+        "removed_unique_failures": [],
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    },
+    {
+      "task_id": "784d71f8",
+      "same_initial_hash": true,
+      "baseline": {
+        "status": "unsupported",
+        "reason": "unsupported_skill_or_full_task_grammar",
+        "cursor": null,
+        "checker": {
+          "passed": false,
+          "checks_passed": 0,
+          "checks_expected": 4,
+          "details": {
+            "result": false,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.5
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0.0,
+                  "session_id": "823c15d5",
+                  "expected_progress": 0.5,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 0,
+                  "is_completed": false
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "3c973382",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "823c15d5",
+                  "target_id": "3c973382",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "6aeaf2c0",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "823c15d5",
+                  "target_id": "6aeaf2c0",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "01877932",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "823c15d5",
+                  "target_id": "01877932",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "823c15d5",
+          "task_type": "target_assignment",
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 0,
+            "unvisited_targets": 100
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 1,
+          "action_attempts": 0,
+          "action_receipts": {
+            "success": 0,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 0,
+          "length_xy": 0,
+          "length_xyz": 0,
+          "vertical_distance": 0,
+          "consumed_mah": 0,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 0,
+          "nonflight_trigger_count": 0,
+          "nonflight_trigger_actors": [],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 0,
+          "takeoff_success_count": 0,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 0,
+          "classification": {
+            "success": 0,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 0,
+          "skill_progress_read_count": 0,
+          "skill_action_count": 0,
+          "last_skill_progress_request_id": null,
+          "last_skill_progress_percent": null,
+          "skill_actions_after_last_progress": null,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 0,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": []
+      },
+      "candidate": {
+        "status": "unsupported",
+        "reason": "unsupported_skill_or_full_task_grammar",
+        "cursor": null,
+        "checker": {
+          "passed": false,
+          "checks_passed": 0,
+          "checks_expected": 4,
+          "details": {
+            "result": false,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.5
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0.0,
+                  "session_id": "823c15d5",
+                  "expected_progress": 0.5,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 0,
+                  "is_completed": false
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "3c973382",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "823c15d5",
+                  "target_id": "3c973382",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "6aeaf2c0",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "823c15d5",
+                  "target_id": "6aeaf2c0",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "01877932",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "823c15d5",
+                  "target_id": "01877932",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "823c15d5",
+          "task_type": "target_assignment",
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 100,
+            "visited_targets": 0,
+            "unvisited_targets": 100
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 1,
+          "action_attempts": 0,
+          "action_receipts": {
+            "success": 0,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 0,
+          "length_xy": 0,
+          "length_xyz": 0,
+          "vertical_distance": 0,
+          "consumed_mah": 0,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 0,
+          "nonflight_trigger_count": 0,
+          "nonflight_trigger_actors": [],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 0,
+          "takeoff_success_count": 0,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 0,
+          "classification": {
+            "success": 0,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 0,
+          "skill_progress_read_count": 0,
+          "skill_action_count": 0,
+          "last_skill_progress_request_id": null,
+          "last_skill_progress_percent": null,
+          "skill_actions_after_last_progress": null,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 0,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": []
+      },
+      "same_initial_obstacle_geometry": true,
+      "both_static_obstacle_contracts_verified": true,
+      "action_comparison": {
+        "identical": true,
+        "common_prefix_actions": 0,
+        "first_different_action_index": null,
+        "baseline_action": null,
+        "candidate_action": null,
+        "baseline_action_count": 0,
+        "candidate_action_count": 0
+      },
+      "public_request_comparison": {
+        "identical": true,
+        "common_prefix_requests": 1,
+        "baseline_request_count": 1,
+        "candidate_request_count": 1,
+        "candidate_minus_baseline_requests": 0,
+        "baseline_first_different": null,
+        "candidate_first_different": null
+      },
+      "terminal_progress_comparison": {
+        "baseline_search_frames": [],
+        "candidate_search_frames": [],
+        "candidate_minus_baseline_skill_progress_reads": 0,
+        "candidate_minus_baseline_skill_api": 0,
+        "candidate_minus_baseline_total_task_api": 0
+      },
+      "failure_comparison": {
+        "baseline_unique_failure_count": 0,
+        "candidate_unique_failure_count": 0,
+        "shared_unique_failure_count": 0,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "new_unique_failures": [],
+        "removed_unique_failures": [],
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    },
+    {
+      "task_id": "1905e0ad",
+      "same_initial_hash": true,
+      "baseline": {
+        "status": "unsupported",
+        "reason": "unsupported_skill_or_full_task_grammar",
+        "cursor": null,
+        "checker": {
+          "passed": false,
+          "checks_passed": 0,
+          "checks_expected": 6,
+          "details": {
+            "result": false,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.7
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0.0,
+                  "session_id": "35ce64d8",
+                  "expected_progress": 0.7,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 0,
+                  "is_completed": false
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "510c7bc7",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "510c7bc7",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "b1703776",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "b1703776",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "7d84f52a",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "7d84f52a",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "fce5af36",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "fce5af36",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "3599ce6e",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "3599ce6e",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "35ce64d8",
+          "task_type": "target_assignment",
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 0,
+            "unvisited_targets": 20
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 1,
+          "action_attempts": 0,
+          "action_receipts": {
+            "success": 0,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 0,
+          "length_xy": 0,
+          "length_xyz": 0,
+          "vertical_distance": 0,
+          "consumed_mah": 0,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 0,
+          "nonflight_trigger_count": 0,
+          "nonflight_trigger_actors": [],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 0,
+          "takeoff_success_count": 0,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 0,
+          "classification": {
+            "success": 0,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 0,
+          "skill_progress_read_count": 0,
+          "skill_action_count": 0,
+          "last_skill_progress_request_id": null,
+          "last_skill_progress_percent": null,
+          "skill_actions_after_last_progress": null,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 0,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": []
+      },
+      "candidate": {
+        "status": "unsupported",
+        "reason": "unsupported_skill_or_full_task_grammar",
+        "cursor": null,
+        "checker": {
+          "passed": false,
+          "checks_passed": 0,
+          "checks_expected": 6,
+          "details": {
+            "result": false,
+            "type": "logic",
+            "logic": "and",
+            "checks": [
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/task_progress",
+                "parameters": {
+                  "expected_progress": 0.7
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0.0,
+                  "session_id": "35ce64d8",
+                  "expected_progress": 0.7,
+                  "task_type": "target_assignment",
+                  "progress_percentage": 0,
+                  "is_completed": false
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "510c7bc7",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "510c7bc7",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "b1703776",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "b1703776",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "7d84f52a",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "7d84f52a",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "fce5af36",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "fce5af36",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              },
+              {
+                "result": false,
+                "type": "check",
+                "endpoint": "/check/target_is_reached",
+                "parameters": {
+                  "target_id": "3599ce6e",
+                  "since_timestamp": 1802649600.0
+                },
+                "expected": null,
+                "check_response": {
+                  "result": false,
+                  "value": 0,
+                  "session_id": "35ce64d8",
+                  "target_id": "3599ce6e",
+                  "reached_by": [],
+                  "since_timestamp": 1802649600.0
+                }
+              }
+            ]
+          },
+          "errors": []
+        },
+        "public_progress": {
+          "session_id": "35ce64d8",
+          "task_type": "target_assignment",
+          "progress_percentage": 0,
+          "details": {
+            "total_targets": 20,
+            "visited_targets": 0,
+            "unvisited_targets": 20
+          },
+          "source_endpoint": "/sessions/current",
+          "scope": "public_session_aggregate_not_full_task_verdict"
+        },
+        "cost": {
+          "api_requests": 1,
+          "action_attempts": 0,
+          "action_receipts": {
+            "success": 0,
+            "partial_success": 0,
+            "error": 0
+          },
+          "uncommitted_actions": 0,
+          "physical_history_events": 0,
+          "length_xy": 0,
+          "length_xyz": 0,
+          "vertical_distance": 0,
+          "consumed_mah": 0,
+          "charged_mah": 0
+        },
+        "flight_state_metrics": {
+          "physical_action_count": 0,
+          "nonflight_trigger_count": 0,
+          "nonflight_trigger_actors": [],
+          "positive_altitude_trigger_count": 0,
+          "positive_altitude_trigger_actors": [],
+          "positive_altitude_takeoff_count": 0,
+          "takeoff_count": 0,
+          "takeoff_success_count": 0,
+          "move_with_nonflight_public_state_count": 0,
+          "move_idle_error_count": 0
+        },
+        "blocked_candidate_metrics": {
+          "move_attempt_count": 0,
+          "classification": {
+            "success": 0,
+            "endpoint_conflict": 0,
+            "path_conflict": 0,
+            "other_error": 0,
+            "partial": 0,
+            "unknown": 0
+          },
+          "all_move_error_count": 0,
+          "unique_failure_count": 0,
+          "unique_actor_endpoint_conflict_count": 0,
+          "same_actor_endpoint_conflict_repeat_count": 0,
+          "same_actor_endpoint_conflict_repeat_group_count": 0,
+          "same_actor_path_edge_repeat_count": 0,
+          "same_actor_path_endpoint_changed_start_count": 0,
+          "same_endpoint_path_multi_actor_or_start_group_count": 0,
+          "missing_public_start_count": 0,
+          "missing_requested_endpoint_count": 0
+        },
+        "shared_endpoint_metrics": {
+          "cross_actor_endpoint_repeat_event_count": 0,
+          "cross_actor_endpoint_repeat_group_count": 0,
+          "cross_actor_repeat_without_same_actor_overlap_count": 0,
+          "same_actor_overlap_count": 0,
+          "broad_cross_actor_endpoint_repeat_event_count": 0,
+          "broad_cross_actor_endpoint_repeat_group_count": 0,
+          "broad_same_actor_overlap_count": 0,
+          "unqualified_cross_actor_endpoint_repeat_event_count": 0,
+          "unqualified_endpoint_conflict_count": 0,
+          "missing_plan_actor_or_xyz_count": 0
+        },
+        "terminal_progress_metrics": {
+          "skill_api_request_count": 0,
+          "skill_progress_read_count": 0,
+          "skill_action_count": 0,
+          "last_skill_progress_request_id": null,
+          "last_skill_progress_percent": null,
+          "skill_actions_after_last_progress": null,
+          "skill_progress_reads_after_last_action": 0,
+          "evaluator_public_progress_percent": 0,
+          "terminal_check_record_count": 0,
+          "issues_count": 0
+        },
+        "static_obstacle_contract": {
+          "runtime_parameter": true,
+          "validated_before_start": true,
+          "geometry_unchanged": true,
+          "denied_task_request_count": 0
+        },
+        "plan_counters": []
+      },
+      "same_initial_obstacle_geometry": true,
+      "both_static_obstacle_contracts_verified": true,
+      "action_comparison": {
+        "identical": true,
+        "common_prefix_actions": 0,
+        "first_different_action_index": null,
+        "baseline_action": null,
+        "candidate_action": null,
+        "baseline_action_count": 0,
+        "candidate_action_count": 0
+      },
+      "public_request_comparison": {
+        "identical": true,
+        "common_prefix_requests": 1,
+        "baseline_request_count": 1,
+        "candidate_request_count": 1,
+        "candidate_minus_baseline_requests": 0,
+        "baseline_first_different": null,
+        "candidate_first_different": null
+      },
+      "terminal_progress_comparison": {
+        "baseline_search_frames": [],
+        "candidate_search_frames": [],
+        "candidate_minus_baseline_skill_progress_reads": 0,
+        "candidate_minus_baseline_skill_api": 0,
+        "candidate_minus_baseline_total_task_api": 0
+      },
+      "failure_comparison": {
+        "baseline_unique_failure_count": 0,
+        "candidate_unique_failure_count": 0,
+        "shared_unique_failure_count": 0,
+        "new_unique_failure_count": 0,
+        "removed_unique_failure_count": 0,
+        "new_unique_failures": [],
+        "removed_unique_failures": [],
+        "identity": "endpoint conflict: actor+XYZ; path conflict: actor+public start XYZ+endpoint XYZ; other error adds message; plan IDs omitted only for this same-task paired comparison"
+      }
+    }
+  ],
+  "all_original_fixture_hashes_unchanged": true,
+  "frozen_sources_unchanged": true,
+  "live_source_changes_since_freeze": [],
+  "interpretation": "Scripted skill selection, no model calls or raw-tool takeover; not online task success or generalization."
+}

@@ -1,0 +1,1136 @@
+{
+  "schema_version": 1,
+  "scope": "independent_read_only_local_acceptance_audit",
+  "passed": true,
+  "audit_uses_raw_artifacts": true,
+  "starts_or_provider_calls_performed_by_audit": 0,
+  "executed_attempts": {
+    "local-01": {
+      "workers": 0,
+      "scorers": 0
+    },
+    "local-02": {
+      "workers": 16,
+      "scorers": 16
+    },
+    "local-03": {
+      "workers": 16,
+      "scorers": 16
+    }
+  },
+  "total_executed_local_episodes": 32,
+  "provider_calls": 0,
+  "prior_attempt": {
+    "reported_episodes": 16,
+    "passed_checks": 169,
+    "total_checks": 171,
+    "failed_checks": [
+      "unknown-raw:completion_claim_matches_predeclared_expectation",
+      "unknown-raw:completion_value_not_guessed"
+    ]
+  },
+  "final_attempt": {
+    "reported_episodes": 16,
+    "passed_checks": 171,
+    "total_checks": 171,
+    "accepted_claims": 8,
+    "rejected_claims": 7,
+    "legacy_contract_off": 1,
+    "old_auxiliary_checker_passed": 12
+  },
+  "sealed_inventories": {
+    "local-02": {
+      "files": 920,
+      "seal_sha256": "5ba3370d6ab66d34afff93e71780c2b15fddacfdec26fc42e8464767bc1067c7"
+    },
+    "local-03": {
+      "files": 920,
+      "seal_sha256": "86bfe376fbf5cce6f94bd08f4763beda84051b1774a6fa1eddd5949530026eca"
+    }
+  },
+  "production_source_changes_between_executed_attempts": [
+    "agent4drone/hover_completion.py",
+    "agent4drone/uav_agent.py"
+  ],
+  "unknown_recovery": [
+    {
+      "trial_id": "unknown-raw",
+      "takeoff_requests": 1,
+      "history_unknown_count": 1,
+      "matching_fresh_status_request": 12,
+      "completion_status": "verified",
+      "evidence_refs": [
+        "e1",
+        "e3",
+        "e5"
+      ]
+    },
+    {
+      "trial_id": "unknown-skill",
+      "takeoff_requests": 1,
+      "history_unknown_count": 1,
+      "matching_fresh_status_request": 15,
+      "completion_status": "verified",
+      "evidence_refs": [
+        "e5",
+        "e7",
+        "e11"
+      ]
+    }
+  ],
+  "trials": [
+    {
+      "trial_id": "state-string",
+      "run_success": true,
+      "task_completed": true,
+      "claim_accepted": true,
+      "object_calls_original_and_wire": 0,
+      "model_requests": 4,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41009,
+      "scorer_pid": 41022
+    },
+    {
+      "trial_id": "state-object",
+      "run_success": true,
+      "task_completed": true,
+      "claim_accepted": true,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 4,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41039,
+      "scorer_pid": 41056
+    },
+    {
+      "trial_id": "missing-status",
+      "run_success": true,
+      "task_completed": null,
+      "claim_accepted": false,
+      "object_calls_original_and_wire": 1,
+      "model_requests": 3,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41063,
+      "scorer_pid": 41075
+    },
+    {
+      "trial_id": "wrong-actor",
+      "run_success": true,
+      "task_completed": null,
+      "claim_accepted": false,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 4,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41082,
+      "scorer_pid": 41101
+    },
+    {
+      "trial_id": "wrong-altitude",
+      "run_success": true,
+      "task_completed": null,
+      "claim_accepted": false,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 4,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": false,
+      "worker_pid": 41108,
+      "scorer_pid": 41123
+    },
+    {
+      "trial_id": "stale-after-land",
+      "run_success": true,
+      "task_completed": null,
+      "claim_accepted": false,
+      "object_calls_original_and_wire": 3,
+      "model_requests": 5,
+      "physical_action_count": 2,
+      "original_auxiliary_checker_passed": false,
+      "worker_pid": 41132,
+      "scorer_pid": 41224
+    },
+    {
+      "trial_id": "unknown-raw",
+      "run_success": true,
+      "task_completed": true,
+      "claim_accepted": true,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 4,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41231,
+      "scorer_pid": 41244
+    },
+    {
+      "trial_id": "unknown-skill",
+      "run_success": true,
+      "task_completed": true,
+      "claim_accepted": true,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 4,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41251,
+      "scorer_pid": 41290
+    },
+    {
+      "trial_id": "skill-object",
+      "run_success": true,
+      "task_completed": true,
+      "claim_accepted": true,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 4,
+      "physical_action_count": 2,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41297,
+      "scorer_pid": 41308
+    },
+    {
+      "trial_id": "array-recover",
+      "run_success": true,
+      "task_completed": true,
+      "claim_accepted": true,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 5,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41311,
+      "scorer_pid": 41326
+    },
+    {
+      "trial_id": "scalar-reject",
+      "run_success": true,
+      "task_completed": null,
+      "claim_accepted": false,
+      "object_calls_original_and_wire": 1,
+      "model_requests": 4,
+      "physical_action_count": 0,
+      "original_auxiliary_checker_passed": false,
+      "worker_pid": 41329,
+      "scorer_pid": 41345
+    },
+    {
+      "trial_id": "malformed-recover",
+      "run_success": true,
+      "task_completed": true,
+      "claim_accepted": true,
+      "object_calls_original_and_wire": 0,
+      "model_requests": 5,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41348,
+      "scorer_pid": 41363
+    },
+    {
+      "trial_id": "action-missing",
+      "run_success": true,
+      "task_completed": null,
+      "claim_accepted": false,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 4,
+      "physical_action_count": 1,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41368,
+      "scorer_pid": 41381
+    },
+    {
+      "trial_id": "action-complete",
+      "run_success": true,
+      "task_completed": true,
+      "claim_accepted": true,
+      "object_calls_original_and_wire": 3,
+      "model_requests": 5,
+      "physical_action_count": 2,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41392,
+      "scorer_pid": 41407
+    },
+    {
+      "trial_id": "duration-unverified",
+      "run_success": true,
+      "task_completed": null,
+      "claim_accepted": false,
+      "object_calls_original_and_wire": 3,
+      "model_requests": 5,
+      "physical_action_count": 2,
+      "original_auxiliary_checker_passed": true,
+      "worker_pid": 41418,
+      "scorer_pid": 41427
+    },
+    {
+      "trial_id": "legacy-object-reject",
+      "run_success": true,
+      "task_completed": null,
+      "claim_accepted": null,
+      "object_calls_original_and_wire": 2,
+      "model_requests": 4,
+      "physical_action_count": 0,
+      "original_auxiliary_checker_passed": false,
+      "worker_pid": 41467,
+      "scorer_pid": 41478
+    }
+  ],
+  "checks": [
+    {
+      "check": "local-02:exact_sealed_inventory",
+      "passed": true
+    },
+    {
+      "check": "local-02:all_sealed_file_hashes",
+      "passed": true
+    },
+    {
+      "check": "local-03:exact_sealed_inventory",
+      "passed": true
+    },
+    {
+      "check": "local-03:all_sealed_file_hashes",
+      "passed": true
+    },
+    {
+      "check": "all_attempts_retained_denominator",
+      "passed": true
+    },
+    {
+      "check": "failed_attempt_not_relabelled_or_removed",
+      "passed": true
+    },
+    {
+      "check": "final_fixed_acceptance",
+      "passed": true
+    },
+    {
+      "check": "source_changes_limited_to_completion_timeout_and_empty_reply_prompt",
+      "passed": true
+    },
+    {
+      "check": "main:processes_started_and_cleanly_exited",
+      "passed": true
+    },
+    {
+      "check": "state-string:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "state-string:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "state-string:normal_run",
+      "passed": true
+    },
+    {
+      "check": "state-string:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "state-string:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "state-string:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "state-string:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "state-string:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "state-string:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "state-object:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "state-object:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "state-object:normal_run",
+      "passed": true
+    },
+    {
+      "check": "state-object:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "state-object:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "state-object:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "state-object:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "state-object:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "state-object:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "missing-status:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "missing-status:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "missing-status:normal_run",
+      "passed": true
+    },
+    {
+      "check": "missing-status:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "missing-status:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "missing-status:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "missing-status:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "missing-status:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "missing-status:rejected_claim_kept_only_as_original_model_output",
+      "passed": true
+    },
+    {
+      "check": "missing-status:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:normal_run",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:rejected_claim_kept_only_as_original_model_output",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:normal_run",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:rejected_claim_kept_only_as_original_model_output",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:normal_run",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:rejected_claim_kept_only_as_original_model_output",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:normal_run",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:one_real_takeoff_no_replay_or_hover",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:unknown_history_kept_with_fresh_matching_status",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:independent_physical_takeoff_trace",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:normal_run",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:one_real_takeoff_no_replay_or_hover",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:unknown_history_kept_with_fresh_matching_status",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:independent_physical_takeoff_trace",
+      "passed": true
+    },
+    {
+      "check": "skill-object:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "skill-object:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "skill-object:normal_run",
+      "passed": true
+    },
+    {
+      "check": "skill-object:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "skill-object:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "skill-object:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "skill-object:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "skill-object:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "skill-object:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "array-recover:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "array-recover:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "array-recover:normal_run",
+      "passed": true
+    },
+    {
+      "check": "array-recover:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "array-recover:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "array-recover:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "array-recover:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "array-recover:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "array-recover:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "array-recover:invalid_input_rejected_without_extra_backend_effect",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:normal_run",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:rejected_claim_kept_only_as_original_model_output",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:invalid_input_rejected_without_extra_backend_effect",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:normal_run",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:invalid_input_rejected_without_extra_backend_effect",
+      "passed": true
+    },
+    {
+      "check": "action:processes_started_and_cleanly_exited",
+      "passed": true
+    },
+    {
+      "check": "action-missing:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "action-missing:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "action-missing:normal_run",
+      "passed": true
+    },
+    {
+      "check": "action-missing:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "action-missing:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "action-missing:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "action-missing:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "action-missing:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "action-missing:rejected_claim_kept_only_as_original_model_output",
+      "passed": true
+    },
+    {
+      "check": "action-missing:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "action-complete:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "action-complete:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "action-complete:normal_run",
+      "passed": true
+    },
+    {
+      "check": "action-complete:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "action-complete:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "action-complete:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "action-complete:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "action-complete:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "action-complete:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "duration:processes_started_and_cleanly_exited",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:normal_run",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:public_schema_object_or_string",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:scoped_completion_matches_frozen_expectation",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:evidence_refs_exist_in_public_ledger",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:rejected_claim_kept_only_as_original_model_output",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "legacy:processes_started_and_cleanly_exited",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:no_network_and_separate_scorer",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:drained_and_private_isolation",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:normal_run",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:model_arguments_reach_wire_without_rewrite",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:original_receipts_retained",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:legacy_schema_string",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:old_completion_contract_off",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:declared_action_count",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:invalid_input_rejected_without_extra_backend_effect",
+      "passed": true
+    },
+    {
+      "check": "all_fixed_slots_accounted",
+      "passed": true
+    },
+    {
+      "check": "fresh_processes_unique",
+      "passed": true
+    },
+    {
+      "check": "string_object_effect_and_initial_equivalence",
+      "passed": true
+    },
+    {
+      "check": "state-string:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "state-object:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "missing-status:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "wrong-actor:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "wrong-altitude:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "stale-after-land:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "unknown-raw:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "unknown-skill:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "skill-object:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "array-recover:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "scalar-reject:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "malformed-recover:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "action-missing:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "action-complete:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "duration-unverified:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    },
+    {
+      "check": "legacy-object-reject:no_extra_calls_or_empty_reply_recovery",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Fixed local scripts and ASGI simulation; no autonomous real-model behavior, actual provider token reduction, or generalization inference.",
+    "Duration remains unverified; synchronous API duration input is not elapsed-time evidence.",
+    "Original checker remains auxiliary, especially on derived action/duration public instructions.",
+    "Prior failed 16-slot attempt retained; final 16-slot pass is not a 32/32 success claim."
+  ],
+  "source_change_review": {
+    "hover_completion.py": "Allows exactly the known raw takeoff response-timeout text while retaining unknown history and requiring fresh matching state.",
+    "uav_agent.py": "Allows scoped empty-response recovery to finish with an explicit unverified statement; no execution logic change.",
+    "empty_reply_prompt_change_exercised_in_this_campaign": false,
+    "actual_source_diff_reviewed": true,
+    "note": "The auditor initially assumed one production file changed; direct frozen-source diff showed the two narrow changes listed here. This accounting correction does not alter any episode or acceptance expectation."
+  },
+  "model_request_counts": {
+    "state-string": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "state-object": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "missing-status": {
+      "planned": 3,
+      "observed": 3,
+      "empty_reply_recovery_invoked": false
+    },
+    "wrong-actor": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "wrong-altitude": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "stale-after-land": {
+      "planned": 5,
+      "observed": 5,
+      "empty_reply_recovery_invoked": false
+    },
+    "unknown-raw": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "unknown-skill": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "skill-object": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "array-recover": {
+      "planned": 5,
+      "observed": 5,
+      "empty_reply_recovery_invoked": false
+    },
+    "scalar-reject": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "malformed-recover": {
+      "planned": 5,
+      "observed": 5,
+      "empty_reply_recovery_invoked": false
+    },
+    "action-missing": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    },
+    "action-complete": {
+      "planned": 5,
+      "observed": 5,
+      "empty_reply_recovery_invoked": false
+    },
+    "duration-unverified": {
+      "planned": 5,
+      "observed": 5,
+      "empty_reply_recovery_invoked": false
+    },
+    "legacy-object-reject": {
+      "planned": 4,
+      "observed": 4,
+      "empty_reply_recovery_invoked": false
+    }
+  }
+}

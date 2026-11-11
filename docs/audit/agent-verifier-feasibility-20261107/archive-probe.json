@@ -1,0 +1,331 @@
+{
+  "scope": "Archived development only. Length = plain JSON of all user/assistant/tool message fields listed in script; excludes system, schemas, and formatting. No evidence sufficiency or GPU performance claim.",
+  "batches": {
+    "deepseek-hover-pilot-20261103": {
+      "trials": {
+        "duration_hover-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 7,
+            "min": 82,
+            "median": 1566,
+            "max": 2589,
+            "at_most_4096": 7
+          },
+          "wire_usage": {
+            "requests": 7,
+            "prompt": 86724,
+            "completion": 870,
+            "total": 87594,
+            "reasoning": 363
+          }
+        },
+        "duration_hover-control": {
+          "visible_history_raw_tokens": {
+            "n": 7,
+            "min": 82,
+            "median": 1834,
+            "max": 2738,
+            "at_most_4096": 7
+          },
+          "wire_usage": {
+            "requests": 7,
+            "prompt": 64987,
+            "completion": 827,
+            "total": 65814,
+            "reasoning": 423
+          }
+        },
+        "explicit_hover-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 7,
+            "min": 80,
+            "median": 1724,
+            "max": 2640,
+            "at_most_4096": 7
+          },
+          "wire_usage": {
+            "requests": 7,
+            "prompt": 86979,
+            "completion": 726,
+            "total": 87705,
+            "reasoning": 208
+          }
+        },
+        "explicit_hover-control": {
+          "visible_history_raw_tokens": {
+            "n": 8,
+            "min": 80,
+            "median": 2411.0,
+            "max": 3594,
+            "at_most_4096": 8
+          },
+          "wire_usage": {
+            "requests": 8,
+            "prompt": 78138,
+            "completion": 1094,
+            "total": 79232,
+            "reasoning": 332
+          }
+        },
+        "state_hover-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 6,
+            "min": 78,
+            "median": 1499.0,
+            "max": 2250,
+            "at_most_4096": 6
+          },
+          "wire_usage": {
+            "requests": 6,
+            "prompt": 73419,
+            "completion": 572,
+            "total": 73991,
+            "reasoning": 140
+          }
+        },
+        "state_hover-control": {
+          "visible_history_raw_tokens": {
+            "n": 6,
+            "min": 78,
+            "median": 1430.0,
+            "max": 2648,
+            "at_most_4096": 6
+          },
+          "wire_usage": {
+            "requests": 6,
+            "prompt": 54078,
+            "completion": 715,
+            "total": 54793,
+            "reasoning": 219
+          }
+        },
+        "unknown_takeoff-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 6,
+            "min": 78,
+            "median": 1245.0,
+            "max": 1969,
+            "at_most_4096": 6
+          },
+          "wire_usage": {
+            "requests": 6,
+            "prompt": 72751,
+            "completion": 650,
+            "total": 73401,
+            "reasoning": 175
+          }
+        },
+        "unknown_takeoff-control": {
+          "visible_history_raw_tokens": {
+            "n": 6,
+            "min": 78,
+            "median": 1736.5,
+            "max": 2685,
+            "at_most_4096": 6
+          },
+          "wire_usage": {
+            "requests": 6,
+            "prompt": 56414,
+            "completion": 846,
+            "total": 57260,
+            "reasoning": 348
+          }
+        }
+      },
+      "visible_history_raw_tokens": {
+        "n": 53,
+        "min": 78,
+        "median": 1663,
+        "max": 3594,
+        "at_most_4096": 53
+      },
+      "wire_usage": {
+        "requests": 53,
+        "prompt": 573490,
+        "completion": 6300,
+        "total": 579790,
+        "reasoning": 2208
+      }
+    },
+    "deepseek-cost-pilot-20261103": {
+      "trials": {
+        "navigation-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 6,
+            "min": 93,
+            "median": 1607.0,
+            "max": 2800,
+            "at_most_4096": 6
+          },
+          "wire_usage": {
+            "requests": 6,
+            "prompt": 54389,
+            "completion": 648,
+            "total": 55037,
+            "reasoning": 180
+          }
+        },
+        "navigation-control": {
+          "visible_history_raw_tokens": {
+            "n": 6,
+            "min": 93,
+            "median": 1659.0,
+            "max": 2900,
+            "at_most_4096": 6
+          },
+          "wire_usage": {
+            "requests": 6,
+            "prompt": 74136,
+            "completion": 599,
+            "total": 74735,
+            "reasoning": 48
+          }
+        },
+        "search-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 8,
+            "min": 194,
+            "median": 10718.5,
+            "max": 23703,
+            "at_most_4096": 3
+          },
+          "wire_usage": {
+            "requests": 8,
+            "prompt": 149164,
+            "completion": 6653,
+            "total": 155817,
+            "reasoning": 5327
+          }
+        },
+        "search-control": {
+          "visible_history_raw_tokens": {
+            "n": 10,
+            "min": 194,
+            "median": 7884.0,
+            "max": 22282,
+            "at_most_4096": 4
+          },
+          "wire_usage": {
+            "requests": 10,
+            "prompt": 215576,
+            "completion": 13402,
+            "total": 228978,
+            "reasoning": 11619,
+            "empty_partial_response_events": 1
+          }
+        },
+        "search_complete-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 6,
+            "min": 194,
+            "median": 11109.0,
+            "max": 17973,
+            "at_most_4096": 2
+          },
+          "wire_usage": {
+            "requests": 6,
+            "prompt": 98046,
+            "completion": 966,
+            "total": 99012,
+            "reasoning": 310
+          }
+        },
+        "search_complete-control": {
+          "visible_history_raw_tokens": {
+            "n": 5,
+            "min": 194,
+            "median": 6885,
+            "max": 15848,
+            "at_most_4096": 2
+          },
+          "wire_usage": {
+            "requests": 5,
+            "prompt": 92029,
+            "completion": 1166,
+            "total": 93195,
+            "reasoning": 423
+          }
+        },
+        "short_chain-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 5,
+            "min": 78,
+            "median": 1384,
+            "max": 2073,
+            "at_most_4096": 5
+          },
+          "wire_usage": {
+            "requests": 5,
+            "prompt": 43581,
+            "completion": 516,
+            "total": 44097,
+            "reasoning": 80
+          }
+        },
+        "short_chain-control": {
+          "visible_history_raw_tokens": {
+            "n": 6,
+            "min": 78,
+            "median": 1450.5,
+            "max": 2207,
+            "at_most_4096": 6
+          },
+          "wire_usage": {
+            "requests": 6,
+            "prompt": 73918,
+            "completion": 632,
+            "total": 74550,
+            "reasoning": 285
+          }
+        },
+        "unknown_takeoff-candidate": {
+          "visible_history_raw_tokens": {
+            "n": 9,
+            "min": 78,
+            "median": 2132,
+            "max": 3373,
+            "at_most_4096": 9
+          },
+          "wire_usage": {
+            "requests": 9,
+            "prompt": 86785,
+            "completion": 834,
+            "total": 87619,
+            "reasoning": 162
+          }
+        },
+        "unknown_takeoff-control": {
+          "visible_history_raw_tokens": {
+            "n": 7,
+            "min": 78,
+            "median": 1920,
+            "max": 2951,
+            "at_most_4096": 7
+          },
+          "wire_usage": {
+            "requests": 7,
+            "prompt": 89826,
+            "completion": 862,
+            "total": 90688,
+            "reasoning": 393
+          }
+        }
+      },
+      "visible_history_raw_tokens": {
+        "n": 68,
+        "min": 78,
+        "median": 2169.5,
+        "max": 23703,
+        "at_most_4096": 50
+      },
+      "wire_usage": {
+        "requests": 68,
+        "prompt": 977450,
+        "completion": 26278,
+        "total": 1003728,
+        "reasoning": 18827,
+        "empty_partial_response_events": 1
+      }
+    }
+  }
+}

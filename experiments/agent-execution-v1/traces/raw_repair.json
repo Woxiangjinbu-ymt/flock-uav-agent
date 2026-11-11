@@ -1,0 +1,54 @@
+[
+  {
+    "tool": "list_drones",
+    "arguments": {}
+  },
+  {
+    "tool": "move_to",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1",
+        "x": 0,
+        "y": 0,
+        "z": 15
+      }
+    }
+  },
+  {
+    "tool": "get_drone_status",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1"
+      }
+    }
+  },
+  {
+    "tool": "take_off",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1",
+        "altitude": 15
+      }
+    }
+  },
+  {
+    "tool": "rotate",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1",
+        "heading": 96
+      }
+    }
+  },
+  {
+    "tool": "hover",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1"
+      }
+    }
+  },
+  {
+    "final": "Local scripted contract completed. [TASK DONE]"
+  }
+]

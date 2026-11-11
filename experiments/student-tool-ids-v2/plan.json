@@ -1,0 +1,32 @@
+{
+  "schema": "student-tool-id-trial-plan-v2",
+  "date": "2026-11-03",
+  "purpose": "development_input_compatibility_only",
+  "source_plan": "experiments/agent-samples-v1/source-plan.json",
+  "source_plan_sha256": "a2e317a1261dcf0a86d5b3460219cee58104233b9d9a4874a3c669bd9eb9a689",
+  "conversion_package": "docs/results/agent-samples-student-input-20261103/conversion-run-01",
+  "conversion_manifest_sha256": "9377805432cdcd1041305d2e2e7d689f91686388867acb42da8c1a12bbabf2be",
+  "v1_student_package": "docs/results/agent-samples-student-input-20261103/student-input-run-01",
+  "v1_student_manifest_sha256": "5d548f56ccee87024f20af14720dbda2bbe426f7aaac7c4ceea5ef23f768ab6f",
+  "v1_context": "docs/results/agent-samples-student-input-20261103/context-diagnostic.json",
+  "v1_context_sha256": "5f4aa88952c915fe1d026103a1de0f4ea3b9108220bd0ed3bf23431e9d3ac197",
+  "protocol": "docs/STUDENT_TOOL_ID_ADAPTER_CN.md",
+  "protocol_sha256": "65763e0717328ba780126f4f590c4c4eb2227c689f92a9ea0bd22e3513758c2f",
+  "expected_planned_episodes": 22,
+  "expected_wire_requests": 98,
+  "expected_samples": 61,
+  "expected_previous_prompt_rejections": 10,
+  "candidate_lengths": [
+    4096,
+    8192,
+    16384,
+    32768
+  ],
+  "diagnostic_output_reserve_tokens": 2048,
+  "max_length": 32768,
+  "truncation": false,
+  "weights_download": false,
+  "provider_calls_authorized": 0,
+  "teacher_training_examples_expected": 0,
+  "test_split_used": false
+}

@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "frozen_plan_sha256": "8ab8cd3f7bc381b67d8edd54ccd860eafb6090d635a29991036d9239f80e0d45",
+  "method": "Independent deterministic replay from each original task-start snapshot: direct move_to XY segments at z=20, first takeoff, frozen server collision/battery equations, exact fixed-target sensing and along-path reach geometry. Stop each UAV after its first rejected segment; no replanning.",
+  "limits": [
+    "This is not the live server endpoint, an agent run, or a paired counterfactual with the original R2 trajectory.",
+    "Three tasks share one original scene but are replayed independently from their own original task-start states.",
+    "No provider scheduling or 500s wall-clock budget is simulated.",
+    "Optimistic discovery assumes every planned point is reached; direct-prefix replay rejects hidden-obstacle and battery failures.",
+    "Original checker accepts >=95%, while the task wording says >95%; both are reported separately."
+  ],
+  "rows": [
+    {
+      "task_id": "5e743d21",
+      "start_progress_percent": 64,
+      "initial_public_known_targets": 59,
+      "initial_before_unreached_known": 7,
+      "full_plan_endpoints": 427,
+      "checkpoint_rows": [
+        {
+          "rounds_per_drone": 4,
+          "planned_endpoints": 120,
+          "accepted_endpoints": 88,
+          "stopped_drone_count": 14,
+          "travel_km": 10.57,
+          "new_before_unreached_discovered": 9,
+          "new_before_unreached_reached": 5,
+          "geometric_progress_percent": 69,
+          "original_checker_threshold_met": false,
+          "task_text_strict_threshold_met": false,
+          "optimistic_new_before_unreached_discovered": 11
+        },
+        {
+          "rounds_per_drone": 8,
+          "planned_endpoints": 232,
+          "accepted_endpoints": 138,
+          "stopped_drone_count": 16,
+          "travel_km": 17.41,
+          "new_before_unreached_discovered": 11,
+          "new_before_unreached_reached": 10,
+          "geometric_progress_percent": 74,
+          "original_checker_threshold_met": false,
+          "task_text_strict_threshold_met": false,
+          "optimistic_new_before_unreached_discovered": 24
+        },
+        {
+          "rounds_per_drone": 16,
+          "planned_endpoints": 427,
+          "accepted_endpoints": 181,
+          "stopped_drone_count": 23,
+          "travel_km": 24.38,
+          "new_before_unreached_discovered": 12,
+          "new_before_unreached_reached": 14,
+          "geometric_progress_percent": 78,
+          "original_checker_threshold_met": false,
+          "task_text_strict_threshold_met": false,
+          "optimistic_new_before_unreached_discovered": 29
+        }
+      ],
+      "first_stop_reasons": {
+        "path_collision": 6,
+        "endpoint_collision": 17
+      },
+      "collision_stops_on_initially_public_obstacle": 0,
+      "collision_stops_on_initially_unobserved_obstacle": 23,
+      "accepted_segments": 181,
+      "rejected_or_unattempted_segments": 246,
+      "final_min_battery_percent": 80.79,
+      "independent_from_original_sequential_scenario": true
+    },
+    {
+      "task_id": "24ac1838",
+      "start_progress_percent": 81,
+      "initial_public_known_targets": 69,
+      "initial_before_unreached_known": 3,
+      "full_plan_endpoints": 436,
+      "checkpoint_rows": [
+        {
+          "rounds_per_drone": 4,
+          "planned_endpoints": 120,
+          "accepted_endpoints": 96,
+          "stopped_drone_count": 9,
+          "travel_km": 11.84,
+          "new_before_unreached_discovered": 0,
+          "new_before_unreached_reached": 0,
+          "geometric_progress_percent": 81,
+          "original_checker_threshold_met": false,
+          "task_text_strict_threshold_met": false,
+          "optimistic_new_before_unreached_discovered": 6
+        },
+        {
+          "rounds_per_drone": 8,
+          "planned_endpoints": 239,
+          "accepted_endpoints": 168,
+          "stopped_drone_count": 13,
+          "travel_km": 22.78,
+          "new_before_unreached_discovered": 1,
+          "new_before_unreached_reached": 2,
+          "geometric_progress_percent": 83,
+          "original_checker_threshold_met": false,
+          "task_text_strict_threshold_met": false,
+          "optimistic_new_before_unreached_discovered": 9
+        },
+        {
+          "rounds_per_drone": 16,
+          "planned_endpoints": 436,
+          "accepted_endpoints": 256,
+          "stopped_drone_count": 19,
+          "travel_km": 40.79,
+          "new_before_unreached_discovered": 5,
+          "new_before_unreached_reached": 6,
+          "geometric_progress_percent": 87,
+          "original_checker_threshold_met": false,
+          "task_text_strict_threshold_met": false,
+          "optimistic_new_before_unreached_discovered": 15
+        }
+      ],
+      "first_stop_reasons": {
+        "path_collision": 7,
+        "endpoint_collision": 12
+      },
+      "collision_stops_on_initially_public_obstacle": 0,
+      "collision_stops_on_initially_unobserved_obstacle": 19,
+      "accepted_segments": 256,
+      "rejected_or_unattempted_segments": 180,
+      "final_min_battery_percent": 64.04,
+      "independent_from_original_sequential_scenario": true
+    },
+    {
+      "task_id": "7cdefb56",
+      "start_progress_percent": 89,
+      "initial_public_known_targets": 77,
+      "initial_before_unreached_known": 1,
+      "full_plan_endpoints": 412,
+      "checkpoint_rows": [
+        {
+          "rounds_per_drone": 4,
+          "planned_endpoints": 120,
+          "accepted_endpoints": 106,
+          "stopped_drone_count": 7,
+          "travel_km": 12.49,
+          "new_before_unreached_discovered": 5,
+          "new_before_unreached_reached": 5,
+          "geometric_progress_percent": 94,
+          "original_checker_threshold_met": false,
+          "task_text_strict_threshold_met": false,
+          "optimistic_new_before_unreached_discovered": 5
+        },
+        {
+          "rounds_per_drone": 8,
+          "planned_endpoints": 239,
+          "accepted_endpoints": 187,
+          "stopped_drone_count": 12,
+          "travel_km": 24.85,
+          "new_before_unreached_discovered": 6,
+          "new_before_unreached_reached": 6,
+          "geometric_progress_percent": 95,
+          "original_checker_threshold_met": true,
+          "task_text_strict_threshold_met": false,
+          "optimistic_new_before_unreached_discovered": 10
+        },
+        {
+          "rounds_per_drone": 16,
+          "planned_endpoints": 412,
+          "accepted_endpoints": 237,
+          "stopped_drone_count": 20,
+          "travel_km": 33.54,
+          "new_before_unreached_discovered": 8,
+          "new_before_unreached_reached": 8,
+          "geometric_progress_percent": 97,
+          "original_checker_threshold_met": true,
+          "task_text_strict_threshold_met": true,
+          "optimistic_new_before_unreached_discovered": 10
+        }
+      ],
+      "first_stop_reasons": {
+        "endpoint_collision": 10,
+        "path_collision": 10
+      },
+      "collision_stops_on_initially_public_obstacle": 0,
+      "collision_stops_on_initially_unobserved_obstacle": 20,
+      "accepted_segments": 237,
+      "rejected_or_unattempted_segments": 175,
+      "final_min_battery_percent": 83.85,
+      "independent_from_original_sequential_scenario": true
+    }
+  ]
+}

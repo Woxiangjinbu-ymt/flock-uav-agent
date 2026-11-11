@@ -1,0 +1,167 @@
+{
+  "scope": "read_only_postrun_facts_no_protocol_or_analyzer_change",
+  "fixed_analyzer_sha256": "958fec80f75113a95296989e625214f704819eabef079f6fdaa4c6c8a95313ea",
+  "search": {
+    "baseline": {
+      "independent_final_progress_percent": 33,
+      "checker_path": "trials/search-baseline/evaluation/result.json",
+      "last_public_progress_observation": {
+        "request_id": 9,
+        "progress_percentage": 0
+      },
+      "warning": "last public read is not the final independent snapshot; baseline public reads were only at initialization",
+      "actual_HTTP_responses": 12,
+      "archived_but_not_dispatched_attempts": [
+        "attempt-13"
+      ],
+      "largest_dispatched_request_bytes": 98112,
+      "action_origin_counts": {
+        "model_tool": 19
+      },
+      "physical_cost": {
+        "api_requests": 77,
+        "action_attempts": 19,
+        "action_receipts": {
+          "success": 17,
+          "partial_success": 0,
+          "error": 2
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 22,
+        "length_xy": 2943.47237357451,
+        "length_xyz": 3055.47237357451,
+        "vertical_distance": 112.0,
+        "consumed_mah": 14.56015935405118,
+        "charged_mah": 0
+      }
+    },
+    "integrated": {
+      "independent_final_progress_percent": 66,
+      "checker_path": "trials/search-integrated/evaluation/result.json",
+      "last_public_progress_observation": {
+        "request_id": 363,
+        "progress_percentage": 66
+      },
+      "warning": "last public read is not the final independent snapshot; baseline public reads were only at initialization",
+      "actual_HTTP_responses": 10,
+      "archived_but_not_dispatched_attempts": [
+        "attempt-11"
+      ],
+      "largest_dispatched_request_bytes": 181332,
+      "action_origin_counts": {
+        "skill": 85,
+        "model_tool": 25
+      },
+      "physical_cost": {
+        "api_requests": 488,
+        "action_attempts": 110,
+        "action_receipts": {
+          "success": 101,
+          "partial_success": 0,
+          "error": 9
+        },
+        "uncommitted_actions": 0,
+        "physical_history_events": 151,
+        "length_xy": 17028.470490701362,
+        "length_xyz": 17128.470490701362,
+        "vertical_distance": 100.0,
+        "consumed_mah": 74.71732606726277,
+        "charged_mah": 0
+      },
+      "skill_exit_to_model": {
+        "plan_id": "cb57ae6f-21bb-46dd-aaaa-9eb88f2af8c8:p1",
+        "skill": "public_search",
+        "status": "needs_replan",
+        "reason": "round_limit_below_threshold",
+        "plan_status": null,
+        "plan_reason": null,
+        "cursor": 80,
+        "resumable": false,
+        "remaining_s": 493.9972723329993,
+        "archive_end_sequence": 29,
+        "source_relation": "unique",
+        "tool_call_id": "call_00_Mtg596oYMidhdBXuNvRY9955",
+        "decision_ordinal": 5
+      },
+      "token_phases": {
+        "through_skill_submission": {
+          "responses": 3,
+          "prompt_tokens": 36892,
+          "completion_tokens": 395,
+          "total_tokens": 37287,
+          "reported_reasoning_tokens": 184
+        },
+        "after_skill_exit": {
+          "responses": 7,
+          "prompt_tokens": 187456,
+          "completion_tokens": 15154,
+          "total_tokens": 202610,
+          "reported_reasoning_tokens": 13357
+        }
+      }
+    }
+  },
+  "accounting_not_causal_attribution": true,
+  "table": [
+    {
+      "condition": "short_chain",
+      "baseline_checker": true,
+      "integrated_checker": true,
+      "differences_I_minus_B": {
+        "checker_passed": 0,
+        "known_total_tokens": -16013,
+        "delegated_http_attempts": -2,
+        "action_attempts": 0,
+        "api_requests": 4,
+        "worker_elapsed_seconds": -0.45358304199544364,
+        "tool_feedback_errors": 0,
+        "action_non_success_receipts": 0
+      }
+    },
+    {
+      "condition": "navigation",
+      "baseline_checker": true,
+      "integrated_checker": true,
+      "differences_I_minus_B": {
+        "checker_passed": 0,
+        "known_total_tokens": 8446,
+        "delegated_http_attempts": 0,
+        "action_attempts": 0,
+        "api_requests": 0,
+        "worker_elapsed_seconds": -0.6678735009991215,
+        "tool_feedback_errors": 0,
+        "action_non_success_receipts": 0
+      }
+    },
+    {
+      "condition": "search",
+      "baseline_checker": false,
+      "integrated_checker": false,
+      "differences_I_minus_B": {
+        "checker_passed": 0,
+        "known_total_tokens": 42541,
+        "delegated_http_attempts": -2,
+        "action_attempts": 91,
+        "api_requests": 411,
+        "worker_elapsed_seconds": 60.93161825000061,
+        "tool_feedback_errors": 2,
+        "action_non_success_receipts": 7
+      }
+    },
+    {
+      "condition": "unknown_takeoff",
+      "baseline_checker": true,
+      "integrated_checker": true,
+      "differences_I_minus_B": {
+        "checker_passed": 0,
+        "known_total_tokens": 10794,
+        "delegated_http_attempts": 0,
+        "action_attempts": 0,
+        "api_requests": 3,
+        "worker_elapsed_seconds": 0.9036474160020589,
+        "tool_feedback_errors": -1,
+        "action_non_success_receipts": 0
+      }
+    }
+  ]
+}

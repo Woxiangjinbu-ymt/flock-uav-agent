@@ -1,0 +1,313 @@
+{
+  "schema": "task-split-independent-audit-v1",
+  "passed": true,
+  "dataset_id": "task-coverage-splits-v1-formal",
+  "phase": "formal",
+  "manifest_sha256": "4d2da10b0a6ea753a924ec22f6f16ad29d59711a94ecef6fbd013cbadf226f4e",
+  "auditor_sha256": "401a198ffc22a239d6cd3dd633e8b5e67cab5c6cf22ccdec46c5635e17ed150d",
+  "evaluation_scope": "in_template_instance_generalization",
+  "counts": {
+    "scenes": 30,
+    "tasks": 174,
+    "tasks_by_split": {
+      "train": 116,
+      "dev": 29,
+      "test": 29
+    },
+    "checker_leaves": 588
+  },
+  "checks": {
+    "artifact_hashes_and_inventory": true,
+    "scene_seed_lineage_task_isolation": true,
+    "canonical_state_and_translation_geometry_isolation": true,
+    "one_metre_geometry_isolation": true,
+    "source_task_checker_structure": true,
+    "formal_test_training_forbidden": true
+  },
+  "source_snapshot": {
+    "present": true,
+    "files": 12,
+    "provenance_matches": true
+  },
+  "exposed_dataset_comparisons": [
+    {
+      "dataset_id": "task-coverage-splits-v1-pilot",
+      "manifest_sha256": "0c74c0cf419171d1e412802573a39c635123f2cf723ae1900acdb1c8a27ca204",
+      "scenes": 30,
+      "tasks": 174,
+      "role": "exposed_development_only",
+      "disjoint": true,
+      "train_f1_semantic_overlaps": 0
+    }
+  ],
+  "same_split_duplicate_groups": [],
+  "same_split_near_geometry_pairs": [],
+  "near_duplicate_rule": {
+    "maximum_coordinate_or_size_difference_metres": 1.0,
+    "translation_axes": [
+      "x",
+      "y"
+    ],
+    "z_translation_allowed": false,
+    "entity_matching": "canonical_order_candidate_screen_not_complete_graph_isomorphism"
+  },
+  "shared_command_skeleton_clusters": [
+    {
+      "sha256": "276382628afed2c4b00cefa07683b9a7e44e3880d5c1ae05193f22646b8d3900",
+      "tasks": 30,
+      "by_split": {
+        "train": 20,
+        "dev": 5,
+        "test": 5
+      },
+      "template_ids": [
+        "w2_f2_unordered_waypoint_set"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    },
+    {
+      "sha256": "35132c1525d23c0cdf99aa39c567acb7671dee11d46a0532a7a3c0e4d70068f5",
+      "tasks": 30,
+      "by_split": {
+        "train": 20,
+        "dev": 5,
+        "test": 5
+      },
+      "template_ids": [
+        "w2_f6_all_target_visit_progress"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    },
+    {
+      "sha256": "80333f0c3efefa44206bf0e1b6951e916fcbe96e91f7a8bbc328ed0ba2fed700",
+      "tasks": 6,
+      "by_split": {
+        "train": 4,
+        "dev": 1,
+        "test": 1
+      },
+      "template_ids": [
+        "w2_f5_actor_specific_assignment"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    },
+    {
+      "sha256": "b8ad83ddd846b581b5c1b30d4194a01e6f067d8d6d1f6943edc4d92b2cba92bb",
+      "tasks": 6,
+      "by_split": {
+        "train": 4,
+        "dev": 1,
+        "test": 1
+      },
+      "template_ids": [
+        "w2_f5_actor_specific_assignment"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    },
+    {
+      "sha256": "c127e558264f2ba6818793df210ea41577ea08ecfe84ef4cfd72a58113727025",
+      "tasks": 30,
+      "by_split": {
+        "train": 20,
+        "dev": 5,
+        "test": 5
+      },
+      "template_ids": [
+        "w2_f4_fleet_aggregate_area_coverage"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    },
+    {
+      "sha256": "cab778c85ce0797b42bd052f2f1586e5fddc13e5646220a4d0a097c0805b2cdb",
+      "tasks": 30,
+      "by_split": {
+        "train": 20,
+        "dev": 5,
+        "test": 5
+      },
+      "template_ids": [
+        "w2_f1_flight_heading_hover"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    },
+    {
+      "sha256": "dffa7dad2764b8693f018926ea776264b301e114001516e7de3be93ff7a18553",
+      "tasks": 6,
+      "by_split": {
+        "train": 4,
+        "dev": 1,
+        "test": 1
+      },
+      "template_ids": [
+        "w2_f5_actor_specific_assignment"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    },
+    {
+      "sha256": "eaa145c912ceb42e28983e27f7a38a1bd9a0de6cacce61947d70dd8a7ccb9d19",
+      "tasks": 30,
+      "by_split": {
+        "train": 20,
+        "dev": 5,
+        "test": 5
+      },
+      "template_ids": [
+        "w2_f3_target_visit_visible_photo"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    },
+    {
+      "sha256": "f7978d3f40f85eaf7ad9a8cdb0bb6bcb02d62d16258a989cc58a91d01c98ad9a",
+      "tasks": 6,
+      "by_split": {
+        "train": 4,
+        "dev": 1,
+        "test": 1
+      },
+      "template_ids": [
+        "w2_f5_actor_specific_assignment"
+      ],
+      "historical_tasks_with_same_skeleton": 0
+    }
+  ],
+  "template_counts_by_split": {
+    "w2_f1_flight_heading_hover": {
+      "train": 20,
+      "dev": 5,
+      "test": 5
+    },
+    "w2_f2_unordered_waypoint_set": {
+      "train": 20,
+      "dev": 5,
+      "test": 5
+    },
+    "w2_f3_target_visit_visible_photo": {
+      "train": 20,
+      "dev": 5,
+      "test": 5
+    },
+    "w2_f4_fleet_aggregate_area_coverage": {
+      "train": 20,
+      "dev": 5,
+      "test": 5
+    },
+    "w2_f5_actor_specific_assignment": {
+      "train": 16,
+      "dev": 4,
+      "test": 4
+    },
+    "w2_f6_all_target_visit_progress": {
+      "train": 20,
+      "dev": 5,
+      "test": 5
+    }
+  },
+  "exact_command_clusters_preserving_numbers": [
+    {
+      "sha256": "09172f6304e376ebe0cbe0439ab7ee78dce59eadc01baee86b1a0a230119c0a1",
+      "tasks": 30,
+      "by_split": {
+        "train": 20,
+        "dev": 5,
+        "test": 5
+      },
+      "template_ids": [
+        "w2_f4_fleet_aggregate_area_coverage"
+      ]
+    },
+    {
+      "sha256": "80333f0c3efefa44206bf0e1b6951e916fcbe96e91f7a8bbc328ed0ba2fed700",
+      "tasks": 6,
+      "by_split": {
+        "train": 4,
+        "dev": 1,
+        "test": 1
+      },
+      "template_ids": [
+        "w2_f5_actor_specific_assignment"
+      ]
+    },
+    {
+      "sha256": "b40eca28c62aa9c61efe0a509f0e544304088ff50cef3e87ed7ee24515dd4701",
+      "tasks": 30,
+      "by_split": {
+        "train": 20,
+        "dev": 5,
+        "test": 5
+      },
+      "template_ids": [
+        "w2_f6_all_target_visit_progress"
+      ]
+    },
+    {
+      "sha256": "b8ad83ddd846b581b5c1b30d4194a01e6f067d8d6d1f6943edc4d92b2cba92bb",
+      "tasks": 6,
+      "by_split": {
+        "train": 4,
+        "dev": 1,
+        "test": 1
+      },
+      "template_ids": [
+        "w2_f5_actor_specific_assignment"
+      ]
+    },
+    {
+      "sha256": "dffa7dad2764b8693f018926ea776264b301e114001516e7de3be93ff7a18553",
+      "tasks": 6,
+      "by_split": {
+        "train": 4,
+        "dev": 1,
+        "test": 1
+      },
+      "template_ids": [
+        "w2_f5_actor_specific_assignment"
+      ]
+    },
+    {
+      "sha256": "eaa145c912ceb42e28983e27f7a38a1bd9a0de6cacce61947d70dd8a7ccb9d19",
+      "tasks": 30,
+      "by_split": {
+        "train": 20,
+        "dev": 5,
+        "test": 5
+      },
+      "template_ids": [
+        "w2_f3_target_visit_visible_photo"
+      ]
+    },
+    {
+      "sha256": "f7978d3f40f85eaf7ad9a8cdb0bb6bcb02d62d16258a989cc58a91d01c98ad9a",
+      "tasks": 6,
+      "by_split": {
+        "train": 4,
+        "dev": 1,
+        "test": 1
+      },
+      "template_ids": [
+        "w2_f5_actor_specific_assignment"
+      ]
+    }
+  ],
+  "f1_task_semantic_deduplication": {
+    "unique_fingerprints": 30,
+    "cross_split_duplicates": 0,
+    "irrelevant_map_xy_and_other_actors_excluded": true,
+    "checker_and_initial_actor_state_preserved": true
+  },
+  "historical_exposure": {
+    "scene_count": 75,
+    "task_count": 1500,
+    "role": "exposed_development_only",
+    "archive_sha256": "b5040097d2bfdd44600f3bf486fdb43ee3eb1247fec9c67900b5fcda6feb94a3"
+  },
+  "limitations": [
+    "in_template_instance_generalization_not_template_or_family_holdout",
+    "static_audit_does_not_prove_solvability_or_checker_semantics",
+    "source_hashes_identify_generator_version_not_current_workspace_equality",
+    "declared_exposure_requires_separate_access_and_use_records",
+    "renaming_translation_and_one_metre_screen_is_not_complete_semantic_deduplication",
+    "fine_grained_task_semantic_deduplication_implemented_only_for_F1_not_F2_F6",
+    "no_policy_calls_no_test_based_agent_tuning"
+  ],
+  "provider_calls": 0
+}

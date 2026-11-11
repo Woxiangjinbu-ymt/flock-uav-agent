@@ -1,0 +1,49 @@
+{
+  "review": "read-only; no simulation or model invocation",
+  "runner_path": "scripts/validate_harness_blocked_candidate.py",
+  "runner_sha256": "d8d830757d2e61faf69d57aa8011c7255184c80fb89bf0dde4b847e747ea392c",
+  "blocking_findings": [],
+  "checks": [
+    "purposefully distinct endpoint repeat and path-edge keys",
+    "cross actor not merged into same-actor metric",
+    "unknown starts excluded from same-edge count",
+    "500 seconds / 2000 APIs / 16 repairs / 16 rounds unchanged",
+    "7 fixed tasks x 2 revisions / alternating fresh processes",
+    "frozen sources and fixture hashes / historical v3 validation",
+    "checker evaluation isolated after skill stop"
+  ],
+  "synthetic_diagnostic_assertions": {
+    "passed": 6,
+    "summary": {
+      "move_attempt_count": 8,
+      "classification": {
+        "success": 0,
+        "endpoint_conflict": 3,
+        "path_conflict": 5,
+        "other_error": 0,
+        "partial": 0,
+        "unknown": 0
+      },
+      "all_move_error_count": 8,
+      "unique_failure_count": 6,
+      "unique_actor_endpoint_conflict_count": 2,
+      "same_actor_endpoint_conflict_repeat_count": 1,
+      "same_actor_endpoint_conflict_repeat_group_count": 1,
+      "same_actor_path_edge_repeat_count": 1,
+      "same_actor_path_endpoint_changed_start_count": 1,
+      "same_endpoint_path_multi_actor_or_start_group_count": 1,
+      "missing_public_start_count": 2,
+      "missing_requested_endpoint_count": 0
+    }
+  },
+  "historical_b1ad": {
+    "public_call_replay": 428,
+    "moves": 93,
+    "same_actor_endpoint_repeat_groups": 1,
+    "repeats_after_first": 1,
+    "request_ids": [
+      311,
+      434
+    ]
+  }
+}

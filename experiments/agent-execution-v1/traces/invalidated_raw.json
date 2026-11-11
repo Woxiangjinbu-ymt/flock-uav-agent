@@ -1,0 +1,44 @@
+[
+  {
+    "tool": "list_drones",
+    "arguments": {}
+  },
+  {
+    "tool": "run_harness",
+    "arguments": {
+      "input_json": {
+        "action": "start",
+        "skill": "simple_chain"
+      }
+    }
+  },
+  {
+    "tool": "rotate",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1",
+        "heading": 96
+      }
+    }
+  },
+  {
+    "tool": "run_harness",
+    "arguments": {
+      "input_json": {
+        "action": "resume",
+        "plan_id": "$plan:latest"
+      }
+    }
+  },
+  {
+    "tool": "hover",
+    "arguments": {
+      "input_json": {
+        "drone_id": "$drone:Drone 1"
+      }
+    }
+  },
+  {
+    "final": "Local scripted contract completed. [TASK DONE]"
+  }
+]

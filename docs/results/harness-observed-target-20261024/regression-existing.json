@@ -1,0 +1,30 @@
+{
+  "exit_code": 0,
+  "command_test_files": [
+    "agent4drone/tests/test_minimal_harness.py",
+    "agent4drone/tests/test_harness_entry_contract.py",
+    "agent4drone/tests/test_harness_flight_state.py",
+    "agent4drone/tests/test_harness_blocked_candidate.py",
+    "scripts/tests/test_harness_full100.py",
+    "scripts/tests/test_harness_v2.py",
+    "agent4drone/tests/test_execution_memory_integration.py",
+    "agent4drone/tests/test_execution_memory_v2_integration.py",
+    "agent4drone/tests/test_execution_memory_v3_integration.py",
+    "agent4drone/tests/test_execution_memory_v4_integration.py",
+    "agent4drone/tests/test_execution_memory_v5_integration.py",
+    "agent4drone/tests/test_execution_memory_v6_integration.py",
+    "agent4drone/tests/test_execution_memory_v7_integration.py",
+    "agent4drone/tests/test_harness_shared_endpoint.py",
+    "agent4drone/tests/test_harness_terminal_progress.py"
+  ],
+  "elapsed_seconds": 10.398865374998422,
+  "network": "connect/connect_ex/create_connection blocked",
+  "source_hashes_before": {
+    "agent4drone/harness_core.py": "ae663ef64ba4d35e93e01450bd49790fc082dc455fd3d444bf5ae66fe4a8c3fb",
+    "agent4drone/harness_skills.py": "d56226b8e9de0e304c29df58d82ff1ec9522b03f65ae58d70d55e1d65940408a",
+    "agent4drone/harness_integration.py": "13bed02a04992b76e2512457bbed28c7d6e2c711433593ddf947a6c6b35284d5",
+    "agent4drone/observed_target_search.py": "3bd8f996b6603fc44521bfee74130741c80af124deb4db2eea2965b42e1941d0",
+    "agent4drone/coordinated_search_r2.py": "693093f3ffeba3f5aeaaa3bd747dff5b846f4d8672c02208f90d88366efa4f14"
+  },
+  "sources_unchanged": true
+}

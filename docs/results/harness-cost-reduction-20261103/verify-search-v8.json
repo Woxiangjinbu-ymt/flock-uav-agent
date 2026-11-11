@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "planned": 16,
+  "started": 16,
+  "scored": 16,
+  "provider_calls": 0,
+  "scope": "development_scripted_sdk_asgi_search_comparison",
+  "verification": [
+    {
+      "name": "original-v7",
+      "valid": true,
+      "sealed_files": 317,
+      "trials": 7,
+      "provider_calls": 0
+    },
+    {
+      "name": "original-v8",
+      "valid": true,
+      "sealed_files": 317,
+      "trials": 7,
+      "provider_calls": 0
+    },
+    {
+      "name": "current-v7",
+      "valid": true,
+      "sealed_files": 130,
+      "trials": 1,
+      "provider_calls": 0
+    },
+    {
+      "name": "current-v8",
+      "valid": true,
+      "sealed_files": 130,
+      "trials": 1,
+      "provider_calls": 0
+    }
+  ],
+  "pairs": [
+    {
+      "task_id": "7eba7390",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": -50,
+      "api_request_delta": -205
+    },
+    {
+      "task_id": "24ac1838",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 41
+    },
+    {
+      "task_id": "b1ad4f3e",
+      "v7_passed": true,
+      "v8_passed": true,
+      "success_lost": false,
+      "action_attempt_delta": -9,
+      "api_request_delta": -23
+    },
+    {
+      "task_id": "b1eb0270",
+      "v7_passed": true,
+      "v8_passed": true,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 0
+    },
+    {
+      "task_id": "898cfdca",
+      "v7_passed": true,
+      "v8_passed": true,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 0
+    },
+    {
+      "task_id": "784d71f8",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 0
+    },
+    {
+      "task_id": "1905e0ad",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": 0,
+      "api_request_delta": 0
+    },
+    {
+      "task_id": "fdd21809",
+      "v7_passed": false,
+      "v8_passed": false,
+      "success_lost": false,
+      "action_attempt_delta": -20,
+      "api_request_delta": -80
+    }
+  ],
+  "candidate_preserves_measured_successes": true,
+  "v7_passed": 3,
+  "v8_passed": 3,
+  "denominator_per_arm": 8,
+  "general_preservation_proven": false,
+  "natural_model_or_token_gain_measured": false
+}

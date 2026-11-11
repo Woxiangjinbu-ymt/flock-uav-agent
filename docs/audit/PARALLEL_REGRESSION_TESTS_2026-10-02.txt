@@ -1,0 +1,153 @@
+test_all_planned_leaf_rows_exist_before_execution (scripts.tests.test_reproduction.HarnessTests.test_all_planned_leaf_rows_exist_before_execution) ... ok
+test_cancelled_is_not_a_quiescent_terminal_result (scripts.tests.test_reproduction.HarnessTests.test_cancelled_is_not_a_quiescent_terminal_result) ... ok
+test_canonical_full_counts_and_scene_prefixes (scripts.tests.test_reproduction.HarnessTests.test_canonical_full_counts_and_scene_prefixes) ... ok
+test_completed_false_success_still_returned_for_environment_grading (scripts.tests.test_reproduction.HarnessTests.test_completed_false_success_still_returned_for_environment_grading) ... ok
+test_duplicate_task_rows_rejected (scripts.tests.test_reproduction.HarnessTests.test_duplicate_task_rows_rejected) ... ok
+test_finished_before_deadline_is_not_timeout_when_polled_late (scripts.tests.test_reproduction.HarnessTests.test_finished_before_deadline_is_not_timeout_when_polled_late) ... ok
+test_force_reap_ignores_forged_cancel_status (scripts.tests.test_reproduction.HarnessTests.test_force_reap_ignores_forged_cancel_status) ... ok
+test_landing_blocked_aborts_before_charge (scripts.tests.test_reproduction.HarnessTests.test_landing_blocked_aborts_before_charge) ... ok
+test_legacy_plan_migration_preserves_bytes_and_is_idempotent (scripts.tests.test_reproduction.HarnessTests.test_legacy_plan_migration_preserves_bytes_and_is_idempotent) ... ok
+test_metrics_use_correct_denominators_and_tree_pass (scripts.tests.test_reproduction.HarnessTests.test_metrics_use_correct_denominators_and_tree_pass) ... ok
+test_migration_refuses_unrelated_protocol_changes (scripts.tests.test_reproduction.HarnessTests.test_migration_refuses_unrelated_protocol_changes) ... ok
+test_missing_leaf_result_is_incomplete (scripts.tests.test_reproduction.HarnessTests.test_missing_leaf_result_is_incomplete) ... ok
+test_missing_rows_do_not_generate_metrics (scripts.tests.test_reproduction.HarnessTests.test_missing_rows_do_not_generate_metrics) ... ok
+test_plan_timeout_matches_upstream_gui_initial_value (scripts.tests.test_reproduction.HarnessTests.test_plan_timeout_matches_upstream_gui_initial_value) ... ok
+test_replaced_leaf_definition_rejected (scripts.tests.test_reproduction.HarnessTests.test_replaced_leaf_definition_rejected) ... ok
+test_server_admission_drain_and_stale_requests (scripts.tests.test_reproduction.HarnessTests.test_server_admission_drain_and_stale_requests) ... ok
+test_timeout_does_not_call_cancel_or_submit_next_job (scripts.tests.test_reproduction.HarnessTests.test_timeout_does_not_call_cancel_or_submit_next_job) ... ok
+test_upstream_endpoint_error_remains_visible (scripts.tests.test_reproduction.HarnessTests.test_upstream_endpoint_error_remains_visible) ... ok
+test_upstream_evaluator_visits_all_branches_and_false_expectation (scripts.tests.test_reproduction.HarnessTests.test_upstream_evaluator_visits_all_branches_and_false_expectation) ... ok
+test_real_server_upstream_service_and_checker (scripts.tests.test_reproduction.LiveHarnessTests.test_real_server_upstream_service_and_checker) ... Archived previous protocol: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/tmpkq7cl0b3/archive/agent4drone-bupt-v3-gui500-timeout-scoring/smoke.json
+Archived previous protocol: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/tmp4cuekhyq/archive/agent4drone-bupt-v2-gui500/smoke.json
+Archived previous protocol: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/tmpd4pw705s/archive/agent4drone-bupt-v1-300s/smoke.json
+Attempt: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/multiuav-harness-test-v62b81we/20261002-203030-smoke-059b72a4
+Protocol: agent4drone-v3-gui500-timeout-scoring; task timeout: 30 seconds
+Executor: scene-parallel-v1; workers=1; pending scenes=1
+7f1a1456/213cfacb submitted
+7f1a1456/213cfacb: agent_timeout=False, passed=True, checks=2/2
+ok
+test_timeout_goal_met_is_scored_pass_and_continues (scripts.tests.test_reproduction.LiveHarnessTests.test_timeout_goal_met_is_scored_pass_and_continues) ... {
+  "valid_complete_run": true,
+  "planned_tasks": 1,
+  "planned_checks": 2,
+  "scored_tasks": 1,
+  "scored_checks": 2,
+  "agent_timed_out_tasks": 0,
+  "timed_out_but_passed_tasks": 0,
+  "missing_or_invalid_tasks": 0,
+  "metrics": {
+    "passed_tasks": 1,
+    "task_pass": 1.0,
+    "avg_check": 1.0,
+    "global_check": 1.0,
+    "total_failed": 0.0
+  }
+}
+Attempt: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/multiuav-harness-test-y4_vqzkk/20261002-203033-smoke-6f0d321b
+Protocol: agent4drone-v3-gui500-timeout-scoring; task timeout: 2 seconds
+Executor: scene-parallel-v1; workers=1; pending scenes=1
+7f1a1456/213cfacb submitted
+7f1a1456/213cfacb: agent timed out; closing actions and grading environment
+7f1a1456/213cfacb: agent_timeout=True, passed=True, checks=2/2
+7f1a1456/fa51b329 submitted
+7f1a1456/fa51b329: agent_timeout=False, passed=False, checks=0/5
+ok
+test_timeout_no_progress_is_scored_failure_and_continues (scripts.tests.test_reproduction.LiveHarnessTests.test_timeout_no_progress_is_scored_failure_and_continues) ... {
+  "valid_complete_run": true,
+  "planned_tasks": 2,
+  "planned_checks": 7,
+  "scored_tasks": 2,
+  "scored_checks": 7,
+  "agent_timed_out_tasks": 1,
+  "timed_out_but_passed_tasks": 1,
+  "missing_or_invalid_tasks": 0,
+  "metrics": {
+    "passed_tasks": 1,
+    "task_pass": 0.5,
+    "avg_check": 0.5,
+    "global_check": 0.2857142857142857,
+    "total_failed": 0.5
+  }
+}
+Attempt: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/multiuav-harness-test-1ri8yd26/20261002-203038-smoke-a8009923
+Protocol: agent4drone-v3-gui500-timeout-scoring; task timeout: 2 seconds
+Executor: scene-parallel-v1; workers=1; pending scenes=1
+7f1a1456/213cfacb submitted
+7f1a1456/213cfacb: agent timed out; closing actions and grading environment
+7f1a1456/213cfacb: agent_timeout=True, passed=False, checks=0/2
+7f1a1456/fa51b329 submitted
+7f1a1456/fa51b329: agent_timeout=False, passed=False, checks=0/5
+ok
+test_timeout_partial_progress_is_scored_and_continues (scripts.tests.test_reproduction.LiveHarnessTests.test_timeout_partial_progress_is_scored_and_continues) ... {
+  "valid_complete_run": true,
+  "planned_tasks": 2,
+  "planned_checks": 7,
+  "scored_tasks": 2,
+  "scored_checks": 7,
+  "agent_timed_out_tasks": 1,
+  "timed_out_but_passed_tasks": 0,
+  "missing_or_invalid_tasks": 0,
+  "metrics": {
+    "passed_tasks": 0,
+    "task_pass": 0.0,
+    "avg_check": 0.0,
+    "global_check": 0.0,
+    "total_failed": 1.0
+  }
+}
+Attempt: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/multiuav-harness-test-yos46wfy/20261002-203044-smoke-47dc1fe6
+Protocol: agent4drone-v3-gui500-timeout-scoring; task timeout: 2 seconds
+Executor: scene-parallel-v1; workers=1; pending scenes=1
+7f1a1456/213cfacb submitted
+7f1a1456/213cfacb: agent timed out; closing actions and grading environment
+7f1a1456/213cfacb: agent_timeout=True, passed=False, checks=1/2
+7f1a1456/fa51b329 submitted
+7f1a1456/fa51b329: agent_timeout=False, passed=False, checks=0/5
+ok
+test_unstoppable_worker_preserves_score_but_blocks_next_task (scripts.tests.test_reproduction.LiveHarnessTests.test_unstoppable_worker_preserves_score_but_blocks_next_task) ... {
+  "valid_complete_run": true,
+  "planned_tasks": 2,
+  "planned_checks": 7,
+  "scored_tasks": 2,
+  "scored_checks": 7,
+  "agent_timed_out_tasks": 1,
+  "timed_out_but_passed_tasks": 0,
+  "missing_or_invalid_tasks": 0,
+  "metrics": {
+    "passed_tasks": 0,
+    "task_pass": 0.0,
+    "avg_check": 0.25,
+    "global_check": 0.14285714285714285,
+    "total_failed": 0.5
+  }
+}
+Attempt: /var/folders/sy/z7tsqkgn5ls6j6t_wz9kw8j00000gn/T/multiuav-harness-test-6g3ik4qq/20261002-203049-smoke-a86aacfe
+Protocol: agent4drone-v3-gui500-timeout-scoring; task timeout: 2 seconds
+Executor: scene-parallel-v1; workers=1; pending scenes=1
+7f1a1456/213cfacb submitted
+7f1a1456/213cfacb: agent timed out; closing actions and grading environment
+7f1a1456/213cfacb: agent_timeout=True, passed=True, checks=2/2
+7f1a1456: TimeoutError: Worker did not exit; scored task saved, refusing to start next task
+ok
+test_normal_exit_cleans_descendants (scripts.tests.test_reproduction_process.SupervisorTests.test_normal_exit_cleans_descendants) ... ok
+test_normal_service_exit_preserves_exit_code (scripts.tests.test_reproduction_process.SupervisorTests.test_normal_service_exit_preserves_exit_code) ... ok
+test_parent_pipe_eof_kills_service_ignoring_term (scripts.tests.test_reproduction_process.SupervisorTests.test_parent_pipe_eof_kills_service_ignoring_term) ... ok
+test_supervisor_term_cleans_service (scripts.tests.test_reproduction_process.SupervisorTests.test_supervisor_term_cleans_service) ... ok
+test_lost_supervisor_does_not_leave_registered_service (scripts.tests.test_reproduction_child.ChildTests.test_lost_supervisor_does_not_leave_registered_service) ... ok
+test_unverified_group_is_not_signalled (scripts.tests.test_reproduction_child.ChildTests.test_unverified_group_is_not_signalled) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 36.794s
+
+OK
+{
+  "valid_complete_run": false,
+  "planned_tasks": 2,
+  "planned_checks": 7,
+  "scored_tasks": 1,
+  "scored_checks": 2,
+  "agent_timed_out_tasks": 1,
+  "timed_out_but_passed_tasks": 1,
+  "missing_or_invalid_tasks": 1,
+  "metrics": null
+}

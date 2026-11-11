@@ -1,0 +1,4941 @@
+{
+  "task_id": "b1eb0270",
+  "scheduler": "applicability",
+  "response": {
+    "plan_id": "b1eb0270:p1",
+    "skill": "simple_chain",
+    "status": "completed",
+    "reason": "skill_public_stop_condition",
+    "cursor": 3,
+    "state": {
+      "last_action": {
+        "tool": "hover",
+        "args": {
+          "drone_id": "f7635bdf"
+        },
+        "receipt": {
+          "command_id": "090fa59e",
+          "drone_id": "f7635bdf",
+          "command": "hover",
+          "status": "success",
+          "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+          "timestamp": 1792048850.787746
+        }
+      },
+      "last_verified_state": {
+        "id": "f7635bdf",
+        "name": "Drone 3",
+        "model": "Model-D",
+        "status": "hovering",
+        "position": {
+          "x": 224.0,
+          "y": 43.0,
+          "z": 14.0
+        },
+        "heading": 353.0,
+        "speed": 0.0,
+        "battery_level": 99.2,
+        "max_speed": 33.0,
+        "max_altitude": 473.0,
+        "battery_capacity": 74.4,
+        "perceived_radius": 50.0,
+        "task_radius": 20.0,
+        "home_position": {
+          "x": 224.0,
+          "y": 43.0,
+          "z": 0.0
+        },
+        "created_at": 1775666803.5496068,
+        "last_updated": 1792048850.78774
+      },
+      "remaining_steps": [],
+      "public_stop_condition": "simple_sequence_and_final_state_supported"
+    },
+    "actor_bindings": {
+      "Drone 3": "f7635bdf"
+    },
+    "api_calls": 10,
+    "evidence_refs": [
+      "e5",
+      "e7",
+      "e9",
+      "e11",
+      "e13",
+      "e15",
+      "e17",
+      "e19"
+    ],
+    "remaining_s": 499.98033295799905,
+    "mission_completion": "not_evaluated",
+    "next_control": "use original tools to resolve remaining task obligations"
+  },
+  "bootstrap_public_calls": [],
+  "public_calls": [
+    {
+      "tool": "list_drones",
+      "args": {},
+      "action": false
+    },
+    {
+      "tool": "get_drone_status",
+      "args": {
+        "drone_id": "f7635bdf"
+      },
+      "action": false
+    },
+    {
+      "tool": "take_off",
+      "args": {
+        "drone_id": "f7635bdf",
+        "altitude": 14.0
+      },
+      "action": true
+    },
+    {
+      "tool": "get_drone_status",
+      "args": {
+        "drone_id": "f7635bdf"
+      },
+      "action": false
+    },
+    {
+      "tool": "get_drone_status",
+      "args": {
+        "drone_id": "f7635bdf"
+      },
+      "action": false
+    },
+    {
+      "tool": "rotate",
+      "args": {
+        "drone_id": "f7635bdf",
+        "heading": 353.0
+      },
+      "action": true
+    },
+    {
+      "tool": "get_drone_status",
+      "args": {
+        "drone_id": "f7635bdf"
+      },
+      "action": false
+    },
+    {
+      "tool": "get_drone_status",
+      "args": {
+        "drone_id": "f7635bdf"
+      },
+      "action": false
+    },
+    {
+      "tool": "hover",
+      "args": {
+        "drone_id": "f7635bdf"
+      },
+      "action": true
+    },
+    {
+      "tool": "get_drone_status",
+      "args": {
+        "drone_id": "f7635bdf"
+      },
+      "action": false
+    }
+  ],
+  "harness": {
+    "schema": "minimal-harness-v1",
+    "scheduler": "applicability",
+    "fixed_k": 4,
+    "task_id": "b1eb0270",
+    "scene_id": "ad34350a",
+    "scene_epoch": 0,
+    "frames": [
+      {
+        "plan_id": "b1eb0270:p1",
+        "task_id": "b1eb0270",
+        "scene_id": "ad34350a",
+        "scene_epoch": 0,
+        "skill": "simple_chain",
+        "source_obligations": [
+          {
+            "source_span": [
+              0,
+              99
+            ],
+            "text": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers."
+          }
+        ],
+        "steps": [
+          {
+            "tool": "take_off",
+            "args": {
+              "altitude": 14.0
+            }
+          },
+          {
+            "tool": "rotate",
+            "args": {
+              "heading": 353.0
+            }
+          },
+          {
+            "tool": "hover",
+            "args": {}
+          }
+        ],
+        "continue_guards": [
+          "same_task_and_scene_epoch",
+          "public_actor_binding",
+          "verified_effect",
+          "deadline"
+        ],
+        "invalidators": [
+          "related_external_action",
+          "unexpected_effect",
+          "unhandled_failure",
+          "budget_exhausted"
+        ],
+        "local_repair_scope": "none; unknown action effect gets one state read then model fallback",
+        "stop_condition": "ordered source actions plus public final state",
+        "deadline": 19158.867405833,
+        "api_budget": 2000,
+        "repair_budget": 16,
+        "plan_version": 1,
+        "origin": "explicit_model_tool_commit",
+        "actor_bindings": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7",
+          "e9",
+          "e11",
+          "e13",
+          "e15",
+          "e17",
+          "e19"
+        ],
+        "cursor": 3,
+        "state": {
+          "last_action": {
+            "tool": "hover",
+            "args": {
+              "drone_id": "f7635bdf"
+            },
+            "receipt": {
+              "command_id": "090fa59e",
+              "drone_id": "f7635bdf",
+              "command": "hover",
+              "status": "success",
+              "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+              "timestamp": 1792048850.787746
+            }
+          },
+          "last_verified_state": {
+            "id": "f7635bdf",
+            "name": "Drone 3",
+            "model": "Model-D",
+            "status": "hovering",
+            "position": {
+              "x": 224.0,
+              "y": 43.0,
+              "z": 14.0
+            },
+            "heading": 353.0,
+            "speed": 0.0,
+            "battery_level": 99.2,
+            "max_speed": 33.0,
+            "max_altitude": 473.0,
+            "battery_capacity": 74.4,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 224.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496068,
+            "last_updated": 1792048850.78774
+          },
+          "remaining_steps": [],
+          "public_stop_condition": "simple_sequence_and_final_state_supported"
+        },
+        "status": "completed",
+        "reason": "skill_public_stop_condition",
+        "api_calls": 10,
+        "repairs": 0,
+        "units": 2
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "task_id": "b1eb0270",
+        "kind": "task_start",
+        "monotonic_s": 18658.8674135,
+        "scene_id": "ad34350a",
+        "scene_epoch": 0,
+        "deadline": 19158.867405833,
+        "scheduler": "applicability",
+        "fixed_k": 4,
+        "scope": "in_process_resume_only"
+      },
+      {
+        "sequence": 2,
+        "task_id": "b1eb0270",
+        "kind": "plan_commit",
+        "monotonic_s": 18658.867499208,
+        "frame": {
+          "plan_id": "b1eb0270:p1",
+          "task_id": "b1eb0270",
+          "scene_id": "ad34350a",
+          "scene_epoch": 0,
+          "skill": "simple_chain",
+          "source_obligations": [
+            {
+              "source_span": [
+                0,
+                99
+              ],
+              "text": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers."
+            }
+          ],
+          "steps": [
+            {
+              "tool": "take_off",
+              "args": {
+                "altitude": 14.0
+              }
+            },
+            {
+              "tool": "rotate",
+              "args": {
+                "heading": 353.0
+              }
+            },
+            {
+              "tool": "hover",
+              "args": {}
+            }
+          ],
+          "continue_guards": [
+            "same_task_and_scene_epoch",
+            "public_actor_binding",
+            "verified_effect",
+            "deadline"
+          ],
+          "invalidators": [
+            "related_external_action",
+            "unexpected_effect",
+            "unhandled_failure",
+            "budget_exhausted"
+          ],
+          "local_repair_scope": "none; unknown action effect gets one state read then model fallback",
+          "stop_condition": "ordered source actions plus public final state",
+          "deadline": 19158.867405833,
+          "api_budget": 2000,
+          "repair_budget": 16,
+          "plan_version": 1,
+          "origin": "explicit_model_tool_commit",
+          "actor_bindings": {},
+          "evidence_refs": [],
+          "cursor": 0,
+          "state": {},
+          "status": "ready",
+          "reason": "committed",
+          "api_calls": 0,
+          "repairs": 0,
+          "units": 0
+        }
+      },
+      {
+        "sequence": 3,
+        "task_id": "b1eb0270",
+        "kind": "skill_enter",
+        "monotonic_s": 18658.867520166,
+        "plan_id": "b1eb0270:p1",
+        "cursor": 0
+      },
+      {
+        "sequence": 4,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.867536291,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "OBSERVE",
+        "reason": "resolve_public_dependency",
+        "cursor": 0,
+        "actors": {},
+        "evidence_refs": [],
+        "evidence_version": 0,
+        "external_version": 0,
+        "remaining_s": 499.9998712919987,
+        "next_call": {
+          "tool": "list_drones",
+          "args": {},
+          "action": false
+        }
+      },
+      {
+        "sequence": 5,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.867565625,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:1",
+        "evidence_id": "e1",
+        "call": {
+          "tool": "list_drones",
+          "args": {},
+          "action": false
+        }
+      },
+      {
+        "sequence": 6,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.8717495,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:1",
+        "evidence_id": "e1",
+        "receipt_sha256": "940d8243cae0841dda32c7d13cbf493529fbd748b1db36724ee840ed45cf6105"
+      },
+      {
+        "sequence": 7,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.871792,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "OBSERVE",
+        "reason": "resolve_public_dependency",
+        "cursor": 0,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1"
+        ],
+        "evidence_version": 2,
+        "external_version": 0,
+        "remaining_s": 499.9956162499984,
+        "next_call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 8,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.87182325,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:2",
+        "evidence_id": "e3",
+        "call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 9,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.87340525,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:2",
+        "evidence_id": "e3",
+        "receipt_sha256": "f60f83d5649bede79a4ef691c32f5c03e4390779053be09345fc6ba7d8d175fb"
+      },
+      {
+        "sequence": 10,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.873435083,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "CONTINUE",
+        "reason": "committed_action",
+        "cursor": 0,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3"
+        ],
+        "evidence_version": 4,
+        "external_version": 0,
+        "remaining_s": 499.99397274999865,
+        "next_call": {
+          "tool": "take_off",
+          "args": {
+            "drone_id": "f7635bdf",
+            "altitude": 14.0
+          },
+          "action": true
+        }
+      },
+      {
+        "sequence": 11,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.873461708,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:3",
+        "evidence_id": "e5",
+        "call": {
+          "tool": "take_off",
+          "args": {
+            "drone_id": "f7635bdf",
+            "altitude": 14.0
+          },
+          "action": true
+        }
+      },
+      {
+        "sequence": 12,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.878457916,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:3",
+        "evidence_id": "e5",
+        "receipt_sha256": "9bee7a637a0c2c85e92cea0c6e2d2ad005c9d2b42ce6391413ba92e22c444a2b"
+      },
+      {
+        "sequence": 13,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.878483583,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "OBSERVE",
+        "reason": "resolve_public_dependency",
+        "cursor": 0,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5"
+        ],
+        "evidence_version": 6,
+        "external_version": 0,
+        "remaining_s": 499.98892395800067,
+        "next_call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 14,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.878507,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:4",
+        "evidence_id": "e7",
+        "call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 15,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.8797245,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:4",
+        "evidence_id": "e7",
+        "receipt_sha256": "8f351836d8e3f6ded90c72883e602c535dfec1ce504be67f5125e9f330181e96"
+      },
+      {
+        "sequence": 16,
+        "task_id": "b1eb0270",
+        "kind": "plan_update",
+        "monotonic_s": 18658.879813,
+        "frame": {
+          "plan_id": "b1eb0270:p1",
+          "task_id": "b1eb0270",
+          "scene_id": "ad34350a",
+          "scene_epoch": 0,
+          "skill": "simple_chain",
+          "source_obligations": [
+            {
+              "source_span": [
+                0,
+                99
+              ],
+              "text": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers."
+            }
+          ],
+          "steps": [
+            {
+              "tool": "take_off",
+              "args": {
+                "altitude": 14.0
+              }
+            },
+            {
+              "tool": "rotate",
+              "args": {
+                "heading": 353.0
+              }
+            },
+            {
+              "tool": "hover",
+              "args": {}
+            }
+          ],
+          "continue_guards": [
+            "same_task_and_scene_epoch",
+            "public_actor_binding",
+            "verified_effect",
+            "deadline"
+          ],
+          "invalidators": [
+            "related_external_action",
+            "unexpected_effect",
+            "unhandled_failure",
+            "budget_exhausted"
+          ],
+          "local_repair_scope": "none; unknown action effect gets one state read then model fallback",
+          "stop_condition": "ordered source actions plus public final state",
+          "deadline": 19158.867405833,
+          "api_budget": 2000,
+          "repair_budget": 16,
+          "plan_version": 1,
+          "origin": "explicit_model_tool_commit",
+          "actor_bindings": {
+            "Drone 3": "f7635bdf"
+          },
+          "evidence_refs": [
+            "e1",
+            "e3",
+            "e5",
+            "e7"
+          ],
+          "cursor": 1,
+          "state": {
+            "last_action": {
+              "tool": "take_off",
+              "args": {
+                "drone_id": "f7635bdf",
+                "altitude": 14.0
+              },
+              "receipt": {
+                "command_id": "9b19d058",
+                "drone_id": "f7635bdf",
+                "command": "take_off",
+                "status": "success",
+                "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+                "timestamp": 1792048850.779961
+              }
+            },
+            "last_verified_state": {
+              "id": "f7635bdf",
+              "name": "Drone 3",
+              "model": "Model-D",
+              "status": "hovering",
+              "position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 14.0
+              },
+              "heading": 0.0,
+              "speed": 0.0,
+              "battery_level": 99.5,
+              "max_speed": 33.0,
+              "max_altitude": 473.0,
+              "battery_capacity": 74.4,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 0.0
+              },
+              "created_at": 1775666803.5496068,
+              "last_updated": 1792048850.779955
+            },
+            "remaining_steps": [
+              {
+                "tool": "rotate",
+                "args": {
+                  "heading": 353.0
+                }
+              },
+              {
+                "tool": "hover",
+                "args": {}
+              }
+            ]
+          },
+          "status": "running",
+          "reason": "skill_enter",
+          "api_calls": 4,
+          "repairs": 0,
+          "units": 1
+        }
+      },
+      {
+        "sequence": 17,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.879855041,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "CONTINUE",
+        "reason": "unit_complete",
+        "cursor": 1,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7"
+        ],
+        "evidence_version": 8,
+        "external_version": 0,
+        "remaining_s": 499.98755237500154,
+        "applicability": "valid_or_locally_repairable"
+      },
+      {
+        "sequence": 18,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.879873625,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "OBSERVE",
+        "reason": "resolve_public_dependency",
+        "cursor": 1,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7"
+        ],
+        "evidence_version": 8,
+        "external_version": 0,
+        "remaining_s": 499.98753316700095,
+        "next_call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 19,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.879898666,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:5",
+        "evidence_id": "e9",
+        "call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 20,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.880881166,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:5",
+        "evidence_id": "e9",
+        "receipt_sha256": "8f351836d8e3f6ded90c72883e602c535dfec1ce504be67f5125e9f330181e96"
+      },
+      {
+        "sequence": 21,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.880907166,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "CONTINUE",
+        "reason": "committed_action",
+        "cursor": 1,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7",
+          "e9"
+        ],
+        "evidence_version": 10,
+        "external_version": 0,
+        "remaining_s": 499.98649999999907,
+        "next_call": {
+          "tool": "rotate",
+          "args": {
+            "drone_id": "f7635bdf",
+            "heading": 353.0
+          },
+          "action": true
+        }
+      },
+      {
+        "sequence": 22,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.880931958,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:6",
+        "evidence_id": "e11",
+        "call": {
+          "tool": "rotate",
+          "args": {
+            "drone_id": "f7635bdf",
+            "heading": 353.0
+          },
+          "action": true
+        }
+      },
+      {
+        "sequence": 23,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.882240416,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:6",
+        "evidence_id": "e11",
+        "receipt_sha256": "626ae9f94f499a4ae9d18169277a1981eecb59a047af0af2930252ada48fca26"
+      },
+      {
+        "sequence": 24,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.882269833,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "OBSERVE",
+        "reason": "resolve_public_dependency",
+        "cursor": 1,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7",
+          "e9",
+          "e11"
+        ],
+        "evidence_version": 12,
+        "external_version": 0,
+        "remaining_s": 499.9851377080013,
+        "next_call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 25,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.882292416,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:7",
+        "evidence_id": "e13",
+        "call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 26,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.883375708,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:7",
+        "evidence_id": "e13",
+        "receipt_sha256": "4bd4352b5906b5e19eb9929c5c1158e28672505dff0bcd2632c03e9e1af0c76d"
+      },
+      {
+        "sequence": 27,
+        "task_id": "b1eb0270",
+        "kind": "plan_update",
+        "monotonic_s": 18658.883451333,
+        "frame": {
+          "plan_id": "b1eb0270:p1",
+          "task_id": "b1eb0270",
+          "scene_id": "ad34350a",
+          "scene_epoch": 0,
+          "skill": "simple_chain",
+          "source_obligations": [
+            {
+              "source_span": [
+                0,
+                99
+              ],
+              "text": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers."
+            }
+          ],
+          "steps": [
+            {
+              "tool": "take_off",
+              "args": {
+                "altitude": 14.0
+              }
+            },
+            {
+              "tool": "rotate",
+              "args": {
+                "heading": 353.0
+              }
+            },
+            {
+              "tool": "hover",
+              "args": {}
+            }
+          ],
+          "continue_guards": [
+            "same_task_and_scene_epoch",
+            "public_actor_binding",
+            "verified_effect",
+            "deadline"
+          ],
+          "invalidators": [
+            "related_external_action",
+            "unexpected_effect",
+            "unhandled_failure",
+            "budget_exhausted"
+          ],
+          "local_repair_scope": "none; unknown action effect gets one state read then model fallback",
+          "stop_condition": "ordered source actions plus public final state",
+          "deadline": 19158.867405833,
+          "api_budget": 2000,
+          "repair_budget": 16,
+          "plan_version": 1,
+          "origin": "explicit_model_tool_commit",
+          "actor_bindings": {
+            "Drone 3": "f7635bdf"
+          },
+          "evidence_refs": [
+            "e1",
+            "e3",
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13"
+          ],
+          "cursor": 2,
+          "state": {
+            "last_action": {
+              "tool": "rotate",
+              "args": {
+                "drone_id": "f7635bdf",
+                "heading": 353.0
+              },
+              "receipt": {
+                "command_id": "4b4011e5",
+                "drone_id": "f7635bdf",
+                "command": "rotate",
+                "status": "success",
+                "message": "Drone heading set to 353.0° (battery: -0.2%/-0mAh, remaining: 99.3%/74mAh)",
+                "timestamp": 1792048850.783863
+              }
+            },
+            "last_verified_state": {
+              "id": "f7635bdf",
+              "name": "Drone 3",
+              "model": "Model-D",
+              "status": "hovering",
+              "position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 14.0
+              },
+              "heading": 353.0,
+              "speed": 0.0,
+              "battery_level": 99.3,
+              "max_speed": 33.0,
+              "max_altitude": 473.0,
+              "battery_capacity": 74.4,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 0.0
+              },
+              "created_at": 1775666803.5496068,
+              "last_updated": 1792048850.7838569
+            },
+            "remaining_steps": [
+              {
+                "tool": "hover",
+                "args": {}
+              }
+            ]
+          },
+          "status": "running",
+          "reason": "skill_enter",
+          "api_calls": 7,
+          "repairs": 0,
+          "units": 2
+        }
+      },
+      {
+        "sequence": 28,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.883487125,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "CONTINUE",
+        "reason": "unit_complete",
+        "cursor": 2,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7",
+          "e9",
+          "e11",
+          "e13"
+        ],
+        "evidence_version": 14,
+        "external_version": 0,
+        "remaining_s": 499.98391987500145,
+        "applicability": "valid_or_locally_repairable"
+      },
+      {
+        "sequence": 29,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.883503916,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "OBSERVE",
+        "reason": "resolve_public_dependency",
+        "cursor": 2,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7",
+          "e9",
+          "e11",
+          "e13"
+        ],
+        "evidence_version": 14,
+        "external_version": 0,
+        "remaining_s": 499.98390279199884,
+        "next_call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 30,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.88352525,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:8",
+        "evidence_id": "e15",
+        "call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 31,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.8847145,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:8",
+        "evidence_id": "e15",
+        "receipt_sha256": "4bd4352b5906b5e19eb9929c5c1158e28672505dff0bcd2632c03e9e1af0c76d"
+      },
+      {
+        "sequence": 32,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.8847475,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "CONTINUE",
+        "reason": "committed_action",
+        "cursor": 2,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e1",
+          "e3",
+          "e5",
+          "e7",
+          "e9",
+          "e11",
+          "e13",
+          "e15"
+        ],
+        "evidence_version": 16,
+        "external_version": 0,
+        "remaining_s": 499.9826605419985,
+        "next_call": {
+          "tool": "hover",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": true
+        }
+      },
+      {
+        "sequence": 33,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.88481125,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:9",
+        "evidence_id": "e17",
+        "call": {
+          "tool": "hover",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": true
+        }
+      },
+      {
+        "sequence": 34,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.886067583,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:9",
+        "evidence_id": "e17",
+        "receipt_sha256": "aa2fdf1cd0cdfd326cb3e0bd5ec59ec28de7e19a1badd8ddafc64fe4f436c5e7"
+      },
+      {
+        "sequence": 35,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.886091583,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "OBSERVE",
+        "reason": "resolve_public_dependency",
+        "cursor": 2,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e3",
+          "e5",
+          "e7",
+          "e9",
+          "e11",
+          "e13",
+          "e15",
+          "e17"
+        ],
+        "evidence_version": 18,
+        "external_version": 0,
+        "remaining_s": 499.981316166999,
+        "next_call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 36,
+        "task_id": "b1eb0270",
+        "kind": "public_call_start",
+        "monotonic_s": 18658.8861135,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:10",
+        "evidence_id": "e19",
+        "call": {
+          "tool": "get_drone_status",
+          "args": {
+            "drone_id": "f7635bdf"
+          },
+          "action": false
+        }
+      },
+      {
+        "sequence": 37,
+        "task_id": "b1eb0270",
+        "kind": "public_call_end",
+        "monotonic_s": 18658.886903791,
+        "plan_id": "b1eb0270:p1",
+        "call_id": "harness:b1eb0270:p1:10",
+        "evidence_id": "e19",
+        "receipt_sha256": "bdf8807a5b74847a1265b3834138213493a51ca5cb085ce1d6e0e3198d2f3fd7"
+      },
+      {
+        "sequence": 38,
+        "task_id": "b1eb0270",
+        "kind": "gate",
+        "monotonic_s": 18658.88694525,
+        "plan_id": "b1eb0270:p1",
+        "plan_version": 1,
+        "decision": "STOP",
+        "reason": "skill_public_stop_condition",
+        "cursor": 3,
+        "actors": {
+          "Drone 3": "f7635bdf"
+        },
+        "evidence_refs": [
+          "e5",
+          "e7",
+          "e9",
+          "e11",
+          "e13",
+          "e15",
+          "e17",
+          "e19"
+        ],
+        "evidence_version": 20,
+        "external_version": 0,
+        "remaining_s": 499.980462042
+      },
+      {
+        "sequence": 39,
+        "task_id": "b1eb0270",
+        "kind": "plan_update",
+        "monotonic_s": 18658.88702,
+        "frame": {
+          "plan_id": "b1eb0270:p1",
+          "task_id": "b1eb0270",
+          "scene_id": "ad34350a",
+          "scene_epoch": 0,
+          "skill": "simple_chain",
+          "source_obligations": [
+            {
+              "source_span": [
+                0,
+                99
+              ],
+              "text": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers."
+            }
+          ],
+          "steps": [
+            {
+              "tool": "take_off",
+              "args": {
+                "altitude": 14.0
+              }
+            },
+            {
+              "tool": "rotate",
+              "args": {
+                "heading": 353.0
+              }
+            },
+            {
+              "tool": "hover",
+              "args": {}
+            }
+          ],
+          "continue_guards": [
+            "same_task_and_scene_epoch",
+            "public_actor_binding",
+            "verified_effect",
+            "deadline"
+          ],
+          "invalidators": [
+            "related_external_action",
+            "unexpected_effect",
+            "unhandled_failure",
+            "budget_exhausted"
+          ],
+          "local_repair_scope": "none; unknown action effect gets one state read then model fallback",
+          "stop_condition": "ordered source actions plus public final state",
+          "deadline": 19158.867405833,
+          "api_budget": 2000,
+          "repair_budget": 16,
+          "plan_version": 1,
+          "origin": "explicit_model_tool_commit",
+          "actor_bindings": {
+            "Drone 3": "f7635bdf"
+          },
+          "evidence_refs": [
+            "e1",
+            "e3",
+            "e5",
+            "e7",
+            "e9",
+            "e11",
+            "e13",
+            "e15",
+            "e17",
+            "e19"
+          ],
+          "cursor": 3,
+          "state": {
+            "last_action": {
+              "tool": "hover",
+              "args": {
+                "drone_id": "f7635bdf"
+              },
+              "receipt": {
+                "command_id": "090fa59e",
+                "drone_id": "f7635bdf",
+                "command": "hover",
+                "status": "success",
+                "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+                "timestamp": 1792048850.787746
+              }
+            },
+            "last_verified_state": {
+              "id": "f7635bdf",
+              "name": "Drone 3",
+              "model": "Model-D",
+              "status": "hovering",
+              "position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 14.0
+              },
+              "heading": 353.0,
+              "speed": 0.0,
+              "battery_level": 99.2,
+              "max_speed": 33.0,
+              "max_altitude": 473.0,
+              "battery_capacity": 74.4,
+              "perceived_radius": 50.0,
+              "task_radius": 20.0,
+              "home_position": {
+                "x": 224.0,
+                "y": 43.0,
+                "z": 0.0
+              },
+              "created_at": 1775666803.5496068,
+              "last_updated": 1792048850.78774
+            },
+            "remaining_steps": [],
+            "public_stop_condition": "simple_sequence_and_final_state_supported"
+          },
+          "status": "completed",
+          "reason": "skill_public_stop_condition",
+          "api_calls": 10,
+          "repairs": 0,
+          "units": 2
+        }
+      },
+      {
+        "sequence": 40,
+        "task_id": "b1eb0270",
+        "kind": "skill_exit",
+        "monotonic_s": 18658.887055875,
+        "plan_id": "b1eb0270:p1",
+        "status": "completed",
+        "reason": "skill_public_stop_condition"
+      },
+      {
+        "sequence": 41,
+        "task_id": "b1eb0270",
+        "kind": "task_end",
+        "monotonic_s": 18658.887137791,
+        "reason": "offline_validation_end",
+        "plans": [
+          {
+            "plan_id": "b1eb0270:p1",
+            "task_id": "b1eb0270",
+            "scene_id": "ad34350a",
+            "scene_epoch": 0,
+            "skill": "simple_chain",
+            "source_obligations": [
+              {
+                "source_span": [
+                  0,
+                  99
+                ],
+                "text": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers."
+              }
+            ],
+            "steps": [
+              {
+                "tool": "take_off",
+                "args": {
+                  "altitude": 14.0
+                }
+              },
+              {
+                "tool": "rotate",
+                "args": {
+                  "heading": 353.0
+                }
+              },
+              {
+                "tool": "hover",
+                "args": {}
+              }
+            ],
+            "continue_guards": [
+              "same_task_and_scene_epoch",
+              "public_actor_binding",
+              "verified_effect",
+              "deadline"
+            ],
+            "invalidators": [
+              "related_external_action",
+              "unexpected_effect",
+              "unhandled_failure",
+              "budget_exhausted"
+            ],
+            "local_repair_scope": "none; unknown action effect gets one state read then model fallback",
+            "stop_condition": "ordered source actions plus public final state",
+            "deadline": 19158.867405833,
+            "api_budget": 2000,
+            "repair_budget": 16,
+            "plan_version": 1,
+            "origin": "explicit_model_tool_commit",
+            "actor_bindings": {
+              "Drone 3": "f7635bdf"
+            },
+            "evidence_refs": [
+              "e1",
+              "e3",
+              "e5",
+              "e7",
+              "e9",
+              "e11",
+              "e13",
+              "e15",
+              "e17",
+              "e19"
+            ],
+            "cursor": 3,
+            "state": {
+              "last_action": {
+                "tool": "hover",
+                "args": {
+                  "drone_id": "f7635bdf"
+                },
+                "receipt": {
+                  "command_id": "090fa59e",
+                  "drone_id": "f7635bdf",
+                  "command": "hover",
+                  "status": "success",
+                  "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+                  "timestamp": 1792048850.787746
+                }
+              },
+              "last_verified_state": {
+                "id": "f7635bdf",
+                "name": "Drone 3",
+                "model": "Model-D",
+                "status": "hovering",
+                "position": {
+                  "x": 224.0,
+                  "y": 43.0,
+                  "z": 14.0
+                },
+                "heading": 353.0,
+                "speed": 0.0,
+                "battery_level": 99.2,
+                "max_speed": 33.0,
+                "max_altitude": 473.0,
+                "battery_capacity": 74.4,
+                "perceived_radius": 50.0,
+                "task_radius": 20.0,
+                "home_position": {
+                  "x": 224.0,
+                  "y": 43.0,
+                  "z": 0.0
+                },
+                "created_at": 1775666803.5496068,
+                "last_updated": 1792048850.78774
+              },
+              "remaining_steps": [],
+              "public_stop_condition": "simple_sequence_and_final_state_supported"
+            },
+            "status": "completed",
+            "reason": "skill_public_stop_condition",
+            "api_calls": 10,
+            "repairs": 0,
+            "units": 2
+          }
+        ]
+      }
+    ]
+  },
+  "ledger": {
+    "schema_version": 1,
+    "command_id": "b1eb0270",
+    "command": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers.",
+    "clauses": [
+      {
+        "id": "clause-1",
+        "start": 0,
+        "end": 99,
+        "text": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers.",
+        "entity_names": [
+          "Drone 3"
+        ],
+        "binding_state": "exact",
+        "requirement_status": "not_evaluated"
+      }
+    ],
+    "entity_bindings": {
+      "Drone 3": {
+        "state": "exact",
+        "entities": [
+          {
+            "id": "f7635bdf",
+            "kind": "drone",
+            "origin": "observed"
+          }
+        ]
+      }
+    },
+    "entities": {
+      "drone:27707941": {
+        "id": "27707941",
+        "kind": "drone",
+        "name": "Drone 1",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1618.0,
+              "y": 665.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1618.0,
+              "y": 665.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:6bfadef8": {
+        "id": "6bfadef8",
+        "kind": "drone",
+        "name": "Drone 2",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1186.0,
+              "y": 1411.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1186.0,
+              "y": 1411.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:f7635bdf": {
+        "id": "f7635bdf",
+        "kind": "drone",
+        "name": "Drone 3",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 224.0,
+              "y": 43.0,
+              "z": 14.0
+            },
+            "evidence_id": "e19",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "hovering",
+            "evidence_id": "e19",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 99.2,
+            "evidence_id": "e19",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 353.0,
+            "evidence_id": "e19",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e19",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e19",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 224.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "evidence_id": "e19",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:78269095": {
+        "id": "78269095",
+        "kind": "drone",
+        "name": "Drone 4",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1673.0,
+              "y": 1185.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1673.0,
+              "y": 1185.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:b9d358cf": {
+        "id": "b9d358cf",
+        "kind": "drone",
+        "name": "Drone 5",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 392.0,
+              "y": 1422.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 392.0,
+              "y": 1422.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:45ddface": {
+        "id": "45ddface",
+        "kind": "drone",
+        "name": "Drone 6",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1997.0,
+              "y": 1481.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1997.0,
+              "y": 1481.0,
+              "z": 37.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:9f416381": {
+        "id": "9f416381",
+        "kind": "drone",
+        "name": "Drone 7",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1478.0,
+              "y": 1045.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1478.0,
+              "y": 1045.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:500f6a90": {
+        "id": "500f6a90",
+        "kind": "drone",
+        "name": "Drone 8",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1361.0,
+              "y": 803.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1361.0,
+              "y": 803.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:8b54a956": {
+        "id": "8b54a956",
+        "kind": "drone",
+        "name": "Drone 9",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1603.0,
+              "y": 566.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1603.0,
+              "y": 566.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:3d246fb0": {
+        "id": "3d246fb0",
+        "kind": "drone",
+        "name": "Drone 10",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1567.0,
+              "y": 1158.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1567.0,
+              "y": 1158.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:edb6baf8": {
+        "id": "edb6baf8",
+        "kind": "drone",
+        "name": "Drone 11",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 715.0,
+              "y": 82.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 715.0,
+              "y": 82.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:5fe9e15c": {
+        "id": "5fe9e15c",
+        "kind": "drone",
+        "name": "Drone 12",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1153.0,
+              "y": 246.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1153.0,
+              "y": 246.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:711ca589": {
+        "id": "711ca589",
+        "kind": "drone",
+        "name": "Drone 13",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1606.0,
+              "y": 1505.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1606.0,
+              "y": 1505.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:d2d3b261": {
+        "id": "d2d3b261",
+        "kind": "drone",
+        "name": "Drone 14",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 303.0,
+              "y": 35.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 303.0,
+              "y": 35.0,
+              "z": 55.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:5b8b1e46": {
+        "id": "5b8b1e46",
+        "kind": "drone",
+        "name": "Drone 15",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 915.0,
+              "y": 653.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 915.0,
+              "y": 653.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:806108c6": {
+        "id": "806108c6",
+        "kind": "drone",
+        "name": "Drone 16",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1550.0,
+              "y": 1348.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1550.0,
+              "y": 1348.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:ff539e8f": {
+        "id": "ff539e8f",
+        "kind": "drone",
+        "name": "Drone 17",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1980.0,
+              "y": 1128.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1980.0,
+              "y": 1128.0,
+              "z": 6.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:4353a38c": {
+        "id": "4353a38c",
+        "kind": "drone",
+        "name": "Drone 18",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 937.0,
+              "y": 28.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 937.0,
+              "y": 28.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:1622f78b": {
+        "id": "1622f78b",
+        "kind": "drone",
+        "name": "Drone 19",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 330.0,
+              "y": 123.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 330.0,
+              "y": 123.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:280fab12": {
+        "id": "280fab12",
+        "kind": "drone",
+        "name": "Drone 20",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 370.0,
+              "y": 771.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 370.0,
+              "y": 771.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:9ad633a6": {
+        "id": "9ad633a6",
+        "kind": "drone",
+        "name": "Drone 21",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 703.0,
+              "y": 878.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 703.0,
+              "y": 878.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:cb133626": {
+        "id": "cb133626",
+        "kind": "drone",
+        "name": "Drone 22",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 972.0,
+              "y": 657.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 972.0,
+              "y": 657.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:3b87e257": {
+        "id": "3b87e257",
+        "kind": "drone",
+        "name": "Drone 23",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 728.0,
+              "y": 522.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 728.0,
+              "y": 522.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:233bf2af": {
+        "id": "233bf2af",
+        "kind": "drone",
+        "name": "Drone 24",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 42.0,
+              "y": 477.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 42.0,
+              "y": 477.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:2359316b": {
+        "id": "2359316b",
+        "kind": "drone",
+        "name": "Drone 25",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1473.0,
+              "y": 123.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1473.0,
+              "y": 123.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:dffb3755": {
+        "id": "dffb3755",
+        "kind": "drone",
+        "name": "Drone 26",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 78.0,
+              "y": 1077.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 78.0,
+              "y": 1077.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:de30624c": {
+        "id": "de30624c",
+        "kind": "drone",
+        "name": "Drone 27",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1341.0,
+              "y": 538.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1341.0,
+              "y": 538.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:c632159f": {
+        "id": "c632159f",
+        "kind": "drone",
+        "name": "Drone 28",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 1024.0,
+              "y": 872.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 1024.0,
+              "y": 872.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:166896b3": {
+        "id": "166896b3",
+        "kind": "drone",
+        "name": "Drone 29",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 30.0,
+              "y": 1156.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 30.0,
+              "y": 1156.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      },
+      "drone:fd80173e": {
+        "id": "fd80173e",
+        "kind": "drone",
+        "name": "Drone 30",
+        "origin": "observed",
+        "facts": {
+          "position": {
+            "value": {
+              "x": 472.0,
+              "y": 265.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "status": {
+            "value": "idle",
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "battery_level": {
+            "value": 100.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "heading": {
+            "value": 0.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "task_radius": {
+            "value": 20.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "perceived_radius": {
+            "value": 50.0,
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          },
+          "home_position": {
+            "value": {
+              "x": 472.0,
+              "y": 265.0,
+              "z": 0.0
+            },
+            "evidence_id": "e1",
+            "validity": "observed",
+            "command_id": "b1eb0270"
+          }
+        }
+      }
+    },
+    "events": [
+      {
+        "evidence_id": "e1",
+        "tool_call_id": "harness:b1eb0270:p1:1",
+        "tool_name": "list_drones",
+        "args": {},
+        "start_sequence": 1,
+        "end_sequence": 2,
+        "status": "observed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": [
+          {
+            "id": "27707941",
+            "name": "Drone 1",
+            "model": "Model-B",
+            "status": "idle",
+            "position": {
+              "x": 1618.0,
+              "y": 665.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 20.0,
+            "max_altitude": 498.0,
+            "battery_capacity": 96.4,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1618.0,
+              "y": 665.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549597,
+            "last_updated": 1791378655.517956
+          },
+          {
+            "id": "6bfadef8",
+            "name": "Drone 2",
+            "model": "Model-X4",
+            "status": "idle",
+            "position": {
+              "x": 1186.0,
+              "y": 1411.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 25.0,
+            "max_altitude": 244.0,
+            "battery_capacity": 86.6,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1186.0,
+              "y": 1411.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496042,
+            "last_updated": 1791378655.5180109
+          },
+          {
+            "id": "f7635bdf",
+            "name": "Drone 3",
+            "model": "Model-D",
+            "status": "idle",
+            "position": {
+              "x": 224.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 33.0,
+            "max_altitude": 473.0,
+            "battery_capacity": 74.4,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 224.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496068,
+            "last_updated": 1791378655.5180259
+          },
+          {
+            "id": "78269095",
+            "name": "Drone 4",
+            "model": "Model-C",
+            "status": "idle",
+            "position": {
+              "x": 1673.0,
+              "y": 1185.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 35.0,
+            "max_altitude": 298.0,
+            "battery_capacity": 95.4,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1673.0,
+              "y": 1185.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549611,
+            "last_updated": 1791378655.518038
+          },
+          {
+            "id": "b9d358cf",
+            "name": "Drone 5",
+            "model": "Model-D",
+            "status": "idle",
+            "position": {
+              "x": 392.0,
+              "y": 1422.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 34.0,
+            "max_altitude": 381.0,
+            "battery_capacity": 99.6,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 392.0,
+              "y": 1422.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496142,
+            "last_updated": 1791378655.518049
+          },
+          {
+            "id": "45ddface",
+            "name": "Drone 6",
+            "model": "Model-X1",
+            "status": "idle",
+            "position": {
+              "x": 1997.0,
+              "y": 1481.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 13.0,
+            "max_altitude": 483.0,
+            "battery_capacity": 97.3,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1997.0,
+              "y": 1481.0,
+              "z": 37.0
+            },
+            "created_at": 1775666803.5496168,
+            "last_updated": 1791378655.51806
+          },
+          {
+            "id": "9f416381",
+            "name": "Drone 7",
+            "model": "Model-B",
+            "status": "idle",
+            "position": {
+              "x": 1478.0,
+              "y": 1045.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 26.0,
+            "max_altitude": 323.0,
+            "battery_capacity": 76.0,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1478.0,
+              "y": 1045.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.54962,
+            "last_updated": 1791378655.518071
+          },
+          {
+            "id": "500f6a90",
+            "name": "Drone 8",
+            "model": "Model-X3",
+            "status": "idle",
+            "position": {
+              "x": 1361.0,
+              "y": 803.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 12.0,
+            "max_altitude": 476.0,
+            "battery_capacity": 96.9,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1361.0,
+              "y": 803.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549623,
+            "last_updated": 1791378655.518091
+          },
+          {
+            "id": "8b54a956",
+            "name": "Drone 9",
+            "model": "Model-B",
+            "status": "idle",
+            "position": {
+              "x": 1603.0,
+              "y": 566.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 20.0,
+            "max_altitude": 407.0,
+            "battery_capacity": 88.3,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1603.0,
+              "y": 566.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549626,
+            "last_updated": 1791378655.518105
+          },
+          {
+            "id": "3d246fb0",
+            "name": "Drone 10",
+            "model": "Model-C",
+            "status": "idle",
+            "position": {
+              "x": 1567.0,
+              "y": 1158.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 13.0,
+            "max_altitude": 285.0,
+            "battery_capacity": 64.5,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1567.0,
+              "y": 1158.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549629,
+            "last_updated": 1791378655.518116
+          },
+          {
+            "id": "edb6baf8",
+            "name": "Drone 11",
+            "model": "Model-A",
+            "status": "idle",
+            "position": {
+              "x": 715.0,
+              "y": 82.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 25.0,
+            "max_altitude": 363.0,
+            "battery_capacity": 69.1,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 715.0,
+              "y": 82.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549632,
+            "last_updated": 1791378655.5181272
+          },
+          {
+            "id": "5fe9e15c",
+            "name": "Drone 12",
+            "model": "Model-D",
+            "status": "idle",
+            "position": {
+              "x": 1153.0,
+              "y": 246.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 35.0,
+            "max_altitude": 427.0,
+            "battery_capacity": 78.1,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1153.0,
+              "y": 246.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496352,
+            "last_updated": 1791378655.518136
+          },
+          {
+            "id": "711ca589",
+            "name": "Drone 13",
+            "model": "Model-C",
+            "status": "idle",
+            "position": {
+              "x": 1606.0,
+              "y": 1505.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 20.0,
+            "max_altitude": 262.0,
+            "battery_capacity": 69.9,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1606.0,
+              "y": 1505.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496378,
+            "last_updated": 1791378655.518146
+          },
+          {
+            "id": "d2d3b261",
+            "name": "Drone 14",
+            "model": "Model-A",
+            "status": "idle",
+            "position": {
+              "x": 303.0,
+              "y": 35.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 22.0,
+            "max_altitude": 321.0,
+            "battery_capacity": 79.7,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 303.0,
+              "y": 35.0,
+              "z": 55.0
+            },
+            "created_at": 1775666803.549641,
+            "last_updated": 1791378655.5181599
+          },
+          {
+            "id": "5b8b1e46",
+            "name": "Drone 15",
+            "model": "Model-B",
+            "status": "idle",
+            "position": {
+              "x": 915.0,
+              "y": 653.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 19.0,
+            "max_altitude": 361.0,
+            "battery_capacity": 71.6,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 915.0,
+              "y": 653.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549644,
+            "last_updated": 1791378655.5181708
+          },
+          {
+            "id": "806108c6",
+            "name": "Drone 16",
+            "model": "Model-X5",
+            "status": "idle",
+            "position": {
+              "x": 1550.0,
+              "y": 1348.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 18.0,
+            "max_altitude": 412.0,
+            "battery_capacity": 99.6,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1550.0,
+              "y": 1348.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549647,
+            "last_updated": 1791378655.518181
+          },
+          {
+            "id": "ff539e8f",
+            "name": "Drone 17",
+            "model": "Model-D",
+            "status": "idle",
+            "position": {
+              "x": 1980.0,
+              "y": 1128.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 18.0,
+            "max_altitude": 318.0,
+            "battery_capacity": 98.8,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1980.0,
+              "y": 1128.0,
+              "z": 6.0
+            },
+            "created_at": 1775666803.54965,
+            "last_updated": 1791378655.518191
+          },
+          {
+            "id": "4353a38c",
+            "name": "Drone 18",
+            "model": "Model-D",
+            "status": "idle",
+            "position": {
+              "x": 937.0,
+              "y": 28.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 21.0,
+            "max_altitude": 389.0,
+            "battery_capacity": 60.8,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 937.0,
+              "y": 28.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496519,
+            "last_updated": 1791378655.518201
+          },
+          {
+            "id": "1622f78b",
+            "name": "Drone 19",
+            "model": "Model-E",
+            "status": "idle",
+            "position": {
+              "x": 330.0,
+              "y": 123.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 15.0,
+            "max_altitude": 227.0,
+            "battery_capacity": 80.7,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 330.0,
+              "y": 123.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549655,
+            "last_updated": 1791378655.5182111
+          },
+          {
+            "id": "280fab12",
+            "name": "Drone 20",
+            "model": "Model-X2",
+            "status": "idle",
+            "position": {
+              "x": 370.0,
+              "y": 771.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 11.0,
+            "max_altitude": 411.0,
+            "battery_capacity": 68.0,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 370.0,
+              "y": 771.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549658,
+            "last_updated": 1791378655.5182211
+          },
+          {
+            "id": "9ad633a6",
+            "name": "Drone 21",
+            "model": "Model-C",
+            "status": "idle",
+            "position": {
+              "x": 703.0,
+              "y": 878.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 29.0,
+            "max_altitude": 302.0,
+            "battery_capacity": 71.0,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 703.0,
+              "y": 878.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549661,
+            "last_updated": 1791378655.51823
+          },
+          {
+            "id": "cb133626",
+            "name": "Drone 22",
+            "model": "Model-X4",
+            "status": "idle",
+            "position": {
+              "x": 972.0,
+              "y": 657.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 28.0,
+            "max_altitude": 344.0,
+            "battery_capacity": 68.9,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 972.0,
+              "y": 657.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549664,
+            "last_updated": 1791378655.5182421
+          },
+          {
+            "id": "3b87e257",
+            "name": "Drone 23",
+            "model": "Model-X4",
+            "status": "idle",
+            "position": {
+              "x": 728.0,
+              "y": 522.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 15.0,
+            "max_altitude": 472.0,
+            "battery_capacity": 65.7,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 728.0,
+              "y": 522.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496671,
+            "last_updated": 1791378655.518251
+          },
+          {
+            "id": "233bf2af",
+            "name": "Drone 24",
+            "model": "Model-E",
+            "status": "idle",
+            "position": {
+              "x": 42.0,
+              "y": 477.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 28.0,
+            "max_altitude": 400.0,
+            "battery_capacity": 92.6,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 42.0,
+              "y": 477.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.54967,
+            "last_updated": 1791378655.51826
+          },
+          {
+            "id": "2359316b",
+            "name": "Drone 25",
+            "model": "Model-X2",
+            "status": "idle",
+            "position": {
+              "x": 1473.0,
+              "y": 123.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 22.0,
+            "max_altitude": 278.0,
+            "battery_capacity": 83.0,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1473.0,
+              "y": 123.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.5496728,
+            "last_updated": 1791378655.518272
+          },
+          {
+            "id": "dffb3755",
+            "name": "Drone 26",
+            "model": "Model-C",
+            "status": "idle",
+            "position": {
+              "x": 78.0,
+              "y": 1077.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 12.0,
+            "max_altitude": 244.0,
+            "battery_capacity": 74.2,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 78.0,
+              "y": 1077.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549676,
+            "last_updated": 1791378655.518285
+          },
+          {
+            "id": "de30624c",
+            "name": "Drone 27",
+            "model": "Model-D",
+            "status": "idle",
+            "position": {
+              "x": 1341.0,
+              "y": 538.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 23.0,
+            "max_altitude": 434.0,
+            "battery_capacity": 73.5,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1341.0,
+              "y": 538.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549679,
+            "last_updated": 1791378655.518294
+          },
+          {
+            "id": "c632159f",
+            "name": "Drone 28",
+            "model": "Model-X3",
+            "status": "idle",
+            "position": {
+              "x": 1024.0,
+              "y": 872.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 19.0,
+            "max_altitude": 331.0,
+            "battery_capacity": 79.3,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 1024.0,
+              "y": 872.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549682,
+            "last_updated": 1791378655.518305
+          },
+          {
+            "id": "166896b3",
+            "name": "Drone 29",
+            "model": "Model-A",
+            "status": "idle",
+            "position": {
+              "x": 30.0,
+              "y": 1156.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 17.0,
+            "max_altitude": 371.0,
+            "battery_capacity": 90.1,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 30.0,
+              "y": 1156.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549685,
+            "last_updated": 1791378655.518314
+          },
+          {
+            "id": "fd80173e",
+            "name": "Drone 30",
+            "model": "Model-X4",
+            "status": "idle",
+            "position": {
+              "x": 472.0,
+              "y": 265.0,
+              "z": 0.0
+            },
+            "heading": 0.0,
+            "speed": 0.0,
+            "battery_level": 100.0,
+            "max_speed": 31.0,
+            "max_altitude": 396.0,
+            "battery_capacity": 60.0,
+            "perceived_radius": 50.0,
+            "task_radius": 20.0,
+            "home_position": {
+              "x": 472.0,
+              "y": 265.0,
+              "z": 0.0
+            },
+            "created_at": 1775666803.549688,
+            "last_updated": 1791378655.518323
+          }
+        ],
+        "entity_ids": [
+          "27707941",
+          "6bfadef8",
+          "f7635bdf",
+          "78269095",
+          "b9d358cf",
+          "45ddface",
+          "9f416381",
+          "500f6a90",
+          "8b54a956",
+          "3d246fb0",
+          "edb6baf8",
+          "5fe9e15c",
+          "711ca589",
+          "d2d3b261",
+          "5b8b1e46",
+          "806108c6",
+          "ff539e8f",
+          "4353a38c",
+          "1622f78b",
+          "280fab12",
+          "9ad633a6",
+          "cb133626",
+          "3b87e257",
+          "233bf2af",
+          "2359316b",
+          "dffb3755",
+          "de30624c",
+          "c632159f",
+          "166896b3",
+          "fd80173e"
+        ],
+        "scope": "observation",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e3",
+        "tool_call_id": "harness:b1eb0270:p1:2",
+        "tool_name": "get_drone_status",
+        "args": {
+          "drone_id": "f7635bdf"
+        },
+        "start_sequence": 3,
+        "end_sequence": 4,
+        "status": "observed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "id": "f7635bdf",
+          "name": "Drone 3",
+          "model": "Model-D",
+          "status": "idle",
+          "position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "heading": 0.0,
+          "speed": 0.0,
+          "battery_level": 100.0,
+          "max_speed": 33.0,
+          "max_altitude": 473.0,
+          "battery_capacity": 74.4,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "created_at": 1775666803.5496068,
+          "last_updated": 1791378655.5180259
+        },
+        "entity_ids": [
+          "f7635bdf"
+        ],
+        "scope": "observation",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e5",
+        "tool_call_id": "harness:b1eb0270:p1:3",
+        "tool_name": "take_off",
+        "args": {
+          "drone_id": "f7635bdf",
+          "altitude": 14.0
+        },
+        "start_sequence": 5,
+        "end_sequence": 6,
+        "status": "completed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "command_id": "9b19d058",
+          "drone_id": "f7635bdf",
+          "command": "take_off",
+          "status": "success",
+          "message": "Drone taking off to altitude 14.0m (battery: -0.5%/-0mAh, remaining: 99.5%/74mAh)",
+          "timestamp": 1792048850.779961
+        },
+        "entity_ids": [],
+        "scope": "action_receipt",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e7",
+        "tool_call_id": "harness:b1eb0270:p1:4",
+        "tool_name": "get_drone_status",
+        "args": {
+          "drone_id": "f7635bdf"
+        },
+        "start_sequence": 7,
+        "end_sequence": 8,
+        "status": "observed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "id": "f7635bdf",
+          "name": "Drone 3",
+          "model": "Model-D",
+          "status": "hovering",
+          "position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 14.0
+          },
+          "heading": 0.0,
+          "speed": 0.0,
+          "battery_level": 99.5,
+          "max_speed": 33.0,
+          "max_altitude": 473.0,
+          "battery_capacity": 74.4,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "created_at": 1775666803.5496068,
+          "last_updated": 1792048850.779955
+        },
+        "entity_ids": [
+          "f7635bdf"
+        ],
+        "scope": "observation",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e9",
+        "tool_call_id": "harness:b1eb0270:p1:5",
+        "tool_name": "get_drone_status",
+        "args": {
+          "drone_id": "f7635bdf"
+        },
+        "start_sequence": 9,
+        "end_sequence": 10,
+        "status": "observed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "id": "f7635bdf",
+          "name": "Drone 3",
+          "model": "Model-D",
+          "status": "hovering",
+          "position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 14.0
+          },
+          "heading": 0.0,
+          "speed": 0.0,
+          "battery_level": 99.5,
+          "max_speed": 33.0,
+          "max_altitude": 473.0,
+          "battery_capacity": 74.4,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "created_at": 1775666803.5496068,
+          "last_updated": 1792048850.779955
+        },
+        "entity_ids": [
+          "f7635bdf"
+        ],
+        "scope": "observation",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e11",
+        "tool_call_id": "harness:b1eb0270:p1:6",
+        "tool_name": "rotate",
+        "args": {
+          "drone_id": "f7635bdf",
+          "heading": 353.0
+        },
+        "start_sequence": 11,
+        "end_sequence": 12,
+        "status": "completed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "command_id": "4b4011e5",
+          "drone_id": "f7635bdf",
+          "command": "rotate",
+          "status": "success",
+          "message": "Drone heading set to 353.0° (battery: -0.2%/-0mAh, remaining: 99.3%/74mAh)",
+          "timestamp": 1792048850.783863
+        },
+        "entity_ids": [],
+        "scope": "action_receipt",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e13",
+        "tool_call_id": "harness:b1eb0270:p1:7",
+        "tool_name": "get_drone_status",
+        "args": {
+          "drone_id": "f7635bdf"
+        },
+        "start_sequence": 13,
+        "end_sequence": 14,
+        "status": "observed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "id": "f7635bdf",
+          "name": "Drone 3",
+          "model": "Model-D",
+          "status": "hovering",
+          "position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 14.0
+          },
+          "heading": 353.0,
+          "speed": 0.0,
+          "battery_level": 99.3,
+          "max_speed": 33.0,
+          "max_altitude": 473.0,
+          "battery_capacity": 74.4,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "created_at": 1775666803.5496068,
+          "last_updated": 1792048850.7838569
+        },
+        "entity_ids": [
+          "f7635bdf"
+        ],
+        "scope": "observation",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e15",
+        "tool_call_id": "harness:b1eb0270:p1:8",
+        "tool_name": "get_drone_status",
+        "args": {
+          "drone_id": "f7635bdf"
+        },
+        "start_sequence": 15,
+        "end_sequence": 16,
+        "status": "observed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "id": "f7635bdf",
+          "name": "Drone 3",
+          "model": "Model-D",
+          "status": "hovering",
+          "position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 14.0
+          },
+          "heading": 353.0,
+          "speed": 0.0,
+          "battery_level": 99.3,
+          "max_speed": 33.0,
+          "max_altitude": 473.0,
+          "battery_capacity": 74.4,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "created_at": 1775666803.5496068,
+          "last_updated": 1792048850.7838569
+        },
+        "entity_ids": [
+          "f7635bdf"
+        ],
+        "scope": "observation",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e17",
+        "tool_call_id": "harness:b1eb0270:p1:9",
+        "tool_name": "hover",
+        "args": {
+          "drone_id": "f7635bdf"
+        },
+        "start_sequence": 17,
+        "end_sequence": 18,
+        "status": "completed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "command_id": "090fa59e",
+          "drone_id": "f7635bdf",
+          "command": "hover",
+          "status": "success",
+          "message": "Drone now hovering (battery: -0.1%/-0mAh, remaining: 99.2%/74mAh)",
+          "timestamp": 1792048850.787746
+        },
+        "entity_ids": [],
+        "scope": "action_receipt",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      },
+      {
+        "evidence_id": "e19",
+        "tool_call_id": "harness:b1eb0270:p1:10",
+        "tool_name": "get_drone_status",
+        "args": {
+          "drone_id": "f7635bdf"
+        },
+        "start_sequence": 19,
+        "end_sequence": 20,
+        "status": "observed",
+        "ordering": "certain",
+        "overlaps": [],
+        "payload": {
+          "id": "f7635bdf",
+          "name": "Drone 3",
+          "model": "Model-D",
+          "status": "hovering",
+          "position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 14.0
+          },
+          "heading": 353.0,
+          "speed": 0.0,
+          "battery_level": 99.2,
+          "max_speed": 33.0,
+          "max_altitude": 473.0,
+          "battery_capacity": 74.4,
+          "perceived_radius": 50.0,
+          "task_radius": 20.0,
+          "home_position": {
+            "x": 224.0,
+            "y": 43.0,
+            "z": 0.0
+          },
+          "created_at": 1775666803.5496068,
+          "last_updated": 1792048850.78774
+        },
+        "entity_ids": [
+          "f7635bdf"
+        ],
+        "scope": "observation",
+        "source_clause_ids": [
+          "clause-1"
+        ]
+      }
+    ],
+    "observer_errors": [],
+    "mission_completion": "not_evaluated",
+    "limits": [
+      "known_targets_not_global_total",
+      "photo_subject_not_inferred",
+      "clauses_are_source_spans_not_a_complete_task_interpretation"
+    ],
+    "revision": "m1-r2",
+    "task_evidence": {
+      "session_id": "ad34350a",
+      "epoch": 0,
+      "requirements": [],
+      "summary": "{\"items\":[],\"mission_completion\":\"not_evaluated\",\"omitted\":0,\"original_task_controls\":true,\"schema\":\"m1-r1\"}",
+      "model_requests": [],
+      "injections": [],
+      "aggregate_requirements": [],
+      "progress_observations": []
+    }
+  },
+  "final_public_states": [
+    {
+      "id": "27707941",
+      "position": {
+        "x": 1618.0,
+        "y": 665.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "6bfadef8",
+      "position": {
+        "x": 1186.0,
+        "y": 1411.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "f7635bdf",
+      "position": {
+        "x": 224.0,
+        "y": 43.0,
+        "z": 14.0
+      },
+      "status": "hovering",
+      "heading": 353.0,
+      "battery_level": 99.2
+    },
+    {
+      "id": "78269095",
+      "position": {
+        "x": 1673.0,
+        "y": 1185.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "b9d358cf",
+      "position": {
+        "x": 392.0,
+        "y": 1422.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "45ddface",
+      "position": {
+        "x": 1997.0,
+        "y": 1481.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "9f416381",
+      "position": {
+        "x": 1478.0,
+        "y": 1045.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "500f6a90",
+      "position": {
+        "x": 1361.0,
+        "y": 803.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "8b54a956",
+      "position": {
+        "x": 1603.0,
+        "y": 566.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "3d246fb0",
+      "position": {
+        "x": 1567.0,
+        "y": 1158.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "edb6baf8",
+      "position": {
+        "x": 715.0,
+        "y": 82.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "5fe9e15c",
+      "position": {
+        "x": 1153.0,
+        "y": 246.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "711ca589",
+      "position": {
+        "x": 1606.0,
+        "y": 1505.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "d2d3b261",
+      "position": {
+        "x": 303.0,
+        "y": 35.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "5b8b1e46",
+      "position": {
+        "x": 915.0,
+        "y": 653.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "806108c6",
+      "position": {
+        "x": 1550.0,
+        "y": 1348.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "ff539e8f",
+      "position": {
+        "x": 1980.0,
+        "y": 1128.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "4353a38c",
+      "position": {
+        "x": 937.0,
+        "y": 28.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "1622f78b",
+      "position": {
+        "x": 330.0,
+        "y": 123.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "280fab12",
+      "position": {
+        "x": 370.0,
+        "y": 771.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "9ad633a6",
+      "position": {
+        "x": 703.0,
+        "y": 878.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "cb133626",
+      "position": {
+        "x": 972.0,
+        "y": 657.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "3b87e257",
+      "position": {
+        "x": 728.0,
+        "y": 522.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "233bf2af",
+      "position": {
+        "x": 42.0,
+        "y": 477.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "2359316b",
+      "position": {
+        "x": 1473.0,
+        "y": 123.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "dffb3755",
+      "position": {
+        "x": 78.0,
+        "y": 1077.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "de30624c",
+      "position": {
+        "x": 1341.0,
+        "y": 538.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "c632159f",
+      "position": {
+        "x": 1024.0,
+        "y": 872.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "166896b3",
+      "position": {
+        "x": 30.0,
+        "y": 1156.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    },
+    {
+      "id": "fd80173e",
+      "position": {
+        "x": 472.0,
+        "y": 265.0,
+        "z": 0.0
+      },
+      "status": "idle",
+      "heading": 0.0,
+      "battery_level": 100.0
+    }
+  ],
+  "posthoc_original_check": {
+    "result": true,
+    "task": {
+      "id": "b1eb0270",
+      "name": "Simple Rotation Test 1",
+      "content": "Drone Drone 3 takes off to 14 meters altitude, then rotates to face heading 353 degrees and hovers.",
+      "content_aliases": [
+        "Drone 3 takeoff 14m and turn to 353 degrees",
+        "make drone Drone 3 fly up to 14 meters then face direction 353",
+        "Drone 3 orientation test: altitude 14m heading 353",
+        "drone Drone 3 airborne rotation to 353 degrees at 14m"
+      ],
+      "description": "Take off and rotate to face a specific direction",
+      "creator": "Victor Zhang",
+      "originated_from": "Task Template Simple Rotation Test created by Built-in template",
+      "difficulty": "easy",
+      "related_apis": [
+        {
+          "endpoint": "/drones/{id}/command/take_off",
+          "parameters": {
+            "id": "f7635bdf",
+            "altitude": 14.0
+          }
+        },
+        {
+          "endpoint": "/drones/{id}/command/rotate",
+          "parameters": {
+            "id": "f7635bdf",
+            "heading": 353.0
+          }
+        },
+        {
+          "endpoint": "/drones/{id}/command/hover",
+          "parameters": {
+            "id": "f7635bdf"
+          }
+        }
+      ],
+      "execution_check_apis": {
+        "logic": "and",
+        "checks": [
+          {
+            "endpoint": "/check/drone_heading",
+            "parameters": {
+              "drone_id": "f7635bdf",
+              "expected_heading": 353.0,
+              "tolerance": 5.0
+            }
+          },
+          {
+            "endpoint": "/check/drone_altitude",
+            "parameters": {
+              "drone_id": "f7635bdf",
+              "expected_altitude": 14.0,
+              "tolerance": 2.0
+            }
+          }
+        ]
+      },
+      "commands": [
+        "take_off",
+        "rotate",
+        "hover"
+      ],
+      "is_done": false,
+      "is_passed": true,
+      "created_at": 1775666803.578054,
+      "last_updated": 1792048850.794515
+    },
+    "details": {
+      "result": true,
+      "type": "logic",
+      "logic": "and",
+      "checks": [
+        {
+          "result": true,
+          "type": "check",
+          "endpoint": "/check/drone_heading",
+          "parameters": {
+            "drone_id": "f7635bdf",
+            "expected_heading": 353.0,
+            "tolerance": 5.0
+          },
+          "expected": null,
+          "check_response": {
+            "result": true,
+            "value": 353.0,
+            "drone_id": "f7635bdf",
+            "expected_heading": 353.0,
+            "heading_delta": 0.0,
+            "tolerance": 5.0
+          }
+        },
+        {
+          "result": true,
+          "type": "check",
+          "endpoint": "/check/drone_altitude",
+          "parameters": {
+            "drone_id": "f7635bdf",
+            "expected_altitude": 14.0,
+            "tolerance": 2.0
+          },
+          "expected": null,
+          "check_response": {
+            "result": true,
+            "value": 14.0,
+            "drone_id": "f7635bdf",
+            "expected_altitude": 14.0,
+            "difference": 0.0,
+            "tolerance": 2.0
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,566 @@
+{
+  "scope": "Offline helper self-check only; no campaign, world, simulator, model or network calls.",
+  "runner_sha256": "2e59098902f2ab47a37587c24b93379265d901b79eec7aa6c2869fc08c84e40c",
+  "check_count": 32,
+  "checks": [
+    {
+      "name": "historical_v6_7eba7390",
+      "passed": true,
+      "details": {
+        "followup_frame_count": 0,
+        "observed_fixed_target_count": 0,
+        "scheduled_record_count": 0,
+        "returned_action_count": 0,
+        "scheduled_only_count": 0,
+        "matched_raw_move_count": 0,
+        "undispatched_or_unresolved_count": 0,
+        "positive_flag_suppression_count": 0,
+        "name_suppression_count": 0,
+        "issues_count": 0
+      }
+    },
+    {
+      "name": "historical_v6_24ac1838",
+      "passed": true,
+      "details": {
+        "followup_frame_count": 0,
+        "observed_fixed_target_count": 0,
+        "scheduled_record_count": 0,
+        "returned_action_count": 0,
+        "scheduled_only_count": 0,
+        "matched_raw_move_count": 0,
+        "undispatched_or_unresolved_count": 0,
+        "positive_flag_suppression_count": 0,
+        "name_suppression_count": 0,
+        "issues_count": 0
+      }
+    },
+    {
+      "name": "historical_v6_b1ad4f3e",
+      "passed": true,
+      "details": {
+        "followup_frame_count": 0,
+        "observed_fixed_target_count": 0,
+        "scheduled_record_count": 0,
+        "returned_action_count": 0,
+        "scheduled_only_count": 0,
+        "matched_raw_move_count": 0,
+        "undispatched_or_unresolved_count": 0,
+        "positive_flag_suppression_count": 0,
+        "name_suppression_count": 0,
+        "issues_count": 0
+      }
+    },
+    {
+      "name": "historical_v6_b1eb0270",
+      "passed": true,
+      "details": {
+        "followup_frame_count": 0,
+        "observed_fixed_target_count": 0,
+        "scheduled_record_count": 0,
+        "returned_action_count": 0,
+        "scheduled_only_count": 0,
+        "matched_raw_move_count": 0,
+        "undispatched_or_unresolved_count": 0,
+        "positive_flag_suppression_count": 0,
+        "name_suppression_count": 0,
+        "issues_count": 0
+      }
+    },
+    {
+      "name": "historical_v6_898cfdca",
+      "passed": true,
+      "details": {
+        "followup_frame_count": 0,
+        "observed_fixed_target_count": 0,
+        "scheduled_record_count": 0,
+        "returned_action_count": 0,
+        "scheduled_only_count": 0,
+        "matched_raw_move_count": 0,
+        "undispatched_or_unresolved_count": 0,
+        "positive_flag_suppression_count": 0,
+        "name_suppression_count": 0,
+        "issues_count": 0
+      }
+    },
+    {
+      "name": "historical_v6_784d71f8",
+      "passed": true,
+      "details": {
+        "followup_frame_count": 0,
+        "observed_fixed_target_count": 0,
+        "scheduled_record_count": 0,
+        "returned_action_count": 0,
+        "scheduled_only_count": 0,
+        "matched_raw_move_count": 0,
+        "undispatched_or_unresolved_count": 0,
+        "positive_flag_suppression_count": 0,
+        "name_suppression_count": 0,
+        "issues_count": 0
+      }
+    },
+    {
+      "name": "historical_v6_1905e0ad",
+      "passed": true,
+      "details": {
+        "followup_frame_count": 0,
+        "observed_fixed_target_count": 0,
+        "scheduled_record_count": 0,
+        "returned_action_count": 0,
+        "scheduled_only_count": 0,
+        "matched_raw_move_count": 0,
+        "undispatched_or_unresolved_count": 0,
+        "positive_flag_suppression_count": 0,
+        "name_suppression_count": 0,
+        "issues_count": 0
+      }
+    },
+    {
+      "name": "synthetic_good_returned",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "reject_missing_observation_ref",
+      "passed": true,
+      "details": [
+        "target_reference_missing:e999",
+        "target_attempt_binding_or_coordinates:t",
+        "target_action_alignment_or_outcome:t"
+      ]
+    },
+    {
+      "name": "reject_observation_is_move_ref",
+      "passed": true,
+      "details": [
+        "target_reference_scope_or_endpoint:e7",
+        "target_reference_receipt_hash:e7",
+        "target_attempt_binding_or_coordinates:t",
+        "target_action_alignment_or_outcome:t"
+      ]
+    },
+    {
+      "name": "reject_late_observation_ref",
+      "passed": true,
+      "details": [
+        "target_attempt_binding_or_coordinates:t",
+        "target_action_alignment_or_outcome:t"
+      ]
+    },
+    {
+      "name": "reject_wrong_action_ref",
+      "passed": true,
+      "details": [
+        "target_reference_scope_or_endpoint:e9",
+        "target_reference_receipt_hash:e9",
+        "target_action_alignment_or_outcome:t"
+      ]
+    },
+    {
+      "name": "reject_wrong_plan",
+      "passed": true,
+      "details": [
+        "target_audit_call_alignment:4",
+        "target_reference_scope_or_endpoint:e7",
+        "target_action_alignment_or_outcome:t",
+        "target_move_sequence_mismatch:t",
+        "target_reference_scope_or_endpoint:e7"
+      ]
+    },
+    {
+      "name": "reject_wrong_actor",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e7",
+        "target_action_alignment_or_outcome:t",
+        "target_reference_receipt_hash:e7",
+        "target_name_suppression_evidence_mismatch:Fixed Target 1"
+      ]
+    },
+    {
+      "name": "reject_wrong_command",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e7",
+        "target_action_alignment_or_outcome:t",
+        "target_reference_receipt_hash:e7",
+        "target_name_suppression_evidence_mismatch:Fixed Target 1"
+      ]
+    },
+    {
+      "name": "reject_wrong_xyz",
+      "passed": true,
+      "details": [
+        "target_action_alignment_or_outcome:t"
+      ]
+    },
+    {
+      "name": "reject_wrong_index",
+      "passed": true,
+      "details": [
+        "target_attempt_identity_or_appended_index:test:p1",
+        "target_directed_index_set_mismatch:test:p1"
+      ]
+    },
+    {
+      "name": "reject_wrong_fallback",
+      "passed": true,
+      "details": [
+        "target_fallback_grid_coordinate_mismatch:t"
+      ]
+    },
+    {
+      "name": "reject_duplicate_attempt",
+      "passed": true,
+      "details": [
+        "target_attempt_identity_or_appended_index:test:p1",
+        "target_directed_index_set_mismatch:test:p1"
+      ]
+    },
+    {
+      "name": "reject_bool_radius",
+      "passed": true,
+      "details": [
+        "target_action_radius_qualification:t"
+      ]
+    },
+    {
+      "name": "reject_height_unsupported",
+      "passed": true,
+      "details": [
+        "target_action_radius_qualification:t"
+      ]
+    },
+    {
+      "name": "reject_positive_before_action",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e3",
+        "target_reference_receipt_hash:e3",
+        "target_attempt_after_changed_or_positive_observation:t"
+      ]
+    },
+    {
+      "name": "reject_invalid_target_type",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e3",
+        "target_initial_observation_mismatch:t",
+        "target_reference_receipt_hash:e3",
+        "target_attempt_after_changed_or_positive_observation:t"
+      ]
+    },
+    {
+      "name": "reject_malformed_xyz",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e3",
+        "target_initial_observation_mismatch:t",
+        "target_reference_receipt_hash:e3",
+        "target_attempt_after_changed_or_positive_observation:t"
+      ]
+    },
+    {
+      "name": "reject_duplicate_name_invalid_coordinates",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e3",
+        "target_reference_receipt_hash:e3",
+        "target_attempt_with_ambiguous_public_name:t"
+      ]
+    },
+    {
+      "name": "reject_noncanonical_reach_name",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e7",
+        "target_reference_receipt_hash:e7",
+        "target_name_suppression_evidence_mismatch:Fixed Target 1"
+      ]
+    },
+    {
+      "name": "reject_positive_name_wrong_scope",
+      "passed": true,
+      "details": [
+        "target_name_suppression_evidence_mismatch:Fixed Target 1"
+      ]
+    },
+    {
+      "name": "reject_positive_flag_false",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e11",
+        "target_positive_flag_source_mismatch:t"
+      ]
+    },
+    {
+      "name": "reject_tampered_hash",
+      "passed": true,
+      "details": [
+        "target_reference_receipt_hash:e7",
+        "target_reference_receipt_hash:e7"
+      ]
+    },
+    {
+      "name": "reject_wrong_sequence",
+      "passed": true,
+      "details": [
+        "target_action_alignment_or_outcome:t",
+        "target_move_sequence_mismatch:t"
+      ]
+    },
+    {
+      "name": "scheduled_without_move",
+      "passed": true,
+      "details": {
+        "summary": {
+          "followup_frame_count": 1,
+          "observed_fixed_target_count": 1,
+          "scheduled_record_count": 1,
+          "returned_action_count": 0,
+          "scheduled_only_count": 1,
+          "matched_raw_move_count": 0,
+          "undispatched_or_unresolved_count": 1,
+          "positive_flag_suppression_count": 0,
+          "name_suppression_count": 0,
+          "issues_count": 0
+        },
+        "frames": [
+          {
+            "plan_id": "test:p1",
+            "target_count": 1,
+            "attempt_count": 1,
+            "scheduled_only_count": 1,
+            "positive_flag_suppression_count": 0,
+            "name_suppression_count": 0,
+            "recorded_followup": {
+              "scope": "current_plan_public_observations_once_per_id_no_completion_claim",
+              "targets": [
+                {
+                  "target_id": "t",
+                  "name": "Fixed Target 1",
+                  "position": [
+                    25.0,
+                    20.0,
+                    0.0
+                  ],
+                  "owner": "a",
+                  "observation_ref": "e3",
+                  "scheduled": true
+                }
+              ],
+              "observed_name_ids": {
+                "Fixed Target 1": [
+                  "t"
+                ]
+              },
+              "positive_names": {},
+              "directed_indices": [
+                9
+              ],
+              "attempts": [
+                {
+                  "target_id": "t",
+                  "target_name": "Fixed Target 1",
+                  "observed_position": [
+                    25.0,
+                    20.0,
+                    0.0
+                  ],
+                  "actor": "a",
+                  "observation_ref": "e3",
+                  "candidate_index": 9,
+                  "destination": [
+                    25.0,
+                    20.0,
+                    20.0
+                  ],
+                  "round": 1,
+                  "sequence": 1,
+                  "status": "scheduled",
+                  "fallback_exploration": {
+                    "candidate_index": 0,
+                    "destination": [
+                      35.0,
+                      35.0,
+                      20.0
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "attempts": [
+          {
+            "plan_id": "test:p1",
+            "target_id": "t",
+            "target_name": "Fixed Target 1",
+            "observed_position": [
+              25.0,
+              20.0,
+              0.0
+            ],
+            "actor": "a",
+            "observation_ref": "e3",
+            "candidate_index": 9,
+            "destination": [
+              25.0,
+              20.0,
+              20.0
+            ],
+            "round": 1,
+            "sequence": 1,
+            "status": "scheduled",
+            "fallback_exploration": {
+              "candidate_index": 0,
+              "destination": [
+                35.0,
+                35.0,
+                20.0
+              ]
+            },
+            "observation_request_id": 2,
+            "action_request_id": null,
+            "source_file": "public-api.jsonl",
+            "matched_raw_move_request_id": null,
+            "intent_source": "explicit frame attempt, never inferred from target proximity"
+          }
+        ],
+        "name_suppressions": [],
+        "issues": [],
+        "scope": "Post-execution public provenance only; no hidden map/checker, completion-by-ID inference, or candidate control.",
+        "ledger_body_archived": false,
+        "evidence_method": "raw response projection plus Harness call order/ref/hash"
+      }
+    },
+    {
+      "name": "scheduled_unknown_raw_move",
+      "passed": true,
+      "details": {
+        "summary": {
+          "followup_frame_count": 1,
+          "observed_fixed_target_count": 1,
+          "scheduled_record_count": 1,
+          "returned_action_count": 0,
+          "scheduled_only_count": 1,
+          "matched_raw_move_count": 1,
+          "undispatched_or_unresolved_count": 0,
+          "positive_flag_suppression_count": 0,
+          "name_suppression_count": 0,
+          "issues_count": 0
+        },
+        "frames": [
+          {
+            "plan_id": "test:p1",
+            "target_count": 1,
+            "attempt_count": 1,
+            "scheduled_only_count": 1,
+            "positive_flag_suppression_count": 0,
+            "name_suppression_count": 0,
+            "recorded_followup": {
+              "scope": "current_plan_public_observations_once_per_id_no_completion_claim",
+              "targets": [
+                {
+                  "target_id": "t",
+                  "name": "Fixed Target 1",
+                  "position": [
+                    25.0,
+                    20.0,
+                    0.0
+                  ],
+                  "owner": "a",
+                  "observation_ref": "e3",
+                  "scheduled": true
+                }
+              ],
+              "observed_name_ids": {
+                "Fixed Target 1": [
+                  "t"
+                ]
+              },
+              "positive_names": {},
+              "directed_indices": [
+                9
+              ],
+              "attempts": [
+                {
+                  "target_id": "t",
+                  "target_name": "Fixed Target 1",
+                  "observed_position": [
+                    25.0,
+                    20.0,
+                    0.0
+                  ],
+                  "actor": "a",
+                  "observation_ref": "e3",
+                  "candidate_index": 9,
+                  "destination": [
+                    25.0,
+                    20.0,
+                    20.0
+                  ],
+                  "round": 1,
+                  "sequence": 1,
+                  "status": "scheduled",
+                  "fallback_exploration": {
+                    "candidate_index": 0,
+                    "destination": [
+                      35.0,
+                      35.0,
+                      20.0
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "attempts": [
+          {
+            "plan_id": "test:p1",
+            "target_id": "t",
+            "target_name": "Fixed Target 1",
+            "observed_position": [
+              25.0,
+              20.0,
+              0.0
+            ],
+            "actor": "a",
+            "observation_ref": "e3",
+            "candidate_index": 9,
+            "destination": [
+              25.0,
+              20.0,
+              20.0
+            ],
+            "round": 1,
+            "sequence": 1,
+            "status": "scheduled",
+            "fallback_exploration": {
+              "candidate_index": 0,
+              "destination": [
+                35.0,
+                35.0,
+                20.0
+              ]
+            },
+            "observation_request_id": 2,
+            "action_request_id": null,
+            "source_file": "public-api.jsonl",
+            "matched_raw_move_request_id": 4,
+            "intent_source": "explicit frame attempt, never inferred from target proximity",
+            "matched_raw_move_committed": true,
+            "matched_raw_classification": "unknown"
+          }
+        ],
+        "name_suppressions": [],
+        "issues": [],
+        "scope": "Post-execution public provenance only; no hidden map/checker, completion-by-ID inference, or candidate control.",
+        "ledger_body_archived": false,
+        "evidence_method": "raw response projection plus Harness call order/ref/hash"
+      }
+    }
+  ],
+  "all_passed": true
+}

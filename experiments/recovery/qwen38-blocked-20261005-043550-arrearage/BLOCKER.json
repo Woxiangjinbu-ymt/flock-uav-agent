@@ -1,0 +1,62 @@
+{
+  "blocker": {
+    "code": "provider_arrearage",
+    "provider_error_code": "Arrearage",
+    "http_status": 400,
+    "detected_at": "2026-10-05T04:37:13.470344+08:00",
+    "error_at": "2026-10-05T04:35:50+08:00",
+    "scene_id": "1a9c1abc",
+    "task_id": "f89fbba8",
+    "generation": 2,
+    "evidence_directory": "experiments/recovery/qwen38-blocked-20261005-043550-arrearage",
+    "recovery_policy": "Do not resume or make connectivity/API calls until account arrears are resolved; do not top up automatically. Keep the existing results and all generations.",
+    "required_external_change": "Restore the Alibaba Cloud Model Studio account to good standing.",
+    "notification_recorded_at": "2026-10-05T04:37:56.102728+08:00"
+  },
+  "stopped_snapshot": {
+    "checked_at": "2026-10-05T04:37:56.102728+08:00",
+    "status": "interrupted",
+    "locks": {
+      "runner": "free",
+      "attempt": "free"
+    },
+    "scene_states": {
+      "completed": 64,
+      "aborted": 4,
+      "interrupted": 7
+    },
+    "scored_tasks": 1396,
+    "valid_complete_run": false,
+    "http": {
+      "200": 24421,
+      "400": 1
+    },
+    "terminal_llm_errors": 1,
+    "preserved_completed_scenes_unchanged": true,
+    "resume_launches": [
+      {
+        "ordinal": 1,
+        "status": "blocked_provider_arrearage",
+        "session_id": 70622,
+        "exit_code": 2,
+        "log": "experiments/recovery/qwen38-resume-20261005-023643-01.log"
+      }
+    ],
+    "missing_or_invalid_tasks": 104,
+    "remaining_scenes": [
+      "3ec31656",
+      "ccbe2537",
+      "cc14d231",
+      "9d4d90ca",
+      "79b207ff",
+      "823c15d5",
+      "ec1f47f4",
+      "5de86ceb",
+      "d23eb117",
+      "dcae50c1",
+      "1a9c1abc"
+    ],
+    "provider_failure_excluded_from_score": true
+  },
+  "resume_command_after_account_recovery": "caffeinate -i controller/.venv/bin/python scripts/reproduction.py resume experiments/runs/20261004-142512-full-aca112a7"
+}

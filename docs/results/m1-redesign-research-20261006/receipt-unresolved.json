@@ -1,0 +1,548 @@
+[
+  {
+    "scene": "3973d0d6",
+    "task": "fb2c7ba3",
+    "name": "Fixed Target 3",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "L",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "ce97a68d",
+    "name": "Fixed Target 59",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "both_fail",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "13a30905",
+    "name": "Fixed Target 28",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "both_fail",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "13a30905",
+    "name": "Fixed Target 75",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "both_fail",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [
+      {
+        "scene": "823c15d5",
+        "task": "ce97a68d",
+        "target_name": "Fixed Target 75",
+        "evidence_id": "e167",
+        "tool": "move_to_and_sense",
+        "tool_actor": "436f6476",
+        "receipt_actor": "436f6476",
+        "message_path": [
+          "move_result",
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone moved to position (1800.0, 1250.0, 16.0), heading: 106.3° (battery: -2.4%/-2mAh, remaining: 93.4%/74mAh) - Reached target(s): Fixed Target 21, Fixed Target 75",
+        "args": {
+          "detail": "summary",
+          "drone_id": "436f6476",
+          "x": 1800.0,
+          "y": 1250.0,
+          "z": 16.0
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/823c15d5/agent-traces/toolchains/20261006T185533137862_823c15d5_2153e875-e346-445b-ada4-128f437ecce7_exception.json"
+      }
+    ],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "ddc3e0b0",
+    "name": "Fixed Target 26",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "both_fail",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "c6e28e3b",
+    "name": "Fixed Target 31",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "L",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "c6e28e3b",
+    "name": "Fixed Target 55",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "L",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "c6e28e3b",
+    "name": "Fixed Target 59",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "L",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "9e46da10",
+    "name": "Fixed Target 19",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "both_fail",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [
+      {
+        "scene": "823c15d5",
+        "task": "c6e28e3b",
+        "target_name": "Fixed Target 19",
+        "evidence_id": "e60",
+        "tool": "move_towards",
+        "tool_actor": "f77bc481",
+        "receipt_actor": "f77bc481",
+        "message_path": [
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone moved 700.00m to position (2200.00, 850.00, 24.00), heading: 90.0° (battery: -5.3%/-4mAh, remaining: 94.2%/68mAh) - Reached target(s): Fixed Target 19, Fixed Target 51, Fixed Target 60",
+        "args": {
+          "distance": 700.0,
+          "drone_id": "f77bc481",
+          "heading": 90.0
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/823c15d5/agent-traces/toolchains/20261006T192707372776_823c15d5_616741cc-1ee9-4dd5-ab6a-0a20c2fb3216_exception.json"
+      }
+    ],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "9e46da10",
+    "name": "Fixed Target 97",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "both_fail",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "823c15d5",
+    "task": "5aa74653",
+    "name": "Fixed Target 4",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "L",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "35ce64d8",
+    "task": "20742d37",
+    "name": "Fixed Target 10",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "L",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [
+      {
+        "scene": "35ce64d8",
+        "task": "b1ad4f3e",
+        "target_name": "Fixed Target 10",
+        "evidence_id": "e84",
+        "tool": "navigate_to",
+        "tool_actor": "7954b39a",
+        "receipt_actor": "7954b39a",
+        "message_path": [
+          "last_move_result",
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone moved to position (200.0, 40.0, 10.0), heading: 90.0° (battery: -1.3%/-1mAh, remaining: 93.6%/71mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "args": {
+          "drone_id": "7954b39a",
+          "x": 200.0,
+          "y": 40.0,
+          "z": 10.0
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191459961669_35ce64d8_804c7d72-e8e0-429d-a91a-760215c1733d_completed.json"
+      },
+      {
+        "scene": "35ce64d8",
+        "task": "de294a89",
+        "target_name": "Fixed Target 10",
+        "evidence_id": "e39",
+        "tool": "move_along_path",
+        "tool_actor": "7954b39a",
+        "receipt_actor": "7954b39a",
+        "message_path": [
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone completed path with 2 waypoints (total distance: 167.00m, battery: -1.1%/-1mAh, remaining: 96.4%/73mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "args": {
+          "allow_partial_move": false,
+          "detail": "summary",
+          "drone_id": "7954b39a",
+          "waypoints": [
+            {
+              "x": 154.0,
+              "y": 41.0
+            },
+            {
+              "x": 154.0,
+              "y": 129.0
+            }
+          ]
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191716307795_35ce64d8_03de629e-e3a8-4e7c-b109-2ca53e08989c_completed.json"
+      }
+    ],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "35ce64d8",
+    "task": "20742d37",
+    "name": "Fixed Target 11",
+    "target": true,
+    "m1_pass": false,
+    "outcome": "L",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [
+      {
+        "scene": "35ce64d8",
+        "task": "b1ad4f3e",
+        "target_name": "Fixed Target 11",
+        "evidence_id": "e84",
+        "tool": "navigate_to",
+        "tool_actor": "7954b39a",
+        "receipt_actor": "7954b39a",
+        "message_path": [
+          "last_move_result",
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone moved to position (200.0, 40.0, 10.0), heading: 90.0° (battery: -1.3%/-1mAh, remaining: 93.6%/71mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "args": {
+          "drone_id": "7954b39a",
+          "x": 200.0,
+          "y": 40.0,
+          "z": 10.0
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191459961669_35ce64d8_804c7d72-e8e0-429d-a91a-760215c1733d_completed.json"
+      },
+      {
+        "scene": "35ce64d8",
+        "task": "de294a89",
+        "target_name": "Fixed Target 11",
+        "evidence_id": "e39",
+        "tool": "move_along_path",
+        "tool_actor": "7954b39a",
+        "receipt_actor": "7954b39a",
+        "message_path": [
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone completed path with 2 waypoints (total distance: 167.00m, battery: -1.1%/-1mAh, remaining: 96.4%/73mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "args": {
+          "allow_partial_move": false,
+          "detail": "summary",
+          "drone_id": "7954b39a",
+          "waypoints": [
+            {
+              "x": 154.0,
+              "y": 41.0
+            },
+            {
+              "x": 154.0,
+              "y": 129.0
+            }
+          ]
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191716307795_35ce64d8_03de629e-e3a8-4e7c-b109-2ca53e08989c_completed.json"
+      }
+    ],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "35ce64d8",
+    "task": "2ca9bc1c",
+    "name": "Fixed Target 4",
+    "target": true,
+    "m1_pass": true,
+    "outcome": "both_pass",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [
+      {
+        "scene": "35ce64d8",
+        "task": "b1ad4f3e",
+        "target_name": "Fixed Target 4",
+        "evidence_id": "e121",
+        "tool": "navigate_to",
+        "tool_actor": "6126210f",
+        "receipt_actor": "6126210f",
+        "message_path": [
+          "last_move_result",
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone moved to position (1000.0, 750.0, 10.0), heading: 0.0° (battery: -3.0%/-2mAh, remaining: 94.3%/65mAh) - Reached target(s): Fixed Target 4",
+        "args": {
+          "drone_id": "6126210f",
+          "x": 1000.0,
+          "y": 750.0,
+          "z": 10.0
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191459961669_35ce64d8_804c7d72-e8e0-429d-a91a-760215c1733d_completed.json"
+      },
+      {
+        "scene": "35ce64d8",
+        "task": "b1ad4f3e",
+        "target_name": "Fixed Target 4",
+        "evidence_id": "e215",
+        "tool": "navigate_to",
+        "tool_actor": "04315908",
+        "receipt_actor": "04315908",
+        "message_path": [
+          "last_move_result",
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone moved to position (990.0, 600.0, 10.0), heading: 358.1° (battery: -1.9%/-1mAh, remaining: 88.8%/60mAh) - Reached target(s): Fixed Target 4",
+        "args": {
+          "drone_id": "04315908",
+          "x": 990.0,
+          "y": 600.0,
+          "z": 10.0
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191459961669_35ce64d8_804c7d72-e8e0-429d-a91a-760215c1733d_completed.json"
+      }
+    ],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "35ce64d8",
+    "task": "1905e0ad",
+    "name": "Fixed Target 10",
+    "target": true,
+    "m1_pass": true,
+    "outcome": "both_pass",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [
+      {
+        "scene": "35ce64d8",
+        "task": "b1ad4f3e",
+        "target_name": "Fixed Target 10",
+        "evidence_id": "e84",
+        "tool": "navigate_to",
+        "tool_actor": "7954b39a",
+        "receipt_actor": "7954b39a",
+        "message_path": [
+          "last_move_result",
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone moved to position (200.0, 40.0, 10.0), heading: 90.0° (battery: -1.3%/-1mAh, remaining: 93.6%/71mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "args": {
+          "drone_id": "7954b39a",
+          "x": 200.0,
+          "y": 40.0,
+          "z": 10.0
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191459961669_35ce64d8_804c7d72-e8e0-429d-a91a-760215c1733d_completed.json"
+      },
+      {
+        "scene": "35ce64d8",
+        "task": "de294a89",
+        "target_name": "Fixed Target 10",
+        "evidence_id": "e39",
+        "tool": "move_along_path",
+        "tool_actor": "7954b39a",
+        "receipt_actor": "7954b39a",
+        "message_path": [
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone completed path with 2 waypoints (total distance: 167.00m, battery: -1.1%/-1mAh, remaining: 96.4%/73mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "args": {
+          "allow_partial_move": false,
+          "detail": "summary",
+          "drone_id": "7954b39a",
+          "waypoints": [
+            {
+              "x": 154.0,
+              "y": 41.0
+            },
+            {
+              "x": 154.0,
+              "y": 129.0
+            }
+          ]
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191716307795_35ce64d8_03de629e-e3a8-4e7c-b109-2ca53e08989c_completed.json"
+      }
+    ],
+    "current_task_reach_reports": []
+  },
+  {
+    "scene": "35ce64d8",
+    "task": "1905e0ad",
+    "name": "Fixed Target 11",
+    "target": true,
+    "m1_pass": true,
+    "outcome": "both_pass",
+    "structured_tool_hits": [],
+    "previous_blackboard_hits": [],
+    "final_blackboard_hits": [],
+    "earlier_task_reach_reports": [
+      {
+        "scene": "35ce64d8",
+        "task": "b1ad4f3e",
+        "target_name": "Fixed Target 11",
+        "evidence_id": "e84",
+        "tool": "navigate_to",
+        "tool_actor": "7954b39a",
+        "receipt_actor": "7954b39a",
+        "message_path": [
+          "last_move_result",
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone moved to position (200.0, 40.0, 10.0), heading: 90.0° (battery: -1.3%/-1mAh, remaining: 93.6%/71mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "args": {
+          "drone_id": "7954b39a",
+          "x": 200.0,
+          "y": 40.0,
+          "z": 10.0
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191459961669_35ce64d8_804c7d72-e8e0-429d-a91a-760215c1733d_completed.json"
+      },
+      {
+        "scene": "35ce64d8",
+        "task": "de294a89",
+        "target_name": "Fixed Target 11",
+        "evidence_id": "e39",
+        "tool": "move_along_path",
+        "tool_actor": "7954b39a",
+        "receipt_actor": "7954b39a",
+        "message_path": [
+          "message"
+        ],
+        "receipt_status": "success",
+        "receipt_outcome": "completed",
+        "tool_status": "completed",
+        "message": "Drone completed path with 2 waypoints (total distance: 167.00m, battery: -1.1%/-1mAh, remaining: 96.4%/73mAh) - Reached target(s): Fixed Target 10, Fixed Target 11",
+        "args": {
+          "allow_partial_move": false,
+          "detail": "summary",
+          "drone_id": "7954b39a",
+          "waypoints": [
+            {
+              "x": 154.0,
+              "y": 41.0
+            },
+            {
+              "x": 154.0,
+              "y": 129.0
+            }
+          ]
+        },
+        "structured_in_final_ledger": false,
+        "trace": "experiments/runs/20261006-175621-m1-fast100-m1-2d243789/35ce64d8/agent-traces/toolchains/20261006T191716307795_35ce64d8_03de629e-e3a8-4e7c-b109-2ca53e08989c_completed.json"
+      }
+    ],
+    "current_task_reach_reports": []
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "schema": "student-tool-id-comparison-v2",
+  "scope": "development_input_only",
+  "planned_episodes": 22,
+  "wire_requests": 98,
+  "prompt_source_kinds": {
+    "synthetic_sdk_development": 60,
+    "real_provider_development": 38
+  },
+  "sample_source_kinds": {
+    "synthetic_sdk_development": 37,
+    "real_provider_development": 24
+  },
+  "v1_measured_prompts": 88,
+  "v2_measured_prompts": 98,
+  "previously_rejected_resolved": 10,
+  "v2_prompt_rejections": {},
+  "v2_prompt_tokens": {
+    "count": 98,
+    "min": 9957,
+    "max": 30218,
+    "p50": 12167,
+    "p95": 18638
+  },
+  "paired_prompt_token_delta": {
+    "count": 88,
+    "min": 27,
+    "max": 567,
+    "p50": 159,
+    "p95": 391
+  },
+  "full_samples": 61,
+  "encoded_samples": 61,
+  "rejected_samples": 0,
+  "v2_sequence_tokens": {
+    "count": 61,
+    "min": 9988,
+    "max": 14885,
+    "p50": 12266,
+    "p95": 13914
+  },
+  "paired_sequence_token_delta": {
+    "count": 61,
+    "min": 27,
+    "max": 567,
+    "p50": 205,
+    "p95": 428
+  },
+  "paired_sequence_totals": {
+    "v1": 736669,
+    "v2": 749200
+  },
+  "paired_prompt_totals": {
+    "v1": 1049645,
+    "v2": 1065223
+  },
+  "selected_smoke_length": 16384,
+  "diagnostic_output_reserve_tokens": 2048,
+  "synthetic_cases": 12,
+  "synthetic_passed": 12,
+  "unique_same_name_parallel_groups": 6,
+  "observed_reordered_wire_requests": 0,
+  "candidate_lengths": {
+    "4096": {
+      "complete_samples_fit": 0,
+      "prompt_only_fit": 0,
+      "prompt_plus_reserve_fit": 0
+    },
+    "8192": {
+      "complete_samples_fit": 0,
+      "prompt_only_fit": 0,
+      "prompt_plus_reserve_fit": 0
+    },
+    "16384": {
+      "complete_samples_fit": 61,
+      "prompt_only_fit": 92,
+      "prompt_plus_reserve_fit": 89
+    },
+    "32768": {
+      "complete_samples_fit": 61,
+      "prompt_only_fit": 98,
+      "prompt_plus_reserve_fit": 98
+    }
+  },
+  "provider_calls": 0,
+  "teacher_training_samples": 0,
+  "weights_loaded": false,
+  "training_started": false,
+  "limitations": [
+    "Historical failed search requests remain prompt-only, not training targets",
+    "Custom-template representation/decoder validation only; model understanding and serving integration untested"
+  ],
+  "passed": true
+}
