@@ -1,6 +1,6 @@
 # DeepSeek 教师轨迹 · 2026-11-11 A 折
 
-首遍 FlockCue 600 题中的 12 个完整场景、240 题用于训练侧，另 3 个场景、60 题用于内部验证。B 折 15 场、300 题供学生折外评测。本题库有历史开发暴露。[场景角色](audit/scene-roles.json) · [逐题取舍](audit/episodes.jsonl)
+首遍 FlockCue 600 题中的 12 个完整场景、240 题用于训练侧，另 3 场、60 题用于内部验证。B 折 15 场、300 题固定为学生独立测试集。完整运行记录包含教师在 B 折的表现，学生训练、示范筛选与选模均排除这些场景。本题库有历史开发暴露。[本次 A 折发布角色](audit/scene-roles.json) · [论文全量场景角色](../../original-benchmark/scene-roles.csv) · [逐题取舍](audit/episodes.jsonl)
 
 | 数据 | 用途 |
 | --- | --- |

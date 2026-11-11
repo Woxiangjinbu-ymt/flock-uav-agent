@@ -1,0 +1,46 @@
+{
+  "system": "Agent4Drone",
+  "model": "deepseek-flash",
+  "protocol": "agent4drone-v3-gui500-timeout-scoring",
+  "release": "2026-10-05",
+  "source": {
+    "path_in_archived_workspace": "docs/results/baseline-deployment-20261005/tasks.csv",
+    "sha256": "1a748c6b39bcb8f52d4b7e1acfe2429adee2f9ee17156053eff20f462ae12e13",
+    "published_checksums": "docs/results/baseline-deployment-20261005/SHA256SUMS.json",
+    "selection": {
+      "model": "deepseek",
+      "cohort": "first_attempt_no_replay"
+    },
+    "bundled_file": "published-tasks.csv.gz",
+    "bundled_sha256": "2e534d784b65f3de6c59887bce04a8bf394c75f440d837f27ec14fc832152b87",
+    "rows": 9000
+  },
+  "benchmark": {
+    "file": "original-benchmark/benchmark.zip",
+    "sha256": "b5040097d2bfdd44600f3bf486fdb43ee3eb1247fec9c67900b5fcda6feb94a3"
+  },
+  "results": {
+    "file": "tasks.csv",
+    "sha256": "811df04e4686aa69400db33b3ed20dc9f31369a6fef1242eb8085a6537a29207"
+  },
+  "core_results": {
+    "file": "results/benchmark-600/tasks.csv",
+    "sha256": "838e7d82b934a63893d4c1334b53274d2257cfceca39e8adc02a529c2d3264da",
+    "shared_tasks": 600,
+    "historical_passed": 506
+  },
+  "totals": {
+    "scenes": 75,
+    "planned_tasks": 1500,
+    "planned_checks": 9396,
+    "scored_tasks": 1483,
+    "checker_passed": 1255,
+    "task_passed": 1243,
+    "strict_deployment_passed": 1243,
+    "accounting_reasons": {
+      "observed_checker": 1446,
+      "terminal_provider_error": 37,
+      "unscored_execution_stop": 17
+    }
+  }
+}

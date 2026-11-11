@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "path_roots": {
+    "current": "repository root",
+    "original": "root of the archived checkout (MultiUAV-Plat-archive-20261111)"
+  },
+  "tree_digest": {
+    "algorithm": "SHA-256",
+    "inventory": "All regular files below the attempt directory including dotfiles, ordered by Unicode code point of their relative POSIX path. These attempts contain no symbolic links.",
+    "line_format": "lowercase SHA-256 hex of file bytes, two ASCII spaces, relative POSIX path, LF; encode as UTF-8. Hash the concatenated lines. Counters use logical file sizes in bytes."
+  },
+  "attempts": [
+    {
+      "benchmark": "benchmark-1500",
+      "model": "deepseek-flash",
+      "harness": "Agent4Drone",
+      "attempt": "20261003-143255-full-5c501118",
+      "protocol": "agent4drone-v3-gui500-timeout-scoring",
+      "current": "datasets/results/benchmark-1500/raw/20261003-143255-full-5c501118",
+      "original": "experiments/runs/20261003-143255-full-5c501118",
+      "sessions": 75,
+      "tasks": 1500,
+      "leaf_checks": 9396,
+      "files": 15740,
+      "bytes": 6918100080,
+      "tree_sha256": "95959028e069cfe196bdd1988a6829dee2c4c4c9f93c6478deb3dde0090afa5a",
+      "file_sha256": {
+        "plan.json": "0866b41fde7fe740e8c2f37bfc8f767d7b7155d1b82dee4d6b3c0c0508d25413",
+        "manifest.json": "9a29563e3fd0b8347068f3501e8d9a7b09f713965a856a0af054e50f17e8c151",
+        "identity.json": "e76d820b71cc5acc6b12379f1af3e8a479b21afd1be8b9f1b2eea9a10734a70c",
+        "results.json": "72d454c1e9067c52f63590d324fdb6167ebb42cca31d556097a18652ea718100",
+        "summary.json": "f8111877ba755b7e85b6f6019ecd408838dcb369d9a9448d89f318b57e7f0253",
+        "source.zip": "8ef80197a34dc4fee9c6feb1aef6bed43d0ff8e3c705ecb3274ccfc1ff0de600"
+      }
+    },
+    {
+      "benchmark": "benchmark-600",
+      "model": "deepseek-flash",
+      "harness": "FlockCue",
+      "attempt": "20261111-134339-flockcue-600-first-pass-d505975c",
+      "protocol": "agent4drone-v3-gui500-timeout-scoring",
+      "current": "datasets/results/benchmark-600/raw/20261111-134339-flockcue-600-first-pass-d505975c",
+      "original": "outputs/flockcue-deployment600-20261111/experiments/runs/20261111-134339-flockcue-600-first-pass-d505975c",
+      "sessions": 30,
+      "tasks": 600,
+      "leaf_checks": 3705,
+      "files": 6443,
+      "bytes": 7544480704,
+      "tree_sha256": "29b0a5180e75573a5198808887e1ca60e700cb3aa928b5b282cbd53405b50e19",
+      "file_sha256": {
+        "plan.json": "6589d8e1b4be6664cb3d651f09fe2cc54e41ffca7a361a6dae675ee455ec8823",
+        "manifest.json": "842c9a2a53739f093b21a80c4aaa955bf6087d29841653e7e33d5f43494d10d6",
+        "identity.json": "b82435daf8436bdbd1075a92dbcd3c06e3d2626d951b29546c248a4e8135c49b",
+        "results.json": "eae20f13a6ac72cbfa3f4fde4544dc13987e97a24ac25a6e01c0efa16e2dc533",
+        "summary.json": "ebd8dadfbe0d3ef8acf78f365e0a2115cf74ec7a4f107489d88bb4c82cf47df4",
+        "source.zip": "c08bb7878b86edf0c374db22e5071d38ae576d6c5ba65cec71139b11ffb281e0"
+      }
+    }
+  ]
+}
