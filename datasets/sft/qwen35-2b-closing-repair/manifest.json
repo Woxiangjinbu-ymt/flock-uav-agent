@@ -30,21 +30,25 @@
     "cohort_sha256": "fb3997969c774522719658c88935f8cb219d5f43534a8853373403ad2b30ee9e",
     "first_manifest_sha256": "a9c8ba6576ae1231afe2bcf030c62167cb6291988aa4c1022310ad40065e48bf",
     "teacher_training_public_sha256": "fed99463778544e0800634b6152e13a9b2df252cfe376cae3dc1e0dff26cd316",
-    "projection_sha256": "64e6f91a889af757081da33ab652630c434925c8b11ef1f161dff73b9860fdc9"
+    "projection_sha256": "64e6f91a889af757081da33ab652630c434925c8b11ef1f161dff73b9860fdc9",
+    "parent_main_manifest_sha256": "c34aa351d85da6e125ab348945e564abf8ca77e2b5ed29397a323a01cd0799a6",
+    "parent_repair_manifest_sha256": "da659cad47218ac36b69c715218aae6a1a47284546b07f31b86fcd86e9bef144",
+    "resample_review_sha256": "996de37483a9e7e7cbf5ad2b78ac7a93ea25f0e1bdd6e1b8724e6daae69ff9d5",
+    "continuation_review_sha256": "314c7db939f2e5280396b84d83a1eb6e184e4798a87aad0aca5cc22b74226606"
   },
   "counts": {
-    "masked_prompt_tokens": 214326,
-    "supervised_tokens": 2619,
+    "masked_prompt_tokens": 254355,
+    "supervised_tokens": 3369,
     "supervised_reasoning_tokens": 774,
     "first_pass_overlap": 5,
-    "decisions": 15,
-    "tasks": 6,
-    "scenes": 5
+    "decisions": 18,
+    "tasks": 9,
+    "scenes": 6
   },
   "kinds": {
     "action": 4,
     "verification": 4,
-    "closing": 6,
+    "closing": 9,
     "correction": 1
   },
   "teacher_path_limits": {
@@ -54,12 +58,21 @@
   },
   "files": {
     "index.jsonl": {
-      "sha256": "ff40d361b01b6b44f8e2f0db6dcfef8b78969c38b94e522d60ed0ac6870bdb10",
-      "bytes": 8748
+      "sha256": "3c2b309d92497dd074392728a0f9945402a55c80b07297cb5961914947149fdd",
+      "bytes": 12057
     },
     "train.jsonl.gz": {
-      "sha256": "58c057533f6d9724cb92e6bfaa3c823d5e21a01049418958bf9e29a90550713c",
-      "bytes": 187720
+      "sha256": "a3e8b85ab67b60289b323ade6a2ac16256136a3a32bb5939baefbcd56cd783e5",
+      "bytes": 225712
     }
+  },
+  "recollection": {
+    "reviewed": 11,
+    "rejected": 8,
+    "resumed_reviewed": 3,
+    "direct_closing": 3,
+    "after_public_query": 0,
+    "new_closing": 3,
+    "new_correction": 0
   }
 }

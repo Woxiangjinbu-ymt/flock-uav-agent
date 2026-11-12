@@ -1,8 +1,8 @@
 # 第二轮 SFT 的收尾与纠错示范
 
-复审对象是 A 折训练侧 17 条完整的 DeepSeek 教师轨迹。6 条原终答可直接监督，11 条原终答列入重采。主包只从通过终答复审的 6 条轨迹取例。另有 2 条轨迹的终答需要重采，但中间的纠错有独立证据，相关 3 轮单独保存。当前发布是第二轮的数据增量，未进行模型训练或教师重采。[17 条的原题、原终答、逐轮回执索引与重采要求](../../teacher/2026-11-11-fold-a/audit/closing-repair-review.json)
+这一数据包用于第二轮 SFT。首次复审覆盖 A 折训练侧 17 条教师轨迹，6 条原终答合格，另外 11 条随后用同一服务指纹的 DeepSeek 重采。该次复审还从 2 题中单独保留了有独立回执的 3 个纠错与核验轮。下表保留首次复审结论，本次重采另有完整记录。[11 题重采及逐题采纳依据](../../teacher/2026-11-12-closing-recollection/README.md) · [17 条的原题、原终答、逐轮回执索引与重采要求](../../teacher/2026-11-11-fold-a/audit/closing-repair-review.json)
 
-## 逐题结论
+## 17 条原轨迹的首次复审
 
 R 表示教师的逻辑决策轮次。回执中的照片 ID 表明一次拍照成功；拍摄位置、目标接触和照片内容分别核对。对于含悬停的复合指令，按该轮实发系统消息判断能否声称合约已验证。动作可核实时，允许教师如实报告执行事实并说明范围。
 
@@ -30,8 +30,10 @@ R 表示教师的逻辑决策轮次。回执中的照片 ID 表明一次拍照�
 
 | 数据包 | 样本构成 | 监督 token | 与首轮的关系 |
 | --- | --- | ---: | --- |
-| [主训练文件](train.jsonl.gz) · [逐行索引](index.jsonl) | 6 题、5 场、15 轮。6 个收尾、4 个核验、4 个动作、1 个纠错 | 2,619 | 10 轮新增，其中 6 个收尾和 4 个核验。另 5 轮保留动作和纠错上下文的训练覆盖 |
+| [主训练文件](train.jsonl.gz) · [逐行索引](index.jsonl) | 9 题、6 场、18 轮。9 个收尾、4 个核验、4 个动作、1 个纠错 | 3,369 | 13 轮为首轮未收录的监督目标，其中 3 个收尾（750 token）来自本次重采。另 5 轮与首轮重合 |
 | [独立纠错文件](repair-only/train.jsonl.gz) · [逐行索引](repair-only/index.jsonl) | 2 题、3 轮。2 个纠错和 1 个核验，排除了这两题的终答 | 351 | 3 轮均与首轮逐 token 相同，可用于定向重放 |
+
+主包末尾 3 行仅监督同指纹 DeepSeek 本次生成的终答。前 15 行与重采前逐行一致，独立纠错包的文件保持原校验值。新增终答数为 3，新增纠错数为 0。
 
 三处纠错均来自教师看见 `run_harness` 返回 `Unexpected control fields` 后，删除多传的参数，重新发起同一 `simple_chain` 并收到技能成功回执。它们覆盖同一种错误，均已在首轮入训。失败调用和真实拒绝保留在纠错轮的输入中，失败调用不作为这里的监督目标。自动绕障未计为教师的纠错决策。本批没有任务未完成时诚实退出或请求澄清的新示范。
 
@@ -39,8 +41,15 @@ R 表示教师的逻辑决策轮次。回执中的照片 ID 表明一次拍照�
 
 复审核对了候选原始工具链终答、决策轮绑定的回执摘要及当时可见信息。所有 17 条原教师路径均按学生原预算逐轮复算；上下文上限 32,768、每轮输出上限 2,048、每题累计上限 100,000 token。教师原话、模板和历史均未改写。验证题和 B 折未进入训练。两份训练文件已用训练服务器的正式 `read_release` 在 CPU 上读取通过，无权重更新。
 
-从仓库根目录用本机封存的 A 折教师训练包重建到新目录：
+仓库外准备一个新目录，解开两份实发记录。构建器会从封存的训练侧轨迹重建原始 15 行及独立纠错包，按审阅清单追加本次通过的终答。该命令只构建训练数据。
 
 ```sh
-posttraining/.venv/bin/python -m posttraining.sft.reviewed_decisions --output /tmp/flockcue-reviewed-sft
+workdir=$(mktemp -d)
+evidence_dir=datasets/teacher/2026-11-12-closing-recollection
+mkdir "$workdir/wire"
+tar -xzf "$evidence_dir/wire.tar.gz" -C "$workdir/wire"
+tar -xzf "$evidence_dir/branches/wire.tar.gz" -C "$workdir/wire"
+posttraining/.venv/bin/python -m posttraining.sft.recollected \
+  --reviews "$evidence_dir/review.json" --branch-reviews "$evidence_dir/branches/review.json" \
+  --wire "$workdir/wire" --output "$workdir/merged"
 ```

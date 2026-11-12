@@ -1,0 +1,694 @@
+{
+  "scope": "One unchanged stored terminal request per training task, all choices retained",
+  "tasks": [
+    {
+      "scene_id": "04cd6269",
+      "task_id": "a05a871a",
+      "terminal_turn": 6,
+      "verdict": "reject",
+      "reason_cn": "起飞前后 XY 相同、9 米悬停、速度 0、电量 99.4% 均有据。本次删去“无碰撞风险”，但仍把天气判为安全。公开天气只提供风速 1.43 米/秒、能见度 12.32 公里等读数，没有安全判定。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "0e3d2a33-7c5b-4ce3-970a-b52dc18a178f",
+      "request_sha256": "cfe6ee097a6632553e61c583c5861462ffd617eb759df62aa09e22bda75a5f86",
+      "response_sha256": "2acc52166e8e544b070a0531c5b559dd177af1f3747c7b0c54b041e320ad3d97",
+      "generation": {
+        "spent_before": 50692,
+        "prompt_tokens": 11893,
+        "available_generation": 2048,
+        "new_generation_tokens": 347,
+        "old_generation_tokens": 272,
+        "remaining_after": 37068,
+        "finish": "stop"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_ET_hcaQJlyjCvweHcXxov258784",
+          "tool": "list_drones",
+          "wire_content_sha256": "325de66a2b50053d01c862842a6324975cdfc0a4ef96e791ef4cb81df02e7d7c"
+        },
+        {
+          "message_index": 5,
+          "call_id": "call_00_4HYuw7htESJeidKRHlVB4051",
+          "tool": "get_weather",
+          "wire_content_sha256": "227922e6054e7118299353f131048394670d92d9b7a54136c99befef9a07095b"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_01_4EIMBGSLNubs9dxxLtbA0652",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "253be801ec51dc948db62e7af8dd9f02da33cd09e5795360790803ffb0489c3a"
+        },
+        {
+          "message_index": 8,
+          "call_id": "call_00_3R0USHBADfVh2OpqNJZh5478",
+          "tool": "run_harness",
+          "wire_content_sha256": "5aaf85aae30ba03b84bae17f14936c0ed13bc1db4964e0d21d902efc5b410678"
+        },
+        {
+          "message_index": 10,
+          "call_id": "call_00_ZOXGfAnzOoSi4wKWEKDz2098",
+          "tool": "run_harness",
+          "wire_content_sha256": "e55ab61f04033e4acb58e768dbdf264e1a582cd2a6a48c3d470fad57f1534539"
+        },
+        {
+          "message_index": 12,
+          "call_id": "call_00_gZuQHHJtYFuLSyOZSHas3968",
+          "tool": "get_drone_status",
+          "wire_content_sha256": "17a469fe791b08a5c6e82821c6832bbb133baeae69601b48be3535e2139fdad3"
+        }
+      ],
+      "teacher_answer": "Task complete — verified.\n\n**Drone 1 (`b4a1b8f9`)**\n- Pre-flight: idle on ground at (79, 560, 0), battery 100%; no obstacles within perception radius; weather safe (wind 1.4 m/s, visibility ~12.3 km).\n- Takeoff to 9 m was commanded and executed in this command.\n- Fresh status read after the last action:\n\n| Check | Result |\n|---|---|\n| Status | `hovering` (airborne) |\n| Altitude | z = **9.0 m** (as requested) |\n| Horizontal position | (79, 560) before → (79, 560) after (same XY, in place) |\n| Speed | 0.0 m/s (stationary hover) |\n| Battery | 99.4% (healthy) |\n\nDrone 1 is airborne at 9 m and hovering in place at its original coordinates.\n\n[TASK DONE]",
+      "requested_tools": []
+    },
+    {
+      "scene_id": "0567e470",
+      "task_id": "4ebf126d",
+      "terminal_turn": 5,
+      "verdict": "reject",
+      "reason_cn": "最终 28 米悬停有据。教师称障碍物约 82 米远；从 (677,590) 到中心 (726,511) 约 92.96 米，按可见多边形边界约 45.81 米。答复还遗漏了复合悬停的合约范围。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "b8cc8239-0f2c-4368-a59e-48f2f6671a98",
+      "request_sha256": "4f87fd03864d804f1f382a23e2023f763ed5b0fb7e46844cd27bf21fa66a8794",
+      "response_sha256": "da3e6ce41390a15d2b6b0c01a530f32a612e58d6b7cfd15540150e7593135176",
+      "generation": {
+        "spent_before": 40830,
+        "prompt_tokens": 11915,
+        "available_generation": 2048,
+        "new_generation_tokens": 144,
+        "old_generation_tokens": 166,
+        "remaining_after": 47111,
+        "finish": "stop"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_A5fpZ2vJlerdL4zXbzWu5950",
+          "tool": "list_drones",
+          "wire_content_sha256": "5cd6c40bbdc689b7719da70b5aaf6e31066e32d440ae5ece338f899e9de0c20d"
+        },
+        {
+          "message_index": 5,
+          "call_id": "call_00_0kg4LsJmzCvzEJUYGkY18586",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "aa36f39de37271a6f6335097ce3194c676692cbad22878c21b34b20594e6bf19"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_01_4ANQM4saVAhjkA36Qzye6213",
+          "tool": "get_weather",
+          "wire_content_sha256": "e20f8fa27c1445cfe37f0bcd6420f52c82534e0679190bbbeeedbda455925da7"
+        },
+        {
+          "message_index": 8,
+          "call_id": "call_00_B11YgoL4ZRmSOV0shpC48673",
+          "tool": "run_harness",
+          "wire_content_sha256": "edb38f63170c2b71a7089fa4f9b5a0b485e0c8627fd2a25630a2c32b81af8b05"
+        },
+        {
+          "message_index": 10,
+          "call_id": "call_00_FKlenvxPQF9WXk1GPb0x6520",
+          "tool": "get_drone_status",
+          "wire_content_sha256": "a31615a0298dff2b2e06123444a926bedb1d0d382fd2d24c09bba7dd4559d682"
+        }
+      ],
+      "teacher_answer": "Drone 7 (id `f0c7917a`) completed the sequence:\n\n- **Takeoff to 12 m** — success\n- **Climb to 28 m** — success\n- **Hover** — success\n\nVerified final state: status `hovering`, position (677, 590, **28.0 m**), heading 0°, battery 99.3%. The nearby \"Polygon Obstacle 2\" (726, 511, 70 m square, height 0) is ~82 m away and was not a factor since only vertical movement was performed.",
+      "requested_tools": []
+    },
+    {
+      "scene_id": "0567e470",
+      "task_id": "62d6b8d8",
+      "terminal_turn": 6,
+      "verdict": "reject",
+      "reason_cn": "读到到位及悬停命令回执后，模型请求查询 648cf5d7 的状态。本轮未返回终答。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "e5ef802f-243a-4a3f-852c-2ef55e713a60",
+      "request_sha256": "53b48f0af009dc5a9ea3b1968936e0a5e28954870008be09474774829137b5d8",
+      "response_sha256": "763fd3574813a2af37e11a7349de144355af75cea2bf43090a219c76189faf2c",
+      "generation": {
+        "spent_before": 52249,
+        "prompt_tokens": 12178,
+        "available_generation": 2048,
+        "new_generation_tokens": 48,
+        "old_generation_tokens": 298,
+        "remaining_after": 35525,
+        "finish": "tool_calls"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_ET_2iunybHa1rrfXHtxE4tM2417",
+          "tool": "list_drones",
+          "wire_content_sha256": "5cd6c40bbdc689b7719da70b5aaf6e31066e32d440ae5ece338f899e9de0c20d"
+        },
+        {
+          "message_index": 5,
+          "call_id": "call_00_NPvwr8nykE4j3q3MWabG8285",
+          "tool": "get_weather",
+          "wire_content_sha256": "2563e0dbf8ad598ae2541f1a90f29bd4a076166bbceaf4b28a08c59874c92cb6"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_01_CgA0j5eToput7rSkuwzE6233",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "b2d1dc765f701a9eb52fd853ba00e69635071e0e38ba6fec6302ea209c18077e"
+        },
+        {
+          "message_index": 8,
+          "call_id": "call_00_nOfMEduIVBfXTyBctb5H3248",
+          "tool": "take_off",
+          "wire_content_sha256": "62800d0f750eaddca8c86ea23082db9da7390738ec1d235657f1eed5ab663085"
+        },
+        {
+          "message_index": 10,
+          "call_id": "call_00_ET_ZiTUxjjO2fEOzK3EaKPa3213",
+          "tool": "navigate_to_and_sense",
+          "wire_content_sha256": "f3b7bbc5e3d208701cfbb0ae79015903de77012d92018496ca68930f96a8099e"
+        },
+        {
+          "message_index": 12,
+          "call_id": "call_00_ET_XYp0UVnYDQt6A4EgSR5j6358",
+          "tool": "hover",
+          "wire_content_sha256": "d75f3dafdb6f0bd897bc75dc371585322d0444c32b1dbc672c25006fdfcce0f6"
+        }
+      ],
+      "teacher_answer": "",
+      "requested_tools": [
+        {
+          "index": 0,
+          "id": "call_00_cQRnR9QYa5rTshLhAkZ43362",
+          "type": "function",
+          "function": {
+            "name": "get_drone_status",
+            "arguments": "{\"input_json\": {\"drone_id\": \"648cf5d7\"}}"
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "5be2589b",
+      "task_id": "ac20b007",
+      "terminal_turn": 6,
+      "verdict": "reject",
+      "reason_cn": "技能完成后，模型请求独立查询 eac06ecf 的状态。本轮未返回终答；此前的参数纠错属于原轨迹。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "c1775fbc-102d-4d6a-863a-b0f296447df9",
+      "request_sha256": "feb371812bf4a612c5c871465113aefab506942947136166c5c5acf2b1c78c0c",
+      "response_sha256": "13f31ef4d81e9e41728c72a90a6849b7902555a0fe1abe2ee4a6aa31048acd90",
+      "generation": {
+        "spent_before": 56496,
+        "prompt_tokens": 13183,
+        "available_generation": 2048,
+        "new_generation_tokens": 70,
+        "old_generation_tokens": 294,
+        "remaining_after": 30251,
+        "finish": "tool_calls"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_UP9HL8x0tQBH9Alfweck3630",
+          "tool": "list_drones",
+          "wire_content_sha256": "316bae2a1e44b4e5fcbfbe0bc187da3776a815f00e66d39812ac5e066fa803b2"
+        },
+        {
+          "message_index": 5,
+          "call_id": "call_00_jGF6dbvtukP20uYGSsn55220",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "e01dc1493975b4cc4c9977c612980ad3641fe920898a16aacfaacd321ba69da4"
+        },
+        {
+          "message_index": 7,
+          "call_id": "call_00_YbLTTSSBH0H1FyZ2t8wr4595",
+          "tool": "run_harness",
+          "wire_content_sha256": "5aaf85aae30ba03b84bae17f14936c0ed13bc1db4964e0d21d902efc5b410678"
+        },
+        {
+          "message_index": 9,
+          "call_id": "call_00_98ltzupIs2tKZ8FElzoH3132",
+          "tool": "run_harness",
+          "wire_content_sha256": "5aaf85aae30ba03b84bae17f14936c0ed13bc1db4964e0d21d902efc5b410678"
+        },
+        {
+          "message_index": 11,
+          "call_id": "call_00_Udr8VdubLicqMbTm0uAU8268",
+          "tool": "run_harness",
+          "wire_content_sha256": "e36278ed38428eb37ae7c7b24dbbeb594192cb02784eb29ff6688c6489861e9f"
+        }
+      ],
+      "teacher_answer": "",
+      "requested_tools": [
+        {
+          "index": 0,
+          "id": "call_00_U20Mx7l6LWa1koec5OJS7224",
+          "type": "function",
+          "function": {
+            "name": "get_drone_status",
+            "arguments": "{\"input_json\": {\"drone_id\": \"eac06ecf\"}}"
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "25239af9",
+      "task_id": "19d0c37a",
+      "terminal_turn": 7,
+      "verdict": "accept",
+      "reason_cn": "导航回执给出目标 7ef6cb65、(317,121,15)、剩余距离 0，拍照返回 5a7ec6b4 和电量 95.0%。新答陈述在目标处拍照，不再误报东西方位或声称核实照片内容。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "5a3db1d0-c396-410c-8807-d4cf0e064e04",
+      "request_sha256": "9207eda3142e6565fa4cdd16a8cb347d670c2bbe190eef97a4fc2b898e5eab2a",
+      "response_sha256": "e3c55dbac41cbdd3aa854281142e3f450163967499eec53bcba7890356e83e95",
+      "generation": {
+        "spent_before": 71743,
+        "prompt_tokens": 15160,
+        "available_generation": 2048,
+        "new_generation_tokens": 179,
+        "old_generation_tokens": 308,
+        "remaining_after": 12918,
+        "finish": "stop"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_5ruOTs4ycgdWqxQNnj4Y0988",
+          "tool": "list_drones",
+          "wire_content_sha256": "c71886deeb95db000cb76690df24f5a6fc8be82f181407e6f8a419e4e39fb916"
+        },
+        {
+          "message_index": 4,
+          "call_id": "call_01_hEocVnt2kH77XlzD9QP38970",
+          "tool": "get_weather",
+          "wire_content_sha256": "bdebb24d3eab0f4c5dffa5f530f36ce704a2fe5721b3f016b074a0ea972f6d4d"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_00_zueGpTxtYAQWR40WaWo68426",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "b5c5f8dc4d960f3ec28206b5a39715f423ec591edba973b8b19d467b1d25cb31"
+        },
+        {
+          "message_index": 8,
+          "call_id": "call_00_UlcvH5ddBzgROvq3ZP1H4387",
+          "tool": "take_off",
+          "wire_content_sha256": "1234a6098ccc3b2c8e0a7519a5ebdd0749d5d6bb347e3333ae4314cae866c522"
+        },
+        {
+          "message_index": 10,
+          "call_id": "call_00_b5okxb6bWhc8VChTOi3a2014",
+          "tool": "navigate_to_and_sense",
+          "wire_content_sha256": "76bc3e9dcb3b59049abee1ea72763af249de5687ac5fff62a189bc63dbb13ec7"
+        },
+        {
+          "message_index": 12,
+          "call_id": "call_00_czpSP1oPpUSEyayZkZf72447",
+          "tool": "take_photo",
+          "wire_content_sha256": "7a7f0bcf1cde6c65e6a232161953b08a277a09d48612d984170efd1970dfc186"
+        },
+        {
+          "message_index": 14,
+          "call_id": "call_00_R7UQKsmfHZYzN2yLklG62638",
+          "tool": "update_blackboard_notes",
+          "wire_content_sha256": "b854039c0f8ea39e4e28c9fb10c336cdcb226f984d54dccb3953d221d4a4be1f"
+        }
+      ],
+      "teacher_answer": "Mission complete for **Drone 1** (id `5cf9f40c`):\n\n1. **Take off** → Climbed to 15 m (status: success).\n2. **Navigate to Circle Target 1** (id `7ef6cb65`, center 317, 121) → Direct path was clear of Polygon Obstacle 2 and the ellipse obstacles; arrival verified at (317.0, 121.0, 15.0), distance remaining 0.0 m.\n3. **Take photo** → Photo captured successfully (Photo ID `5a7ec6b4`).\n\nBattery remained healthy at 95.0%. No obstacles blocked the route, and all three steps were confirmed by tool receipts.\n\n[TASK DONE]",
+      "requested_tools": []
+    },
+    {
+      "scene_id": "ef36e27a",
+      "task_id": "e59d948d",
+      "terminal_turn": 8,
+      "verdict": "accept",
+      "reason_cn": "起飞、转向和悬停均有回执，最后状态为 (997,106,11)、180°、速度 0、电量 99.2%。天气为 storm、东南风 6.97 米/秒。圆障碍边界水平净空约 46.45 米，新答未再误称其为最近实体，说明了合约限制。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "6b77ae18-57a7-44e7-adaa-f696671192d3",
+      "request_sha256": "466d877f4f4b7ee40be43ba8a941c608aa8fbe96abc449294af5522424c3462f",
+      "response_sha256": "0b11c6afebb5df19c1e2b2e77a634c064ff22ab4243bc8b96833aea3d4cb1b2a",
+      "generation": {
+        "spent_before": 80255,
+        "prompt_tokens": 13213,
+        "available_generation": 2048,
+        "new_generation_tokens": 308,
+        "old_generation_tokens": 293,
+        "remaining_after": 6224,
+        "finish": "stop"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_I7TB6yvkfBauLIHCVJyg3449",
+          "tool": "list_drones",
+          "wire_content_sha256": "1ba7f6ba1764fd89dc33ad5af461dde9695d2bc5943f411042a56365d7595179"
+        },
+        {
+          "message_index": 5,
+          "call_id": "call_00_5dayYdmcxpjnLCPuJC4P0480",
+          "tool": "get_weather",
+          "wire_content_sha256": "9f13877e2acf35c6b122727ab5afecc6e6c70f7f488593fcb69d3624fc68c7a5"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_01_1VhNxQSAwj3TkTUUEjt35698",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "6e828f94d3ca5f066d7b15dbce272e19e9c8f48d3abb4401aaaac4fa87b7e8c7"
+        },
+        {
+          "message_index": 8,
+          "call_id": "call_00_7HcL6nxsiCoYzd6a0B0v1518",
+          "tool": "take_off",
+          "wire_content_sha256": "229fb9af5e1b0334b9d6178e98684ed2d2bf8a8e81d8a171b576485a7a02bf73"
+        },
+        {
+          "message_index": 10,
+          "call_id": "call_00_2Ngse4ojlTlTJJrN5mtq2576",
+          "tool": "get_drone_status",
+          "wire_content_sha256": "febf4fd178019a782ff916ef7dd842dbdf893b55c00a3c8094192aaaae4ba897"
+        },
+        {
+          "message_index": 12,
+          "call_id": "call_00_k269STFBxadWyuuCRv9U4426",
+          "tool": "rotate",
+          "wire_content_sha256": "14a8ce4cac6d9aa16f5ef2a295d529ec78723c8d13b1d6b321094d9d8d767ecb"
+        },
+        {
+          "message_index": 14,
+          "call_id": "call_00_ET_YWcsLUnlCFJ3S3zljnWC8697",
+          "tool": "hover",
+          "wire_content_sha256": "a946e5af842ce92d49303634daaff4dbbb72f31dc0cc36815fc7baa2029fa52a"
+        },
+        {
+          "message_index": 16,
+          "call_id": "call_00_vvTX2erHnFfRo2fhT15E6203",
+          "tool": "get_drone_status",
+          "wire_content_sha256": "16d79d2c6257d3866ad0df9f576248c13c0db62f9d8bf4d4bbe3473c0c428013"
+        }
+      ],
+      "teacher_answer": "Drone 8 (`90e2721a`) has completed the requested sequence:\n\n| Step | Command | Verified result |\n|---|---|---|\n| 1 | take_off → 11 m | Altitude z = 11.0 m, status hovering |\n| 2 | rotate → 180° | Heading = 180.0° |\n| 3 | hover | Status = hovering, speed 0.0 m/s |\n\nFinal state: position (997, 106, 11), heading 180°, battery 99.2%, all commands returned `completed` and were confirmed by a follow-up status read.\n\nNotes:\n- **Weather was storm** (wind ~7.0 m/s, southeast) at takeoff; the task was explicit so I proceeded, but this is the main risk if any further flight is needed.\n- Local surroundings: Polygon Target 3 (873, 288) and Circle Obstacle 10 (989, 35, r=25) — the obstacle is ground-level and ~46 m horizontally clear, so the vertical climb was unobstructed.\n- Per the supplied hover contract, this instruction falls outside the supported harness grammar, so no contract-verified completion marker is claimed; the steps above are evidenced by direct tool receipts and status verification.",
+      "requested_tools": []
+    },
+    {
+      "scene_id": "7f1a1456",
+      "task_id": "213cfacb",
+      "terminal_turn": 4,
+      "verdict": "reject",
+      "reason_cn": "已有技能末态回执，模型决定再查询 da04d07a 的状态。本轮未返回终答。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "b3849622-d99b-425a-9511-8ec72182f7db",
+      "request_sha256": "08f35bb5a3ff54a2004d0e5b7d05b7faf169a1e86083f8e3b64d5c38e2d18e87",
+      "response_sha256": "c52cd4d744a12c2ae8df24ee4aef3ca18d63182fb2337246123f3d41e666cac3",
+      "generation": {
+        "spent_before": 27686,
+        "prompt_tokens": 10565,
+        "available_generation": 2048,
+        "new_generation_tokens": 164,
+        "old_generation_tokens": 504,
+        "remaining_after": 61585,
+        "finish": "tool_calls"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_RB7AGDV8WPcf6Zxy86kg6709",
+          "tool": "list_drones",
+          "wire_content_sha256": "330b0bf92461219b95f522809e6ee53e082cad211bd139e80994a2c33ef79fdc"
+        },
+        {
+          "message_index": 5,
+          "call_id": "call_00_adzMKm8D0v3HIk2cjB9p9083",
+          "tool": "get_weather",
+          "wire_content_sha256": "3e40417f09e20c7cf34477108a4ef7fa7dec4b4dc3ff97505e6cf03600774551"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_01_MfuVI70abF8qFIrvKQtU7010",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "b3f8eb520c609e40badb7b4fe63a0059661045ef20dc9fcce6bb3a6238c4748d"
+        },
+        {
+          "message_index": 8,
+          "call_id": "call_00_7Z9whzNqD3sTdp9V9TQt0205",
+          "tool": "run_harness",
+          "wire_content_sha256": "06ed4e10ffdd8fcf5f56a7e6973ab787cbc6004c9f10ef13c1c9739665b55a9a"
+        }
+      ],
+      "teacher_answer": "",
+      "requested_tools": [
+        {
+          "index": 0,
+          "id": "call_00_ID0aVek25jIEf3NQjAcb4720",
+          "type": "function",
+          "function": {
+            "name": "get_drone_status",
+            "arguments": "{\"input_json\": {\"drone_id\": \"da04d07a\"}}"
+          }
+        }
+      ]
+    },
+    {
+      "scene_id": "7f1a1456",
+      "task_id": "170c5173",
+      "terminal_turn": 7,
+      "verdict": "accept",
+      "reason_cn": "24 米起飞、到达 (928,163,24)、悬停指令和照片 6889858d 均有公开回执。新答区分动作确认与整题合约判定，未虚报完成标志或悬停时长。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "5787a7bb-2714-413c-ae78-ab8643d6f4b3",
+      "request_sha256": "1e6986b9b4e3caa3560f1570230f6e8c1be1584ad46c95edb35cb5fc7971c977",
+      "response_sha256": "d41bd72be3d7444d6a110a7324cda25e14a25427f71a200fd5473d2fa4937671",
+      "generation": {
+        "spent_before": 61086,
+        "prompt_tokens": 11656,
+        "available_generation": 2048,
+        "new_generation_tokens": 263,
+        "old_generation_tokens": 224,
+        "remaining_after": 26995,
+        "finish": "stop"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_ET_tDEZsqydMjHepsykRWUo3125",
+          "tool": "list_drones",
+          "wire_content_sha256": "953cd2c03a59af772026a752d5bd0877a36959a65e9891d37ec7a1f4a68ac056"
+        },
+        {
+          "message_index": 5,
+          "call_id": "call_00_VcZMH2gmUG92PBMm1WrL7347",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "c8952ffbe3b2200166e63395bb0f72643684ca0607016f7b2f462bcdd54801d9"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_01_nPkQek3ouEVKU1sI9IXI8116",
+          "tool": "get_weather",
+          "wire_content_sha256": "6f4c792e5fcd1427fed370a74cd89d86935af1f7000649d520840d8aee857a3b"
+        },
+        {
+          "message_index": 8,
+          "call_id": "call_00_AlFNDFMPaX3VuYAM7PzU4973",
+          "tool": "take_off",
+          "wire_content_sha256": "f85c5f14dc880767e2f9d71834a3cf5903b2ab17138a1a37ba4e8810b188b0a0"
+        },
+        {
+          "message_index": 10,
+          "call_id": "call_00_ET_zS0RdPHrhgfFxjuwHuY13269",
+          "tool": "navigate_to_and_sense",
+          "wire_content_sha256": "c1e930be5ed8990247851799346ce3bfe958a69d119a18100176532910d72237"
+        },
+        {
+          "message_index": 12,
+          "call_id": "call_00_ET_EKPp0XjUtAgNTh42weEK1276",
+          "tool": "hover",
+          "wire_content_sha256": "8779f6462d0ab0d1650ff49c7a03ac6bdf851c3912899f4aeef58b3a6ca21971"
+        },
+        {
+          "message_index": 14,
+          "call_id": "call_00_ET_m5vg61GXPckE1xNdQSkh7158",
+          "tool": "take_photo",
+          "wire_content_sha256": "9fec0937c7a3543c3754052dd7d59546c0083624cfad604145817f7aa17e7079"
+        }
+      ],
+      "teacher_answer": "Mission complete for Drone 3 (`da04d07a`):\n\n1. **Pre-flight checks** — Fleet listed, Drone 3 resolved, local sensing found no obstacles within perception radius; weather clear with low wind (1.7 m/s W).\n2. **Takeoff** — Climbed to 24 m (battery 99.5%).\n3. **Navigation** — Flew to (928, 163, 24); arrival verified with 0.0 m distance remaining, direct move_to strategy (no detour needed), battery 95.8%.\n4. **Hover** — Held position at the target coordinate.\n5. **Photo** — Captured successfully, Photo ID `6889858d` (battery 95.4%).\n\nNote: this task's full instruction falls outside the supported harness grammar, so it was executed with direct control tools. All four requested actions (takeoff to 24 m, flight to (928, 163, 24), hover, photo) were executed and receipt-confirmed — hover was completed and the photo was taken at the verified destination, not a task-level completion verdict.",
+      "requested_tools": []
+    },
+    {
+      "scene_id": "58fe4605",
+      "task_id": "e59c9dc7",
+      "terminal_turn": 5,
+      "verdict": "reject",
+      "reason_cn": "状态读回高 14 米、航向 156°、速度 0，清除了原错误标志。天气回执是 snow，没有降雪强度；新答称“小雪”，又断定条件可接受，超出回执。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "c6235608-ee1c-415d-9e6c-41a2e4cf4adf",
+      "request_sha256": "5bd0356a0bea32b9362d35bf56c56dc7f32e5d2f77862f8ee758d1b1b2621a7f",
+      "response_sha256": "cc558d2649fa209841f335afaad383ed7c1c16fed40d791d987f2601b64c071d",
+      "generation": {
+        "spent_before": 40788,
+        "prompt_tokens": 11704,
+        "available_generation": 2048,
+        "new_generation_tokens": 177,
+        "old_generation_tokens": 159,
+        "remaining_after": 47331,
+        "finish": "stop"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_5PyOguhcoCWgEPqLDuXE7330",
+          "tool": "list_drones",
+          "wire_content_sha256": "8ba45efbcfd1b2297d0ede82d4cd061ed2e93eb59db09e73bc035651750f5760"
+        },
+        {
+          "message_index": 4,
+          "call_id": "call_01_KX4QH0FYWs9d4TDqIpub2853",
+          "tool": "get_weather",
+          "wire_content_sha256": "34460ca79a628adc4d371b3745c02dc6c7dba02d624e4715deffaea0493c6a86"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_00_ux1vXr5xAUpT1cgrMeJU7187",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "f68ae302d39641a1ec0405ae9b43351dd00c5b9d74bfc8375f02628a8c6181d0"
+        },
+        {
+          "message_index": 8,
+          "call_id": "call_00_N07dB7AKhgcTqSuYlJDK0136",
+          "tool": "run_harness",
+          "wire_content_sha256": "1dbd8a28196aeeab847107d793fc8bb5f06738e11baa5622d36f8436e2f5f7c3"
+        },
+        {
+          "message_index": 10,
+          "call_id": "call_00_VXbSQ1ZuzcynTnpXvkiY7854",
+          "tool": "get_drone_status",
+          "wire_content_sha256": "813f76ab9248bfe8056a8f84c8e7460c689c1ff712bff05985d9eaa2585fc851"
+        }
+      ],
+      "teacher_answer": "Drone 9 (`986a3b85`) completed the full sequence:\n\n- **Takeoff:** climbed to **14.0 m** at (560, 243)\n- **Rotate:** heading now **156°**\n- **Hover:** status **hovering**, speed 0.0 m/s\n- **Battery:** 99.2% (plenty of margin)\n\nWeather note: light snow, wind ~5.5 m/s from the southwest, good visibility — conditions were acceptable and the drone is stable in its hover.\n\nNote: this is a direct-state confirmation of takeoff altitude, heading, and hovering, not a contract-verified mission verdict. Let me know if you want it to hold position, land, or move on to a next waypoint.",
+      "requested_tools": []
+    },
+    {
+      "scene_id": "58fe4605",
+      "task_id": "89202f76",
+      "terminal_turn": 6,
+      "verdict": "reject",
+      "reason_cn": "直飞受阻、工具内 8 航点绕行、最终距中心 1 米、照片 3e893b2f 均有据。天气回执仅提供雪、风速 5.05 米/秒、能见度 9.33 公里，没有给出安全判定。新答 259 token，符合本题剩余的 351 个生成 token。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "712b8120-39f1-4092-ae55-f2385e5a3a23",
+      "request_sha256": "62da78f281133e0c59c535273623b9d64f428b04ee0898c579734c7817ddce80",
+      "response_sha256": "600c3d3a16faa429caa48a97a84407b06d13787804f26c129b367ce88651fc07",
+      "generation": {
+        "spent_before": 78114,
+        "prompt_tokens": 21535,
+        "available_generation": 351,
+        "new_generation_tokens": 259,
+        "old_generation_tokens": 311,
+        "remaining_after": 92,
+        "finish": "stop"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_ET_VFecLGS7tY4BHte1FimN9326",
+          "tool": "list_drones",
+          "wire_content_sha256": "bae9b523f170dc6ad6dad6f9cc6c3df62b291027047fdd63db3126a98bbe4f53"
+        },
+        {
+          "message_index": 4,
+          "call_id": "call_01_ET_FqqXpsxYyj8Bw8giZ3Ss5168",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "c44e4a1ddde54c10f9e661aec009fe2ad7add2a5e5153a44cca7cd9841a6adb9"
+        },
+        {
+          "message_index": 6,
+          "call_id": "call_00_qH8fpDMdiCXlZmUi4dLs2877",
+          "tool": "get_weather",
+          "wire_content_sha256": "62da4ffc5ecb2b1bca66d1d3b766da8ff4b36cc64162ae794a8cafac27b27b03"
+        },
+        {
+          "message_index": 7,
+          "call_id": "call_01_Sr65UtYZGxiZvFlNm2Lx3820",
+          "tool": "get_drone_status",
+          "wire_content_sha256": "b3084eb26626d225a1cad0364099524fe1c827f27e857ff62b6e7dd1e6e5dcfd"
+        },
+        {
+          "message_index": 9,
+          "call_id": "call_00_RMtByETMHdsJOdJW2Wce4427",
+          "tool": "take_off",
+          "wire_content_sha256": "397f2a16d910333f926bc9a2bd418e10631cb0003c22455b381423fce2c7beef"
+        },
+        {
+          "message_index": 11,
+          "call_id": "call_00_qdUeKoWpPxGipzX8olDA4530",
+          "tool": "navigate_to_and_sense",
+          "wire_content_sha256": "d2c0caf648c32716122133880fa09df71e608b8715652c98761ea0270f2cdbd0"
+        },
+        {
+          "message_index": 13,
+          "call_id": "call_00_ET_hFkrKcMzbWFlTm7bSCf93749",
+          "tool": "take_photo",
+          "wire_content_sha256": "c5b07253dcdb3b81f35ad94ba437c22d8743e2a51310c66edbcee84f4be25c1b"
+        }
+      ],
+      "teacher_answer": "Mission complete.\n\n- **Drone 9** (`986a3b85`) — verified idle at (560, 243, 0), battery 100%, weather checked (snow, 5 m/s wind, visibility ~9.3 km — safe).\n- **Takeoff**: reached 17 m altitude (command completed).\n- **Navigation**: direct path to Fixed Target 4 (`b94a7353`, at 979, 583) was blocked by Polygon Obstacle 3, so `navigate_to` auto-planned a fallback 8-waypoint route that stayed clear of the obstacle footprint. Arrival **verified** at (980, 583, 17.0), distance remaining 1.0 m, \"Reached target(s): Fixed Target 4\". Battery used ~4.5%, remaining 95.2%.\n- **Photo**: taken successfully at the target — Photo ID `3e893b2f`.\n\nAll three requested actions (take off to 17 m → navigate to Fixed Target 4 → take photo) are done in order.\n\n[TASK DONE]",
+      "requested_tools": []
+    },
+    {
+      "scene_id": "35ce64d8",
+      "task_id": "898cfdca",
+      "terminal_turn": 5,
+      "verdict": "reject",
+      "reason_cn": "技能动作和最终 30 米悬停状态有据。新答使用 [Task done] 并宣称全程完成，没有按实际系统消息说明复合任务未获合约认证。其大小写不会触发精确的大写标志匹配。",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "response_id": "ae113483-3159-4e2e-8258-52a36f713638",
+      "request_sha256": "1efd0bbe87dd7e95dfdea58d5d819c56115d8faa059b07cb60ef5ceb03323de5",
+      "response_sha256": "0ef9d4c56e84c29e09e710b5e9ac9fdfa2d65bbc1bc2f6f5f2ec29db6c238a3c",
+      "generation": {
+        "spent_before": 42465,
+        "prompt_tokens": 12435,
+        "available_generation": 2048,
+        "new_generation_tokens": 164,
+        "old_generation_tokens": 233,
+        "remaining_after": 44936,
+        "finish": "stop"
+      },
+      "visible_receipts": [
+        {
+          "message_index": 3,
+          "call_id": "call_00_NTxjWyADQLqJdXAvkbBV7718",
+          "tool": "list_drones",
+          "wire_content_sha256": "013817c563ef738547590c39d1aa302a01f5f6f44a41efcab96a63935d3b5121"
+        },
+        {
+          "message_index": 5,
+          "call_id": "call_00_XGy1Ki8FSC89UFNSr7CP3472",
+          "tool": "sense_nearby_entities",
+          "wire_content_sha256": "e1ddb7c544fdcd7357c342497398d10b2c3fe6fd0071a7a7d0fb57273a30582a"
+        },
+        {
+          "message_index": 7,
+          "call_id": "call_00_9QJOVIDGfH6pp5CMVLRy3213",
+          "tool": "run_harness",
+          "wire_content_sha256": "46e9313cc575f7689b48194bd5485d93675d724431a0c8441b8f7e7463b5b743"
+        },
+        {
+          "message_index": 9,
+          "call_id": "call_00_lXoRkkkb1moXEsgnlCwn5848",
+          "tool": "get_drone_status",
+          "wire_content_sha256": "1955de9ddf87980d5cca0b9efa5d1bec9b3283f4fd9d4d21a0ebcc921a7329e4"
+        }
+      ],
+      "teacher_answer": "Drone 12 (id `01e3ece4`) completed the full sequence:\n\n- **Took off to 10 m**, then **climbed to 30 m** altitude (staying at x=877, y=36 — clear of the nearby Polygon Obstacle 3, which lies at y 82–238)\n- **Hovering** now, verified state: position (877, 36, 30), status `hovering`, speed 0, battery 99.3% (well above the 2% reserve)\n\n[Task done] All requested steps were executed and the final hovering state at 30 m is confirmed by the drone status readout.",
+      "requested_tools": []
+    }
+  ]
+}
