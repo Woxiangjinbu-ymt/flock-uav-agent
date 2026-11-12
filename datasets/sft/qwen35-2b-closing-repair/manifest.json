@@ -1,0 +1,65 @@
+{
+  "schema": "flockcue-sft-causal-lm-v1",
+  "split": "baseline_train",
+  "tokenizer": {
+    "repository": "Qwen/Qwen3.5-2B",
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "files": {
+      "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+      "config.json": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c"
+    }
+  },
+  "policy": {
+    "unit": "one reviewed decision",
+    "reasoning": "retain_available_teacher_reasoning",
+    "ignore_index": -100,
+    "target": "assistant suffix including EOS",
+    "padding": false,
+    "truncation": false,
+    "max_sequence_tokens": 32768,
+    "max_target_tokens": 2048
+  },
+  "teacher_release": "flockcue-teacher-trajectories-a-20261111",
+  "teacher_manifest_sha256": "210dd19888a70c9eeaf9106a75b4bf198ba0215dee8b45fb5a39a4147189beac",
+  "scene_roles_sha256": "2f59f5e5ee3bd8cc79732c823a2c54d29490c1b08a2dedf9aac12200a629c393",
+  "pack": "reviewed_closing_sequences",
+  "sources": {
+    "review_sha256": "6465ec60c2b2d4191e37845ec3752dd40a38d5454d448b89dce19db2b2a10679",
+    "cohort_sha256": "fb3997969c774522719658c88935f8cb219d5f43534a8853373403ad2b30ee9e",
+    "first_manifest_sha256": "a9c8ba6576ae1231afe2bcf030c62167cb6291988aa4c1022310ad40065e48bf",
+    "teacher_training_public_sha256": "fed99463778544e0800634b6152e13a9b2df252cfe376cae3dc1e0dff26cd316",
+    "projection_sha256": "64e6f91a889af757081da33ab652630c434925c8b11ef1f161dff73b9860fdc9"
+  },
+  "counts": {
+    "masked_prompt_tokens": 214326,
+    "supervised_tokens": 2619,
+    "supervised_reasoning_tokens": 774,
+    "first_pass_overlap": 5,
+    "decisions": 15,
+    "tasks": 6,
+    "scenes": 5
+  },
+  "kinds": {
+    "action": 4,
+    "verification": 4,
+    "closing": 6,
+    "correction": 1
+  },
+  "teacher_path_limits": {
+    "episode": 100000,
+    "context": 32768,
+    "generation": 2048
+  },
+  "files": {
+    "index.jsonl": {
+      "sha256": "ff40d361b01b6b44f8e2f0db6dcfef8b78969c38b94e522d60ed0ac6870bdb10",
+      "bytes": 8748
+    },
+    "train.jsonl.gz": {
+      "sha256": "58c057533f6d9724cb92e6bfaa3c823d5e21a01049418958bf9e29a90550713c",
+      "bytes": 187720
+    }
+  }
+}
