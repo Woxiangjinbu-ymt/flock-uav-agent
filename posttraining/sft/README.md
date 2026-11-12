@@ -59,4 +59,4 @@ python -u -m posttraining.sft.train --model /path/to/Qwen3.5-2B \
 
 所有训练序列都在 32,768 token 内。其中 9 个提示超过 30,720 token，若在线为回复预留完整的 2,048 token，这些提示会触发当前学生的上下文限制。[学生推理预算](../inference/__init__.py)
 
-后续在 A 折 60 道内部验证题上比较 2B 基座和 SFT 的同题整题通过率，并按执行记录核对首次分工、受阻后的调度与完成判断。B 折 300 题留到训练方案确定后独立评测。
+A 折 60 题的在线配对验证已完成。基座与 SFT 的正式通过均为 0/60，仿真器的整题检查从 0/60 到 6/60。新达标的 6 题中，5 题触及累计 token 预算，1 题因回复格式被拒。B 折 300 题仍留作独立评测。[配对报告与题目清单](../../datasets/results/student-validation-60/REPORT_CN.md)

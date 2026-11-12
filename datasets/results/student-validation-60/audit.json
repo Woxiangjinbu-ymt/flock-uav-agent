@@ -1,0 +1,3159 @@
+{
+  "verified_plan_sha256": "35f48805383d01bfd5b67faec2a7ade743e2a460e1f633b34a65494111bb9540",
+  "partial_mode": false,
+  "initial_state_method": "private replay of after-preparation JSON with the original simulator (/check) in an isolated TestClient; retrospective estimate",
+  "scenes": {
+    "72ccacd0": {
+      "base": {
+        "tasks": 20,
+        "leaves": 166,
+        "passed_leaves": 5,
+        "checker_pass": 0,
+        "formal_pass": 0,
+        "checked_but_terminal_error": 0,
+        "job_timeout": 0,
+        "source_calls": 76,
+        "no_service_call": [],
+        "stop_reasons": {
+          "tool_arguments": 17,
+          "token_budget": 3
+        },
+        "job_statuses": {
+          "completed": 20
+        },
+        "initial_snapshot_pass": [],
+        "initial_snapshot_fail_to_checker_pass": 0
+      },
+      "sft": {
+        "tasks": 20,
+        "leaves": 166,
+        "passed_leaves": 46,
+        "checker_pass": 2,
+        "formal_pass": 0,
+        "checked_but_terminal_error": 2,
+        "job_timeout": 0,
+        "source_calls": 161,
+        "no_service_call": [],
+        "stop_reasons": {
+          "token_budget": 19,
+          "generation_truncated": 1
+        },
+        "job_statuses": {
+          "completed": 20
+        },
+        "initial_snapshot_pass": [],
+        "initial_snapshot_fail_to_checker_pass": 2
+      }
+    },
+    "0293952c": {
+      "base": {
+        "tasks": 20,
+        "leaves": 163,
+        "passed_leaves": 2,
+        "checker_pass": 0,
+        "formal_pass": 0,
+        "checked_but_terminal_error": 0,
+        "job_timeout": 0,
+        "source_calls": 62,
+        "no_service_call": [],
+        "stop_reasons": {
+          "tool_arguments": 19,
+          "token_budget": 1
+        },
+        "job_statuses": {
+          "completed": 20
+        },
+        "initial_snapshot_pass": [],
+        "initial_snapshot_fail_to_checker_pass": 0
+      },
+      "sft": {
+        "tasks": 20,
+        "leaves": 163,
+        "passed_leaves": 32,
+        "checker_pass": 3,
+        "formal_pass": 0,
+        "checked_but_terminal_error": 3,
+        "job_timeout": 0,
+        "source_calls": 133,
+        "no_service_call": [],
+        "stop_reasons": {
+          "token_budget": 15,
+          "generated_format": 1,
+          "generation_truncated": 2,
+          "malformed_thinking": 1,
+          "tool_arguments": 1
+        },
+        "job_statuses": {
+          "completed": 20
+        },
+        "initial_snapshot_pass": [],
+        "initial_snapshot_fail_to_checker_pass": 3
+      }
+    },
+    "cc14d231": {
+      "base": {
+        "tasks": 20,
+        "leaves": 156,
+        "passed_leaves": 2,
+        "checker_pass": 0,
+        "formal_pass": 0,
+        "checked_but_terminal_error": 0,
+        "job_timeout": 0,
+        "source_calls": 62,
+        "no_service_call": [],
+        "stop_reasons": {
+          "tool_arguments": 17,
+          "context_length": 2,
+          "token_budget": 1
+        },
+        "job_statuses": {
+          "completed": 20
+        },
+        "initial_snapshot_pass": [],
+        "initial_snapshot_fail_to_checker_pass": 0
+      },
+      "sft": {
+        "tasks": 20,
+        "leaves": 156,
+        "passed_leaves": 9,
+        "checker_pass": 1,
+        "formal_pass": 0,
+        "checked_but_terminal_error": 1,
+        "job_timeout": 0,
+        "source_calls": 105,
+        "no_service_call": [],
+        "stop_reasons": {
+          "token_budget": 14,
+          "tool_arguments": 3,
+          "context_length": 2,
+          "generation_truncated": 1
+        },
+        "job_statuses": {
+          "completed": 20
+        },
+        "initial_snapshot_pass": [],
+        "initial_snapshot_fail_to_checker_pass": 1
+      }
+    }
+  },
+  "first_state_comparison": {
+    "72ccacd0": {
+      "fields_compared": [
+        "scene",
+        "drone_state",
+        "targets_layout",
+        "targets_state",
+        "obstacles",
+        "task_state",
+        "weather",
+        "command_count",
+        "target_reaches"
+      ],
+      "equal_after_projecting": false,
+      "different_fields": [
+        {
+          "field": "weather.temperature",
+          "base": 17.161261699688502,
+          "sft": 16.96765136752552
+        },
+        {
+          "field": "weather.wind_speed",
+          "base": 2.591448722045361,
+          "sft": 2.389298109986188
+        }
+      ],
+      "notes": "Wall-clock creation/update timestamps and timestamped path/status history are not compared. Weather and moving-target state at the first action window are compared separately from configured geometry. Later tasks retain preceding state."
+    },
+    "0293952c": {
+      "fields_compared": [
+        "scene",
+        "drone_state",
+        "targets_layout",
+        "targets_state",
+        "obstacles",
+        "task_state",
+        "weather",
+        "command_count",
+        "target_reaches"
+      ],
+      "equal_after_projecting": false,
+      "different_fields": [
+        {
+          "field": "weather.temperature",
+          "base": 12.411733955197436,
+          "sft": 13.637333287116691
+        },
+        {
+          "field": "weather.wind_direction",
+          "base": "southeast",
+          "sft": "east"
+        },
+        {
+          "field": "weather.wind_speed",
+          "base": 2.733428170445851,
+          "sft": 2.0397435114537936
+        }
+      ],
+      "notes": "Wall-clock creation/update timestamps and timestamped path/status history are not compared. Weather and moving-target state at the first action window are compared separately from configured geometry. Later tasks retain preceding state."
+    },
+    "cc14d231": {
+      "fields_compared": [
+        "scene",
+        "drone_state",
+        "targets_layout",
+        "targets_state",
+        "obstacles",
+        "task_state",
+        "weather",
+        "command_count",
+        "target_reaches"
+      ],
+      "equal_after_projecting": false,
+      "different_fields": [
+        {
+          "field": "weather.temperature",
+          "base": 15.333127275970764,
+          "sft": 16.00102640931138
+        },
+        {
+          "field": "weather.wind_direction",
+          "base": "northeast",
+          "sft": "southwest"
+        },
+        {
+          "field": "weather.wind_speed",
+          "base": 2.7891461854209467,
+          "sft": 3.099890040135481
+        }
+      ],
+      "notes": "Wall-clock creation/update timestamps and timestamped path/status history are not compared. Weather and moving-target state at the first action window are compared separately from configured geometry. Later tasks retain preceding state."
+    }
+  },
+  "changed": [
+    {
+      "scene": "72ccacd0",
+      "ordinal": 6,
+      "id": "2074fc69",
+      "name": "Extended Hover Observation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained"
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 19,
+      "id": "4ef2391b",
+      "name": "Dual Drone Patrol",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained"
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 1,
+      "id": "c0954737",
+      "name": "Basic Takeoff 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained"
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 2,
+      "id": "ec4e7476",
+      "name": "Simple Rotation Test 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained"
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 6,
+      "id": "0b492dab",
+      "name": "Search Task with Photo 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained"
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 1,
+      "id": "fdf5a2a6",
+      "name": "Basic Takeoff 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained"
+    }
+  ],
+  "verified_sealed_artifacts": 732,
+  "matched_seed_count": 189,
+  "all_pairs": [
+    {
+      "scene": "72ccacd0",
+      "ordinal": 1,
+      "id": "75e2fe68",
+      "name": "Fly Several Waypoints 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 5,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "8aeca5c3d6436ce505353fa41fdd32e6e0c3e99beec5aabc7639b38b84e5cede"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 6,
+        "successful_new_commands": 2,
+        "passed_leaves": 1,
+        "leaves": 5,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 10,
+        "source_event_statuses": {
+          "200": 9,
+          "422": 1
+        },
+        "first_prompt_sha256": "8aeca5c3d6436ce505353fa41fdd32e6e0c3e99beec5aabc7639b38b84e5cede"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 2,
+      "id": "1829e651",
+      "name": "Obstacle Avoidance Navigation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "018cb0fb857a552a2a6b89752e4e1dabcf20f7f458dafc241570afb461ef70ab"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 4,
+        "successful_new_commands": 3,
+        "passed_leaves": 3,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "018cb0fb857a552a2a6b89752e4e1dabcf20f7f458dafc241570afb461ef70ab"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 3,
+      "id": "1b153d1b",
+      "name": "Complex Obstacle Course Navigation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 6,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "3b092abf24ef68d045416cbec4ea8e3183634481f00bfb2f23c92dbdf4ae930e"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 6,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "3b092abf24ef68d045416cbec4ea8e3183634481f00bfb2f23c92dbdf4ae930e"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 4,
+      "id": "2265b34b",
+      "name": "Flight Marathon Navigation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 13,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "cbb76bb889c8e7a5d7875eb4de64bf9c0f6c13fedaf7712816fbdb6925e157a3"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 13,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "cbb76bb889c8e7a5d7875eb4de64bf9c0f6c13fedaf7712816fbdb6925e157a3"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 5,
+      "id": "9a9b90ea",
+      "name": "Flight Marathon Navigation 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 13,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "a2c5de6bd31c425c945ca36e542520ccf16d556d4ef08849b8bfde5dd87f142e"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 13,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "a2c5de6bd31c425c945ca36e542520ccf16d556d4ef08849b8bfde5dd87f142e"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 6,
+      "id": "2074fc69",
+      "name": "Extended Hover Observation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "d0df6c3dc2a7788dd442502925384902070690672562740b23c961585b081bec"
+      },
+      "sft": {
+        "checker": true,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 3,
+        "successful_new_commands": 3,
+        "passed_leaves": 2,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "d0df6c3dc2a7788dd442502925384902070690672562740b23c961585b081bec"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 7,
+      "id": "646b5237",
+      "name": "Sequential Multi-Target Visit 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "a0dc3f7cb16cb52e10ddeb41f01a8507976755e8114b8e46536c3bd8b727286c"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "generation_truncated",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "8b9a1d4a9f72fc85432eb2640dcf14710a886b2297ef8d624048fd8d84cfea52"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 8,
+      "id": "dfcfff8c",
+      "name": "Sequential Multi-Target Visit 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "d990946689127165b31f3150f3714a7af1e2f0f9c4ac41937f458869441cc588"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "e79c0749d0c64dc043181126104a8f011bb3be67b91f47b4fe0c8c2772c95700"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 9,
+      "id": "07432835",
+      "name": "Delivery to Specific Location 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "2f1829424f400ac44b6b22833bbab1cd394204f9335aa5d12005bddd3a09902b"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 5,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "2f1829424f400ac44b6b22833bbab1cd394204f9335aa5d12005bddd3a09902b"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 10,
+      "id": "2ec37b5b",
+      "name": "Line Formation - 2 Drones 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "5014b57c156b5df35d4de3cfc0f339b94b4adbdf996a1e561918dbdb257cdf54"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "5014b57c156b5df35d4de3cfc0f339b94b4adbdf996a1e561918dbdb257cdf54"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 11,
+      "id": "a314b507",
+      "name": "Multi-Target Survey Mission 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "b2beb026c43d1e8d508b58be4c55159c7f2b75810eb925fe7ce361981b9f694a"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "1e2c29d1be66c4f3191a246bea34971b1022941ee5f20df1d61cfafbe9c5f0bf"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 12,
+      "id": "1a1ecb3d",
+      "name": "Fleet Coordinated Takeoff and Formation (3 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "b97a1fb1c7eab0d149f2c39e6f8d3b61edfb2a09cb05d3ef078de99713ef8794"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 12,
+        "successful_new_commands": 11,
+        "passed_leaves": 6,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "b97a1fb1c7eab0d149f2c39e6f8d3b61edfb2a09cb05d3ef078de99713ef8794"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 13,
+      "id": "7a0fc389",
+      "name": "Fleet Coordinated Takeoff and Formation (3 Drones) 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "9deec02ede61c22f3078adf53503621cf3f555831d849782aa58b1add8db7d39"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 10,
+        "successful_new_commands": 8,
+        "passed_leaves": 2,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "9deec02ede61c22f3078adf53503621cf3f555831d849782aa58b1add8db7d39"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 14,
+      "id": "1199895d",
+      "name": "Fleet Coordinated Takeoff and Formation (4 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "6afd3b57f6a2f9af4bd620ed3e2c17a994b3bf38ed3dafb7d02184ac078d0189"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 7,
+        "successful_new_commands": 7,
+        "passed_leaves": 7,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "6afd3b57f6a2f9af4bd620ed3e2c17a994b3bf38ed3dafb7d02184ac078d0189"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 15,
+      "id": "fa30d6c6",
+      "name": "Fleet Coordinated Takeoff and Formation (5 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "a476972cc60e2226eb873022cd6aac3e04ebd70e240496a5d926ebb147ff61b6"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 15,
+        "successful_new_commands": 11,
+        "passed_leaves": 8,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "a476972cc60e2226eb873022cd6aac3e04ebd70e240496a5d926ebb147ff61b6"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 16,
+      "id": "032f61ae",
+      "name": "Fleet Coordinated Takeoff and Formation (5 Drones) 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "55b4132ba2a0b8d876b383aff1ba1154cbbfbe5943ca9d3a1d147fc094dc73cd"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 15,
+        "successful_new_commands": 14,
+        "passed_leaves": 7,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "55b4132ba2a0b8d876b383aff1ba1154cbbfbe5943ca9d3a1d147fc094dc73cd"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 17,
+      "id": "88dd386e",
+      "name": "Fleet Target Sweep (5 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "e418023a51aa1374142e95915524391d1532672796e6abb17062d5c661d8877b"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "e6765e2cb0c875d4ab33d17732dd63c572e7450eae44e21e5c3e670717c53196"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 18,
+      "id": "e7f88aa4",
+      "name": "Complete Area Coverage Search",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "3d7eba36bce6f70c87ddb18bb5709ba22b83803058c0d35a8f003ff402cc10a1"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 2,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "3d7eba36bce6f70c87ddb18bb5709ba22b83803058c0d35a8f003ff402cc10a1"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 19,
+      "id": "4ef2391b",
+      "name": "Dual Drone Patrol",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "26e28f45ff843ca61f92e79720ab37b2d02a433c9d7b957f72a40f0ba7a7c513"
+      },
+      "sft": {
+        "checker": true,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 7,
+        "successful_new_commands": 6,
+        "passed_leaves": 4,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "26e28f45ff843ca61f92e79720ab37b2d02a433c9d7b957f72a40f0ba7a7c513"
+      }
+    },
+    {
+      "scene": "72ccacd0",
+      "ordinal": 20,
+      "id": "ac5f85f8",
+      "name": "Area Search Task Completion",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "e2b130f82f3d64ca74a27021265f96ba639c123f4600f7d2aa13fe561295bfaa"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "e2b130f82f3d64ca74a27021265f96ba639c123f4600f7d2aa13fe561295bfaa"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 1,
+      "id": "c0954737",
+      "name": "Basic Takeoff 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "0a431a8feb2d9390ad221e1fa486a1d487b9950a19db6123e3a017e6516336eb"
+      },
+      "sft": {
+        "checker": true,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 2,
+        "successful_new_commands": 2,
+        "passed_leaves": 2,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "0a431a8feb2d9390ad221e1fa486a1d487b9950a19db6123e3a017e6516336eb"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 2,
+      "id": "ec4e7476",
+      "name": "Simple Rotation Test 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "bf161077e4dc267621b470594ea47b6fde2b4c4163d09825d18b1fb185187b37"
+      },
+      "sft": {
+        "checker": true,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 4,
+        "successful_new_commands": 4,
+        "passed_leaves": 2,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "generated_format",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "bf161077e4dc267621b470594ea47b6fde2b4c4163d09825d18b1fb185187b37"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 3,
+      "id": "8e8a6116",
+      "name": "Quick Checkpoint Visit 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "940d865376ecd1a0cbde6786f7083869b54b88774208e07e5117c5490e76fa40"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 3,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "940d865376ecd1a0cbde6786f7083869b54b88774208e07e5117c5490e76fa40"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 4,
+      "id": "42da3dd8",
+      "name": "Obstacle Avoidance Navigation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "6d911769ba136354c18fde3f3c6e79fe1a7545f67d7695aa1f01f0e95cdd70ad"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 1,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "6d911769ba136354c18fde3f3c6e79fe1a7545f67d7695aa1f01f0e95cdd70ad"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 5,
+      "id": "42f3b015",
+      "name": "Flight Marathon Navigation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 13,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "8a2c88caeef3eb4261c060fba53ec4d67203b1ed02c8464889097a8ad02bfbfd"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 13,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "8a2c88caeef3eb4261c060fba53ec4d67203b1ed02c8464889097a8ad02bfbfd"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 6,
+      "id": "0b492dab",
+      "name": "Search Task with Photo 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "58d20f5fc12b26539f25c829c73263315f045cb8cea5b1aa7ff74f981b43181f"
+      },
+      "sft": {
+        "checker": true,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 5,
+        "successful_new_commands": 4,
+        "passed_leaves": 2,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "58d20f5fc12b26539f25c829c73263315f045cb8cea5b1aa7ff74f981b43181f"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 7,
+      "id": "4b67a3fc",
+      "name": "Target Area Complete Coverage and Photography Mission 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "ae6a67e1385feeb4f05bfb4a190e9f518d715275896b673ea1cf19073dc3cdec"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 1,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 9,
+        "source_event_statuses": {
+          "200": 8,
+          "422": 1
+        },
+        "first_prompt_sha256": "ae6a67e1385feeb4f05bfb4a190e9f518d715275896b673ea1cf19073dc3cdec"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 8,
+      "id": "e2b37a27",
+      "name": "Line Formation - 2 Drones 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "d88e37b83cf2a76b6f912694091f3c30a5e58813e17c407c1d21bfaa355a47f2"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 6,
+        "successful_new_commands": 4,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "d88e37b83cf2a76b6f912694091f3c30a5e58813e17c407c1d21bfaa355a47f2"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 9,
+      "id": "bc056ac0",
+      "name": "Multi-Target Survey Mission 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "2102dc2ea91c6e7e8a015e218340472f682afff2dc53dc31a426f34636d2b536"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "generation_truncated",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "5087001fc1e87873b93735d966029b421b8744d484cd32da26cbf6973e251d11"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 10,
+      "id": "40056fb4",
+      "name": "Multi-Target Survey Mission 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "2e2ba8af9ffaa39cd699f7dcafc2e7ba6d4e15b98fd1f876787f1bcce156ab20"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "4ed6f8e4db96149d96ef01cf29eae9b4b18a4f11645e7d5a8bee070491f49ad6"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 11,
+      "id": "0c4896e3",
+      "name": "Multiple Target Inspection - Advanced 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "a1da06919c160f5d8163823ca5ca99ac3fc8cf5a4de5a73583a4ad806d221196"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "4ea1e67d4c1cf07fde8ea538f43459b9d5605e75e8da5ebc9568090bfcce6182"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 12,
+      "id": "58d01597",
+      "name": "Fleet Coordinated Takeoff and Formation (3 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "80ae067bf46c4e33f3a9ffbde0237bb577c81102b3de53eb2522b82492fa7b18"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 9,
+        "successful_new_commands": 7,
+        "passed_leaves": 4,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "80ae067bf46c4e33f3a9ffbde0237bb577c81102b3de53eb2522b82492fa7b18"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 13,
+      "id": "9ca70aed",
+      "name": "Fleet Coordinated Takeoff and Formation (3 Drones) 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "03b91a676cf57a05ce46d3841e6c5b442a6fcd2bce45e04c9b4fab1534ab4902"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 9,
+        "successful_new_commands": 7,
+        "passed_leaves": 4,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "03b91a676cf57a05ce46d3841e6c5b442a6fcd2bce45e04c9b4fab1534ab4902"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 14,
+      "id": "14c73be3",
+      "name": "Fleet Coordinated Takeoff and Formation (3 Drones) 3",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "b2ac8859c9a8f548beb80c3aed90b8e96ffa2e56244e08217787c2db3328b718"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 6,
+        "successful_new_commands": 6,
+        "passed_leaves": 3,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "b2ac8859c9a8f548beb80c3aed90b8e96ffa2e56244e08217787c2db3328b718"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 15,
+      "id": "61875e5a",
+      "name": "Fleet Coordinated Takeoff and Formation (4 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "9336a166d0adbc7c9f45c5474e834e22cae8d8ae1e706e4c7b77b5a534c9f136"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 15,
+        "successful_new_commands": 11,
+        "passed_leaves": 12,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "9336a166d0adbc7c9f45c5474e834e22cae8d8ae1e706e4c7b77b5a534c9f136"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 16,
+      "id": "9905eec1",
+      "name": "Fleet Coordinated Takeoff and Formation (5 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "83392e51dcdcfb06d0e1e63697e0fbd38950f27f786a71cf6c0f729a2250a546"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "malformed_thinking",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "83392e51dcdcfb06d0e1e63697e0fbd38950f27f786a71cf6c0f729a2250a546"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 17,
+      "id": "1c4491e7",
+      "name": "Fleet Target Sweep (4 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "5172b5fa1d98be1cba575cc122e6edce922245e2b2e86697fe0ad4528f0446b8"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "generation_truncated",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "f6a8984d8e2dc19d9b54bfc9593ad305bcab400e3d0ae154e7d804e2db660e88"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 18,
+      "id": "6a58cef9",
+      "name": "Fleet Target Sweep (5 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "8e73b6bfb543ac7802fa0fe9b30fbfcc725a169003ea33b1c7a6c963e1fa1c05"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 1,
+        "source_event_statuses": {
+          "422": 1
+        },
+        "first_prompt_sha256": "58fb09e665cc247aaee4269b71edb42795a2145b8ae0df82e0a8bfb7de503570"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 19,
+      "id": "e87508b7",
+      "name": "Any Drone Two-Target Area Coverage Search",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": false,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "b6f48a68c48becb226d1b959fddf2ee28d7fd17d10c8b9fb8c26c8eb98db629b"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 2,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "da85efffba301549c77eaccad36910f151d3705bdc9f42625ca86abf5df924e2"
+      }
+    },
+    {
+      "scene": "0293952c",
+      "ordinal": 20,
+      "id": "521585e4",
+      "name": "Area Search Task Completion",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "5b6822a5c2627da9ecf8eacd4a92e15d27f354d33d799626a812a1f7a0d3c4a6"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "5b6822a5c2627da9ecf8eacd4a92e15d27f354d33d799626a812a1f7a0d3c4a6"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 1,
+      "id": "fdf5a2a6",
+      "name": "Basic Takeoff 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "gained",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "706a7f27d6debb51cdc08fcdbfe381a23bfb79171aa95a7a890468c92a733ecf"
+      },
+      "sft": {
+        "checker": true,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 2,
+        "successful_new_commands": 2,
+        "passed_leaves": 2,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "706a7f27d6debb51cdc08fcdbfe381a23bfb79171aa95a7a890468c92a733ecf"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 2,
+      "id": "223a8b5c",
+      "name": "Complete Flight Cycle Verification 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "fdfd443c827d9fa821338c6c7fa4b824c5a1e6cbb035192523c4fe9dfedb258c"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 3,
+        "successful_new_commands": 2,
+        "passed_leaves": 2,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "fdfd443c827d9fa821338c6c7fa4b824c5a1e6cbb035192523c4fe9dfedb258c"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 3,
+      "id": "e18f78fb",
+      "name": "Quick Checkpoint Visit 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "bcef8e962dfe79ad345d22138f6a199e751341a37a959689c65b2c6cde26554c"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 4,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "bcef8e962dfe79ad345d22138f6a199e751341a37a959689c65b2c6cde26554c"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 4,
+      "id": "3a729753",
+      "name": "Extended Distance Flight Test 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 5,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "846e6447b769012ba15e56ca950317be3670f289821846096cf05f2d843026a3"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 2,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 5,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "846e6447b769012ba15e56ca950317be3670f289821846096cf05f2d843026a3"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 5,
+      "id": "842d79c1",
+      "name": "Multi-Target Reach Verification 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "1fb1dc11563bde57d620baf360cf8ff8cf5a6b36ae0c47bb1cbbd3d45abcdb74"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "1fb1dc11563bde57d620baf360cf8ff8cf5a6b36ae0c47bb1cbbd3d45abcdb74"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 6,
+      "id": "2131bc1a",
+      "name": "Complex Obstacle Course Navigation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 6,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "context_length",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "e45c6018cd5a61a816ceef0d5b207a00c2bf30f5f2636a79e9b15f27ba11e3c9"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 1,
+        "leaves": 6,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 8,
+        "source_event_statuses": {
+          "200": 7,
+          "422": 1
+        },
+        "first_prompt_sha256": "e45c6018cd5a61a816ceef0d5b207a00c2bf30f5f2636a79e9b15f27ba11e3c9"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 7,
+      "id": "537931f0",
+      "name": "Extended Hover Observation 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "6a32a9757944fd33d20884ecd6cebc0d8e20e7907c61ac3e434fd31cc538e9b7"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 5,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 2,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "6a32a9757944fd33d20884ecd6cebc0d8e20e7907c61ac3e434fd31cc538e9b7"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 8,
+      "id": "76253626",
+      "name": "Multi-Waypoint Delivery Route 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "52420e44ed5a63ef48afd0073223fcb221073d1d07a3972f5b38888f886ea51a"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "52420e44ed5a63ef48afd0073223fcb221073d1d07a3972f5b38888f886ea51a"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 9,
+      "id": "11b2293f",
+      "name": "Line Formation - 2 Drones 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "b31888e142ea8feb7014f790a82245da313c115cbc4abc8e92f076a95dec23d8"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 1,
+        "successful_new_commands": 1,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 5,
+        "source_event_statuses": {
+          "200": 4,
+          "422": 1
+        },
+        "first_prompt_sha256": "b31888e142ea8feb7014f790a82245da313c115cbc4abc8e92f076a95dec23d8"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 10,
+      "id": "c7f84dfd",
+      "name": "Line Formation - 2 Drones 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "221e49649bc94b48efad9ea323de905e9d020c1055509927f44d68826f6502a9"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 3,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 1,
+        "source_event_statuses": {
+          "422": 1
+        },
+        "first_prompt_sha256": "221e49649bc94b48efad9ea323de905e9d020c1055509927f44d68826f6502a9"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 11,
+      "id": "3699be67",
+      "name": "Coordinated Search Sweep - 3 Drones 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "e8757ff99a18925b71d7a1105ec8e49d1f0f21e693b99d95d4adc14e44e03141"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 1,
+        "source_event_statuses": {
+          "422": 1
+        },
+        "first_prompt_sha256": "e8757ff99a18925b71d7a1105ec8e49d1f0f21e693b99d95d4adc14e44e03141"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 12,
+      "id": "5db60c4f",
+      "name": "Multiple Target Inspection - Advanced 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "context_length",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "e7828fb266d6b269550a520f447297ccfb02c6a40b7bb1e15785eedb1366cd1c"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 7,
+        "source_event_statuses": {
+          "200": 6,
+          "422": 1
+        },
+        "first_prompt_sha256": "e7828fb266d6b269550a520f447297ccfb02c6a40b7bb1e15785eedb1366cd1c"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 13,
+      "id": "ab8e72fe",
+      "name": "Multiple Target Inspection - Advanced 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "31b676e1ec367430812eab9278b4eead1acffa87ed822616b42475ec8bb187d0"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 12,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "31b676e1ec367430812eab9278b4eead1acffa87ed822616b42475ec8bb187d0"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 14,
+      "id": "35cf6a79",
+      "name": "Fleet Coordinated Takeoff and Formation (4 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "997ba30e97265aea10a98a1a6ed1ab83413cad7cf0e1fe3e0c3a8951d0b35d74"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 8,
+        "successful_new_commands": 4,
+        "passed_leaves": 4,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 5,
+        "source_event_statuses": {
+          "200": 4,
+          "422": 1
+        },
+        "first_prompt_sha256": "997ba30e97265aea10a98a1a6ed1ab83413cad7cf0e1fe3e0c3a8951d0b35d74"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 15,
+      "id": "ccd69d57",
+      "name": "Fleet Coordinated Takeoff and Formation (5 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "3e5b9f5894e90837648c4109e96f232627ef6f6a8986a13de8f1b9f83ed45b97"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 5,
+        "source_event_statuses": {
+          "200": 4,
+          "422": 1
+        },
+        "first_prompt_sha256": "3e5b9f5894e90837648c4109e96f232627ef6f6a8986a13de8f1b9f83ed45b97"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 16,
+      "id": "ce906fab",
+      "name": "Fleet Target Sweep (4 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 2,
+        "source_event_statuses": {
+          "200": 1,
+          "422": 1
+        },
+        "first_prompt_sha256": "2049f90b6f2983f6cfa6ea48ea638a58e6d31da156ac780b3ebd1b54e50e3f5e"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 16,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "context_length",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "2049f90b6f2983f6cfa6ea48ea638a58e6d31da156ac780b3ebd1b54e50e3f5e"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 17,
+      "id": "c3177e10",
+      "name": "Fleet Target Sweep (5 Drones) 1",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "79954cb9ded2b4b5f9952cbc286e1cbc7a3b255ab4e467f1178dd6209ca8602a"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "generation_truncated",
+        "http": 422,
+        "provider_calls": 4,
+        "source_event_statuses": {
+          "200": 3,
+          "422": 1
+        },
+        "first_prompt_sha256": "79954cb9ded2b4b5f9952cbc286e1cbc7a3b255ab4e467f1178dd6209ca8602a"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 18,
+      "id": "eb9625aa",
+      "name": "Fleet Target Sweep (5 Drones) 2",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 5,
+        "source_event_statuses": {
+          "200": 4,
+          "422": 1
+        },
+        "first_prompt_sha256": "589ef0304726615a8ff8579eb6c8837dd5388580abb1d5faa5b62e380cb5c487"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 20,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 5,
+        "source_event_statuses": {
+          "200": 4,
+          "422": 1
+        },
+        "first_prompt_sha256": "589ef0304726615a8ff8579eb6c8837dd5388580abb1d5faa5b62e380cb5c487"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 19,
+      "id": "181df0da",
+      "name": "Target Assignment 50% Progress With 3 Targets",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "e3574b901944499fb839cd1d5874ef55cd0e9343c894c89b6cf0fc62c142f8cd"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 4,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "token_budget",
+        "http": 422,
+        "provider_calls": 6,
+        "source_event_statuses": {
+          "200": 5,
+          "422": 1
+        },
+        "first_prompt_sha256": "e3574b901944499fb839cd1d5874ef55cd0e9343c894c89b6cf0fc62c142f8cd"
+      }
+    },
+    {
+      "scene": "cc14d231",
+      "ordinal": 20,
+      "id": "ed16e44e",
+      "name": "Target Assignment Task Completion",
+      "formal_outcome": "both_fail",
+      "checker_outcome": "both_fail",
+      "first_model_input_identical": true,
+      "base": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "tool_arguments",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "2ccec4c45dd4b8e59aa92766ffb59f4f22cf4d36982807274b16665a22c1a93c"
+      },
+      "sft": {
+        "checker": false,
+        "formal": false,
+        "initial_snapshot_replay": false,
+        "new_physical_commands": 0,
+        "successful_new_commands": 0,
+        "passed_leaves": 0,
+        "leaves": 1,
+        "timed_out": false,
+        "job_status": "completed",
+        "stop": "context_length",
+        "http": 422,
+        "provider_calls": 3,
+        "source_event_statuses": {
+          "200": 2,
+          "422": 1
+        },
+        "first_prompt_sha256": "2ccec4c45dd4b8e59aa92766ffb59f4f22cf4d36982807274b16665a22c1a93c"
+      }
+    }
+  ],
+  "total": {
+    "base": {
+      "tasks": 60,
+      "leaves": 485,
+      "passed_leaves": 9,
+      "checker_pass": 0,
+      "formal_pass": 0,
+      "checked_but_terminal_error": 0,
+      "job_timeout": 0,
+      "source_calls": 200,
+      "no_service_call": [],
+      "stop_reasons": {
+        "tool_arguments": 53,
+        "token_budget": 5,
+        "context_length": 2
+      },
+      "job_statuses": {
+        "completed": 60
+      },
+      "initial_snapshot_pass": [],
+      "initial_snapshot_fail_to_checker_pass": 0
+    },
+    "sft": {
+      "tasks": 60,
+      "leaves": 485,
+      "passed_leaves": 87,
+      "checker_pass": 6,
+      "formal_pass": 0,
+      "checked_but_terminal_error": 6,
+      "job_timeout": 0,
+      "source_calls": 399,
+      "no_service_call": [],
+      "stop_reasons": {
+        "token_budget": 48,
+        "generation_truncated": 4,
+        "generated_format": 1,
+        "malformed_thinking": 1,
+        "tool_arguments": 4,
+        "context_length": 2
+      },
+      "job_statuses": {
+        "completed": 60
+      },
+      "initial_snapshot_pass": [],
+      "initial_snapshot_fail_to_checker_pass": 6
+    }
+  },
+  "pair_counts": {
+    "formal": {
+      "both_fail": 60
+    },
+    "checker": {
+      "both_fail": 54,
+      "gained": 6
+    }
+  }
+}
