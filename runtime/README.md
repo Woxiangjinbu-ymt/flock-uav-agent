@@ -36,3 +36,23 @@ runtime/.venv/bin/python -m runtime score --attempt /absolute/path/to/stage/runs
 `preflight` 使用官方 DeepSeek 服务验证模型和一次两轮工具交互，`run` 启动正式 600 题。凭据从 `DEEPSEEK_API_KEY` 或本地 `runtime/llm_settings.local.json` 的 `provider_configs.deepseek_official.api_key` 读取，也可用 `--settings PATH` 指定同格式的本地文件。任务源码快照和配置归档均排除本地凭据。
 
 `score` 读取已封存的任务原始回执并复算原树，逐场核验所有文件。它分别给出原检查通过数、按正式发布规则计入终止性服务故障后的整题通过数，以及确认工作进程退出的严格部署通过数。现行运行和已有的 600 题原始归档都可复算。对外置原始归档使用本项目新准备的 stage 和该归档的绝对 `--attempt` 路径。
+
+## 学生检查点的 A 折内部验证
+
+每个候选 LoRA 使用独立的仓库外 stage。准备时校验并复制权重和配置，冻结三场 60 题、485 个底层检查、推理预算和首轮逐题结果。历史对照来自同一 A 折此前执行的基座与首轮 SFT。原运行亦记录了仿真天气的自然波动。[首轮验证报告](../datasets/results/student-validation-60/REPORT_CN.md)
+
+```sh
+"$FLOCKCUE_CONTROLLER_PYTHON" -m runtime.student_validation prepare --stage "$stage" --adapter "$checkpoint"
+```
+
+依次执行 `72ccacd0`、`0293952c`、`cc14d231`。每场启动独立的本地学生服务，载入同一个 stage 的冻结权重，待 `/health` 就绪后执行对应场景，再关闭该服务。控制器会核对学生推理设置、权重 SHA-256、模板、仿真与 Harness 源码和三个运行环境的包版本。种子从题目 ID 和轮次确定。
+
+```sh
+"$student_python" -m posttraining.inference.server --model "$base" --adapter "$stage/adapter" \
+  --port 21769 --log "$logs/$scene.events.jsonl"
+# 从另一终端执行当前场景
+"$FLOCKCUE_CONTROLLER_PYTHON" -m runtime.student_validation run --stage "$stage" \
+  --arm sft --scene "$scene" --endpoint http://127.0.0.1:21769/v1
+```
+
+三场封存后运行 `"$FLOCKCUE_CONTROLLER_PYTHON" -m runtime.student_validation report --stage "$stage"`，复核各题检查树、场内原题顺序与完整分母。`summary.json` 分别统计正式整题通过数、独立检查树达标题数、叶检查和停止原因。`pairs.csv` 逐题列出新权重与两个历史对照的增减。省略 `prepare --adapter` 中的适配器参数可重建首轮基座与首轮 SFT 的双臂计划。

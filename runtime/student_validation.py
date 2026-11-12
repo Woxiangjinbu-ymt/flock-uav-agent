@@ -1,12 +1,13 @@
-"""Paired first-epoch student evaluation on the three released internal-validation scenes."""
+"""Replay the first paired evaluation or compare a new adapter on the same three A scenes."""
 import argparse
 from collections import Counter
 import csv
 from io import StringIO
 import json
+import inspect
 import math
-import os
 from pathlib import Path
+import shutil
 import signal
 import subprocess
 from tempfile import TemporaryDirectory
@@ -15,12 +16,21 @@ from urllib.parse import urlsplit
 
 from . import executor as rt, parallel
 from posttraining.inference import EPISODE_TOKEN_LIMIT, MAX_CONTEXT, MAX_GENERATION, SAMPLING
+from posttraining.sft import adapter as student_adapter, benchmark, checkpoint
 
 NAME = "flockcue-student-a-validation-60"
 ARMS = ("base", "sft")
 SCENE_IDS = ("72ccacd0", "0293952c", "cc14d231")
 ROLES = rt.ROOT / "datasets/original-benchmark/scene-roles.csv"
 SFT_RESULT = rt.ROOT / "datasets/results/sft-a100-first-pass/epoch-1/result.json"
+FIRST_PAIRS = rt.ROOT / "datasets/results/student-validation-60/pairs.csv"
+# The first paired archive contains the original plan, both arms' rows, source and package lists.
+REFERENCE = {
+    "plan_sha256": "35f48805383d01bfd5b67faec2a7ade743e2a460e1f633b34a65494111bb9540",
+    "pairs_sha256": "c3dc528c4296539b18bfdac4c631fc23a6e803ea9ab263c7b4fa27fa555d3746",
+    "deployment_sources_digest": "8c1b861800faa4d8e98321e8be0f7e6fdc162415c02e1980b24ace5dadfa9835",
+    "deployment_packages_digest": "1193082008deb877ed3f5d4990ba19796b118b56f80c1852965114860da02078",
+}
 
 
 def build_plan():
@@ -65,17 +75,62 @@ def source_hashes():
     return result
 
 
-def prepare(stage):
+def deployment_source_digest(sources):
+    """Hash the historical simulation, agent, runtime and native student inference path."""
+    shared = {"posttraining/__init__.py", "posttraining/sft/__init__.py", "posttraining/sft/model.json",
+              "posttraining/sft/adapter.py", "posttraining/sft/history.py", "posttraining/sft/checkpoint.py"}
+    paths = ("flockcue/", "runtime/", "simulation/", "posttraining/inference/", "posttraining/sft/tokenizer/")
+    used = {name: digest for name, digest in sources.items()
+            if not Path(name).name.startswith("._") and name != "runtime/student_validation.py"
+            and (name.startswith(paths) or name in shared)}
+    # benchmark.py also contains training-only functions which can change independently.
+    used["posttraining/sft/benchmark.py:attach_lora"] = rt.digest(inspect.getsource(benchmark.attach_lora).encode())
+    used["posttraining/sft/benchmark.py:PROJECTIONS"] = parallel.json_digest(
+        rt, {group: sorted(names) for group, names in benchmark.PROJECTIONS.items()})
+    return parallel.json_digest(rt, used)
+
+
+def candidate_plan(config, sources):
+    plan = build_plan()
+    encoded = json.dumps(plan, ensure_ascii=False, indent=2) + "\n"
+    if rt.digest(encoded.encode()) != REFERENCE["plan_sha256"]:
+        raise ValueError("Historical A60 deployment plan mismatch")
+    if deployment_source_digest(sources) != REFERENCE["deployment_sources_digest"]:
+        raise ValueError("Simulation, harness or student inference sources differ from the historical A60 deployment")
+    if config["format"] != checkpoint.FORMAT or config["base_revision"] != plan["student"]["base_revision"]:
+        raise ValueError("Candidate adapter has incompatible format or base revision")
+    plan["historical_comparison"] = {**REFERENCE, "first_sft_weights_sha256": plan["student"]["sft_weights_sha256"]}
+    plan["student"].update(sft_weights_sha256=config["weights_sha256"],
+                           adapter_config_digest=parallel.json_digest(rt, config))
+    return plan
+
+
+def prepare(stage, adapter_dir=None):
     import zipfile
     if stage.exists():
         raise FileExistsError(f"Stage already exists: {stage}")
     stage.parent.mkdir(parents=True, exist_ok=True)
-    plan = build_plan()
     with TemporaryDirectory(dir=stage.parent) as tmp:
         new = Path(tmp) / "stage"
         (new / "scenes").mkdir(parents=True)
+        sources = source_hashes()
+        if adapter_dir is None:
+            plan = build_plan()
+        else:
+            # The service loads the exact registered files even if a training run updates its output.
+            frozen = new / "adapter"
+            frozen.mkdir()
+            for name in (checkpoint.CONFIG, checkpoint.WEIGHTS):
+                shutil.copyfile(adapter_dir/name, frozen/name)
+            config = rt.read_json(frozen / checkpoint.CONFIG)
+            if rt.digest((frozen / checkpoint.WEIGHTS).read_bytes()) != config["weights_sha256"]:
+                raise ValueError("Candidate adapter checksum mismatch")
+            plan = candidate_plan(config, sources)
+            shutil.copyfile(FIRST_PAIRS, new / "historical-pairs.csv")
+            if rt.digest((new / "historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
+                raise ValueError("Historical A60 pairs checksum mismatch")
         rt.save_json(new / "plan.json", plan)
-        rt.save_json(new / "sources.json", source_hashes())
+        rt.save_json(new / "sources.json", sources)
         with zipfile.ZipFile(rt.ZIP) as archive:
             for scene in plan["sessions"]:
                 (new / "scenes" / scene["file"]).write_bytes(archive.read(scene["file"]))
@@ -85,9 +140,20 @@ def prepare(stage):
 
 def validate_plan(stage, live=False):
     plan = rt.read_json(stage / "plan.json")
-    if plan != build_plan():
+    sources = rt.read_json(stage / "sources.json")
+    if "historical_comparison" in plan:
+        frozen = stage/"adapter"
+        config = rt.read_json(frozen/checkpoint.CONFIG)
+        expected = candidate_plan(config, sources)
+        if rt.digest((frozen/checkpoint.WEIGHTS).read_bytes()) != config["weights_sha256"]:
+            raise ValueError("Frozen candidate adapter checksum mismatch")
+        if rt.digest((stage/"historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
+            raise ValueError("Frozen historical A60 pairs checksum mismatch")
+    else:
+        expected = build_plan()
+    if plan != expected:
         raise ValueError("Saved validation plan differs from the approved held-out subset")
-    if live and rt.read_json(stage / "sources.json") != source_hashes():
+    if live and sources != source_hashes():
         raise ValueError("Stage sources differ from the frozen run")
     for scene in plan["sessions"]:
         if rt.digest((rt.DATA / scene["file"]).read_bytes()) != scene["sha256"]:
@@ -119,6 +185,8 @@ def check_provider(endpoint, arm, plan):
     expected = {key: student[key] for key in ("base_revision", "thinking", "sampling", "budgets", "seed_rule")}
     expected.update(status="ready", model=f"qwen35-2b-{arm}",
                     adapter_sha256=student["sft_weights_sha256"] if arm == "sft" else None)
+    if "historical_comparison" in plan:
+        expected["template_sha256"] = student_adapter.FILES["chat_template.jinja"]
     health = rt.API(endpoint.removesuffix("/v1"), "").call("GET", "/health", timeout=5)
     if any(k not in health or health[k] != v for k,v in expected.items()):
         raise ValueError(f"Student service does not match registered {arm} arm: {health!r}")
@@ -153,10 +221,18 @@ def arm_identity(stage, arm):
 
 def run(stage, arm, endpoint, scene_id):
     plan = validate_plan(stage, live=True)
+    packages = deployment_packages()
+    if "historical_comparison" in plan:
+        if arm != "sft":
+            raise ValueError("The candidate stage uses the archived base and first-SFT controls")
+        if parallel.json_digest(rt, packages) != REFERENCE["deployment_packages_digest"]:
+            raise ValueError("Simulation, controller or agent packages differ from the historical A60 deployment")
+        if scene_id and any(not sealed_record(stage/arm, s) for s in plan["sessions"][:SCENE_IDS.index(scene_id)]):
+            raise ValueError("Candidate scenes must run in the registered order")
     settings = launch_settings(endpoint, arm)
     arm_root = stage / arm
     arm_root.mkdir(exist_ok=True)
-    same_or_save(stage/"packages.json", deployment_packages())
+    same_or_save(stage/"packages.json", packages)
     same_or_save(arm_root/"agent-settings.json", settings)
     same_or_save(arm_root/"provider.json", check_provider(endpoint, arm, plan))
     same_or_save(arm_root/"manifest.json", {"arm": arm, "identity_sha256": parallel.json_digest(rt, arm_identity(stage,arm))})
@@ -203,13 +279,21 @@ def scored_tasks(stage, arm, plan):
         verified = parallel.verify_scene(rt, arm_root, plan, scene, record)
         terminal = {}
         errors = {}
+        commands = {}
         with (directory/"agent-traces/reproduction-metrics.jsonl").open() as stream:
             for event in map(json.loads, stream):
+                if event["event"] == "llm_start":
+                    commands[event["job_id"]] = event["command_id"]
                 if event["event"] == "llm_error":
                     job = event["job_id"]
                     errors[job] = event.get("student_error_code") or event.get("error_type") or "llm_error"
                     if isinstance(event.get("status_code"), int) and event["status_code"] >= 400:
                         terminal[job] = event["status_code"]
+        command_stops = {}
+        if "historical_comparison" in plan:
+            for path in (directory/"agent-traces/toolchains").glob("*.json"):
+                chain = rt.read_json(path)
+                command_stops[chain["command_id"]] = chain["status"]
         for row in verified:
             job = row["job_id"]
             if job in terminal:
@@ -228,11 +312,74 @@ def scored_tasks(stage, arm, plan):
                 "failure_reason": reason, "agent_status": row["agent_status"],
                 "passed_checks": sum(leaf["result"] for leaf in row["leaves"]),
             }
+            if "historical_comparison" in plan:
+                stop = command_stops.get(commands.get(job), "unrecorded")
+                if job in terminal or row["agent_timed_out"]:
+                    stop = reason
+                tasks[row["task_id"]]["stop_reason"] = stop
     return tasks
+
+
+def report_candidate(stage, plan):
+    scores = scored_tasks(stage, "sft", plan)
+    with (stage/"historical-pairs.csv").open(newline="", encoding="utf-8") as stream:
+        historical = list(csv.DictReader(stream))
+    expected = [(scene["id"], str(i), task["id"], str(len(task["leaves"])))
+                for scene in plan["sessions"] for i, task in enumerate(scene["tasks"], 1)]
+    if ([(r["session_id"], r["ordinal"], r["task_id"], r["checks"]) for r in historical] != expected
+            or set(scores) != {key[2] for key in expected}):
+        raise ValueError("A60 result does not cover the exact registered tasks and scene order")
+    counts = {arm: {measure: Counter() for measure in ("pass", "checker")} for arm in ARMS}
+    pairs = []
+    for previous in historical:
+        score = scores[previous["task_id"]]
+        row = {key: previous[key] for key in ("session_id", "family", "ordinal", "task_id", "task",
+                                                "content", "difficulty", "checks")}
+        for arm in ARMS:
+            for measure in ("pass", "checker"):
+                prior = {"True": True, "False": False}[previous[f"{arm}_{measure}"]]
+                outcome = {(False, True): "gained", (True, False): "regressed",
+                           (True, True): "both_pass", (False, False): "both_fail"}[prior, score[measure]]
+                row[f"historical_{arm}_{measure}"] = prior
+                row[f"{measure}_vs_{arm}"] = outcome
+                counts[arm][measure][outcome] += 1
+        row.update({f"candidate_{k}": v for k, v in score.items()})
+        pairs.append(row)
+    comparison = {}
+    for arm, measures in counts.items():
+        comparison[arm] = {}
+        for measure, count in measures.items():
+            comparison[arm][measure] = {
+                "historical_passes": count["both_pass"] + count["regressed"],
+                **{key: count[key] for key in ("both_pass", "both_fail", "gained", "regressed")},
+                "delta_percentage_points": 100 * (count["gained"] - count["regressed"]) / len(pairs),
+            }
+    by_scene = {}
+    for scene in plan["sessions"]:
+        rows = [scores[t["id"]] for t in scene["tasks"]]
+        by_scene[scene["id"]] = {"family": scene["family"], "tasks": len(rows),
+                                 "formal_passes": sum(r["pass"] for r in rows),
+                                 "original_checker_passes": sum(r["checker"] for r in rows),
+                                 "passed_leaf_checks": sum(r["passed_checks"] for r in rows),
+                                 "leaf_checks": sum(len(t["leaves"]) for t in scene["tasks"])}
+    summary = {
+        "tasks": len(pairs), "leaf_checks_per_arm": plan["expected_checks"],
+        "adapter_sha256": plan["student"]["sft_weights_sha256"],
+        "formal_passes": sum(s["pass"] for s in scores.values()),
+        "original_checker_passes": sum(s["checker"] for s in scores.values()),
+        "passed_leaf_checks": sum(s["passed_checks"] for s in scores.values()),
+        "stop_reasons": dict(Counter(s["stop_reason"] for s in scores.values())),
+        "by_scene": by_scene,
+        "historical_controls": plan["historical_comparison"], "paired_comparison": comparison,
+        "scene_generations": {s["id"]: len(scene_generations(stage/"sft", s)) for s in plan["sessions"]},
+    }
+    return save_report(stage, pairs, summary)
 
 
 def report(stage):
     plan = validate_plan(stage)
+    if "historical_comparison" in plan:
+        return report_candidate(stage, plan)
     by_arm = {arm:scored_tasks(stage,arm,plan) for arm in ARMS}
     pairs = []
     outcomes = {(True,True):"both_pass", (False,False):"both_fail",
@@ -262,6 +409,10 @@ def report(stage):
                   "arms":{a:sum(row[f"{a}_checker"] for row in pairs) for a in ARMS},
                   "pairs":{k:sum(row["checker_outcome"]==k for row in pairs) for k in outcomes.values()}},
               "scene_generations":{a:{s["id"]:len(scene_generations(stage/a,s)) for s in plan["sessions"]} for a in ARMS}}
+    return save_report(stage, pairs, result)
+
+
+def save_report(stage, pairs, result):
     buffer = StringIO()
     writer = csv.DictWriter(buffer, fieldnames=list(pairs[0]))
     writer.writeheader()
@@ -280,6 +431,9 @@ def main():
     for name in ("prepare","run","report"):
         parser = commands.add_parser(name)
         parser.add_argument("--stage",type=Path,required=True)
+        if name == "prepare":
+            parser.add_argument("--adapter", type=Path,
+                                help="Freeze these LoRA files and evaluate one SFT arm against archived A60 controls")
         if name == "run":
             parser.add_argument("--arm",choices=ARMS,required=True)
             parser.add_argument("--endpoint",required=True)
@@ -288,7 +442,7 @@ def main():
     stage = args.stage.resolve()
     rt.use_stage(stage)
     if args.command == "prepare":
-        prepare(stage)
+        prepare(stage, args.adapter)
     else:
         with parallel.attempt_lock(stage):
             if args.command == "run":
