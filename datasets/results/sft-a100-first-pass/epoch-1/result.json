@@ -1,0 +1,193 @@
+{
+  "model": "Qwen3.5-2B",
+  "training_commit": "35b702e327b0427d2dc501593145f2d8055a420b",
+  "train_file_sha256": "1dfb4117fd0a4e0beadda1d33a10fa9b8e6fa703fae58c0a0ebd086226d60386",
+  "server_run": "/uav/flockcue-sft/runs/20261111-first-pass",
+  "server_backup": "/mnt/flockcue/20261111-first-pass",
+  "local_weights_relative_to_results": "raw/20261111-first-pass/",
+  "wall_clock": {
+    "started": "2026-11-11T22:32:14+08:00",
+    "training_completed": "2026-11-12T02:29:57+08:00",
+    "training_seconds": 14263.0,
+    "launcher_completed": "2026-11-12T02:30:04+08:00",
+    "including_verification_and_backup_seconds": 14270.0
+  },
+  "training": {
+    "status": "completed",
+    "finished_at": "2026-11-11T18:29:57+00:00",
+    "steps": 386,
+    "epochs": 1,
+    "tokens": 6962880,
+    "supervised_tokens": 129010,
+    "training_step_seconds": 14185.595844484866,
+    "tokens_per_training_second": 490.84156043449224,
+    "mean_loss_per_supervised_token": 0.6984449465366313,
+    "peak_allocated_gib": 16.267953872680664,
+    "peak_reserved_gib": 28.46484375,
+    "adapter": {
+      "format": "flockcue-lora/1",
+      "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+      "rank": 16,
+      "alpha": 32,
+      "weights_sha256": "8735ff75258991c9781625f19a9802d93c4c47bc16065e6ab65bdcca5913007e",
+      "tensor_count": 228,
+      "parameter_count": 7382016
+    }
+  },
+  "quarters": [
+    {
+      "first_step": 1,
+      "last_step": 96,
+      "supervised_tokens": 28946,
+      "mean_loss_per_supervised_token": 0.6647976920234395
+    },
+    {
+      "first_step": 97,
+      "last_step": 193,
+      "supervised_tokens": 31841,
+      "mean_loss_per_supervised_token": 0.7280399527768453
+    },
+    {
+      "first_step": 194,
+      "last_step": 290,
+      "supervised_tokens": 38523,
+      "mean_loss_per_supervised_token": 0.6942887503468675
+    },
+    {
+      "first_step": 291,
+      "last_step": 386,
+      "supervised_tokens": 29700,
+      "mean_loss_per_supervised_token": 0.7049004341212262
+    }
+  ],
+  "adapter_reload": {
+    "status": "ok",
+    "recorded_steps": 386,
+    "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "lora_projections": 114,
+    "prompt_tokens": 24,
+    "finite_logits": true
+  },
+  "generation_check": {
+    "status": "ok",
+    "verified_at": "2026-11-12T02:37:12.899401+00:00",
+    "inference_entry": "posttraining.inference.cuda.TransformersModel.generate",
+    "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "weights_sha256": "8735ff75258991c9781625f19a9802d93c4c47bc16065e6ab65bdcca5913007e",
+    "train_row_one_based": 1,
+    "prompt_tokens": 8569,
+    "limit": 8,
+    "seed": 123,
+    "generated_ids": [
+      198,
+      248069,
+      271,
+      40,
+      3172,
+      1151,
+      539,
+      8396
+    ],
+    "generated_tokens": 8
+  },
+  "same_training_rows_comparison": {
+    "selection": "one training row per scene with minimum SHA256('flockcue-first-pass-loss-' + train_row_sha256)",
+    "mode": "eval, BF16, full prompt, teacher suffix + EOS, use_cache=False",
+    "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "weights_sha256": "8735ff75258991c9781625f19a9802d93c4c47bc16065e6ab65bdcca5913007e",
+    "train_rows": 12,
+    "supervised_tokens": 2948,
+    "weighted_cross_entropy": {
+      "base": 0.7144311041125125,
+      "sft": 0.47033242679048165
+    },
+    "rows_improved": 12,
+    "rows": [
+      {
+        "train_row": 102,
+        "session_id": "04cd6269",
+        "supervised_tokens": 195,
+        "base_loss": 0.7640193104743958,
+        "sft_loss": 0.48455625772476196
+      },
+      {
+        "train_row": 125,
+        "session_id": "0567e470",
+        "supervised_tokens": 75,
+        "base_loss": 0.45722636580467224,
+        "sft_loss": 0.029897326603531837
+      },
+      {
+        "train_row": 138,
+        "session_id": "5be2589b",
+        "supervised_tokens": 120,
+        "base_loss": 0.5658711791038513,
+        "sft_loss": 0.2857758104801178
+      },
+      {
+        "train_row": 141,
+        "session_id": "640b66d4",
+        "supervised_tokens": 92,
+        "base_loss": 1.1223475933074951,
+        "sft_loss": 0.6937091946601868
+      },
+      {
+        "train_row": 177,
+        "session_id": "25239af9",
+        "supervised_tokens": 104,
+        "base_loss": 0.13953359425067902,
+        "sft_loss": 0.10747594386339188
+      },
+      {
+        "train_row": 203,
+        "session_id": "5b8dd44e",
+        "supervised_tokens": 139,
+        "base_loss": 0.618172824382782,
+        "sft_loss": 0.3011792302131653
+      },
+      {
+        "train_row": 239,
+        "session_id": "ef36e27a",
+        "supervised_tokens": 74,
+        "base_loss": 0.2365805208683014,
+        "sft_loss": 0.08339240401983261
+      },
+      {
+        "train_row": 256,
+        "session_id": "793e7745",
+        "supervised_tokens": 115,
+        "base_loss": 0.29414042830467224,
+        "sft_loss": 0.14068034291267395
+      },
+      {
+        "train_row": 280,
+        "session_id": "7f1a1456",
+        "supervised_tokens": 56,
+        "base_loss": 0.567843496799469,
+        "sft_loss": 0.02538181282579899
+      },
+      {
+        "train_row": 323,
+        "session_id": "58fe4605",
+        "supervised_tokens": 1205,
+        "base_loss": 0.8891505599021912,
+        "sft_loss": 0.6306753158569336
+      },
+      {
+        "train_row": 372,
+        "session_id": "35ce64d8",
+        "supervised_tokens": 674,
+        "base_loss": 0.5215645432472229,
+        "sft_loss": 0.4205104410648346
+      },
+      {
+        "train_row": 382,
+        "session_id": "193e179a",
+        "supervised_tokens": 99,
+        "base_loss": 1.4664226770401,
+        "sft_loss": 0.7221719026565552
+      }
+    ]
+  },
+  "steps_sha256": "c6ae302fc0d21d5e3f5c21aeb424611b176cbacac2efbe469c90be259a6c3826"
+}

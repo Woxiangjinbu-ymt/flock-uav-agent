@@ -53,6 +53,8 @@ python -u -m posttraining.sft.train --model /path/to/Qwen3.5-2B \
 
 ## 如何解释首轮结果
 
+首轮单卡 SFT 于北京时间 2026-11-12 02:29:57 完成 386 步，实际耗时 3 小时 57 分 43 秒。训练时按 129,010 个监督 token 加权的平均 loss 为 0.6984。次日上午从 12 个训练场景各固定抽取一条样本，同一批 2,948 个监督 token 在基座上的 loss 为 0.7144，在最终 LoRA 上为 0.4703，12 条均有下降。最终适配器通过新进程重载、前向和短生成验证。本机权重和加载配置保存在 `datasets/results/sft-a100-first-pass/raw/20261111-first-pass/`。[结果与权重校验值](../../datasets/results/sft-a100-first-pass/epoch-1/result.json) · [逐步日志](../../datasets/results/sft-a100-first-pass/epoch-1/steps.jsonl) · [Loss 曲线](../../datasets/results/sft-a100-first-pass/epoch-1/loss.png)
+
 386 个样本覆盖 129,010 个监督 token，其中 83,907 个为教师原生推理。381 轮包含工具调用；入选的 110 题中有 21 题覆盖首轮，5 题覆盖全部轮次。验收采用实发请求、真实回执、动作证据和学生格式回放；教师推理文本的逐句事实仍未经独立标注。
 
 所有训练序列都在 32,768 token 内。其中 9 个提示超过 30,720 token，若在线为回复预留完整的 2,048 token，这些提示会触发当前学生的上下文限制。[学生推理预算](../inference/__init__.py)
