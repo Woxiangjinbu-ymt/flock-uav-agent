@@ -154,8 +154,11 @@ def attach_lora(model, rank, alpha):
     return counts, first_lora_b
 
 
-def measure_step(torch, model, optimizer, input_ids, labels, target_start):
-    optimizer.zero_grad(set_to_none=True)
+def measure_step(torch, model, optimizer, input_ids, labels, target_start, *,
+                 accumulation_size=1, first_in_update=True, last_in_update=True, max_grad_norm=None):
+    """Backpropagate one decision's mean loss; step once the entire update is accumulated."""
+    if first_in_update:
+        optimizer.zero_grad(set_to_none=True)
     torch.cuda.synchronize()
     torch.cuda.reset_peak_memory_stats()
     started = time.perf_counter()
@@ -166,19 +169,26 @@ def measure_step(torch, model, optimizer, input_ids, labels, target_start):
         loss = torch.nn.functional.cross_entropy(logits.float(), labels)
     torch.cuda.synchronize()
     forward_end = time.perf_counter()
-    loss.backward()
+    loss_value = loss.item()
+    if not math.isfinite(loss_value):
+        raise FloatingPointError(f"Nonfinite loss: {loss_value}")
+    (loss if accumulation_size == 1 else loss / accumulation_size).backward()
     torch.cuda.synchronize()
     backward_end = time.perf_counter()
-    optimizer.step()
+    grad_norm = None
+    if last_in_update:
+        if max_grad_norm is not None:
+            parameters = [p for group in optimizer.param_groups for p in group["params"]]
+            grad_norm = torch.nn.utils.clip_grad_norm_(
+                parameters, max_grad_norm, error_if_nonfinite=True).item()
+        optimizer.step()
     torch.cuda.synchronize()
     step_end = time.perf_counter()
     elapsed = step_end - started
     allocated = torch.cuda.max_memory_allocated() / GIB
     reserved = torch.cuda.max_memory_reserved() / GIB
-    loss_value = loss.item()
-    if not math.isfinite(loss_value):
-        raise RuntimeError(f"Nonfinite loss: {loss_value}")
     return {
+        **({"grad_norm_before_clip": grad_norm} if grad_norm is not None else {}),
         "loss": loss_value,
         "forward_sec": forward_end - started,
         "backward_sec": backward_end - forward_end,

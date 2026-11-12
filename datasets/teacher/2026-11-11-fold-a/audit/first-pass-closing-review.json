@@ -1,0 +1,55 @@
+{
+  "scope": "Five text-only first-pass training targets; review uses messages, tools and the actual teacher response in public/reviewed-compatible-public-turns.jsonl.gz, in the same physical row order as the first-pass training release.",
+  "rows": [
+    {
+      "row": 59,
+      "session_id": "04cd6269",
+      "task_id": "cbaf43db",
+      "logical_call_id": "model-9",
+      "train_row_sha256": "88ee24cfb541f987c43dfd9c4b206a778376b76441d2ff5b6ae7977f6feaec40",
+      "source_row_sha256": "b58d34106a1798f2e7eddcfcea44023291e8f488804c98e566583431c8e745ac",
+      "verdict": "retain",
+      "reason_cn": "到位与起飞、悬停和照片 61dbfc2c 各有回执，拍照后另查回 (476,704,21)、hovering；到达时的局部感知没有其他无人机。直线路径与黑板所示两个多边形分离。终答说明复合悬停合约的范围，未输出完成标志。"
+    },
+    {
+      "row": 67,
+      "session_id": "04cd6269",
+      "task_id": "235684e3",
+      "logical_call_id": "model-8",
+      "train_row_sha256": "d0bbee98eaea7df3f22114d29257677a4c6e35f99f590dfed022562078406b8c",
+      "source_row_sha256": "fa40444593411b6d62be332590e3c3e821251da9bddfd5844247635e75911dd5",
+      "verdict": "exclude",
+      "reason_cn": "最后两项是导航和拍照。照片 6cc42ef7 给出拍照成功及电池读数，拍照后没有能证实终答所称悬停状态的回读。天气回执仅含观测量，终答额外将风速判为安全。"
+    },
+    {
+      "row": 88,
+      "session_id": "04cd6269",
+      "task_id": "e6b22f8c",
+      "logical_call_id": "model-7",
+      "train_row_sha256": "90d2be26578245001adbee07af835d670f12ee947b567d79288fc21410532152",
+      "source_row_sha256": "2cba17dcc5768ebd6c222537086ec376b7afe24b9b6f680277cd1a519978ef86",
+      "verdict": "retain",
+      "reason_cn": "起飞、绕 Polygon Obstacle 3 的六航点导航、四个成功广播有独立回执。最后的公开状态回读确认 (612,426,20)、hovering 和 96.26% 电量。"
+    },
+    {
+      "row": 96,
+      "session_id": "04cd6269",
+      "task_id": "0cb39a4a",
+      "logical_call_id": "model-8",
+      "train_row_sha256": "ccf0b97461ff8fd1f59b73e72f2e9f1377f25db9ec5a18ad6d112f35950f6e26",
+      "source_row_sha256": "31d6b3f6e7b15679fc7210bf5fb419b24130a50414dd191ee0d2ae3c5b277cb6",
+      "verdict": "exclude",
+      "reason_cn": "终答称两机最终位置相对 Polygon Obstacle 2 的距离分别位于边界以北约 53 米及以东约 13 米。末态 Drone 4 坐标 (572.97,496.32)，落在黑板记录的东西边界 x=434.29 至 578.29 之间，最接近 y=530.4 的边，约为 34.1 米。"
+    },
+    {
+      "row": 104,
+      "session_id": "04cd6269",
+      "task_id": "9a59bf38",
+      "logical_call_id": "model-8",
+      "train_row_sha256": "610177cee292f808880005bb7abdf58ad50b5eaea53e440e3230d446cb3b11cb",
+      "source_row_sha256": "c7f56379eb81bf752c3fd3c1f89d1dd770e1e7e1ce666c49776088b8e42cfb38",
+      "verdict": "exclude",
+      "reason_cn": "实发系统指令指出此复合悬停超出支持语法，仅当专属证据验证通过才可输出完成标志。教师在有各机终态回执的情况下仍称整题已验证并输出 [TASK DONE]。"
+    }
+  ]
+}
