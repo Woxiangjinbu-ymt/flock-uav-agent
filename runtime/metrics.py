@@ -166,8 +166,11 @@ def install_agent_metrics(service, metrics_path, provider_base_url):
             return super().on_llm_end(response, run_id=run_id, **kwargs)
 
         def on_llm_error(self, error, *, run_id, **kwargs):
+            details = {}
+            if getattr(error, "type", None) in {"student_stop", "student_engine_error"}:
+                details["student_error_code"] = getattr(error, "code", None) or "student_engine_error"
             self._end(run_id, "llm_error", error_type=type(error).__name__,
-                      status_code=_number(getattr(error, "status_code", None)))
+                      status_code=_number(getattr(error, "status_code", None)), **details)
 
     def process(job_id, command):
         started = time.monotonic()

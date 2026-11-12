@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+from uuid import NAMESPACE_URL, uuid4, uuid5
 
 from langchain_core.messages import AIMessage
 from langchain_openai import ChatOpenAI
@@ -43,6 +44,34 @@ class DeploymentDeepSeek(ChatOpenAI):
         return result
 
 
+def student_window():
+    from runtime.lifecycle import STUDENT_WINDOW
+    window = STUDENT_WINDOW.get()
+    if window is None:
+        raise RuntimeError("Student request outside an admitted evaluation task")
+    return window
+
+
+def paired_command_id():
+    task, _, _ = student_window()
+    return uuid5(NAMESPACE_URL, "flockcue/paired-student/" + task)
+
+
+class DeploymentStudent(DeploymentDeepSeek):
+    """Use the same tool/history ABI and send task accounting only as transport headers."""
+
+    def _get_request_payload(self, input_, *, stop=None, **kwargs):
+        task, lease, cutoff = student_window()
+        payload = super()._get_request_payload(input_, stop=stop, **kwargs)
+        payload["temperature"] = 0.6
+        payload["extra_headers"] = {
+            **(payload.get("extra_headers") or {}),
+            "X-Student-Task": task, "X-Student-Lease": lease,
+            "X-Student-Cutoff": str(cutoff), "X-Student-Request": uuid4().hex,
+        }
+        return payload
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", required=True, type=Path)
@@ -52,8 +81,11 @@ def main():
     settings = json.loads(args.config.read_bytes())
     selected = settings["selected_provider"]
     provider = settings["provider_configs"][selected]
-    if selected != "deepseek_official" or provider["default_model"] != "deepseek-flash":
-        raise ValueError("The registered deployment requires deepseek_official / deepseek-flash")
+    student = selected == "flockcue_student" and provider["default_model"] in {
+        "qwen35-2b-base", "qwen35-2b-sft",
+    }
+    if not student and (selected != "deepseek_official" or provider["default_model"] != "deepseek-flash"):
+        raise ValueError("Unregistered FlockCue deployment model")
     if settings.get("share_blackboard_by_session") is not True or settings.get("toolchain_json_recording") is not True:
         raise ValueError("The original deployment requires shared session blackboards and toolchain recording")
 
@@ -76,12 +108,16 @@ def main():
     from runtime.lifecycle import install
     from runtime.metrics import METRICS_FILENAME, install_agent_metrics
 
-    uav_agent.ChatOpenAI = DeploymentDeepSeek
+    uav_agent.ChatOpenAI = DeploymentStudent if student else DeploymentDeepSeek
     agent_api_service.AGENT_CONFIG_FILE = str(args.config.resolve())
     initialize = agent_api_service.initialize_agent_from_settings
 
     def initialize_registered_agent():
         agent = initialize()
+        if student:
+            # The command ID appears in the recovery prompt. Transport leases and jobs
+            # remain independent, while the two policies see the same public ID.
+            agent.command_id_factory = paired_command_id
         llm = agent.llm
         effective = {
             "profile": profile["profile_id"],
@@ -89,7 +125,7 @@ def main():
             "task_progress_mode": agent.task_progress_mode, "layout": agent.input_layout,
             "tool_input_contract": agent.tool_input_contract, "completion_contract": agent.completion_contract,
             "sense_interface": "C", "shared_blackboard": agent.share_blackboard_by_session,
-            "model": llm.model_name, "temperature": llm.temperature,
+            "model": llm.model_name, "temperature": 0.6 if student else llm.temperature,
             "model_max_output_tokens": llm.max_tokens, "sdk_max_retries": llm.root_client.max_retries,
             "max_iterations": agent.max_iterations, "recursion_limit": agent._recursion_limit_for_steps(),
             "empty_response_retries": agent.max_empty_response_retries,

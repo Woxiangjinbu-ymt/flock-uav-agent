@@ -38,16 +38,17 @@ class TransformersModel:
             self.load_info["adapter"] = load_adapter(self.model, adapter_dir, revision)
         self.model.eval()
 
-    def generate(self, ids, limit, seed, eos):
+    def generate(self, ids, limit, seed, eos, *, cutoff=None):
         started = time.monotonic()
         clock = TokenTimes()
         self.torch.cuda.reset_peak_memory_stats()
         self.torch.manual_seed(seed)
         prompt = self.torch.tensor([ids], dtype=self.torch.long, device="cuda")
+        time_limit = {} if cutoff is None else {"max_time": max(0.001, cutoff - time.time())}
         with self.torch.inference_mode():
             whole = self.model.generate(input_ids=prompt, attention_mask=self.torch.ones_like(prompt),
                                         streamer=clock, do_sample=True, max_new_tokens=limit, eos_token_id=eos,
-                                        pad_token_id=self.model.generation_config.pad_token_id, **SAMPLING)
+                                        pad_token_id=self.model.generation_config.pad_token_id, **SAMPLING, **time_limit)
         output = whole[0, len(ids):].tolist()
         if clock.count != len(output):
             raise ValueError("streamed token count differs from generated IDs")

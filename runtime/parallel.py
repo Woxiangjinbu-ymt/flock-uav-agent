@@ -271,7 +271,8 @@ def run_scene(r, attempt, plan, selected, directory, key, stop_event, events):
             window = api.call("POST", "/_reproduction/open", {"lease": lease, "timeout_seconds": plan["protocol"]["timeout_seconds"]})
             r.save_json(str(prefix) + ".window.json", window)
             accepted = agent.call("POST", "/agent/command/async", {"command": task["content"]},
-                                  extra_headers={"X-Reproduction-Lease": lease, "X-Reproduction-Cutoff": str(window["cutoff_at"])})
+                                  extra_headers={"X-Reproduction-Lease": lease, "X-Reproduction-Cutoff": str(window["cutoff_at"]),
+                                                 "X-Reproduction-Task": task["id"]})
             current_row["job_id"] = accepted["job_id"]
             checkpoint()
             print(f"{scene['id']}/{task['id']} submitted", flush=True)

@@ -4,6 +4,7 @@ The upstream agent, tools and blackboards remain in the same process. A cancelle
 status alone is never treated as proof that execute() returned.
 """
 import copy
+from contextvars import ContextVar
 import hmac
 import math
 import os
@@ -12,6 +13,10 @@ import time
 
 from fastapi import HTTPException, Request
 from starlette.responses import JSONResponse
+
+
+# Transport metadata for local student inference. It is never part of the model prompt.
+STUDENT_WINDOW = ContextVar("flockcue_student_window", default=None)
 
 
 def install(service, token):
@@ -46,6 +51,8 @@ def install(service, token):
             finished[job_id] = event
             lease = state["lease"]
             deadlines[job_id] = state["deadline"]
+            task_id, cutoff = state["task_id"], state["cutoff"]
+        context = STUDENT_WINDOW.set((task_id, lease, cutoff) if task_id else None)
         try:
             # Each tool closure keeps its task's client and lease even if a stale
             # thread somehow outlives execute(). It cannot use the next window.
@@ -54,6 +61,7 @@ def install(service, token):
             service.agent_instance.client = client
             original_process(job_id, command)
         finally:
+            STUDENT_WINDOW.reset(context)
             with lock:
                 state["busy"] = False
                 event.set()
@@ -102,6 +110,7 @@ def install(service, token):
                 headers = dict(scope["headers"])
                 authorized = hmac.compare_digest(headers.get(b"x-api-key", b""), token.encode())
                 lease = headers.get(b"x-reproduction-lease", b"").decode()
+                task_id = headers.get(b"x-reproduction-task", b"").decode()
                 try:
                     cutoff = float(headers.get(b"x-reproduction-cutoff", b"nan"))
                 except ValueError:
@@ -109,7 +118,8 @@ def install(service, token):
                 with lock:
                     allowed = authorized and lease and math.isfinite(cutoff) and cutoff > time.time() and not state["busy"] and scope["path"] == "/agent/command/async"
                     if allowed:
-                        state.update(busy=True, lease=lease, deadline=time.monotonic() + cutoff - time.time())
+                        state.update(busy=True, lease=lease, task_id=task_id, cutoff=cutoff,
+                                     deadline=time.monotonic() + cutoff - time.time())
                 if not allowed:
                     return await JSONResponse({"detail": "Task admission refused"}, status_code=409)(scope, receive, send)
                 try:

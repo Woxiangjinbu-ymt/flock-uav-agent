@@ -213,6 +213,8 @@ def bool_setting(value: Any, default: bool = False) -> bool:
 class UAVControlAgent:
     """Intelligent agent for controlling UAVs using natural language."""
 
+    command_id_factory = staticmethod(uuid.uuid4)
+
     def __init__(
         self,
         base_url: str = "http://localhost:8000",
@@ -1218,7 +1220,7 @@ Drones: {len(drones)} available
         Returns:
             Dictionary with 'output', 'intermediate_steps', and 'success' keys.
         """
-        command_id = str(uuid.uuid4())
+        command_id = str(self.command_id_factory())
         self._completion_command = command
         self._model_io_archive = None
         self._model_io_archive_error = None
