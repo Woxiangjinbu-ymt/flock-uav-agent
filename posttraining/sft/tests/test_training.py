@@ -145,3 +145,22 @@ class TrainingTest(unittest.TestCase):
             args.learning_rate = 2e-4
             with self.assertRaisesRegex(ValueError, "Resume configuration"):
                 train.train(args)
+
+            # A run.json written by the original first-pass trainer remains resumable.
+            args.output = root / "legacy"
+            args.output.mkdir()
+            args.init_adapter = args.init_adapter_sha256 = args.max_grad_norm = None
+            args.epochs = args.gradient_accumulation = 1
+            args.min_learning_rate = args.warmup_ratio = 0.0
+            args.lr_schedule = "constant"
+            previous_identity = {
+                "schema":"flockcue-first-pass-lora-v1", "model_manifest_sha256":"model",
+                "base_revision":revision, "release_manifest_sha256":"release", "dataset_sha256":"rows",
+                "seed":91, "order_one_based":[2, 3, 1], "epochs":1,
+                "rank":16, "alpha":32, "dropout":0, "base_dtype":"bfloat16", "adapter_dtype":"float32",
+                "batch_size":1, "gradient_accumulation":1, "optimizer":"fused AdamW", "lr":0.0002,
+                "betas":[0.9, 0.999], "eps":1e-8, "weight_decay":0.01, "lr_schedule":"constant",
+                "gradient_checkpointing":"nonreentrant"}
+            (args.output/"run.json").write_text(json.dumps({"identity":previous_identity}))
+            train.train(args)
+            self.assertEqual(json.loads((args.output/"summary.json").read_bytes())["steps"], 3)
