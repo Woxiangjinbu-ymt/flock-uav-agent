@@ -10,7 +10,7 @@ import threading
 import time
 import traceback
 
-from posttraining.inference import EPISODE_TOKEN_LIMIT, MAX_CONTEXT, MAX_GENERATION, SAMPLING, output_budget
+from posttraining.inference import EPISODE_TOKEN_LIMIT, EVALUATION_CONTEXTS, MAX_CONTEXT, MAX_GENERATION, SAMPLING, output_budget
 from posttraining.inference.cuda import TransformersModel
 from posttraining.inference.weights import MANIFEST
 from posttraining.sft import adapter
@@ -22,7 +22,7 @@ def rejection(code):
 
 
 class Student:
-    def __init__(self, model_path, adapter_dir, log, episode_limit=EPISODE_TOKEN_LIMIT):
+    def __init__(self, model_path, adapter_dir, log, episode_limit=EPISODE_TOKEN_LIMIT, context_tokens=MAX_CONTEXT):
         self.tokenizer = adapter.load_tokenizer(model_path)
         self.engine = TransformersModel(model_path, adapter_dir)
         self.name = "qwen35-2b-sft" if adapter_dir else "qwen35-2b-base"
@@ -31,7 +31,7 @@ class Student:
         self.info = {
             "status": "ready", "model": self.name, "base_revision": base_revision,
             "adapter_sha256": self.fingerprint, "sampling": SAMPLING, "thinking": True,
-            "budgets": {"context_tokens": MAX_CONTEXT, "generation_tokens": MAX_GENERATION,
+            "budgets": {"context_tokens": context_tokens, "generation_tokens": MAX_GENERATION,
                         "episode_tokens": episode_limit},
             "seed_rule": "uint32_be(sha256(task_id/turn)[:4])",
             "template_sha256": adapter.FILES["chat_template.jinja"],
@@ -89,7 +89,8 @@ class Student:
             return rejection("task_deadline")
         prompt, prepared = adapter.render(self.tokenizer, body["messages"], body.get("tools", []), thinking=True)
         ids = prompt["input_ids"]
-        limit, reason = output_budget(len(ids), episode["spent"], self.info["budgets"]["episode_tokens"])
+        budgets = self.info["budgets"]
+        limit, reason = output_budget(len(ids), episode["spent"], budgets["episode_tokens"], budgets["context_tokens"])
         audit.update(prompt_tokens=len(ids), history_reasoning_tokens=prompt["history_reasoning_tokens"],
                      input_ids_sha256=hashlib.sha256(json.dumps(ids, separators=(",", ":")).encode()).hexdigest(),
                      max_new_tokens=limit)
@@ -163,6 +164,7 @@ def main():
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--adapter", type=Path)
     parser.add_argument("--no-episode-token-limit", action="store_true")
+    parser.add_argument("--context-tokens", type=int, choices=EVALUATION_CONTEXTS, default=MAX_CONTEXT)
     parser.add_argument("--port", type=int, required=True)
     parser.add_argument("--log", type=Path, required=True)
     args = parser.parse_args()
@@ -170,7 +172,7 @@ def main():
     args.log.parent.mkdir(parents=True, exist_ok=True)
     with ThreadingHTTPServer(("127.0.0.1", args.port), Handler) as server:
         limit = None if args.no_episode_token_limit else EPISODE_TOKEN_LIMIT
-        server.student = Student(args.model, args.adapter, args.log, limit)
+        server.student = Student(args.model, args.adapter, args.log, limit, args.context_tokens)
         print(json.dumps(server.student.info), flush=True)
         server.serve_forever()
 

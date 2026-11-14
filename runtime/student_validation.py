@@ -15,7 +15,7 @@ import threading
 from urllib.parse import urlsplit
 
 from . import executor as rt, parallel
-from posttraining.inference import EPISODE_TOKEN_LIMIT, MAX_CONTEXT, MAX_GENERATION, SAMPLING
+from posttraining.inference import EPISODE_TOKEN_LIMIT, EVALUATION_CONTEXTS, MAX_CONTEXT, MAX_GENERATION, SAMPLING
 from posttraining.sft import adapter as student_adapter, benchmark, checkpoint
 
 NAME = "flockcue-student-a-validation-60"
@@ -33,6 +33,7 @@ REFERENCE = {
 }
 # Same deployment with the optional cumulative-token limit in the student service.
 CONFIGURABLE_BUDGET_SOURCES = "b998976a24c70bffa3d9e4ccaa0b2cdb2ea9f3eaaeff24a631487ed33d5fe827"
+CONFIGURABLE_CONTEXT_SOURCES = "29341684440500c24d812e0e9b672f40dd1256cae96b459d8ac0412909209d0a"
 
 
 def build_plan():
@@ -92,13 +93,17 @@ def deployment_source_digest(sources):
     return parallel.json_digest(rt, used)
 
 
-def candidate_plan(config, sources, uncapped=False):
+def candidate_plan(config, sources, uncapped=False, context_tokens=MAX_CONTEXT):
     plan = build_plan()
     encoded = json.dumps(plan, ensure_ascii=False, indent=2) + "\n"
     if rt.digest(encoded.encode()) != REFERENCE["plan_sha256"]:
         raise ValueError("Historical A60 deployment plan mismatch")
     digest = deployment_source_digest(sources)
-    allowed = {CONFIGURABLE_BUDGET_SOURCES}
+    if context_tokens not in EVALUATION_CONTEXTS or (not uncapped and context_tokens != MAX_CONTEXT):
+        raise ValueError("Historical comparisons use the original context window")
+    allowed = {CONFIGURABLE_CONTEXT_SOURCES}
+    if context_tokens == MAX_CONTEXT:
+        allowed.add(CONFIGURABLE_BUDGET_SOURCES)
     if not uncapped:
         allowed.add(REFERENCE["deployment_sources_digest"])
     if digest not in allowed:
@@ -107,6 +112,7 @@ def candidate_plan(config, sources, uncapped=False):
         raise ValueError("Candidate adapter has incompatible format or base revision")
     if uncapped:
         plan["student"]["budgets"]["episode_tokens"] = None
+        plan["student"]["budgets"]["context_tokens"] = context_tokens
         plan["paired_uncapped"] = True
     else:
         plan["historical_comparison"] = {**REFERENCE, "first_sft_weights_sha256": plan["student"]["sft_weights_sha256"]}
@@ -115,12 +121,14 @@ def candidate_plan(config, sources, uncapped=False):
     return plan
 
 
-def prepare(stage, adapter_dir=None, uncapped=False):
+def prepare(stage, adapter_dir=None, uncapped=False, context_tokens=MAX_CONTEXT):
     import zipfile
     if stage.exists():
         raise FileExistsError(f"Stage already exists: {stage}")
     if uncapped and adapter_dir is None:
         raise ValueError("The uncapped paired evaluation requires an explicit SFT checkpoint")
+    if not uncapped and context_tokens != MAX_CONTEXT:
+        raise ValueError("A different context window requires a fresh paired evaluation")
     stage.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=stage.parent) as tmp:
         new = Path(tmp) / "stage"
@@ -137,7 +145,7 @@ def prepare(stage, adapter_dir=None, uncapped=False):
             config = rt.read_json(frozen / checkpoint.CONFIG)
             if rt.digest((frozen / checkpoint.WEIGHTS).read_bytes()) != config["weights_sha256"]:
                 raise ValueError("Candidate adapter checksum mismatch")
-            plan = candidate_plan(config, sources, uncapped)
+            plan = candidate_plan(config, sources, uncapped, context_tokens)
             if not uncapped:
                 shutil.copyfile(FIRST_PAIRS, new / "historical-pairs.csv")
                 if rt.digest((new / "historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
@@ -157,7 +165,8 @@ def validate_plan(stage, live=False):
     if "historical_comparison" in plan or plan.get("paired_uncapped"):
         frozen = stage/"adapter"
         config = rt.read_json(frozen/checkpoint.CONFIG)
-        expected = candidate_plan(config, sources, uncapped=plan.get("paired_uncapped", False))
+        expected = candidate_plan(config, sources, uncapped=plan.get("paired_uncapped", False),
+                                  context_tokens=plan["student"]["budgets"]["context_tokens"])
         if rt.digest((frozen/checkpoint.WEIGHTS).read_bytes()) != config["weights_sha256"]:
             raise ValueError("Frozen candidate adapter checksum mismatch")
         if "historical_comparison" in plan and rt.digest((stage/"historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
@@ -445,6 +454,7 @@ def main():
         parser = commands.add_parser(name)
         parser.add_argument("--stage",type=Path,required=True)
         if name == "prepare":
+            parser.add_argument("--context-tokens", type=int, choices=EVALUATION_CONTEXTS, default=MAX_CONTEXT)
             parser.add_argument("--no-episode-token-limit", action="store_true",
                                 help="Run both arms live with no cumulative per-task token limit")
             parser.add_argument("--adapter", type=Path,
@@ -457,7 +467,7 @@ def main():
     stage = args.stage.resolve()
     rt.use_stage(stage)
     if args.command == "prepare":
-        prepare(stage, args.adapter, args.no_episode_token_limit)
+        prepare(stage, args.adapter, args.no_episode_token_limit, args.context_tokens)
     else:
         with parallel.attempt_lock(stage):
             if args.command == "run":

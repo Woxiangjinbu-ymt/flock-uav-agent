@@ -68,6 +68,15 @@ class CandidateValidationTests(unittest.TestCase):
         self.assertEqual(output_budget(30721, 100000, None), (0, "context_length"))
         self.assertEqual(output_budget(30720, 100000), (0, "token_budget"))
 
+    def test_larger_context_only_changes_paired_window(self):
+        sv.prepare(self.stage, self.adapter, uncapped=True, context_tokens=65536)
+        plan = sv.validate_plan(self.stage, live=True)
+        reference = sv.candidate_plan(rt.read_json(self.adapter/sv.checkpoint.CONFIG), sv.source_hashes(), uncapped=True)
+        reference["student"]["budgets"]["context_tokens"] = 65536
+        self.assertEqual(plan, reference)
+        self.assertEqual(output_budget(63488, 200000, None, 65536), (2048, None))
+        self.assertEqual(output_budget(63489, 200000, None, 65536), (0, "context_length"))
+
     def test_report_compares_complete_paired_rows_only(self):
         sv.prepare(self.stage, self.adapter)
         plan = sv.validate_plan(self.stage)
