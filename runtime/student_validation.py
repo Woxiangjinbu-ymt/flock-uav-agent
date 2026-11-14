@@ -31,6 +31,8 @@ REFERENCE = {
     "deployment_sources_digest": "8c1b861800faa4d8e98321e8be0f7e6fdc162415c02e1980b24ace5dadfa9835",
     "deployment_packages_digest": "1193082008deb877ed3f5d4990ba19796b118b56f80c1852965114860da02078",
 }
+# Same deployment with the optional cumulative-token limit in the student service.
+CONFIGURABLE_BUDGET_SOURCES = "b998976a24c70bffa3d9e4ccaa0b2cdb2ea9f3eaaeff24a631487ed33d5fe827"
 
 
 def build_plan():
@@ -90,25 +92,35 @@ def deployment_source_digest(sources):
     return parallel.json_digest(rt, used)
 
 
-def candidate_plan(config, sources):
+def candidate_plan(config, sources, uncapped=False):
     plan = build_plan()
     encoded = json.dumps(plan, ensure_ascii=False, indent=2) + "\n"
     if rt.digest(encoded.encode()) != REFERENCE["plan_sha256"]:
         raise ValueError("Historical A60 deployment plan mismatch")
-    if deployment_source_digest(sources) != REFERENCE["deployment_sources_digest"]:
+    digest = deployment_source_digest(sources)
+    allowed = {CONFIGURABLE_BUDGET_SOURCES}
+    if not uncapped:
+        allowed.add(REFERENCE["deployment_sources_digest"])
+    if digest not in allowed:
         raise ValueError("Simulation, harness or student inference sources differ from the historical A60 deployment")
     if config["format"] != checkpoint.FORMAT or config["base_revision"] != plan["student"]["base_revision"]:
         raise ValueError("Candidate adapter has incompatible format or base revision")
-    plan["historical_comparison"] = {**REFERENCE, "first_sft_weights_sha256": plan["student"]["sft_weights_sha256"]}
+    if uncapped:
+        plan["student"]["budgets"]["episode_tokens"] = None
+        plan["paired_uncapped"] = True
+    else:
+        plan["historical_comparison"] = {**REFERENCE, "first_sft_weights_sha256": plan["student"]["sft_weights_sha256"]}
     plan["student"].update(sft_weights_sha256=config["weights_sha256"],
                            adapter_config_digest=parallel.json_digest(rt, config))
     return plan
 
 
-def prepare(stage, adapter_dir=None):
+def prepare(stage, adapter_dir=None, uncapped=False):
     import zipfile
     if stage.exists():
         raise FileExistsError(f"Stage already exists: {stage}")
+    if uncapped and adapter_dir is None:
+        raise ValueError("The uncapped paired evaluation requires an explicit SFT checkpoint")
     stage.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=stage.parent) as tmp:
         new = Path(tmp) / "stage"
@@ -125,10 +137,11 @@ def prepare(stage, adapter_dir=None):
             config = rt.read_json(frozen / checkpoint.CONFIG)
             if rt.digest((frozen / checkpoint.WEIGHTS).read_bytes()) != config["weights_sha256"]:
                 raise ValueError("Candidate adapter checksum mismatch")
-            plan = candidate_plan(config, sources)
-            shutil.copyfile(FIRST_PAIRS, new / "historical-pairs.csv")
-            if rt.digest((new / "historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
-                raise ValueError("Historical A60 pairs checksum mismatch")
+            plan = candidate_plan(config, sources, uncapped)
+            if not uncapped:
+                shutil.copyfile(FIRST_PAIRS, new / "historical-pairs.csv")
+                if rt.digest((new / "historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
+                    raise ValueError("Historical A60 pairs checksum mismatch")
         rt.save_json(new / "plan.json", plan)
         rt.save_json(new / "sources.json", sources)
         with zipfile.ZipFile(rt.ZIP) as archive:
@@ -141,13 +154,13 @@ def prepare(stage, adapter_dir=None):
 def validate_plan(stage, live=False):
     plan = rt.read_json(stage / "plan.json")
     sources = rt.read_json(stage / "sources.json")
-    if "historical_comparison" in plan:
+    if "historical_comparison" in plan or plan.get("paired_uncapped"):
         frozen = stage/"adapter"
         config = rt.read_json(frozen/checkpoint.CONFIG)
-        expected = candidate_plan(config, sources)
+        expected = candidate_plan(config, sources, uncapped=plan.get("paired_uncapped", False))
         if rt.digest((frozen/checkpoint.WEIGHTS).read_bytes()) != config["weights_sha256"]:
             raise ValueError("Frozen candidate adapter checksum mismatch")
-        if rt.digest((stage/"historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
+        if "historical_comparison" in plan and rt.digest((stage/"historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
             raise ValueError("Frozen historical A60 pairs checksum mismatch")
     else:
         expected = build_plan()
@@ -185,7 +198,7 @@ def check_provider(endpoint, arm, plan):
     expected = {key: student[key] for key in ("base_revision", "thinking", "sampling", "budgets", "seed_rule")}
     expected.update(status="ready", model=f"qwen35-2b-{arm}",
                     adapter_sha256=student["sft_weights_sha256"] if arm == "sft" else None)
-    if "historical_comparison" in plan:
+    if "adapter_config_digest" in student:
         expected["template_sha256"] = student_adapter.FILES["chat_template.jinja"]
     health = rt.API(endpoint.removesuffix("/v1"), "").call("GET", "/health", timeout=5)
     if any(k not in health or health[k] != v for k,v in expected.items()):
@@ -222,8 +235,8 @@ def arm_identity(stage, arm):
 def run(stage, arm, endpoint, scene_id):
     plan = validate_plan(stage, live=True)
     packages = deployment_packages()
-    if "historical_comparison" in plan:
-        if arm != "sft":
+    if "adapter_config_digest" in plan["student"]:
+        if "historical_comparison" in plan and arm != "sft":
             raise ValueError("The candidate stage uses the archived base and first-SFT controls")
         if parallel.json_digest(rt, packages) != REFERENCE["deployment_packages_digest"]:
             raise ValueError("Simulation, controller or agent packages differ from the historical A60 deployment")
@@ -432,6 +445,8 @@ def main():
         parser = commands.add_parser(name)
         parser.add_argument("--stage",type=Path,required=True)
         if name == "prepare":
+            parser.add_argument("--no-episode-token-limit", action="store_true",
+                                help="Run both arms live with no cumulative per-task token limit")
             parser.add_argument("--adapter", type=Path,
                                 help="Freeze these LoRA files and evaluate one SFT arm against archived A60 controls")
         if name == "run":
@@ -442,7 +457,7 @@ def main():
     stage = args.stage.resolve()
     rt.use_stage(stage)
     if args.command == "prepare":
-        prepare(stage, args.adapter)
+        prepare(stage, args.adapter, args.no_episode_token_limit)
     else:
         with parallel.attempt_lock(stage):
             if args.command == "run":

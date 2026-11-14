@@ -5,6 +5,7 @@ import unittest
 from unittest.mock import patch
 
 from runtime import executor as rt, student_validation as sv
+from posttraining.inference import output_budget
 
 
 class CandidateValidationTests(unittest.TestCase):
@@ -53,6 +54,19 @@ class CandidateValidationTests(unittest.TestCase):
         sv.prepare(self.stage)
         self.assertEqual(rt.digest((self.stage/"plan.json").read_bytes()), sv.REFERENCE["plan_sha256"])
         self.assertNotIn("historical_comparison", sv.validate_plan(self.stage))
+
+    def test_uncapped_plan_keeps_context_limit_and_pairs_two_live_arms(self):
+        sv.prepare(self.stage, self.adapter, uncapped=True)
+        plan = sv.validate_plan(self.stage, live=True)
+        original = sv.build_plan()
+        self.assertEqual(plan["protocol"], original["protocol"])
+        self.assertEqual(plan["sessions"], original["sessions"])
+        self.assertEqual(plan["student"]["budgets"], {
+            **original["student"]["budgets"], "episode_tokens": None})
+        self.assertNotIn("historical_comparison", plan)
+        self.assertEqual(output_budget(30720, 100000, None), (2048, None))
+        self.assertEqual(output_budget(30721, 100000, None), (0, "context_length"))
+        self.assertEqual(output_budget(30720, 100000), (0, "token_budget"))
 
     def test_report_compares_complete_paired_rows_only(self):
         sv.prepare(self.stage, self.adapter)

@@ -56,3 +56,5 @@ runtime/.venv/bin/python -m runtime score --attempt /absolute/path/to/stage/runs
 ```
 
 三场封存后运行 `"$FLOCKCUE_CONTROLLER_PYTHON" -m runtime.student_validation report --stage "$stage"`，复核各题检查树、场内原题顺序与完整分母。`summary.json` 分别统计正式整题通过数、独立检查树达标题数、叶检查和停止原因。`pairs.csv` 逐题列出新权重与两个历史对照的增减。省略 `prepare --adapter` 中的适配器参数可重建首轮基座与首轮 SFT 的双臂计划。
+
+对基座和指定 SFT 权重重新做无累计 token 上限的配对评测时，在 `prepare --adapter` 和两组的推理服务启动命令中均加 `--no-episode-token-limit`。基座服务省略 `--adapter`，SFT 服务使用 `--adapter "$stage/adapter"`。对每组实跑三场后执行 `report`。计划与服务健康记录中的 `episode_tokens` 为 `null`；每题 500 秒、上下文 32,768、单轮最多生成 2,048 token，实耗仍逐轮记账。

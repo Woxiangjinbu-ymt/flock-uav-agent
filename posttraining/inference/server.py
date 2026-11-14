@@ -22,7 +22,7 @@ def rejection(code):
 
 
 class Student:
-    def __init__(self, model_path, adapter_dir, log):
+    def __init__(self, model_path, adapter_dir, log, episode_limit=EPISODE_TOKEN_LIMIT):
         self.tokenizer = adapter.load_tokenizer(model_path)
         self.engine = TransformersModel(model_path, adapter_dir)
         self.name = "qwen35-2b-sft" if adapter_dir else "qwen35-2b-base"
@@ -32,7 +32,7 @@ class Student:
             "status": "ready", "model": self.name, "base_revision": base_revision,
             "adapter_sha256": self.fingerprint, "sampling": SAMPLING, "thinking": True,
             "budgets": {"context_tokens": MAX_CONTEXT, "generation_tokens": MAX_GENERATION,
-                        "episode_tokens": EPISODE_TOKEN_LIMIT},
+                        "episode_tokens": episode_limit},
             "seed_rule": "uint32_be(sha256(task_id/turn)[:4])",
             "template_sha256": adapter.FILES["chat_template.jinja"],
         }
@@ -89,7 +89,7 @@ class Student:
             return rejection("task_deadline")
         prompt, prepared = adapter.render(self.tokenizer, body["messages"], body.get("tools", []), thinking=True)
         ids = prompt["input_ids"]
-        limit, reason = output_budget(len(ids), episode["spent"])
+        limit, reason = output_budget(len(ids), episode["spent"], self.info["budgets"]["episode_tokens"])
         audit.update(prompt_tokens=len(ids), history_reasoning_tokens=prompt["history_reasoning_tokens"],
                      input_ids_sha256=hashlib.sha256(json.dumps(ids, separators=(",", ":")).encode()).hexdigest(),
                      max_new_tokens=limit)
@@ -162,13 +162,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--adapter", type=Path)
+    parser.add_argument("--no-episode-token-limit", action="store_true")
     parser.add_argument("--port", type=int, required=True)
     parser.add_argument("--log", type=Path, required=True)
     args = parser.parse_args()
     os.environ["HF_HUB_OFFLINE"] = "1"
     args.log.parent.mkdir(parents=True, exist_ok=True)
     with ThreadingHTTPServer(("127.0.0.1", args.port), Handler) as server:
-        server.student = Student(args.model, args.adapter, args.log)
+        limit = None if args.no_episode_token_limit else EPISODE_TOKEN_LIMIT
+        server.student = Student(args.model, args.adapter, args.log, limit)
         print(json.dumps(server.student.info), flush=True)
         server.serve_forever()
 
