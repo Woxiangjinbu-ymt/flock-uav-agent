@@ -77,6 +77,14 @@ class CandidateValidationTests(unittest.TestCase):
         self.assertEqual(output_budget(63488, 200000, None, 65536), (2048, None))
         self.assertEqual(output_budget(63489, 200000, None, 65536), (0, "context_length"))
 
+    def test_4096_generation_reserves_requested_space_in_paired_window(self):
+        sv.prepare(self.stage, self.adapter, uncapped=True, context_tokens=65536, generation_tokens=4096)
+        plan = sv.validate_plan(self.stage, live=True)
+        self.assertEqual(plan["student"]["budgets"], {
+            "episode_tokens": None, "context_tokens": 65536, "generation_tokens": 4096})
+        self.assertEqual(output_budget(61440, 200000, None, 65536, 4096), (4096, None))
+        self.assertEqual(output_budget(61441, 200000, None, 65536, 4096), (0, "context_length"))
+
     def test_report_compares_complete_paired_rows_only(self):
         sv.prepare(self.stage, self.adapter)
         plan = sv.validate_plan(self.stage)
