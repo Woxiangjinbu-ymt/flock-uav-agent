@@ -1,0 +1,96 @@
+{
+  "schema": "flockcue-sft-causal-lm-v1",
+  "tokenizer": {
+    "repository": "Qwen/Qwen3.5-2B",
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "files": {
+      "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+      "config.json": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c"
+    }
+  },
+  "scene_roles_sha256": "2f59f5e5ee3bd8cc79732c823a2c54d29490c1b08a2dedf9aac12200a629c393",
+  "policy": {
+    "unit": "one reviewed decision",
+    "reasoning": "retain_available_teacher_reasoning",
+    "ignore_index": -100,
+    "target": "assistant suffix including EOS",
+    "padding": false,
+    "truncation": false,
+    "max_sequence_tokens": 32768,
+    "max_target_tokens": 2048
+  },
+  "split": "expanded_train",
+  "pack": "qwen35-2b-expansion",
+  "parent_manifest_sha256": "a981a874e405c4924bae5d0e57a5acf530ba8d1cf61f4d3cef19888fbb2c83ad",
+  "teacher_release": "2026-11-15-expansion",
+  "teacher_audit_sha256": "9b6bd51aa564aee40093127fb2e4d5ae981575370b9d64b0becdb7bab9f3a7f4",
+  "registration_sha256": "405e2768d42a2213da7b6dd1b5b995cc573d5d08d2e460d8e69a6fac63e9b228",
+  "registered_expansion_scenes": [
+    "36cbddd1",
+    "6e1a4ad2",
+    "79b207ff"
+  ],
+  "scene_ids": [
+    "04cd6269",
+    "0567e470",
+    "193e179a",
+    "25239af9",
+    "35ce64d8",
+    "36cbddd1",
+    "58fe4605",
+    "5b8dd44e",
+    "5be2589b",
+    "640b66d4",
+    "6e1a4ad2",
+    "793e7745",
+    "79b207ff",
+    "7f1a1456",
+    "ef36e27a"
+  ],
+  "counts": {
+    "masked_prompt_tokens": 8386645,
+    "supervised_tokens": 170071,
+    "supervised_reasoning_tokens": 111691,
+    "decisions": 469,
+    "tasks": 136,
+    "scenes": 15,
+    "kinds": {
+      "tool_decision": 377,
+      "correction": 32,
+      "verification": 18,
+      "closing": 21,
+      "action": 21
+    }
+  },
+  "unique_counts": {
+    "masked_prompt_tokens": 8386645,
+    "supervised_tokens": 170071,
+    "supervised_reasoning_tokens": 111691,
+    "decisions": 469,
+    "tasks": 136,
+    "scenes": 15,
+    "kinds": {
+      "tool_decision": 377,
+      "correction": 32,
+      "verification": 18,
+      "closing": 21,
+      "action": 21
+    }
+  },
+  "files": {
+    "COVERAGE.md": {
+      "bytes": 5549,
+      "sha256": "ec127a587333e03caa82d1089706a0a293c8e684d73e09885948ede0ae279364"
+    },
+    "index.jsonl": {
+      "bytes": 216673,
+      "sha256": "574ded2c7413c4ae5ae85c8464b575a34d06fee0d436a3edaef916588441faa9"
+    },
+    "train.jsonl.gz": {
+      "bytes": 6750079,
+      "sha256": "411443db5ec9d9469168991d77c2e4a413aec912666f49532dc1124a0d61ecf8"
+    }
+  }
+}

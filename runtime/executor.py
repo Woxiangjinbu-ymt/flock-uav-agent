@@ -7,6 +7,7 @@ unchanged. This module owns its server/agent processes; never attach it to a GUI
 from __future__ import annotations
 
 import copy
+import csv
 from datetime import datetime
 import hashlib
 import json
@@ -26,6 +27,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 ZIP = ROOT / "datasets/original-benchmark/benchmark.zip"
 ZIP_SHA = "b5040097d2bfdd44600f3bf486fdb43ee3eb1247fec9c67900b5fcda6feb94a3"
+EXPANSION_REGISTRATION = ROOT / "datasets/teacher/2026-11-15-expansion/registration.json"
+EXPANSION_PLAN = "flockcue-teacher-expansion-60"
 PLAN = "flockcue-600-first-pass"
 PLAN_SHA = "6589d8e1b4be6664cb3d651f09fe2cc54e41ffca7a361a6dae675ee455ec8823"
 STAGE = ROOT.parent / f"{ROOT.name}-runs" / PLAN
@@ -97,6 +100,16 @@ def canonical_scenes():
 
 
 def select_scenes(scenes):
+    if PLAN == EXPANSION_PLAN:
+        registration = read_json(EXPANSION_REGISTRATION)
+        inventory = (ROOT / "datasets/original-benchmark/scene-roles.csv").read_bytes()
+        candidates = {r["session_id"] for r in csv.DictReader(inventory.decode().splitlines())
+                      if r["role"] == "expansion_pool"}
+        selected = set(registration["session_ids"])
+        if (digest(inventory) != registration["role_inventory_sha256"] or len(selected) != 3
+                or not selected <= candidates):
+            raise ValueError("Expansion registration differs from the scene inventory")
+        return [(name, scene) for name, scene in scenes if scene["id"] in selected]
     selection = read_json(ROOT / "datasets/flockcue-600/candidate-600.json")
     ids = {item["session_id"] for stratum in selection["strata"] for item in stratum["sessions_selected"]}
     return [(name, scene) for name, scene in scenes if scene["id"] in ids]

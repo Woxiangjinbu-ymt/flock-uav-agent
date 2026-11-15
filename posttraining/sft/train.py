@@ -28,8 +28,8 @@ def read_release(torch, path, model_revision):
     """Verify both released files and keep only the tokens a supervised step consumes."""
     manifest_path = path.with_name("manifest.json")
     release = json.loads(manifest_path.read_bytes())
-    if (release["schema"], release["split"]) != ("flockcue-sft-causal-lm-v1", "baseline_train"):
-        raise ValueError("Expected the FlockCue baseline_train SFT release")
+    if release["schema"] != "flockcue-sft-causal-lm-v1" or release["split"] not in {"baseline_train", "expanded_train"}:
+        raise ValueError("Expected a FlockCue training split")
     if release["tokenizer"]["revision"] != model_revision:
         raise ValueError("Training tokenizer and model revisions differ")
     index_path = path.with_name("index.jsonl")

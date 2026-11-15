@@ -7,6 +7,7 @@
 | [DeepSeek 教师轨迹](teacher/2026-11-11-fold-a/README.md) | 正式首遍的 A 折。12 个训练场景、3 个内部验证场景。首位学生将 B 折用于折外评测。 |
 | [Qwen3.5-2B 首版 SFT 数据](sft/qwen35-2b-first-pass/) | 训练侧 110 题的 386 个已审阅决策轮，含分词后的输入、损失掩码、逐行来源和发布清单。[使用与重建](../posttraining/sft/README.md) |
 | [Qwen3.5-2B 纠错与核验扩充包](sft/qwen35-2b-recovery-verification/README.md) | 实际续训包去重后追加 44 个审阅决策，共 12 场、113 题、431 轮。[扩充前后覆盖](sft/qwen35-2b-recovery-verification/COVERAGE.md) |
+| [Qwen3.5-2B 基准外三场扩充包](sft/qwen35-2b-expansion/README.md) | 在 431 轮父集上追加基准外真实 DeepSeek 决策。[三场逐题审阅](teacher/2026-11-15-expansion/README.md) · [覆盖变化](sft/qwen35-2b-expansion/COVERAGE.md) |
 | [系统评测结果](results/README.md) | 十月原版 1,500 题首遍、十一月 FlockCue 600 题首遍及同日 200 题配对对照。 |
 
 ## 训练与评测划分
@@ -18,7 +19,7 @@
 | 基线训练 | 12 | 240 | A 折，供教师示范、SFT 与 GRPO 使用。 |
 | 内部验证 | 3 | 60 | A 折，用于比较训练方案、选择 checkpoint。 |
 | 固定独立测试 | 15 | 300 | B 折，只用于最终学生评测。SFT、GRPO、示范筛选和选模均排除这 15 场。 |
-| 扩充候选 | 45 | 900 | 位于核心 600 题之外。目前均为候选；如需扩充，记录实际选入的整场 ID 和首个使用它的训练版本。 |
+| 扩充候选 | 45 | 900 | 位于核心 600 题之外。已在[首批三场登记](teacher/2026-11-15-expansion/registration.json)中列出实际选入的 3 场、60 题与首个训练数据版本，其余 42 场、840 题仍为候选。 |
 
 在仓库根目录以 Python 3.11 运行。
 

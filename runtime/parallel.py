@@ -265,6 +265,9 @@ def run_scene(r, attempt, plan, selected, directory, key, stop_event, events):
             checkpoint()
             api.call("POST", "/_reproduction/prepare", {})
             r.save_json(str(prefix) + ".before.json", r.prepare_task(api, scene, plan["protocol"], stop_event))
+            if plan["name"] == "flockcue-teacher-expansion-60":
+                initial, details = r.upstream_evaluate(api, task["execution_check_apis"], scene["id"])
+                r.save_json(str(prefix) + ".initial-checks.json", {"passed": initial, "details": details})
             current_row["status"] = "running"
             checkpoint()
             lease = uuid.uuid4().hex

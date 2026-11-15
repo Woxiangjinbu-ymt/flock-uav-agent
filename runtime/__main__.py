@@ -11,11 +11,16 @@ from . import executor, parallel
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["prepare", "verify", "preflight", "run", "status", "score"])
-    parser.add_argument("--stage", type=Path, default=executor.STAGE)
+    parser.add_argument("--stage", type=Path, default=None)
     parser.add_argument("--attempt", type=Path, help="Attempt directory for status and score")
     parser.add_argument("--settings", type=Path, help="Local file containing the official provider credential")
+    parser.add_argument("--expansion", action="store_true", help="Use the registered three training expansion scenes")
     args = parser.parse_args()
-    executor.use_stage(args.stage)
+    if args.expansion:
+        registration = executor.read_json(executor.EXPANSION_REGISTRATION)
+        executor.PLAN = executor.EXPANSION_PLAN
+        executor.PLAN_SHA = registration["plan_sha256"]
+    executor.use_stage(args.stage or executor.ROOT.parent / f"{executor.ROOT.name}-runs" / executor.PLAN)
     if args.settings:
         os.environ["FLOCKCUE_SETTINGS"] = str(args.settings.resolve())
     if args.command == "prepare":

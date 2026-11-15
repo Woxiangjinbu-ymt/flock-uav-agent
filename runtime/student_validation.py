@@ -36,6 +36,8 @@ REFERENCE = {
 CONFIGURABLE_BUDGET_SOURCES = "b998976a24c70bffa3d9e4ccaa0b2cdb2ea9f3eaaeff24a631487ed33d5fe827"
 CONFIGURABLE_CONTEXT_SOURCES = "29341684440500c24d812e0e9b672f40dd1256cae96b459d8ac0412909209d0a"
 CONFIGURABLE_GENERATION_SOURCES = "445379898ed9457e3c4124e8dd17ed68ce31b02fee7f4921335d6fe459f27d65"
+# Registered extra scenes and pre-dispatch checks apply only to the teacher expansion plan.
+TEACHER_EXPANSION_SOURCES = "3c75c7ae162bcb8d0f4a34c0708e436bfea1444d8683bbc9c68a428b656154fc"
 
 
 def build_plan():
@@ -105,7 +107,7 @@ def candidate_plan(config, sources, uncapped=False, context_tokens=MAX_CONTEXT, 
         raise ValueError("Historical comparisons use the original context window")
     if generation_tokens not in EVALUATION_GENERATIONS or (not uncapped and generation_tokens != MAX_GENERATION):
         raise ValueError("Historical comparisons use the original generation limit")
-    allowed = {CONFIGURABLE_GENERATION_SOURCES}
+    allowed = {CONFIGURABLE_GENERATION_SOURCES, TEACHER_EXPANSION_SOURCES}
     if generation_tokens == MAX_GENERATION:
         allowed.add(CONFIGURABLE_CONTEXT_SOURCES)
         if context_tokens == MAX_CONTEXT:
