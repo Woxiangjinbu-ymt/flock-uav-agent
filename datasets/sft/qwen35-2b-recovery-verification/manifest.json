@@ -1,0 +1,95 @@
+{
+  "schema": "flockcue-sft-causal-lm-v1",
+  "split": "baseline_train",
+  "tokenizer": {
+    "repository": "Qwen/Qwen3.5-2B",
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "files": {
+      "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+      "config.json": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c"
+    }
+  },
+  "scene_roles_sha256": "2f59f5e5ee3bd8cc79732c823a2c54d29490c1b08a2dedf9aac12200a629c393",
+  "teacher_release": "flockcue-teacher-trajectories-a-20261111",
+  "teacher_manifest_sha256": "210dd19888a70c9eeaf9106a75b4bf198ba0215dee8b45fb5a39a4147189beac",
+  "policy": {
+    "unit": "one reviewed decision",
+    "reasoning": "retain_available_teacher_reasoning",
+    "ignore_index": -100,
+    "target": "assistant suffix including EOS",
+    "padding": false,
+    "truncation": false,
+    "max_sequence_tokens": 32768,
+    "max_target_tokens": 2048
+  },
+  "scene_ids": [
+    "04cd6269",
+    "0567e470",
+    "193e179a",
+    "25239af9",
+    "35ce64d8",
+    "58fe4605",
+    "5b8dd44e",
+    "5be2589b",
+    "640b66d4",
+    "793e7745",
+    "7f1a1456",
+    "ef36e27a"
+  ],
+  "pack": "recovery_verification_mix",
+  "baseline_manifest_sha256": "03841132ce00ce44108bf9b2194643b20e2dcefe98dad4a532bc4a7b877253ab",
+  "selection_file": "teacher/2026-11-11-fold-a/audit/recovery-verification-44.jsonl",
+  "selection_sha256": "af0bc5b1ec8759022868940b24eacd1eeb8045f1b5ca127f082b3c42b74a040b",
+  "mixture": {
+    "exposures_per_unique_decision": 1,
+    "baseline_exposures": 423,
+    "baseline_unique_decisions": 387,
+    "added_decisions": 44
+  },
+  "counts": {
+    "masked_prompt_tokens": 7652454,
+    "supervised_tokens": 154946,
+    "supervised_reasoning_tokens": 103206,
+    "decisions": 431,
+    "tasks": 113,
+    "scenes": 12,
+    "kinds": {
+      "tool_decision": 364,
+      "correction": 30,
+      "verification": 12,
+      "closing": 21,
+      "action": 4
+    }
+  },
+  "unique_counts": {
+    "masked_prompt_tokens": 7652454,
+    "supervised_tokens": 154946,
+    "supervised_reasoning_tokens": 103206,
+    "decisions": 431,
+    "tasks": 113,
+    "scenes": 12,
+    "kinds": {
+      "tool_decision": 364,
+      "correction": 30,
+      "verification": 12,
+      "closing": 21,
+      "action": 4
+    }
+  },
+  "files": {
+    "COVERAGE.md": {
+      "bytes": 4982,
+      "sha256": "ada7fe7a38842d80818a8aeee0be1ca2327aec5b1b3886d6bef4754545a0d8cf"
+    },
+    "index.jsonl": {
+      "bytes": 199890,
+      "sha256": "88f81ee2d73fec173240f7356345ae80cfb6f5b7fbeb05f49c1f81c77e1d5991"
+    },
+    "train.jsonl.gz": {
+      "bytes": 6178573,
+      "sha256": "cc0e873d8298333b0ce5e986465c23f80487e2815674db4a5c9f794edad239be"
+    }
+  }
+}
