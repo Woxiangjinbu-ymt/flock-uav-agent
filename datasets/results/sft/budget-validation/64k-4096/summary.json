@@ -1,0 +1,41 @@
+{
+  "tasks": 60,
+  "leaf_checks_per_arm": 485,
+  "arms": {
+    "base": 0,
+    "sft": 12
+  },
+  "pairs": {
+    "both_pass": 0,
+    "gained": 12,
+    "regressed": 0,
+    "both_fail": 48
+  },
+  "net_tasks": 12,
+  "delta_percentage_points": 20.0,
+  "exact_mcnemar_two_sided_p": 0.00048828125,
+  "original_checker_only": {
+    "arms": {
+      "base": 0,
+      "sft": 12
+    },
+    "pairs": {
+      "both_pass": 0,
+      "both_fail": 48,
+      "gained": 12,
+      "regressed": 0
+    }
+  },
+  "scene_generations": {
+    "base": {
+      "72ccacd0": 1,
+      "0293952c": 1,
+      "cc14d231": 1
+    },
+    "sft": {
+      "72ccacd0": 1,
+      "0293952c": 1,
+      "cc14d231": 1
+    }
+  }
+}

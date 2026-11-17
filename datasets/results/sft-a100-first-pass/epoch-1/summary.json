@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "finished_at": "2026-11-11T18:29:57+00:00",
+  "steps": 386,
+  "epochs": 1,
+  "tokens": 6962880,
+  "supervised_tokens": 129010,
+  "training_step_seconds": 14185.595844484866,
+  "tokens_per_training_second": 490.84156043449224,
+  "mean_loss_per_supervised_token": 0.6984449465366313,
+  "peak_allocated_gib": 16.267953872680664,
+  "peak_reserved_gib": 28.46484375,
+  "adapter": {
+    "format": "flockcue-lora/1",
+    "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "rank": 16,
+    "alpha": 32,
+    "weights_sha256": "8735ff75258991c9781625f19a9802d93c4c47bc16065e6ab65bdcca5913007e",
+    "tensor_count": 228,
+    "parameter_count": 7382016
+  }
+}

@@ -1,7 +1,8 @@
 # Frozen data digests cover the original bytes, including record terminators.
-*.csv -text
+*.csv -text whitespace=cr-at-eol
 *.jsonl -text
 *.json -text
 *.sha256 -text
 *.zip binary
 *.gz binary
+*.safetensors binary

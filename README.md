@@ -4,11 +4,16 @@ FlockCue 是多无人机任务的执行反馈 Agent Harness。教师和学生在
 
 | 目录 | 负责的工作 |
 | --- | --- |
+| [artifacts/](artifacts/README.md) | 六份正式 LoRA、基座与本机 A100 现场的校验及迁移说明 |
 | [runtime/](runtime/) | 启动服务、按原顺序执行场景、冻结终态、重放评分 |
 | [simulation/](simulation/) | 多无人机仿真、角色权限和原题独立检查器 |
 | [flockcue/](flockcue/) | 正式运行的策略服务、工具、执行反馈、恢复和逐轮记录 |
 | [datasets/](datasets/) | 原始基准、冻结的 600 题、教师数据、正式评测结果 |
 | [posttraining/](posttraining/) | 从实发请求和回执重建教师轨迹，复核 2B 学生的 SFT 输入与监督，衔接后续 RL |
+
+## SFT 实验记录
+
+截至 2026-11-17，首轮 SFT 和五轮混合续训均已归档，后续训练暂停。A 折 60 题在原推理预算下，基座 0/60、首轮 SFT 0/60、入选的累计第 2 轮 6/60。同一权重放宽推理预算后达到 12/60。B 折 300 题的学生独立测试和在线 RL 尚待进行。[训练与验证主表、关键节点](datasets/results/sft/README.md) · [模型权重与归档](artifacts/README.md)
 
 ## 运行与复核
 
@@ -25,6 +30,10 @@ posttraining/.venv/bin/python -m posttraining.sft
 正式评测沿用 30 场 × 20 题的原顺序、8 个 worker 和 500 秒动作窗口。FlockCue + DeepSeek 首遍通过 544/600。同日同指纹的 200 题配对中，FlockCue 通过 182 题，原版通过 168 题。[设置、完整分母及逐题对照](datasets/results/README.md)
 
 项目同时保存 1,500 道原题及十月原版首遍记录、600 道核心基准及十一月 FlockCue 首遍记录。后训练以 240 题为首版训练来源，60 题用于内部验证，B 折 300 题固定为独立测试集。若学生能力仍不足，可从核心基准外 900 题中选取完整场景补充训练。首版 Qwen3.5-2B SFT 数据已生成，含 110 题的 386 个真实教师决策轮和 129,010 个监督 token。[训练数据与使用方法](posttraining/sft/README.md) · [划分](datasets/README.md) · [正式运行记录](datasets/results/README.md)
+
+## Git 发布与本机迁移
+
+当前研究版本位于 `codex/paper-runtime` 分支。Git 检出后可直接运行 `python3 datasets/results/sft/verify.py`，从逐步训练记录、逐题评分和六份适配器复核主表。BF16 基座、优化器状态与原始请求现场保存在本机；迁移完整工作区时按[归档清单](artifacts/README.md)另行复制。上传到个人 GitHub 时应选择自己的目标仓库；本地现有的 `origin` 指向下文引用的上游项目。
 
 ## 来源与归档
 

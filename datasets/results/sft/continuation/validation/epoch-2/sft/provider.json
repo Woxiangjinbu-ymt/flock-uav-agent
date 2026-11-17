@@ -1,0 +1,20 @@
+{
+  "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "thinking": true,
+  "sampling": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "repetition_penalty": 1.0
+  },
+  "budgets": {
+    "context_tokens": 32768,
+    "generation_tokens": 2048,
+    "episode_tokens": 100000
+  },
+  "seed_rule": "uint32_be(sha256(task_id/turn)[:4])",
+  "status": "ready",
+  "model": "qwen35-2b-sft",
+  "adapter_sha256": "cf404ce1d927ad5d58639dab71e34a51c48fd2a9fbc9deb07491b1fd840018d3",
+  "template_sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+}

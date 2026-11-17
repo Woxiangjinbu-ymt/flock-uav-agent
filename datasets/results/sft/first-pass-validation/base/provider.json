@@ -1,0 +1,19 @@
+{
+  "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "thinking": true,
+  "sampling": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "repetition_penalty": 1.0
+  },
+  "budgets": {
+    "context_tokens": 32768,
+    "generation_tokens": 2048,
+    "episode_tokens": 100000
+  },
+  "seed_rule": "uint32_be(sha256(task_id/turn)[:4])",
+  "status": "ready",
+  "model": "qwen35-2b-base",
+  "adapter_sha256": null
+}

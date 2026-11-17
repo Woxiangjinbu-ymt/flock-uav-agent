@@ -1,0 +1,49 @@
+{
+  "name": "flockcue-qwen35-2b-formal-continuation-20261112",
+  "objective": "Does continued SFT with reviewed closings and verifications improve formal full-task success on A internal validation?",
+  "parent": {
+    "weights_sha256": "8735ff75258991c9781625f19a9802d93c4c47bc16065e6ab65bdcca5913007e",
+    "completed_epochs_on_first_release": 1,
+    "completed_optimizer_updates": 386
+  },
+  "training": {
+    "source_split": "A baseline_train only",
+    "data": "deduplicated first and reviewed repair releases; drop prompts above 30720 and re-reviewed invalid original endings; use 3 total exposures of each accepted closing-pack decision per additional epoch",
+    "extra_epochs": 5,
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0,
+    "seed": 123,
+    "microbatch_decisions": 1,
+    "gradient_accumulation": 2,
+    "optimizer": "new fused AdamW",
+    "peak_lr": 0.0001,
+    "warmup_ratio": 0.05,
+    "schedule": "cosine",
+    "final_lr": 2e-05,
+    "max_grad_norm": 1.0,
+    "weight_decay": 0.01
+  },
+  "validation": {
+    "source": "A internal_validation scenes 72ccacd0, 0293952c, cc14d231; 20 consecutive tasks per scene",
+    "primary": "formal passed tasks / 60 including terminal model HTTP errors as failures",
+    "secondary": [
+      "independent checker passed tasks / 60",
+      "passed leaf checks / 485",
+      "per-task changes, by-scene totals and stop reason"
+    ],
+    "candidates": [
+      "archived first SFT",
+      "after 1 additional mixed epoch(s)",
+      "after 2 additional mixed epoch(s)",
+      "after 3 additional mixed epoch(s)",
+      "after 4 additional mixed epoch(s)",
+      "after 5 additional mixed epoch(s)"
+    ],
+    "select": "most formal passes; break ties in favor of the earlier checkpoint",
+    "comparison": "same task order, budgets, Harness, environment and scorer; historical paired base and first SFT denominators; dynamic simulator weather may differ",
+    "diagnostics": "teacher-forced losses on 12 original training probes and 9 reviewed closings; exclude these from selection",
+    "exposure": "internal validation was already used to diagnose first-pass failures; no B examples, B metrics or B model selection",
+    "attribution": "Joint change to training distribution and optimizer schedule; comparison of the two added checkpoints measures marginal continued training under the fixed schedule."
+  }
+}

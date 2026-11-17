@@ -15,3 +15,10 @@ server_logs/
 /datasets/teacher/*/raw/
 /datasets/teacher/*/public/training-public-turns.jsonl.gz
 /datasets/teacher/*/public/validation-public-turns.jsonl.gz
+.vscode/
+.env.*
+!.env.example
+/artifacts/local/
+*.pt
+*.safetensors
+!/artifacts/adapters/*/adapter.safetensors

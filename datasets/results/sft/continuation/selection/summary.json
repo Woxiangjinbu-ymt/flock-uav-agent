@@ -1,0 +1,610 @@
+{
+  "tasks": 60,
+  "leaf_checks": 485,
+  "historical_pairs_sha256": "c3dc528c4296539b18bfdac4c631fc23a6e803ea9ab263c7b4fa27fa555d3746",
+  "protocol_sha256": "940a642cb86ef32bf3d79f43e321fcecba8db82124eb5f16bfc3fba3e5788c3e",
+  "base": {
+    "name": "基座",
+    "extra_epochs": null,
+    "adapter_sha256": null,
+    "formal_passes": 0,
+    "original_checker_passes": 0,
+    "passed_leaf_checks": 9,
+    "stop_counts": {
+      "tool_arguments": 53,
+      "token_budget": 5,
+      "context_length": 2
+    },
+    "token_budget": 5,
+    "token_budget_with_checker_pass": 0,
+    "token_budget_with_checker_fail": 5,
+    "by_scene": {
+      "72ccacd0": {
+        "family": "area_assignment_and_patrol",
+        "tasks": 20,
+        "formal_passes": 0,
+        "original_checker_passes": 0,
+        "passed_leaf_checks": 5,
+        "leaf_checks": 166
+      },
+      "0293952c": {
+        "family": "area_search",
+        "tasks": 20,
+        "formal_passes": 0,
+        "original_checker_passes": 0,
+        "passed_leaf_checks": 2,
+        "leaf_checks": 163
+      },
+      "cc14d231": {
+        "family": "target_assignment",
+        "tasks": 20,
+        "formal_passes": 0,
+        "original_checker_passes": 0,
+        "passed_leaf_checks": 2,
+        "leaf_checks": 156
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "name": "首轮 SFT",
+      "extra_epochs": 0,
+      "adapter_sha256": "8735ff75258991c9781625f19a9802d93c4c47bc16065e6ab65bdcca5913007e",
+      "formal_passes": 0,
+      "original_checker_passes": 6,
+      "passed_leaf_checks": 87,
+      "stop_counts": {
+        "token_budget": 48,
+        "generation_truncated": 4,
+        "generated_format": 1,
+        "malformed_thinking": 1,
+        "tool_arguments": 4,
+        "context_length": 2
+      },
+      "token_budget": 48,
+      "token_budget_with_checker_pass": 5,
+      "token_budget_with_checker_fail": 43,
+      "by_scene": {
+        "72ccacd0": {
+          "family": "area_assignment_and_patrol",
+          "tasks": 20,
+          "formal_passes": 0,
+          "original_checker_passes": 2,
+          "passed_leaf_checks": 46,
+          "leaf_checks": 166
+        },
+        "0293952c": {
+          "family": "area_search",
+          "tasks": 20,
+          "formal_passes": 0,
+          "original_checker_passes": 3,
+          "passed_leaf_checks": 32,
+          "leaf_checks": 163
+        },
+        "cc14d231": {
+          "family": "target_assignment",
+          "tasks": 20,
+          "formal_passes": 0,
+          "original_checker_passes": 1,
+          "passed_leaf_checks": 9,
+          "leaf_checks": 156
+        }
+      },
+      "training_probes": {
+        "original_training_probes": {
+          "supervised_tokens": 2948,
+          "rows": 12,
+          "loss": 0.47033242679048165
+        },
+        "reviewed_closings": {
+          "supervised_tokens": 2658,
+          "rows": 9,
+          "loss": 1.133334062976708
+        }
+      },
+      "probe_sha256": "0f6953a1c57667d58129a57ef3a58902472d7868b9392edd28798d0a9bf1460b"
+    },
+    {
+      "name": "追加 1 epoch",
+      "extra_epochs": 1,
+      "adapter_sha256": "516fa198a35b859291074b73c1f1bd44faa062df0b8b2ffaa20b106323df75f8",
+      "formal_passes": 6,
+      "original_checker_passes": 7,
+      "passed_leaf_checks": 129,
+      "stop_counts": {
+        "token_budget": 42,
+        "completed": 7,
+        "generation_truncated": 7,
+        "context_length": 4
+      },
+      "token_budget": 42,
+      "token_budget_with_checker_pass": 1,
+      "token_budget_with_checker_fail": 41,
+      "by_scene": {
+        "72ccacd0": {
+          "family": "area_assignment_and_patrol",
+          "tasks": 20,
+          "formal_passes": 2,
+          "original_checker_passes": 3,
+          "passed_leaf_checks": 52,
+          "leaf_checks": 166
+        },
+        "0293952c": {
+          "family": "area_search",
+          "tasks": 20,
+          "formal_passes": 3,
+          "original_checker_passes": 3,
+          "passed_leaf_checks": 53,
+          "leaf_checks": 163
+        },
+        "cc14d231": {
+          "family": "target_assignment",
+          "tasks": 20,
+          "formal_passes": 1,
+          "original_checker_passes": 1,
+          "passed_leaf_checks": 24,
+          "leaf_checks": 156
+        }
+      },
+      "pairs_sha256": "0d9cadcc27adfe76a7bcb8e3bc0a58f50656140ff5dc8e89aa31bef005f252dd",
+      "stage_summary_sha256": "76db2c9ad49e0e4da785cedf6f2a16c73e3db6df5909f4c040a45ad529b80986",
+      "paired_comparison": {
+        "base": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 54,
+            "gained": 6,
+            "regressed": 0,
+            "delta_percentage_points": 10.0
+          },
+          "checker": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 53,
+            "gained": 7,
+            "regressed": 0,
+            "delta_percentage_points": 11.666666666666666
+          }
+        },
+        "sft": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 54,
+            "gained": 6,
+            "regressed": 0,
+            "delta_percentage_points": 10.0
+          },
+          "checker": {
+            "historical_passes": 6,
+            "both_pass": 6,
+            "both_fail": 53,
+            "gained": 1,
+            "regressed": 0,
+            "delta_percentage_points": 1.6666666666666667
+          }
+        }
+      },
+      "training_probes": {
+        "original_training_probes": {
+          "supervised_tokens": 2948,
+          "rows": 12,
+          "loss": 0.3592848035480367
+        },
+        "reviewed_closings": {
+          "supervised_tokens": 2658,
+          "rows": 9,
+          "loss": 0.5558912987162782
+        }
+      },
+      "probe_sha256": "4d2b749fc6406f95213ade23016b2a5ba351ee9ae10fd1579cbb8e949a7969fe"
+    },
+    {
+      "name": "追加 2 epoch",
+      "extra_epochs": 2,
+      "adapter_sha256": "cf404ce1d927ad5d58639dab71e34a51c48fd2a9fbc9deb07491b1fd840018d3",
+      "formal_passes": 4,
+      "original_checker_passes": 8,
+      "passed_leaf_checks": 144,
+      "stop_counts": {
+        "token_budget": 35,
+        "generation_truncated": 17,
+        "completed": 4,
+        "context_length": 4
+      },
+      "token_budget": 35,
+      "token_budget_with_checker_pass": 4,
+      "token_budget_with_checker_fail": 31,
+      "by_scene": {
+        "72ccacd0": {
+          "family": "area_assignment_and_patrol",
+          "tasks": 20,
+          "formal_passes": 1,
+          "original_checker_passes": 4,
+          "passed_leaf_checks": 68,
+          "leaf_checks": 166
+        },
+        "0293952c": {
+          "family": "area_search",
+          "tasks": 20,
+          "formal_passes": 2,
+          "original_checker_passes": 3,
+          "passed_leaf_checks": 58,
+          "leaf_checks": 163
+        },
+        "cc14d231": {
+          "family": "target_assignment",
+          "tasks": 20,
+          "formal_passes": 1,
+          "original_checker_passes": 1,
+          "passed_leaf_checks": 18,
+          "leaf_checks": 156
+        }
+      },
+      "pairs_sha256": "b81001bee6cb567c7fc033680fe8faa5411495d97fcbcede174eccc930d7b98c",
+      "stage_summary_sha256": "6e8946fca7ffe42f5c5474e5412bd5a1faabb79bc8a87a1c3b066170f1c98ed5",
+      "paired_comparison": {
+        "base": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 56,
+            "gained": 4,
+            "regressed": 0,
+            "delta_percentage_points": 6.666666666666667
+          },
+          "checker": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 52,
+            "gained": 8,
+            "regressed": 0,
+            "delta_percentage_points": 13.333333333333334
+          }
+        },
+        "sft": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 56,
+            "gained": 4,
+            "regressed": 0,
+            "delta_percentage_points": 6.666666666666667
+          },
+          "checker": {
+            "historical_passes": 6,
+            "both_pass": 6,
+            "both_fail": 52,
+            "gained": 2,
+            "regressed": 0,
+            "delta_percentage_points": 3.3333333333333335
+          }
+        }
+      },
+      "training_probes": {
+        "original_training_probes": {
+          "supervised_tokens": 2948,
+          "rows": 12,
+          "loss": 0.2987957404112302
+        },
+        "reviewed_closings": {
+          "supervised_tokens": 2658,
+          "rows": 9,
+          "loss": 0.2372289394456655
+        }
+      },
+      "probe_sha256": "7baef21eeb493483c786856948ad3d88fc7a19c8e336aa7acea928d7303cc504"
+    },
+    {
+      "name": "追加 3 epoch",
+      "extra_epochs": 3,
+      "adapter_sha256": "69102ed40bbedeb7924ad04cffd1f31e8aa11f8fb03072cad4d38c0aa2e2fb93",
+      "formal_passes": 4,
+      "original_checker_passes": 8,
+      "passed_leaf_checks": 130,
+      "stop_counts": {
+        "token_budget": 35,
+        "generation_truncated": 17,
+        "completed": 4,
+        "context_length": 4
+      },
+      "token_budget": 35,
+      "token_budget_with_checker_pass": 4,
+      "token_budget_with_checker_fail": 31,
+      "by_scene": {
+        "72ccacd0": {
+          "family": "area_assignment_and_patrol",
+          "tasks": 20,
+          "formal_passes": 1,
+          "original_checker_passes": 4,
+          "passed_leaf_checks": 67,
+          "leaf_checks": 166
+        },
+        "0293952c": {
+          "family": "area_search",
+          "tasks": 20,
+          "formal_passes": 2,
+          "original_checker_passes": 3,
+          "passed_leaf_checks": 47,
+          "leaf_checks": 163
+        },
+        "cc14d231": {
+          "family": "target_assignment",
+          "tasks": 20,
+          "formal_passes": 1,
+          "original_checker_passes": 1,
+          "passed_leaf_checks": 16,
+          "leaf_checks": 156
+        }
+      },
+      "pairs_sha256": "24ac11810cb918d3293ebf665f63ccf768ac42dc3072423177cd733b041febda",
+      "stage_summary_sha256": "58608acdb7253545c88aec1bca58ccadcf0ff47d984f7881a1d23391e03c21ee",
+      "paired_comparison": {
+        "base": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 56,
+            "gained": 4,
+            "regressed": 0,
+            "delta_percentage_points": 6.666666666666667
+          },
+          "checker": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 52,
+            "gained": 8,
+            "regressed": 0,
+            "delta_percentage_points": 13.333333333333334
+          }
+        },
+        "sft": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 56,
+            "gained": 4,
+            "regressed": 0,
+            "delta_percentage_points": 6.666666666666667
+          },
+          "checker": {
+            "historical_passes": 6,
+            "both_pass": 6,
+            "both_fail": 52,
+            "gained": 2,
+            "regressed": 0,
+            "delta_percentage_points": 3.3333333333333335
+          }
+        }
+      },
+      "training_probes": {
+        "original_training_probes": {
+          "supervised_tokens": 2948,
+          "rows": 12,
+          "loss": 0.2511424819477284
+        },
+        "reviewed_closings": {
+          "supervised_tokens": 2658,
+          "rows": 9,
+          "loss": 0.099481825311924
+        }
+      },
+      "probe_sha256": "6d95f45dd40cad692a6d79e23f36c1786ecfcae26d68f83217ad6f6b44cc291a"
+    },
+    {
+      "name": "追加 4 epoch",
+      "extra_epochs": 4,
+      "adapter_sha256": "43e66c55d2cb8897cf59ce6cfc89ce710f84656d02d97330a042b4225aaaec82",
+      "formal_passes": 3,
+      "original_checker_passes": 8,
+      "passed_leaf_checks": 135,
+      "stop_counts": {
+        "token_budget": 43,
+        "generation_truncated": 8,
+        "completed": 3,
+        "context_length": 3,
+        "tool_arguments": 2,
+        "malformed_thinking": 1
+      },
+      "token_budget": 43,
+      "token_budget_with_checker_pass": 5,
+      "token_budget_with_checker_fail": 38,
+      "by_scene": {
+        "72ccacd0": {
+          "family": "area_assignment_and_patrol",
+          "tasks": 20,
+          "formal_passes": 0,
+          "original_checker_passes": 4,
+          "passed_leaf_checks": 71,
+          "leaf_checks": 166
+        },
+        "0293952c": {
+          "family": "area_search",
+          "tasks": 20,
+          "formal_passes": 2,
+          "original_checker_passes": 3,
+          "passed_leaf_checks": 52,
+          "leaf_checks": 163
+        },
+        "cc14d231": {
+          "family": "target_assignment",
+          "tasks": 20,
+          "formal_passes": 1,
+          "original_checker_passes": 1,
+          "passed_leaf_checks": 12,
+          "leaf_checks": 156
+        }
+      },
+      "pairs_sha256": "6eea4b27ddf46870b65d2425e403b7092ddbef1537cb4750b97e4f5f188f824b",
+      "stage_summary_sha256": "75d35c9dd9dc468518c9515416b908db376adce52bbd94165ac43528cc8ba482",
+      "paired_comparison": {
+        "base": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 57,
+            "gained": 3,
+            "regressed": 0,
+            "delta_percentage_points": 5.0
+          },
+          "checker": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 52,
+            "gained": 8,
+            "regressed": 0,
+            "delta_percentage_points": 13.333333333333334
+          }
+        },
+        "sft": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 57,
+            "gained": 3,
+            "regressed": 0,
+            "delta_percentage_points": 5.0
+          },
+          "checker": {
+            "historical_passes": 6,
+            "both_pass": 6,
+            "both_fail": 52,
+            "gained": 2,
+            "regressed": 0,
+            "delta_percentage_points": 3.3333333333333335
+          }
+        }
+      },
+      "training_probes": {
+        "original_training_probes": {
+          "supervised_tokens": 2948,
+          "rows": 12,
+          "loss": 0.21721934868759518
+        },
+        "reviewed_closings": {
+          "supervised_tokens": 2658,
+          "rows": 9,
+          "loss": 0.044529835985934234
+        }
+      },
+      "probe_sha256": "c17e1f8e53c0418035d42808a898f7898d5f284dd918aa794438c37ee6303f4d"
+    },
+    {
+      "name": "追加 5 epoch",
+      "extra_epochs": 5,
+      "adapter_sha256": "a5a9f10c2f90140deccf8e869a268afa15d1cd5f2fe1887c0ca8158df48ecc6a",
+      "formal_passes": 5,
+      "original_checker_passes": 6,
+      "passed_leaf_checks": 117,
+      "stop_counts": {
+        "token_budget": 38,
+        "completed": 5,
+        "generation_truncated": 14,
+        "tool_arguments": 1,
+        "context_length": 2
+      },
+      "token_budget": 38,
+      "token_budget_with_checker_pass": 1,
+      "token_budget_with_checker_fail": 37,
+      "by_scene": {
+        "72ccacd0": {
+          "family": "area_assignment_and_patrol",
+          "tasks": 20,
+          "formal_passes": 1,
+          "original_checker_passes": 2,
+          "passed_leaf_checks": 43,
+          "leaf_checks": 166
+        },
+        "0293952c": {
+          "family": "area_search",
+          "tasks": 20,
+          "formal_passes": 3,
+          "original_checker_passes": 3,
+          "passed_leaf_checks": 53,
+          "leaf_checks": 163
+        },
+        "cc14d231": {
+          "family": "target_assignment",
+          "tasks": 20,
+          "formal_passes": 1,
+          "original_checker_passes": 1,
+          "passed_leaf_checks": 21,
+          "leaf_checks": 156
+        }
+      },
+      "pairs_sha256": "7179c275ae38b05d21e22585c581d27e8bea43d09084ded67f7ffe24b08379bb",
+      "stage_summary_sha256": "37edfc75b0916373a6d026b7eaaf2fd16b123b0ea56673b557cc193b89cbca83",
+      "paired_comparison": {
+        "base": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 55,
+            "gained": 5,
+            "regressed": 0,
+            "delta_percentage_points": 8.333333333333334
+          },
+          "checker": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 54,
+            "gained": 6,
+            "regressed": 0,
+            "delta_percentage_points": 10.0
+          }
+        },
+        "sft": {
+          "pass": {
+            "historical_passes": 0,
+            "both_pass": 0,
+            "both_fail": 55,
+            "gained": 5,
+            "regressed": 0,
+            "delta_percentage_points": 8.333333333333334
+          },
+          "checker": {
+            "historical_passes": 6,
+            "both_pass": 5,
+            "both_fail": 53,
+            "gained": 1,
+            "regressed": 1,
+            "delta_percentage_points": 0.0
+          }
+        }
+      },
+      "training_probes": {
+        "original_training_probes": {
+          "supervised_tokens": 2948,
+          "rows": 12,
+          "loss": 0.19870520436086975
+        },
+        "reviewed_closings": {
+          "supervised_tokens": 2658,
+          "rows": 9,
+          "loss": 0.02263143201806408
+        }
+      },
+      "probe_sha256": "7358473b9fec8a6cc963bb2d30e365918c7faffd8d761b921518a404eefc7037"
+    }
+  ],
+  "selected": {
+    "name": "追加 1 epoch",
+    "extra_epochs": 1,
+    "adapter_sha256": "516fa198a35b859291074b73c1f1bd44faa062df0b8b2ffaa20b106323df75f8",
+    "formal_passes": 6,
+    "tied_extra_epochs": [
+      1
+    ],
+    "rule": "highest formal pass count; earliest checkpoint on ties, archived first SFT eligible"
+  },
+  "data_guidance_cn": [
+    "选中权重较首轮多通过 6 题（10.0 个百分点）。",
+    "1 题耗尽额度时仿真终态已经达标。逐轮核对当时可见证据和剩余额度；若证据已齐且有生成机会，定向重采简短收尾；若最后一次请求连输入都容不下，采集更短的动作与核验路径。",
+    "53 题冻结时仍未满足全部检查，其中 41 题以累计预算终止。先按失败回执与缺失动作归类，再从训练侧补实体 ID 发现、参数修正、关键前置状态核验或多机协同执行示范。缺少必要证据时应如实说明能验证的范围。"
+  ],
+  "limitations_cn": [
+    "三场各含 20 道连续任务，共 485 个叶检查。同一任务族只有一个验证场景，场内题目共享历史状态。基座与首轮分数取自历史现场记录，各次动态天气可能有差异。A 折 60 题此前参与失败诊断，本轮又用于选模。需要独立检验时使用冻结的 B 折 300 题。",
+    "本轮从首轮权重追加训练，同时调整示范配比、学习率日程及梯度累积。同一混合训练内的后续检查点可比较继续训练的结果，单纯增加 epoch 的独立贡献需另设固定数据与优化器的对照。可从 A 折训练场景采集补充轨迹，数量仍不足时，从基准外已登记的完整训练场景补充。按完整分母复评，并保留出现退步的场景和任务。"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "base": {
+    "previous": 0,
+    "current": 0,
+    "gained": [],
+    "regressed": [],
+    "net": 0,
+    "checks_passed": 9,
+    "checker_tasks": 0,
+    "failure_reasons": {
+      "tool_arguments": 57,
+      "generation_truncated": 2,
+      "context_length": 1
+    },
+    "previous_generation_truncations_now": {
+      "tool_arguments": 2
+    }
+  },
+  "sft": {
+    "previous": 12,
+    "current": 12,
+    "gained": [
+      "646b5237"
+    ],
+    "regressed": [
+      "40056fb4"
+    ],
+    "net": 0,
+    "checks_passed": 211,
+    "checker_tasks": 12,
+    "failure_reasons": {
+      "original_checks_failed": 6,
+      "task_deadline": 7,
+      "context_length": 18,
+      "generation_truncated": 16,
+      "tool_arguments": 1
+    },
+    "previous_generation_truncations_now": {
+      "original_checks_failed": 2,
+      "context_length": 7,
+      "generation_truncated": 3,
+      "task_deadline": 6,
+      "tool_arguments": 1
+    }
+  }
+}

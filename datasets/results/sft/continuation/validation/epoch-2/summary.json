@@ -1,0 +1,90 @@
+{
+  "tasks": 60,
+  "leaf_checks_per_arm": 485,
+  "adapter_sha256": "cf404ce1d927ad5d58639dab71e34a51c48fd2a9fbc9deb07491b1fd840018d3",
+  "formal_passes": 4,
+  "original_checker_passes": 8,
+  "passed_leaf_checks": 144,
+  "stop_reasons": {
+    "token_budget": 35,
+    "generation_truncated": 17,
+    "completed": 4,
+    "context_length": 4
+  },
+  "by_scene": {
+    "72ccacd0": {
+      "family": "area_assignment_and_patrol",
+      "tasks": 20,
+      "formal_passes": 1,
+      "original_checker_passes": 4,
+      "passed_leaf_checks": 68,
+      "leaf_checks": 166
+    },
+    "0293952c": {
+      "family": "area_search",
+      "tasks": 20,
+      "formal_passes": 2,
+      "original_checker_passes": 3,
+      "passed_leaf_checks": 58,
+      "leaf_checks": 163
+    },
+    "cc14d231": {
+      "family": "target_assignment",
+      "tasks": 20,
+      "formal_passes": 1,
+      "original_checker_passes": 1,
+      "passed_leaf_checks": 18,
+      "leaf_checks": 156
+    }
+  },
+  "historical_controls": {
+    "plan_sha256": "35f48805383d01bfd5b67faec2a7ade743e2a460e1f633b34a65494111bb9540",
+    "pairs_sha256": "c3dc528c4296539b18bfdac4c631fc23a6e803ea9ab263c7b4fa27fa555d3746",
+    "deployment_sources_digest": "8c1b861800faa4d8e98321e8be0f7e6fdc162415c02e1980b24ace5dadfa9835",
+    "deployment_packages_digest": "1193082008deb877ed3f5d4990ba19796b118b56f80c1852965114860da02078",
+    "first_sft_weights_sha256": "8735ff75258991c9781625f19a9802d93c4c47bc16065e6ab65bdcca5913007e"
+  },
+  "paired_comparison": {
+    "base": {
+      "pass": {
+        "historical_passes": 0,
+        "both_pass": 0,
+        "both_fail": 56,
+        "gained": 4,
+        "regressed": 0,
+        "delta_percentage_points": 6.666666666666667
+      },
+      "checker": {
+        "historical_passes": 0,
+        "both_pass": 0,
+        "both_fail": 52,
+        "gained": 8,
+        "regressed": 0,
+        "delta_percentage_points": 13.333333333333334
+      }
+    },
+    "sft": {
+      "pass": {
+        "historical_passes": 0,
+        "both_pass": 0,
+        "both_fail": 56,
+        "gained": 4,
+        "regressed": 0,
+        "delta_percentage_points": 6.666666666666667
+      },
+      "checker": {
+        "historical_passes": 6,
+        "both_pass": 6,
+        "both_fail": 52,
+        "gained": 2,
+        "regressed": 0,
+        "delta_percentage_points": 3.3333333333333335
+      }
+    }
+  },
+  "scene_generations": {
+    "72ccacd0": 1,
+    "0293952c": 1,
+    "cc14d231": 1
+  }
+}

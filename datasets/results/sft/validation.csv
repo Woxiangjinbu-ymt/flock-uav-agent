@@ -1,0 +1,14 @@
+checkpoint,context_tokens,generation_tokens,episode_tokens,formal_passes,tasks,formal_percent,checker_passes,passed_leaf_checks,leaf_checks,adapter_sha256,pairs_file
+base,32768,2048,100000,0,60,0.00,0,9,485,,datasets/results/student-validation-60/pairs.csv
+first-pass,32768,2048,100000,0,60,0.00,6,87,485,8735ff75258991c9781625f19a9802d93c4c47bc16065e6ab65bdcca5913007e,datasets/results/student-validation-60/pairs.csv
+continuation-1,32768,2048,100000,6,60,10.00,7,129,485,516fa198a35b859291074b73c1f1bd44faa062df0b8b2ffaa20b106323df75f8,datasets/results/sft/continuation/validation/epoch-1/pairs.csv
+continuation-2,32768,2048,100000,4,60,6.67,8,144,485,cf404ce1d927ad5d58639dab71e34a51c48fd2a9fbc9deb07491b1fd840018d3,datasets/results/sft/continuation/validation/epoch-2/pairs.csv
+continuation-3,32768,2048,100000,4,60,6.67,8,130,485,69102ed40bbedeb7924ad04cffd1f31e8aa11f8fb03072cad4d38c0aa2e2fb93,datasets/results/sft/continuation/validation/epoch-3/pairs.csv
+continuation-4,32768,2048,100000,3,60,5.00,8,135,485,43e66c55d2cb8897cf59ce6cfc89ce710f84656d02d97330a042b4225aaaec82,datasets/results/sft/continuation/validation/epoch-4/pairs.csv
+continuation-5,32768,2048,100000,5,60,8.33,6,117,485,a5a9f10c2f90140deccf8e869a268afa15d1cd5f2fe1887c0ca8158df48ecc6a,datasets/results/sft/continuation/validation/epoch-5/pairs.csv
+base,32768,2048,unlimited,0,60,0.00,0,9,485,,datasets/results/sft/budget-validation/32k-2048/pairs.csv
+continuation-1,32768,2048,unlimited,11,60,18.33,13,153,485,516fa198a35b859291074b73c1f1bd44faa062df0b8b2ffaa20b106323df75f8,datasets/results/sft/budget-validation/32k-2048/pairs.csv
+base,65536,2048,unlimited,0,60,0.00,0,9,485,,datasets/results/sft/budget-validation/64k-2048/pairs.csv
+continuation-1,65536,2048,unlimited,12,60,20.00,13,184,485,516fa198a35b859291074b73c1f1bd44faa062df0b8b2ffaa20b106323df75f8,datasets/results/sft/budget-validation/64k-2048/pairs.csv
+base,65536,4096,unlimited,0,60,0.00,0,9,485,,datasets/results/sft/budget-validation/64k-4096/pairs.csv
+continuation-1,65536,4096,unlimited,12,60,20.00,12,211,485,516fa198a35b859291074b73c1f1bd44faa062df0b8b2ffaa20b106323df75f8,datasets/results/sft/budget-validation/64k-4096/pairs.csv

@@ -11,7 +11,7 @@
 
 正式教师通过率为 51/60（85.0%），保留超时与失败。评分分母包括初态已通过的题。审阅另查真实 HTTP 请求、工具调用与对应回执、初末检查及本题新执行的物理指令。机械条件通过的 48 题再按题面顺序、逐机归因、回复内容及学生长度筛选。表中的“有监督样本的题”指至少保留一轮的题。共记录 1009 次模型请求尝试、1008 轮逻辑决策，核对 1004 轮请求回包。工具调用 1627 次，其中 1619 次可关联回执。
 
-教师服务为 DeepSeek 官方 `deepseek-flash`，返回指纹 `bc19ba97cbe016479903222bb1578db6`。温度 0.1，单题时限 500 秒，代理上限 150 次迭代。场景并发，场内顺序固定。运行目录相对仓库父目录为 `MultiUAV-Plat-runs/flockcue-teacher-expansion-60/runs/20261115-094554-flockcue-teacher-expansion-60-dab361d1`。其中 `identity.json`、`source.zip`、依赖清单、`plan.json`、各场 `complete.json` 封存当次设置与源文件字节。
+教师服务为 DeepSeek 官方 `deepseek-flash`，返回指纹 `bc19ba97cbe016479903222bb1578db6`。温度 0.1，单题时限 500 秒，代理上限 150 次迭代。场景并发，场内顺序固定。运行目录相对仓库父目录为 `MultiUAV-Plat-runs/flockcue-teacher-expansion-60/runs/20261115-094554-flockcue-teacher-expansion-60-dab361d1`。2026-11-17 已在当前目录的 `raw/20261115-094554-flockcue-teacher-expansion-60-dab361d1/` 保存本机副本。其中 `identity.json`、`source.zip`、依赖清单、`plan.json`、各场 `complete.json` 封存当次设置与源文件字节。
 
 - [题级审计](audit.json)记录整题分母、初态和终态、归档哈希、场景封条、逐题取舍与采纳轮数。`eligible` 仅表示满足机械条件，最终是否纳入可查 `retained`。
 - [逐轮审阅](decisions.jsonl)记录所有逻辑轮、来源身份与去留，纳入轮还可追到请求尝试、工具调用、原生分词与公开记录哈希。

@@ -1,0 +1,25 @@
+{
+  "epoch": 5,
+  "status": "completed",
+  "finished_at": "2026-11-13T08:42:23+00:00",
+  "adapter": {
+    "format": "flockcue-lora/1",
+    "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "rank": 16,
+    "alpha": 32,
+    "weights_sha256": "a5a9f10c2f90140deccf8e869a268afa15d1cd5f2fe1887c0ca8158df48ecc6a",
+    "tensor_count": 228,
+    "parameter_count": 7382016
+  },
+  "steps": 423,
+  "tokens": 7304443,
+  "supervised_tokens": 134795,
+  "training_step_seconds": 14509.344406545162,
+  "tokens_per_training_second": 503.4302581379878,
+  "mean_loss_per_supervised_token": 0.28618383268816794,
+  "peak_allocated_gib": 15.541980266571045,
+  "peak_reserved_gib": 33.818359375,
+  "optimizer_updates": 212,
+  "first_learning_rate": 2.83578856484971e-05,
+  "last_learning_rate": 2e-05
+}

@@ -1,0 +1,155 @@
+{
+  "model_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "model_manifest_sha256": "4f5ca01b1bf8c5421300208ef1255a9bbce47e20b680d7361643185ee11246c5",
+  "adapter": {
+    "format": "flockcue-lora/1",
+    "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "rank": 16,
+    "alpha": 32,
+    "weights_sha256": "69102ed40bbedeb7924ad04cffd1f31e8aa11f8fb03072cad4d38c0aa2e2fb93",
+    "tensor_count": 228,
+    "parameter_count": 7382016
+  },
+  "first_manifest_sha256": "a9c8ba6576ae1231afe2bcf030c62167cb6291988aa4c1022310ad40065e48bf",
+  "closing_manifest_sha256": "9ebd23e2a89205fbc8be3653efee690f734fc901131a734258d16d6248978c21",
+  "groups": {
+    "original_training_probes": {
+      "rows": [
+        {
+          "sha256": "3d7f0ada2ab5504f4d19112dc6fe68502ae754cfc7f1fc1be2edd69ae1628a84",
+          "task_id": "9a59bf38",
+          "supervised_tokens": 195,
+          "loss": 0.1215730682015419
+        },
+        {
+          "sha256": "d7f53b2cbd8de844abd5a0418494adcfd6aa3a079ca6c2494b98500801bd49c3",
+          "task_id": "62d6b8d8",
+          "supervised_tokens": 75,
+          "loss": 0.0038368988316506147
+        },
+        {
+          "sha256": "8af70225c313f569f43c7df948a344dd584712f6b37955a32dbcf4a77c3f22ea",
+          "task_id": "7521caac",
+          "supervised_tokens": 120,
+          "loss": 0.04546355828642845
+        },
+        {
+          "sha256": "492f4f632cae9ff0ca068a645a7b96e955f87e4a2f4f3628b12e5e05359a7d05",
+          "task_id": "2e58d01a",
+          "supervised_tokens": 92,
+          "loss": 0.05664323642849922
+        },
+        {
+          "sha256": "ff1185f6b24e8fcaad0e9c540bf7245acca8948e2696c6b5afc7929cf082612d",
+          "task_id": "66b28942",
+          "supervised_tokens": 104,
+          "loss": 0.005855412222445011
+        },
+        {
+          "sha256": "6692f525067ff7858b47e207d77680b4a2bb5f0ec48dcdf312229d6b50b939e8",
+          "task_id": "97aec6cc",
+          "supervised_tokens": 139,
+          "loss": 0.038968585431575775
+        },
+        {
+          "sha256": "003317e8113942ba8f160b9c35c575364a5a9de533160e0b58ad91cdc2cd33a5",
+          "task_id": "5d8eab35",
+          "supervised_tokens": 74,
+          "loss": 0.004008360207080841
+        },
+        {
+          "sha256": "456adf86fbea4e33723ca604cb6d69f0685560e0bbe598d03d45186e2f7d492c",
+          "task_id": "af679ff8",
+          "supervised_tokens": 115,
+          "loss": 0.009639397263526917
+        },
+        {
+          "sha256": "ebc983737fedab7932cae2a804a6c090fd7afb14007003b61c1e291d4a0220eb",
+          "task_id": "b123758a",
+          "supervised_tokens": 56,
+          "loss": 0.0011599406134337187
+        },
+        {
+          "sha256": "1c23c1e4a68e83a1857fa1791bf5e5fcb6f67474eb2272161beb5f93025866f1",
+          "task_id": "d2e4db95",
+          "supervised_tokens": 1205,
+          "loss": 0.473015159368515
+        },
+        {
+          "sha256": "6b219cf77ac7d05bd09f6fbf55f23185fe45f7dc80a83a541a3648bdf9f69fb1",
+          "task_id": "59b9624d",
+          "supervised_tokens": 674,
+          "loss": 0.18971353769302368
+        },
+        {
+          "sha256": "9fe46bbd8b867c22bebd2e8152d6cce5dea5e6647179c8bc7da6e41941a36c89",
+          "task_id": "3719974e",
+          "supervised_tokens": 99,
+          "loss": 0.0036446729209274054
+        }
+      ],
+      "supervised_tokens": 2948,
+      "loss": 0.2511424819477284
+    },
+    "reviewed_closings": {
+      "rows": [
+        {
+          "sha256": "cdfd092b981b919e747b691f2eee237e14cecaa6e56ced134d932e44bb11fc7b",
+          "task_id": "7fe22fe7",
+          "supervised_tokens": 215,
+          "loss": 0.010533936321735382
+        },
+        {
+          "sha256": "73bddd8a570e5f84dd2c30116906dd759564b32d025cf61bb395c869a73b6b6e",
+          "task_id": "508d4837",
+          "supervised_tokens": 208,
+          "loss": 0.012234320864081383
+        },
+        {
+          "sha256": "fd1eeeebd81648c211d36057589f2217dba6bd9dfb8794c18a279325b2e21cd7",
+          "task_id": "b67d5c8a",
+          "supervised_tokens": 307,
+          "loss": 0.026563482359051704
+        },
+        {
+          "sha256": "4db6b7447b75a12cf99f78c4230d33c6881454a63407ed3c020db8abfdff7603",
+          "task_id": "48f67ef7",
+          "supervised_tokens": 273,
+          "loss": 0.020642733201384544
+        },
+        {
+          "sha256": "324567236d296f5c4f8b06d1998e054c1811af7e1472697756f2589454fd0ddf",
+          "task_id": "5d8eab35",
+          "supervised_tokens": 235,
+          "loss": 0.013487848453223705
+        },
+        {
+          "sha256": "65afddb58b956d2a69e5c1574cf8c9b3ec6f6b2f32410f646cb9d5e71f5fafcb",
+          "task_id": "3719974e",
+          "supervised_tokens": 670,
+          "loss": 0.34539878368377686
+        },
+        {
+          "sha256": "4334a13fefa99fb16ea2e4126d9d0ba6145937bafde022f88a7804cf4e7c329c",
+          "task_id": "19d0c37a",
+          "supervised_tokens": 179,
+          "loss": 0.004995607305318117
+        },
+        {
+          "sha256": "3b5cf77f61645840cc1301728a8e2033f70886c816a9b96564897ed0f249b13a",
+          "task_id": "e59d948d",
+          "supervised_tokens": 308,
+          "loss": 0.012384669855237007
+        },
+        {
+          "sha256": "58a85289cc5cbb5ebd2e2f9a3b7f323fcf2a336867f4418c118ffbd0b15ed0ae",
+          "task_id": "170c5173",
+          "supervised_tokens": 263,
+          "loss": 0.02481817454099655
+        }
+      ],
+      "supervised_tokens": 2658,
+      "loss": 0.099481825311924
+    }
+  }
+}
