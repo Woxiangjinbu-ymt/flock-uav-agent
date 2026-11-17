@@ -2,20 +2,18 @@
 
 FlockCue 是面向多无人机协同任务的 Agent Harness。模型接收自然语言指令，在 MultiUAV-Plat 仿真环境中查询机队、分配目标、控制飞行，并根据工具回执决定下一步动作。FlockCue 跟踪每架无人机的执行状态，支持分步执行与中断恢复；任务结束后，由独立检查器对仿真终态评分。
 
-## Harness 实验结果
+## 实验结果
 
-在 10 个完整场景、200 道题的配对实验中，FlockCue 与原版 Agent4Drone 均使用 `deepseek-flash`。两套系统在同一天的不同时段运行，成功请求记录到相同的模型服务指纹。**FlockCue 的整题通过率为 91.0%，原版为 84.0%，相差 7.0 个百分点。**
+核心基准包含 30 个完整场景、600 题。使用 `deepseek-flash` 时，**FlockCue 将正式整题通过率从 84.33% 提高到 90.67%，净增 38 题（+6.33 个百分点）**。目标分配的提升最大，在 200 题中净增 27 题。
 
-| 任务类型 | Agent4Drone | FlockCue | 净增通过题数 |
-| --- | ---: | ---: | ---: |
-| 区域分配与巡逻 | 54/60 | 56/60 | +2 |
-| 区域搜索 | 55/60 | 56/60 | +1 |
-| 目标分配 | 59/80 | 70/80 | +11 |
-| **合计** | **168/200** | **182/200** | **+14** |
+| 核心基准 | 原版 Agent4Drone + DeepSeek | FlockCue + DeepSeek | 新增通过 / 退步 | 净增题数 |
+| --- | ---: | ---: | ---: | ---: |
+| 区域分配与巡逻 | 177/200 | 186/200 | 13 / 4 | +9 |
+| 区域搜索 | 187/200 | 189/200 | 9 / 7 | +2 |
+| 目标分配 | 142/200 | 169/200 | 30 / 3 | +27 |
+| **合计** | **506/600** | **544/600** | **52 / 14** | **+38** |
 
-逐题比较，两套系统共同通过 162 题，仅 FlockCue 通过 20 题，仅原版通过 6 题，另有 12 题均失败。净增的 14 题中有 11 题来自目标分配。[200 题逐题对照](datasets/results/paired-200/pairs.csv) · [分场结果与模型指纹](datasets/results/paired-200/summary.json)
-
-**完整 600 题基准。** 主基准覆盖 3 类任务、5 档难度，共 30 个场景。每场 20 题按原始顺序连续执行，单题动作窗口为 500 秒。FlockCue + DeepSeek 首遍通过 **544/600（90.7%）**。原版 Agent4Drone 在相同题目上的历史首遍通过 **506/600（84.3%）**；两次完整运行的 DeepSeek 服务指纹不同。[基准构成](datasets/flockcue-600/README_CN.md) · [600 题逐题成绩](datasets/results/benchmark-600/tasks.csv) · [运行设置与评分汇总](datasets/results/benchmark-600/summary.json)
+原版 Agent4Drone 还分别使用 DeepSeek 和 Qwen3.8-Flash 完成 1,500 题基线计分，通过数为 1,243 和 1,151。上表按唯一题号合并原版 DeepSeek 对照，复测场景取复测成绩，其余取全量首遍；FlockCue 成绩来自一次完整 600 题运行。[实验总表](datasets/results/README.md) · [Harness 主表与分组结果](datasets/results/harness/README.md) · [SFT 主表与实验设置](datasets/results/sft/README.md)
 
 ## Harness 如何执行任务
 
@@ -46,6 +44,7 @@ FlockCue 是面向多无人机协同任务的 Agent Harness。模型接收自然
 
 ```sh
 python3 datasets/flockcue-600/verify.py --historical-csv
+python3 datasets/results/harness/summarize.py
 python3 datasets/results/sft/verify.py
 ```
 
