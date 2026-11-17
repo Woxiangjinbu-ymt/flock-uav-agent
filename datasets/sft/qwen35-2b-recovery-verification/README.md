@@ -1,6 +1,6 @@
 # Qwen3.5-2B 纠错、核验与收尾 SFT 数据
 
-将本目录的 [train.jsonl.gz](train.jsonl.gz) 传给现有训练器的 `--dataset` 参数，保留同目录的 [manifest.json](manifest.json) 与 [index.jsonl](index.jsonl)。每行是一条已分词的真实 DeepSeek 决策，训练器只对本轮助手回复与 EOS 计算损失。学生输入使用当时可见的公开历史和工具定义，后置回执与取舍理由保存在数据旁表。
+将本目录的 [train.jsonl.gz](train.jsonl.gz) 传给现有训练器的 `--dataset` 参数，保留同目录的 [manifest.json](manifest.json) 与 [index.jsonl](index.jsonl)。每行是一条已分词的真实 deepseek-flash 决策，训练器只对本轮助手回复与 EOS 计算损失。学生输入使用当时可见的公开历史和工具定义，后置回执与取舍理由保存在数据旁表。
 
 ## 合并口径
 

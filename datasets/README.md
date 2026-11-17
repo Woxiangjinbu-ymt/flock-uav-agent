@@ -4,10 +4,10 @@
 | --- | --- |
 | [原版题库](original-benchmark/benchmark.zip) | 75 个原场景、1,500 题，包含场景初态和私有评分规则。 |
 | [FlockCue 600](flockcue-600/README_CN.md) | 冻结的 30 场、600 题，每场保留原始顺序，构成论文主基准。 |
-| [DeepSeek 教师轨迹](teacher/2026-11-11-fold-a/README.md) | 正式首遍的 A 折。12 个训练场景、3 个内部验证场景。首位学生将 B 折用于折外评测。 |
+| [deepseek-flash 教师轨迹](teacher/2026-11-11-fold-a/README.md) | 正式首遍的 A 折。12 个训练场景、3 个内部验证场景。首位学生将 B 折用于折外评测。 |
 | [Qwen3.5-2B 首版 SFT 数据](sft/qwen35-2b-first-pass/) | 训练侧 110 题的 386 个已审阅决策轮，含分词后的输入、损失掩码、逐行来源和发布清单。[使用与重建](../posttraining/sft/README.md) |
 | [Qwen3.5-2B 纠错与核验扩充包](sft/qwen35-2b-recovery-verification/README.md) | 实际续训包去重后追加 44 个审阅决策，共 12 场、113 题、431 轮。[扩充前后覆盖](sft/qwen35-2b-recovery-verification/COVERAGE.md) |
-| [Qwen3.5-2B 基准外三场扩充包](sft/qwen35-2b-expansion/README.md) | 在 431 轮父集上追加基准外真实 DeepSeek 决策。[三场逐题审阅](teacher/2026-11-15-expansion/README.md) · [覆盖变化](sft/qwen35-2b-expansion/COVERAGE.md) |
+| [Qwen3.5-2B 基准外三场扩充包](sft/qwen35-2b-expansion/README.md) | 在 431 轮父集上追加基准外真实 deepseek-flash 决策。[三场逐题审阅](teacher/2026-11-15-expansion/README.md) · [覆盖变化](sft/qwen35-2b-expansion/COVERAGE.md) |
 | [系统评测结果](results/README.md) | 两次原版 1,500 题基线、统一 600 题 Harness 对照及学生 SFT 内部验证。[Harness 主表](results/harness/README.md) · [SFT 主表](results/sft/README.md) |
 
 ## 训练与评测划分

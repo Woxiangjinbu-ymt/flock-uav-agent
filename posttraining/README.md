@@ -1,6 +1,6 @@
 # 后训练
 
-当前学生为 Qwen3.5-2B。先核对真实 DeepSeek 示范，再在同一 FlockCue 运行环境中比较学生基座、SFT 和在线 GRPO 的整题通过率。
+当前学生为 Qwen3.5-2B。先核对真实 deepseek-flash 示范，再在同一 FlockCue 运行环境中比较学生基座、SFT 和在线 GRPO 的整题通过率。
 
 | 目录 | 当前内容 |
 | --- | --- |

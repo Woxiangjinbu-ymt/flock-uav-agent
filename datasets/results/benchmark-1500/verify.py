@@ -12,7 +12,7 @@ from zipfile import ZipFile
 
 PACKAGE = Path(__file__).resolve().parent
 DATASETS = PACKAGE.parent.parent
-MANIFEST_SHA256 = "331099ae8b741aa45970658159691a71680366d6e50491b1064b849592775021"
+MANIFEST_SHA256 = "979c809976460cb6c0bdf41cfe05e43df63e76bfda04d4da4d7eb2db04fc0b0e"
 
 
 def checked_bytes(path, expected):

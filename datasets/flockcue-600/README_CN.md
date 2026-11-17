@@ -8,7 +8,7 @@
 | 冻结组合 | 每层按预定哈希排序取前 2 个完整场景，共 30 场、600 题。各任务族 200 题，每档难度 120 题。 |
 | 原始场景 | [sessions-600.zip](sessions-600.zip) 含 30 个原始 JSON，场景初态、任务指令、执行顺序和原 checker 都随场景原件保存。 |
 | 执行单位 | 每场从原初态开始，按场景内原顺序连续执行 20 题，沿用原会话的位置、累计状态和黑板继承规则。对照各组采用同一套规则。 |
-| 历史参照 | [历史结果](historical-reference-600.json) 来自旧协议下原 Agent4Drone + DeepSeek 首次运行。在这些题上历史分为 506/600（84.33%）。历史结果保留独立来源，选题只读基准元数据。 |
+| 历史参照 | [历史结果](historical-reference-600.json) 来自旧协议下原 Agent4Drone + deepseek-flash 首次运行。在这些题上历史分为 506/600（84.33%）。历史结果保留独立来源，选题只读基准元数据。 |
 | 论文划分 | A 折含训练侧 12 场 240 题、验证侧 3 场 60 题。B 折 15 场 300 题固定用于学生独立测试。早期[双向分折提案](proposed-folds.json)保留作场景来源记录，其中交换 A/B 训练的设想已由本次决定取代。[现行 75 场角色表](../original-benchmark/scene-roles.csv) |
 
 在仓库根目录执行。校验器使用 Python 标准库，核验选中清单身份、全量源 ZIP 的 15 个分层及排序、原始场景字节、任务顺序、子集压缩包和建议分折。`--historical-csv` 从正式 600 题配对表逐题复算十月参照成绩。也可在该参数后显式提供归档中的十月完整 CSV，以原 SHA-256 核对来源。
@@ -18,4 +18,4 @@ python3 datasets/flockcue-600/verify.py
 python3 datasets/flockcue-600/verify.py --historical-csv
 ```
 
-向服务器复制整个 `datasets/flockcue-600/` 目录后，可在目录内运行 `python3 verify.py --standalone` 检查交付数据。需要独立复算全库选题规则时，另外提供 `--benchmark /路径/benchmark.zip`。仿真与独立评分器使用原始场景；给教师或学生的输入只取任务原文、公开工具和观测回执。
+向服务器复制整个 `datasets/flockcue-600/` 目录后，可在目录内运行 `python3 verify.py --standalone` 检查交付数据。需要独立复算全库选题规则时，另外提供 `--benchmark /路径/benchmark.zip`。仿真与独立评分器使用原始场景；给教师或学生的输入只取任务原文、公开工具和观测回执。后续实验应记录每个权重看过的场景、运行器版本，并保留失败与未运行分母。

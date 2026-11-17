@@ -21,7 +21,7 @@
 
 ## 训练设置
 
-教师使用真实 DeepSeek 执行轨迹。首轮从 A 折训练侧 12 场 240 题中取得 110 题的 386 个决策。冻结基座，单卡 A100 40 GB，BF16、LoRA rank 16、alpha 32、7,382,016 个可训练参数；每个决策更新一次，学习率固定为 2e-4，种子 123。[首轮数据](../../sft/qwen35-2b-first-pass/manifest.json) · [实际训练设置](../sft-a100-first-pass/epoch-1/run.json) · [逐步日志](../sft-a100-first-pass/epoch-1/steps.jsonl)
+教师使用真实 deepseek-flash 执行轨迹。首轮从 A 折训练侧 12 场 240 题中取得 110 题的 386 个决策。冻结基座，单卡 A100 40 GB，BF16、LoRA rank 16、alpha 32、7,382,016 个可训练参数；每个决策更新一次，学习率固定为 2e-4，种子 123。[首轮数据](../../sft/qwen35-2b-first-pass/manifest.json) · [实际训练设置](../sft-a100-first-pass/epoch-1/run.json) · [逐步日志](../sft-a100-first-pass/epoch-1/steps.jsonl)
 
 续训从首轮 LoRA 初始化，重建 AdamW 优化器。实际混合包覆盖 110 题、387 个去重决策，其中 18 个决策各额外重放两次，每轮共 423 行。梯度累积 2，5% 预热，学习率从峰值 1e-4 余弦衰减至 2e-5，梯度范数上限 1。五轮共 2,115 个样本步、1,060 次更新，处理 673,975 个监督 token。续训同时改变了数据配比和优化设置。[实际混合包](../../sft/qwen35-2b-formal-mix/manifest.json) · [协议](continuation/protocol.json) · [Linux 环境](continuation/training-environment.json) · [逐步日志](continuation/steps.jsonl) · [训练终态](continuation/summary.json)
 

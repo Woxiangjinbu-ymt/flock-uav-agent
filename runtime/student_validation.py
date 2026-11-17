@@ -39,6 +39,9 @@ CONFIGURABLE_GENERATION_SOURCES = "445379898ed9457e3c4124e8dd17ed68ce31b02fee7f4
 # Registered extra scenes and pre-dispatch checks apply only to the teacher expansion plan.
 TEACHER_EXPANSION_SOURCES = "3c75c7ae162bcb8d0f4a34c0708e436bfea1444d8683bbc9c68a428b656154fc"
 
+# Same deployment with the public provider display name in runtime/executor.py.
+PUBLIC_RELEASE_SOURCES = "6adce22cdb558a7216da987f8304d48faf494a262d088a2620eb7f261756ccbb"
+
 
 def build_plan():
     training = rt.read_json(SFT_RESULT)
@@ -107,7 +110,7 @@ def candidate_plan(config, sources, uncapped=False, context_tokens=MAX_CONTEXT, 
         raise ValueError("Historical comparisons use the original context window")
     if generation_tokens not in EVALUATION_GENERATIONS or (not uncapped and generation_tokens != MAX_GENERATION):
         raise ValueError("Historical comparisons use the original generation limit")
-    allowed = {CONFIGURABLE_GENERATION_SOURCES, TEACHER_EXPANSION_SOURCES}
+    allowed = {CONFIGURABLE_GENERATION_SOURCES, TEACHER_EXPANSION_SOURCES, PUBLIC_RELEASE_SOURCES}
     if generation_tokens == MAX_GENERATION:
         allowed.add(CONFIGURABLE_CONTEXT_SOURCES)
         if context_tokens == MAX_CONTEXT:

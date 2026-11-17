@@ -90,7 +90,7 @@ def check_package():
 def check_historical(path, pairs, history):
     # The November paired results contain the October reference for just these 600 tasks.
     # The full October CSV can also be supplied from the external run archive.
-    paired_sha = "838e7d82b934a63893d4c1334b53274d2257cfceca39e8adc02a529c2d3264da"
+    paired_sha = "ab470bccb38430088f3d4e8f713bde618aad03597188af1563cc897ac1726281"
     if digest(path.read_bytes()) == paired_sha:
         with path.open(encoding="utf-8-sig", newline="") as file:
             rows = list(csv.DictReader(file))

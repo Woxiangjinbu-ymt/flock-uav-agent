@@ -6,14 +6,14 @@ FlockCue 是面向多无人机协同任务的 Agent Harness。模型接收自然
 
 核心基准包含 30 个完整场景、600 题。使用 `deepseek-flash` 时，**FlockCue 将正式整题通过率从 84.33% 提高到 90.67%，净增 38 题（+6.33 个百分点）**。目标分配的提升最大，在 200 题中净增 27 题。
 
-| 核心基准 | 原版 Agent4Drone + DeepSeek | FlockCue + DeepSeek | 新增通过 / 退步 | 净增题数 |
+| 核心基准 | 原版 Agent4Drone + deepseek-flash | FlockCue + deepseek-flash | 新增通过 / 退步 | 净增题数 |
 | --- | ---: | ---: | ---: | ---: |
 | 区域分配与巡逻 | 177/200 | 186/200 | 13 / 4 | +9 |
 | 区域搜索 | 187/200 | 189/200 | 9 / 7 | +2 |
 | 目标分配 | 142/200 | 169/200 | 30 / 3 | +27 |
 | **合计** | **506/600** | **544/600** | **52 / 14** | **+38** |
 
-原版 Agent4Drone 还分别使用 DeepSeek 和 Qwen3.8-Flash 完成 1,500 题基线计分，通过数为 1,243 和 1,151。上表按唯一题号合并原版 DeepSeek 对照，复测场景取复测成绩，其余取全量首遍；FlockCue 成绩来自一次完整 600 题运行。[实验总表](datasets/results/README.md) · [Harness 主表与分组结果](datasets/results/harness/README.md) · [SFT 主表与实验设置](datasets/results/sft/README.md)
+原版 Agent4Drone 还分别使用 deepseek-flash 和 Qwen3.8-Flash 完成 1,500 题基线计分，通过数为 1,243 和 1,151。上表按唯一题号合并原版 deepseek-flash 对照，复测场景取复测成绩，其余取全量首遍；FlockCue 成绩来自一次完整 600 题运行。[实验总表](datasets/results/README.md) · [Harness 主表与分组结果](datasets/results/harness/README.md) · [SFT 主表与实验设置](datasets/results/sft/README.md)
 
 ## Harness 如何执行任务
 
@@ -23,7 +23,7 @@ FlockCue 是面向多无人机协同任务的 Agent Harness。模型接收自然
 
 ## Qwen3.5-2B 学生模型
 
-项目从 DeepSeek 的真实执行记录中提取教师决策，保留当轮可见的历史，只对当前教师回复和结束符计算训练损失。首轮 LoRA 使用 110 道题的 386 个决策；随后加入经复审的纠错、核验与收尾示范，继续训练五轮。[教师轨迹](datasets/teacher/2026-11-11-fold-a/README.md) · [SFT 方法与数据](posttraining/sft/README.md)
+项目从 deepseek-flash 的真实执行记录中提取教师决策，保留当轮可见的历史，只对当前教师回复和结束符计算训练损失。首轮 LoRA 使用 110 道题的 386 个决策；随后加入经复审的纠错、核验与收尾示范，继续训练五轮。[教师轨迹](datasets/teacher/2026-11-11-fold-a/README.md) · [SFT 方法与数据](posttraining/sft/README.md)
 
 在 A 折 60 题内部验证上，原推理预算下，基座与首轮 SFT 的正式整题通过数均为 **0/60**，续训一轮的检查点以 **6/60** 入选。这个检查点在取消单题累计 token 上限后达到 **11/60**，再将上下文从 32,768 扩至 65,536 后达到 **12/60**。A 折内部验证用于失败诊断与选模；B 折 300 题保留作学生独立测试。[训练与验证主表](datasets/results/sft/README.md) · [场景划分](datasets/original-benchmark/scene-roles.csv) · [六份 LoRA 权重](artifacts/README.md)
 

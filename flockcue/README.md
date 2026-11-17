@@ -4,7 +4,7 @@
 
 | 位置 | 用途 |
 | --- | --- |
-| [service.py](service.py)、[api.py](api.py)、[agent.py](agent.py) | DeepSeek 请求、HTTP 服务、命令执行与停止 |
+| [service.py](service.py)、[api.py](api.py)、[agent.py](agent.py) | deepseek-flash 请求、HTTP 服务、命令执行与停止 |
 | [prompt.py](prompt.py)、[provider.py](provider.py)、[tools/](tools/) | 实际系统提示、感知参数规范、规划及无人机工具 |
 | [harness/](harness/)、[evidence/](evidence/) | 执行子程序、预算、按作用域记录的证据与完成判定 |
 | [recording/](recording/) | 工具链、SDK 实际请求和响应的审计记录 |
