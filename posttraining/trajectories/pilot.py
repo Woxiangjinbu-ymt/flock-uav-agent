@@ -15,6 +15,13 @@ from .index_wire import scene_indices
 from .rebuild import packed, public_turn
 
 
+def succeeded(value):
+    return not (value.get("error") or value.get("tool_exception") or value.get("harness_transport_error")
+                or value.get("partial_success") or value.get("success") is False
+                or value.get("status") in {"error", "partial_success"}
+                or value.get("outcome") in {"blocked", "error", "partial", "unknown"})
+
+
 def accepted_receipt(receipt):
     if receipt["status"] != "success":
         return False
@@ -24,9 +31,11 @@ def accepted_receipt(receipt):
         return False
     if not isinstance(value, dict):
         return isinstance(value, list)
-    return not (value.get("error") or value.get("tool_exception") or value.get("partial_success")
-                or value.get("success") is False or value.get("status") in {"error", "partial_success"}
-                or value.get("outcome") in {"blocked", "error", "partial", "unknown"})
+    if not succeeded(value):
+        return False
+    # Compound movement tools report the actual command outcome inside the sensing envelope.
+    return all(succeeded(value[key]) for key in ("navigation_result", "move_result")
+               if isinstance(value.get(key), dict))
 
 
 def project_turn(tokenizer, stream, turn):
