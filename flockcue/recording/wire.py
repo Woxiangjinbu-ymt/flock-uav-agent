@@ -50,6 +50,13 @@ def current_archive():
     return owner.archive if owner is not None else None
 
 
+def record_context_window(window, omitted):
+    owner = _ACTIVE.get()
+    if owner is not None:
+        owner.archive._append("student_context", {"logical_call_id": owner.logical_call_id,
+                                                  "window": window, "omitted": omitted})
+
+
 def _bytes(value):
     return {"base64": base64.b64encode(value).decode("ascii"),
             "sha256": hashlib.sha256(value).hexdigest(), "length": len(value)}

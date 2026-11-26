@@ -29,6 +29,8 @@ ZIP = ROOT / "datasets/original-benchmark/benchmark.zip"
 ZIP_SHA = "b5040097d2bfdd44600f3bf486fdb43ee3eb1247fec9c67900b5fcda6feb94a3"
 EXPANSION_REGISTRATION = ROOT / "datasets/teacher/2026-11-15-expansion/registration.json"
 EXPANSION_PLAN = "flockcue-teacher-expansion-60"
+PILOT_PLAN = "flockcue-teacher-v2-pilot"
+PILOT_REGISTRATION = ROOT / "datasets/teacher/teacher-collection-v2-pilot/registration.json"
 PLAN = "flockcue-600-first-pass"
 PLAN_SHA = "6589d8e1b4be6664cb3d651f09fe2cc54e41ffca7a361a6dae675ee455ec8823"
 STAGE = ROOT.parent / f"{ROOT.name}-runs" / PLAN
@@ -100,12 +102,18 @@ def canonical_scenes():
 
 
 def select_scenes(scenes):
-    if PLAN == EXPANSION_PLAN:
+    if PLAN in {EXPANSION_PLAN, PILOT_PLAN}:
         registration = read_json(EXPANSION_REGISTRATION)
         inventory = (ROOT / "datasets/original-benchmark/scene-roles.csv").read_bytes()
         candidates = {r["session_id"] for r in csv.DictReader(inventory.decode().splitlines())
                       if r["role"] == "expansion_pool"}
         selected = set(registration["session_ids"])
+        if PLAN == PILOT_PLAN:
+            pilot = read_json(PILOT_REGISTRATION)
+            holdout = set(pilot["additional_validation"])
+            if (set(pilot["pilot_scenes"]) != selected or len(holdout) != 6 or not holdout <= candidates - selected
+                    or digest(inventory) != pilot["parent_roles_sha256"]):
+                raise ValueError("Pilot scenes must be the three registered training scenes")
         if (digest(inventory) != registration["role_inventory_sha256"] or len(selected) != 3
                 or not selected <= candidates):
             raise ValueError("Expansion registration differs from the scene inventory")
@@ -199,6 +207,8 @@ def prepare():
                   "provider_configs": {PROVIDER: {
                       "name": "deepseek-flash", "type": "openai-compatible", "base_url": GATEWAY,
                       "requires_api_key": True, "api_key": "", "default_model": MODEL, "default_models": [MODEL]}}}
+        if PLAN == PILOT_PLAN:
+            config["context_policy"] = read_json(PILOT_REGISTRATION)["context_policy"]
         save_json(staged / "settings.json", config)
         save_json(staged / "registration.json", {"protocol": plan["protocol"]["id"], "plan_sha256": PLAN_SHA,
                   "sources": current_source_hashes(), "settings": digest((staged / "settings.json").read_bytes()),
@@ -599,6 +609,12 @@ def summarize(plan, rows, status):
 
 
 def source_files():
+    if PLAN == PILOT_PLAN:
+        yield PILOT_REGISTRATION
+        for name in ("requirements.txt", "trajectories/context_window.py", "inference/__init__.py",
+                     "sft/adapter.py", "sft/history.py", "sft/supervision.py"):
+            yield ROOT / "posttraining" / name
+        yield from sorted((ROOT / "posttraining/sft/tokenizer").glob("*.*"))
     for component in ("flockcue", "simulation", "runtime"):
         for base, directories, files in os.walk(ROOT / component):
             directories[:] = [name for name in directories if not name.startswith(".") and name not in

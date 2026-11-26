@@ -1,0 +1,27 @@
+{
+  "pilot_scenes": [
+    "36cbddd1",
+    "6e1a4ad2",
+    "79b207ff"
+  ],
+  "additional_validation": [
+    "90e931b1",
+    "86336c8b",
+    "83533bc1",
+    "ccbe2537",
+    "d23eb117",
+    "b3c8ded2"
+  ],
+  "parent_roles_sha256": "2f59f5e5ee3bd8cc79732c823a2c54d29490c1b08a2dedf9aac12200a629c393",
+  "context_policy": "qwen-complete-turns-30720",
+  "student_prompt_limit": 30720,
+  "student_target_limit": 2048,
+  "student_episode_shadow_limit": 100000,
+  "baseline": "2026-11-15-expansion",
+  "baseline_formal_pass": 51,
+  "minimum_formal_pass": 48,
+  "long_task_minimum_native_turns": 20,
+  "late_decision": "grounded verification or closing in final third of realized trajectory",
+  "minimum_net_new_long_tasks": 3,
+  "plan_sha256": "1e4777c13e72bc8da53e16280f51f16b7d830a03ae4da54a9e336ab888116059"
+}

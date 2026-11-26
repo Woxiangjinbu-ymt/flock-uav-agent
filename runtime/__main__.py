@@ -14,12 +14,17 @@ def main():
     parser.add_argument("--stage", type=Path, default=None)
     parser.add_argument("--attempt", type=Path, help="Attempt directory for status and score")
     parser.add_argument("--settings", type=Path, help="Local file containing the official provider credential")
-    parser.add_argument("--expansion", action="store_true", help="Use the registered three training expansion scenes")
+    plans = parser.add_mutually_exclusive_group()
+    plans.add_argument("--expansion", action="store_true", help="Use the registered three training expansion scenes")
+    plans.add_argument("--teacher-pilot", action="store_true", help="Use the registered student-context teacher pilot")
     args = parser.parse_args()
     if args.expansion:
         registration = executor.read_json(executor.EXPANSION_REGISTRATION)
         executor.PLAN = executor.EXPANSION_PLAN
         executor.PLAN_SHA = registration["plan_sha256"]
+    elif args.teacher_pilot:
+        executor.PLAN = executor.PILOT_PLAN
+        executor.PLAN_SHA = executor.read_json(executor.PILOT_REGISTRATION)["plan_sha256"]
     executor.use_stage(args.stage or executor.ROOT.parent / f"{executor.ROOT.name}-runs" / executor.PLAN)
     if args.settings:
         os.environ["FLOCKCUE_SETTINGS"] = str(args.settings.resolve())

@@ -1,9 +1,11 @@
 """FlockCue policy service for the original 500-second HTTP deployment runner."""
 import argparse
+import atexit
 import hashlib
 import json
 import os
 from pathlib import Path
+from typing import ClassVar
 from uuid import NAMESPACE_URL, uuid4, uuid5
 
 from langchain_core.messages import AIMessage
@@ -16,6 +18,8 @@ from flockcue.provider import effective_tools, execution_history
 class DeploymentDeepSeek(ChatOpenAI):
     """Keep the native client's settings and add the current tool and history ABI."""
 
+    context_window: ClassVar = None
+
     def _get_request_payload(self, input_, *, stop=None, **kwargs):
         messages = self._convert_input(input_).to_messages()
         payload = super()._get_request_payload(messages, stop=stop, **kwargs)
@@ -26,7 +30,7 @@ class DeploymentDeepSeek(ChatOpenAI):
                 reasoning = message.additional_kwargs.get("reasoning_content")
                 if isinstance(reasoning, str):
                     wire["reasoning_content"] = reasoning
-        return payload
+        return self.context_window.apply(payload) if self.context_window is not None else payload
 
     def _create_chat_result(self, response, generation_info=None):
         data = response if isinstance(response, dict) else response.model_dump(warnings=False)
@@ -109,6 +113,11 @@ def main():
     from runtime.metrics import METRICS_FILENAME, install_agent_metrics
 
     uav_agent.ChatOpenAI = DeploymentStudent if student else DeploymentDeepSeek
+    if settings.get("context_policy") == "qwen-complete-turns-30720":
+        from flockcue.student_context import StudentContext
+        context = StudentContext()
+        uav_agent.ChatOpenAI.context_window = context
+        atexit.register(context.close)
     agent_api_service.AGENT_CONFIG_FILE = str(args.config.resolve())
     initialize = agent_api_service.initialize_agent_from_settings
 

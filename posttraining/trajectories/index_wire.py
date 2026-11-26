@@ -79,6 +79,7 @@ class WireEvidence:
         self.receipts = {}
         self.history = []
         self.call_ids = set()
+        self.context_events = {}
 
     def model_start(self, logical_id):
         require(logical_id not in self.models, "Duplicate logical model")
@@ -108,6 +109,12 @@ class WireEvidence:
         )
         model = self.models[logical_id]
         messages = request["messages"]
+        if logical_id in self.context_events:
+            context = self.context_events[logical_id]
+            model["student_context"] = context["window"]
+            messages = list(messages)
+            for index, original in context["omitted"]:
+                messages.insert(index, original)
         issues = model["issues"]
         if any(marker in body for marker in PRIVATE_MARKERS):
             issues.append("private_marker_in_public_request")
@@ -135,7 +142,7 @@ class WireEvidence:
         }
         self.attempts[attempt_id] = {"index": index, "logical": logical_id, "header": None, "chunks": []}
         model["attempts"].append(index)
-        model["visible_message_count"] = len(messages)
+        model["visible_message_count"] = len(request["messages"])
         if self.example:
             model["example"] = {"request": request, "target": None, "receipts": []}
 
@@ -352,6 +359,8 @@ def read_archive(path, episode, command, annotations, example):
                 episode["archive_end"] = event["reason"]
             elif kind == "model_start":
                 evidence.model_start(event["logical_call_id"])
+            elif kind == "student_context":
+                evidence.context_events[event["logical_call_id"]] = event
             elif kind == "http_request":
                 evidence.request(event, location)
             elif kind.startswith("http_response_"):
