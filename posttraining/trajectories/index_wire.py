@@ -111,7 +111,6 @@ class WireEvidence:
         messages = request["messages"]
         if logical_id in self.context_events:
             context = self.context_events[logical_id]
-            model["student_context"] = context["window"]
             messages = list(messages)
             for index, original in context["omitted"]:
                 messages.insert(index, original)
@@ -360,7 +359,9 @@ def read_archive(path, episode, command, annotations, example):
             elif kind == "model_start":
                 evidence.model_start(event["logical_call_id"])
             elif kind == "student_context":
-                evidence.context_events[event["logical_call_id"]] = event
+                logical_id = event["logical_call_id"]
+                evidence.context_events[logical_id] = event
+                evidence.models[logical_id]["student_context"] = event["window"]
             elif kind == "http_request":
                 evidence.request(event, location)
             elif kind.startswith("http_response_"):
