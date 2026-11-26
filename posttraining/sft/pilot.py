@@ -1,5 +1,6 @@
 """Export matched-source pilot data using an explicit grounded decision review."""
 import argparse
+from collections import Counter
 from contextlib import ExitStack
 import csv
 import gzip
@@ -9,7 +10,7 @@ from tempfile import TemporaryDirectory
 
 from posttraining.trajectories.rebuild import file_digest, packed
 from runtime.executor import PILOT_REGISTRATION, canonical_scenes, digest, read_json, save_json
-from .adapter import load_tokenizer
+from .adapter import FILES, REVISION, load_tokenizer
 from .supervision import supervise
 
 
@@ -27,7 +28,7 @@ def build(inputs, review, output):
                 raise ValueError(f"Invalid review selection: {key}")
             picks[key] = row
     tokenizer = load_tokenizer()
-    counts = {"raw": 0, "grounded": 0}
+    counts = {arm: Counter() for arm in ("raw", "grounded")}
     with ExitStack() as stack:
         writers = {}
         for arm in counts:
@@ -55,25 +56,36 @@ def build(inputs, review, output):
                     if audit["prompt_ids_sha256"] != entry["window"]["ids_sha256"]:
                         raise ValueError(f"Runtime prefix differs at {key}")
                     sample = packed({"input_ids": ids, "labels": labels}) + b"\n"
-                    origin = {"scene_id": sid, "task_id": key[1], "turn": key[2],
-                              "source_sha256": entry["public_sha256"], "train_sha256": digest(sample),
-                              "prompt_tokens": audit["masked_prompt_tokens"], "target_tokens": audit["supervised_tokens"]}
-                    writers["raw"][0].write(sample)
-                    writers["raw"][1].write(packed(origin) + b"\n")
-                    counts["raw"] += 1
-                    if pick:
-                        if not entry["receipts_accepted"] or pick["public_sha256"] != entry["public_sha256"]:
-                            raise ValueError(f"Rejected or mismatched reviewed decision at {key}")
-                        writers["grounded"][0].write(sample)
-                        writers["grounded"][1].write(packed({**origin, "kind": pick["kind"]}) + b"\n")
-                        counts["grounded"] += 1
+                    origin = {"session_id": sid, "task_id": key[1], "logical_call_id": entry["logical_call_id"],
+                              "source_row_sha256": entry["public_sha256"], "train_row_sha256": digest(sample),
+                              "masked_prompt_tokens": audit["masked_prompt_tokens"],
+                              "supervised_tokens": audit["supervised_tokens"]}
+                    if pick and (not entry["receipts_accepted"] or pick["public_sha256"] != entry["public_sha256"]):
+                        raise ValueError(f"Rejected or mismatched reviewed decision at {key}")
+                    for arm in (("raw", "grounded") if pick else ("raw",)):
+                        counts[arm].update(decisions=1, masked_prompt_tokens=origin["masked_prompt_tokens"],
+                                           supervised_tokens=origin["supervised_tokens"])
+                        ref = {**origin, "row": counts[arm]["decisions"]}
+                        if arm == "grounded":
+                            ref["kind"] = pick["kind"]
+                        writers[arm][0].write(sample)
+                        writers[arm][1].write(packed(ref) + b"\n")
                 if next(public, None) is not None:
                     raise ValueError(f"Unindexed public turns in {sid}")
     if picks:
         raise ValueError(f"Review contains unavailable training decisions: {list(picks)}")
+    sources = {"pilot_registration_sha256": file_digest(PILOT_REGISTRATION), "review_sha256": file_digest(review)}
+    for arm, totals in counts.items():
+        folder = output / arm
+        files = {p.name: {"sha256": file_digest(p), "bytes": p.stat().st_size} for p in sorted(folder.iterdir())}
+        save_json(folder / "manifest.json", {
+            **sources, "schema": "flockcue-sft-causal-lm-v1", "split": "expanded_train", "pack": arm,
+            "tokenizer": {"repository": "Qwen/Qwen3.5-2B", "revision": REVISION, "files": FILES},
+            "counts": totals, "files": files,
+        })
     save_json(output / "manifest.json", {
-        "pilot_registration_sha256": file_digest(PILOT_REGISTRATION), "review_sha256": file_digest(review),
-        "rows": counts, "files": {p.relative_to(output).as_posix(): file_digest(p)
+        **sources, "rows": {arm: c["decisions"] for arm, c in counts.items()},
+        "files": {p.relative_to(output).as_posix(): file_digest(p)
                                   for p in sorted(output.glob("*/*"))},
     })
 
