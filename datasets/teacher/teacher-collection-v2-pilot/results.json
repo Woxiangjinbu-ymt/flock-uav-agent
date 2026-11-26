@@ -1,0 +1,202 @@
+{
+  "attempt": "20261126-221902-flockcue-teacher-v2-pilot-33c4ea8a",
+  "collection_commit": "16afd604ccaebd4ad72fd66d96e14abf9c9cddb3",
+  "scene_seals": {
+    "36cbddd1": "51500e8f5b935cfa939eef6b250c073c1a31658c6d6d5c25bc1025de6c8142f6",
+    "6e1a4ad2": "5589595cce0ca29967db7c04f9328f4217359f137bd7f2c7d73a6a2fb766a827",
+    "79b207ff": "05d0cff442572b112b394664f123863505608f0762cc204834a7910913f6d89f"
+  },
+  "official_score": {
+    "valid_complete_run": true,
+    "planned_tasks": 60,
+    "planned_checks": 408,
+    "scored_tasks": 60,
+    "scored_checks": 408,
+    "agent_timed_out_tasks": 0,
+    "timed_out_but_passed_tasks": 0,
+    "missing_or_invalid_tasks": 0,
+    "metrics": {
+      "passed_tasks": 38,
+      "task_pass": 0.6333333333333333,
+      "avg_check": 0.7132016443701227,
+      "global_check": 0.6274509803921569,
+      "total_failed": 0.21666666666666667
+    },
+    "passed_tasks": 38,
+    "pass_rate": 0.6333333333333333,
+    "strict_deployment_passed": 38,
+    "strict_deployment_rate": 0.6333333333333333
+  },
+  "paired": {
+    "both_pass": 38,
+    "both_fail": 9,
+    "loss": 13,
+    "gain": 0
+  },
+  "scenes": {
+    "36cbddd1": {
+      "tasks": 20,
+      "native_pass": 18,
+      "pilot_pass": 18,
+      "clean_pass": 18,
+      "local_stops": 0
+    },
+    "6e1a4ad2": {
+      "tasks": 20,
+      "native_pass": 20,
+      "pilot_pass": 18,
+      "clean_pass": 16,
+      "local_stops": 2
+    },
+    "79b207ff": {
+      "tasks": 20,
+      "native_pass": 13,
+      "pilot_pass": 2,
+      "clean_pass": 2,
+      "local_stops": 17
+    }
+  },
+  "formally_passed_with_complete_archive": 36,
+  "initially_passed": 3,
+  "logical_turns": 753,
+  "http_attempts": 735,
+  "usage_responses": 734,
+  "provider_fingerprints": {
+    "bc19ba97cbe016479903222bb1578db6": 734
+  },
+  "provider_models": {
+    "deepseek-flash": 734
+  },
+  "window_trimmed": 367,
+  "max_admitted_prompt": 30719,
+  "complete_episodes": 40,
+  "initially_passed_grounded_rows": 1,
+  "grounded_types": {
+    "identification": 30,
+    "verification": 3,
+    "action": 3,
+    "correction": 2,
+    "closing": 1
+  },
+  "projections": {
+    "ok": 659,
+    "sft_overlength": 75,
+    "incomplete_response_or_receipts": 19
+  },
+  "passed_turn_disposition": {
+    "eligible": 464,
+    "sft_overlength": 30,
+    "incomplete_episode": 20,
+    "no_returned_decision": 1
+  },
+  "passed_logical_turns": 515,
+  "passed_returned_turns": 514,
+  "raw_rejected_tool_outcomes": 31,
+  "post_action_bindings": 1026,
+  "total_tool_calls": 1026,
+  "local_stops_largest_receipt_tool": {
+    "move_along_path_and_sense": 5,
+    "move_towards_and_sense": 1,
+    "sense_nearby_entities": 11,
+    "navigate_to_and_sense": 2
+  },
+  "largest_receipt_character_range": [
+    12645,
+    62610
+  ],
+  "raw": {
+    "rows": 464,
+    "tasks": 36,
+    "late_rows": 174,
+    "text_final_rows": 36,
+    "shadow_reachable_rows": 167,
+    "late_shadow_reachable_rows": 10,
+    "supervised_tokens": 193806,
+    "a100_epoch_hours": 7.1758507901196
+  },
+  "grounded": {
+    "rows": 39,
+    "tasks": 31,
+    "late_rows": 6,
+    "text_final_rows": 1,
+    "shadow_reachable_rows": 32,
+    "late_shadow_reachable_rows": 0,
+    "supervised_tokens": 3531,
+    "a100_epoch_hours": 0.25775356974383096
+  },
+  "native_long_tasks": [
+    "01d6e857",
+    "118d85eb",
+    "15ea9ca3",
+    "171fcea7",
+    "18e32ea1",
+    "246d6bb7",
+    "3d9d8c37",
+    "4cd7f5c5",
+    "5ef05474",
+    "708282ea",
+    "72410d1a",
+    "8c6c59a4",
+    "9349f4d1",
+    "be66f009",
+    "f901fdd7"
+  ],
+  "late_verified_long": [
+    "3d9d8c37",
+    "5ef05474"
+  ],
+  "late_action_long": [
+    "72410d1a",
+    "f901fdd7"
+  ],
+  "late_verified_long_reachable": [],
+  "usage": {
+    "prompt_cache_hit_tokens": 8385792,
+    "prompt_cache_miss_tokens": 5382562,
+    "prompt_tokens": 13768354,
+    "completion_tokens": 513040
+  },
+  "offpeak_usd": 1.140365676,
+  "registered_preflight_usd": 9.286799999999999e-05,
+  "input_charge_basis": "DeepSeek published off-peak USD rates as of 2026-11-26",
+  "wall_seconds": 1292.850899459001,
+  "release_manifest_sha256": "4b7d9f29695d4bea1f8ff5427c00c8f959e72c59c7c0055ae77ef676b5a3cacf",
+  "protocol_diagnostics": {
+    "returned_http_200_headers": 735,
+    "incomplete_response_bodies": 1,
+    "incomplete_response_error": "RemoteProtocolError",
+    "successful_replies_without_reported_usage": 0,
+    "local_prompt_rejections": 19,
+    "formal_pass_despite_local_rejection": 1,
+    "paired_losses_with_local_rejection": 11,
+    "native_eligible_late_long_rows": 0,
+    "native_overlength_late_long_rows": 114,
+    "native_formal_passes_in_long_cohort": 9
+  },
+  "review_sample": {
+    "draw": "two per scene, ordered by sha256(\"pilot-review-v2/\"+task_id)",
+    "task_ids": [
+      "12df3893",
+      "246d6bb7",
+      "253205de",
+      "27011af0",
+      "4937e88d",
+      "ff40f5bd"
+    ],
+    "raw_rows": 24,
+    "raw_explicitly_rejected_tool_rows": 1,
+    "grounded_rows": 7,
+    "observed_grounded_action_or_closing_evidence_mismatches": 0,
+    "reviewer": "selection and audit performed by the same reviewer"
+  },
+  "rebuild": {
+    "independent_output_trees_identical": true,
+    "trees_compared_files": 7,
+    "trainer_validated_rows": {
+      "raw": 464,
+      "grounded": 39
+    },
+    "non_training_scenes_in_output": 0,
+    "source_review_sha256": "9e19fdd4b57441d00f605c5e43fce0daa5482f94372eda73adf6c67500cdd71a"
+  }
+}
