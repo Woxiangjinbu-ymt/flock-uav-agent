@@ -10,12 +10,15 @@ from posttraining.sft.history import InputRejected, canonical, sha
 PROMPT_LIMIT = MAX_CONTEXT - MAX_GENERATION
 
 
-def select_window(tokenizer, messages, tools, limit=PROMPT_LIMIT, fallback_limit=None):
+def visible_messages(messages, start, project=None):
+    visible = [msg for i, msg in enumerate(messages) if i >= start or msg["role"] in {"system", "user"}]
+    return project(visible) if project else visible
+
+
+def select_window(tokenizer, messages, tools, limit=PROMPT_LIMIT, fallback_limit=None, *, project=None):
     """Keep instructions and the longest recent suffix of complete assistant turns."""
     def measure(start):
-        indices = [i for i, msg in enumerate(messages)
-                   if i >= start or msg["role"] in {"system", "user"}]
-        visible = [messages[i] for i in indices]
+        visible = visible_messages(messages, start, project)
         prompt, _ = render(tokenizer, visible, tools, thinking=True)
         ids = prompt["input_ids"]
         return {"start": start, "tokens": len(ids), "ids_sha256": sha(canonical(ids))}
