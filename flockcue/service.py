@@ -115,7 +115,7 @@ def main():
     uav_agent.ChatOpenAI = DeploymentStudent if student else DeploymentDeepSeek
     if settings.get("context_policy") == "qwen-complete-turns-30720":
         from flockcue.student_context import StudentContext
-        context = StudentContext()
+        context = StudentContext(settings.get("fallback_prompt_limit"))
         uav_agent.ChatOpenAI.context_window = context
         atexit.register(context.close)
     agent_api_service.AGENT_CONFIG_FILE = str(args.config.resolve())

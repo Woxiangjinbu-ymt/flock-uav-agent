@@ -1,0 +1,28 @@
+{
+  "reference_attempt": "20261126-221902-flockcue-teacher-v2-pilot-33c4ea8a",
+  "paired_reference_sha256": "4fb7a127c743ac0bf6b2f45b90d1042ccf1ef3ace6cc75739733670ee323c887",
+  "ordinary_prompt_tokens": 30720,
+  "fallback_prompt_tokens": 47104,
+  "max_generation_tokens": 2048,
+  "student_episode_tokens": 100000,
+  "fallback_history": "instructions, tools and latest complete group only; retry ordinary policy at every new turn",
+  "blocked_regressions": [
+    "80e18e42",
+    "7aa2c275",
+    "b3952e2d",
+    "631cb00a",
+    "1c84e4a9",
+    "f204de55",
+    "8c6c59a4",
+    "246d6bb7",
+    "18e32ea1",
+    "27011af0",
+    "67a82568"
+  ],
+  "other_regressions": [
+    "be66f009",
+    "171fcea7"
+  ],
+  "primary_outcome": "formal first pass on the 11 previously rejected regressions; report all 60 pairs",
+  "budget_outcome": "full teacher decisions reproducible from the start under 100000 cumulative input + target tokens and 2048 output tokens per turn; also report cumulative budget alone"
+}

@@ -6,7 +6,8 @@ from threading import Lock
 
 
 class StudentContext:
-    def __init__(self):
+    def __init__(self, fallback_prompt_limit=None):
+        self.fallback_prompt_limit = fallback_prompt_limit
         root = Path(__file__).resolve().parents[1]
         self.worker = subprocess.Popen(
             [str(root / "posttraining/.venv/bin/python"), "-m", "posttraining.trajectories.context_window"],
@@ -24,7 +25,9 @@ class StudentContext:
 
         messages = payload["messages"]
         with self.lock:
-            self.worker.stdin.write(json.dumps({"messages": messages, "tools": payload.get("tools", [])}) + "\n")
+            request = {"messages": messages, "tools": payload.get("tools", []),
+                       "fallback_prompt_limit": self.fallback_prompt_limit}
+            self.worker.stdin.write(json.dumps(request) + "\n")
             self.worker.stdin.flush()
             response = self.worker.stdout.readline()
         if not response:

@@ -17,7 +17,11 @@ def main():
     plans = parser.add_mutually_exclusive_group()
     plans.add_argument("--expansion", action="store_true", help="Use the registered three training expansion scenes")
     plans.add_argument("--teacher-pilot", action="store_true", help="Use the registered student-context teacher pilot")
+    parser.add_argument("--fallback-48k", action="store_true",
+                        help="Prepare a teacher pilot with a 48K fallback for otherwise rejected turns")
     args = parser.parse_args()
+    if args.fallback_48k and not (args.teacher_pilot and args.command == "prepare"):
+        parser.error("--fallback-48k requires prepare --teacher-pilot")
     if args.expansion:
         registration = executor.read_json(executor.EXPANSION_REGISTRATION)
         executor.PLAN = executor.EXPANSION_PLAN
@@ -29,7 +33,7 @@ def main():
     if args.settings:
         os.environ["FLOCKCUE_SETTINGS"] = str(args.settings.resolve())
     if args.command == "prepare":
-        executor.prepare()
+        executor.prepare(fallback_48k=args.fallback_48k)
         return 0
     if args.command in {"status", "score"}:
         if not args.attempt:

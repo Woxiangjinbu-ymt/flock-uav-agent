@@ -49,7 +49,7 @@ def _function(call):
     return function
 
 
-def supervise(tokenizer, messages, tools, target):
+def supervise(tokenizer, messages, tools, target, *, context_limit=MAX_CONTEXT):
     """Return unpadded input IDs, causal LM labels and a compact audit suitable for a ledger."""
     allowed = {"role", "content", "reasoning_content", "tool_calls"}
     require(isinstance(target, dict) and target.get("role") == "assistant" and set(target) <= allowed,
@@ -79,8 +79,9 @@ def supervise(tokenizer, messages, tools, target):
     whole = whole.removesuffix("\n")  # The newline after the turn belongs to the next message.
     suffix = tokenizer.encode(whole[len(prefix):], add_special_tokens=False)
     ids = prompt["input_ids"] + suffix
-    require(len(ids) <= MAX_CONTEXT and len(suffix) <= MAX_GENERATION,
-            "sft_overlength", "Untruncated example exceeds the supported input or generation span")
+    if len(ids) > context_limit or len(suffix) > MAX_GENERATION:
+        raise InputRejected("sft_overlength", "Untruncated example exceeds the supported input or generation span",
+                            target_tokens=len(suffix), prompt_ids_sha256=sha(canonical(prompt["input_ids"])))
     require(suffix and suffix[-1] == tokenizer.eos_token_id and
             tokenizer.decode(ids, clean_up_tokenization_spaces=False, skip_special_tokens=False) == whole,
             "sft_boundary", "Separately encoded input and target do not reconstruct the native transcript")

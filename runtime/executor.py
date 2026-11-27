@@ -31,6 +31,7 @@ EXPANSION_REGISTRATION = ROOT / "datasets/teacher/2026-11-15-expansion/registrat
 EXPANSION_PLAN = "flockcue-teacher-expansion-60"
 PILOT_PLAN = "flockcue-teacher-v2-pilot"
 PILOT_REGISTRATION = ROOT / "datasets/teacher/teacher-collection-v2-pilot/registration.json"
+FALLBACK_REGISTRATION = PILOT_REGISTRATION.parent / "fallback-48k/registration.json"
 PLAN = "flockcue-600-first-pass"
 PLAN_SHA = "6589d8e1b4be6664cb3d651f09fe2cc54e41ffca7a361a6dae675ee455ec8823"
 STAGE = ROOT.parent / f"{ROOT.name}-runs" / PLAN
@@ -182,7 +183,7 @@ def seal_registration(stage):
         subprocess.run(["git", "-C", str(stage), *arguments], check=True)
 
 
-def prepare():
+def prepare(*, fallback_48k=False):
     from tempfile import TemporaryDirectory
 
     dest = STAGE
@@ -209,6 +210,8 @@ def prepare():
                       "requires_api_key": True, "api_key": "", "default_model": MODEL, "default_models": [MODEL]}}}
         if PLAN == PILOT_PLAN:
             config["context_policy"] = read_json(PILOT_REGISTRATION)["context_policy"]
+        if fallback_48k:
+            config["fallback_prompt_limit"] = read_json(FALLBACK_REGISTRATION)["fallback_prompt_tokens"]
         save_json(staged / "settings.json", config)
         save_json(staged / "registration.json", {"protocol": plan["protocol"]["id"], "plan_sha256": PLAN_SHA,
                   "sources": current_source_hashes(), "settings": digest((staged / "settings.json").read_bytes()),
@@ -611,6 +614,7 @@ def summarize(plan, rows, status):
 def source_files():
     if PLAN == PILOT_PLAN:
         yield PILOT_REGISTRATION
+        yield FALLBACK_REGISTRATION
         for name in ("requirements.txt", "trajectories/context_window.py", "inference/__init__.py",
                      "sft/adapter.py", "sft/history.py", "sft/supervision.py"):
             yield ROOT / "posttraining" / name

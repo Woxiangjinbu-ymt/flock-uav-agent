@@ -10,7 +10,7 @@ from posttraining.sft.history import InputRejected, canonical, sha
 PROMPT_LIMIT = MAX_CONTEXT - MAX_GENERATION
 
 
-def select_window(tokenizer, messages, tools, limit=PROMPT_LIMIT):
+def select_window(tokenizer, messages, tools, limit=PROMPT_LIMIT, fallback_limit=None):
     """Keep instructions and the longest recent suffix of complete assistant turns."""
     def measure(start):
         indices = [i for i, msg in enumerate(messages)
@@ -24,10 +24,15 @@ def select_window(tokenizer, messages, tools, limit=PROMPT_LIMIT):
     if full["tokens"] <= limit:
         return {**full, "full_tokens": full["tokens"]}
     starts = [i for i, msg in enumerate(messages) if msg["role"] == "assistant"]
-    if not starts:
-        raise ValueError("Required instructions exceed the student prompt limit")
-    best = measure(starts[-1])
+    best = measure(starts[-1]) if starts else full
     if best["tokens"] > limit:
+        if fallback_limit is not None:
+            if best["tokens"] <= fallback_limit:
+                return {**best, "full_tokens": full["tokens"], "fallback_prompt_limit": fallback_limit}
+            raise InputRejected("context_length", "Required public input exceeds the fallback prompt limit",
+                                minimum_prompt_tokens=best["tokens"], fallback_prompt_limit=fallback_limit)
+        if not starts:
+            raise ValueError("Required instructions exceed the student prompt limit")
         raise ValueError("Latest tool-call group and instructions exceed the student prompt limit")
     left, right = 0, len(starts) - 1
     while left < right:
@@ -45,8 +50,11 @@ def main():
     for line in sys.stdin:
         request = json.loads(line)
         try:
-            result = select_window(tokenizer, request["messages"], request["tools"])
-        except (InputRejected, ValueError) as error:
+            result = select_window(tokenizer, request["messages"], request["tools"],
+                                   fallback_limit=request.get("fallback_prompt_limit"))
+        except InputRejected as error:
+            result = {"error": str(error), **error.details}
+        except ValueError as error:
             result = {"error": str(error)}
         print(json.dumps(result), flush=True)
 
