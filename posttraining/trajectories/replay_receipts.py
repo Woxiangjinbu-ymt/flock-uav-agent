@@ -82,9 +82,9 @@ def rejected_point(tokenizer, archive, chain, fallback, expected):
     except InputRejected as error:
         if error.code != "context_length" or error.details["minimum_prompt_tokens"] != minimum:
             raise
-        return {"old_min": expected, "new_min": minimum, "admission": "rejected", "sent_tokens": None}, Counter()
+        return {"old_min": expected, "new_min": minimum, "admission": "rejected", "selected_prompt_tokens": None}, Counter()
     return {"old_min": expected, "new_min": minimum, "admission": "48K" if "fallback_prompt_limit" in window else "32K",
-            "sent_tokens": window["tokens"]}, stats
+            "selected_prompt_tokens": window["tokens"]}, stats
 
 
 def target_size(tokenizer, messages, tools, target, window, output_limit):
@@ -196,7 +196,9 @@ def run(attempt, out):
     if set(gates) != set(blocked) or set(budgets) != set(recovered):
         raise ValueError("Incomplete replay cohort")
     out.mkdir(parents=True, exist_ok=False)
-    executor.save_json(out / "results.json", {"attempt": attempt.name, "rejections": gates,
+    executor.save_json(out / "results.json", {"attempt": attempt.name, "ordinary_prompt_cap": PROMPT_LIMIT,
+                                              "fallback_prompt_cap": fallback, "output_cap": cap,
+                                              "episode_budget": budget, "rejections": gates,
                                               "trajectories": budgets, "evidence": evidence})
     with (out / "turns.csv").open("w", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(ledger[0]))
