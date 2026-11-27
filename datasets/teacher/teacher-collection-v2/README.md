@@ -14,4 +14,6 @@
 
 全量分母包括失败、超时和资料不完整的题。三个复用场景按登记的 attempt 与封存摘要核验，首次采集的 60 个题位各计一次。训练行以完整通过题的可表示教师轮为候选，公开执行证据的审阅理由、后置回执和私有评分单独保存。
 
+新增 48 场的首遍于 2026-11-27 22:30（新加坡时间）启动，运行提交为 `4a98aa52`，编号为 `20261127-223047-flockcue-teacher-v2-training-5f598d84`。运行日志在仓库旁的 `MultiUAV-Plat-runs/teacher-collection-v2/full/run.log`。结束后合并评分写入同目录的 `score.json`，逐场训练侧轮次保存在 `l1/`。
+
 `python -m runtime prepare --teacher-collection --stage <stage>` 生成剩余 48 场计划。沿用 `preflight` 和 `run` 入口。使用 `score --teacher-collection --stage <stage> --attempt <new-attempt> --carried-attempt <pilot-attempt>` 对两个来源合并重评。原始运行文件写在仓库旁的 `MultiUAV-Plat-runs/teacher-collection-v2/`。
