@@ -45,3 +45,29 @@ def test_pilot_loader_and_rebuild(tmp_path):
                                          output / arm / "train.jsonl.gz", REVISION)
             assert len(samples) == 3
     assert manifests[0] == manifests[1]
+
+
+def test_fallback_admits_only_the_latest_required_group():
+    from posttraining.sft.adapter import load_tokenizer, render
+    from posttraining.sft.history import InputRejected
+    from posttraining.trajectories.context_window import select_window
+    import pytest
+
+    teacher = EXPANSION_REGISTRATION.parent
+    with gzip.open(teacher / "reviewed-public-turns.jsonl.gz", "rt") as public:
+        wire = next(row for row in map(json.loads, public)
+                    if sum(m["role"] == "assistant" for m in row["messages"]) >= 2)
+    messages, tools = wire["messages"], wire["tools"]
+    tokenizer = load_tokenizer()
+    start = max(i for i, msg in enumerate(messages) if msg["role"] == "assistant")
+    required = [msg for i, msg in enumerate(messages) if i >= start or msg["role"] in {"system", "user"}]
+    size = len(render(tokenizer, required, tools, thinking=True)[0]["input_ids"])
+    full_size = len(render(tokenizer, messages, tools, thinking=True)[0]["input_ids"])
+    ordinary = select_window(tokenizer, messages, tools, limit=size)
+    assert ordinary == select_window(tokenizer, messages, tools, limit=size, fallback_limit=full_size)
+    fallback = select_window(tokenizer, messages, tools, limit=size - 1, fallback_limit=full_size)
+    assert fallback == {**ordinary, "fallback_prompt_limit": full_size}
+    assert fallback["start"] == start and fallback["tokens"] == size < full_size
+    with pytest.raises(InputRejected) as error:
+        select_window(tokenizer, messages, tools, limit=size - 2, fallback_limit=size - 1)
+    assert error.value.details["minimum_prompt_tokens"] == size
