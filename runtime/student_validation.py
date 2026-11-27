@@ -15,7 +15,7 @@ import threading
 from urllib.parse import urlsplit
 
 from . import executor as rt, parallel
-from posttraining.inference import (EPISODE_TOKEN_LIMIT, EVALUATION_CONTEXTS, EVALUATION_GENERATIONS,
+from posttraining.inference import (HISTORICAL_EPISODE_TOKEN_LIMIT, EVALUATION_CONTEXTS, EVALUATION_GENERATIONS,
                                    MAX_CONTEXT, MAX_GENERATION, SAMPLING)
 from posttraining.sft import adapter as student_adapter, benchmark, checkpoint
 
@@ -42,8 +42,15 @@ TEACHER_EXPANSION_SOURCES = "3c75c7ae162bcb8d0f4a34c0708e436bfea1444d8683bbc9c68
 # Same deployment with the public provider display name in runtime/executor.py.
 PUBLIC_RELEASE_SOURCES = "6adce22cdb558a7216da987f8304d48faf494a262d088a2620eb7f261756ccbb"
 
+# Uncapped student service and pilot episode metadata on the current deployment.
+UNCAPPED_PILOT_SOURCES = "1ac4a12c9c5219cacc30be1559a812f3bb189216a28bddcb94462f639d6f8c8e"
 
-def build_plan():
+
+def build_plan(*, uncapped=True, context_tokens=MAX_CONTEXT, generation_tokens=MAX_GENERATION):
+    if context_tokens not in EVALUATION_CONTEXTS or (not uncapped and context_tokens != MAX_CONTEXT):
+        raise ValueError("Unsupported validation context window")
+    if generation_tokens not in EVALUATION_GENERATIONS or (not uncapped and generation_tokens != MAX_GENERATION):
+        raise ValueError("Unsupported validation generation limit")
     training = rt.read_json(SFT_RESULT)
     release = rt.read_json(rt.ROOT / "datasets/sft/qwen35-2b-first-pass/manifest.json")
     if rt.digest(ROLES.read_bytes()) != release["scene_roles_sha256"]:
@@ -68,10 +75,16 @@ def build_plan():
         "base_revision": adapter["base_revision"], "sft_weights_sha256": adapter["weights_sha256"],
         "sampling": SAMPLING, "thinking": True,
         "budgets": {"context_tokens": MAX_CONTEXT, "generation_tokens": MAX_GENERATION,
-                    "episode_tokens": EPISODE_TOKEN_LIMIT},
+                    "episode_tokens": HISTORICAL_EPISODE_TOKEN_LIMIT},
         "seed_rule": "uint32_be(sha256(task_id/turn)[:4])",
         "workers": 1, "grading": "original check tree with terminal HTTP model errors counted as failures",
     }
+    encoded = json.dumps(plan, ensure_ascii=False, indent=2) + "\n"
+    if rt.digest(encoded.encode()) != REFERENCE["plan_sha256"]:
+        raise ValueError("Historical A60 deployment plan mismatch")
+    if uncapped:
+        plan["student"]["budgets"].update(episode_tokens=None, context_tokens=context_tokens,
+                                         generation_tokens=generation_tokens)
     return plan
 
 
@@ -100,31 +113,23 @@ def deployment_source_digest(sources):
     return parallel.json_digest(rt, used)
 
 
-def candidate_plan(config, sources, uncapped=False, context_tokens=MAX_CONTEXT, generation_tokens=MAX_GENERATION):
-    plan = build_plan()
-    encoded = json.dumps(plan, ensure_ascii=False, indent=2) + "\n"
-    if rt.digest(encoded.encode()) != REFERENCE["plan_sha256"]:
-        raise ValueError("Historical A60 deployment plan mismatch")
+def candidate_plan(config, sources, uncapped=True, context_tokens=MAX_CONTEXT, generation_tokens=MAX_GENERATION):
+    plan = build_plan(uncapped=uncapped, context_tokens=context_tokens, generation_tokens=generation_tokens)
     digest = deployment_source_digest(sources)
-    if context_tokens not in EVALUATION_CONTEXTS or (not uncapped and context_tokens != MAX_CONTEXT):
-        raise ValueError("Historical comparisons use the original context window")
-    if generation_tokens not in EVALUATION_GENERATIONS or (not uncapped and generation_tokens != MAX_GENERATION):
-        raise ValueError("Historical comparisons use the original generation limit")
     allowed = {CONFIGURABLE_GENERATION_SOURCES, TEACHER_EXPANSION_SOURCES, PUBLIC_RELEASE_SOURCES}
     if generation_tokens == MAX_GENERATION:
         allowed.add(CONFIGURABLE_CONTEXT_SOURCES)
         if context_tokens == MAX_CONTEXT:
             allowed.add(CONFIGURABLE_BUDGET_SOURCES)
-    if not uncapped:
+    if uncapped:
+        allowed.add(UNCAPPED_PILOT_SOURCES)
+    else:
         allowed.add(REFERENCE["deployment_sources_digest"])
     if digest not in allowed:
         raise ValueError("Simulation, harness or student inference sources differ from the historical A60 deployment")
     if config["format"] != checkpoint.FORMAT or config["base_revision"] != plan["student"]["base_revision"]:
         raise ValueError("Candidate adapter has incompatible format or base revision")
     if uncapped:
-        plan["student"]["budgets"]["episode_tokens"] = None
-        plan["student"]["budgets"]["context_tokens"] = context_tokens
-        plan["student"]["budgets"]["generation_tokens"] = generation_tokens
         plan["paired_uncapped"] = True
     else:
         plan["historical_comparison"] = {**REFERENCE, "first_sft_weights_sha256": plan["student"]["sft_weights_sha256"]}
@@ -133,21 +138,17 @@ def candidate_plan(config, sources, uncapped=False, context_tokens=MAX_CONTEXT, 
     return plan
 
 
-def prepare(stage, adapter_dir=None, uncapped=False, context_tokens=MAX_CONTEXT, generation_tokens=MAX_GENERATION):
+def prepare(stage, adapter_dir=None, *, context_tokens=MAX_CONTEXT, generation_tokens=MAX_GENERATION):
     import zipfile
     if stage.exists():
         raise FileExistsError(f"Stage already exists: {stage}")
-    if uncapped and adapter_dir is None:
-        raise ValueError("The uncapped paired evaluation requires an explicit SFT checkpoint")
-    if not uncapped and (context_tokens != MAX_CONTEXT or generation_tokens != MAX_GENERATION):
-        raise ValueError("A different token budget requires a fresh paired evaluation")
     stage.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=stage.parent) as tmp:
         new = Path(tmp) / "stage"
         (new / "scenes").mkdir(parents=True)
         sources = source_hashes()
         if adapter_dir is None:
-            plan = build_plan()
+            plan = build_plan(context_tokens=context_tokens, generation_tokens=generation_tokens)
         else:
             # The service loads the exact registered files even if a training run updates its output.
             frozen = new / "adapter"
@@ -157,11 +158,7 @@ def prepare(stage, adapter_dir=None, uncapped=False, context_tokens=MAX_CONTEXT,
             config = rt.read_json(frozen / checkpoint.CONFIG)
             if rt.digest((frozen / checkpoint.WEIGHTS).read_bytes()) != config["weights_sha256"]:
                 raise ValueError("Candidate adapter checksum mismatch")
-            plan = candidate_plan(config, sources, uncapped, context_tokens, generation_tokens)
-            if not uncapped:
-                shutil.copyfile(FIRST_PAIRS, new / "historical-pairs.csv")
-                if rt.digest((new / "historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
-                    raise ValueError("Historical A60 pairs checksum mismatch")
+            plan = candidate_plan(config, sources, context_tokens=context_tokens, generation_tokens=generation_tokens)
         rt.save_json(new / "plan.json", plan)
         rt.save_json(new / "sources.json", sources)
         with zipfile.ZipFile(rt.ZIP) as archive:
@@ -185,7 +182,9 @@ def validate_plan(stage, live=False):
         if "historical_comparison" in plan and rt.digest((stage/"historical-pairs.csv").read_bytes()) != REFERENCE["pairs_sha256"]:
             raise ValueError("Frozen historical A60 pairs checksum mismatch")
     else:
-        expected = build_plan()
+        budgets = plan["student"]["budgets"]
+        expected = build_plan(uncapped=budgets["episode_tokens"] is None, context_tokens=budgets["context_tokens"],
+                              generation_tokens=budgets["generation_tokens"])
     if plan != expected:
         raise ValueError("Saved validation plan differs from the approved held-out subset")
     if live and sources != source_hashes():
@@ -470,9 +469,9 @@ def main():
             parser.add_argument("--context-tokens", type=int, choices=EVALUATION_CONTEXTS, default=MAX_CONTEXT)
             parser.add_argument("--generation-tokens", type=int, choices=EVALUATION_GENERATIONS, default=MAX_GENERATION)
             parser.add_argument("--no-episode-token-limit", action="store_true",
-                                help="Run both arms live with no cumulative per-task token limit")
+                                help=argparse.SUPPRESS)
             parser.add_argument("--adapter", type=Path,
-                                help="Freeze these LoRA files and evaluate one SFT arm against archived A60 controls")
+                                help="Freeze these LoRA files for a paired evaluation with the base model")
         if name == "run":
             parser.add_argument("--arm",choices=ARMS,required=True)
             parser.add_argument("--endpoint",required=True)
@@ -481,7 +480,7 @@ def main():
     stage = args.stage.resolve()
     rt.use_stage(stage)
     if args.command == "prepare":
-        prepare(stage, args.adapter, args.no_episode_token_limit, args.context_tokens, args.generation_tokens)
+        prepare(stage, args.adapter, context_tokens=args.context_tokens, generation_tokens=args.generation_tokens)
     else:
         with parallel.attempt_lock(stage):
             if args.command == "run":

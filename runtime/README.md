@@ -39,7 +39,7 @@ runtime/.venv/bin/python -m runtime score --attempt /absolute/path/to/stage/runs
 
 ## 学生检查点的 A 折内部验证
 
-每个候选 LoRA 使用独立的仓库外 stage。准备时校验并复制权重和配置，冻结三场 60 题、485 个底层检查、推理预算和首轮逐题结果。历史对照来自同一 A 折此前执行的基座与首轮 SFT。原运行亦记录了仿真天气的自然波动。[首轮验证报告](../datasets/results/student-validation-60/REPORT_CN.md)
+每个候选 LoRA 使用独立的仓库外 stage。准备时校验并复制权重和配置，冻结三场 60 题、485 个底层检查、每轮推理上限。基座和候选权重在同一批题上分别实跑。原运行亦记录了仿真天气的自然波动。[首轮验证报告](../datasets/results/student-validation-60/REPORT_CN.md)
 
 ```sh
 "$FLOCKCUE_CONTROLLER_PYTHON" -m runtime.student_validation prepare --stage "$stage" --adapter "$checkpoint"
@@ -55,6 +55,8 @@ runtime/.venv/bin/python -m runtime score --attempt /absolute/path/to/stage/runs
   --arm sft --scene "$scene" --endpoint http://127.0.0.1:21769/v1
 ```
 
-三场封存后运行 `"$FLOCKCUE_CONTROLLER_PYTHON" -m runtime.student_validation report --stage "$stage"`，复核各题检查树、场内原题顺序与完整分母。`summary.json` 分别统计正式整题通过数、独立检查树达标题数、叶检查和停止原因。`pairs.csv` 逐题列出新权重与两个历史对照的增减。省略 `prepare --adapter` 中的适配器参数可重建首轮基座与首轮 SFT 的双臂计划。
+两组各自封存三场后运行 `"$FLOCKCUE_CONTROLLER_PYTHON" -m runtime.student_validation report --stage "$stage"`。报告按全部 60 题列出两个模型的实际通过、退步与新增通过。基座服务省略 `--adapter`，SFT 服务使用冻结的权重。省略准备阶段的 `--adapter` 时，计划使用首轮已登记的 SFT 权重。
 
-对基座和指定 SFT 权重重新做无累计 token 上限的配对评测时，在 `prepare --adapter` 和两组的推理服务启动命令中均加 `--no-episode-token-limit`。基座服务省略 `--adapter`，SFT 服务使用 `--adapter "$stage/adapter"`。对每组实跑三场后执行 `report`。计划与服务健康记录中的 `episode_tokens` 为 `null`；每题 500 秒、上下文 32,768、单轮最多生成 2,048 token，实耗仍逐轮记账。
+学生推理、评测计划及新建的教师试采均使用无整题累计 token 上限的设置。学生服务按轮记录输入、生成和整题累计用量。每题仍有 500 秒动作窗口。历史归档按各自登记的配置复算。
+
+教师 v2 试采用 `prepare --teacher-pilot --fallback-48k` 准备，常规输入上限 30,720，必要输入超限时使用 47,104，单轮预留输出 2,048。每轮是否可入训由实发记录、单轮长度和审阅清单决定。连续可重放轮数按单轮输入、目标和证据完整性统计，累计用量仅作报告。

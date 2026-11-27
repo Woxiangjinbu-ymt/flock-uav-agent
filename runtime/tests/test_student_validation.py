@@ -1,5 +1,6 @@
 import csv
 from pathlib import Path
+import shutil
 from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
@@ -30,15 +31,13 @@ class CandidateValidationTests(unittest.TestCase):
         self.assertEqual(plan["sessions"], original["sessions"])
         self.assertEqual(plan["protocol"], original["protocol"])
         self.assertEqual(plan["student"]["sft_weights_sha256"], rt.digest(self.weights))
-        self.assertEqual(plan["historical_comparison"]["first_sft_weights_sha256"], original["student"]["sft_weights_sha256"])
+        self.assertTrue(plan["paired_uncapped"])
+        self.assertIsNone(plan["student"]["budgets"]["episode_tokens"])
         with self.assertRaisesRegex(FileExistsError, "already exists"):
             sv.prepare(self.stage, self.adapter)
         with patch.object(sv, "deployment_packages", return_value={}):
             with self.assertRaisesRegex(ValueError, "packages differ"):
                 sv.run(self.stage, "sft", "http://127.0.0.1:9000/v1", None)
-        (self.stage/"historical-pairs.csv").write_bytes(b"changed")
-        with self.assertRaisesRegex(ValueError, "pairs checksum"):
-            sv.validate_plan(self.stage)
 
     def test_prepare_rejects_wrong_model_or_corrupt_weights(self):
         config = self.adapter/sv.checkpoint.CONFIG
@@ -52,11 +51,13 @@ class CandidateValidationTests(unittest.TestCase):
 
     def test_historical_replay_plan_remains_identical(self):
         sv.prepare(self.stage)
+        self.assertIsNone(sv.validate_plan(self.stage, live=True)["student"]["budgets"]["episode_tokens"])
+        rt.save_json(self.stage/"plan.json", sv.build_plan(uncapped=False))
         self.assertEqual(rt.digest((self.stage/"plan.json").read_bytes()), sv.REFERENCE["plan_sha256"])
-        self.assertNotIn("historical_comparison", sv.validate_plan(self.stage))
+        self.assertEqual(sv.validate_plan(self.stage)["student"]["budgets"]["episode_tokens"], 100000)
 
     def test_uncapped_plan_keeps_context_limit_and_pairs_two_live_arms(self):
-        sv.prepare(self.stage, self.adapter, uncapped=True)
+        sv.prepare(self.stage, self.adapter)
         plan = sv.validate_plan(self.stage, live=True)
         original = sv.build_plan()
         self.assertEqual(plan["protocol"], original["protocol"])
@@ -64,12 +65,12 @@ class CandidateValidationTests(unittest.TestCase):
         self.assertEqual(plan["student"]["budgets"], {
             **original["student"]["budgets"], "episode_tokens": None})
         self.assertNotIn("historical_comparison", plan)
-        self.assertEqual(output_budget(30720, 100000, None), (2048, None))
+        self.assertEqual(output_budget(30720, 200000), (2048, None))
         self.assertEqual(output_budget(30721, 100000, None), (0, "context_length"))
-        self.assertEqual(output_budget(30720, 100000), (0, "token_budget"))
+        self.assertEqual(output_budget(30720, 100000, 100000), (0, "token_budget"))
 
     def test_larger_context_only_changes_paired_window(self):
-        sv.prepare(self.stage, self.adapter, uncapped=True, context_tokens=65536)
+        sv.prepare(self.stage, self.adapter, context_tokens=65536)
         plan = sv.validate_plan(self.stage, live=True)
         reference = sv.candidate_plan(rt.read_json(self.adapter/sv.checkpoint.CONFIG), sv.source_hashes(), uncapped=True)
         reference["student"]["budgets"]["context_tokens"] = 65536
@@ -78,7 +79,7 @@ class CandidateValidationTests(unittest.TestCase):
         self.assertEqual(output_budget(63489, 200000, None, 65536), (0, "context_length"))
 
     def test_4096_generation_reserves_requested_space_in_paired_window(self):
-        sv.prepare(self.stage, self.adapter, uncapped=True, context_tokens=65536, generation_tokens=4096)
+        sv.prepare(self.stage, self.adapter, context_tokens=65536, generation_tokens=4096)
         plan = sv.validate_plan(self.stage, live=True)
         self.assertEqual(plan["student"]["budgets"], {
             "episode_tokens": None, "context_tokens": 65536, "generation_tokens": 4096})
@@ -87,6 +88,12 @@ class CandidateValidationTests(unittest.TestCase):
 
     def test_report_compares_complete_paired_rows_only(self):
         sv.prepare(self.stage, self.adapter)
+        archive = rt.ROOT/"datasets/results/sft/budget-validation/32k-2048"
+        sources = rt.read_json(archive/"sources.json")
+        config = rt.read_json(self.adapter/sv.checkpoint.CONFIG)
+        rt.save_json(self.stage/"plan.json", sv.candidate_plan(config, sources, uncapped=False))
+        rt.save_json(self.stage/"sources.json", sources)
+        shutil.copyfile(sv.FIRST_PAIRS, self.stage/"historical-pairs.csv")
         plan = sv.validate_plan(self.stage)
         with sv.FIRST_PAIRS.open(newline="") as stream:
             history = list(csv.DictReader(stream))

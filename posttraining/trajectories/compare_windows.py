@@ -5,11 +5,11 @@ import csv
 import json
 from pathlib import Path
 
-from posttraining.inference import EPISODE_TOKEN_LIMIT, MAX_GENERATION
+from posttraining.inference import MAX_GENERATION
 from runtime.executor import FALLBACK_REGISTRATION, PILOT_REGISTRATION, digest, read_json
 
 
-def prefix_budget(turns):
+def prefix_budget(turns, episode_limit):
     """Measure the complete teacher decisions a student could reproduce in order."""
     spent = budget_turns = 0
     first_stop = None
@@ -17,7 +17,7 @@ def prefix_budget(turns):
         prompt, target = row["window"].get("tokens"), row.get("target_tokens")
         if prompt is None or target is None:
             break
-        if spent + prompt + target > EPISODE_TOKEN_LIMIT:
+        if episode_limit is not None and spent + prompt + target > episode_limit:
             break
         spent += prompt + target
         budget_turns += 1
@@ -29,15 +29,17 @@ def prefix_budget(turns):
     if count < len(turns):
         row = turns[count]
         prompt, target = row["window"].get("tokens"), row.get("target_tokens")
-        remaining = EPISODE_TOKEN_LIMIT - used
+        remaining = episode_limit - used if episode_limit is not None else None
         if row["window"].get("error"):
             first_stop = "local_context"
         elif prompt is None or target is None or row["wire_issues"]:
             first_stop = "unverified_decision"
-        elif prompt >= remaining:
+        elif remaining is not None and prompt >= remaining:
             first_stop = "episode_prompt"
-        elif min(MAX_GENERATION, remaining - prompt) < target:
-            first_stop = "generation_limit" if MAX_GENERATION <= remaining - prompt else "episode_generation"
+        elif remaining is not None and remaining - prompt < min(target, MAX_GENERATION):
+            first_stop = "episode_generation"
+        elif target > MAX_GENERATION:
+            first_stop = "generation_limit"
         else:
             first_stop = row["projection"]
     return {"reproducible_turns": count, "prefix_tools": sum(len(r["tools"]) for r in admitted),
@@ -48,9 +50,11 @@ def compare(attempt, inputs):
     reg = read_json(FALLBACK_REGISTRATION)
     reference = PILOT_REGISTRATION.with_name("pairs.csv")
     plan = read_json(attempt / "plan.json")
+    settings = read_json(attempt / "configuration.json")
+    episode_limit = settings.get("student_episode_tokens", reg["student_episode_tokens"])
     if (digest(reference.read_bytes()) != reg["paired_reference_sha256"]
             or digest((attempt / "plan.json").read_bytes()) != read_json(PILOT_REGISTRATION)["plan_sha256"]
-            or read_json(attempt / "configuration.json").get("fallback_prompt_limit") != reg["fallback_prompt_tokens"]):
+            or settings.get("fallback_prompt_limit") != reg["fallback_prompt_tokens"]):
         raise ValueError("Expected the registered 32K reference and 48K fallback plan")
     with reference.open(newline="") as stream:
         previous = {r["task"]: r for r in csv.DictReader(stream)}
@@ -79,7 +83,7 @@ def compare(attempt, inputs):
                 cohort = "blocked_regression"
             elif tid in reg["other_regressions"]:
                 cohort = "omission"
-            prefix = prefix_budget(turns)
+            prefix = prefix_budget(turns, episode_limit)
             yield {"scene": sid, "task": tid, "position": prior["position"], "cohort": cohort,
                    "native_pass": prior["native_pass"], "ordinary_pass": prior["pilot_pass"],
                    "fallback_pass": int(episode["formal_pass"]), "initial_pass": int(episode["initial_pass"]),

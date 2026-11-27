@@ -6,7 +6,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from runtime import executor, parallel
-from posttraining.inference import EPISODE_TOKEN_LIMIT, MAX_GENERATION
+from posttraining.inference import HISTORICAL_EPISODE_TOKEN_LIMIT, MAX_GENERATION
 from posttraining.sft.adapter import load_tokenizer
 from posttraining.sft.history import InputRejected
 from posttraining.sft.supervision import supervise
@@ -83,7 +83,9 @@ def extract_scene(attempt, scene_id, destination, tokenizer):
     folder = parallel.safe_directory(attempt, record["directory"])
     parallel.verify_archive(executor, attempt)
     scores = parallel.verify_scene(executor, attempt, plan, scene, record)
-    fallback_limit = executor.read_json(attempt / "configuration.json").get("fallback_prompt_limit")
+    settings = executor.read_json(attempt / "configuration.json")
+    fallback_limit = settings.get("fallback_prompt_limit")
+    episode_limit = settings.get("student_episode_tokens", HISTORICAL_EPISODE_TOKEN_LIMIT)
     files = executor.read_json(folder / "complete.json")["files"]
     metrics = (folder / "agent-traces/reproduction-metrics.jsonl").read_text().splitlines()
     failed_jobs = {e["job_id"] for e in map(json.loads, metrics)
@@ -118,7 +120,8 @@ def extract_scene(attempt, scene_id, destination, tokenizer):
                         public.write(line)
                     if row["projection"] == "ok":
                         spent += window["tokens"] + row["target_tokens"]
-                    reachable = reachable and turn["wire_verified"] and row["projection"] == "ok" and spent <= EPISODE_TOKEN_LIMIT
+                    reachable = (reachable and turn["wire_verified"] and row["projection"] == "ok"
+                                 and (episode_limit is None or spent <= episode_limit))
                     row["shadow_reachable"] = reachable
                     row["raw_candidate"] = bool(passed and ep["archive_complete"]
                                                 and turn["wire_verified"] and row["projection"] == "ok")

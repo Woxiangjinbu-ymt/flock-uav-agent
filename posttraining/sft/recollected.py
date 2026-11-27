@@ -8,7 +8,7 @@ import math
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from ..inference import EPISODE_TOKEN_LIMIT, output_budget
+from ..inference import HISTORICAL_EPISODE_TOKEN_LIMIT, output_budget
 from . import reviewed_decisions as parent
 from .export import checked_bytes, json_line
 from .history import parse, sha
@@ -59,7 +59,7 @@ def encode_closing(request, response, wire, original, budget, tokenizer, *, cont
     if continued_spent is None and audit["prompt_ids_sha256"] != original["prompt_ids_sha256"]:
         raise ValueError("Rendered student prompt differs from the sealed original")
     spent = budget - original["prompt_tokens"] - original["target_tokens"] if continued_spent is None else continued_spent
-    capacity, reason = output_budget(audit["masked_prompt_tokens"], spent)
+    capacity, reason = output_budget(audit["masked_prompt_tokens"], spent, HISTORICAL_EPISODE_TOKEN_LIMIT)
     if reason or audit["supervised_tokens"] > capacity:
         raise ValueError("Original episode budget cannot admit the replacement decision")
     data = json_line({"input_ids": ids, "labels": labels})
@@ -168,11 +168,11 @@ def encode_continuation(branch, storage, original, first_reply, first_meta, cand
 
 
 def check_review_generation(review, prompt, tokens, spent):
-    capacity, reason = output_budget(prompt, spent)
+    capacity, reason = output_budget(prompt, spent, HISTORICAL_EPISODE_TOKEN_LIMIT)
     if reason or tokens > capacity:
         raise ValueError("Recollected decision exceeds the remaining student budget")
     generation = {"spent_before": spent, "prompt_tokens": prompt, "available_generation": capacity,
-                  "new_generation_tokens": tokens, "remaining_after": EPISODE_TOKEN_LIMIT - spent - prompt - tokens}
+                  "new_generation_tokens": tokens, "remaining_after": HISTORICAL_EPISODE_TOKEN_LIMIT - spent - prompt - tokens}
     if "generation" in review and any(review["generation"].get(k) != v for k, v in generation.items()):
         raise ValueError("Reviewed token counts differ from the actual provider decision")
 

@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from ..inference import EPISODE_TOKEN_LIMIT, MAX_CONTEXT, MAX_GENERATION, output_budget
+from ..inference import HISTORICAL_EPISODE_TOKEN_LIMIT, MAX_CONTEXT, MAX_GENERATION, output_budget
 from .adapter import load_tokenizer
 from .export import DATASETS, MANIFEST_SHA, RELEASE, ROLES_SHA, checked_bytes, json_line
 from .supervision import supervise
@@ -49,7 +49,7 @@ def selection(reviews, projection):
             r = projection[scene, task, f"model-{turn}"]
             if r["status"] != "compatible":
                 raise ValueError(f"Incompatible teacher decision in {task}")
-            limit, reason = output_budget(r["prompt_tokens"], spent)
+            limit, reason = output_budget(r["prompt_tokens"], spent, HISTORICAL_EPISODE_TOKEN_LIMIT)
             if reason or r["target_tokens"] > limit:
                 raise ValueError(f"Teacher path exceeds student limits at {task}/{turn}")
             spent += r["prompt_tokens"] + r["target_tokens"]
@@ -157,7 +157,7 @@ def write_pack(path, examples, first, sources, pack_name):
     manifest = {k: first[k] for k in ("schema", "split", "tokenizer", "policy", "teacher_release",
                                        "teacher_manifest_sha256", "scene_roles_sha256")}
     manifest.update(pack=pack_name, sources=sources, counts=dict(counts), kinds=dict(counts_by_kind),
-                    teacher_path_limits={"episode": EPISODE_TOKEN_LIMIT, "context": MAX_CONTEXT,
+                    teacher_path_limits={"episode": HISTORICAL_EPISODE_TOKEN_LIMIT, "context": MAX_CONTEXT,
                                          "generation": MAX_GENERATION}, files=files)
     (path / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
 
