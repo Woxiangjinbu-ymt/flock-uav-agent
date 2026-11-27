@@ -1,0 +1,176 @@
+{
+  "attempt": "20261127-210042-flockcue-teacher-v2-pilot-51d5cd88",
+  "collection_commit": "68bc86f2aeb5936fdaf9541dedc23c5e6df9ecfb",
+  "formal_score": {
+    "valid_complete_run": true,
+    "planned_tasks": 60,
+    "planned_checks": 408,
+    "scored_tasks": 60,
+    "scored_checks": 408,
+    "agent_timed_out_tasks": 4,
+    "timed_out_but_passed_tasks": 0,
+    "missing_or_invalid_tasks": 0,
+    "metrics": {
+      "passed_tasks": 47,
+      "task_pass": 0.7833333333333333,
+      "avg_check": 0.8834118357487922,
+      "global_check": 0.7769607843137255,
+      "total_failed": 0.05
+    },
+    "passed_tasks": 47,
+    "pass_rate": 0.7833333333333333,
+    "strict_deployment_passed": 47,
+    "strict_deployment_rate": 0.7833333333333333
+  },
+  "scenes": {
+    "36cbddd1": {
+      "tasks": 20,
+      "native": 18,
+      "previous": 17,
+      "current": 18
+    },
+    "6e1a4ad2": {
+      "tasks": 20,
+      "native": 20,
+      "previous": 19,
+      "current": 19
+    },
+    "79b207ff": {
+      "tasks": 20,
+      "native": 13,
+      "previous": 5,
+      "current": 10
+    }
+  },
+  "receipts": {
+    "returned": 1037,
+    "expanded": 42,
+    "local_rejections": 7,
+    "raw_candidate": 630
+  },
+  "gains": [
+    "5ef05474",
+    "f901fdd7",
+    "4cd7f5c5",
+    "7aa2c275",
+    "631cb00a",
+    "f204de55",
+    "246d6bb7"
+  ],
+  "losses": [
+    "253205de"
+  ],
+  "long_cohort": 15,
+  "native_late": [],
+  "native_late_slots": 114,
+  "native_dispositions": {
+    "eligible": 1,
+    "tool_rejected": 1,
+    "over_48k": 112
+  },
+  "native_eligible_review": [
+    {
+      "task": "72410d1a",
+      "turn": "15",
+      "kind": "other",
+      "reason": "Writes an obstacle observation and starts leg four. The calls do not verify or close the complete patrol."
+    }
+  ],
+  "compact_late": [
+    "171fcea7",
+    "4cd7f5c5",
+    "5ef05474",
+    "72410d1a",
+    "be66f009",
+    "f901fdd7"
+  ],
+  "net_covered": 6,
+  "reviewed_late": 62,
+  "formal_gate": false,
+  "coverage_gate": true,
+  "actually_scored_sample": {
+    "32K": {
+      "task_id": "6cfe8357",
+      "turn": 1,
+      "logical_call_id": "model-1",
+      "public_sha256": "30e1cfd17b27dcf1cf122a41b00e545ff54dd8b9d19633c21ab09e95b95f8470",
+      "target_tokens": 60,
+      "tools": [
+        "list_drones"
+      ],
+      "tokens": 8507,
+      "input_ids_sha256": "0f40bb797e0507ca42c8b84ed620c6384406ef7822843807db24f05981aa07b1"
+    },
+    "48K": {
+      "task_id": "246d6bb7",
+      "turn": 6,
+      "logical_call_id": "model-6",
+      "public_sha256": "b120d0176041b36509730953a61f8eef46433a79bb25ac38c023ad7241299e9a",
+      "target_tokens": 440,
+      "tools": [
+        "list_drones",
+        "get_drone_status"
+      ],
+      "tokens": 37703,
+      "input_ids_sha256": "f2af760bc4f3d52113846c87b4ba07e524a1061b8ad1a4040c7f8b06ee1e2a33"
+    }
+  },
+  "seal_sha256": {
+    "36cbddd1": "07bc204f1e7a3722b651b5b2801295f1896ce84893291101514d8ab829276659",
+    "6e1a4ad2": "d89064e7a3aded4c96956a3cf4dbf5d497bda429ed62709460c7a49e07b7e87c",
+    "79b207ff": "9836dfda204122cb7b52eb453c45810113559b20ac0c1f20c363db02cfdae92f"
+  },
+  "wall_seconds": 4176.811947374999,
+  "previous_compared_late": {
+    "reviewed": 34,
+    "covered": [
+      "171fcea7",
+      "72410d1a",
+      "be66f009"
+    ],
+    "new": [
+      "4cd7f5c5",
+      "5ef05474",
+      "f901fdd7"
+    ],
+    "lost": [],
+    "net": 3
+  },
+  "checks_passed": 317,
+  "fingerprints": [
+    "bc19ba97cbe016479903222bb1578db6"
+  ],
+  "passed_with_complete_archive": 47,
+  "complete_bound_tools": {
+    "tool_calls": 1047,
+    "id_bound_receipts": 1047
+  },
+  "full_denominator_diagnostics": {
+    "used_fallback_tasks": 10,
+    "local_rejection_tasks": 7,
+    "window_overflow_tasks": 6,
+    "local_error_counts": {
+      "Arguments are not strict JSON": 1,
+      "Required public input exceeds the fallback prompt limit": 6
+    },
+    "target_over_2048_returned": 152,
+    "total_logical_turns": 1044
+  },
+  "eligible_by_frozen_long_task": {
+    "01d6e857": 0,
+    "118d85eb": 0,
+    "15ea9ca3": 0,
+    "171fcea7": 6,
+    "18e32ea1": 0,
+    "246d6bb7": 3,
+    "3d9d8c37": 13,
+    "4cd7f5c5": 7,
+    "5ef05474": 9,
+    "708282ea": 0,
+    "72410d1a": 9,
+    "8c6c59a4": 0,
+    "9349f4d1": 0,
+    "be66f009": 12,
+    "f901fdd7": 3
+  }
+}
