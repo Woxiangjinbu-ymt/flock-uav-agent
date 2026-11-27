@@ -10,7 +10,7 @@ from runtime import executor, parallel
 
 TASK = "b3952e2d"
 SCENE = "79b207ff"
-CASES = ((3, "32K"), (8, "48K"))
+CASES = ((8, "48K"), (34, "32K"))
 
 
 def dispatch(folder, settings):
