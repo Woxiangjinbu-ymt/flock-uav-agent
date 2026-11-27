@@ -11,17 +11,29 @@ from tempfile import TemporaryDirectory
 from posttraining.inference import MAX_GENERATION
 from posttraining.trajectories.context_window import PROMPT_LIMIT
 from posttraining.trajectories.rebuild import file_digest, packed
-from runtime.executor import PILOT_REGISTRATION, canonical_scenes, digest, read_json, save_json
+from runtime.executor import (COLLECTION_REGISTRATION, PILOT_REGISTRATION, canonical_scenes,
+                              collection_train_roles, digest, read_json, save_json)
 from .adapter import FILES, REVISION, load_tokenizer
 from .supervision import supervise
 
 
-def build(inputs, review, output):
-    registration = read_json(PILOT_REGISTRATION)
-    scenes = registration["pilot_scenes"]
+def build(inputs, review, output, *, collection=False):
+    scenes = list(collection_train_roles()) if collection else read_json(PILOT_REGISTRATION)["pilot_scenes"]
     task_ids = {s["id"]: {t["id"] for t in s["tasks"]} for _, s in canonical_scenes() if s["id"] in scenes}
     if {p.name for p in inputs.iterdir() if p.is_dir()} != set(scenes):
-        raise ValueError("Inputs must contain exactly the three registered training scenes")
+        raise ValueError("Inputs must contain exactly the registered training scenes")
+    if collection:
+        registration = read_json(COLLECTION_REGISTRATION)
+        for sid in scenes:
+            origin = read_json(inputs / sid / "origin.json")
+            if origin["scene_id"] != sid or origin["settings_sha256"] != registration["settings_sha256"]:
+                raise ValueError(f"Mismatched collection scene or settings: {sid}")
+            if sid in registration["carried_seals"]:
+                if (origin["attempt"] != registration["carried_attempt"]
+                        or origin["seal_sha256"] != registration["carried_seals"][sid]):
+                    raise ValueError(f"Mismatched carried pilot scene: {sid}")
+            elif origin["plan_sha256"] != registration["plan_sha256"]:
+                raise ValueError(f"Mismatched training plan: {sid}")
     with review.open(newline="") as stream:
         picks = {}
         for row in csv.DictReader(stream):
@@ -78,7 +90,11 @@ def build(inputs, review, output):
                     raise ValueError(f"Unindexed public turns in {sid}")
     if picks:
         raise ValueError(f"Review contains unavailable training decisions: {list(picks)}")
-    sources = {"pilot_registration_sha256": file_digest(PILOT_REGISTRATION), "review_sha256": file_digest(review)}
+    if collection:
+        sources = {"collection_registration_sha256": file_digest(COLLECTION_REGISTRATION)}
+    else:
+        sources = {"pilot_registration_sha256": file_digest(PILOT_REGISTRATION)}
+    sources["review_sha256"] = file_digest(review)
     for arm, totals in counts.items():
         folder = output / arm
         files = {p.name: {"sha256": file_digest(p), "bytes": p.stat().st_size} for p in sorted(folder.iterdir())}
@@ -99,12 +115,13 @@ def main():
     parser.add_argument("--inputs", required=True, type=Path)
     parser.add_argument("--review", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--teacher-collection", action="store_true", help="Build from the 51 registered v2 training scenes")
     args = parser.parse_args()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=args.output.parent) as temp:
         stage = Path(temp) / "release"
         stage.mkdir()
-        build(args.inputs, args.review, stage)
+        build(args.inputs, args.review, stage, collection=args.teacher_collection)
         stage.rename(args.output)
     print(json.dumps(read_json(args.output / "manifest.json")["rows"]))
 

@@ -45,6 +45,21 @@ class FirstPassTests(unittest.TestCase):
             gateway.assert_not_called()
             run.assert_not_called()
 
+    def test_collection_dispatches_each_new_training_scene_once(self):
+        registration = executor.read_json(executor.COLLECTION_REGISTRATION)
+        pilot = executor.read_json(executor.PILOT_REGISTRATION)
+        training = set(executor.collection_train_roles())
+        carried = set(registration["carried_seals"])
+        with patch.object(executor, "PLAN", executor.COLLECTION_PLAN):
+            scenes = executor.select_scenes(executor.canonical_scenes())
+        selected = {scene["id"] for _, scene in scenes}
+        self.assertEqual(len(training), 51)
+        self.assertEqual(len(scenes), len(selected))
+        self.assertEqual(carried, set(pilot["pilot_scenes"]))
+        self.assertEqual(selected, training - carried)
+        self.assertTrue(training.isdisjoint(pilot["additional_validation"]))
+        self.assertEqual(sum(len(scene["tasks"]) for _, scene in scenes), 960)
+
     def test_concurrent_preflight_is_rejected_before_probing(self):
         with parallel.first_pass_lock(self.stage), patch.object(executor, "preflight") as gateway:
             with self.assertRaisesRegex(ValueError, "active"):

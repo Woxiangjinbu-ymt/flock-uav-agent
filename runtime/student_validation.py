@@ -47,6 +47,8 @@ UNCAPPED_PILOT_SOURCES = "1ac4a12c9c5219cacc30be1559a812f3bb189216a28bddcb94462f
 
 
 COMPACT_PILOT_SOURCES = "2793d80262da7e87610b4f6990fc5b1c24c7f020400102089c13dd4ac85e0eee"
+# Adds the training-scene dispatcher to the same compact-receipt deployment.
+COMPACT_COLLECTION_SOURCES = "2b7c50dfd33facb772f16cbdba473429391e3b8eaa08d639f2b877190ea8e1e2"
 
 
 def build_plan(*, uncapped=True, context_tokens=MAX_CONTEXT, generation_tokens=MAX_GENERATION):
@@ -127,9 +129,9 @@ def candidate_plan(config, sources, uncapped=True, context_tokens=MAX_CONTEXT, g
         if context_tokens == MAX_CONTEXT:
             allowed.add(CONFIGURABLE_BUDGET_SOURCES)
     if uncapped:
-        allowed.update((UNCAPPED_PILOT_SOURCES, COMPACT_PILOT_SOURCES))
+        allowed.update((UNCAPPED_PILOT_SOURCES, COMPACT_PILOT_SOURCES, COMPACT_COLLECTION_SOURCES))
     if context_tokens == FALLBACK_CONTEXT:
-        allowed = {COMPACT_PILOT_SOURCES}
+        allowed = {COMPACT_PILOT_SOURCES, COMPACT_COLLECTION_SOURCES}
     elif not uncapped:
         allowed.add(REFERENCE["deployment_sources_digest"])
     if digest not in allowed:

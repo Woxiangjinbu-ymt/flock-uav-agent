@@ -32,6 +32,8 @@ EXPANSION_PLAN = "flockcue-teacher-expansion-60"
 PILOT_PLAN = "flockcue-teacher-v2-pilot"
 PILOT_REGISTRATION = ROOT / "datasets/teacher/teacher-collection-v2-pilot/registration.json"
 FALLBACK_REGISTRATION = PILOT_REGISTRATION.parent / "fallback-48k/registration.json"
+COLLECTION_PLAN = "flockcue-teacher-v2-training"
+COLLECTION_REGISTRATION = ROOT / "datasets/teacher/teacher-collection-v2/registration.json"
 PLAN = "flockcue-600-first-pass"
 PLAN_SHA = "6589d8e1b4be6664cb3d651f09fe2cc54e41ffca7a361a6dae675ee455ec8823"
 STAGE = ROOT.parent / f"{ROOT.name}-runs" / PLAN
@@ -102,7 +104,20 @@ def canonical_scenes():
     return scenes
 
 
+def collection_train_roles():
+    registration = read_json(COLLECTION_REGISTRATION)
+    inventory = COLLECTION_REGISTRATION.with_name("scene-roles.csv").read_bytes()
+    if digest(inventory) != registration["roles_sha256"]:
+        raise ValueError("Training roles differ from the frozen collection inventory")
+    return {r["session_id"]: r["parent_role"] for r in csv.DictReader(inventory.decode().splitlines())
+            if r["role"] == "train"}
+
+
 def select_scenes(scenes):
+    if PLAN == COLLECTION_PLAN:
+        carried = read_json(COLLECTION_REGISTRATION)["carried_seals"]
+        remaining = collection_train_roles().keys() - carried.keys()
+        return [(name, scene) for name, scene in scenes if scene["id"] in remaining]
     if PLAN in {EXPANSION_PLAN, PILOT_PLAN}:
         registration = read_json(EXPANSION_REGISTRATION)
         inventory = (ROOT / "datasets/original-benchmark/scene-roles.csv").read_bytes()
@@ -208,13 +223,15 @@ def prepare(*, fallback_48k=False):
                   "provider_configs": {PROVIDER: {
                       "name": "deepseek-flash", "type": "openai-compatible", "base_url": GATEWAY,
                       "requires_api_key": True, "api_key": "", "default_model": MODEL, "default_models": [MODEL]}}}
-        if PLAN == PILOT_PLAN:
+        if PLAN in {PILOT_PLAN, COLLECTION_PLAN}:
             config["context_policy"] = read_json(PILOT_REGISTRATION)["context_policy"]
             config["student_episode_tokens"] = None
-        if fallback_48k:
+        if fallback_48k or PLAN == COLLECTION_PLAN:
             config["compact_receipts"] = True
             config["fallback_prompt_limit"] = read_json(FALLBACK_REGISTRATION)["fallback_prompt_tokens"]
         save_json(staged / "settings.json", config)
+        if PLAN == COLLECTION_PLAN and digest((staged / "settings.json").read_bytes()) != read_json(COLLECTION_REGISTRATION)["settings_sha256"]:
+            raise ValueError("Collection settings differ from the accepted pilot")
         save_json(staged / "registration.json", {"protocol": plan["protocol"]["id"], "plan_sha256": PLAN_SHA,
                   "sources": current_source_hashes(), "settings": digest((staged / "settings.json").read_bytes()),
                   "workers": 8, "first_attempt_only": True, "git_head": git_head()})
@@ -614,7 +631,10 @@ def summarize(plan, rows, status):
 
 
 def source_files():
-    if PLAN == PILOT_PLAN:
+    if PLAN == COLLECTION_PLAN:
+        yield COLLECTION_REGISTRATION
+        yield COLLECTION_REGISTRATION.with_name("scene-roles.csv")
+    if PLAN in {PILOT_PLAN, COLLECTION_PLAN}:
         yield PILOT_REGISTRATION
         yield FALLBACK_REGISTRATION
         for name in ("requirements.txt", "trajectories/context_window.py", "inference/__init__.py",

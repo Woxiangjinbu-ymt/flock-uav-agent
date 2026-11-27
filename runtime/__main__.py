@@ -17,11 +17,15 @@ def main():
     plans = parser.add_mutually_exclusive_group()
     plans.add_argument("--expansion", action="store_true", help="Use the registered three training expansion scenes")
     plans.add_argument("--teacher-pilot", action="store_true", help="Use the registered student-context teacher pilot")
+    plans.add_argument("--teacher-collection", action="store_true", help="Collect the remaining registered v2 training scenes")
+    parser.add_argument("--carried-attempt", type=Path, help="Include the accepted pilot when scoring the full training cohort")
     parser.add_argument("--fallback-48k", action="store_true",
                         help="Prepare a teacher pilot with a 48K fallback for otherwise rejected turns")
     args = parser.parse_args()
     if args.fallback_48k and not (args.teacher_pilot and args.command == "prepare"):
         parser.error("--fallback-48k requires prepare --teacher-pilot")
+    if args.carried_attempt and not (args.teacher_collection and args.command == "score"):
+        parser.error("--carried-attempt requires score --teacher-collection")
     if args.expansion:
         registration = executor.read_json(executor.EXPANSION_REGISTRATION)
         executor.PLAN = executor.EXPANSION_PLAN
@@ -29,6 +33,9 @@ def main():
     elif args.teacher_pilot:
         executor.PLAN = executor.PILOT_PLAN
         executor.PLAN_SHA = executor.read_json(executor.PILOT_REGISTRATION)["plan_sha256"]
+    elif args.teacher_collection:
+        executor.PLAN = executor.COLLECTION_PLAN
+        executor.PLAN_SHA = executor.read_json(executor.COLLECTION_REGISTRATION)["plan_sha256"]
     executor.use_stage(args.stage or executor.ROOT.parent / f"{executor.ROOT.name}-runs" / executor.PLAN)
     if args.settings:
         os.environ["FLOCKCUE_SETTINGS"] = str(args.settings.resolve())
@@ -42,7 +49,7 @@ def main():
         if args.command == "status":
             result = parallel.status(executor, attempt)
         else:
-            result = score(attempt)
+            result = score(attempt, args.carried_attempt)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0 if result.get("valid_complete_run", True) else 2
     plan = executor.verify_registration()
@@ -70,11 +77,9 @@ def main():
         return 0 if parallel.run_attempt(executor, executor.PLAN, workers=8) else 2
 
 
-def score(attempt):
-    """Read all 30 sealed scenes, re-evaluate original checks, retain the full denominator."""
-    plan = executor.load_plan(executor.PLAN)
+def scored_rows(attempt, plan):
     if executor.read_json(attempt / "plan.json") != plan:
-        raise ValueError("Attempt is not from the registered 600-task plan")
+        raise ValueError("Attempt differs from the registered plan")
     with parallel.attempt_lock(attempt, exclusive=False):
         parallel.verify_archive(executor, attempt)
         manifest = executor.read_json(attempt / "manifest.json")
@@ -102,7 +107,35 @@ def score(attempt):
                 passed += success
                 strict += success and row["continuation_safe"]
 
-    result = executor.summarize(plan, rows, manifest["status"])
+    return rows, passed, strict
+
+
+def score(attempt, carried_attempt=None):
+    """Re-evaluate sealed first passes against the registered scenes and original checks."""
+    plan = executor.load_plan(executor.PLAN)
+    rows, passed, strict = scored_rows(attempt, plan)
+    if carried_attempt:
+        carried_attempt = carried_attempt.resolve()
+        registration = executor.read_json(executor.COLLECTION_REGISTRATION)
+        manifest = executor.read_json(carried_attempt / "manifest.json")
+        seals = {sid: record["seal_sha256"] for sid, record in manifest["scenes"].items()}
+        if carried_attempt.name != registration["carried_attempt"] or seals != registration["carried_seals"]:
+            raise ValueError("Expected the three accepted compact-receipt pilot seals")
+        scenes = executor.canonical_scenes()
+        carried_plan = executor.make_plan(executor.PILOT_PLAN, [(n, s) for n, s in scenes if s["id"] in seals])
+        stage = executor.STAGE
+        try:
+            executor.use_stage(carried_attempt.parent.parent)
+            carried_rows, carried_passed, carried_strict = scored_rows(carried_attempt, carried_plan)
+        finally:
+            executor.use_stage(stage)
+        training = executor.collection_train_roles()
+        plan = executor.make_plan(executor.COLLECTION_PLAN, [(n, s) for n, s in scenes if s["id"] in training])
+        order = {s["id"]: i for i, s in enumerate(plan["sessions"])}
+        rows = sorted(rows + carried_rows, key=lambda r: order[r["session_id"]])
+        passed += carried_passed
+        strict += carried_strict
+    result = executor.summarize(plan, rows, "completed")
     result.update(passed_tasks=passed, pass_rate=passed / len(rows),
                   strict_deployment_passed=strict, strict_deployment_rate=strict / len(rows))
     return result

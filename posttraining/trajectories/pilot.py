@@ -72,11 +72,21 @@ def project_turn(tokenizer, stream, turn, fallback_limit=None):
 
 def extract_scene(attempt, scene_id, destination, tokenizer):
     executor.use_stage(attempt.parent.parent)
-    registration = executor.read_json(executor.PILOT_REGISTRATION)
     plan = executor.read_json(attempt / "plan.json")
-    if (executor.digest((attempt / "plan.json").read_bytes()) != registration["plan_sha256"]
-            or scene_id not in registration["pilot_scenes"]):
-        raise ValueError("Expected a registered training pilot scene")
+    split = "training_expansion"
+    if plan["name"] == executor.COLLECTION_PLAN:
+        registration = executor.read_json(executor.COLLECTION_REGISTRATION)
+        role = executor.collection_train_roles().get(scene_id)
+        if not role or scene_id in registration["carried_seals"]:
+            raise ValueError("Scene is outside the newly collected training cohort")
+        if role == "baseline_train":
+            split = "training"
+    else:
+        registration = executor.read_json(executor.PILOT_REGISTRATION)
+        if scene_id not in registration["pilot_scenes"]:
+            raise ValueError("Expected a registered training pilot scene")
+    if executor.digest((attempt / "plan.json").read_bytes()) != registration["plan_sha256"]:
+        raise ValueError("Attempt differs from the registered training plan")
     manifest = executor.read_json(attempt / "manifest.json")
     scene = next(s for s in plan["sessions"] if s["id"] == scene_id)
     record = manifest["scenes"][scene_id]
@@ -95,7 +105,7 @@ def extract_scene(attempt, scene_id, destination, tokenizer):
     with (destination / "public.jsonl.gz").open("xb") as raw, gzip.GzipFile(
         filename="", mode="wb", fileobj=raw, mtime=0
     ) as public, (destination / "decisions.jsonl").open("xb") as index:
-        wire_rows = scene_indices(Path("."), folder, files, scene_id, "training_expansion")
+        wire_rows = scene_indices(Path("."), folder, files, scene_id, split)
         for (ep, turns, _), score, task in zip(wire_rows, scores, tasks, strict=True):
             task_id = ep["task_id"]
             if task_id != score["task_id"] or task_id != task["id"]:
@@ -127,6 +137,11 @@ def extract_scene(attempt, scene_id, destination, tokenizer):
                                                 and turn["wire_verified"] and row["projection"] == "ok")
                     index.write(packed(row) + b"\n")
     executor.save_json(destination / "episodes.json", episodes)
+    executor.save_json(destination / "origin.json", {
+        "attempt": attempt.name, "scene_id": scene_id, "seal_sha256": record["seal_sha256"],
+        "plan_sha256": registration["plan_sha256"],
+        "settings_sha256": executor.digest((attempt / "agent-settings.json").read_bytes()),
+    })
     return {"tasks": len(episodes), "passed": sum(e["formal_pass"] for e in episodes),
             "turns": sum(e["logical_turns"] for e in episodes)}
 
