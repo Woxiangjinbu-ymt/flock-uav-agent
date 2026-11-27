@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from posttraining.inference import MAX_GENERATION
+from posttraining.trajectories.context_window import PROMPT_LIMIT
 from posttraining.trajectories.rebuild import file_digest, packed
 from runtime.executor import PILOT_REGISTRATION, canonical_scenes, digest, read_json, save_json
 from .adapter import FILES, REVISION, load_tokenizer
@@ -52,7 +54,9 @@ def build(inputs, review, output):
                     key = (sid, entry["task_id"], entry["turn"])
                     pick = picks.pop(key, None)
                     wire = json.loads(line)
-                    ids, labels, audit = supervise(tokenizer, wire["messages"], wire["tools"], wire["target"])
+                    limit = entry["window"].get("fallback_prompt_limit", PROMPT_LIMIT)
+                    ids, labels, audit = supervise(tokenizer, wire["messages"], wire["tools"], wire["target"],
+                                                   context_limit=limit + MAX_GENERATION)
                     if audit["prompt_ids_sha256"] != entry["window"]["ids_sha256"]:
                         raise ValueError(f"Runtime prefix differs at {key}")
                     sample = packed({"input_ids": ids, "labels": labels}) + b"\n"

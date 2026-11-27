@@ -6,7 +6,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from runtime import executor, parallel
-from posttraining.inference import EPISODE_TOKEN_LIMIT
+from posttraining.inference import EPISODE_TOKEN_LIMIT, MAX_GENERATION
 from posttraining.sft.adapter import load_tokenizer
 from posttraining.sft.history import InputRejected
 from posttraining.sft.supervision import supervise
@@ -38,7 +38,7 @@ def accepted_receipt(receipt):
                if isinstance(value.get(key), dict))
 
 
-def project_turn(tokenizer, stream, turn):
+def project_turn(tokenizer, stream, turn, fallback_limit=None):
     # The wire index retains the evidence coordinates for incomplete calls.
     if "response_attempt_id" not in turn or any(c["receipt"] is None for c in turn["calls"]):
         return {"projection": "incomplete_response_or_receipts"}, None
@@ -47,17 +47,26 @@ def project_turn(tokenizer, stream, turn):
     fields = {"public_sha256": executor.digest(line),
               "receipts_accepted": all(map(accepted_receipt, wire["post_action_receipts"]))}
     window = turn.get("student_context", {})
-    if not window or window["tokens"] > PROMPT_LIMIT:
+    limit = window.get("fallback_prompt_limit", PROMPT_LIMIT)
+    if not window or window["tokens"] > limit:
         raise ValueError("Pilot reply lacks an admitted Qwen prompt")
+    if limit != PROMPT_LIMIT and (limit != fallback_limit or window["tokens"] <= PROMPT_LIMIT
+                                  or sum(m["role"] == "assistant" for m in wire["messages"]) > 1):
+        raise ValueError("Fallback must contain only the required group that exceeded the ordinary limit")
     try:
-        _, _, audit = supervise(tokenizer, wire["messages"], wire["tools"], wire["target"])
+        _, _, audit = supervise(tokenizer, wire["messages"], wire["tools"], wire["target"],
+                                context_limit=limit + MAX_GENERATION)
     except InputRejected as error:
         fields["projection"] = error.code
+        if error.code != "sft_overlength":
+            return fields, line
+        fields["target_tokens"] = error.details["target_tokens"]
+        prefix_hash = error.details["prompt_ids_sha256"]
     else:
-        if (audit["prompt_ids_sha256"] != window["ids_sha256"]
-                or audit["masked_prompt_tokens"] != window["tokens"]):
-            raise ValueError("Training prefix differs from the teacher's live Qwen projection")
         fields.update(projection="ok", target_tokens=audit["supervised_tokens"])
+        prefix_hash = audit["prompt_ids_sha256"]
+    if prefix_hash != window["ids_sha256"]:
+        raise ValueError("Training prefix differs from the teacher's live Qwen projection")
     return fields, line
 
 
@@ -74,6 +83,7 @@ def extract_scene(attempt, scene_id, destination, tokenizer):
     folder = parallel.safe_directory(attempt, record["directory"])
     parallel.verify_archive(executor, attempt)
     scores = parallel.verify_scene(executor, attempt, plan, scene, record)
+    fallback_limit = executor.read_json(attempt / "configuration.json").get("fallback_prompt_limit")
     files = executor.read_json(folder / "complete.json")["files"]
     metrics = (folder / "agent-traces/reproduction-metrics.jsonl").read_text().splitlines()
     failed_jobs = {e["job_id"] for e in map(json.loads, metrics)
@@ -102,13 +112,13 @@ def extract_scene(attempt, scene_id, destination, tokenizer):
                            "usage": turn.get("usage"), "tools": [c["name"] for c in turn["calls"]],
                            "wire_issues": turn["issues"], "formal_pass": passed, "initial_pass": initial,
                            "complete_episode": ep["archive_complete"], "late": turn["turn"] * 3 > len(turns) * 2}
-                    fields, line = project_turn(tokenizer, stream, turn)
+                    fields, line = project_turn(tokenizer, stream, turn, fallback_limit)
                     row.update(fields)
                     if line is not None:
                         public.write(line)
                     if row["projection"] == "ok":
                         spent += window["tokens"] + row["target_tokens"]
-                    reachable = reachable and row["projection"] == "ok" and spent <= EPISODE_TOKEN_LIMIT
+                    reachable = reachable and turn["wire_verified"] and row["projection"] == "ok" and spent <= EPISODE_TOKEN_LIMIT
                     row["shadow_reachable"] = reachable
                     row["raw_candidate"] = bool(passed and ep["archive_complete"]
                                                 and turn["wire_verified"] and row["projection"] == "ok")
