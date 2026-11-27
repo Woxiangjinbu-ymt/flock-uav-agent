@@ -4,9 +4,12 @@ from pathlib import Path
 import subprocess
 from threading import Lock
 
+from flockcue.recording.compact_receipts import compact_receipts
+
 
 class StudentContext:
-    def __init__(self, fallback_prompt_limit=None):
+    def __init__(self, fallback_prompt_limit=None, *, compact=False):
+        self.compact = compact
         self.fallback_prompt_limit = fallback_prompt_limit
         root = Path(__file__).resolve().parents[1]
         self.worker = subprocess.Popen(
@@ -26,7 +29,7 @@ class StudentContext:
         messages = payload["messages"]
         with self.lock:
             request = {"messages": messages, "tools": payload.get("tools", []),
-                       "fallback_prompt_limit": self.fallback_prompt_limit}
+                       "fallback_prompt_limit": self.fallback_prompt_limit, "compact_receipts": self.compact}
             self.worker.stdin.write(json.dumps(request) + "\n")
             self.worker.stdin.flush()
             response = self.worker.stdout.readline()
@@ -38,7 +41,10 @@ class StudentContext:
             raise ValueError(window["error"])
         omitted = [(i, msg) for i, msg in enumerate(messages[:window["start"]])
                    if msg["role"] not in {"system", "user"}]
+        if self.compact:
+            window["compact_receipts"] = True
         record_context_window(window, omitted)
         dropped = {i for i, _ in omitted}
-        payload["messages"] = [msg for i, msg in enumerate(messages) if i not in dropped]
+        visible = [msg for i, msg in enumerate(messages) if i not in dropped]
+        payload["messages"] = compact_receipts(visible) if self.compact else visible
         return payload

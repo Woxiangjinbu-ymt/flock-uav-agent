@@ -15,7 +15,7 @@ import threading
 from urllib.parse import urlsplit
 
 from . import executor as rt, parallel
-from posttraining.inference import (HISTORICAL_EPISODE_TOKEN_LIMIT, EVALUATION_CONTEXTS, EVALUATION_GENERATIONS,
+from posttraining.inference import (HISTORICAL_EPISODE_TOKEN_LIMIT, EVALUATION_CONTEXTS, EVALUATION_GENERATIONS, FALLBACK_CONTEXT,
                                    MAX_CONTEXT, MAX_GENERATION, SAMPLING)
 from posttraining.sft import adapter as student_adapter, benchmark, checkpoint
 
@@ -46,11 +46,16 @@ PUBLIC_RELEASE_SOURCES = "6adce22cdb558a7216da987f8304d48faf494a262d088a2620eb7f
 UNCAPPED_PILOT_SOURCES = "1ac4a12c9c5219cacc30be1559a812f3bb189216a28bddcb94462f639d6f8c8e"
 
 
+COMPACT_PILOT_SOURCES = "2793d80262da7e87610b4f6990fc5b1c24c7f020400102089c13dd4ac85e0eee"
+
+
 def build_plan(*, uncapped=True, context_tokens=MAX_CONTEXT, generation_tokens=MAX_GENERATION):
     if context_tokens not in EVALUATION_CONTEXTS or (not uncapped and context_tokens != MAX_CONTEXT):
         raise ValueError("Unsupported validation context window")
     if generation_tokens not in EVALUATION_GENERATIONS or (not uncapped and generation_tokens != MAX_GENERATION):
         raise ValueError("Unsupported validation generation limit")
+    if context_tokens == FALLBACK_CONTEXT and generation_tokens != MAX_GENERATION:
+        raise ValueError("Conditional 48K reserves 2,048 tokens for generation")
     training = rt.read_json(SFT_RESULT)
     release = rt.read_json(rt.ROOT / "datasets/sft/qwen35-2b-first-pass/manifest.json")
     if rt.digest(ROLES.read_bytes()) != release["scene_roles_sha256"]:
@@ -122,8 +127,10 @@ def candidate_plan(config, sources, uncapped=True, context_tokens=MAX_CONTEXT, g
         if context_tokens == MAX_CONTEXT:
             allowed.add(CONFIGURABLE_BUDGET_SOURCES)
     if uncapped:
-        allowed.add(UNCAPPED_PILOT_SOURCES)
-    else:
+        allowed.update((UNCAPPED_PILOT_SOURCES, COMPACT_PILOT_SOURCES))
+    if context_tokens == FALLBACK_CONTEXT:
+        allowed = {COMPACT_PILOT_SOURCES}
+    elif not uncapped:
         allowed.add(REFERENCE["deployment_sources_digest"])
     if digest not in allowed:
         raise ValueError("Simulation, harness or student inference sources differ from the historical A60 deployment")
@@ -203,15 +210,19 @@ def same_or_save(path, value):
         rt.save_json(path, value)
 
 
-def launch_settings(endpoint, arm):
+def launch_settings(endpoint, arm, context_tokens=MAX_CONTEXT):
     url = urlsplit(endpoint)
     if url.scheme != "http" or url.hostname not in {"localhost", "127.0.0.1"} or url.path != "/v1" or url.query or url.fragment or url.username:
         raise ValueError("The student endpoint must be a loopback HTTP /v1 service")
     tag = f"qwen35-2b-{arm}"
-    return {"selected_provider": "flockcue_student", "share_blackboard_by_session": True,
+    settings = {"selected_provider": "flockcue_student", "share_blackboard_by_session": True,
             "toolchain_json_recording": True, "uav_api_key": "", "provider_configs": {
                 "flockcue_student": {"type": "openai-compatible", "default_model": tag, "default_models": [tag],
                                      "base_url": endpoint, "api_key": "local-student", "requires_api_key": True}}}
+    if context_tokens == FALLBACK_CONTEXT:
+        settings.update(context_policy="qwen-complete-turns-30720", compact_receipts=True,
+                        fallback_prompt_limit=FALLBACK_CONTEXT - MAX_GENERATION)
+    return settings
 
 
 def check_provider(endpoint, arm, plan):
@@ -263,7 +274,7 @@ def run(stage, arm, endpoint, scene_id):
             raise ValueError("Simulation, controller or agent packages differ from the historical A60 deployment")
         if scene_id and any(not sealed_record(stage/arm, s) for s in plan["sessions"][:SCENE_IDS.index(scene_id)]):
             raise ValueError("Candidate scenes must run in the registered order")
-    settings = launch_settings(endpoint, arm)
+    settings = launch_settings(endpoint, arm, plan["student"]["budgets"]["context_tokens"])
     arm_root = stage / arm
     arm_root.mkdir(exist_ok=True)
     same_or_save(stage/"packages.json", packages)

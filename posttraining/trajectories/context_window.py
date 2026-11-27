@@ -2,6 +2,7 @@
 import json
 import sys
 
+from flockcue.recording.compact_receipts import compact_receipts
 from posttraining.inference import MAX_CONTEXT, MAX_GENERATION
 from posttraining.sft.adapter import load_tokenizer, render
 from posttraining.sft.history import InputRejected, canonical, sha
@@ -54,7 +55,8 @@ def main():
         request = json.loads(line)
         try:
             result = select_window(tokenizer, request["messages"], request["tools"],
-                                   fallback_limit=request.get("fallback_prompt_limit"))
+                                   fallback_limit=request.get("fallback_prompt_limit"),
+                                   project=compact_receipts if request.get("compact_receipts") else None)
         except InputRejected as error:
             result = {"error": str(error), **error.details}
         except ValueError as error:

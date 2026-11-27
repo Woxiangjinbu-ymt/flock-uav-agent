@@ -10,6 +10,7 @@ import shutil
 from tempfile import TemporaryDirectory
 
 from flockcue.provider import execution_history
+from flockcue.recording.compact_receipts import compact_receipts
 
 from .rebuild import AUDIT, ROOT, blob, digest, file_digest, must_match, packed, provider_payload
 
@@ -109,12 +110,18 @@ class WireEvidence:
         )
         model = self.models[logical_id]
         messages = request["messages"]
+        issues = model["issues"]
         if logical_id in self.context_events:
             context = self.context_events[logical_id]
+            if context["window"].get("compact_receipts"):
+                original = [{**msg, "content": self.receipts.get(msg["tool_call_id"], msg["content"])}
+                            if msg["role"] == "tool" else msg for msg in messages]
+                if compact_receipts(original) != messages:
+                    issues.append("visible_receipt_projection_differs")
+                messages = original
             messages = list(messages)
             for index, original in context["omitted"]:
                 messages.insert(index, original)
-        issues = model["issues"]
         if any(marker in body for marker in PRIVATE_MARKERS):
             issues.append("private_marker_in_public_request")
         users = [m.get("content") for m in messages if m.get("role") == "user"]
@@ -127,7 +134,7 @@ class WireEvidence:
         if Counter(m["tool_call_id"] for m in history_tools) != expected_calls:
             issues.append("visible_call_id_set_differs")
         for tool in history_tools:
-            if self.receipts.get(tool["tool_call_id"]) != digest(tool["content"].encode()):
+            if self.receipts.get(tool["tool_call_id"]) != tool["content"]:
                 issues.append("visible_tool_receipt_unverified")
 
         index = {
@@ -296,7 +303,7 @@ class WireEvidence:
         call["receipt"] = location
         call["receipt_sha256"] = digest(output["content"].encode())
         call["receipt_status"] = output["status"]
-        self.receipts[call_id] = digest((output["content"] + self.annotations.get(call_id, "")).encode())
+        self.receipts[call_id] = output["content"] + self.annotations.get(call_id, "")
         if self.example:
             model["example"]["receipts"].append(
                 {

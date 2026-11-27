@@ -212,6 +212,7 @@ def prepare(*, fallback_48k=False):
             config["context_policy"] = read_json(PILOT_REGISTRATION)["context_policy"]
             config["student_episode_tokens"] = None
         if fallback_48k:
+            config["compact_receipts"] = True
             config["fallback_prompt_limit"] = read_json(FALLBACK_REGISTRATION)["fallback_prompt_tokens"]
         save_json(staged / "settings.json", config)
         save_json(staged / "registration.json", {"protocol": plan["protocol"]["id"], "plan_sha256": PLAN_SHA,
