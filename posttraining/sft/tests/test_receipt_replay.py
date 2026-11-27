@@ -19,13 +19,18 @@ def test_receipt_deltas_and_window_rebase():
     rows = [{"id": str(i), "position": {"x": i}, "note": "observed"} for i in range(8)]
     updated = [{**rows[0], "position": {"x": 2}}, *rows[1:]]
     messages = pair("first", rows) + pair("again", rows) + pair("update", updated) + pair("remove", updated[:-1])
+    messages += pair("reorder", list(reversed(updated[:-1])))
     projected = compact_receipts(messages)
     stats = verify_contents(messages, projected)
-    assert stats["full_snapshots"] + stats["delta_snapshots"] == 4
+    assert stats["full_snapshots"] + stats["delta_snapshots"] == 5
     repeated = json.JSONDecoder().raw_decode(projected[3]["content"])[0]
     assert repeated["blackboard_delta"] == {"from_snapshot": 1, "changes": {}}
     modified = json.JSONDecoder().raw_decode(projected[5]["content"])[0]
     assert modified["blackboard_delta"]["changes"]["obstacles"]["upsert_by_id"] == [updated[0]]
+    removed = json.JSONDecoder().raw_decode(projected[7]["content"])[0]
+    assert removed["blackboard_delta"]["changes"] == {"obstacles": {"remove_ids": ["7"]}}
+    reordered = json.JSONDecoder().raw_decode(projected[9]["content"])[0]
+    assert reordered["blackboard_delta"]["changes"] == {"obstacles": {"order": list("6543210")}}
     suffix = compact_receipts(messages[2:])
     assert verify_contents(messages[2:], suffix)["full_snapshots"] >= 1
     assert json.JSONDecoder().raw_decode(suffix[1]["content"])[0]["blackboard"] == {

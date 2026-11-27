@@ -32,13 +32,18 @@ def changes(board, current, previous):
     delta = {}
     for group, entries in current.items():
         old = previous[group]
-        # Apply upserts in order. A deletion or reorder requires a replacement.
-        if list(old) + [key for key in entries if key not in old] != list(entries):
-            delta[group] = {"replace": board[group]}
-        else:
-            updates = [r for r in board[group] if old.get(r["id"]) != entries[r["id"]]]
-            if updates:
-                delta[group] = {"upsert_by_id": updates}
+        change = {}
+        removed = [key for key in old if key not in entries]
+        updates = [r for r in board[group] if old.get(r["id"]) != entries[r["id"]]]
+        if removed:
+            change["remove_ids"] = removed
+        if updates:
+            change["upsert_by_id"] = updates
+        order = [key for key in old if key in entries] + [key for key in entries if key not in old]
+        if order != list(entries):
+            change["order"] = list(entries)
+        if change:
+            delta[group] = change
     return delta
 
 

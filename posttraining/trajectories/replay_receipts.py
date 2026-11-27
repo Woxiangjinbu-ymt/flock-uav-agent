@@ -40,13 +40,12 @@ def verify_contents(original, projected):
                     raise ValueError("Delta has no preceding base in the visible window")
                 board = dict(previous)
                 for group, change in delta["changes"].items():
-                    if "replace" in change:
-                        board[group] = change["replace"]
-                    else:
-                        rows = {row["id"]: row for row in board[group]}
-                        for row in change["upsert_by_id"]:
-                            rows[row["id"]] = row
-                        board[group] = list(rows.values())
+                    rows = {row["id"]: row for row in board[group]}
+                    for key in change.get("remove_ids", []):
+                        del rows[key]
+                    for row in change.get("upsert_by_id", []):
+                        rows[row["id"]] = row
+                    board[group] = [rows[key] for key in change.get("order", rows)]
                 new["blackboard"] = board
                 stats["delta_snapshots"] += 1
             else:
