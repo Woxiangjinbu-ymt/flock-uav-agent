@@ -59,6 +59,7 @@ def run(attempt, stage, out, model_python, weights):
     record = manifest["scenes"][SCENE]
     if ref["attempt"] != attempt.name or ref["scenes_sha256"][SCENE] != record["seal_sha256"]:
         raise ValueError("Pilot source differs from the registered fallback run")
+    executor.use_stage(attempt.parent.parent)
     parallel.verify_archive(executor, attempt)
     parallel.verify_scene(executor, attempt, plan, scene, record)
     files = executor.read_json(attempt / SCENE / "complete.json")["files"]
