@@ -1,0 +1,258 @@
+{
+  "attempt": "20261127-191436-flockcue-teacher-v2-pilot-9bdf01a6",
+  "collection_commit": "83ccebe354e3f6cf4a574ebb07f8e2a40b6293bf",
+  "prior_attempt": "20261126-221902-flockcue-teacher-v2-pilot-33c4ea8a",
+  "plan_sha256": "1e4777c13e72bc8da53e16280f51f16b7d830a03ae4da54a9e336ab888116059",
+  "scenes_sha256": {
+    "36cbddd1": "abac1074606bb25e0ab566d3974871f57d86dd1c66ab629352207b03a8f82fce",
+    "6e1a4ad2": "f29fd0b31db982bf7c53aff5ab251c01729374cfbeeefec63f8c5a62e79d6c66",
+    "79b207ff": "da03063ea3f8e958bbc9e1fc19dd9222729a9bba0e059903cc25bdc20e7ad501"
+  },
+  "score": {
+    "valid_complete_run": true,
+    "planned_tasks": 60,
+    "planned_checks": 408,
+    "scored_tasks": 60,
+    "scored_checks": 408,
+    "agent_timed_out_tasks": 3,
+    "timed_out_but_passed_tasks": 0,
+    "missing_or_invalid_tasks": 0,
+    "metrics": {
+      "passed_tasks": 41,
+      "task_pass": 0.6833333333333333,
+      "avg_check": 0.7580383686361947,
+      "global_check": 0.6691176470588235,
+      "total_failed": 0.11666666666666667
+    },
+    "passed_tasks": 41,
+    "pass_rate": 0.6833333333333333,
+    "strict_deployment_passed": 41,
+    "strict_deployment_rate": 0.6833333333333333
+  },
+  "all": {
+    "tasks": 60,
+    "native": 51,
+    "ordinary": 38,
+    "fallback": 41,
+    "gains": 5,
+    "losses": 2,
+    "tasks_using_fallback": 19,
+    "locally_rejected": 12,
+    "timeouts": 3
+  },
+  "cohorts": {
+    "blocked_regression": {
+      "tasks": 11,
+      "native": 11,
+      "ordinary": 0,
+      "fallback": 3,
+      "gains": 3,
+      "losses": 0,
+      "tasks_using_fallback": 9,
+      "locally_rejected": 6,
+      "timeouts": 2
+    },
+    "omission": {
+      "tasks": 2,
+      "native": 2,
+      "ordinary": 0,
+      "fallback": 2,
+      "gains": 2,
+      "losses": 0,
+      "tasks_using_fallback": 0,
+      "locally_rejected": 0,
+      "timeouts": 0
+    },
+    "other": {
+      "tasks": 47,
+      "native": 38,
+      "ordinary": 38,
+      "fallback": 36,
+      "gains": 0,
+      "losses": 2,
+      "tasks_using_fallback": 10,
+      "locally_rejected": 6,
+      "timeouts": 1
+    }
+  },
+  "scenes": {
+    "36cbddd1": {
+      "tasks": 20,
+      "native": 18,
+      "ordinary": 18,
+      "fallback": 17,
+      "gains": 0,
+      "losses": 1,
+      "tasks_using_fallback": 2,
+      "locally_rejected": 0,
+      "timeouts": 0
+    },
+    "6e1a4ad2": {
+      "tasks": 20,
+      "native": 20,
+      "ordinary": 18,
+      "fallback": 19,
+      "gains": 2,
+      "losses": 1,
+      "tasks_using_fallback": 2,
+      "locally_rejected": 0,
+      "timeouts": 0
+    },
+    "79b207ff": {
+      "tasks": 20,
+      "native": 13,
+      "ordinary": 2,
+      "fallback": 5,
+      "gains": 3,
+      "losses": 0,
+      "tasks_using_fallback": 15,
+      "locally_rejected": 12,
+      "timeouts": 3
+    }
+  },
+  "fingerprints": {
+    "bc19ba97cbe016479903222bb1578db6": 975
+  },
+  "models": {
+    "deepseek-flash": 975
+  },
+  "wall_seconds": 3834.808891625,
+  "logical_turns": 988,
+  "dispatched_turns": 975,
+  "http_attempts": 975,
+  "returned_turns": 975,
+  "expanded_turns": 92,
+  "max_expanded_prompt": 46882,
+  "required_prompt_tokens_on_rejection": [
+    [
+      "4cd7f5c5",
+      6,
+      49184
+    ],
+    [
+      "f204de55",
+      10,
+      55890
+    ],
+    [
+      "8c6c59a4",
+      24,
+      254462
+    ],
+    [
+      "15ea9ca3",
+      10,
+      69346
+    ],
+    [
+      "246d6bb7",
+      9,
+      50150
+    ],
+    [
+      "18e32ea1",
+      15,
+      48861
+    ],
+    [
+      "9349f4d1",
+      11,
+      50669
+    ],
+    [
+      "01d6e857",
+      11,
+      106578
+    ],
+    [
+      "118d85eb",
+      6,
+      57111
+    ],
+    [
+      "27011af0",
+      3,
+      61443
+    ],
+    [
+      "8758188e",
+      13,
+      54070
+    ],
+    [
+      "67a82568",
+      17,
+      53440
+    ]
+  ],
+  "recovered": [
+    {
+      "task": "80e18e42",
+      "turns": 14,
+      "fallback_turns": 4,
+      "first_fallback_turn": 5,
+      "full_rounds": 4,
+      "prefix_tokens": 73599,
+      "within_episode_budget_alone": 4,
+      "next_prompt": 32661,
+      "next_target": 984,
+      "next_reason": "episode_prompt",
+      "full_replayable": false,
+      "teacher_trajectory_tokens": 353683
+    },
+    {
+      "task": "b3952e2d",
+      "turns": 34,
+      "fallback_turns": 6,
+      "first_fallback_turn": 3,
+      "full_rounds": 5,
+      "prefix_tokens": 90962,
+      "within_episode_budget_alone": 5,
+      "next_prompt": 25562,
+      "next_target": 252,
+      "next_reason": "episode_prompt",
+      "full_replayable": false,
+      "teacher_trajectory_tokens": 922623
+    },
+    {
+      "task": "1c84e4a9",
+      "turns": 10,
+      "fallback_turns": 0,
+      "first_fallback_turn": null,
+      "full_rounds": 4,
+      "prefix_tokens": 80417,
+      "within_episode_budget_alone": 4,
+      "next_prompt": 30068,
+      "next_target": 157,
+      "next_reason": "episode_prompt",
+      "full_replayable": false,
+      "teacher_trajectory_tokens": 251379
+    }
+  ],
+  "recovered_without_using_fallback": 1,
+  "recovered_reachable_first_fallback": 1,
+  "recovered_wholly_reachable": 0,
+  "recovered_wholly_within_100k_alone": 0,
+  "omitted_checks": {
+    "be66f009": {
+      "previous_leaves": 12,
+      "new_leaves": 13,
+      "checks": 13,
+      "prior_missed_check_types": [
+        "/check/drone_position"
+      ],
+      "prior_misses_now_satisfied": 1
+    },
+    "171fcea7": {
+      "previous_leaves": 3,
+      "new_leaves": 5,
+      "checks": 5,
+      "prior_missed_check_types": [
+        "/check/drone_has_visited_position",
+        "/check/drone_has_visited_position"
+      ],
+      "prior_misses_now_satisfied": 2
+    }
+  },
+  "passed_leaf_checks": 273
+}
