@@ -1,0 +1,115 @@
+{
+  "attempt": "20261127-191436-flockcue-teacher-v2-pilot-9bdf01a6",
+  "ordinary_prompt_cap": 30720,
+  "fallback_prompt_cap": 47104,
+  "output_cap": 2048,
+  "episode_budget": 100000,
+  "rejections": {
+    "f204de55": {
+      "old_min": 55890,
+      "new_min": 32471,
+      "admission": "48K",
+      "selected_prompt_tokens": 32471,
+      "turn": 10
+    },
+    "8c6c59a4": {
+      "old_min": 254462,
+      "new_min": 32900,
+      "admission": "48K",
+      "selected_prompt_tokens": 32900,
+      "turn": 24
+    },
+    "246d6bb7": {
+      "old_min": 50150,
+      "new_min": 37323,
+      "admission": "48K",
+      "selected_prompt_tokens": 37323,
+      "turn": 9
+    },
+    "18e32ea1": {
+      "old_min": 48861,
+      "new_min": 41576,
+      "admission": "48K",
+      "selected_prompt_tokens": 41576,
+      "turn": 15
+    },
+    "27011af0": {
+      "old_min": 61443,
+      "new_min": 43024,
+      "admission": "48K",
+      "selected_prompt_tokens": 43024,
+      "turn": 3
+    },
+    "67a82568": {
+      "old_min": 53440,
+      "new_min": 28749,
+      "admission": "32K",
+      "selected_prompt_tokens": 28749,
+      "turn": 17
+    }
+  },
+  "trajectories": {
+    "80e18e42": {
+      "turns": 14,
+      "old": {
+        "rounds": 4,
+        "spent": 73599,
+        "next_prompt": 32661,
+        "next_target": 984,
+        "remaining": 26401,
+        "stop": "episode_input"
+      },
+      "new": {
+        "rounds": 5,
+        "spent": 96540,
+        "next_prompt": 22233,
+        "next_target": 2673,
+        "remaining": 3460,
+        "stop": "episode_input"
+      }
+    },
+    "b3952e2d": {
+      "turns": 34,
+      "old": {
+        "rounds": 5,
+        "spent": 90962,
+        "next_prompt": 25562,
+        "next_target": 252,
+        "remaining": 9038,
+        "stop": "episode_input"
+      },
+      "new": {
+        "rounds": 5,
+        "spent": 96006,
+        "next_prompt": 20492,
+        "next_target": 252,
+        "remaining": 3994,
+        "stop": "episode_input"
+      }
+    },
+    "1c84e4a9": {
+      "turns": 10,
+      "old": {
+        "rounds": 4,
+        "spent": 80417,
+        "next_prompt": 30068,
+        "next_target": 157,
+        "remaining": 19583,
+        "stop": "episode_input"
+      },
+      "new": {
+        "rounds": 5,
+        "spent": 90998,
+        "next_prompt": 24569,
+        "next_target": 227,
+        "remaining": 9002,
+        "stop": "episode_input"
+      }
+    }
+  },
+  "evidence": {
+    "full_snapshots": 57,
+    "changed_receipt_instances": 155,
+    "delta_snapshots": 92
+  }
+}
