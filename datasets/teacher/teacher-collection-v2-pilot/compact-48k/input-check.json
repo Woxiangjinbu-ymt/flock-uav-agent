@@ -1,0 +1,41 @@
+[
+  {
+    "task": "b3952e2d",
+    "turn": 8,
+    "window": "48K",
+    "input_tokens": 32703,
+    "input_ids_sha256": "958da82bcb435bc82f53f9f8ffa139205958b7a02471863d16758d73991a6032",
+    "supervised_tokens": 337,
+    "upstream_model": "deepseek-flash",
+    "upstream_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "teacher_http_sha256": "b236f97895edf78e0d2bbff4f84f36d86c7b724a84d5a69f76a9c86fe174df76",
+    "teacher_response_sha256": "1ada4d7ecd3f663c7d1faa2552bdc21e9256e8321854c1005c7d5f5e0e970056",
+    "student_weight_sha256": "aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1",
+    "student_token": 760,
+    "retained_tools": 1,
+    "evidence": {
+      "full_snapshots": 1,
+      "changed_receipt_instances": 1
+    }
+  },
+  {
+    "task": "b3952e2d",
+    "turn": 34,
+    "window": "32K",
+    "input_tokens": 20431,
+    "input_ids_sha256": "0c20a2d2997118fc8752714501379599ade6b2ea469936f419c05a5e6b7622f9",
+    "supervised_tokens": 358,
+    "upstream_model": "deepseek-flash",
+    "upstream_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "teacher_http_sha256": "4dc7a69cdbc5414bf65bc1c1e8fd71af829a6f243ea074ca51527303f2d5e310",
+    "teacher_response_sha256": "ca670c7c7fd37c07d80c56cb70216c84fc5f76919c61552d367a626793347518",
+    "student_weight_sha256": "aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1",
+    "student_token": 8580,
+    "retained_tools": 4,
+    "evidence": {
+      "full_snapshots": 1,
+      "changed_receipt_instances": 2,
+      "delta_snapshots": 1
+    }
+  }
+]

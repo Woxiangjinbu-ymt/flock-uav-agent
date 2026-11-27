@@ -1,0 +1,44 @@
+{
+  "attempt": "20261127-210042-flockcue-teacher-v2-pilot-51d5cd88",
+  "collection_commit": "68bc86f2aeb5936fdaf9541dedc23c5e6df9ecfb",
+  "gate_commit": "68bc86f2",
+  "gate_report_sha256": "a4744dd5c39b92757451d3998c40fe4bae9e990d9108f10ef414f0a8e7fddf8b",
+  "plan_sha256": "1e4777c13e72bc8da53e16280f51f16b7d830a03ae4da54a9e336ab888116059",
+  "scenes": [
+    "36cbddd1",
+    "6e1a4ad2",
+    "79b207ff"
+  ],
+  "minimum_formal_pass": 48,
+  "denominator": 60,
+  "native_reference": "2026-11-15-expansion",
+  "frozen_long_tasks": [
+    "01d6e857",
+    "118d85eb",
+    "15ea9ca3",
+    "171fcea7",
+    "18e32ea1",
+    "246d6bb7",
+    "3d9d8c37",
+    "4cd7f5c5",
+    "5ef05474",
+    "708282ea",
+    "72410d1a",
+    "8c6c59a4",
+    "9349f4d1",
+    "be66f009",
+    "f901fdd7"
+  ],
+  "long_task_outcome": "grounded verification or closing in final third of realized trajectory",
+  "minimum_net_new_long_tasks": 3,
+  "normal_prompt": 30720,
+  "fallback_prompt": 47104,
+  "student_generation": 2048,
+  "student_episode_tokens": null,
+  "ordinary_excluded_probe": {
+    "task": "b3952e2d",
+    "turn": 3,
+    "reason": "sft_overlength",
+    "provider_completion_tokens": 3001
+  }
+}
