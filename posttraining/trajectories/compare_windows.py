@@ -67,9 +67,12 @@ def compare(attempt, inputs):
             tid = task["id"]
             prior = previous.pop(tid)
             if (tid != episode["task_id"] or tid != score["task_id"] or sid != prior["scene"]
-                    or episode["scene_id"] != sid or episode["task_index"] != int(prior["position"])):
+                    or episode["job_id"] != score["job_id"] or episode["scene_id"] != sid
+                    or episode["task_index"] != int(prior["position"])):
                 raise ValueError("Task, scene or task order differs between arms")
             turns = by_task[tid]
+            if [r["turn"] for r in turns] != list(range(1, episode["logical_turns"] + 1)):
+                raise ValueError("Missing or unordered decisions for the scored trajectory")
             fallback = [r["turn"] for r in turns if r["window"].get("fallback_prompt_limit") and r["attempts"]]
             cohort = "other"
             if tid in reg["blocked_regressions"]:
