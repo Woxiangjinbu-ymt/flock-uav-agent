@@ -14,6 +14,18 @@
 
 全量分母包括失败、超时和资料不完整的题。三个复用场景按登记的 attempt 与封存摘要核验，首次采集的 60 个题位各计一次。训练行以完整通过题的可表示教师轮为候选，公开执行证据的审阅理由、后置回执和私有评分单独保存。
 
-新增 48 场的首遍于 2026-11-27 22:30（新加坡时间）启动，运行提交为 `4a98aa52`，编号为 `20261127-223047-flockcue-teacher-v2-training-5f598d84`。运行日志在仓库旁的 `MultiUAV-Plat-runs/teacher-collection-v2/full/run.log`。结束后合并评分写入同目录的 `score.json`，逐场训练侧轮次保存在 `l1/`。
+## 首遍与补采
 
-`python -m runtime prepare --teacher-collection --stage <stage>` 生成剩余 48 场计划。沿用 `preflight` 和 `run` 入口。使用 `score --teacher-collection --stage <stage> --attempt <new-attempt> --carried-attempt <pilot-attempt>` 对两个来源合并重评。原始运行文件写在仓库旁的 `MultiUAV-Plat-runs/teacher-collection-v2/`。
+新增 48 场的首遍于 2026-11-27 22:30（新加坡时间）启动，运行提交为 `4a98aa52`，编号为 `20261127-223047-flockcue-teacher-v2-training-5f598d84`。46 场封存。其余两场在下一题准备时因障碍物 ID 集合改变而中断，分别留下 1 题和 4 题的完整评分证据。加上试采，首遍共有 985/1,020 题取得独立评分，其中 879 题通过。
+
+切换当前场景时，控制器依次清空并重载飞机、目标和障碍物。后台时钟可能在障碍物尚未重载时同步当前世界，把空清单写回会话。用两场中断前的快照安排同一时序，障碍物分别由 20、10 个降至 0。使用首遍封存的服务代码反复发出真实 HTTP 重载请求，也在 `13b94391` 的第 597 次重载观测到 20 个障碍物全部消失。修复将时钟更新和同步重载放在同一服务事件循环中，两场各 200 次 HTTP 重载均保留了全部实体 ID。原有动作、评分与 ID 检查继续生效。
+
+补采提交为 `0deb1265`，从原始状态按原题序重跑 `13b94391`、`58fe4605` 共 40 题。计分与导出均优先保留首遍有效题，补采只贡献缺失的 19 题、16 题。开始补采前已固定首遍清单哈希、两场全部已有文件的摘要，以及 5 个保留题位。逐题来源写入合并评分，混合来源的场景在 L1 中为每个 episode 标记实际 attempt。[补采登记](supplement.json)
+
+首遍使用 `python -m runtime prepare --teacher-collection --stage <stage>` 生成计划。单独的补采使用 `--teacher-supplement`，沿用 `prepare`、`preflight`、`run` 入口。下面的离线命令读取三个原始 attempt，重评独立检查，并按原题序导出 L1。输出包括 `score.json`、`score-rows.json`、`l1/` 和 `l1-summary.json`。本地运行根目录为仓库旁的 `MultiUAV-Plat-runs/teacher-collection-v2/`。
+
+```bash
+posttraining/.venv/bin/python -m posttraining.trajectories.collection \
+  --first "$run_root"/full/runs/* --pilot "$run_root"/compact-48k/runs/* \
+  --supplement "$run_root"/supplement/runs/* --output "$run_root"/full
+```
