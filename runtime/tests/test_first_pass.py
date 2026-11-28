@@ -60,6 +60,19 @@ class FirstPassTests(unittest.TestCase):
         self.assertTrue(training.isdisjoint(pilot["additional_validation"]))
         self.assertEqual(sum(len(scene["tasks"]) for _, scene in scenes), 960)
 
+    def test_supplement_replays_full_scenes_and_preserves_registered_prefixes(self):
+        repair = executor.read_json(executor.REPAIR_REGISTRATION)
+        with patch.object(executor, "PLAN", executor.REPAIR_PLAN):
+            scenes = executor.select_scenes(executor.canonical_scenes())
+        plan = executor.make_plan(executor.REPAIR_PLAN, scenes)
+        self.assertEqual((len(scenes), plan["expected_tasks"], plan["expected_checks"]), (2, 40, 243))
+        kept = []
+        for scene in plan["sessions"]:
+            prefix = repair["prefixes"][scene["id"]]["scored_task_ids"]
+            self.assertEqual(prefix, [task["id"] for task in scene["tasks"][:len(prefix)]])
+            kept.extend(prefix)
+        self.assertEqual(len(set(kept)), 5)
+
     def test_concurrent_preflight_is_rejected_before_probing(self):
         with parallel.first_pass_lock(self.stage), patch.object(executor, "preflight") as gateway:
             with self.assertRaisesRegex(ValueError, "active"):

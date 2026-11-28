@@ -99,13 +99,7 @@ def scored_rows(attempt, plan):
             scene_rows = parallel.verify_scene(executor, attempt, plan, scene, record)
             rows.extend(scene_rows)
             directory = parallel.safe_directory(attempt, record["directory"])
-            terminal_jobs = set()
-            with (directory / "agent-traces/reproduction-metrics.jsonl").open() as events:
-                for line in events:
-                    event = json.loads(line)
-                    if (event["event"] == "llm_error" and isinstance(event.get("status_code"), int)
-                            and event["status_code"] >= 400):
-                        terminal_jobs.add(event["job_id"])
+            terminal_jobs = parallel.terminal_http_jobs(directory)
             for row in scene_rows:
                 success = row["task_pass"] and row["job_id"] not in terminal_jobs
                 passed += success

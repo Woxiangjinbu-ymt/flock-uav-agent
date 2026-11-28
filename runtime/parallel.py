@@ -121,6 +121,12 @@ def validate_scene_evidence(r, plan, selected, directory):
     state = r.read_json(directory / "scene.json")
     if state.get("status") != "completed" or state.get("session_id") != selected["id"] or state.get("error"):
         raise ValueError("Scene completion state is inconsistent")
+    validate_task_evidence(r, plan, selected, directory, rows)
+    return rows
+
+
+def validate_task_evidence(r, plan, selected, directory, rows):
+    """Re-score an ordered set of tasks against its original source and barriers."""
     if not r.summarize(scene_plan(plan, selected), rows, "completed")["valid_complete_run"]:
         raise ValueError("Completed scene contains incomplete scoring or unsafe continuation")
     source = r.read_json(r.DATA / selected["file"])
@@ -163,7 +169,12 @@ def validate_scene_evidence(r, plan, selected, directory):
             raise ValueError("Saved check responses do not match leaf scores")
         if [(d.get("result"), d.get("actual")) for d in leaves] != [(d.get("result"), d.get("actual")) for d in row["leaves"]]:
             raise ValueError("Saved leaf scores do not match result rows")
-    return rows
+
+
+def terminal_http_jobs(directory):
+    with (directory / "agent-traces/reproduction-metrics.jsonl").open() as stream:
+        return {e["job_id"] for e in map(json.loads, stream) if e["event"] == "llm_error"
+                and isinstance(e.get("status_code"), int) and e["status_code"] >= 400}
 
 
 def verify_scene(r, attempt, plan, selected, record):

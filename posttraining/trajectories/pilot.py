@@ -1,5 +1,6 @@
 """Extract public pilot turns and their private eligibility index from a sealed scene."""
 import argparse
+from dataclasses import dataclass
 import gzip
 import json
 from pathlib import Path
@@ -70,15 +71,34 @@ def project_turn(tokenizer, stream, turn, fallback_limit=None):
     return fields, line
 
 
-def extract_scene(attempt, scene_id, destination, tokenizer):
+@dataclass
+class SceneSource:
+    attempt: Path
+    scene: dict
+    folder: Path
+    files: dict
+    rows: list
+    split: str
+    evidence_sha256: str
+
+    def origin(self):
+        return {"attempt": self.attempt.name, "scene_id": self.scene["id"],
+                "seal_sha256": self.evidence_sha256,
+                "plan_sha256": executor.digest((self.attempt / "plan.json").read_bytes()),
+                "settings_sha256": executor.digest((self.attempt / "agent-settings.json").read_bytes())}
+
+
+def sealed_source(attempt, scene_id):
     executor.use_stage(attempt.parent.parent)
     plan = executor.read_json(attempt / "plan.json")
     split = "training_expansion"
-    if plan["name"] == executor.COLLECTION_PLAN:
+    if plan["name"] in {executor.COLLECTION_PLAN, executor.REPAIR_PLAN}:
         registration = executor.read_json(executor.COLLECTION_REGISTRATION)
         role = executor.collection_train_roles().get(scene_id)
         if not role or scene_id in registration["carried_seals"]:
             raise ValueError("Scene is outside the newly collected training cohort")
+        if plan["name"] == executor.REPAIR_PLAN:
+            registration = executor.read_json(executor.REPAIR_REGISTRATION)
         if role == "baseline_train":
             split = "training"
     else:
@@ -93,57 +113,70 @@ def extract_scene(attempt, scene_id, destination, tokenizer):
     folder = parallel.safe_directory(attempt, record["directory"])
     parallel.verify_archive(executor, attempt)
     scores = parallel.verify_scene(executor, attempt, plan, scene, record)
+    files = executor.read_json(folder / "complete.json")["files"]
+    return SceneSource(attempt, scene, folder, files, scores, split, record["seal_sha256"])
+
+
+def project_episodes(source, public, index, tokenizer, mixed):
+    attempt, scene, folder = source.attempt, source.scene, source.folder
+    scene_id = scene["id"]
     settings = executor.read_json(attempt / "configuration.json")
     fallback_limit = settings.get("fallback_prompt_limit")
     episode_limit = settings.get("student_episode_tokens", HISTORICAL_EPISODE_TOKEN_LIMIT)
-    files = executor.read_json(folder / "complete.json")["files"]
-    metrics = (folder / "agent-traces/reproduction-metrics.jsonl").read_text().splitlines()
-    failed_jobs = {e["job_id"] for e in map(json.loads, metrics)
-                   if e["event"] == "llm_error" and (e.get("status_code") or 0) >= 400}
-    tasks = executor.read_json(executor.DATA / scene["file"])["tasks"]
-    episodes = []
+    failed_jobs = parallel.terminal_http_jobs(folder)
+    task_ids = {row["task_id"] for row in source.rows}
+    tasks = [task for task in executor.read_json(attempt.parent.parent / "scenes" / scene["file"])["tasks"]
+             if task["id"] in task_ids]
+    wire_rows = scene_indices(Path("."), folder, source.files, scene_id, source.split, task_ids)
+    for (ep, turns, _), score, task in zip(wire_rows, source.rows, tasks, strict=True):
+        task_id = ep["task_id"]
+        if task_id != score["task_id"] or task_id != task["id"]:
+            raise ValueError("Score, wire archive and original task order disagree")
+        if mixed:
+            ep["attempt"] = attempt.name
+        initial = executor.read_json(folder / f"{task_id}.initial-checks.json")["passed"]
+        passed = score["task_pass"] and ep["job_id"] not in failed_jobs
+        yield {**ep, "formal_pass": passed, "checker_pass": score["task_pass"],
+               "initial_pass": initial, "instruction": task["content"]}
+        spent, reachable = 0, True
+        with (attempt / ep["archive_path"]).open("rb") as stream:
+            for turn in turns:
+                window = turn.get("student_context", {})
+                row = {"scene_id": scene_id, "task_id": task_id, "turn": turn["turn"],
+                       "logical_call_id": turn["logical_call_id"], "attempts": len(turn["attempts"]),
+                       "window": window, "fingerprint": turn.get("fingerprint"), "model": turn.get("model"),
+                       "usage": turn.get("usage"), "tools": [c["name"] for c in turn["calls"]],
+                       "wire_issues": turn["issues"], "formal_pass": passed, "initial_pass": initial,
+                       "complete_episode": ep["archive_complete"], "late": turn["turn"] * 3 > len(turns) * 2}
+                fields, line = project_turn(tokenizer, stream, turn, fallback_limit)
+                row.update(fields)
+                if line is not None:
+                    public.write(line)
+                if row["projection"] == "ok":
+                    spent += window["tokens"] + row["target_tokens"]
+                reachable = (reachable and turn["wire_verified"] and row["projection"] == "ok"
+                             and (episode_limit is None or spent <= episode_limit))
+                row["shadow_reachable"] = reachable
+                row["raw_candidate"] = bool(passed and ep["archive_complete"]
+                                            and turn["wire_verified"] and row["projection"] == "ok")
+                index.write(packed(row) + b"\n")
+
+
+def export_sources(sources, destination, tokenizer, origin):
     with (destination / "public.jsonl.gz").open("xb") as raw, gzip.GzipFile(
         filename="", mode="wb", fileobj=raw, mtime=0
     ) as public, (destination / "decisions.jsonl").open("xb") as index:
-        wire_rows = scene_indices(Path("."), folder, files, scene_id, split)
-        for (ep, turns, _), score, task in zip(wire_rows, scores, tasks, strict=True):
-            task_id = ep["task_id"]
-            if task_id != score["task_id"] or task_id != task["id"]:
-                raise ValueError("Score, wire archive and original task order disagree")
-            initial = executor.read_json(folder / f"{task_id}.initial-checks.json")["passed"]
-            passed = score["task_pass"] and ep["job_id"] not in failed_jobs
-            episodes.append({**ep, "formal_pass": passed, "checker_pass": score["task_pass"],
-                             "initial_pass": initial, "instruction": task["content"]})
-            spent, reachable = 0, True
-            with (attempt / ep["archive_path"]).open("rb") as stream:
-                for turn in turns:
-                    window = turn.get("student_context", {})
-                    row = {"scene_id": scene_id, "task_id": task_id, "turn": turn["turn"],
-                           "logical_call_id": turn["logical_call_id"], "attempts": len(turn["attempts"]),
-                           "window": window, "fingerprint": turn.get("fingerprint"), "model": turn.get("model"),
-                           "usage": turn.get("usage"), "tools": [c["name"] for c in turn["calls"]],
-                           "wire_issues": turn["issues"], "formal_pass": passed, "initial_pass": initial,
-                           "complete_episode": ep["archive_complete"], "late": turn["turn"] * 3 > len(turns) * 2}
-                    fields, line = project_turn(tokenizer, stream, turn, fallback_limit)
-                    row.update(fields)
-                    if line is not None:
-                        public.write(line)
-                    if row["projection"] == "ok":
-                        spent += window["tokens"] + row["target_tokens"]
-                    reachable = (reachable and turn["wire_verified"] and row["projection"] == "ok"
-                                 and (episode_limit is None or spent <= episode_limit))
-                    row["shadow_reachable"] = reachable
-                    row["raw_candidate"] = bool(passed and ep["archive_complete"]
-                                                and turn["wire_verified"] and row["projection"] == "ok")
-                    index.write(packed(row) + b"\n")
+        episodes = [ep for source in sources
+                    for ep in project_episodes(source, public, index, tokenizer, len(sources) > 1)]
     executor.save_json(destination / "episodes.json", episodes)
-    executor.save_json(destination / "origin.json", {
-        "attempt": attempt.name, "scene_id": scene_id, "seal_sha256": record["seal_sha256"],
-        "plan_sha256": registration["plan_sha256"],
-        "settings_sha256": executor.digest((attempt / "agent-settings.json").read_bytes()),
-    })
+    executor.save_json(destination / "origin.json", origin)
     return {"tasks": len(episodes), "passed": sum(e["formal_pass"] for e in episodes),
             "turns": sum(e["logical_turns"] for e in episodes)}
+
+
+def extract_scene(attempt, scene_id, destination, tokenizer):
+    source = sealed_source(attempt, scene_id)
+    return export_sources([source], destination, tokenizer, source.origin())
 
 
 def main():

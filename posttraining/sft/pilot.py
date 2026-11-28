@@ -32,6 +32,11 @@ def build(inputs, review, output, *, collection=False):
                 if (origin["attempt"] != registration["carried_attempt"]
                         or origin["seal_sha256"] != registration["carried_seals"][sid]):
                     raise ValueError(f"Mismatched carried pilot scene: {sid}")
+            elif "sources" in origin:
+                release = read_json(COLLECTION_REGISTRATION.with_name("result.json"))
+                files = {p.name: file_digest(p) for p in (inputs / sid).iterdir()}
+                if files != release["l1_files"][sid]:
+                    raise ValueError(f"Mismatched merged L1 evidence: {sid}")
             elif origin["plan_sha256"] != registration["plan_sha256"]:
                 raise ValueError(f"Mismatched training plan: {sid}")
     with review.open(newline="") as stream:

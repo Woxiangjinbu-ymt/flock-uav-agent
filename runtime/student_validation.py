@@ -50,6 +50,9 @@ COMPACT_PILOT_SOURCES = "2793d80262da7e87610b4f6990fc5b1c24c7f020400102089c13dd4
 # Adds the training-scene dispatcher to the same compact-receipt deployment.
 COMPACT_COLLECTION_SOURCES = "2b7c50dfd33facb772f16cbdba473429391e3b8eaa08d639f2b877190ea8e1e2"
 
+# Live paired arms can share the repaired simulation clock. Historical comparisons keep their original sources.
+SERIAL_CLOCK_SOURCES = "25036b6b2008128f61a55d962addd3829c531c406cf6194e8a8146eb9f6c0828"
+
 
 def build_plan(*, uncapped=True, context_tokens=MAX_CONTEXT, generation_tokens=MAX_GENERATION):
     if context_tokens not in EVALUATION_CONTEXTS or (not uncapped and context_tokens != MAX_CONTEXT):
@@ -129,9 +132,9 @@ def candidate_plan(config, sources, uncapped=True, context_tokens=MAX_CONTEXT, g
         if context_tokens == MAX_CONTEXT:
             allowed.add(CONFIGURABLE_BUDGET_SOURCES)
     if uncapped:
-        allowed.update((UNCAPPED_PILOT_SOURCES, COMPACT_PILOT_SOURCES, COMPACT_COLLECTION_SOURCES))
+        allowed.update((UNCAPPED_PILOT_SOURCES, COMPACT_PILOT_SOURCES, COMPACT_COLLECTION_SOURCES, SERIAL_CLOCK_SOURCES))
     if context_tokens == FALLBACK_CONTEXT:
-        allowed = {COMPACT_PILOT_SOURCES, COMPACT_COLLECTION_SOURCES}
+        allowed = {COMPACT_PILOT_SOURCES, COMPACT_COLLECTION_SOURCES, SERIAL_CLOCK_SOURCES}
     elif not uncapped:
         allowed.add(REFERENCE["deployment_sources_digest"])
     if digest not in allowed:

@@ -410,7 +410,7 @@ def annotations_for(folder, files, command_id, command):
     return annotations
 
 
-def scene_indices(registered_run, folder, files, scene_id, split):
+def scene_indices(registered_run, folder, files, scene_id, split, task_ids=None):
     commands = defaultdict(set)
     metrics = folder / "agent-traces/reproduction-metrics.jsonl"
     for line in sealed_bytes(folder, files, metrics).splitlines():
@@ -426,6 +426,8 @@ def scene_indices(registered_run, folder, files, scene_id, split):
     results = json.loads(sealed_bytes(folder, files, folder / "results.json"))
     require(len(results) == 20, f"Expected one 20-task scene: {scene_id}")
     for index, row in enumerate(results, 1):
+        if task_ids is not None and row["task_id"] not in task_ids:
+            continue
         task_id, job_id = row["task_id"], row["job_id"]
         require(row["session_id"] == scene_id and len(commands[job_id]) == 1, "Task/job binding")
         (command_id,) = commands[job_id]
