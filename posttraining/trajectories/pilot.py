@@ -117,7 +117,7 @@ def sealed_source(attempt, scene_id):
     return SceneSource(attempt, scene, folder, files, scores, split, record["seal_sha256"])
 
 
-def project_episodes(source, public, index, tokenizer, mixed):
+def write_episodes(source, public, index, tokenizer, mixed):
     attempt, scene, folder = source.attempt, source.scene, source.folder
     scene_id = scene["id"]
     settings = executor.read_json(attempt / "configuration.json")
@@ -128,6 +128,7 @@ def project_episodes(source, public, index, tokenizer, mixed):
     tasks = [task for task in executor.read_json(attempt.parent.parent / "scenes" / scene["file"])["tasks"]
              if task["id"] in task_ids]
     wire_rows = scene_indices(Path("."), folder, source.files, scene_id, source.split, task_ids)
+    episodes = []
     for (ep, turns, _), score, task in zip(wire_rows, source.rows, tasks, strict=True):
         task_id = ep["task_id"]
         if task_id != score["task_id"] or task_id != task["id"]:
@@ -136,8 +137,8 @@ def project_episodes(source, public, index, tokenizer, mixed):
             ep["attempt"] = attempt.name
         initial = executor.read_json(folder / f"{task_id}.initial-checks.json")["passed"]
         passed = score["task_pass"] and ep["job_id"] not in failed_jobs
-        yield {**ep, "formal_pass": passed, "checker_pass": score["task_pass"],
-               "initial_pass": initial, "instruction": task["content"]}
+        episodes.append({**ep, "formal_pass": passed, "checker_pass": score["task_pass"],
+                         "initial_pass": initial, "instruction": task["content"]})
         spent, reachable = 0, True
         with (attempt / ep["archive_path"]).open("rb") as stream:
             for turn in turns:
@@ -160,6 +161,7 @@ def project_episodes(source, public, index, tokenizer, mixed):
                 row["raw_candidate"] = bool(passed and ep["archive_complete"]
                                             and turn["wire_verified"] and row["projection"] == "ok")
                 index.write(packed(row) + b"\n")
+    return episodes
 
 
 def export_sources(sources, destination, tokenizer, origin):
@@ -167,7 +169,7 @@ def export_sources(sources, destination, tokenizer, origin):
         filename="", mode="wb", fileobj=raw, mtime=0
     ) as public, (destination / "decisions.jsonl").open("xb") as index:
         episodes = [ep for source in sources
-                    for ep in project_episodes(source, public, index, tokenizer, len(sources) > 1)]
+                    for ep in write_episodes(source, public, index, tokenizer, len(sources) > 1)]
     executor.save_json(destination / "episodes.json", episodes)
     executor.save_json(destination / "origin.json", origin)
     return {"tasks": len(episodes), "passed": sum(e["formal_pass"] for e in episodes),

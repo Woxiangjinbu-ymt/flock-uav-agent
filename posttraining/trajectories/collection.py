@@ -132,7 +132,9 @@ def collect(first, pilot, supplement, output):
     if not score["valid_complete_run"]:
         raise ValueError("Combined scores do not cover the training plan")
     passed = sum(row["formal_pass"] for row in rows)
+    strict = sum(row["formal_pass"] and row["continuation_safe"] for row in rows)
     score.update(passed_tasks=passed, pass_rate=passed / len(rows),
+                 strict_deployment_passed=strict, strict_deployment_rate=strict / len(rows),
                  passed_checks=sum(leaf["result"] for row in rows for leaf in row["leaves"]),
                  sources=dict(Counter(row["attempt"] for row in rows)))
     rt.save_json(output / "score-rows.json", rows)
