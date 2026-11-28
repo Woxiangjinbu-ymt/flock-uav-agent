@@ -1,0 +1,437 @@
+{
+  "score": {
+    "valid_complete_run": true,
+    "planned_tasks": 1020,
+    "planned_checks": 6451,
+    "scored_tasks": 1020,
+    "scored_checks": 6451,
+    "agent_timed_out_tasks": 27,
+    "timed_out_but_passed_tasks": 4,
+    "missing_or_invalid_tasks": 0,
+    "metrics": {
+      "passed_tasks": 913,
+      "task_pass": 0.8950980392156863,
+      "avg_check": 0.9551356919579422,
+      "global_check": 0.9147419004805456,
+      "total_failed": 0.014705882352941176
+    },
+    "passed_tasks": 913,
+    "pass_rate": 0.8950980392156863,
+    "strict_deployment_passed": 913,
+    "strict_deployment_rate": 0.8950980392156863,
+    "passed_checks": 5901,
+    "sources": {
+      "20261127-223047-flockcue-teacher-v2-training-5f598d84": 925,
+      "20261127-210042-flockcue-teacher-v2-pilot-51d5cd88": 60,
+      "20261128-102121-flockcue-teacher-v2-supplement-2f8caee3": 35
+    }
+  },
+  "selected_sources": {
+    "first": {
+      "tasks": 925,
+      "passed": 832
+    },
+    "carried_pilot": {
+      "tasks": 60,
+      "passed": 47
+    },
+    "supplement": {
+      "tasks": 35,
+      "passed": 34
+    }
+  },
+  "repaired_scenes": {
+    "13b94391": {
+      "first_tasks": 1,
+      "first_passed": 1,
+      "supplement_tasks": 19,
+      "supplement_passed": 19,
+      "candidate_tasks": 19,
+      "candidate_turns": 176
+    },
+    "58fe4605": {
+      "first_tasks": 4,
+      "first_passed": 4,
+      "supplement_tasks": 16,
+      "supplement_passed": 15,
+      "candidate_tasks": 19,
+      "candidate_turns": 212
+    }
+  },
+  "initial_checks_verified": 6451,
+  "l1": {
+    "tasks": 1020,
+    "complete_archives": 955,
+    "logical_turns": 15120,
+    "candidate_turns": 11060,
+    "candidate_fallback_turns": 39,
+    "candidate_supervised_tokens": 4603837,
+    "candidate_prompt_tokens": 227159908,
+    "candidate_turns_with_accepted_receipts": 10247,
+    "candidate_tasks": 901,
+    "fully_representable_candidate_tasks": 488
+  },
+  "candidate_models": {
+    "deepseek-flash": 11060
+  },
+  "candidate_fingerprints": {
+    "bc19ba97cbe016479903222bb1578db6": 11060
+  },
+  "candidate_tasks_using_fallback": 24,
+  "candidate_tasks_already_passing_at_start": 78,
+  "candidate_turns_from_those_tasks": 783,
+  "passed_without_candidates": {
+    "incomplete_archive": 12
+  },
+  "noncandidate_turns_in_passed_tasks_by_projection": {
+    "sft_overlength": 1220,
+    "ok": 294,
+    "incomplete_response_or_receipts": 7,
+    "sft_decode": 4
+  },
+  "attempts": {
+    "compact-48k": {
+      "attempt": "20261127-210042-flockcue-teacher-v2-pilot-51d5cd88",
+      "manifest_sha256": "729ac078f8f296c42013f300d57218bcd94aab0adf28c22757b0a33f98175639",
+      "status": "completed"
+    },
+    "full": {
+      "attempt": "20261127-223047-flockcue-teacher-v2-training-5f598d84",
+      "manifest_sha256": "2b1f6f02e0e2e1d1e81c11f3be7be9cf018b2e568a36a62de184466f4abd8f8b",
+      "status": "aborted"
+    },
+    "supplement-final": {
+      "attempt": "20261128-102121-flockcue-teacher-v2-supplement-2f8caee3",
+      "manifest_sha256": "ec9683e21df544960063b905eced7c6066b8f44b6a0dbb6c121220a3795b62f8",
+      "status": "completed"
+    }
+  },
+  "score_rows_sha256": "e738f92f1178bd3d994c7680097df6f31262bb22c89ace8eda10a4b1abaa017e",
+  "l1_summary_sha256": "484c189f23a7e3fc26387c72aa166cfa51b3f18da95a562460589a38818e3a5a",
+  "l1_files": {
+    "fb8971ec": {
+      "decisions.jsonl": "b2b4179db9fa58f9ea85dcee1d7ab5e93906846170164a78fd42ff747fd7840c",
+      "episodes.json": "8c3f6e35d372ffaf0b87f1f84eda7a027883d296a57c2f28173d3547c3d63f81",
+      "origin.json": "9b3b9c10031e4dc564298f5ff9c7faa21647e3b760d3656f6bb33d92af0d4ff9",
+      "public.jsonl.gz": "b291d6ce258a8e740ecf3856d69bb951739c7f1bf49d388268742f81170e36e9"
+    },
+    "04cd6269": {
+      "decisions.jsonl": "4711e95bdd04aaec5bc40326dd81f570ae467c648cbec72d0a5ebbdfa3c3dd52",
+      "episodes.json": "9394facb0771715ee6d99f0bf120d0c6cb39c8b9d10658f0061c2d2a8b0f12ef",
+      "origin.json": "92852a0be9bfc86bbfbd82ffa927e39dbb085e7e9b25adf3553215217a457f50",
+      "public.jsonl.gz": "9942b8cfb954c142d6e2831d4d43aa15795ccdfa4641989d82217854fe19a44d"
+    },
+    "4aa67fd7": {
+      "decisions.jsonl": "b2b815a49fd7c5d8853327fcfd5a3719038b1b9551633bc649167159b12e4418",
+      "episodes.json": "9a9178ebfd617f3042d2af3bfaae2778135ed5c17c930253e4db673a061843dc",
+      "origin.json": "08e416ddbd92f39a5af48a78c8161a35620d9aaa2d2a5e3479e72d3de0d9d4fe",
+      "public.jsonl.gz": "9c337fe043083508ecb2978ff28e6d8932ecef22c267b71d2301e8aee8ac8db9"
+    },
+    "228ef1f0": {
+      "decisions.jsonl": "b09317b9caff256b52dabb8993681c7be74ce7eff4b0066b9881ead61606aa4e",
+      "episodes.json": "369a7ef8d5fc3f7176d553b17e7021bffaff2556fd4b251e32fc4b59e7c4ef29",
+      "origin.json": "546c66fec6bc595fa549db488a2944cd81b2431504032d436a9f31a9c6089ebb",
+      "public.jsonl.gz": "55861181c9429cabbb057b2193deca7bfd06e7c3c5ebde166eb588002bec633e"
+    },
+    "8b7866a0": {
+      "decisions.jsonl": "d801d9ca658a11a41dfdada02622e861b427c4582147dc754637bdd43f122592",
+      "episodes.json": "c9971e3a3bf6cc216ae0353fe38a6661326f80f2898323ac9ccb0e0ea7b110b7",
+      "origin.json": "ad14da5cac80b38321ec99f5519833f531e8d1a1a926117b6893e90050d4fef4",
+      "public.jsonl.gz": "11b871ef8571145d08ee561c5a943ceeabe348abfd943b362f12205df2df162b"
+    },
+    "3ec31656": {
+      "decisions.jsonl": "7c7ff5ef650ea205140b32a3188858237c34373dd35313bd551385f19456440e",
+      "episodes.json": "f9795730a2f21447a480b542877ee9e7548417f41cc8d4dde244bf55f59ab2ea",
+      "origin.json": "9bbc8dc0e1d490ff98e4de566adc3d762f2497b1332bf077a12c67e4bdef3459",
+      "public.jsonl.gz": "57cd99954f8f48273227127d2030a6086eb847d731717df8a20cecb7a5246b12"
+    },
+    "640b66d4": {
+      "decisions.jsonl": "b797293d1a45078fc52784b9e9ea37d372a092155a639fa00c41998d15e2c2fc",
+      "episodes.json": "e821dec1692a843673871460cfbd54c0aa763ad5f2130a5af20bdbf2e4b95876",
+      "origin.json": "476fe2d7fddccc993f23d9b87d383fca6cf7ac597324499c19a59a356a02a435",
+      "public.jsonl.gz": "6c126a6a7bf1b358e56410d09a2db62a226a1d39a40f091541263b9c0aa8ec56"
+    },
+    "c350908c": {
+      "decisions.jsonl": "8d6a88b3c037ade5519003c162035dd971c87b126df235bf95001de27a0bb468",
+      "episodes.json": "3a39727133a1f86198d68d8155719a1e2c4bca7cca038f9f079857a57db1dcaa",
+      "origin.json": "16a235ad284b91011bfbc179a94c433bd328a775ba74019a453391f8efde4b22",
+      "public.jsonl.gz": "429b91617397fb81d128e367c28830fc744bff6ee18326e3eb5d042a0147cf5c"
+    },
+    "76802002": {
+      "decisions.jsonl": "84cecbeae374a2b41d9dd3977cc31e69517113f7b64295daeda9fc6fda570be6",
+      "episodes.json": "e4eae1f8cb6a3f5ee241336b3728ff851b938880f029743f2e8806f6553c1b1d",
+      "origin.json": "a9214c9d318339f61810c3a7bd59903620d20c48d98dea973052378c42391d5e",
+      "public.jsonl.gz": "b4198a40eccfb83719ef7b1b61cc1666d5d8c8b16f0939c12d458a5bfeb917a5"
+    },
+    "5be2589b": {
+      "decisions.jsonl": "d7caf4dfda33ddfd2a0dc8f5d7c162c353c984892c78921789ccf4fba6e897c7",
+      "episodes.json": "fa2a7365bfd32c8aa01667e08fdf9d48969bfb3e38e4ef7a16d72f87a66d8754",
+      "origin.json": "0ff351cb887959027779741e95bba4db3bb8b477788a26c98874efae660d7b1a",
+      "public.jsonl.gz": "5247fec16ef01ee78229da5251b7d3eced08a3afc386d411c309242d81d1f8e2"
+    },
+    "00c63e73": {
+      "decisions.jsonl": "576deaf3b4b4b511a0c4ae6a253df0fd0f31f7f068d35087010ac77b7378d6ea",
+      "episodes.json": "ac242ff28a586b9a8ccf631c93b838e35b1e33d4a6db3a9070518c34973e26e5",
+      "origin.json": "4a678bf2f8f5b05d26708c835274b9ab305065171ea57af4de16eba047b63b92",
+      "public.jsonl.gz": "7a72d7af6ee3da28da32ef1e5f6ab87b624a555ec7a179b2c563bb46af73cbf4"
+    },
+    "d76359cf": {
+      "decisions.jsonl": "e8dba714e3dc2622f2dbf9542b536f7d9324bd9f424a19ab65ff51bdecf5724f",
+      "episodes.json": "258d1352600321ed10cf21a6106bb87d5538afe25e7944580d9f26732e54dd48",
+      "origin.json": "d4b2f5064b18e0bb43eaf239a13e7924a535518f6f769192fa20f404b258acca",
+      "public.jsonl.gz": "98f2a0f4120c41e377b06eb85d0e5b336a22dcf9e580847c12444dc8970d010c"
+    },
+    "36cbddd1": {
+      "decisions.jsonl": "abe351eb50fb1c0962b423c17885b09878e683ff9b2df45db1b2ea3ee82f72fd",
+      "episodes.json": "07ce05ddbea29ef82039d862adba97a6dfe5254c943f705a3873f3aced98b159",
+      "origin.json": "861bc2bc1f1ec58e82509a45721d21c66fe6d38d85ff6b9c6c654dc8c76c5a75",
+      "public.jsonl.gz": "4a290934d78415724a7c91692956aa7553ad38fb87e6d502fc7b582e34a66746"
+    },
+    "4e425a5b": {
+      "decisions.jsonl": "2a6f0534307fc85474bb6f635d1e6778a883cbba7e0e77ae23ae455df19f6083",
+      "episodes.json": "97f2e54504b79ae39a2feb9d27dc6fc95a924da6a175186abbcb939b887f03a7",
+      "origin.json": "c4ab18814a77a82debacb544ee35a2fdbfcd7fd6514934e177133db13c44f5a0",
+      "public.jsonl.gz": "3a8a0d8b20b72b7942523860789df65345b6b3111caf3357765dc26a7fe107a0"
+    },
+    "6df54034": {
+      "decisions.jsonl": "f3d780c56b550a1513926521db0045c70a457acc4965ff79050ecdc8366c960a",
+      "episodes.json": "75e951b189b5b05a34c33aeb364d8c5b652c955b46677ef070d3f5c6176099a6",
+      "origin.json": "584621cd44ea43be21115133582dbafd900c8c7f5b480d77131a1936b0143e50",
+      "public.jsonl.gz": "d2f46aca9aac5203d19a285fc4165b5dfe459e8febb4bff2e4d18f85ebbb786a"
+    },
+    "0567e470": {
+      "decisions.jsonl": "fb1659c18bc5aef529452d2f9189dc168bc735b979bf12fc1f5849b92641e1e9",
+      "episodes.json": "a3ff7a45432c97568db3a1fe96687133d1454c564f7a656e31cddcfb44d0ac4f",
+      "origin.json": "29aff48afb195262d2cec513763f9299b05a934a5a6427e24b20cba2e6ead8e0",
+      "public.jsonl.gz": "d2b13a9103ffee1b542e9ca968574bbaac9dd233e00a5735a9f8360c343d276a"
+    },
+    "93831d6d": {
+      "decisions.jsonl": "316c71705e621c9eedae5ce48073b70400ef799ee0fbcb43ec4e32c882ab7f6f",
+      "episodes.json": "08ac3700c300ac19d62baa6937aec14b1d654b32203e102e8ac5d33c051f8b23",
+      "origin.json": "7076e2aa9dbb15ad304a132dc11aa32d7979f293a396b876f234f3b60ef2b197",
+      "public.jsonl.gz": "699a3396c1435154f6d9ced811db64d742e0d2d3c7bcfb8d3484819fa9adb1c3"
+    },
+    "25239af9": {
+      "decisions.jsonl": "757539175a51cade392d963f5cda696e08e54dbe5a53e567a8a6ec8cb2159eab",
+      "episodes.json": "4eb61bd5badc4dbbfd470f6830f0e6dd3a8c3dd58996ec6dd90114dd340535fd",
+      "origin.json": "73e754e7733ef90c083c7593bdf3586f6dc13c9a41b2491b6b494157df7b61c6",
+      "public.jsonl.gz": "528723e13d48110bed2f178fe2591b5f36694fb185ce04449b090989cd686085"
+    },
+    "9ddae16c": {
+      "decisions.jsonl": "a43a8c8836f587d102ee888430346dd4b213592a9da8f700d4d7ad47c380a5df",
+      "episodes.json": "00cc39aed7a3647bfed5cd9bab10a937d813c40caa4ae56bd8e0daec39aee660",
+      "origin.json": "c08dc238fa659b51b61e88768bce878a7e03a3ae0d2f45b0dd935c21ec2eb1fc",
+      "public.jsonl.gz": "da446dddcc52e123dd31bf69e82048d36439ec22a83bb53a5b51639f4bdc286c"
+    },
+    "c8149bec": {
+      "decisions.jsonl": "0be0a8991cd994fd282c30139e7800445e6c0a871ce537dc1d71d3e08337ace3",
+      "episodes.json": "46d3adb25d8457cbab70e58cd0c312877d800b332eccbc4addd523a3747d76d6",
+      "origin.json": "08249dbbb121d86300deac895957dc724046523808c4dc3a597d455978272563",
+      "public.jsonl.gz": "4afba53b6616e2340a5a975c1b65515a3b58515c9b0a31446aa15be4ae3ae026"
+    },
+    "bad1e9e5": {
+      "decisions.jsonl": "f7f2bc4027a848c778f4a3618495de07840f26f2775f91f6ec5743577fcbd288",
+      "episodes.json": "40f9dac2103379a546b8ab947b026a799a5bc120b8ba301825c001012c275624",
+      "origin.json": "98599c56e473f5dc6c41735158935205755c2e3f4332a69fc64991479b9319ee",
+      "public.jsonl.gz": "8804ac272d0f4792939a848121cae1037f24f740c0e80cde8ed56f6e44d6dc76"
+    },
+    "29ec452f": {
+      "decisions.jsonl": "51b76fa19449cbf4e9774956ab5d5f8682290a6efb43582c9024cde226fb5213",
+      "episodes.json": "0adfa36567b2f20062b3d481c84db801b8a3316de9411221354349085ec8307e",
+      "origin.json": "d42746131348df2985737d8fa5918034b678952db303277ddbeba3085b6bcd5d",
+      "public.jsonl.gz": "f50db614a84a80f14d92eb9e536b447e504dc2c7ce6db8cf98804c2c8b35f9d0"
+    },
+    "dc6b1d11": {
+      "decisions.jsonl": "c4210d05212305aea05edc57b6d8d4b850e1754fc73caee9c96d97fadea839c3",
+      "episodes.json": "910e03fffd7aa3f6ae483d4fcde145d0260aaead6758d50637d6c0606a6e8884",
+      "origin.json": "e16bc439eb8f6fc44ae68ebb2fa57b1a4c878dfab436c9bfdbb3b63797fc3195",
+      "public.jsonl.gz": "aeedf48d27df790bc80f97c2e69ac39067a9eb661cb5621cd5bfa24ea1951af7"
+    },
+    "793e7745": {
+      "decisions.jsonl": "68f851b2899267e2a4d200933318e9ffd67924a49d0d61f0516d6d6e73b9ca20",
+      "episodes.json": "ef4182a2611697ec40c897a0dd709a9eadfaae3e5b2a6f80be163dd3e923806f",
+      "origin.json": "9e35fca4a4df4ac34b6fe5584b33acd63497b32777105d88b3e91424c9021785",
+      "public.jsonl.gz": "3bddd957ddce183d73bb96955a024fda872c7bb9f5ca350963a475ed8276cc47"
+    },
+    "ef36e27a": {
+      "decisions.jsonl": "a0a087bcdcdc206b384770d02ce8a9d969eaf8c335c01ff9f8c71018c2fd7fe9",
+      "episodes.json": "aeb73377f51ca2abd34579c731e65c6f2241fc48ea6b7b63f7b0d7cd172900d7",
+      "origin.json": "d1d2263d768149518e537f4b5203153a68de4c9a09cc9187349e0ec02abf88cc",
+      "public.jsonl.gz": "ceb1428c725ee226f311a95b2e9361c5d7da269bbf247469598423c6ab496250"
+    },
+    "4fd5a5a4": {
+      "decisions.jsonl": "ba537b7298d6e72907c968646c6c4e81fe8134bfd05d5597555adc9bbf5d53c1",
+      "episodes.json": "bae7e364586f3908d7d563075d92afb1e49ba1be444d95f019d7cdf49cbf618a",
+      "origin.json": "ed50e09973e6c1e684315b374ef66a79124a5af152fa76d423ed781f2da37fde",
+      "public.jsonl.gz": "04561b0688496f3d48de93c8b5d69e2d7f4c7db83c016df24483cad057680f29"
+    },
+    "d7e7bcd1": {
+      "decisions.jsonl": "490f40b9131d3368612fde30a2d2221bb1a4f02b0108cd57a122ab932ee50b10",
+      "episodes.json": "37f8a2d36a2c2a2c2b0098b2aeb97927cc2e9300628c490dad4053a13845b639",
+      "origin.json": "72d4badbbdfc036d610de4241588969c9816dd24d054153f472a2b82f3985def",
+      "public.jsonl.gz": "54d5cb4269849d2e080d5a24d884684e65f89837694f3442355146be0089329a"
+    },
+    "139a4109": {
+      "decisions.jsonl": "bc6a911662ae12bd2e10dc691cf743d71079a421a78607182920c3dc3654030d",
+      "episodes.json": "d2345ac0ea0a951ba7000c209a32b20c742068e5f8e5db8be224cba7c082528e",
+      "origin.json": "b54f2ff80994621a6eeb8daaa7fb9c91a9b2a2a9fa353668e3b0f9cfb61a7fdc",
+      "public.jsonl.gz": "7e9f42f671a6f96fd1f23aa1ad9af2f1d675a7a913f233191091f9048467ac72"
+    },
+    "0f23ff1e": {
+      "decisions.jsonl": "199dc39eacfe8acc138fa2b59c56dfe46a4d0777ec7603d5f47caeb7978a1eb6",
+      "episodes.json": "512bc3deb90d6e3e1ccb35bc7533498fa40f53cd9d721dfbff0ca4528e0e10e8",
+      "origin.json": "967f20b1f9e07547e7edfe2ccdea8395822e640e1311a8e76bdad86737910b16",
+      "public.jsonl.gz": "b6eff6f05b20f5fbe631cf5fda7a3f7be51e0039f0e6b351e30eeaeac2640146"
+    },
+    "6a707f08": {
+      "decisions.jsonl": "b48056518329df9913ffd416ff0c99bc1c742eadd707174e2f9aa2c2e74652da",
+      "episodes.json": "e2d44433e012dd6a3af3debb79da44de31c9de8dbcecd560aca1a189c92e685d",
+      "origin.json": "12fe07f80174a55434c874b501d8ca2976b9ac50e0a0f799f6d84a3f60df33ce",
+      "public.jsonl.gz": "a012f77adf2841aa087a6335c8cd7171c1a30ac2a26d60d038e31156950a7ba6"
+    },
+    "5b8dd44e": {
+      "decisions.jsonl": "c45670ae6035e030147edbbd726418cec3f7a27b314b335f31256680983ba5a9",
+      "episodes.json": "94cce4637f305b1176795745b8905ef201d515ff7e492bea6cf2645d7324a051",
+      "origin.json": "ef503cd56608213d110326d6f87cc4d85d09c7e3674cccd4b330f440493f05d7",
+      "public.jsonl.gz": "a2e06938e70920ee158c604be21a31757bf34b9a8714ccd83c3eb896c434d71e"
+    },
+    "6a30689f": {
+      "decisions.jsonl": "b721561d33c36bc008a2ccec59bfc6feba16ca22bda67f41bda4acd9682bf043",
+      "episodes.json": "bb6772586dfd244a12b5ac626164c638890bfe990dbbfd26c4cc65157a7ae595",
+      "origin.json": "284b289d001e9d9996489e8d23fbe5b2ae015ab4a8ad41f3264f53e0b5de3538",
+      "public.jsonl.gz": "03ca5604864c887dede139e93c0fdc987baff33ec570293721652c6fab0fb157"
+    },
+    "13b94391": {
+      "decisions.jsonl": "f0851a2af15d57bbe05824ab741ebff39826b25dc48a3adc496afa8491274718",
+      "episodes.json": "2ae282254e29e0121fc8ba5eb2d7e326547989c4a29ead5496ca6304f76d5101",
+      "origin.json": "c6cf26b93a5024bddb74dbd2bd97cd15a2fbb8b61c30cb2bf8ef928a7b86cffe",
+      "public.jsonl.gz": "29a8221e2982fdec176af87ca3bf7c7a4a294e4df7f08408d9de0e41bace7acd"
+    },
+    "6e1a4ad2": {
+      "decisions.jsonl": "7c07359d946db9b2898bcfd993932cb9854e90a1d49f1447ac03d74c1b8bb3a3",
+      "episodes.json": "d4058562484e5c4df7ad5e231071cce5434423b16e9993cffb5232fc5aaddb3b",
+      "origin.json": "405bccaba7423b5bbe7241668055692137ccb82fa07839ff333199892851a9c4",
+      "public.jsonl.gz": "0aa38d56841e8e97e319b3a655216875edcc119fbfbf79776a72f0f7bb2f8c79"
+    },
+    "7f1a1456": {
+      "decisions.jsonl": "76ba41e326f7eb1b474c6502b5a5f9b2bb5dba81e390e71a37ced14a0dc41ac8",
+      "episodes.json": "2d7a6e9d7a71f4020e954da539355cee77e605af0646c6c677f02dae24eeee2a",
+      "origin.json": "09f8f462912c7d8adf296ca5f1be856b356275e6ec43e2f60a850f24e5a9d3b6",
+      "public.jsonl.gz": "2f52baebdff2ff7d36d2e436ec70ecdcb0891d40ea70a1d9bad513860d0e195a"
+    },
+    "056a1f86": {
+      "decisions.jsonl": "59493d1a0f1cf0bf7957a940eda8d05280f71e183fb43ac1a65174956d83a43d",
+      "episodes.json": "c4d3dbe6b340abacfa38076a87b8fdf2e712ef2efa6c9c39c8fcffac370b3ecc",
+      "origin.json": "23ab6088237225221c93d693066d6f8db91b36b85bec9092633c27098cd651a2",
+      "public.jsonl.gz": "7203a8a920d6938672393db113ce9082e4410e583c56696b9dfeaf7d444731f3"
+    },
+    "be5d648b": {
+      "decisions.jsonl": "4273237f0a58c6d126bc3bab3213eae7ac8fc256882e09694e0a22e97d1402cd",
+      "episodes.json": "89ae3c7d5252595a00c58eb28b46bddb1771b3080923f75ec46fa8d2ffe97bbb",
+      "origin.json": "ccc1b17eac9b10d798e2bd042767f8af4fc9923070dae9c84fe47d43a0a06588",
+      "public.jsonl.gz": "05338f9a332f531bd8c25bb00ae231c6729202c6497295d66dd6f21a3ab5872c"
+    },
+    "3973d0d6": {
+      "decisions.jsonl": "cad2ce5bc0625fbabea15de8cabbbf842f7ec963d310fe92568e5b1c7c29c439",
+      "episodes.json": "f2e9b2a7f594b96c90153a4ee46fcd1cab7ce22f1ecec4332b7cd3072f36aba4",
+      "origin.json": "8ae040cf2104a3e8f186f0098ab1aff0d7f279dd314487bc15aacc8cd9de8e1a",
+      "public.jsonl.gz": "3b772ce020768f00471cf636c904a1e0faa4df670b123c224de211b9a96e2c7d"
+    },
+    "550aa487": {
+      "decisions.jsonl": "2db01674c9f19292d55040a838f1baf75c76418b798be3ef505df9c236c2e996",
+      "episodes.json": "b1ac46b6e38db2b7d156543f976b870ee33f94dc557a560139ad525fb570aa9c",
+      "origin.json": "75dbcfd2ce71a5b740b564bc39c557d25c56a3dc2ecf17f640901654ffdc8fe6",
+      "public.jsonl.gz": "2631462de6c66c6196202e8a7bf61b090773db4b0387bdef44c99947de04c9e7"
+    },
+    "9d4d90ca": {
+      "decisions.jsonl": "685267727cf1905c22326ead9e81cc4193231d31215006a9696ce70eb2fbd1eb",
+      "episodes.json": "3051f014b807e5a9a479adfd7bc93d8bebd14c26af9c1e3f5c67cccc002123e1",
+      "origin.json": "873c6704734c46922d99a2f1e66e7905936465b972387d449e89b9bcb8ba5cad",
+      "public.jsonl.gz": "4be138a963476f89a4c6fc61c99584d7085701fa4f656306c762f80c3cf60065"
+    },
+    "79b207ff": {
+      "decisions.jsonl": "71fba332e0b9128ec91835b00c3f3f11dc4333d16f0948728ad1a1063586016a",
+      "episodes.json": "17ab84f0d4786843eff5e78b26fbbb8d8f8247ea599545050b287a966afdf10e",
+      "origin.json": "3fe833e3fb73ebd128061109f12a74ebfee00afbcea130baa4ed044bb10cfbc0",
+      "public.jsonl.gz": "ac44b0ba095c670543d1a08eca699b7efe2c1b872a18de6765eb3e1b10c06bdd"
+    },
+    "193e179a": {
+      "decisions.jsonl": "6706fbda869ee925fcd5ca40f2884749990ecd0901de50bef91612f24aaa4e52",
+      "episodes.json": "6b9f4675978c2a3e44861919026de589214e8c02f6b6c10932ec2228c0ecece9",
+      "origin.json": "262985bf8d6639b6b3fe39bc7e1e3fa4789ec4fdd46dcde79fc49212428a6534",
+      "public.jsonl.gz": "13d50f5685eee736fcbc861c5588fb79c8e5f3e0e18a84081b5b26aa5facd994"
+    },
+    "312d24b1": {
+      "decisions.jsonl": "97caa5ff992a0cd7dac3281dae02e0c04e5c9ee514987c498a84fd5fc40c3f46",
+      "episodes.json": "7b859fac78fba6bc131c083bc56b54e1fb604256893dc739ca8c7369aa38e2de",
+      "origin.json": "1202cd08007204125a04d015890c99bd8ec9286a49fa22b9af5b58654f0dc380",
+      "public.jsonl.gz": "c17477a0dc50a785664b9f921bb67f8673dcfacf892f1d6ca0f7ab83c245b15f"
+    },
+    "ec1f47f4": {
+      "decisions.jsonl": "1e2615215d38f4f7a18cf30d4f6f9eaff5665df2a718d63c6ffd7213d36b57d4",
+      "episodes.json": "7278b557af4bd5679f17663a4d2ecf73f3955409ee0ff98c309bfd5977b59c46",
+      "origin.json": "28336e1b777240acaeaf1d091837df4983d07f3994f9c56e9c95c6c24fea24c0",
+      "public.jsonl.gz": "fa5a7fe39cf6b460c04ae40e17bae5e25a3422d0a56b3e8f40aace476e074a31"
+    },
+    "ae503ad1": {
+      "decisions.jsonl": "482a6b5d4ad9bdd1e83641a910f6dca16e1f66f33ca5bd6f1bfa8e75768e324d",
+      "episodes.json": "c9265db32eff0f676332f4b9416f0d63c423e2d835fdb3edd1ee2ab25c9772a8",
+      "origin.json": "c4c37d48af89d4fc4ae7cd74d080e2cc33cc58e9f3580bdca8e76617f4869d50",
+      "public.jsonl.gz": "e426eb56a7c0634df24ea50ab8f67dec4836f13540826d3ab3881dc5f1b9321e"
+    },
+    "58fe4605": {
+      "decisions.jsonl": "423a297085e17f0b4013863331e74c19d38a1ce2eb68e986638837bfbd3101ff",
+      "episodes.json": "5cc89864256a11c6e1414453681ef219cfc00c576ec1c8430fc1f83fef26992d",
+      "origin.json": "5a3a4d3e9ae71db1153d40c381d1ea2481997c0b168d6c8f451e68a5f0b2de72",
+      "public.jsonl.gz": "6da2a70395d73da9aa583db18d21119040ef6d1de3878a8a59ed6c7d55cb5528"
+    },
+    "e170cdd8": {
+      "decisions.jsonl": "919d79e99535d8c8422fb1a23dcd8979c7c349dc7a8f1646358316d2aa51fa13",
+      "episodes.json": "070551c38dc023df25d2f48a5ba820f62a57ded5d782f450050aa8c06334225f",
+      "origin.json": "9ea24ea3988c7ff0e33b0e6c54f9bb614f6c873e0f755fa38d0dc2f2f33edcb1",
+      "public.jsonl.gz": "0562393ebbeaa617d10143b1752d4b8c7884d6310c4d2d452fd82fa30a278b1c"
+    },
+    "c5fb45ca": {
+      "decisions.jsonl": "c51e290408db2176304ec6b6bc3a9ea6fbd04d3119388f4ff6d7cbbd0cd20db3",
+      "episodes.json": "6ad230ed39bf03a07c6b8ddbf2bec4dbe6f620e0cf463024bbcd0ee757e8b324",
+      "origin.json": "362ad11bdc43f4c61a1dc7bc8c6945967f638be10d6d8e624526eb8f1d3eb93a",
+      "public.jsonl.gz": "53afd4c7e18f2a2a6f63231078e0b9f07ce54f1ba74d5a11dc2e79f01d8263e0"
+    },
+    "35ce64d8": {
+      "decisions.jsonl": "8f4e97dd548d646b57297c4bff82581891a24592fc09c80ff9188a36732b9fa6",
+      "episodes.json": "e76365ab9e0fab6cdb80fdacd50a1b42f263c32bd81716a655e757bc2f30229d",
+      "origin.json": "cab1c80b70dc96faf7de661d2ce8ab771f85a7c8d713b35d67fd828a31e8966e",
+      "public.jsonl.gz": "7c8857016b5296d5db3d14e5ccf5fb25409f4e9daa986f1ff6a221208d4d1dac"
+    },
+    "6702871a": {
+      "decisions.jsonl": "43c8adb3a270dd88d153197db95ae24e5d85fc49115f5c15501d724594b5dba4",
+      "episodes.json": "576c7b376caeb866bcc2d1f68972766e7860f4eb13762fac8f2507e84bb7e8ad",
+      "origin.json": "476c722a8e8f4582c16b41d6efe4641743c003894326f7c34f98c7833a4501bd",
+      "public.jsonl.gz": "5e3b555e205321cceb4848988ba6fe9ea057bf3d65880024521ea506ee011397"
+    },
+    "1a9c1abc": {
+      "decisions.jsonl": "5362f6cbc095e7571afc999a0612bb0df4e9488341f5a4e1d92c750eb584d685",
+      "episodes.json": "9b9ec6f74f604abbbd67d7bf7bb335ae36fd3db4768c4625b6bdb9c95bababfc",
+      "origin.json": "a005c2bd686deea2aa5661b5a5bd707b94834bd07f782ca30911b1e5be5c2720",
+      "public.jsonl.gz": "ffc33cfdb995f3a2691effefdadf0c76331816178918a3e78392445dfc8d8c48"
+    }
+  },
+  "supplement_task_usage": {
+    "supplement": {
+      "attempt": "20261128-100233-flockcue-teacher-v2-supplement-69ba1c07",
+      "included_positions": 0,
+      "calls_with_usage": 450,
+      "prompt_tokens": 7552661,
+      "completion_tokens": 252101,
+      "total_tokens": 7804762
+    },
+    "supplement-final": {
+      "attempt": "20261128-102121-flockcue-teacher-v2-supplement-2f8caee3",
+      "included_positions": 35,
+      "calls_with_usage": 477,
+      "prompt_tokens": 8134221,
+      "completion_tokens": 361510,
+      "total_tokens": 8495731
+    }
+  }
+}
