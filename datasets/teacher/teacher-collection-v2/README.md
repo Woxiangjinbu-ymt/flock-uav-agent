@@ -22,6 +22,8 @@
 
 补采提交为 `0deb1265`，从原始状态按原题序重跑 `13b94391`、`58fe4605` 共 40 题。计分与导出均优先保留首遍有效题，补采只贡献缺失的 19 题、16 题。开始补采前已固定首遍清单哈希、两场全部已有文件的摘要，以及 5 个保留题位。逐题来源写入合并评分，混合来源的场景在 L1 中为每个 episode 标记实际 attempt。[补采登记](supplement.json)
 
+补采结束时调度器将总状态标为 `invalid`。运行期间，同一工作树中的离线评分、证据复核和学生验证登记代码发生了修改。两场服务最晚于 10:02:37 启动，三个变化文件最早于 10:03:41 写入。以启动提交独立检出后重新执行原版核验，99 个登记文件、三个环境的依赖、两场封存和 243 项检查均通过核对。补采实得 39/40，合并入口绑定此次复核的 manifest 摘要，原始总状态保留在证据中。[独立核验记录](supplement-verification.json)
+
 首遍使用 `python -m runtime prepare --teacher-collection --stage <stage>` 生成计划。单独的补采使用 `--teacher-supplement`，沿用 `prepare`、`preflight`、`run` 入口。下面的离线命令读取三个原始 attempt，重评独立检查，并按原题序导出 L1。输出包括 `score.json`、`score-rows.json`、`l1/` 和 `l1-summary.json`。本地运行根目录为仓库旁的 `MultiUAV-Plat-runs/teacher-collection-v2/`。
 
 ```bash

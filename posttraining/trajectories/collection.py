@@ -99,9 +99,11 @@ def audit_l1(folder, sources, origin):
 def collect(first, pilot, supplement, output):
     registration = rt.read_json(rt.COLLECTION_REGISTRATION)
     repair = rt.read_json(rt.REPAIR_REGISTRATION)
+    verification = rt.read_json(rt.COLLECTION_REGISTRATION.with_name("supplement-verification.json"))
     if (first.name != repair["first_attempt"] or file_digest(first / "manifest.json") != repair["first_manifest_sha256"]
             or pilot.name != registration["carried_attempt"]
-            or rt.read_json(supplement / "manifest.json")["status"] != "completed"
+            or supplement.name != verification["attempt"]
+            or file_digest(supplement / "manifest.json") != verification["manifest_sha256"]
             or file_digest(supplement / "plan.json") != repair["plan_sha256"]):
         raise ValueError("Attempts differ from the registered cohort")
     for path in (first, pilot, supplement):

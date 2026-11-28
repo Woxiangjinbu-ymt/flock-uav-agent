@@ -1,0 +1,44 @@
+{
+  "attempt": "20261128-100233-flockcue-teacher-v2-supplement-69ba1c07",
+  "manifest_sha256": "ea85e0cb0f0f5e93196640002d30a544b8156582aade08158d084a08af8795d6",
+  "coordinator_status": "invalid",
+  "coordinator_error": "Provenance validation failed: Source code differs from the frozen attempt; use a new run",
+  "identity_sha256": "34d54c078ac219f62926e2c9e97dbbe7c428a792a6a220ebbee86363621cbeb3",
+  "launch_commit": "0deb1265092b7222d387cf97d12c838c3710fea2",
+  "verification": "Original verify_registration, verify_provenance and both verify_scene calls passed from an isolated copy of the launch commit with the three original environments. Original manifest preserved.",
+  "registered_sources_verified": 99,
+  "dependency_freezes_verified": [
+    "server",
+    "controller",
+    "agent"
+  ],
+  "changed_since_launch": [
+    "runtime/__main__.py",
+    "runtime/parallel.py",
+    "runtime/student_validation.py"
+  ],
+  "changes_reviewed": "The coordinator and both service pairs started before the edits. The reviewed diff changes only offline scoring, evidence revalidation and paired student-validation registration.",
+  "scene_seals": {
+    "13b94391": "f31ec66acc12dddb0358e30011b353bf51e906ecae93c2ec9d80b9bd76256c9b",
+    "58fe4605": "0ce1bb1138bab8d76f437ff86a8473041225dea02c8e18d2c9756cc5297c2de5"
+  },
+  "score_from_original_evidence": {
+    "valid_complete_run": true,
+    "planned_tasks": 40,
+    "planned_checks": 243,
+    "scored_tasks": 40,
+    "scored_checks": 243,
+    "agent_timed_out_tasks": 0,
+    "timed_out_but_passed_tasks": 0,
+    "missing_or_invalid_tasks": 0,
+    "metrics": {
+      "passed_tasks": 39,
+      "task_pass": 0.975,
+      "avg_check": 0.998076923076923,
+      "global_check": 0.9917695473251029,
+      "total_failed": 0.0
+    }
+  },
+  "last_service_started_at": "2026-11-28T10:02:37+0800",
+  "first_changed_source_mtime": "2026-11-28T10:03:41+0800"
+}
