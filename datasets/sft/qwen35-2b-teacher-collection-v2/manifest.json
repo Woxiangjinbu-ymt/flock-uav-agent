@@ -1,0 +1,39 @@
+{
+  "collection_registration_sha256": "15a2e7c786b8d4f3fe0e65d7bbc824e8c1693bc79a7404ec7451a14e0a85d30e",
+  "schema": "flockcue-sft-causal-lm-v1",
+  "split": "expanded_train",
+  "pack": "raw",
+  "tokenizer": {
+    "repository": "Qwen/Qwen3.5-2B",
+    "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+    "files": {
+      "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+      "config.json": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4",
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c"
+    }
+  },
+  "counts": {
+    "decisions": 11060,
+    "masked_prompt_tokens": 227159908,
+    "supervised_tokens": 4603837,
+    "scenes": 51,
+    "tasks": 901
+  },
+  "files": {
+    "index.jsonl": {
+      "sha256": "f3d7efd74cdf3710b44b4f7e618cfab58184a460c68722615b402f68bc4f9eb0",
+      "bytes": 3452595
+    },
+    "train.jsonl.gz": {
+      "sha256": "25fa85bd02710debf301d50e9d6e3b7bbbb49f8cc7c4d085bc45b5732b53f926",
+      "bytes": 191693767
+    }
+  },
+  "source": {
+    "commit": "8cc21e8a23673d0603491dee90facef897c1d2df",
+    "collection_result_sha256": "d6d547fb42a00bc1bcbbdc455dcbe1745babce157578ee9f9f07f773e3be5ad1",
+    "l1_summary_sha256": "484c189f23a7e3fc26387c72aa166cfa51b3f18da95a562460589a38818e3a5a",
+    "selection": "all raw_candidate turns"
+  }
+}
