@@ -135,7 +135,8 @@ def validate_task_evidence(r, plan, selected, directory, rows):
     task_map = {task["id"]: task for task in source["tasks"]}
     for row in rows:
         prefix = directory / row["task_id"]
-        for suffix in REQUIRED_SUFFIXES:
+        required = (*REQUIRED_SUFFIXES, "initial-checks") if plan["name"] in r.TEACHER_PLANS else REQUIRED_SUFFIXES
+        for suffix in required:
             if not Path(str(prefix) + f".{suffix}.json").is_file():
                 raise ValueError("Completed scene is missing mandatory task evidence")
         if row["agent_timed_out"] and not Path(str(prefix) + ".timeout.json").is_file():
@@ -276,7 +277,7 @@ def run_scene(r, attempt, plan, selected, directory, key, stop_event, events):
             checkpoint()
             api.call("POST", "/_reproduction/prepare", {})
             r.save_json(str(prefix) + ".before.json", r.prepare_task(api, scene, plan["protocol"], stop_event))
-            if plan["name"] in {r.EXPANSION_PLAN, r.PILOT_PLAN, r.COLLECTION_PLAN}:
+            if plan["name"] in r.TEACHER_PLANS:
                 initial, details = r.upstream_evaluate(api, task["execution_check_apis"], scene["id"])
                 r.save_json(str(prefix) + ".initial-checks.json", {"passed": initial, "details": details})
             current_row["status"] = "running"

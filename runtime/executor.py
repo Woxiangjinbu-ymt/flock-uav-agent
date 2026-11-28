@@ -36,6 +36,7 @@ COLLECTION_PLAN = "flockcue-teacher-v2-training"
 COLLECTION_REGISTRATION = ROOT / "datasets/teacher/teacher-collection-v2/registration.json"
 REPAIR_PLAN = "flockcue-teacher-v2-supplement"
 REPAIR_REGISTRATION = COLLECTION_REGISTRATION.with_name("supplement.json")
+TEACHER_PLANS = {EXPANSION_PLAN, PILOT_PLAN, COLLECTION_PLAN, REPAIR_PLAN}
 PLAN = "flockcue-600-first-pass"
 PLAN_SHA = "6589d8e1b4be6664cb3d651f09fe2cc54e41ffca7a361a6dae675ee455ec8823"
 STAGE = ROOT.parent / f"{ROOT.name}-runs" / PLAN

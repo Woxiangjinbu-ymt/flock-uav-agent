@@ -20,14 +20,14 @@
 
 切换当前场景时，控制器依次清空并重载飞机、目标和障碍物。后台时钟可能在障碍物尚未重载时同步当前世界，把空清单写回会话。用两场中断前的快照安排同一时序，障碍物分别由 20、10 个降至 0。使用首遍封存的服务代码反复发出真实 HTTP 重载请求，也在 `13b94391` 的第 597 次重载观测到 20 个障碍物全部消失。修复将时钟更新和同步重载放在同一服务事件循环中，两场各 200 次 HTTP 重载均保留了全部实体 ID。原有动作、评分与 ID 检查继续生效。
 
-补采提交为 `0deb1265`，从原始状态按原题序重跑 `13b94391`、`58fe4605` 共 40 题。计分与导出均优先保留首遍有效题，补采只贡献缺失的 19 题、16 题。开始补采前已固定首遍清单哈希、两场全部已有文件的摘要，以及 5 个保留题位。逐题来源写入合并评分，混合来源的场景在 L1 中为每个 episode 标记实际 attempt。[补采登记](supplement.json)
+补采从原始状态按原题序重跑 `13b94391`、`58fe4605` 共 40 题。计分与导出均优先保留首遍有效题，补采只贡献缺失的 19 题、16 题。开始补采前已固定首遍清单哈希、两场全部已有文件的摘要，以及 5 个保留题位。逐题来源写入合并评分，混合来源的场景在 L1 中为每个 episode 标记实际 attempt。[补采登记](supplement.json)
 
-补采结束时调度器将总状态标为 `invalid`。运行期间，同一工作树中的离线评分、证据复核和学生验证登记代码发生了修改。两场服务最晚于 10:02:37 启动，三个变化文件最早于 10:03:41 写入。以启动提交独立检出后重新执行原版核验，99 个登记文件、三个环境的依赖、两场封存和 243 项检查均通过核对。补采实得 39/40，合并入口绑定此次复核的 manifest 摘要，原始总状态保留在证据中。[独立核验记录](supplement-verification.json)
+第一次补采使用提交 `0deb1265`，结束时调度器将总状态标为 `invalid`。运行期间，同一工作树中的离线评分、证据复核和学生验证登记代码发生了修改。两场服务最晚于 10:02:37 启动，三个变化文件最早于 10:03:41 写入。以启动提交独立检出后重新执行原版核验，99 个登记文件、三个环境的依赖、两场封存和 243 项检查均通过核对。该次实得 39/40。在 L1 导出时发现调度条件遗漏了开题前检查，40 题均缺少现场初检回执。该批仅作故障诊断，正式合并要求使用总状态为 `completed` 且初检、终检齐全的补采批次。[独立核验记录](supplement-verification.json)
 
 首遍使用 `python -m runtime prepare --teacher-collection --stage <stage>` 生成计划。单独的补采使用 `--teacher-supplement`，沿用 `prepare`、`preflight`、`run` 入口。下面的离线命令读取三个原始 attempt，重评独立检查，并按原题序导出 L1。输出包括 `score.json`、`score-rows.json`、`l1/` 和 `l1-summary.json`。本地运行根目录为仓库旁的 `MultiUAV-Plat-runs/teacher-collection-v2/`。
 
 ```bash
 posttraining/.venv/bin/python -m posttraining.trajectories.collection \
   --first "$run_root"/full/runs/* --pilot "$run_root"/compact-48k/runs/* \
-  --supplement "$run_root"/supplement/runs/* --output "$run_root"/full
+  --supplement "$run_root"/supplement-final/runs/* --output "$run_root"/full
 ```

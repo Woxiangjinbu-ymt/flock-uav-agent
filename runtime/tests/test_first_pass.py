@@ -61,6 +61,7 @@ class FirstPassTests(unittest.TestCase):
         self.assertEqual(sum(len(scene["tasks"]) for _, scene in scenes), 960)
 
     def test_supplement_replays_full_scenes_and_preserves_registered_prefixes(self):
+        self.assertIn(executor.REPAIR_PLAN, executor.TEACHER_PLANS)
         repair = executor.read_json(executor.REPAIR_REGISTRATION)
         with patch.object(executor, "PLAN", executor.REPAIR_PLAN):
             scenes = executor.select_scenes(executor.canonical_scenes())
