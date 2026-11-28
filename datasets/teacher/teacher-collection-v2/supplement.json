@@ -1,0 +1,23 @@
+{
+  "first_attempt": "20261127-223047-flockcue-teacher-v2-training-5f598d84",
+  "first_manifest_sha256": "2b1f6f02e0e2e1d1e81c11f3be7be9cf018b2e568a36a62de184466f4abd8f8b",
+  "plan_sha256": "c5d50a175f7fa794d8c8f5aa7df203b78eda417e6cedc56ee6f0c2921bf7097e",
+  "prefixes": {
+    "13b94391": {
+      "scored_task_ids": [
+        "c804190c"
+      ],
+      "files_sha256": "b00dc3b158c2a44defcc1db938e68248ad61b449337a395be87657fb1054d9fe"
+    },
+    "58fe4605": {
+      "scored_task_ids": [
+        "23596141",
+        "e59c9dc7",
+        "70bdf948",
+        "d22b1f95"
+      ],
+      "files_sha256": "641805d0723c918e8952e6c618ae5d2151c94d18abe5d38d6e8650679f1c3a87"
+    }
+  },
+  "merge": "Keep first scored tasks from each prefix; use the supplement only for previously unscored positions."
+}

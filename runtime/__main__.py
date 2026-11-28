@@ -18,6 +18,7 @@ def main():
     plans.add_argument("--expansion", action="store_true", help="Use the registered three training expansion scenes")
     plans.add_argument("--teacher-pilot", action="store_true", help="Use the registered student-context teacher pilot")
     plans.add_argument("--teacher-collection", action="store_true", help="Collect the remaining registered v2 training scenes")
+    plans.add_argument("--teacher-supplement", action="store_true", help="Replay the two interrupted training scenes in original order")
     parser.add_argument("--carried-attempt", type=Path, help="Include the accepted pilot when scoring the full training cohort")
     parser.add_argument("--fallback-48k", action="store_true",
                         help="Prepare a teacher pilot with a 48K fallback for otherwise rejected turns")
@@ -33,6 +34,9 @@ def main():
     elif args.teacher_pilot:
         executor.PLAN = executor.PILOT_PLAN
         executor.PLAN_SHA = executor.read_json(executor.PILOT_REGISTRATION)["plan_sha256"]
+    elif args.teacher_supplement:
+        executor.PLAN = executor.REPAIR_PLAN
+        executor.PLAN_SHA = executor.read_json(executor.REPAIR_REGISTRATION)["plan_sha256"]
     elif args.teacher_collection:
         executor.PLAN = executor.COLLECTION_PLAN
         executor.PLAN_SHA = executor.read_json(executor.COLLECTION_REGISTRATION)["plan_sha256"]

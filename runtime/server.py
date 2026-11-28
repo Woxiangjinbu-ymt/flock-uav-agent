@@ -10,7 +10,6 @@ import math
 import os
 from pathlib import Path
 import sys
-import threading
 import time
 
 from starlette.requests import Request
@@ -19,26 +18,22 @@ from starlette.responses import JSONResponse
 
 class SimulationClock:
     def __init__(self):
-        self.lock = threading.Lock()
         self.paused = False
 
     def pause(self):
-        with self.lock:
-            self.paused = True
+        self.paused = True
 
     def resume(self):
-        with self.lock:
-            self.paused = False
+        self.paused = False
 
-    def run(self, upstream):
-        # Same operations and cadence as upstream main.start_simulation.
+    async def run(self, upstream):
+        # A tick and a synchronous controller reload must never see each other halfway through.
         while True:
-            with self.lock:
-                if not self.paused:
-                    upstream.target_controller.update_moving_targets()
-                    upstream.session_controller.sync_current_session_state()
-                    upstream.environment_controller.simulate_weather_changes()
-            time.sleep(1.0)
+            if not self.paused:
+                upstream.target_controller.update_moving_targets()
+                upstream.session_controller.sync_current_session_state()
+                upstream.environment_controller.simulate_weather_changes()
+            await asyncio.sleep(1.0)
 
 
 class TaskGate:
@@ -83,7 +78,7 @@ class TaskGate:
                 await asyncio.wait_for(self.drained.wait(), timeout=float(body["drain_seconds"]))
             except asyncio.TimeoutError:
                 return JSONResponse({"quiescent": False, "inflight": self.active}, status_code=503)
-            self.simulation.pause()  # also wait for the currently running simulation tick
+            self.simulation.pause()
             return JSONResponse({"lease": self.lease, "quiescent": True, "inflight_at_close": inflight,
                                  "inflight": self.active, "accepted_requests": self.accepted,
                                  "rejected_requests": self.rejected, "cutoff_at": self.cutoff_at,
@@ -142,8 +137,17 @@ def main():
     world.session_controller.set_request_history_limit(DEFAULT_REQUEST_HISTORY_LIMIT)
     clock = SimulationClock()
     app = TaskGate(world.app, os.environ.get("REPRO_ADMIN_KEY", ADMIN_PRIVILEGE_KEYS[0]), clock)
-    threading.Thread(target=clock.run, args=(world,), daemon=True).start()
-    uvicorn.run(app, host=args.host, port=args.port, access_log=False)
+
+    async def serve():
+        server = uvicorn.Server(uvicorn.Config(app, host=args.host, port=args.port, access_log=False))
+        async with asyncio.TaskGroup() as tasks:
+            ticks = tasks.create_task(clock.run(world))
+            try:
+                await server.serve()
+            finally:
+                ticks.cancel()
+
+    asyncio.run(serve())
 
 
 if __name__ == "__main__":
